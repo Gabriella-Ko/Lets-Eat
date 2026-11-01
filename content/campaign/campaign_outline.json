@@ -1,0 +1,17 @@
+{
+  "status": "draft",
+  "levels": [
+    {
+      "level_id": "level_01",
+      "chapter": 1,
+      "district": "campus",
+      "guests": ["liam", "cyrus"],
+      "clue_style": "stated",
+      "hard_constraints": ["allergy:peanut"],
+      "new_character": ["liam", "cyrus"]
+    }
+  ],
+  "notes": "Template: the Architect fills all 20 rows. Chapter 1 may introduce several characters at once; Roxy debuts in level_06.",
+  "generated_by": "human:gabby",
+  "edited_by": null
+}

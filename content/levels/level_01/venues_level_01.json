@@ -1,0 +1,36 @@
+{
+  "level_id": "level_01",
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_noodle_nook",
+      "reviews": [
+        "Huge bowls of broth for cheap, and the patio catches the afternoon sun.",
+        "Staff said the whole kitchen is peanut-free, which is rare around here."
+      ]
+    },
+    {
+      "id": "campus_satay_spot",
+      "reviews": [
+        "Their noodles come smothered in house satay sauce. Peanuts in everything, no complaints.",
+        "Ate outside under the string lights. Great for a quick bowl."
+      ]
+    },
+    {
+      "id": "campus_noodle_cellar",
+      "reviews": [
+        "Cozy basement noodle bar. No windows, but the broth is worth it.",
+        "Menu marks allergens clearly. Nothing with nuts."
+      ]
+    },
+    {
+      "id": "campus_pizza_corner",
+      "reviews": [
+        "Slices the size of your head, eaten at picnic tables out front.",
+        "No nuts anywhere on the menu, which is great for my allergy."
+      ]
+    }
+  ],
+  "generated_by": "human:gabby",
+  "edited_by": null
+}

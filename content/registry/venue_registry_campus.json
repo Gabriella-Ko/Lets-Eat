@@ -1,0 +1,43 @@
+{
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_noodle_nook",
+      "name": "Noodle Nook",
+      "cuisine": "noodles",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegan_options"],
+      "vibe_tags": ["outdoor_seating", "quick_bite"],
+      "first_level": "level_01"
+    },
+    {
+      "id": "campus_satay_spot",
+      "name": "Satay Spot",
+      "cuisine": "noodles",
+      "price_tier": "$",
+      "dietary_tags": ["vegan_options"],
+      "vibe_tags": ["outdoor_seating", "quick_bite"],
+      "first_level": "level_01"
+    },
+    {
+      "id": "campus_noodle_cellar",
+      "name": "The Noodle Cellar",
+      "cuisine": "noodles",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_01"
+    },
+    {
+      "id": "campus_pizza_corner",
+      "name": "Pizza Corner",
+      "cuisine": "pizza",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegan_options"],
+      "vibe_tags": ["outdoor_seating", "quick_bite"],
+      "first_level": "level_01"
+    }
+  ],
+  "generated_by": "human:gabby",
+  "edited_by": null
+}

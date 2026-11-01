@@ -1,0 +1,14 @@
+{
+  "level_id": "level_01",
+  "run": 1,
+  "pick": "campus_noodle_nook",
+  "expected_stars": 3,
+  "constraints_found": [
+    { "constraint": "craving: noodles", "from_line": "i need noodles. big bowl. slurpable." },
+    { "constraint": "vibe: patio", "from_line": "and somewhere with a patio pls, way too nice out to sit inside" },
+    { "constraint": "allergy: peanut", "from_line": "One condition, as always: nothing with peanuts. Not even a sauce." }
+  ],
+  "difficulty": 1,
+  "notes": "All clues stated plainly; Cyrus's summary makes it easy, which suits a first level.",
+  "generated_by": "blind_playtester"
+}

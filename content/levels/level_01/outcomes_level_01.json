@@ -1,0 +1,39 @@
+{
+  "level_id": "level_01",
+  "by_venue": {
+    "campus_noodle_nook": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "liam", "text": "PATIO. NOODLES. perfect", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "Peanut-free kitchen, confirmed. Well chosen.", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_noodle_cellar": {
+      "result": "partial",
+      "missed": ["vibe:outdoor_seating"],
+      "lines": [
+        { "speaker": "liam", "text": "noodles: 10/10. basement: 2/10. it's SO sunny outside", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "The food is excellent. Liam will mourn the sunshine all afternoon.", "emotion": "NEUTRAL" }
+      ]
+    },
+    "campus_pizza_corner": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "this is pizza. i said noodles. i SAID noodles", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "The patio is pleasant, at least.", "emotion": "NEUTRAL" }
+      ]
+    },
+    "campus_satay_spot": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Every dish here comes with peanut sauce. I'm leaving.", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "abort abort, cyrus is turning red", "emotion": "SURPRISED" }
+      ]
+    }
+  },
+  "generated_by": "human:gabby",
+  "edited_by": null
+}

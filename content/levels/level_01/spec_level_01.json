@@ -1,0 +1,17 @@
+{
+  "level_id": "level_01",
+  "chapter": 1,
+  "district": "campus",
+  "difficulty": "stated",
+  "guests": ["liam", "cyrus"],
+  "hard": { "budget_max": null, "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "noodles", "vibe": ["outdoor_seating"], "intolerances": [] },
+  "solution_id": "campus_noodle_nook",
+  "decoys": [
+    { "id": "campus_satay_spot", "fails_on": "allergy:peanut" },
+    { "id": "campus_noodle_cellar", "fails_on": "vibe:outdoor_seating" },
+    { "id": "campus_pizza_corner", "fails_on": "craving" }
+  ],
+  "generated_by": "human:gabby",
+  "edited_by": null
+}

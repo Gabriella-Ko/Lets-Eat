@@ -1,0 +1,15 @@
+{
+  "level_id": "level_01",
+  "script": [
+    { "speaker": "liam", "text": "CLASS IS OVER. food. now.", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "liam", "text": "i need noodles. big bowl. slurpable.", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "cyrus", "text": "Agreed. I have 40 minutes before my study group.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "and somewhere with a patio pls, way too nice out to sit inside", "emotion": "HAPPY", "clue": "vibe:outdoor_seating" },
+    { "speaker": "cyrus", "text": "One condition, as always: nothing with peanuts. Not even a sauce.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "liam", "text": "right right. the satay incident. never again", "emotion": "SURPRISED", "clue": "allergy:peanut" },
+    { "speaker": "cyrus", "text": "Assistant, please find us a place. Summary:\n- noodles\n- patio\n- no peanuts", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "you're the best", "emotion": "HAPPY", "clue": null }
+  ],
+  "generated_by": "human:gabby",
+  "edited_by": null
+}
