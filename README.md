@@ -1,4 +1,6 @@
-# Let's Eat! — agent crew
+# Assignment #3: Build an Agent Crew
+
+## Let's Eat! — Agent Crew
 
 ## What game is this crew for?
 
@@ -19,7 +21,7 @@ The crew produces the game's **content**, not its code. Everything it makes is a
 | Validation, playtest and integration reports | Validator, Blind Playtester, Integration | The Orchestrator and Gabriella |
 | `run_log.json` + `provenance_manifest.json` | Orchestrator, Provenance | Reviewing cost and who made what |
 
-**Not produced by the crew:** the Phaser game code (built by Gabriella with Claude Code), music (hand-picked from Bensound and Pixabay) and source art (supplied by Gabriella or an image tool).
+**Not produced by the crew:** the Phaser game code (built by Gabriella with Claude Code), music (hand-picked from Bensound and Pixabay) and source art (generated with prompts to NanoBanana and inspiration from Pintrest).
 
 ## Where each file goes
 Drop this whole folder into the root of your game project (the folder you open Claude Code in).
@@ -44,6 +46,7 @@ Drop this whole folder into the root of your game project (the folder you open C
 6. Say: "Build level_02." Then repeat per level.
 
 ## What makes level 1 the gold standard
+- First level handwriten to give the agent what good looks like; every level has a human-solvable solution
 - 2 guests, 4 venues, stated clues: matches the chapter 1 row.
 - One hard trap (Satay Spot: peanuts), two near misses (Noodle Cellar: no patio; Pizza Corner: wrong craving).
 - Every decoy is a minimal pair of Noodle Nook: exactly one attribute differs.
