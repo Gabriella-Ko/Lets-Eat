@@ -1,0 +1,80 @@
+{
+  "_about": "Rules from docs/game_bible.md, kept as config for scripts/validate.js. Only Gabriella edits the bible; update this file to match whenever the bible changes. Keys starting with _ are comments.",
+  "bible_date": "2026-10-30",
+
+  "characters": {
+    "maya":   { "permanent": { "budget_max": "$" } },
+    "liam":   { "permanent": {} },
+    "mina":   { "permanent": { "diets": ["vegetarian"] } },
+    "roxy":   { "permanent": { "intolerances": ["dairy"] } },
+    "cyrus":  { "permanent": { "allergies": ["peanut"] } },
+    "brooke": { "permanent": { "vibe": ["healthy"] } }
+  },
+  "_characters_note": "Brooke's 'health conscious, not greasy' is mapped to the soft vibe 'healthy'. The bible does not spell out this mapping. Remove it if that is wrong.",
+
+  "emotions": ["HAPPY", "ANNOYED", "SURPRISED", "HUNGRY", "ANGRY", "NEUTRAL"],
+
+  "vocabulary": {
+    "cuisine": ["noodles", "sushi", "pizza", "burgers", "tacos", "curry", "cafe", "dim_sum", "greek", "viet", "thai", "italian", "ice_cream"],
+    "allergy": ["peanut", "shellfish", "gluten"],
+    "diet": ["vegan", "vegetarian", "halal"],
+    "intolerance": ["dairy"],
+    "price_tier": ["$", "$$", "$$$"],
+    "vibe": ["quiet", "lively", "outdoor_seating", "quick_bite", "group_friendly", "healthy"]
+  },
+
+  "dietary_tags": {
+    "_note": "What a venue must carry in dietary_tags to safely serve each constraint. The bible names peanut_free and vegan_options; the others follow the same pattern. A vegan kitchen also covers vegetarians.",
+    "allergy": {
+      "peanut": ["peanut_free"],
+      "shellfish": ["shellfish_free"],
+      "gluten": ["gluten_free"]
+    },
+    "diet": {
+      "vegan": ["vegan_options"],
+      "vegetarian": ["vegetarian_options", "vegan_options"],
+      "halal": ["halal_options"]
+    },
+    "intolerance": {
+      "dairy": ["dairy_free"]
+    }
+  },
+
+  "scoring": {
+    "start_stars": 3,
+    "floor_stars": 1,
+    "budget_soft_tiers_over": 1,
+    "budget_hard_tiers_over": 2
+  },
+
+  "chapters": {
+    "1": { "district": "campus",       "levels": [1, 5],   "guests": [2, 3], "venues": 4, "max_hard": 1, "difficulty": ["stated", "implied"], "messages": [8, 20] },
+    "2": { "district": "downtown",     "levels": [6, 10],  "guests": [3, 4], "venues": 5, "max_hard": 2, "difficulty": ["stated", "implied"], "messages": [8, 20] },
+    "3": { "district": "waterfront",   "levels": [11, 15], "guests": [4, 5], "venues": 6, "max_hard": 2, "difficulty": ["stated", "implied"], "messages": [8, 30] },
+    "4": { "district": "night_market", "levels": [16, 20], "guests": [4, 6], "venues": 7, "max_hard": 3, "difficulty": ["implied", "buried"], "messages": [8, 30] }
+  },
+  "_chapters_note": "max_hard counts allergies + diets. Maya's budget is not counted, which matches level_01's outline row. The bible says only that later chapters 'can run longer', so the 30-message cap for chapters 3-4 is a proposed value.",
+
+  "districts": {
+    "campus":       { "cuisines": ["noodles", "pizza", "cafe", "burgers", "tacos", "ice_cream"], "price_tiers": ["$", "$$"] },
+    "downtown":     { "cuisines": ["sushi", "curry", "viet", "thai", "cafe", "burgers"], "price_tiers": ["$", "$$"] },
+    "waterfront":   { "cuisines": ["greek", "italian", "sushi", "dim_sum", "ice_cream"], "price_tiers": ["$$", "$$$"] },
+    "night_market": { "cuisines": "any", "price_tiers": "any", "imports_from_any_district": true }
+  },
+
+  "crew": {
+    "ids": ["orchestrator", "puzzle_architect", "narrative_writer", "map_seeder", "validator", "blind_playtester", "art_asset", "integration", "provenance"],
+    "human_pattern": "^human:[a-z][a-z0-9_]*$",
+    "allow_human_generated_by": true,
+    "_allow_human_note": "level_01 was written by hand (generated_by: human:gabby). Set this to false to require a crew id in generated_by.",
+    "writer_of": {
+      "spec": "puzzle_architect",
+      "dialogue": "narrative_writer",
+      "outcomes": "narrative_writer",
+      "venues": "map_seeder",
+      "registry": "map_seeder"
+    }
+  },
+
+  "outcome_results": { "3": "perfect", "2": "partial", "1": "partial", "0": "fail" }
+}
