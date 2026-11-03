@@ -31,7 +31,7 @@ Drop this whole folder into the root of your game project (the folder you open C
 | `CLAUDE.md` | Orchestrator brief | Claude Code reads it automatically at the start of every session, so your main session *is* the Orchestrator |
 | `.claude/agents/*.md` | Subagent briefs (Architect, Writer, Seeder, Playtester, Art) | Auto-detected as project subagents; see them with `/agents` |
 | `docs/specs/*.md` | Specs for the Validator, Integration and Provenance scripts | Ask Claude Code to build each script from its spec |
-| `docs/game_bible.md` | Placeholder | Replace with the Markdown export of the game bible doc |
+| `docs/game_bible.md` | Centralized reference document for game world, lore, characters, tone, design rules | Replace with the Markdown export of the game bible doc |
 | `content/levels/level_01/` | Gold-standard level 1 | Style reference for every agent |
 | `content/registry/venue_registry_campus.json` | Starter venue registry | The Seeder reuses and extends it |
 | `content/campaign/campaign_outline.json` | Outline template | The Architect fills all 20 rows |
