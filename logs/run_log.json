@@ -1,0 +1,12 @@
+[
+  {
+    "timestamp": "2026-11-03T00:00:00Z",
+    "level": "campaign",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v1",
+    "step": "campaign_outline",
+    "result": "written (draft); orchestrator guardrail check passed; awaiting Gabriella's approval",
+    "retries": 0,
+    "tokens": 25189
+  }
+]

@@ -1,17 +1,31 @@
 {
   "status": "draft",
   "levels": [
-    {
-      "level_id": "level_01",
-      "chapter": 1,
-      "district": "campus",
-      "guests": ["liam", "cyrus"],
-      "clue_style": "stated",
-      "hard_constraints": ["allergy:peanut"],
-      "new_character": ["liam", "cyrus"]
-    }
+    { "level_id": "level_01", "chapter": 1, "district": "campus", "guests": ["liam", "cyrus"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["liam", "cyrus"] },
+    { "level_id": "level_02", "chapter": 1, "district": "campus", "guests": ["maya", "liam", "cyrus"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["maya"] },
+    { "level_id": "level_03", "chapter": 1, "district": "campus", "guests": ["mina", "liam"], "clue_style": "implied", "hard_constraints": ["diet:vegetarian"], "new_character": ["mina"] },
+    { "level_id": "level_04", "chapter": 1, "district": "campus", "guests": ["brooke", "cyrus", "maya"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["brooke"] },
+    { "level_id": "level_05", "chapter": 1, "district": "campus", "guests": ["maya", "mina", "brooke"], "clue_style": "stated", "hard_constraints": ["diet:vegetarian"], "new_character": [] },
+
+    { "level_id": "level_06", "chapter": 2, "district": "downtown", "guests": ["roxy", "brooke", "cyrus"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["roxy"] },
+    { "level_id": "level_07", "chapter": 2, "district": "downtown", "guests": ["maya", "mina", "liam"], "clue_style": "implied", "hard_constraints": ["diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_08", "chapter": 2, "district": "downtown", "guests": ["cyrus", "mina", "roxy", "maya"], "clue_style": "stated", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_09", "chapter": 2, "district": "downtown", "guests": ["brooke", "liam", "cyrus", "maya"], "clue_style": "implied", "hard_constraints": ["allergy:peanut"], "new_character": [] },
+    { "level_id": "level_10", "chapter": 2, "district": "downtown", "guests": ["roxy", "mina", "cyrus", "brooke"], "clue_style": "implied", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] },
+
+    { "level_id": "level_11", "chapter": 3, "district": "waterfront", "guests": ["maya", "liam", "roxy", "brooke"], "clue_style": "stated", "hard_constraints": [], "new_character": [] },
+    { "level_id": "level_12", "chapter": 3, "district": "waterfront", "guests": ["mina", "cyrus", "liam", "brooke"], "clue_style": "implied", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_13", "chapter": 3, "district": "waterfront", "guests": ["maya", "roxy", "cyrus", "mina", "liam"], "clue_style": "implied", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_14", "chapter": 3, "district": "waterfront", "guests": ["brooke", "mina", "roxy", "maya"], "clue_style": "implied", "hard_constraints": ["diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_15", "chapter": 3, "district": "waterfront", "guests": ["cyrus", "maya", "brooke", "liam", "roxy"], "clue_style": "implied", "hard_constraints": ["allergy:peanut"], "new_character": [] },
+
+    { "level_id": "level_16", "chapter": 4, "district": "night_market", "guests": ["liam", "roxy", "mina", "brooke"], "clue_style": "implied", "hard_constraints": ["diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_17", "chapter": 4, "district": "night_market", "guests": ["maya", "cyrus", "roxy", "liam", "brooke"], "clue_style": "buried", "hard_constraints": ["allergy:peanut"], "new_character": [] },
+    { "level_id": "level_18", "chapter": 4, "district": "night_market", "guests": ["mina", "cyrus", "maya", "brooke"], "clue_style": "implied", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_19", "chapter": 4, "district": "night_market", "guests": ["maya", "liam", "roxy", "brooke", "mina"], "clue_style": "buried", "hard_constraints": ["diet:vegetarian"], "new_character": [] },
+    { "level_id": "level_20", "chapter": 4, "district": "night_market", "guests": ["maya", "liam", "mina", "roxy", "cyrus", "brooke"], "clue_style": "buried", "hard_constraints": ["allergy:peanut", "diet:vegetarian"], "new_character": [] }
   ],
-  "notes": "Template: the Architect fills all 20 rows. Chapter 1 may introduce several characters at once; Roxy debuts in level_06.",
-  "generated_by": "human:gabby",
+  "notes": "hard_constraints lists allergies + diets only (the validator's max_hard count); Maya's $ budget is not listed but applies wherever she is a guest. The cast carries only two hard tags (Cyrus peanut, Mina vegetarian), so variety comes from rotating peanut-only, vegetarian-only and both; shellfish, gluten, vegan and halal are unused because no character has them. level_11 has no allergy/diet: its hard-fail trap is a $$$ venue with Maya present (budget_hard, the waterfront's typical trap). Campus and downtown have no $$$ tier, so Maya levels there can only use budget_soft as a near miss, and every chapter 1-2 level includes Cyrus or Mina so a hard-fail trap exists. Chapter 4 max_hard is 3, but at most 2 are reachable with this cast. Chapter 1's only implied level is level_03 (Mina + Liam). Roxy debuts in level_06. Brooke's 'healthy' is a soft vibe per rules.json mapping.",
+  "generated_by": "puzzle_architect",
   "edited_by": null
 }
