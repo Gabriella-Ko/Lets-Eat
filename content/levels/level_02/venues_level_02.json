@@ -1,0 +1,36 @@
+{
+  "level_id": "level_02",
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_taco_town",
+      "reviews": [
+        "Three tacos for a few bucks, and we pushed two long tables together for the whole study group.",
+        "Asked about nuts for my roommate. Staff said there's not a peanut in the building."
+      ]
+    },
+    {
+      "id": "campus_mole_cantina",
+      "reviews": [
+        "The tacos come drowning in their house mole, rich and nutty, made with ground peanuts. Dirt cheap too.",
+        "Big booths that fit eight of us easily. Perfect for a birthday crew."
+      ]
+    },
+    {
+      "id": "campus_taco_loft",
+      "reviews": [
+        "Fancy little tacos with fancy little prices. Tasty, but not student-budget friendly.",
+        "Huge communal tables upstairs, so our whole team fit. Menu says it's a nut-free kitchen."
+      ]
+    },
+    {
+      "id": "campus_burger_barn",
+      "reviews": [
+        "Smash burgers and fries, nothing else, and you'll barely spend ten bucks. Don't come looking for tacos.",
+        "Rows of picnic benches inside, easy to grab one for a big group. No peanuts anywhere on the menu."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}
