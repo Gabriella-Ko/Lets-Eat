@@ -1,5 +1,5 @@
 {
-  "status": "draft",
+  "status": "approved",
   "levels": [
     { "level_id": "level_01", "chapter": 1, "district": "campus", "guests": ["liam", "cyrus"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["liam", "cyrus"], "story_beat": null },
     { "level_id": "level_02", "chapter": 1, "district": "campus", "guests": ["maya", "liam", "cyrus"], "clue_style": "stated", "hard_constraints": ["allergy:peanut"], "new_character": ["maya"], "story_beat": null },
