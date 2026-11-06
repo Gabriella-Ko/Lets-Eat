@@ -1,0 +1,34 @@
+{
+  "level_id": "level_03",
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_bun_stop",
+      "reviews": [
+        "Order at the counter, burger in your hand in five minutes. Perfect between lectures, and it barely dents your wallet.",
+        "Their black bean patty is honestly better than most beef ones. My veggie friend ordered two."
+      ]
+    },
+    {
+      "id": "campus_brisket_box",
+      "reviews": [
+        "Walk up, grab a brisket burger, walk out. Fastest cheap lunch on campus.",
+        "It's meat, meat and more meat. Even the fries are cooked in beef fat, so my vegetarian roommate just watched me eat."
+      ]
+    },
+    {
+      "id": "campus_patty_parlor",
+      "reviews": [
+        "Cheap burgers with a really solid mushroom-and-lentil veggie patty. Great if you've got the whole evening.",
+        "Proper table service: you get seated, wait for a menu, wait for your food, wait for the bill. Don't come here on a short break."
+      ]
+    },
+    {
+      "id": "campus_noodle_cellar",
+      "reviews": [
+        "Still my go-to basement noodle bar. No windows, but you're in and out in fifteen minutes for a few bucks.",
+        "Plenty of tofu and veggie broth bowls. Strictly noodles though, so don't come in craving a burger."
+      ]
+    }
+  ]
+}

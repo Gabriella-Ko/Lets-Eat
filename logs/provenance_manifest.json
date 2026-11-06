@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "1e0c1179ea374279df8f2152a6dc92a93b366fbd",
+  "head": "b23a8c267947a6ac3cb0c3e99c19d17252292153",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -204,16 +204,110 @@
       ]
     },
     {
+      "file": "content/levels/level_03/dialogue_level_03.json",
+      "level": "level_03",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:45:23-05:00",
+      "commit": "dbf6cd50693694a2a1463926f1ce4ce5ed16227a",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "dbf6cd50693694a2a1463926f1ce4ce5ed16227a",
+          "timestamp": "2026-11-05T23:45:23-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_03: soften Mina's vegetarian clue to a hint (retry 1)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8d37776bb9877196ff2ebd310c2778e004842ec3",
+          "timestamp": "2026-11-05T23:39:40-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_03: write chat (Mina's debut, implied vegetarian) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_03/outcomes_level_03.json",
+      "level": "level_03",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:39:40-05:00",
+      "commit": "8d37776bb9877196ff2ebd310c2778e004842ec3",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "8d37776bb9877196ff2ebd310c2778e004842ec3",
+          "timestamp": "2026-11-05T23:39:40-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_03: write chat (Mina's debut, implied vegetarian) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_03/spec_level_03.json",
+      "level": "level_03",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:38:45-05:00",
+      "commit": "ae9715c145f505475a71ac38ce4df10ce35f73bb",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "ae9715c145f505475a71ac38ce4df10ce35f73bb",
+          "timestamp": "2026-11-05T23:38:45-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_03: write spec (burgers, quick_bite, vegetarian trap)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_03/venues_level_03.json",
+      "level": "level_03",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:39:26-05:00",
+      "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
+          "timestamp": "2026-11-05T23:39:26-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_03: add 3 campus venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:10:50-05:00",
-      "commit": "49f4cc3355565ba2c17c00420eef3c74a4748468",
-      "last_commit_by": "orchestrator",
+      "timestamp": "2026-11-05T23:39:26-05:00",
+      "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
+      "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
+          "timestamp": "2026-11-05T23:39:26-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_03: add 3 campus venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        },
         {
           "commit": "49f4cc3355565ba2c17c00420eef3c74a4748468",
           "timestamp": "2026-11-05T23:10:50-05:00",
@@ -293,6 +387,87 @@
           "timestamp": "2026-11-05T23:04:24-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_02: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_03_run1.json",
+      "level": "level_03",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:45:59-05:00",
+      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+          "timestamp": "2026-11-05T23:45:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 after retry (3/3 correct, diet inferred)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "df6de4bb7443146bfe3809116f4eda8cb9e6d9d6",
+          "timestamp": "2026-11-05T23:40:42-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_03_run2.json",
+      "level": "level_03",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:45:59-05:00",
+      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+          "timestamp": "2026-11-05T23:45:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 after retry (3/3 correct, diet inferred)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "df6de4bb7443146bfe3809116f4eda8cb9e6d9d6",
+          "timestamp": "2026-11-05T23:40:42-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_03_run3.json",
+      "level": "level_03",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:45:59-05:00",
+      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+          "timestamp": "2026-11-05T23:45:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 after retry (3/3 correct, diet inferred)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "df6de4bb7443146bfe3809116f4eda8cb9e6d9d6",
+          "timestamp": "2026-11-05T23:40:42-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_03: playtest runs 1-3 (3/3 correct)",
           "pre_pipeline": false
         }
       ]

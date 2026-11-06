@@ -1,0 +1,21 @@
+{
+  "level_id": "level_03",
+  "script": [
+    { "speaker": "liam", "text": "mina!! lunch?? i'm so hungry i could eat my textbook", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "mina", "text": "hi liam :) yes, lunch sounds good. how did your exam go? you seemed so stressed last night", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "survived. barely. i need a reward", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "liam", "text": "and before you say it, no, not noodles today. i want a BURGER. big and messy", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "mina", "text": "ha, a burger actually sounds really nice. i'm in", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "mina", "text": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry", "emotion": "NEUTRAL", "clue": "vibe:quick_bite" },
+    { "speaker": "liam", "text": "so we grab it fast and go. no long sit-down thing. got it", "emotion": "HAPPY", "clue": "vibe:quick_bite" },
+    { "speaker": "liam", "text": "never apologize for speed. speed means food sooner", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "and don't worry about me, honestly. wherever you pick, i can always just get fries", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "nope. last time you ate a plate of fries while i had a double stack. not again", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
+    { "speaker": "liam", "text": "this time you get a real burger too. one you can actually eat, not just the sides", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "...that's really sweet of you. a veggie patty would make my whole day", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "are you sure you're okay with that? i don't want to make it complicated", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "100%. assistant, you heard her. go go go", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

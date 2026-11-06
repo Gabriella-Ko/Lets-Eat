@@ -138,5 +138,175 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:38:45.545Z",
+    "level": "level_03",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v2",
+    "step": "spec",
+    "result": "written; burgers + quick_bite, solution campus_bun_stop, 3 new venues + reused campus_noodle_cellar",
+    "retries": 0,
+    "tokens": 26190
+  },
+  {
+    "timestamp": "2026-11-06T04:39:51.418Z",
+    "level": "level_03",
+    "agent_id": "map_seeder",
+    "brief_version": "v1",
+    "step": "venues",
+    "result": "3 new campus venues + reviews; reused campus_noodle_cellar",
+    "retries": 0,
+    "tokens": 22746
+  },
+  {
+    "timestamp": "2026-11-06T04:39:51.418Z",
+    "level": "level_03",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue+outcomes",
+    "result": "14 lines, 3 clue tags, implied vegetarian via Liam",
+    "retries": 0,
+    "tokens": 23514
+  },
+  {
+    "timestamp": "2026-11-06T04:39:51.418Z",
+    "level": "level_03",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": 11248
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": 10661
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": 11179
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; all 3 runs say the vegetarian clue is stated, not implied; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:23.922Z",
+    "level": "level_03",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue retry",
+    "result": "line 11 rewritten; vegetarian now implied",
+    "retries": 1,
+    "tokens": 19893
+  },
+  {
+    "timestamp": "2026-11-06T04:45:23.922Z",
+    "level": "level_03",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": 10635
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": 10543
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": 10671
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; vegetarian clue now implied; awaiting Gabriella",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:47:57.484Z",
+    "level": "level_03",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:48:07.090Z",
+    "level": "level_03",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS (boot test not run: no Phaser build yet)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:48:08.433Z",
+    "level": "level_03",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 20 files, 0 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]

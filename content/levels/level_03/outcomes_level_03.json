@@ -1,0 +1,39 @@
+{
+  "level_id": "level_03",
+  "by_venue": {
+    "campus_bun_stop": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "liam", "text": "burger in my hands in like five minutes. INCREDIBLE", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "they have a plant-based patty! and i'll make my critique with time to spare. thank you", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_brisket_box": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... everything on the menu is meat. it's okay, i'll just have some water", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "NO. mina is NOT having water for lunch. we're leaving, i'm so sorry", "emotion": "ANGRY" }
+      ]
+    },
+    "campus_patty_parlor": {
+      "result": "partial",
+      "missed": ["vibe:quick_bite"],
+      "lines": [
+        { "speaker": "liam", "text": "best burger of my life. also we've been sitting here for forty minutes", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "it's lovely, but i'm going to be running into critique late. worth it... mostly", "emotion": "SURPRISED" }
+      ]
+    },
+    "campus_noodle_cellar": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "noodles?? i LOVE noodles but today was a burger day. my heart is confused", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "at least it was quick, and i found something i can eat. sorry about your burger, liam", "emotion": "NEUTRAL" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
