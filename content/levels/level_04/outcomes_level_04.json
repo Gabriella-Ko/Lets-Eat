@@ -1,0 +1,41 @@
+{
+  "level_id": "level_04",
+  "by_venue": {
+    "campus_green_bean_cafe": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "brooke", "text": "fresh, bright, and the coffee is great. perfect pick!", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "and it's CHEAP?? the trip fund thanks you", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "No peanuts anywhere on the menu. Well chosen.", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_nutty_mug": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "There are peanuts in nearly everything here. The muffins, the smoothies, even the granola.", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "oh no. cyrus, we're leaving. right now", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i literally WARNED about the peanut butter. i'm leaving this chat and taking cyrus with me", "emotion": "SURPRISED" }
+      ]
+    },
+    "campus_griddle_house": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "everything here comes off the griddle swimming in oil. i'll just have the coffee", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "cheap though! more hash browns for me", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_sprout_lounge": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "so fresh, so pretty, so TWO dollar signs. my wallet is weeping", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "next coffee's on me, deal?", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
