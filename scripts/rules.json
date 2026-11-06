@@ -1,15 +1,16 @@
 {
   "_about": "Rules from docs/game_bible.md, kept as config for scripts/validate.js. Only Gabriella edits the bible; update this file to match whenever the bible changes. Keys starting with _ are comments.",
-  "bible_date": "2026-10-30",
+  "bible_date": "2026-11-05",
 
   "characters": {
-    "maya":   { "permanent": { "budget_max": "$" } },
+    "maya":   { "permanent": { "budget_max": "$", "budget_max_by_chapter": { "4": "$$" } } },
     "liam":   { "permanent": {} },
     "mina":   { "permanent": { "diets": ["vegetarian"] } },
     "roxy":   { "permanent": { "intolerances": ["dairy"] } },
     "cyrus":  { "permanent": { "allergies": ["peanut"] } },
     "brooke": { "permanent": { "vibe": ["healthy"] } }
   },
+  "_budget_note": "Maya's budget is $ in chapters 1-3. From chapter 4 it is $$: her promotion covers the trip (bible: Cast + Story beats). budget_max_by_chapter overrides budget_max for the chapters it lists.",
   "_characters_note": "Brooke's 'health conscious, not greasy' is mapped to the soft vibe 'healthy'. The bible does not spell out this mapping. Remove it if that is wrong.",
 
   "emotions": ["HAPPY", "ANNOYED", "SURPRISED", "HUNGRY", "ANGRY", "NEUTRAL"],
@@ -50,8 +51,8 @@
   "chapters": {
     "1": { "district": "campus",       "levels": [1, 5],   "guests": [2, 3], "venues": 4, "max_hard": 1, "difficulty": ["stated", "implied"], "messages": [8, 20] },
     "2": { "district": "downtown",     "levels": [6, 10],  "guests": [3, 4], "venues": 5, "max_hard": 2, "difficulty": ["stated", "implied"], "messages": [8, 20] },
-    "3": { "district": "waterfront",   "levels": [11, 15], "guests": [4, 5], "venues": 6, "max_hard": 2, "difficulty": ["stated", "implied"], "messages": [8, 30] },
-    "4": { "district": "night_market", "levels": [16, 20], "guests": [4, 6], "venues": 7, "max_hard": 3, "difficulty": ["implied", "buried"], "messages": [8, 30] }
+    "3": { "district": "night_market", "levels": [11, 15], "guests": [4, 5], "venues": 6, "max_hard": 2, "difficulty": ["stated", "implied"], "messages": [8, 30] },
+    "4": { "district": "waterfront",   "levels": [16, 20], "guests": [4, 6], "venues": 7, "max_hard": 3, "difficulty": ["implied", "buried"], "messages": [8, 30] }
   },
   "_chapters_note": "max_hard counts allergies + diets. Maya's budget is not counted, which matches level_01's outline row. The bible says only that later chapters 'can run longer', so the 30-message cap for chapters 3-4 is a proposed value.",
 
@@ -59,7 +60,7 @@
     "campus":       { "cuisines": ["noodles", "pizza", "cafe", "burgers", "tacos", "ice_cream"], "price_tiers": ["$", "$$"] },
     "downtown":     { "cuisines": ["sushi", "curry", "viet", "thai", "cafe", "burgers"], "price_tiers": ["$", "$$"] },
     "waterfront":   { "cuisines": ["greek", "italian", "sushi", "dim_sum", "ice_cream"], "price_tiers": ["$$", "$$$"] },
-    "night_market": { "cuisines": "any", "price_tiers": "any", "imports_from_any_district": true }
+    "night_market": { "cuisines": "any", "price_tiers": "any", "imports_from_any_district": true, "_imports_note": "Bible: only favourites from earlier chapters (campus, downtown). Cross-level, so Integration enforces it." }
   },
 
   "crew": {

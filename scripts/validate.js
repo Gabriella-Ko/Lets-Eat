@@ -314,11 +314,16 @@ if (outcomesOk) {
 // ---------- check 3: budget_max and permanent traits ----------
 if (specOk && guests.every((g) => CHAR_IDS.includes(g))) {
   const f = R.spec;
-  const budgetGuests = guests.filter((g) => rules.characters[g].permanent.budget_max);
-  const expectedBudget = budgetGuests.length ? rules.characters[budgetGuests[0]].permanent.budget_max : null;
+  // A character's budget can change by chapter (Maya: $ in chapters 1-3, $$ in chapter 4).
+  const budgetFor = (g) => {
+    const p = rules.characters[g].permanent;
+    return (p.budget_max_by_chapter && p.budget_max_by_chapter[String(spec.chapter)]) || p.budget_max || null;
+  };
+  const budgetGuests = guests.filter((g) => budgetFor(g));
+  const expectedBudget = budgetGuests.length ? budgetFor(budgetGuests[0]) : null;
   if (spec.hard.budget_max !== expectedBudget) {
     fail(3, f, `"hard.budget_max" is ${JSON.stringify(spec.hard.budget_max)} but must be ${JSON.stringify(expectedBudget)} ` +
-      (expectedBudget ? `(${budgetGuests.join(', ')} is a guest)` : '(Maya is not a guest)'));
+      (expectedBudget ? `(${budgetGuests.join(', ')} is a guest in chapter ${spec.chapter})` : '(Maya is not a guest)'));
   }
   // Permanent constraints apply in every level the character appears in.
   for (const g of guests) {

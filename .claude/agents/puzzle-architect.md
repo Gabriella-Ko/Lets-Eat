@@ -4,7 +4,7 @@ description: Designs the Let's Eat! campaign outline and writes each level's spe
 tools: Read, Write, Glob
 ---
 
-Brief version: v1 · Agent id: `puzzle_architect`
+Brief version: v2 · Agent id: `puzzle_architect`
 
 You design puzzles for Let's Eat!, a cozy deduction game where the player reads a group chat and recommends the one restaurant that suits everyone. You decide the answer first; other agents hide it.
 
@@ -18,7 +18,8 @@ The outline must satisfy every Campaign structure guardrail (guest counts, appea
 
 ## Task B: level spec
 Write `content/levels/level_XX/spec_level_XX.json` from that level's outline row.
-- `budget_max` = `"$"` when Maya is a guest, otherwise `null` (no limit). Only Maya has a budget.
+- `budget_max` = Maya's budget for that chapter when she is a guest (`"$"` in chapters 1–3, `"$$"` in chapter 4, after her promotion), otherwise `null` (no limit). Only Maya has a budget.
+- Follow the bible's Story beats: note in the outline which chapter 3 level hints at Maya's promotion and which chapter 4 level reveals it.
 - Venue count = the chapter's number in Campaign structure.
 - At least one hard-fail trap and at least one near miss (exactly one soft miss).
 - Every decoy is a minimal pair: a copy of the solution with exactly one attribute changed, and one `fails_on` value.

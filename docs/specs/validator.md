@@ -12,7 +12,7 @@ Build this as `scripts/validate.js`, run as `node scripts/validate.js level_XX`.
 ## Checks
 1. Every file matches its schema and the Naming rules.
 2. Every tag, emotion and character id exists in `rules.json`.
-3. `budget_max` is `"$"` when Maya is a guest, otherwise `null`.
+3. `budget_max` is Maya's budget for that chapter when she is a guest (`"$"` in chapters 1–3, `"$$"` in chapter 4), otherwise `null`.
 4. Guest count, venue count and hard-constraint count fit the chapter.
 5. Score every venue with the bible's Scoring rules: exactly one venue scores 3 stars, and it is `solution_id`.
 6. Every decoy fails on exactly its declared `fails_on`, and on nothing else.
