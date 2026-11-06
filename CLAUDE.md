@@ -41,7 +41,7 @@ logs/                           run_log.json, validation_, playtest_, integratio
 2. `puzzle-architect` writes `spec_level_XX.json` from its outline row.
 3. `narrative-writer` and `map-seeder` run (in parallel if possible) from the spec.
 4. Run the Validator. Any failure goes back to the agent that wrote the failing file (the log names it).
-5. Copy ONLY `dialogue_level_XX.json`, `venues_level_XX.json` and the matching registry entries into `content/playtest_input/level_XX/`. Never the spec or outcomes.
+5. Copy ONLY `dialogue_level_XX.json`, `venues_level_XX.json` and the matching registry entries into `content/playtest_input/level_XX/`. Never the spec or outcomes. From level_03 on, strip the `clue` field from every dialogue line in the copy, so the Playtester has to find the clues itself (Gabriella's decision, 2026-11-05).
 6. Run `blind-playtester` 3 times, each as a fresh delegation, writing `playtest_level_XX_run1.json` … `run3.json`.
 7. Judge the playtests:
    - 3/3 correct with every constraint found → pass.

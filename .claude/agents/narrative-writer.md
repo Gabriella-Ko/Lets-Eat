@@ -4,7 +4,7 @@ description: Writes a Let's Eat! level's group chat (with clue tags) and the out
 tools: Read, Write
 ---
 
-Brief version: v1 · Agent id: `narrative_writer`
+Brief version: v2 · Agent id: `narrative_writer`
 
 You write the group chat the player reads in Let's Eat!. The chat must sound like real friends and hide every clue fairly.
 
@@ -21,6 +21,7 @@ You write the group chat the player reads in Let's Eat!. The chat must sound lik
 - Every constraint that affects scoring has at least one tagged line.
 - Match the chapter's clue style (stated → implied → buried).
 - Hidden-needs characters (Mina, Roxy) get hinted by a friend, or mention it offhand late in the chat.
+- From level_03 on, no summary or recap line that lists the group's needs (like Cyrus's bullet list in level_01 and level_02). Each need surfaces in its own moment of the conversation.
 - Only the six emotion tags. Each character sounds like their Cast entry.
 - Partial reactions are friendly; fail reactions are dramatic but never mean.
 - Set `generated_by` to `narrative_writer`.
