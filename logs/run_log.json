@@ -418,5 +418,85 @@
     "result": "manifest written, 27 files, 0 issues",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T05:00:00.327Z",
+    "level": "level_05",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v4",
+    "step": "spec",
+    "result": "written; pizza + healthy, solution campus_basil_hearth, 3 new venues + reused campus_green_bean_cafe; budget untested",
+    "retries": 0,
+    "tokens": 29724
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "map_seeder",
+    "brief_version": "v3",
+    "step": "venues",
+    "result": "3 new campus pizza venues + reviews; reused campus_green_bean_cafe",
+    "retries": 0,
+    "tokens": 25412
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue+outcomes",
+    "result": "16 lines, 4 clue tags; Brooke states Mina is vegetarian for her",
+    "retries": 0,
+    "tokens": 27343
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10976
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10936
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
   }
 ]
