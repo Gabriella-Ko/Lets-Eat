@@ -1,0 +1,39 @@
+{
+  "level_id": "level_03",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "campus_bun_stop",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: burgers (not noodles)",
+      "source_line": "liam: \"and before you say it, no, not noodles today. i want a BURGER. big and messy\""
+    },
+    {
+      "constraint": "Quick bite, no long sit-down (Mina's critique is at 1:15)",
+      "source_line": "mina: \"the only thing is my studio critique starts at 1:15, so i can't stay long. sorry\" / liam: \"so we grab it fast and go. no long sit-down thing. got it\""
+    },
+    {
+      "constraint": "Vegetarian (strict diet): Mina doesn't eat meat, so the place needs a real veggie burger, not just fries",
+      "source_line": "liam: \"you don't do meat, so the place needs a real burger for you too. veggie patty or bust\" (set up by mina: \"wherever you pick, i can always just get fries\")"
+    },
+    {
+      "constraint": "Budget: not stated in the chat. Inferred as cheap/student ($) from the campus setting. All four venues are $, so it never decides the pick.",
+      "source_line": "none (inferred)"
+    }
+  ],
+  "elimination": {
+    "campus_noodle_cellar": "Misses the burger craving (review: 'Strictly noodles though').",
+    "campus_brisket_box": "Fails the vegetarian rule. No vegan_options tag, and the review says it's all meat with fries cooked in beef fat.",
+    "campus_patty_parlor": "Has a veggie patty but is table service with long waits and no quick_bite tag, so it misses the quick-bite need (would cost a star).",
+    "campus_bun_stop": "Burgers, quick_bite, $, vegan_options, and the review praises its black bean patty. Meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": [
+    "The vegetarian trap is fairly visible. Mina's 'i can always just get fries' is a good decoy, but Liam spells it out right away ('you don't do meat ... veggie patty or bust'). So it reads as nearly explicit, not implied. If the design wants the player to infer it, Liam's line gives too much away.",
+    "Each decoy fails on exactly one constraint, and the reviews say so clearly (beef-fat fries, 'Don't come here on a short break', 'Strictly noodles'). That's fair but makes the level easy.",
+    "Small tag mismatch: Bun Stop's tag is 'vegan_options', but the evidence is a black bean patty. That works for a vegetarian, but the registry has no explicit vegetarian tag.",
+    "The chat never states a budget. It doesn't matter here because every venue is $, but players may wonder whether one was meant to be there.",
+    "Only the three expected files existed. To find the registry file I had to guess its name (venue_registry_campus.json), because I can't list the folder."
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "level_id": "level_03",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "campus_bun_stop",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: burgers (not noodles)",
+      "source_line": "liam: \"and before you say it, no, not noodles today. i want a BURGER. big and messy\""
+    },
+    {
+      "constraint": "Quick bite: must be fast, no long sit-down (Mina's critique at 1:15)",
+      "source_line": "mina: \"the only thing is my studio critique starts at 1:15, so i can't stay long. sorry\" / liam: \"so we grab it fast and go. no long sit-down thing. got it\""
+    },
+    {
+      "constraint": "Strict diet: Mina is vegetarian and needs a real veggie burger, not just fries",
+      "source_line": "liam: \"you don't do meat, so the place needs a real burger for you too. veggie patty or bust\""
+    },
+    {
+      "constraint": "Budget: not stated in the chat; all four venues are $, so price is not a factor (student lunch implies cheap)",
+      "source_line": "none explicit"
+    }
+  ],
+  "difficulty": 2,
+  "notes": [
+    "Elimination is clean: Noodle Cellar fails the burger craving (its own review says so), Brisket Box fails vegetarian (no vegan_options tag, review says even fries are in beef fat), Patty Parlor fails quick_bite (no vibe tag, review says table service, don't come on a short break). Bun Stop is the only venue meeting all three.",
+    "The vegetarian constraint is not really implied: Liam states it outright ('you don't do meat ... veggie patty or bust'). Mina's 'i can always just get fries' is the intended trap, but Liam immediately defuses it, so the trap barely works. If the goal is an implied vegetarian clue, Liam's line gives it away.",
+    "No budget is mentioned in the chat. Harmless here because every venue is $, but the player cannot confirm the group's budget tier.",
+    "The vegetarian need is inferred from the 'vegan_options' tag plus reviews; there is no explicit 'vegetarian' tag. Fine for a player, but slightly indirect.",
+    "Files read: dialogue_level_03.json, venues_level_03.json, venue_registry_campus.json in content/playtest_input/level_03/. No dialogue lines carried a clue field. No other files opened."
+  ]
+}
