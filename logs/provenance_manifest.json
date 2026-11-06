@@ -1,0 +1,302 @@
+{
+  "generated_by": "provenance",
+  "head": "1e0c1179ea374279df8f2152a6dc92a93b366fbd",
+  "files": [
+    {
+      "file": "content/campaign/campaign_outline.json",
+      "level": "campaign",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:01:56-05:00",
+      "commit": "b551610904e086b3d4ebb1cbb2a58f44c42549a7",
+      "last_commit_by": "orchestrator",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "b551610904e086b3d4ebb1cbb2a58f44c42549a7",
+          "timestamp": "2026-11-05T23:01:56-05:00",
+          "agent_tag": "orchestrator",
+          "subject": "[orchestrator] campaign: mark outline approved (Gabriella's approval)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4ddbc2b54971e1b27adf70db5aa471921fbe2d3d",
+          "timestamp": "2026-11-05T22:49:49-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] campaign: swap chapter 3/4 districts, add Maya story beats (draft)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1f770a742c7a4dea388305acaa4b1afa9a75605f",
+          "timestamp": "2026-11-03T17:25:12-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] campaign: write 20-level outline (draft)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_01/dialogue_level_01.json",
+      "level": "level_01",
+      "author_id": "human:gabby",
+      "edited_by": null,
+      "brief_version": null,
+      "timestamp": "2026-11-01T16:06:36-05:00",
+      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+      "last_commit_by": null,
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_01/outcomes_level_01.json",
+      "level": "level_01",
+      "author_id": "human:gabby",
+      "edited_by": null,
+      "brief_version": null,
+      "timestamp": "2026-11-01T16:06:36-05:00",
+      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+      "last_commit_by": null,
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_01/spec_level_01.json",
+      "level": "level_01",
+      "author_id": "human:gabby",
+      "edited_by": null,
+      "brief_version": null,
+      "timestamp": "2026-11-01T16:06:36-05:00",
+      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+      "last_commit_by": null,
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_01/venues_level_01.json",
+      "level": "level_01",
+      "author_id": "human:gabby",
+      "edited_by": null,
+      "brief_version": null,
+      "timestamp": "2026-11-01T16:06:36-05:00",
+      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+      "last_commit_by": null,
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_02/dialogue_level_02.json",
+      "level": "level_02",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:03:30-05:00",
+      "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
+          "timestamp": "2026-11-05T23:03:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_02: write chat (Maya's debut) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_02/outcomes_level_02.json",
+      "level": "level_02",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:03:30-05:00",
+      "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
+          "timestamp": "2026-11-05T23:03:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_02: write chat (Maya's debut) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_02/spec_level_02.json",
+      "level": "level_02",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:02:45-05:00",
+      "commit": "9051a5c164ff4ad4503caca941327a72605fefff",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9051a5c164ff4ad4503caca941327a72605fefff",
+          "timestamp": "2026-11-05T23:02:45-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_02: write spec (tacos, group_friendly, peanut trap, budget near miss)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_02/venues_level_02.json",
+      "level": "level_02",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:03:29-05:00",
+      "commit": "c4db1fb9c7a2b7d954be0a9b518026278883bc09",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c4db1fb9c7a2b7d954be0a9b518026278883bc09",
+          "timestamp": "2026-11-05T23:03:29-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_02: add 4 campus venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/registry/venue_registry_campus.json",
+      "level": null,
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:10:50-05:00",
+      "commit": "49f4cc3355565ba2c17c00420eef3c74a4748468",
+      "last_commit_by": "orchestrator",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "49f4cc3355565ba2c17c00420eef3c74a4748468",
+          "timestamp": "2026-11-05T23:10:50-05:00",
+          "agent_tag": "orchestrator",
+          "subject": "[orchestrator] registry campus: generated_by map_seeder (Gabriella's decision)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c4db1fb9c7a2b7d954be0a9b518026278883bc09",
+          "timestamp": "2026-11-05T23:03:29-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_02: add 4 campus venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
+          "timestamp": "2026-11-01T16:06:36-05:00",
+          "agent_tag": null,
+          "subject": "initial commit",
+          "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_02_run1.json",
+      "level": "level_02",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:04:24-05:00",
+      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+          "timestamp": "2026-11-05T23:04:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_02: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_02_run2.json",
+      "level": "level_02",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:04:24-05:00",
+      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+          "timestamp": "2026-11-05T23:04:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_02: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_02_run3.json",
+      "level": "level_02",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-05T23:04:24-05:00",
+      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+          "timestamp": "2026-11-05T23:04:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_02: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    }
+  ],
+  "issues": []
+}
