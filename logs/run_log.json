@@ -337,7 +337,7 @@
     "step": "dialogue+outcomes",
     "result": "16 lines, 4 clue tags, Brooke debut",
     "retries": 0,
-    "tokens": null
+    "tokens": 24607
   },
   {
     "timestamp": "2026-11-06T04:55:30.455Z",
@@ -346,6 +346,46 @@
     "brief_version": "v1",
     "step": "validate",
     "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11190
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11075
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
     "retries": 0,
     "tokens": null
   }
