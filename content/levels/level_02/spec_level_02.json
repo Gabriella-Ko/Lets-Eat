@@ -1,0 +1,17 @@
+{
+  "level_id": "level_02",
+  "chapter": 1,
+  "district": "campus",
+  "difficulty": "stated",
+  "guests": ["maya", "liam", "cyrus"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "tacos", "vibe": ["group_friendly"], "intolerances": [] },
+  "solution_id": "campus_taco_town",
+  "decoys": [
+    { "id": "campus_mole_cantina", "fails_on": "allergy:peanut" },
+    { "id": "campus_taco_loft", "fails_on": "budget_soft" },
+    { "id": "campus_burger_barn", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
