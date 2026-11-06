@@ -178,5 +178,45 @@
     "result": "PASS",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": 10661
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
+    "retries": 0,
+    "tokens": 11179
+  },
+  {
+    "timestamp": "2026-11-06T04:40:42.636Z",
+    "level": "level_03",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; all 3 runs say the vegetarian clue is stated, not implied; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
   }
 ]
