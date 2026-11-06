@@ -1,0 +1,51 @@
+{
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_taco_town",
+      "name": "Taco Town",
+      "cuisine": "tacos",
+      "price_tier": "$",
+      "dietary_tags": [
+        "peanut_free"
+      ],
+      "vibe_tags": [
+        "group_friendly"
+      ]
+    },
+    {
+      "id": "campus_mole_cantina",
+      "name": "Mole Cantina",
+      "cuisine": "tacos",
+      "price_tier": "$",
+      "dietary_tags": [],
+      "vibe_tags": [
+        "group_friendly"
+      ]
+    },
+    {
+      "id": "campus_taco_loft",
+      "name": "The Taco Loft",
+      "cuisine": "tacos",
+      "price_tier": "$$",
+      "dietary_tags": [
+        "peanut_free"
+      ],
+      "vibe_tags": [
+        "group_friendly"
+      ]
+    },
+    {
+      "id": "campus_burger_barn",
+      "name": "Burger Barn",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": [
+        "peanut_free"
+      ],
+      "vibe_tags": [
+        "group_friendly"
+      ]
+    }
+  ]
+}

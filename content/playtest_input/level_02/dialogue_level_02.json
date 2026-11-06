@@ -1,0 +1,21 @@
+{
+  "level_id": "level_02",
+  "script": [
+    { "speaker": "maya", "text": "ok who's eating. i've been up since 6 and i am WASTING AWAY", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "liam", "text": "me!! tacos??", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "been thinking about tacos since breakfast. crunchy ones", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "cyrus", "text": "Tacos work for me. Reminder, since Maya's new to these lunches: I'm allergic to peanuts. No peanut sauces, no exceptions.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "maya", "text": "noted. i will personally fight any peanut that comes near you", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "BUT. it has to be cheap. like actually cheap. one dollar sign, max", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "maya", "text": "every dollar i don't spend is a dollar closer to my trip. i will not be stopped", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "trip fund respected", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Also: somewhere that's good for groups, please. Last time the three of us ate standing at a counter.", "emotion": "NEUTRAL", "clue": "vibe:group_friendly" },
+    { "speaker": "maya", "text": "the counter. my back has never recovered. i am literally never eating standing up again", "emotion": "ANNOYED", "clue": null },
+    { "speaker": "liam", "text": "big table. lots of tacos. let's gooo", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Assistant, here's the summary:\n- tacos\n- good for a group\n- nothing with peanuts\n- cheap, per Maya", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "\"per maya.\" i love being a bullet point", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "hurry pls i'm fading", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
