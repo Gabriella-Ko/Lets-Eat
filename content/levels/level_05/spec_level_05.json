@@ -1,0 +1,17 @@
+{
+  "level_id": "level_05",
+  "chapter": 1,
+  "district": "campus",
+  "difficulty": "stated",
+  "guests": ["maya", "mina", "brooke"],
+  "hard": { "budget_max": "$", "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "pizza", "vibe": ["healthy"], "intolerances": [] },
+  "solution_id": "campus_basil_hearth",
+  "decoys": [
+    { "id": "campus_slice_society", "fails_on": "diet:vegetarian" },
+    { "id": "campus_quad_pizza_co", "fails_on": "vibe:healthy" },
+    { "id": "campus_green_bean_cafe", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
