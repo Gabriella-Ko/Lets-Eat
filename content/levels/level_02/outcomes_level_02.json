@@ -1,0 +1,40 @@
+{
+  "level_id": "level_02",
+  "by_venue": {
+    "campus_taco_town": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "liam", "text": "TACOS. BIG TABLE. i'm so happy", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "and it's CHEAP?? the trip fund lives another day", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "No peanuts on the menu. Well chosen.", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_mole_cantina": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "The mole here is made with peanuts. I can't eat anything on this menu.", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "i PROMISED to guard him. i'm literally leaving this chat in shame", "emotion": "SURPRISED" }
+      ]
+    },
+    "campus_taco_loft": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "the tacos are amazing but my wallet is SOBBING. that's two dollar signs", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll split my chips with you, trip fund", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_burger_barn": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "these are burgers. i asked for tacos. i was SO clear about tacos", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "Good prices and a big table, at least. Liam will survive.", "emotion": "NEUTRAL" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
