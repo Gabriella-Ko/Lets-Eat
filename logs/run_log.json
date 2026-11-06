@@ -367,7 +367,7 @@
     "step": "playtest run2",
     "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
     "retries": 0,
-    "tokens": null
+    "tokens": 11257
   },
   {
     "timestamp": "2026-11-06T04:56:18.004Z",
@@ -386,6 +386,16 @@
     "brief_version": "v1",
     "step": "judge playtests",
     "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:58:01.958Z",
+    "level": "level_04",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
     "retries": 0,
     "tokens": null
   }
