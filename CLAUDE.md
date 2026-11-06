@@ -34,10 +34,10 @@ logs/                           run_log.json, validation_, playtest_, integratio
 ## Commands Gabriella will use
 - **"Plan the campaign"** → `puzzle-architect` writes `campaign_outline.json`. Stop and wait for her approval.
 - **"Build level_XX"** → run the per-level pipeline below.
-- **"Status"** → summarise which levels are approved, in progress or flagged.
+- **"Status"** → summarise which levels are approved, in progress or flagged, with any open level PR.
 
 ## Per-level pipeline
-1. Check the campaign outline is approved. If not, stop.
+1. Check the campaign outline is approved. If not, stop. Then check `master` is clean and up to date with `origin/master`, and that no other `level/*` branch is open (one level at a time: levels share `run_log.json` and the registries). Create branch `level/XX` from `master`; every commit for this level goes on it.
 2. `puzzle-architect` writes `spec_level_XX.json` from its outline row.
 3. `narrative-writer` and `map-seeder` run (in parallel if possible) from the spec.
 4. Run the Validator. Any failure goes back to the agent that wrote the failing file (the log names it).
@@ -47,12 +47,13 @@ logs/                           run_log.json, validation_, playtest_, integratio
    - 3/3 correct with every constraint found → pass.
    - 2/3 → borderline: back to `narrative-writer` to strengthen the weakest clue.
    - 0–1/3 → back to `narrative-writer` if a clue is missing or buried too deep; back to `puzzle-architect` if the puzzle itself is unsound.
-8. Present the level to Gabriella with a one-line summary per check. Wait for approval.
-9. After approval, run Integration, then Provenance, then commit.
+8. Push `level/XX` and open a PR into `master` (`gh pr create --base master --title "level_XX: <one-line summary>"`) whose body is the one-line summary per check. Present the level to Gabriella with that summary and the PR link. Wait for approval.
+9. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. Finally update local `master` (`git checkout master && git pull`).
 
 ## Rules
 - Max 3 retries per agent per level. After that, stop and flag the level for Gabriella.
 - Per-level checks belong to the Validator; cross-level checks belong to Integration.
 - Every agent write is its own git commit: `[agent_id] level_XX: what changed`.
+- Level work lives on `level/XX` and reaches `master` only through its merged PR. Changes outside a level build (scripts, briefs, rules, outline) are committed on `master` directly. Read `master`'s history level by level with `git log --first-parent --oneline`.
 - Log every step in `logs/run_log.json`: timestamp, level, agent id, brief version, result, retries, and tokens used if Claude Code shows them (otherwise `null`).
 - Never mark a level final without Gabriella's approval.

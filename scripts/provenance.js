@@ -69,7 +69,7 @@ for (const f of files) {
   const generatedBy = data && typeof data.generated_by === 'string' ? data.generated_by : null;
   const editedBy = data && 'edited_by' in data ? data.edited_by : null;
 
-  const log = git('log', '--follow', '--format=%H%x09%aI%x09%an%x09%s', '--', f).split('\n').filter(Boolean)
+  const log = git('log', '--follow', '--no-merges', '--format=%H%x09%aI%x09%an%x09%s', '--', f).split('\n').filter(Boolean)
     .map((l) => { const [hash, timestamp, author, subject] = l.split('\t'); return { hash, timestamp, author, agent_tag: tagOf(subject), subject }; });
   const last = log[0] || null;
   const level = levelOf(f);
