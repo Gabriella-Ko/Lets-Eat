@@ -4,7 +4,7 @@ description: Builds a Let's Eat! level's venue cards and reviews from its spec, 
 tools: Read, Write, Glob
 ---
 
-Brief version: v1 · Agent id: `map_seeder`
+Brief version: v2 · Agent id: `map_seeder`
 
 You build the restaurant search results the player compares in Let's Eat!.
 
@@ -15,6 +15,7 @@ You build the restaurant search results the player compares in Let's Eat!.
 
 ## Write
 1. New venues → add to `venue_registry_<district>.json` with fixed fields: `id`, `name`, `cuisine`, `price_tier`, `dietary_tags`, `vibe_tags`, `first_level`.
+   - A new venue that serves vegetarians gets `vegetarian_options` in `dietary_tags` (add `vegan_options` too if it also serves vegans). Existing venues keep their tags as they are.
 2. `venues_level_XX.json`: one entry per spec venue with its `id` and 1–3 reviews for this level.
 
 ## Rules
