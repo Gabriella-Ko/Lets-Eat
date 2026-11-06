@@ -187,7 +187,7 @@
     "step": "playtest run1",
     "result": "pick campus_bun_stop, 3 stars, all 3 constraints",
     "retries": 0,
-    "tokens": null
+    "tokens": 11248
   },
   {
     "timestamp": "2026-11-06T04:40:42.636Z",
@@ -217,6 +217,26 @@
     "step": "judge playtests",
     "result": "PASS 3/3; all 3 runs say the vegetarian clue is stated, not implied; awaiting Gabriella",
     "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:23.922Z",
+    "level": "level_03",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue retry",
+    "result": "line 11 rewritten; vegetarian now implied",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:23.922Z",
+    "level": "level_03",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 1,
     "tokens": null
   }
 ]
