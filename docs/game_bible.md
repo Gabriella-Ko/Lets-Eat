@@ -34,7 +34,7 @@ Each character has permanent traits that never change between levels, and per-le
 
 | Character | Personality | Permanent constraints | Voice in chat | Status |
 | --- | --- | --- | --- | --- |
-| Maya | Budget-conscious, dramatic when let down | Budget max `$` (saving for a trip) | Quick to complain, exaggerates ("i'm literally leaving this chat") | Locked |
+| Maya | Budget-conscious, dramatic when let down | Budget max `$` (saving for a trip).  From chapter 4 her max is $$: a promotion means the trip is covered.| Quick to complain, exaggerates ("i'm literally leaving this chat") | Locked |
 | Liam | Always hungry, easygoing, loves noodles and patios | None yet | Short excited messages, food-first | Locked |
 | Mina | Creative, flexible, patient, soft-spoken yet direct | Vegetarian | Mid-length messages, wants everyone to be happy, checks how everyone is doing; hides her own needs, which only surface as hints ("oh, I can just get a side salad") | Locked |
 | Roxy | Adventurous, sometimes impulsive | Dairy intolerance (impulsive, often forgets to mention it until it's too late) | Short excited messages, action-first vocabulary ("Let's do it!", "I'm down") | Locked |
@@ -130,8 +130,8 @@ The campaign is 4 chapters of 5 levels each (20 total). The Puzzle Architect pic
 | --- | --- | --- | --- | --- | --- |
 | 1 | Campus Quarter | 2–3 | 4 | Stated (one implied exception, below) | 1 |
 | 2 | Downtown | 3–4 | 5 | Stated and implied | 2 |
-| 3 | Waterfront | 4–5 | 6 | Mostly implied | 2 |
-| 4 | Night Market | 4–6 | 7 | Implied and buried | 3 |
+| 3 | Night Market | 4–5 | 6 | Mostly implied | 2  |  
+| 4 | Waterfront | 4–6 | 7 | Implied and buried| 3 |
 
 **District profiles** (Proposed)
 
@@ -141,8 +141,12 @@ The Map Seeder builds each level's venues from its district's profile, not the w
 | --- | --- | --- | --- | --- |
 | `campus` | `noodles`, `pizza`, `cafe`, `burgers`, `tacos`, `ice_cream` | Mostly `$`, a few `$$` | `quick_bite`, `group_friendly`, `lively` | Allergies, wrong craving |
 | `downtown` | `sushi`, `curry`, `viet`, `thai`, `cafe`, `burgers` | `$`–`$$` | `quick_bite`, `quiet`, `healthy` | One tier over budget, too slow for a lunch break |
-| `waterfront` | `greek`, `italian`, `sushi`, `dim_sum`, `ice_cream` | `$$`–`$$$` | `outdoor_seating`, `lively`, `quiet` | Two tiers over budget, `lively` vs. `quiet` clashes |
-| `night_market` | Any | `$`–`$$$` | Any | Any; the widest mix of options |
+| `night_market` | Any | `$`–`$$$` | Any | Any; the widest mix of options  |
+| `waterfront` | `greek`, `italian`, `sushi`, `dim_sum`, `ice_cream` | `$$`–`$$$` | `outdoor_seating`, `lively`, `quiet` | One tier over budget, `lively` vs. `quiet` clashes  |
+
+**Story Beats**  
+- Maya's promotion: hinted at in one chapter 3 level (she mentions a work win, budget still $); revealed in her first chapter 4 level ("did the math, trip is funded"). Every chapter 4 level with Maya restates her new $$ budget in chat.
+ 
 
 **Guardrails**
 
@@ -152,7 +156,7 @@ The Map Seeder builds each level's venues from its district's profile, not the w
 - Every non-solution venue is a decoy with a reason to fail. Each level has at least one hard-fail trap and at least one near miss (exactly one soft miss).
 - The Validator checks guest counts, venue counts, hard-constraint counts and character appearances against this table across all levels.
 - Venues can recur within their district. A recurring venue keeps its id, name, cuisine, price tier and vibe tags; only its reviews may change between levels.
-- A venue never appears outside its home district, except at the Night Market, which can bring back favourites from any chapter.
+- A venue never appears outside its home district, except at the Night Market, which can bring back favourites from earlier chapter.
 
 ## Data schemas
 
@@ -180,7 +184,7 @@ Four files per level plus one venue registry per district, all sharing the same 
 }
 ```
 
-`budget_max` is Maya's $ when she is a guest, otherwise null (no limit). Allowed `fails_on` values: `allergy:<tag>`, `diet:<tag>`, `budget_hard` (2+ tiers over), `budget_soft` (1 tier over), `craving`, `vibe:<tag>`, `intolerance:<tag>`.
+`budget_max` is Maya's budget for that chapter when she is a guest, otherwise null (no limit). Allowed `fails_on` values: `allergy:<tag>`, `diet:<tag>`, `budget_hard` (2+ tiers over), `budget_soft` (1 tier over), `craving`, `vibe:<tag>`, `intolerance:<tag>`.
 
 **Dialogue** (written by the Narrative Writer)
 
