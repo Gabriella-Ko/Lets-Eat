@@ -1,0 +1,38 @@
+{
+  "level_id": "level_05",
+  "run": 3,
+  "generated_by": "blind_playtester",
+  "pick": "campus_basil_hearth",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: pizza (Maya)",
+      "source_line": "maya: \"i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore\""
+    },
+    {
+      "constraint": "Preference: fresh and light, not greasy or heavy (Brooke)",
+      "source_line": "brooke: \"just not the greasy, heavy kind for me. something fresh and light\""
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign) maximum (Maya)",
+      "source_line": "maya: \"fresh is fine. CHEAP is mandatory. one dollar sign max, the trip fund is watching\""
+    },
+    {
+      "constraint": "Strict diet: vegetarian, needs real veggie pizza, picking meat off does not count (Mina)",
+      "source_line": "brooke: \"wait, mina, you're vegetarian! you told me in class. picking it off doesn't count\" (reinforced by maya: \"we are going somewhere with real veggie pizza\")"
+    }
+  ],
+  "elimination": {
+    "campus_slice_society": "Vegetarian deal-breaker: every pizza comes with meat and they will not make one without; no vegetarian_options tag.",
+    "campus_quad_pizza_co": "Fails Brooke's fresh/light preference: deep, doughy, greasy; no healthy tag. Would be 2 stars.",
+    "campus_green_bean_cafe": "Fails Maya's pizza craving: no pizza ovens. Would be 2 stars.",
+    "campus_basil_hearth": "Pizza, $, healthy tag and light reviews, vegetarian_options with half the menu veggie. Meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": [
+    "The vegetarian trap works: Mina downplays her diet ('i can always just pick the pepperoni off') and Brooke corrects her right away. A careless reader might take Mina's first line literally, but the correction is plain and Maya backs it up, so it is fair.",
+    "Slice Society is a good decoy. It matches pizza, $, and fresh/light (healthy tag, light reviews), so only the vegetarian constraint rules it out. Its registry entry has no vegetarian_options tag and its review says outright that there are no meat-free pizzas, so a player who checks can find it.",
+    "Every venue is $, so the budget constraint does not narrow anything down in this level. It is not unfair, just inert.",
+    "No contradictions found. Every constraint is in a single clear line."
+  ]
+}

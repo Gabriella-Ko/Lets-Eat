@@ -1,0 +1,50 @@
+{
+  "level_id": "level_05",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "campus_basil_hearth",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: pizza",
+      "type": "craving",
+      "source_speaker": "maya",
+      "source_line": "i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore"
+    },
+    {
+      "constraint": "Preference: fresh and light, not greasy or heavy",
+      "type": "preference",
+      "source_speaker": "brooke",
+      "source_line": "just not the greasy, heavy kind for me. something fresh and light"
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign max)",
+      "type": "budget",
+      "source_speaker": "maya",
+      "source_line": "fresh is fine. CHEAP is mandatory. one dollar sign max, the trip fund is watching"
+    },
+    {
+      "constraint": "Strict diet: Mina is vegetarian (deal-breaker); needs a real veggie pizza, picking meat off does not count",
+      "type": "strict_diet",
+      "source_speaker": "brooke",
+      "source_line": "wait, mina, you're vegetarian! you told me in class. picking it off doesn't count",
+      "supporting_lines": [
+        "maya: absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise",
+        "mina: ...okay, a proper veggie pizza would actually make my day. thank you both"
+      ]
+    }
+  ],
+  "venue_assessment": {
+    "campus_basil_hearth": "Pizza, $, healthy tag, vegetarian_options; reviews confirm light and half the menu veggie. Meets everything.",
+    "campus_slice_society": "Pizza, $, light, but every pizza has meat and no vegetarian_options tag. Fails Mina's diet (deal-breaker).",
+    "campus_quad_pizza_co": "Pizza, $, has veggie slices, but greasy and heavy, no healthy tag. Misses Brooke's preference (-1 star, 2 stars).",
+    "campus_green_bean_cafe": "$, healthy, vegetarian, but serves no pizza. Misses Maya's craving (-1 star, 2 stars)."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Mina's 'i can always just pick the pepperoni off' is a fair, nicely written trap; Brooke immediately clarifies it, so the vegetarian constraint is hard to miss.",
+    "Slice Society is the strongest decoy: its registry tags (pizza, $, healthy) look perfect, and only the missing vegetarian_options tag and the second review reveal the meat-only menu. Fair, since the tag is absent.",
+    "Every venue is $ and peanut_free, so the budget does not separate anything here. Fine for an early level, but it makes the budget line flavour rather than a filter.",
+    "No contradictions found. With the clue tags stripped, the constraints were still explicit enough to find in one read."
+  ]
+}
