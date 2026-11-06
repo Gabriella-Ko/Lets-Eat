@@ -50,7 +50,7 @@ logs/                           run_log.json, validation_, playtest_, integratio
    - 2/3 → borderline: back to `narrative-writer` to strengthen the weakest clue.
    - 0–1/3 → back to `narrative-writer` if a clue is missing or buried too deep; back to `puzzle-architect` if the puzzle itself is unsound.
 8. Push `level/XX` and open a PR into `master` (`gh pr create --base master --title "level_XX: <one-line summary>"`) whose body is the one-line summary per check. Present the level to Gabriella with that summary and the PR link. Wait for approval.
-9. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. Finally update local `master` (`git checkout master && git pull`).
+9. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. If the merge says "not mergeable" right after a push, check `gh pr view <n> --json mergeable`: `UNKNOWN` means GitHub is still checking, so retry; `CONFLICTING` means stop and report. Finally update local `master` (`git checkout master && git pull`).
 
 ## Rules
 - Max 3 retries per agent per level. After that, stop and flag the level for Gabriella.
