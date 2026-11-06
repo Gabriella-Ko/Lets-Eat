@@ -6,28 +6,31 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: burgers (not noodles)",
-      "source_line": "liam: \"and before you say it, no, not noodles today. i want a BURGER. big and messy\""
+      "constraint": "Craving: burger (not noodles)",
+      "who": "liam",
+      "line": "and before you say it, no, not noodles today. i want a BURGER. big and messy"
     },
     {
-      "constraint": "Quick bite: must be fast, no long sit-down (Mina's critique at 1:15)",
-      "source_line": "mina: \"the only thing is my studio critique starts at 1:15, so i can't stay long. sorry\" / liam: \"so we grab it fast and go. no long sit-down thing. got it\""
+      "constraint": "Must be quick, no long sit-down service (Mina's critique at 1:15)",
+      "who": "mina / liam",
+      "line": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry / so we grab it fast and go. no long sit-down thing. got it"
     },
     {
-      "constraint": "Strict diet: Mina is vegetarian and needs a real veggie burger, not just fries",
-      "source_line": "liam: \"you don't do meat, so the place needs a real burger for you too. veggie patty or bust\""
-    },
-    {
-      "constraint": "Budget: not stated in the chat; all four venues are $, so price is not a factor (student lunch implies cheap)",
-      "source_line": "none explicit"
+      "constraint": "Strict diet: Mina is vegetarian and needs a real veggie burger, not just sides (beef-fat fries are not acceptable)",
+      "who": "mina",
+      "line": "nope. last time you ate a plate of fries while i had a double stack. not again / this time you get a real burger too. one you can actually eat, not just the sides / ...that's really sweet of you. a veggie patty would make my whole day"
     }
   ],
+  "eliminations": {
+    "campus_noodle_cellar": "Noodles only; misses Liam's burger craving.",
+    "campus_brisket_box": "Meat only, fries in beef fat, no vegan_options tag; fails Mina's vegetarian diet.",
+    "campus_patty_parlor": "Has a veggie patty but is full table service with no quick_bite tag; misses the quick-lunch constraint."
+  },
   "difficulty": 2,
   "notes": [
-    "Elimination is clean: Noodle Cellar fails the burger craving (its own review says so), Brisket Box fails vegetarian (no vegan_options tag, review says even fries are in beef fat), Patty Parlor fails quick_bite (no vibe tag, review says table service, don't come on a short break). Bun Stop is the only venue meeting all three.",
-    "The vegetarian constraint is not really implied: Liam states it outright ('you don't do meat ... veggie patty or bust'). Mina's 'i can always just get fries' is the intended trap, but Liam immediately defuses it, so the trap barely works. If the goal is an implied vegetarian clue, Liam's line gives it away.",
-    "No budget is mentioned in the chat. Harmless here because every venue is $, but the player cannot confirm the group's budget tier.",
-    "The vegetarian need is inferred from the 'vegan_options' tag plus reviews; there is no explicit 'vegetarian' tag. Fine for a player, but slightly indirect.",
-    "Files read: dialogue_level_03.json, venues_level_03.json, venue_registry_campus.json in content/playtest_input/level_03/. No dialogue lines carried a clue field. No other files opened."
+    "Mina's vegetarianism is never stated outright; it is inferred from the 'fries only last time' memory plus 'a veggie patty would make my whole day'. Readable but fair for a level_03 hint-style clue.",
+    "No explicit budget is given in the chat. All four venues are $ so budget does not affect the answer; a player might wonder whether a budget clue was cut.",
+    "Each decoy fails exactly one constraint, and the reviews make each failure clear. Bun Stop's reviews confirm all three needs, so once the clues are spotted the answer is unambiguous.",
+    "Mina's 'i can always just get fries' line is a nice misdirect: it tempts a player to treat the diet as optional, but Liam explicitly overrules it."
   ]
 }

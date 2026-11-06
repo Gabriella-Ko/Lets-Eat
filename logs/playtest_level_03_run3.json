@@ -6,49 +6,32 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: burgers (not noodles)",
-      "type": "craving",
-      "source_speaker": "liam",
+      "constraint": "Craving: burger (no noodles today)",
+      "who": "liam",
       "source_line": "and before you say it, no, not noodles today. i want a BURGER. big and messy"
     },
     {
-      "constraint": "Mina agrees to burgers too",
-      "type": "craving",
-      "source_speaker": "mina",
-      "source_line": "ha, a burger actually sounds really nice. i'm in"
+      "constraint": "Time limit: quick bite, no long sit-down (Mina's critique at 1:15)",
+      "who": "mina / liam",
+      "source_line": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry  +  so we grab it fast and go. no long sit-down thing. got it"
     },
     {
-      "constraint": "Quick bite: Mina has a 1:15 critique, no long sit-down meal",
-      "type": "preference",
-      "source_speaker": "mina / liam",
-      "source_line": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry / so we grab it fast and go. no long sit-down thing. got it"
-    },
-    {
-      "constraint": "Vegetarian (Mina doesn't eat meat), and she needs a real veggie burger, not just fries",
-      "type": "strict_diet",
-      "source_speaker": "liam / mina",
-      "source_line": "you don't do meat, so the place needs a real burger for you too. veggie patty or bust / ...that's really sweet of you. a veggie patty would make my whole day"
-    },
-    {
-      "constraint": "Budget: not stated in chat. Student lunch implied; every venue is $, so it doesn't decide anything",
-      "type": "budget",
-      "source_speaker": null,
-      "source_line": null
+      "constraint": "Mina needs a real vegetarian burger (veggie patty), not just fries; inferred to be vegetarian",
+      "who": "mina",
+      "source_line": "...that's really sweet of you. a veggie patty would make my whole day  (supported by: wherever you pick, i can always just get fries / one you can actually eat, not just the sides)"
     }
   ],
   "elimination": {
-    "campus_noodle_cellar": "Noodles. Liam explicitly said no noodles, and a review says 'don't come in craving a burger'. Misses the burger craving.",
-    "campus_brisket_box": "Fast and cheap burgers, but meat only. Fries are cooked in beef fat and there is no vegan_options tag. Fails Mina's vegetarian diet, which is a deal-breaker.",
-    "campus_patty_parlor": "Has burgers and a veggie patty, but it's table service with no quick_bite tag, and a review says 'Don't come here on a short break.' Misses the quick-bite preference, so -1 star.",
-    "campus_bun_stop": "Burgers, $, quick_bite (burger in five minutes), black bean veggie patty, vegan_options. Meets every constraint."
+    "campus_noodle_cellar": "Noodles only, misses Liam's burger craving (Liam explicitly rules out noodles).",
+    "campus_brisket_box": "No vegetarian option; even the fries are cooked in beef fat, so Mina can't eat there.",
+    "campus_patty_parlor": "Has a veggie patty, but full table service and slow; no quick_bite tag. Misses the time limit.",
+    "campus_bun_stop": "Burgers, black bean veggie patty, counter service in five minutes, $. Meets everything."
   },
   "difficulty": 2,
   "notes": [
-    "The vegetarian constraint isn't really implied. Liam states it outright ('you don't do meat'). Mina's 'i can always just get fries' looks like the intended trap, but Liam shuts it down straight away, so it hardly works as a trap. If the design goal is an implied diet, this line gives it away.",
-    "The Brisket Box trap works well: it's fast, cheap and sells burgers, and only the review (beef-fat fries) and the missing vegan_options tag rule it out.",
-    "Patty Parlor is a fair near-miss. Its review states the slow table service clearly, and the empty vibe_tags back it up.",
-    "Minor: the registry uses 'vegan_options' as the diet tag where the constraint is vegetarian. A player has to infer that vegan options cover vegetarian. That's reasonable, but a 'vegetarian' tag would be cleaner.",
-    "Budget is never mentioned. All four venues are $, so price can't break a tie. That's fine, but the price rule is never tested in this level.",
-    "With the clue tags stripped, the level is still easy: every constraint is stated plainly in the chat and backed up by the reviews."
+    "No budget is stated in the chat. All four venues are $, so price never decides anything here, but a player can't tell whether a budget exists.",
+    "Mina's diet is only hinted at (fries last time, 'one you can actually eat', 'veggie patty'). She never says 'vegetarian'. Brisket Box's review spells out the vegetarian problem, which makes the hint easy enough to confirm. Fair, but a careless player could read 'veggie patty' as a nice-to-have rather than a deal-breaker. Either way Brisket Box loses.",
+    "Each decoy fails on exactly one axis (cuisine, diet, speed), which works well. Patty Parlor is the strongest decoy, and the review 'Don't come here on a short break' together with the empty vibe_tags settles it clearly.",
+    "Nothing contradictory or unfair found. I read only the three permitted files."
   ]
 }
