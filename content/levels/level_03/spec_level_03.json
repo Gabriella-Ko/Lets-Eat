@@ -1,0 +1,17 @@
+{
+  "level_id": "level_03",
+  "chapter": 1,
+  "district": "campus",
+  "difficulty": "implied",
+  "guests": ["mina", "liam"],
+  "hard": { "budget_max": null, "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "burgers", "vibe": ["quick_bite"], "intolerances": [] },
+  "solution_id": "campus_bun_stop",
+  "decoys": [
+    { "id": "campus_brisket_box", "fails_on": "diet:vegetarian" },
+    { "id": "campus_patty_parlor", "fails_on": "vibe:quick_bite" },
+    { "id": "campus_noodle_cellar", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
