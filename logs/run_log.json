@@ -67,7 +67,7 @@
     "step": "playtest run1",
     "result": "pick campus_taco_town, 3 stars, 4/4 constraints",
     "retries": 0,
-    "tokens": null
+    "tokens": 10747
   },
   {
     "timestamp": "2026-11-05T00:00:00Z",
