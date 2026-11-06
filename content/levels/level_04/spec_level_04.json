@@ -1,0 +1,17 @@
+{
+  "level_id": "level_04",
+  "chapter": 1,
+  "district": "campus",
+  "difficulty": "stated",
+  "guests": ["brooke", "cyrus", "maya"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "cafe", "vibe": ["healthy"], "intolerances": [] },
+  "solution_id": "campus_green_bean_cafe",
+  "decoys": [
+    { "id": "campus_nutty_mug", "fails_on": "allergy:peanut" },
+    { "id": "campus_griddle_house", "fails_on": "vibe:healthy" },
+    { "id": "campus_sprout_lounge", "fails_on": "budget_soft" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

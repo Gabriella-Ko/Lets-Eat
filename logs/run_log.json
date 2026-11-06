@@ -308,5 +308,115 @@
     "result": "manifest written, 20 files, 0 issues",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:54:35.152Z",
+    "level": "level_04",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v3",
+    "step": "spec",
+    "result": "written; cafe + healthy, solution campus_green_bean_cafe, 4 new venues; craving untested",
+    "retries": 0,
+    "tokens": 28012
+  },
+  {
+    "timestamp": "2026-11-06T04:55:30.455Z",
+    "level": "level_04",
+    "agent_id": "map_seeder",
+    "brief_version": "v2",
+    "step": "venues",
+    "result": "4 new campus cafe venues + reviews",
+    "retries": 0,
+    "tokens": 23672
+  },
+  {
+    "timestamp": "2026-11-06T04:55:30.455Z",
+    "level": "level_04",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue+outcomes",
+    "result": "16 lines, 4 clue tags, Brooke debut",
+    "retries": 0,
+    "tokens": 24607
+  },
+  {
+    "timestamp": "2026-11-06T04:55:30.455Z",
+    "level": "level_04",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11190
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11257
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11075
+  },
+  {
+    "timestamp": "2026-11-06T04:56:18.004Z",
+    "level": "level_04",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:58:01.958Z",
+    "level": "level_04",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:58:02.624Z",
+    "level": "level_04",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS (boot test not run: no Phaser build yet)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:58:04.340Z",
+    "level": "level_04",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 27 files, 0 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]

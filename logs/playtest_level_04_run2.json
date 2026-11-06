@@ -1,0 +1,47 @@
+{
+  "level_id": "level_04",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "campus_green_bean_cafe",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: cafe (coffee, sandwiches)",
+      "type": "craving",
+      "who": "brooke, maya",
+      "source_line": "brooke: \"love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats\" / maya: \"a cafe?? yes. i need coffee to survive this afternoon\""
+    },
+    {
+      "constraint": "Nothing greasy or oily",
+      "type": "preference",
+      "who": "brooke",
+      "source_line": "brooke: \"one thing though: nothing greasy or oily for me\""
+    },
+    {
+      "constraint": "Healthy and fresh (salads, grain bowls)",
+      "type": "craving",
+      "who": "brooke",
+      "source_line": "brooke: \"something fresh! salads, grain bowls, that kind of thing\""
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign)",
+      "type": "budget",
+      "who": "maya",
+      "source_line": "maya: \"fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching\""
+    },
+    {
+      "constraint": "Peanut allergy, must be peanut-free",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "cyrus: \"Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts.\""
+    }
+  ],
+  "elimination": {
+    "campus_nutty_mug": "Deal-breaker: no peanut_free tag and a review mentions peanut butter in smoothies and nuts in the bakes. Cyrus is allergic.",
+    "campus_griddle_house": "Peanut-free and $, but greasy (butter-soaked pancakes, fried hash browns) and no healthy tag. Misses Brooke's no-grease and fresh preferences, so at most 1 to 2 stars.",
+    "campus_sprout_lounge": "Peanut-free, fresh and healthy, but $$, one tier over Maya's $ budget, so it costs a star (2 stars at best).",
+    "campus_green_bean_cafe": "Cafe, $, peanut_free, healthy tag, grain bowls and salads, coffee. Meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": "Fair and solvable. Each decoy fails exactly one obvious axis (allergy, grease/health, price), and all three are telegraphed clearly in both the registry tags and the reviews. The Nutty Mug's name gives the allergy trap away a little, though the cards confirm it anyway, so it isn't a guess. Maya's line about cafes sneaking peanut butter into smoothies foreshadows that decoy nicely. There's no contradiction: Brooke's 'sandwiches' isn't checkable on any card, but it doesn't separate the venues. 'Nothing greasy' and 'fresh' could count as one preference or two. Griddle House scores lower either way. The only one that takes a moment's thought is the Sprout Lounge price near miss, because its tier is $$ in the registry and its review only says it's expensive."
+}

@@ -1,0 +1,46 @@
+{
+  "level_id": "level_04",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "campus_green_bean_cafe",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cafe lunch (coffee, sandwiches)",
+      "type": "craving",
+      "who": "brooke, maya",
+      "source_line": "brooke: \"love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats\" (backed by maya: \"a cafe?? yes. i need coffee to survive this afternoon\")"
+    },
+    {
+      "constraint": "Nothing greasy or oily; fresh/healthy food (salads, grain bowls)",
+      "type": "preference",
+      "who": "brooke",
+      "source_line": "brooke: \"one thing though: nothing greasy or oily for me\" / \"something fresh! salads, grain bowls, that kind of thing\""
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign)",
+      "type": "budget",
+      "who": "maya",
+      "source_line": "maya: \"fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching\""
+    },
+    {
+      "constraint": "Peanut allergy: no peanut butter, peanut sauce or peanut toppings",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "cyrus: \"Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts.\""
+    }
+  ],
+  "elimination": {
+    "campus_nutty_mug": "Deal-breaker: no peanut_free tag, and a review says there's peanut butter in the smoothies and crushed nuts on the bowls (Cyrus's allergy).",
+    "campus_griddle_house": "Peanut-free and $, but no healthy tag and the reviews describe greasy fried food, which misses Brooke's 'nothing greasy' preference (-1 star).",
+    "campus_sprout_lounge": "Peanut-free and healthy, but $$ is one tier over Maya's $ budget (-1 star).",
+    "campus_green_bean_cafe": "Cafe, $, peanut_free, healthy. Reviews mention grain bowls and salads and say peanuts are kept out of the kitchen. Meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Each decoy fails exactly one constraint and the reviews back up the registry tags, so the puzzle is fair and there is only one correct answer.",
+    "Maya's warning that 'cafes sneak peanut butter into EVERYTHING. smoothies, cookies' points straight at The Nutty Mug's review. That makes the trap easy to spot, and the venue's name gives it away too.",
+    "One small ambiguity: Brooke says 'coffee, sandwiches' but none of the venues list sandwiches. Every venue is a cafe, so I treated 'cafe' as the craving and assumed sandwiches were not a separate scored item.",
+    "Griddle House has no 'greasy' tag. The only signal that it misses the preference is that its vibe_tags list is empty (no 'healthy') and its reviews say it's greasy. That is fine, but it means the player has to read the reviews or notice the missing tag."
+  ]
+}
