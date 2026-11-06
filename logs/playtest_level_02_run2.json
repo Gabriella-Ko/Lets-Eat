@@ -1,0 +1,27 @@
+{
+  "level_id": "level_02",
+  "run": 2,
+  "pick": "campus_taco_town",
+  "expected_stars": 3,
+  "constraints_found": [
+    { "constraint": "craving: tacos", "source": "liam: \"me!! tacos??\" / \"been thinking about tacos since breakfast. crunchy ones\"" },
+    { "constraint": "allergy: peanut (deal-breaker)", "source": "cyrus: \"I'm allergic to peanuts. No peanut sauces, no exceptions.\"" },
+    { "constraint": "budget: $ max", "source": "maya: \"BUT. it has to be cheap. like actually cheap. one dollar sign, max\"" },
+    { "constraint": "vibe: group_friendly", "source": "cyrus: \"Also: somewhere that's good for groups, please. Last time the three of us ate standing at a counter.\"" }
+  ],
+  "elimination": {
+    "campus_mole_cantina": "Deal-breaker. Review says the house mole is made with ground peanuts, and the registry has no peanut_free tag.",
+    "campus_taco_loft": "$$, one tier over Maya's $ max, so it would lose a star. Tacos, peanut-free and group-friendly otherwise.",
+    "campus_burger_barn": "No tacos, so it misses the main craving and loses a star. Cheap, peanut-free and group-friendly otherwise.",
+    "campus_taco_town": "Tacos, $, peanut_free (staff confirm in a review) and group_friendly (long tables). Meets every constraint."
+  },
+  "difficulty": 1,
+  "notes": [
+    "Too obvious. Cyrus's line 'Assistant, here's the summary' spells out all four constraints, so the player does not have to read the chat closely.",
+    "Leak: every line in dialogue_level_02.json has a 'clue' field (e.g. 'allergy:peanut', 'vibe:group_friendly'). Those fields label each constraint for anyone who opens the file. If the game client shows it, or if playtesters can read the raw JSON, it gives the answers away. Consider removing it from the playtest input.",
+    "The peanut trap at Mole Cantina only works if the player reads the reviews, since the registry just shows an empty dietary_tags list. That is fair, and both sources agree.",
+    "Liam says he wants 'crunchy ones', but no venue mentions crunchy tacos. I treated it as flavour text, not a constraint. If it is meant as a preference, no venue supports it.",
+    "Each decoy fails exactly one constraint (allergy, budget, cuisine), and no data contradicts anything else."
+  ],
+  "generated_by": "blind_playtester"
+}

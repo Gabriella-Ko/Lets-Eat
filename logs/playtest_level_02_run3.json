@@ -1,0 +1,21 @@
+{
+  "level_id": "level_02",
+  "run": 3,
+  "pick": "campus_taco_town",
+  "expected_stars": 3,
+  "constraints_found": [
+    { "constraint": "craving: tacos (crunchy)", "source": "liam: \"me!! tacos??\" / \"been thinking about tacos since breakfast. crunchy ones\"" },
+    { "constraint": "allergy: peanut (deal-breaker)", "source": "cyrus: \"I'm allergic to peanuts. No peanut sauces, no exceptions.\"" },
+    { "constraint": "budget: $ (one dollar sign max)", "source": "maya: \"it has to be cheap. like actually cheap. one dollar sign, max\"" },
+    { "constraint": "vibe: group_friendly", "source": "cyrus: \"somewhere that's good for groups, please. Last time the three of us ate standing at a counter.\"" }
+  ],
+  "elimination": {
+    "campus_mole_cantina": "Deal-breaker: tacos come in house mole made with ground peanuts; no peanut_free tag.",
+    "campus_taco_loft": "$$ is one tier over the $ budget: costs a star (would be 2 stars).",
+    "campus_burger_barn": "Burgers only, no tacos: misses the craving, costs a star (would be 2 stars).",
+    "campus_taco_town": "Tacos, $, peanut_free, group_friendly: meets everything."
+  },
+  "difficulty": 2,
+  "notes": "Fair and clear. Every constraint is stated plainly and Cyrus restates them in a summary line, which makes it quite easy, possibly too easy since the summary covers everything. The Mole Cantina peanut trap is good because only the review reveals it (the card just lacks a peanut_free tag). The Taco Loft budget near miss works. Small point: Liam asks for 'crunchy' tacos, and no review says whether any venue's tacos are crunchy. I treated that as flavour, not a separate preference, but a strict player could see it as an unverifiable constraint. No contradictions found.",
+  "generated_by": "blind_playtester"
+}
