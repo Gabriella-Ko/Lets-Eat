@@ -227,7 +227,7 @@
     "step": "dialogue retry",
     "result": "line 11 rewritten; vegetarian now implied",
     "retries": 1,
-    "tokens": null
+    "tokens": 19893
   },
   {
     "timestamp": "2026-11-06T04:45:23.922Z",
@@ -236,6 +236,46 @@
     "brief_version": "v1",
     "step": "validate",
     "result": "PASS",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": 10635
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": 10543
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3 (after retry)",
+    "result": "pick campus_bun_stop, 3 stars, vegetarian inferred from hints",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T04:45:59.291Z",
+    "level": "level_03",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; vegetarian clue now implied; awaiting Gabriella",
     "retries": 1,
     "tokens": null
   }
