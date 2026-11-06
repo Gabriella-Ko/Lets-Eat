@@ -72,6 +72,33 @@
       "dietary_tags": ["peanut_free"],
       "vibe_tags": ["group_friendly"],
       "first_level": "level_02"
+    },
+    {
+      "id": "campus_bun_stop",
+      "name": "Bun Stop",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_03"
+    },
+    {
+      "id": "campus_brisket_box",
+      "name": "Brisket Box",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_03"
+    },
+    {
+      "id": "campus_patty_parlor",
+      "name": "The Patty Parlor",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegan_options"],
+      "vibe_tags": [],
+      "first_level": "level_03"
     }
   ],
   "generated_by": "map_seeder",
