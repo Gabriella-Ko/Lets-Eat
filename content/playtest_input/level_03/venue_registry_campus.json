@@ -2,53 +2,28 @@
   "district": "campus",
   "venues": [
     {
-      "id": "campus_noodle_cellar",
-      "name": "The Noodle Cellar",
-      "cuisine": "noodles",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegan_options"
-      ],
-      "vibe_tags": [
-        "quick_bite"
-      ]
-    },
-    {
       "id": "campus_bun_stop",
       "name": "Bun Stop",
       "cuisine": "burgers",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegan_options"
-      ],
-      "vibe_tags": [
-        "quick_bite"
-      ]
+      "price_tier": "$"
     },
     {
       "id": "campus_brisket_box",
       "name": "Brisket Box",
       "cuisine": "burgers",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free"
-      ],
-      "vibe_tags": [
-        "quick_bite"
-      ]
+      "price_tier": "$"
     },
     {
       "id": "campus_patty_parlor",
       "name": "The Patty Parlor",
       "cuisine": "burgers",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegan_options"
-      ],
-      "vibe_tags": []
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_noodle_cellar",
+      "name": "The Noodle Cellar",
+      "cuisine": "noodles",
+      "price_tier": "$"
     }
   ]
 }

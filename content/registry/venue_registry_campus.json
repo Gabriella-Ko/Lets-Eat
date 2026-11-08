@@ -135,6 +135,33 @@
       "dietary_tags": ["peanut_free", "vegetarian_options"],
       "vibe_tags": ["healthy"],
       "first_level": "level_04"
+    },
+    {
+      "id": "campus_basil_hearth",
+      "name": "Basil Hearth",
+      "cuisine": "pizza",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_05"
+    },
+    {
+      "id": "campus_slice_society",
+      "name": "Slice Society",
+      "cuisine": "pizza",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_05"
+    },
+    {
+      "id": "campus_quad_pizza_co",
+      "name": "Quad Pizza Co.",
+      "cuisine": "pizza",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": [],
+      "first_level": "level_05"
     }
   ],
   "generated_by": "map_seeder",

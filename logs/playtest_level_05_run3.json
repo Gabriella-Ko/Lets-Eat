@@ -1,0 +1,33 @@
+{
+  "level_id": "level_05",
+  "run": 3,
+  "generated_by": "blind_playtester",
+  "pick": "campus_basil_hearth",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: pizza (Maya, shared by Brooke and Mina)",
+      "source_line": "maya: \"i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore\""
+    },
+    {
+      "constraint": "Preference: fresh and light, not greasy or heavy (Brooke)",
+      "source_line": "brooke: \"just not the greasy, heavy kind for me. something fresh and light\""
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign max) (Maya)",
+      "source_line": "maya: \"fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund\""
+    },
+    {
+      "constraint": "Strict diet: Mina is vegetarian, so the venue needs real vegetarian pizza (picking meat off does not count)",
+      "source_line": "brooke: \"wait, mina, you're vegetarian! you told me in class. picking it off doesn't count\" (reinforced by maya: \"we are going somewhere with real veggie pizza\")"
+    }
+  ],
+  "elimination": {
+    "campus_slice_society": "Every pizza comes with meat and they won't make one without: deal-breaker for Mina's vegetarian diet.",
+    "campus_quad_pizza_co": "Has veggie slices and is cheap, but deep, doughy and greasy: misses Brooke's fresh and light preference (-1 star).",
+    "campus_green_bean_cafe": "Vegetarian-friendly, light and cheap, but no pizza: misses the pizza craving (-1 star), and the chat explicitly rejects Mina 'just getting a salad'.",
+    "campus_basil_hearth": "Pizza, thin and light with fresh toppings, half the menu is veggie, $ and cheap per the review: meets everything."
+  },
+  "difficulty": 2,
+  "notes": "Fair and well built. The vegetarian clue is nicely disguised: Mina downplays it ('i can always just pick the pepperoni off') and Brooke has to surface it, so a careless reader might miss it. Then Maya restates it in the next line, which makes it fairly easy to catch. Each decoy fails on exactly one constraint (Slice Society: vegetarian; Quad: light; Green Bean: pizza), which makes for clean deduction. All four venues are $, so the budget clue does no filtering work in this level. No contradictions found."
+}

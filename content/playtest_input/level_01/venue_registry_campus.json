@@ -1,0 +1,29 @@
+{
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_noodle_nook",
+      "name": "Noodle Nook",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_satay_spot",
+      "name": "Satay Spot",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_noodle_cellar",
+      "name": "The Noodle Cellar",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_pizza_corner",
+      "name": "Pizza Corner",
+      "cuisine": "pizza",
+      "price_tier": "$"
+    }
+  ]
+}

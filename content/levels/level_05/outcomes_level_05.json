@@ -1,0 +1,41 @@
+{
+  "level_id": "level_05",
+  "by_venue": {
+    "campus_basil_hearth": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "brooke", "text": "light crust, fresh toppings, not a drop of grease. perfect pick!", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "they have a whole list of veggie pizzas. i actually got to choose :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "and it's CHEAP?? the trip fund thanks you", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_slice_society": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh. every pizza here has meat on it. it's okay, i'll just have some water", "emotion": "SURPRISED" },
+        { "speaker": "brooke", "text": "mina, no. you are not watching us eat. we're going", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i SAID real veggie pizza. i'm leaving this chat and taking mina with me", "emotion": "ANGRY" }
+      ]
+    },
+    "campus_quad_pizza_co": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "this slice is basically floating. i've used six napkins already", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "cheap AND huge though. i'll eat your crusts", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_green_bean_cafe": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "maya", "text": "this is a cafe. there is no pizza. i was PROMISED pizza", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "the salads are so fresh though! pizza next time, promise", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

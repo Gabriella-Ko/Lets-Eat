@@ -418,5 +418,315 @@
     "result": "manifest written, 27 files, 0 issues",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T05:00:00.327Z",
+    "level": "level_05",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v4",
+    "step": "spec",
+    "result": "written; pizza + healthy, solution campus_basil_hearth, 3 new venues + reused campus_green_bean_cafe; budget untested",
+    "retries": 0,
+    "tokens": 29724
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "map_seeder",
+    "brief_version": "v3",
+    "step": "venues",
+    "result": "3 new campus pizza venues + reviews; reused campus_green_bean_cafe",
+    "retries": 0,
+    "tokens": 25412
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "narrative_writer",
+    "brief_version": "v2",
+    "step": "dialogue+outcomes",
+    "result": "16 lines, 4 clue tags; Brooke states Mina is vegetarian for her",
+    "retries": 0,
+    "tokens": 27343
+  },
+  {
+    "timestamp": "2026-11-06T05:01:03.236Z",
+    "level": "level_05",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10976
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10936
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10961
+  },
+  {
+    "timestamp": "2026-11-06T05:01:50.480Z",
+    "level": "level_05",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_01",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run1 (cards hide tags)",
+    "result": "pick campus_noodle_nook, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10169
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_01",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run2 (cards hide tags)",
+    "result": "pick campus_noodle_nook, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10047
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_01",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run3 (cards hide tags)",
+    "result": "pick campus_noodle_nook, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10366
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_01",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge retest",
+    "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_02",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run1 (cards hide tags)",
+    "result": "pick campus_taco_town, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10838
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_02",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run2 (cards hide tags)",
+    "result": "pick campus_taco_town, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10720
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_02",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run3 (cards hide tags)",
+    "result": "pick campus_taco_town, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10776
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_02",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge retest",
+    "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run1 (cards hide tags)",
+    "result": "pick campus_bun_stop, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10998
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run2 (cards hide tags)",
+    "result": "pick campus_bun_stop, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10904
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_03",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run3 (cards hide tags)",
+    "result": "pick campus_bun_stop, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 10776
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_03",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge retest",
+    "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run1 (cards hide tags)",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11304
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run2 (cards hide tags)",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11247
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_04",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run3 (cards hide tags)",
+    "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11499
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_04",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge retest",
+    "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run1 (cards hide tags)",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11447
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run2 (cards hide tags)",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11473
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_05",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "retest run3 (cards hide tags)",
+    "result": "pick campus_basil_hearth, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11324
+  },
+  {
+    "timestamp": "2026-11-08T21:21:52.131Z",
+    "level": "level_05",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge retest",
+    "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:24:47.957Z",
+    "level": "level_05",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:24:48.855Z",
+    "level": "level_05",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS (boot test not run: no Phaser build yet)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:25:00.223Z",
+    "level": "level_05",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 37 files, 0 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]
