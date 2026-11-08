@@ -487,7 +487,7 @@
     "step": "playtest run3",
     "result": "pick campus_basil_hearth, 3 stars, all constraints",
     "retries": 0,
-    "tokens": null
+    "tokens": 10961
   },
   {
     "timestamp": "2026-11-06T05:01:50.480Z",
@@ -647,7 +647,7 @@
     "step": "retest run3 (cards hide tags)",
     "result": "pick campus_green_bean_cafe, 3 stars, all constraints",
     "retries": 0,
-    "tokens": null
+    "tokens": 11499
   },
   {
     "timestamp": "2026-11-08T21:21:52.131Z",
@@ -696,6 +696,16 @@
     "brief_version": "v1",
     "step": "judge retest",
     "result": "PASS 3/3 with dietary/vibe tags hidden",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:24:47.957Z",
+    "level": "level_05",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
     "retries": 0,
     "tokens": null
   }
