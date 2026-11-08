@@ -5,50 +5,25 @@
       "id": "campus_green_bean_cafe",
       "name": "Green Bean Cafe",
       "cuisine": "cafe",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegetarian_options"
-      ],
-      "vibe_tags": [
-        "healthy"
-      ]
+      "price_tier": "$"
     },
     {
       "id": "campus_nutty_mug",
       "name": "The Nutty Mug",
       "cuisine": "cafe",
-      "price_tier": "$",
-      "dietary_tags": [
-        "vegetarian_options"
-      ],
-      "vibe_tags": [
-        "healthy"
-      ]
+      "price_tier": "$"
     },
     {
       "id": "campus_griddle_house",
       "name": "Griddle House",
       "cuisine": "cafe",
-      "price_tier": "$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegetarian_options"
-      ],
-      "vibe_tags": []
+      "price_tier": "$"
     },
     {
       "id": "campus_sprout_lounge",
       "name": "The Sprout Lounge",
       "cuisine": "cafe",
-      "price_tier": "$$",
-      "dietary_tags": [
-        "peanut_free",
-        "vegetarian_options"
-      ],
-      "vibe_tags": [
-        "healthy"
-      ]
+      "price_tier": "$$"
     }
   ]
 }
