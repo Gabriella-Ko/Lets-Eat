@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Let's Eat! playtest input builder (pipeline step 5, CLAUDE.md).
+// Let's Eat! playtest input builder (pipeline step 6, CLAUDE.md).
 // Usage: node scripts/prepare_playtest.js level_XX [level_YY ...]
 // Writes content/playtest_input/level_XX/ with ONLY what a player sees:
 //   dialogue_level_XX.json  speaker, text, emotion per line (no clue tags, no provenance)
