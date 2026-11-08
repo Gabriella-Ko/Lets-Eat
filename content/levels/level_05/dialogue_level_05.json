@@ -3,21 +3,23 @@
   "script": [
     { "speaker": "brooke", "text": "lunch crew, round two! i added mina, she's in my drawing elective", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "hi maya :) thanks for letting me join. how's everyone's week going?", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "maya", "text": "hi mina!! my week: long. my stomach: empty. i am running on fumes", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "maya", "text": "hi mina!! my week: long. my stomach: empty. i'm running on fumes", "emotion": "HUNGRY", "clue": null },
     { "speaker": "maya", "text": "i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "brooke", "text": "pizza sounds fun, i'm in!", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "brooke", "text": "just not the greasy, heavy kind for me. something fresh and light", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
-    { "speaker": "maya", "text": "fresh is fine. CHEAP is mandatory. one dollar sign max, the trip fund is watching", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "maya", "text": "fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "mina", "text": "a trip? that sounds lovely. where are you going?", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "maya", "text": "the coast!! still saving. i have eaten so much toast", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "pizza sounds good to me too. and don't worry about me, i can always just pick the pepperoni off", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "wait, mina, you're vegetarian! you told me in class. picking it off doesn't count", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
     { "speaker": "maya", "text": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "oh, i didn't mean to make it complicated. i can just get a salad or something", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "brooke", "text": "no way! we want you to eat pizza too. it's lunch crew, not lunch solo", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "exactly. and if we have to, we'll all get veggie pizza. no one is going hungry today", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "...okay, a proper veggie pizza would actually make my day. thank you both", "emotion": "HAPPY", "clue": "diet:vegetarian" },
-    { "speaker": "mina", "text": "is that really okay with everyone? i don't want to make lunch harder", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "brooke", "text": "that's what lunch crew is for!", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "that's what lunch crew is for!", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "assistant pls hurry, i'm about to eat this chat", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
