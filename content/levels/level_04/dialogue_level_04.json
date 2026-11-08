@@ -1,0 +1,23 @@
+{
+  "level_id": "level_04",
+  "script": [
+    { "speaker": "brooke", "text": "hi hi! cyrus added me. i'm brooke, from his lab section", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Welcome. Brooke has been asking to join these lunches for weeks.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "a new friend!! hi brooke, i'm maya. i'm starving and broke, that's my whole personality", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "brooke", "text": "love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "maya", "text": "a cafe?? yes. i need coffee to survive this afternoon", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "brooke", "text": "one thing though: nothing greasy or oily for me", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "brooke", "text": "something fresh! salads, grain bowls, that kind of thing", "emotion": "HAPPY", "clue": "vibe:healthy" },
+    { "speaker": "maya", "text": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "brooke", "text": "ooh a trip? where to?", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "maya", "text": "the coast. i've been saving since march. i will eat toast for dinner if i have to", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "cyrus", "text": "Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "brooke", "text": "got it. peanut-free, always. i'll check menus with you", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "maya", "text": "careful, cafes sneak peanut butter into EVERYTHING. smoothies, cookies, all of it", "emotion": "SURPRISED", "clue": "allergy:peanut" },
+    { "speaker": "brooke", "text": "this is already my favourite group chat. let's make lunch a regular thing!", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Agreed. I'll put it in the calendar.", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "assistant pls hurry, i'm down to my last granola bar", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

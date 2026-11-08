@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "b23a8c267947a6ac3cb0c3e99c19d17252292153",
+  "head": "e624e761e722f8fb7c57619736f9d0cfb4a413b8",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -67,13 +67,20 @@
       "file": "content/levels/level_01/outcomes_level_01.json",
       "level": "level_01",
       "author_id": "human:gabby",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": null,
-      "timestamp": "2026-11-01T16:06:36-05:00",
-      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
-      "last_commit_by": null,
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
           "timestamp": "2026-11-01T16:06:36-05:00",
@@ -87,13 +94,20 @@
       "file": "content/levels/level_01/spec_level_01.json",
       "level": "level_01",
       "author_id": "human:gabby",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": null,
-      "timestamp": "2026-11-01T16:06:36-05:00",
-      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
-      "last_commit_by": null,
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
           "timestamp": "2026-11-01T16:06:36-05:00",
@@ -107,13 +121,20 @@
       "file": "content/levels/level_01/venues_level_01.json",
       "level": "level_01",
       "author_id": "human:gabby",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": null,
-      "timestamp": "2026-11-01T16:06:36-05:00",
-      "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
-      "last_commit_by": null,
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "fa0c829e3cfae2074c2d5e1fc3493f67390f380f",
           "timestamp": "2026-11-01T16:06:36-05:00",
@@ -127,13 +148,20 @@
       "file": "content/levels/level_02/dialogue_level_02.json",
       "level": "level_02",
       "author_id": "narrative_writer",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:03:30-05:00",
-      "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
-      "last_commit_by": "narrative_writer",
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
           "timestamp": "2026-11-05T23:03:30-05:00",
@@ -147,13 +175,20 @@
       "file": "content/levels/level_02/outcomes_level_02.json",
       "level": "level_02",
       "author_id": "narrative_writer",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:03:30-05:00",
-      "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
-      "last_commit_by": "narrative_writer",
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "2ee630718d29577c3e3b8e6d7072be8253282375",
           "timestamp": "2026-11-05T23:03:30-05:00",
@@ -207,13 +242,20 @@
       "file": "content/levels/level_03/dialogue_level_03.json",
       "level": "level_03",
       "author_id": "narrative_writer",
-      "edited_by": null,
+      "edited_by": "human:gabby",
       "brief_version": "v2",
-      "timestamp": "2026-11-05T23:45:23-05:00",
-      "commit": "dbf6cd50693694a2a1463926f1ce4ce5ed16227a",
-      "last_commit_by": "narrative_writer",
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
         {
           "commit": "dbf6cd50693694a2a1463926f1ce4ce5ed16227a",
           "timestamp": "2026-11-05T23:45:23-05:00",
@@ -291,16 +333,204 @@
       ]
     },
     {
+      "file": "content/levels/level_04/dialogue_level_04.json",
+      "level": "level_04",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v2",
+      "timestamp": "2026-11-08T16:19:23-05:00",
+      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+          "timestamp": "2026-11-08T16:19:23-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 01-04: wording tweaks in level_02 chat; mark hand-edited files",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "9d6509073937dd2375ff2fdab8779b6787f86065",
+          "timestamp": "2026-11-05T23:55:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_04: write chat (Brooke's debut) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_04/outcomes_level_04.json",
+      "level": "level_04",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:55:30-05:00",
+      "commit": "9d6509073937dd2375ff2fdab8779b6787f86065",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9d6509073937dd2375ff2fdab8779b6787f86065",
+          "timestamp": "2026-11-05T23:55:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_04: write chat (Brooke's debut) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_04/spec_level_04.json",
+      "level": "level_04",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-05T23:54:35-05:00",
+      "commit": "c80c5ed0160e5056257e5a92b6a818fac5d51231",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c80c5ed0160e5056257e5a92b6a818fac5d51231",
+          "timestamp": "2026-11-05T23:54:35-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_04: write spec (cafe, healthy, peanut trap, budget near miss)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_04/venues_level_04.json",
+      "level": "level_04",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-05T23:55:14-05:00",
+      "commit": "da464f2c3df4bf96812f90b14dc7cbe9550bb168",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "da464f2c3df4bf96812f90b14dc7cbe9550bb168",
+          "timestamp": "2026-11-05T23:55:14-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_04: add 4 campus cafe venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_05/dialogue_level_05.json",
+      "level": "level_05",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v2",
+      "timestamp": "2026-11-08T16:19:22-05:00",
+      "commit": "74fb86ea5fb0ee4c73483fe437c8279fa00d9746",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "74fb86ea5fb0ee4c73483fe437c8279fa00d9746",
+          "timestamp": "2026-11-08T16:19:22-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_05: rework Mina's vegetarian exchange (18 lines)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "38356196943ec8f15104189d617aa108960d6c58",
+          "timestamp": "2026-11-06T00:01:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_05: write chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_05/outcomes_level_05.json",
+      "level": "level_05",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-06T00:01:03-05:00",
+      "commit": "38356196943ec8f15104189d617aa108960d6c58",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "38356196943ec8f15104189d617aa108960d6c58",
+          "timestamp": "2026-11-06T00:01:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_05: write chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_05/spec_level_05.json",
+      "level": "level_05",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v4",
+      "timestamp": "2026-11-06T00:00:00-05:00",
+      "commit": "aff8a4c70778d828b530c7dacb6cdef02bc74a4b",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aff8a4c70778d828b530c7dacb6cdef02bc74a4b",
+          "timestamp": "2026-11-06T00:00:00-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_05: write spec (pizza, healthy, vegetarian trap)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_05/venues_level_05.json",
+      "level": "level_05",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-06T00:00:41-05:00",
+      "commit": "aba045620aa8d901418a3e818b02e3131511529e",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aba045620aa8d901418a3e818b02e3131511529e",
+          "timestamp": "2026-11-06T00:00:41-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_05: add 3 campus pizza venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
       "edited_by": null,
-      "brief_version": "v1",
-      "timestamp": "2026-11-05T23:39:26-05:00",
-      "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
+      "brief_version": "v3",
+      "timestamp": "2026-11-06T00:00:41-05:00",
+      "commit": "aba045620aa8d901418a3e818b02e3131511529e",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "aba045620aa8d901418a3e818b02e3131511529e",
+          "timestamp": "2026-11-06T00:00:41-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_05: add 3 campus pizza venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "da464f2c3df4bf96812f90b14dc7cbe9550bb168",
+          "timestamp": "2026-11-05T23:55:14-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_04: add 4 campus cafe venues to registry, write venues and reviews",
+          "pre_pipeline": false
+        },
         {
           "commit": "79d0d9ff174ca45666f9ce1462780bc56e3af395",
           "timestamp": "2026-11-05T23:39:26-05:00",
@@ -332,16 +562,83 @@
       ]
     },
     {
+      "file": "logs/playtest_level_01_run1.json",
+      "level": "level_01",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_01_run2.json",
+      "level": "level_01",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_01_run3.json",
+      "level": "level_01",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "logs/playtest_level_02_run1.json",
       "level": "level_02",
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:04:24-05:00",
-      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
           "timestamp": "2026-11-05T23:04:24-05:00",
@@ -357,11 +654,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:04:24-05:00",
-      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
           "timestamp": "2026-11-05T23:04:24-05:00",
@@ -377,11 +681,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:04:24-05:00",
-      "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "83a03af79ce20fe2bb88fe801d2f75397d0ab049",
           "timestamp": "2026-11-05T23:04:24-05:00",
@@ -397,11 +708,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:45:59-05:00",
-      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
           "timestamp": "2026-11-05T23:45:59-05:00",
@@ -424,11 +742,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:45:59-05:00",
-      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
           "timestamp": "2026-11-05T23:45:59-05:00",
@@ -451,11 +776,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v1",
-      "timestamp": "2026-11-05T23:45:59-05:00",
-      "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
         {
           "commit": "da88e7dc02ad46e408c52c521b6110c6268d1cf6",
           "timestamp": "2026-11-05T23:45:59-05:00",
@@ -468,6 +800,168 @@
           "timestamp": "2026-11-05T23:40:42-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_03: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_04_run1.json",
+      "level": "level_04",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d905dac90f3ed9c082496e5c1d3baaa852759082",
+          "timestamp": "2026-11-05T23:56:18-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_04: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_04_run2.json",
+      "level": "level_04",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d905dac90f3ed9c082496e5c1d3baaa852759082",
+          "timestamp": "2026-11-05T23:56:18-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_04: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_04_run3.json",
+      "level": "level_04",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d905dac90f3ed9c082496e5c1d3baaa852759082",
+          "timestamp": "2026-11-05T23:56:18-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_04: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_05_run1.json",
+      "level": "level_05",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f5d1052c388ad814c72a9f5135069f26db1cc59e",
+          "timestamp": "2026-11-06T00:01:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_05: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_05_run2.json",
+      "level": "level_05",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f5d1052c388ad814c72a9f5135069f26db1cc59e",
+          "timestamp": "2026-11-06T00:01:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_05: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_05_run3.json",
+      "level": "level_05",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:21:52-05:00",
+      "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f69c9a7e94f840ba2d267ffd99886a212f168ff8",
+          "timestamp": "2026-11-08T16:21:52-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 01-05: retest with dietary/vibe tags hidden (15/15 correct)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f5d1052c388ad814c72a9f5135069f26db1cc59e",
+          "timestamp": "2026-11-06T00:01:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_05: playtest runs 1-3 (3/3 correct)",
           "pre_pipeline": false
         }
       ]

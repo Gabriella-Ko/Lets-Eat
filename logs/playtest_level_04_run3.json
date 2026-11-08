@@ -1,0 +1,53 @@
+{
+  "level_id": "level_04",
+  "run": 3,
+  "generated_by": "blind_playtester",
+  "pick": "campus_green_bean_cafe",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Peanut allergy (deal-breaker): no peanut butter, peanut sauce or peanut toppings",
+      "speaker": "cyrus",
+      "line": "Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts."
+    },
+    {
+      "constraint": "Budget: one dollar sign ($)",
+      "speaker": "maya",
+      "line": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching"
+    },
+    {
+      "constraint": "Craving: cafe lunch (coffee, sandwiches)",
+      "speaker": "brooke",
+      "line": "love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats"
+    },
+    {
+      "constraint": "Craving: coffee / cafe (agreement)",
+      "speaker": "maya",
+      "line": "a cafe?? yes. i need coffee to survive this afternoon"
+    },
+    {
+      "constraint": "Preference: nothing greasy or oily",
+      "speaker": "brooke",
+      "line": "one thing though: nothing greasy or oily for me"
+    },
+    {
+      "constraint": "Craving: fresh food (salads, grain bowls)",
+      "speaker": "brooke",
+      "line": "something fresh! salads, grain bowls, that kind of thing"
+    }
+  ],
+  "elimination": {
+    "campus_nutty_mug": "Peanut butter in smoothies and nuts on bowls: fails Cyrus's peanut allergy (deal-breaker).",
+    "campus_griddle_house": "Greasy, butter-soaked, no vegetables: misses Brooke's no-grease and fresh preferences (two stars lost).",
+    "campus_sprout_lounge": "$$ is one tier over the $ budget (one star lost), and a review confirms it is pricey for students.",
+    "campus_green_bean_cafe": "Cafe, $, coffee plus fresh grain bowls and salads, light food, peanuts kept out of the kitchen. Meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Each decoy fails on exactly one axis (allergy, grease/freshness, price), so the puzzle is clean and fair.",
+    "Maya's warning that cafes sneak peanut butter into smoothies nicely points at The Nutty Mug, and its name gives it away too. The name alone tells you it is a decoy, but the review confirms it, so you can't get it right by guessing.",
+    "Sprout Lounge's review says 'nut-free', which covers peanuts in practice. A careful player might pause over whether 'nut-free' includes peanuts, but it doesn't matter because the venue is $$.",
+    "Sandwiches (part of Brooke's pitch) aren't mentioned in any review. I treated them as an example of 'cafe lunch' and not as a separate craving. If they count on their own, no venue clearly meets them, which would be slightly unfair.",
+    "With the tags hidden, the reviews carry all the evidence and every constraint could be checked from them. Fairly easy for a level 4."
+  ]
+}

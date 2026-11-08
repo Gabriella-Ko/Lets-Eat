@@ -1,0 +1,47 @@
+{
+  "level_id": "level_04",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "campus_green_bean_cafe",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cafe lunch with coffee (cuisine craving)",
+      "speaker": "brooke / maya",
+      "line": "love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats / a cafe?? yes. i need coffee to survive this afternoon"
+    },
+    {
+      "constraint": "Nothing greasy or oily",
+      "speaker": "brooke",
+      "line": "one thing though: nothing greasy or oily for me"
+    },
+    {
+      "constraint": "Fresh food: salads, grain bowls",
+      "speaker": "brooke",
+      "line": "something fresh! salads, grain bowls, that kind of thing"
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign)",
+      "speaker": "maya",
+      "line": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching"
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "speaker": "cyrus",
+      "line": "I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts."
+    }
+  ],
+  "elimination": {
+    "campus_nutty_mug": "Peanut butter in smoothies, crushed nuts on bowls: fails Cyrus's allergy (deal-breaker).",
+    "campus_griddle_house": "Peanut-free and $, but greasy fried food and no vegetables: misses Brooke's no-grease and fresh preferences (-2 stars).",
+    "campus_sprout_lounge": "Fresh and nut-free, but $$ (one tier over budget, -1 star); review says too pricey for students.",
+    "campus_green_bean_cafe": "Cafe, $, fresh salads and grain bowls, light, peanut-free kitchen: meets everything."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Each decoy fails exactly one dimension and the reviews state it plainly, so the puzzle is fair but fairly easy once reviews are read.",
+    "Green Bean Cafe's reviews say 'feels light' and list fresh salads/grain bowls but never explicitly say 'not greasy'; light is a reasonable inference.",
+    "All four venues are cafes, so the cafe craving doesn't discriminate; fine, but it means 'coffee' is never actually checked (only Green Bean mentions coffee).",
+    "Maya's 'cafes sneak peanut butter into EVERYTHING' is a nice nudge toward reading reviews; The Nutty Mug name is a giveaway on its own, though I eliminated it from the review text, not the name."
+  ]
+}

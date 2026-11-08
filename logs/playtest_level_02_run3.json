@@ -1,21 +1,37 @@
 {
   "level_id": "level_02",
   "run": 3,
+  "generated_by": "blind_playtester",
   "pick": "campus_taco_town",
   "expected_stars": 3,
   "constraints_found": [
-    { "constraint": "craving: tacos (crunchy)", "source": "liam: \"me!! tacos??\" / \"been thinking about tacos since breakfast. crunchy ones\"" },
-    { "constraint": "allergy: peanut (deal-breaker)", "source": "cyrus: \"I'm allergic to peanuts. No peanut sauces, no exceptions.\"" },
-    { "constraint": "budget: $ (one dollar sign max)", "source": "maya: \"it has to be cheap. like actually cheap. one dollar sign, max\"" },
-    { "constraint": "vibe: group_friendly", "source": "cyrus: \"somewhere that's good for groups, please. Last time the three of us ate standing at a counter.\"" }
+    {
+      "constraint": "Craving: tacos (crunchy)",
+      "source_speaker": "liam",
+      "source_line": "been thinking about tacos since breakfast. crunchy ones"
+    },
+    {
+      "constraint": "Allergy (deal-breaker): no peanuts, no peanut sauces",
+      "source_speaker": "cyrus",
+      "source_line": "Tacos work for me. Reminder, since Maya's new to these lunches: I'm allergic to peanuts. No peanut sauces, no exceptions."
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign max)",
+      "source_speaker": "maya",
+      "source_line": "BUT it has to be cheap. like actually cheap. one dollar sign, max"
+    },
+    {
+      "constraint": "Preference: good for groups / seated big table, no standing counter",
+      "source_speaker": "cyrus",
+      "source_line": "Also somewhere that's good for groups pls. Last time the three of us ate standing at a counter."
+    }
   ],
   "elimination": {
-    "campus_mole_cantina": "Deal-breaker: tacos come in house mole made with ground peanuts; no peanut_free tag.",
-    "campus_taco_loft": "$$ is one tier over the $ budget: costs a star (would be 2 stars).",
-    "campus_burger_barn": "Burgers only, no tacos: misses the craving, costs a star (would be 2 stars).",
-    "campus_taco_town": "Tacos, $, peanut_free, group_friendly: meets everything."
+    "campus_mole_cantina": "Tacos are served in mole made with ground peanuts: violates Cyrus's peanut allergy (deal-breaker).",
+    "campus_taco_loft": "Price tier $$, one over Maya's $ budget (costs a star); otherwise fits.",
+    "campus_burger_barn": "Burgers only, 'don't come looking for tacos': misses the taco craving (costs a star).",
+    "campus_taco_town": "Tacos, $, long tables pushed together for a study group, staff confirm no peanuts. Meets everything."
   },
-  "difficulty": 2,
-  "notes": "Fair and clear. Every constraint is stated plainly and Cyrus restates them in a summary line, which makes it quite easy, possibly too easy since the summary covers everything. The Mole Cantina peanut trap is good because only the review reveals it (the card just lacks a peanut_free tag). The Taco Loft budget near miss works. Small point: Liam asks for 'crunchy' tacos, and no review says whether any venue's tacos are crunchy. I treated that as flavour, not a separate preference, but a strict player could see it as an unverifiable constraint. No contradictions found.",
-  "generated_by": "blind_playtester"
+  "difficulty": 1,
+  "notes": "Fair and solvable from the chat and reviews alone. Cyrus's summary line restates all four constraints, which makes the level very easy; fine for an early level. Each decoy fails exactly one constraint, and the peanut trap at Mole Cantina is only visible in its review, which is good use of the hidden-tag rule. Liam's 'crunchy ones' is not confirmed or contradicted by any review; nobody repeats it in the summary, so I treated it as flavour rather than a separate scored preference. If it is meant to be scored, no venue's reviews mention crunchy shells, which would be unfair."
 }

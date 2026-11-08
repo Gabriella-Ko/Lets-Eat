@@ -1,0 +1,41 @@
+{
+  "level_id": "level_01",
+  "run": 3,
+  "generated_by": "blind_playtester",
+  "pick": "campus_noodle_nook",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: noodles (big bowl)",
+      "type": "craving",
+      "speaker": "liam",
+      "line": "i need noodles. big bowl. slurpable."
+    },
+    {
+      "constraint": "Preference: patio / outdoor seating",
+      "type": "preference",
+      "speaker": "liam",
+      "line": "and somewhere with a patio pls, way too nice out to sit inside"
+    },
+    {
+      "constraint": "Allergy: no peanuts, not even in sauces (deal-breaker)",
+      "type": "allergy",
+      "speaker": "cyrus",
+      "line": "One condition, as always: nothing with peanuts. Not even a sauce."
+    },
+    {
+      "constraint": "Time limit: 40 minutes before study group (a soft hint for somewhere quick; no venue gave timing info, so it did not change the pick)",
+      "type": "context",
+      "speaker": "cyrus",
+      "line": "Agreed. I have 40 minutes before my study group."
+    }
+  ],
+  "venue_reasoning": {
+    "campus_noodle_nook": "Noodles, $, patio ('the patio catches the afternoon sun'), kitchen is peanut-free. Meets every constraint.",
+    "campus_satay_spot": "Noodles and outdoor seating, but 'Peanuts in everything' and satay sauce. Fails the allergy, so it is ruled out.",
+    "campus_noodle_cellar": "Noodles and nut-free, but it is a basement with no windows, so there is no patio. Costs one star.",
+    "campus_pizza_corner": "Outdoor picnic tables and nut-free, but it serves pizza, not noodles. Costs one star."
+  },
+  "difficulty": 1,
+  "notes": "Very straightforward tutorial level. Cyrus restates every constraint as a summary list, so the clues are hard to miss. Each decoy fails exactly one constraint, and the reason is clear from its reviews (satay = peanuts, cellar = no patio, pizza = not noodles). No budget was mentioned and every venue is $, so price never matters. The 40-minute time limit looks like it could be a clue, but no review mentions speed (apart from Satay Spot's 'quick bowl', and that venue is already ruled out), so it is just flavour text. Nothing unfair or contradictory. Note: CLAUDE.md (orchestrator instructions) was auto-loaded into my context by the environment. I did not open it or use it, and I read only the three permitted input files."
+}

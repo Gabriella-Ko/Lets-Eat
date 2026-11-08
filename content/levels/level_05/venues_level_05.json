@@ -1,0 +1,36 @@
+{
+  "level_id": "level_05",
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_basil_hearth",
+      "reviews": [
+        "Paper-thin crust, fresh tomatoes and a pile of rocket on top. Feels light, and two slices cost less than a coffee and muffin.",
+        "Half the menu is veggie: roasted peppers, mushroom and spinach, grilled courgette. My meat-free friend had a hard time choosing."
+      ]
+    },
+    {
+      "id": "campus_slice_society",
+      "reviews": [
+        "Thin, crisp bases with fresh basil and a light hand on the cheese. Cheap and doesn't leave you sluggish for afternoon lectures.",
+        "Every single pizza comes topped with pepperoni, sausage or prosciutto, and they won't make one without. My vegetarian roommate had nothing to order."
+      ]
+    },
+    {
+      "id": "campus_quad_pizza_co",
+      "reviews": [
+        "Deep, doughy slices buried under three kinds of cheese, with grease pooling on the paper plate. Cheap and filling, but I needed a nap after.",
+        "Solid veggie slices if you skip the meat: the mushroom and pepper one is great. Just don't come here looking for anything light."
+      ]
+    },
+    {
+      "id": "campus_green_bean_cafe",
+      "reviews": [
+        "Still my favourite lunch cafe: fresh salads, grain bowls and a big pot of vegetable soup, all under ten bucks.",
+        "Sandwiches, soups and smoothies, no ovens for pizza here. Light, wholesome and lots of meat-free choices."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}

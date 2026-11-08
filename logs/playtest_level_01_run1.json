@@ -1,0 +1,39 @@
+{
+  "level_id": "level_01",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "campus_noodle_nook",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: noodles (big bowl)",
+      "type": "craving",
+      "who": "liam",
+      "source_line": "i need noodles. big bowl. slurpable."
+    },
+    {
+      "constraint": "Preference: patio / outdoor seating",
+      "type": "preference",
+      "who": "liam",
+      "source_line": "and somewhere with a patio pls, way too nice out to sit inside"
+    },
+    {
+      "constraint": "Allergy: no peanuts, not even in sauces (deal-breaker)",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "One condition, as always: nothing with peanuts. Not even a sauce."
+    }
+  ],
+  "eliminations": {
+    "campus_satay_spot": "Peanuts in everything (house satay sauce) - fails Cyrus's allergy.",
+    "campus_noodle_cellar": "Basement with no windows - no patio, misses Liam's preference (would be 2 stars).",
+    "campus_pizza_corner": "Pizza, not noodles - misses Liam's craving (would be 2 stars)."
+  },
+  "difficulty": 1,
+  "notes": [
+    "Very obvious: Cyrus's chat line literally summarises all three constraints, and each decoy fails exactly one of them. Fine for a tutorial level.",
+    "Budget is never stated in the chat. All four venues are $, so price can't affect the result. The Noodle Nook review mentions 'cheap', but nobody in the chat asked for that.",
+    "Cyrus's '40 minutes before my study group' reads like a time constraint, but no card or review gives speed or wait times. Satay Spot's 'great for a quick bowl' review hints at speed. A player might wonder whether time matters. It looks like flavour text, not a constraint.",
+    "Noodle Cellar's 'Nothing with nuts' and Pizza Corner's 'No nuts anywhere' make them peanut-safe decoys. Each fails on a different axis, which is clean design."
+  ]
+}

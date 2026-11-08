@@ -1,0 +1,34 @@
+{
+  "level_id": "level_04",
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_green_bean_cafe",
+      "reviews": [
+        "Grain bowls, fresh salads and a lentil soup that actually feels light. Coffee plus lunch for under ten bucks.",
+        "The barista told me they keep peanuts out of the kitchen completely, so my allergic friend ordered without a second thought."
+      ]
+    },
+    {
+      "id": "campus_nutty_mug",
+      "reviews": [
+        "Fresh, wholesome bowls and green smoothies, and it's cheap enough to come every day.",
+        "Peanut butter in half the smoothies, crushed nuts on the bowls, and the bakes are full of them. Lives up to the name."
+      ]
+    },
+    {
+      "id": "campus_griddle_house",
+      "reviews": [
+        "Butter-soaked pancakes, hash browns fried crispy and a grilled cheese dripping grease. Cheap, filling, zero vegetables in sight.",
+        "Not a light lunch by any stretch, but they're careful with allergies: no peanuts anywhere in the kitchen."
+      ]
+    },
+    {
+      "id": "campus_sprout_lounge",
+      "reviews": [
+        "Gorgeous fresh salads and wholesome veggie bowls, and the kitchen is completely nut-free.",
+        "Lovely food, but a bowl and a juice cost me more than my whole week's lunch budget. Not one for students."
+      ]
+    }
+  ]
+}

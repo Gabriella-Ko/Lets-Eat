@@ -1,0 +1,29 @@
+{
+  "district": "campus",
+  "venues": [
+    {
+      "id": "campus_green_bean_cafe",
+      "name": "Green Bean Cafe",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_nutty_mug",
+      "name": "The Nutty Mug",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_griddle_house",
+      "name": "Griddle House",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_sprout_lounge",
+      "name": "The Sprout Lounge",
+      "cuisine": "cafe",
+      "price_tier": "$$"
+    }
+  ]
+}

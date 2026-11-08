@@ -56,7 +56,7 @@ Agents may only use these exact strings. A new tag gets added here first, then t
 | Budget tier | `$`, `$$`, `$$$` | Only Maya has a budget limit; everyone else is fine with any tier. With Maya present the group max is $; without her there is no limit. Soft at 1 tier over (−1 star); hard fail at 2+ tiers over | Locked |
 | Vibe | `quiet`, `lively`, `outdoor_seating`, `quick_bite`, `group_friendly`, `healthy` | Soft | Locked |
 
-A venue's dietary tags say what it can safely serve (`peanut_free`, `vegan_options`). The Seeder writes reviews that hint at a tag without naming the string.
+Venue cards show name, cuisine and price tier; dietary (e.g. peanut free, vegan) and vibe details come only from reviews. The Seeder writes reviews that hint at a tag without naming the string.
 
 ## Scoring rules
 

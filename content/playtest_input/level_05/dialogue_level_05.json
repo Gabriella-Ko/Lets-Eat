@@ -1,0 +1,95 @@
+{
+  "level_id": "level_05",
+  "script": [
+    {
+      "speaker": "brooke",
+      "text": "lunch crew, round two! i added mina, she's in my drawing elective",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "hi maya :) thanks for letting me join. how's everyone's week going?",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "hi mina!! my week: long. my stomach: empty. i'm running on fumes",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "maya",
+      "text": "i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "pizza sounds fun, i'm in!",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "just not the greasy, heavy kind for me. something fresh and light",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "mina",
+      "text": "a trip? that sounds lovely. where are you going?",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "the coast!! still saving. i have eaten so much toast",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "pizza sounds good to me too. and don't worry about me, i can always just pick the pepperoni off",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "wait, mina, you're vegetarian! you told me in class. picking it off doesn't count",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "maya",
+      "text": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "mina",
+      "text": "oh, i didn't mean to make it complicated. i can just get a salad or something",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "no way! we want you to eat pizza too. it's lunch crew, not lunch solo",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "maya",
+      "text": "exactly. and if we have to, we'll all get veggie pizza. no one is going hungry today",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "...okay, a proper veggie pizza would actually make my day. thank you both",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "maya",
+      "text": "that's what lunch crew is for!",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "maya",
+      "text": "assistant pls hurry, i'm about to eat this chat",
+      "emotion": "HUNGRY"
+    }
+  ]
+}

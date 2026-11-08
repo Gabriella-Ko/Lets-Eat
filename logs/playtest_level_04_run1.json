@@ -1,0 +1,48 @@
+{
+  "level_id": "level_04",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "campus_green_bean_cafe",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cafe lunch (cuisine preference)",
+      "who": "brooke, maya",
+      "line": "love that. ok, my pitch: cafe lunch. coffee, sandwiches, good chats / a cafe?? yes. i need coffee to survive this afternoon"
+    },
+    {
+      "constraint": "Nothing greasy or oily",
+      "who": "brooke",
+      "line": "one thing though: nothing greasy or oily for me"
+    },
+    {
+      "constraint": "Craving fresh food: salads, grain bowls",
+      "who": "brooke",
+      "line": "something fresh! salads, grain bowls, that kind of thing"
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign)",
+      "who": "maya",
+      "line": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching"
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "who": "cyrus",
+      "line": "Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts."
+    }
+  ],
+  "elimination": {
+    "campus_nutty_mug": "Peanut butter in smoothies and crushed nuts on bowls: fails Cyrus's allergy (deal-breaker).",
+    "campus_griddle_house": "Peanut-free and $, but greasy fried food and no fresh options: misses Brooke's no-grease and fresh cravings (-2 stars).",
+    "campus_sprout_lounge": "Fresh and nut-free, but $$ is one tier over Maya's $ budget (-1 star); a review confirms it is pricey.",
+    "campus_green_bean_cafe": "Cafe, $, grain bowls/salads/light soup, peanuts kept out of the kitchen: meets every constraint."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Each decoy fails exactly one dimension cleanly (allergy, freshness/grease, price), which makes the puzzle fair and readable.",
+    "Fairly easy: the venue name 'The Nutty Mug' telegraphs the allergy trap, though I eliminated it from the review text, not the name.",
+    "Green Bean Cafe's 'not greasy' status is inferred from 'feels light' and fresh salads/bowls rather than stated outright; reasonable but implicit.",
+    "Maya's line 'cafes sneak peanut butter into EVERYTHING' usefully nudges the player to check reviews for hidden peanuts.",
+    "No contradictions found."
+  ]
+}
