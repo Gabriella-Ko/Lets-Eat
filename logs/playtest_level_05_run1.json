@@ -6,38 +6,41 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: pizza (Maya)",
+      "constraint": "Craving: pizza",
       "type": "craving",
-      "source_line": "maya: \"i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore\""
+      "who": "maya",
+      "source_line": "i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore"
     },
     {
-      "constraint": "Preference: fresh and light, not greasy or heavy (Brooke)",
+      "constraint": "Preference: fresh and light, not greasy or heavy",
       "type": "preference",
-      "source_line": "brooke: \"just not the greasy, heavy kind for me. something fresh and light\""
+      "who": "brooke",
+      "source_line": "just not the greasy, heavy kind for me. something fresh and light"
     },
     {
-      "constraint": "Budget: $ max (Maya)",
+      "constraint": "Budget: $ max (one price tier)",
       "type": "budget",
-      "source_line": "maya: \"fresh is fine. CHEAP is mandatory. one dollar sign max, the trip fund is watching\""
+      "who": "maya",
+      "source_line": "fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund"
     },
     {
-      "constraint": "Strict diet: vegetarian (Mina). Picking meat off does not count, so the venue must have real vegetarian pizza",
-      "type": "strict_diet",
-      "source_line": "brooke: \"wait, mina, you're vegetarian! you told me in class. picking it off doesn't count\" (confirmed by maya: \"we are going somewhere with real veggie pizza\")"
+      "constraint": "Strict diet: vegetarian (needs real veggie pizza, picking meat off does not count)",
+      "type": "diet",
+      "who": "mina",
+      "source_line": "wait, mina, you're vegetarian! you told me in class. picking it off doesn't count"
+    },
+    {
+      "constraint": "Venue must offer a proper veggie pizza (confirms the vegetarian need and that a salad-only place is not acceptable)",
+      "type": "diet",
+      "who": "maya / mina",
+      "source_line": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise"
     }
   ],
   "elimination": {
-    "campus_slice_society": "Deal-breaker. Every pizza comes with meat and they won't make one without (review 2). No vegetarian_options tag in the registry. This is the trap: cheap, light and pizza, but Mina can't eat there.",
-    "campus_quad_pizza_co": "Pizza, $, has veggie slices, but it is deep, greasy and heavy, so it misses Brooke's fresh and light preference (-1 star, so 2 stars). The registry backs this up: no healthy vibe tag.",
-    "campus_green_bean_cafe": "$, healthy, vegetarian, but no pizza ovens, so it misses Maya's pizza craving (-1 star, so 2 stars).",
-    "campus_basil_hearth": "Pizza, $, half the menu is veggie, thin and light. Meets every constraint."
+    "campus_slice_society": "Light and cheap, but every pizza comes with meat and they won't make one without: vegetarian deal-breaker.",
+    "campus_quad_pizza_co": "Cheap with veggie slices, but deep, doughy, greasy and heavy: misses Brooke's light preference (-1 star).",
+    "campus_green_bean_cafe": "Cheap, light, vegetarian-friendly, but no pizza: misses Maya's craving and the group's explicit veggie-pizza goal (-1 star at least)."
   },
   "difficulty": 2,
-  "notes": [
-    "The vegetarian trap works well. Mina's 'i can always just pick the pepperoni off' tempts a careless reader to drop the diet, and Brooke shuts that down straight away, so it's fair and still a good catch.",
-    "Slice Society's registry tags (peanut_free plus healthy, no vegetarian_options) agree with its review, so a player can spot the trap from either the card or the reviews. That might make it a bit too easy to spot from tags alone, but it is consistent.",
-    "Each distractor misses exactly one constraint. That makes the logic clean but fairly easy to solve once all four constraints are listed.",
-    "No contradictions found. The trip/coast chatter is harmless flavour.",
-    "Minor: Green Bean Cafe is the same price tier and fully healthy/veggie, so a player who forgets the pizza craving might pick it. That's a reasonable secondary distractor."
-  ]
+  "notes": "Fair and solvable. The vegetarian clue is nicely disguised: Mina downplays it ('i can always just pick the pepperoni off') and Brooke corrects her, so a careless reader might miss it, which is the intended twist. Each decoy fails on exactly one axis (meat-only, heavy, no pizza), and all four are $, so the budget does not eliminate anything; it acts as a red herring. Every scoring fact was in the reviews. Slice Society's meat-only rule is stated plainly, and 'won't make one without' closes the loophole. Mina's 'i can just get a salad' line invites a Green Bean pick, but the group overrules it at once, so it is not unfair. Slightly easy once the vegetarian line is spotted."
 }

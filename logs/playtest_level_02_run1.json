@@ -1,40 +1,42 @@
 {
   "level_id": "level_02",
   "run": 1,
+  "generated_by": "blind_playtester",
   "pick": "campus_taco_town",
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "craving: tacos",
-      "source": "liam: \"me!! tacos??\" / \"been thinking about tacos since breakfast. crunchy ones\""
+      "constraint": "Craving: tacos (Liam)",
+      "type": "craving",
+      "source_line": "liam: \"me!! tacos??\" / \"been thinking about tacos since breakfast. crunchy ones\""
     },
     {
-      "constraint": "allergy: peanut (deal-breaker)",
-      "source": "cyrus: \"I'm allergic to peanuts. No peanut sauces, no exceptions.\""
+      "constraint": "Allergy: no peanuts (Cyrus), deal-breaker",
+      "type": "allergy",
+      "source_line": "cyrus: \"Tacos work for me. Reminder, since Maya's new to these lunches: I'm allergic to peanuts. No peanut sauces, no exceptions.\""
     },
     {
-      "constraint": "budget: $ max",
-      "source": "maya: \"it has to be cheap. like actually cheap. one dollar sign, max\""
+      "constraint": "Budget: $ max (Maya)",
+      "type": "budget",
+      "source_line": "maya: \"BUT it has to be cheap. like actually cheap. one dollar sign, max\""
     },
     {
-      "constraint": "vibe: group_friendly",
-      "source": "cyrus: \"somewhere that's good for groups, please. Last time the three of us ate standing at a counter.\""
+      "constraint": "Preference: good for groups / seated, no standing counter (Cyrus, Maya)",
+      "type": "preference",
+      "source_line": "cyrus: \"Also somewhere that's good for groups pls. Last time the three of us ate standing at a counter.\" (backed by maya: \"i am literally never eating standing up again\")"
     }
   ],
   "elimination": {
-    "campus_mole_cantina": "Tacos, $, group friendly, but review says the mole is made with ground peanuts and the card has no peanut_free tag. Allergy deal-breaker.",
-    "campus_taco_loft": "Tacos, peanut-free, group friendly, but $$ against a $ budget. One tier over, costs a star.",
-    "campus_burger_barn": "$, peanut-free, group friendly, but burgers only ('Don't come looking for tacos'). Misses the craving, costs a star.",
-    "campus_taco_town": "Tacos, $, peanut_free ('not a peanut in the building'), group_friendly ('pushed two long tables together'). Meets everything."
+    "campus_mole_cantina": "Tacos, $, big booths, but the house mole is made with ground peanuts. Allergy deal-breaker.",
+    "campus_taco_loft": "Tacos, nut-free, communal tables, but $$ (one tier over budget, -1 star). Review confirms not budget friendly.",
+    "campus_burger_barn": "$, peanut-free, picnic benches for groups, but no tacos (-1 star for the craving).",
+    "campus_taco_town": "Tacos, $, pushed long tables together for a group, staff say no peanuts in the building. Meets everything."
   },
   "difficulty": 1,
   "notes": [
-    "The dialogue file has a 'clue' field on each line (e.g. 'allergy:peanut', 'budget', 'vibe:group_friendly'). That labels every constraint for the player. If the player can see this data, the puzzle gets much easier. Consider removing it from the playtest copy, or confirm the game UI hides it.",
-    "Cyrus's summary line lists all four constraints. Together with the clue labels, that makes the level very obvious. This may be intended for an early level.",
-    "Every venue is tagged group_friendly, so the group vibe constraint does not rule anything out. It is only there as flavour.",
-    "Liam says 'crunchy ones', but no card or review mentions crunchy or soft shells. If that counts as a preference, nothing can be checked against it. I treated it as flavour.",
-    "venues_level_02.json has only ids and reviews. Name, price tier and tags come from venue_registry_campus.json in the same folder. Both are needed. The Mole Cantina peanut trap shows only in its review and in the missing peanut_free tag, which is fair.",
-    "Each decoy fails on a different single axis (allergy, price, cuisine). The design is clean and the result is not contradictory."
-  ],
-  "generated_by": "blind_playtester"
+    "Clean, fair puzzle. Each decoy fails exactly one constraint, and every constraint is checkable from card plus reviews.",
+    "Fairly obvious: Cyrus's bullet-point summary restates all four constraints, so the chat does the work for the player. Fine for an early level, but it leaves little to discover.",
+    "Liam says 'crunchy ones'. No review mentions crunchy or hard-shell tacos, so I treated it as flavour rather than a separate preference. If it was meant to be scored, no venue gives evidence for it.",
+    "Mole Cantina's peanut evidence is explicit ('made with ground peanuts'), so the allergy trap is easy to spot once you read the reviews."
+  ]
 }

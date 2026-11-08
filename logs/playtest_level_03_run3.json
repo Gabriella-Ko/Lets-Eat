@@ -6,32 +6,33 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: burger (no noodles today)",
+      "constraint": "Craving: burger (not noodles)",
       "who": "liam",
-      "source_line": "and before you say it, no, not noodles today. i want a BURGER. big and messy"
+      "line": "and before you say it, no, not noodles today. i want a BURGER. big and messy"
     },
     {
-      "constraint": "Time limit: quick bite, no long sit-down (Mina's critique at 1:15)",
-      "who": "mina / liam",
-      "source_line": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry  +  so we grab it fast and go. no long sit-down thing. got it"
-    },
-    {
-      "constraint": "Mina needs a real vegetarian burger (veggie patty), not just fries; inferred to be vegetarian",
+      "constraint": "Time limit: has to be quick, no long sit-down service",
       "who": "mina",
-      "source_line": "...that's really sweet of you. a veggie patty would make my whole day  (supported by: wherever you pick, i can always just get fries / one you can actually eat, not just the sides)"
+      "line": "the only thing is my studio critique starts at 1:15, so i can't stay long. sorry",
+      "supporting_line": "so we grab it fast and go. no long sit-down thing. got it"
+    },
+    {
+      "constraint": "Diet: Mina is vegetarian and needs a real veggie burger, not just fries (strict diet, deal-breaker)",
+      "who": "mina",
+      "line": "...that's really sweet of you. a veggie patty would make my whole day",
+      "supporting_line": "this time you get a real burger too. one you can actually eat, not just the sides"
+    },
+    {
+      "constraint": "Budget: cheap student lunch (implied, all venues are $)",
+      "who": "liam/mina",
+      "line": "mina!! lunch?? i'm so hungry i could eat my textbook (student context; no explicit budget stated)"
     }
   ],
   "elimination": {
-    "campus_noodle_cellar": "Noodles only, misses Liam's burger craving (Liam explicitly rules out noodles).",
-    "campus_brisket_box": "No vegetarian option; even the fries are cooked in beef fat, so Mina can't eat there.",
-    "campus_patty_parlor": "Has a veggie patty, but full table service and slow; no quick_bite tag. Misses the time limit.",
-    "campus_bun_stop": "Burgers, black bean veggie patty, counter service in five minutes, $. Meets everything."
+    "campus_brisket_box": "Meat only, fries cooked in beef fat: no vegetarian option for Mina.",
+    "campus_patty_parlor": "Good veggie patty, but slow table service: misses the quick-lunch constraint.",
+    "campus_noodle_cellar": "Fast with veggie options, but noodles only: misses Liam's burger craving."
   },
   "difficulty": 2,
-  "notes": [
-    "No budget is stated in the chat. All four venues are $, so price never decides anything here, but a player can't tell whether a budget exists.",
-    "Mina's diet is only hinted at (fries last time, 'one you can actually eat', 'veggie patty'). She never says 'vegetarian'. Brisket Box's review spells out the vegetarian problem, which makes the hint easy enough to confirm. Fair, but a careless player could read 'veggie patty' as a nice-to-have rather than a deal-breaker. Either way Brisket Box loses.",
-    "Each decoy fails on exactly one axis (cuisine, diet, speed), which works well. Patty Parlor is the strongest decoy, and the review 'Don't come here on a short break' together with the empty vibe_tags settles it clearly.",
-    "Nothing contradictory or unfair found. I read only the three permitted files."
-  ]
+  "notes": "Fair and well constructed: each decoy fails exactly one constraint and the reviews carry every piece of evidence needed. Mina's vegetarianism is never stated outright; it is inferred from 'i can always just get fries', 'one you can actually eat' and 'a veggie patty'. That is a good level-03 inference but a careless reader might treat it as a soft preference rather than a strict diet. No budget is stated in the chat; all venues are $, so price never matters here. Slightly obvious once the reviews are read, since Bun Stop's reviews explicitly hit speed, price and a black bean patty."
 }

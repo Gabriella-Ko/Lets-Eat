@@ -6,32 +6,33 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Cuisine: burgers (Liam's craving; noodles explicitly ruled out)",
+      "constraint": "Liam craves a burger, not noodles",
       "source_line": "liam: \"and before you say it, no, not noodles today. i want a BURGER. big and messy\""
     },
     {
-      "constraint": "Mina agrees to burgers",
-      "source_line": "mina: \"ha, a burger actually sounds really nice. i'm in\""
-    },
-    {
-      "constraint": "Quick bite, no long table-service sit-down (Mina has a 1:15 critique)",
+      "constraint": "Must be quick: Mina has a 1:15 critique, so no long sit-down meal",
       "source_line": "mina: \"the only thing is my studio critique starts at 1:15, so i can't stay long. sorry\" / liam: \"so we grab it fast and go. no long sit-down thing. got it\""
     },
     {
-      "constraint": "Mina is vegetarian (inferred): she normally only eats the fries, and wants a veggie patty. The venue needs a real vegetarian burger, not just sides",
-      "source_line": "mina: \"wherever you pick, i can always just get fries\" / liam: \"this time you get a real burger too. one you can actually eat, not just the sides\" / mina: \"a veggie patty would make my whole day\""
+      "constraint": "Mina needs a real vegetarian burger (veggie patty), not just fries. Implies she is vegetarian, which rules out a place where even the fries are cooked in beef fat",
+      "source_line": "mina: \"...that's really sweet of you. a veggie patty would make my whole day\" (supported by liam: \"this time you get a real burger too. one you can actually eat, not just the sides\")"
     },
     {
-      "constraint": "Budget: cheap implied (students, short lunch). No explicit budget given, and every venue is $ anyway",
-      "source_line": "no explicit line; inferred from the campus student context"
+      "constraint": "Budget: cheap student lunch implied; all venues are $, so it never decides the pick",
+      "source_line": "No explicit line; inferred from campus/student context"
     }
   ],
   "elimination": {
-    "campus_noodle_cellar": "Noodles only. Liam ruled noodles out and the review says 'don't come in craving a burger'.",
-    "campus_brisket_box": "Fast and cheap, but no vegetarian option. Even the fries are cooked in beef fat, so Mina can't eat anything there.",
-    "campus_patty_parlor": "Has a veggie patty, but it's slow table service with no quick_bite tag. The review says 'Don't come here on a short break'.",
-    "campus_bun_stop": "Burgers, $, quick_bite, vegan_options, and a black bean patty mentioned in the reviews. Meets every constraint."
+    "campus_brisket_box": "Fast and cheap, but meat only, and the fries are cooked in beef fat. Nothing Mina can eat.",
+    "campus_patty_parlor": "Has a veggie patty, but it is slow table service ('Don't come here on a short break'). Fails the time limit.",
+    "campus_noodle_cellar": "Fast and veggie-friendly, but noodles only. Liam explicitly said no noodles.",
+    "campus_bun_stop": "Counter service, five minutes, cheap, black bean patty. Meets every constraint."
   },
   "difficulty": 2,
-  "notes": "Fair and solvable. Mina's vegetarian diet is never stated outright. It comes from the 'just get fries' pattern plus 'veggie patty', which is a good stripped-clue hint but still fairly easy to read. Each wrong burger venue fails on exactly one axis (diet or speed), so the elimination is clean. Brisket Box's beef-fat fries review is a nice touch: it shuts down the 'she can just get fries' fallback. Nothing contradictory. There is no explicit budget line, which is fine because every venue is $. Mild concern: the dietary constraint rests on the 'veggie patty' line and a player might read it as a preference rather than a strict diet. Either reading still leads to Bun Stop, though."
+  "notes": [
+    "Clean three-constraint elimination puzzle, and each decoy fails on exactly one constraint. That is a good design.",
+    "Mina's vegetarianism is never stated outright. The player infers it from 'i can always just get fries', 'one you can actually eat' and 'veggie patty'. That is fair, but a first-time player could read it as a preference rather than a strict diet. It makes no difference here, because Brisket Box fails either way.",
+    "Budget is never mentioned, and all four venues are $, so price plays no part.",
+    "The 'mina can just get fries' line is a nice trap. Taken at face value it would make Brisket Box look acceptable, and its review deliberately closes that loophole (beef-fat fries)."
+  ]
 }

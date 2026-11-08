@@ -1,0 +1,35 @@
+{
+  "level_id": "level_01",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "campus_noodle_nook",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: noodles (big bowl)",
+      "type": "craving",
+      "who": "liam",
+      "source_line": "i need noodles. big bowl. slurpable."
+    },
+    {
+      "constraint": "Preference: patio / outdoor seating",
+      "type": "preference",
+      "who": "liam",
+      "source_line": "and somewhere with a patio pls, way too nice out to sit inside"
+    },
+    {
+      "constraint": "Allergy: no peanuts, not even in sauces (deal-breaker)",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "One condition, as always: nothing with peanuts. Not even a sauce."
+    }
+  ],
+  "venue_reasoning": {
+    "campus_noodle_nook": "Noodles, $; review mentions a patio and a fully peanut-free kitchen. Meets all three.",
+    "campus_satay_spot": "Noodles with outdoor seating, but peanuts in everything. Peanut allergy rules it out.",
+    "campus_noodle_cellar": "Noodles and nut-free, but it's a basement with no windows, so no patio. Costs a star.",
+    "campus_pizza_corner": "Nut-free with outdoor picnic tables, but it serves pizza, not noodles. Costs a star."
+  },
+  "difficulty": 1,
+  "notes": "No budget was stated in the chat. Every venue is $, so price doesn't matter here. Cyrus's 40-minute time limit is flavour text: no review mentions speed (Satay Spot's 'quick bowl' comes closest), and it doesn't separate the venues. Cyrus sums up all three constraints in a list, which makes the level very easy. That suits a tutorial. Each decoy fails exactly one constraint, and each one is clear from its reviews. Nothing unfair or contradictory. The venue names hint at the answers (Satay Spot, Noodle Cellar, Pizza Corner), but I made my pick from the reviews, not the names."
+}
