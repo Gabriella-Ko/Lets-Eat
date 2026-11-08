@@ -1,0 +1,63 @@
+{
+  "level_id": "level_02",
+  "verdict": "must_fix",
+  "findings": [
+    {
+      "severity": "must_fix",
+      "check": "continuity",
+      "file": "content/levels/level_02/dialogue_level_02.json",
+      "agent": "narrative_writer",
+      "where": "script[3] and script[8]-script[9]",
+      "issue": "Cyrus says Maya is 'new to these lunches', then five lines later says 'Last time the three of us ate standing at a counter' and Maya confirms she was there ('my back has never recovered'). The chat contradicts itself, and 'last time' for Liam and Cyrus was the level_01 patio meal, not a counter.",
+      "rule": "Critic brief check 7 (Continuity: no contradictions); bible Writing voice ('the chat should read like real friends texting')",
+      "suggested_fix": "Keep Maya's debut and rewrite the counter memory so she wasn't there. script[8] (Cyrus): \"Also somewhere that's good for groups, please. Liam and I once ate lunch standing at a counter. Not again.\" script[9] (Maya): \"standing?? absolutely not. i am literally never eating standing up\". Or keep the counter lines and change script[3] to \"Tacos work for me. Reminder for the group: I'm allergic to peanuts. No peanut sauces, no exceptions.\""
+    },
+    {
+      "severity": "suggestion",
+      "check": "unconfirmable_ask",
+      "file": "content/levels/level_02/dialogue_level_02.json",
+      "agent": "narrative_writer",
+      "where": "script[2]",
+      "issue": "Liam's 'crunchy ones' sounds like a want, but no review confirms or rules out crunchy shells. This rule only applies from level_06, so it is not a must-fix here, but it is the brief's own example of the pattern.",
+      "suggested_fix": "\"been thinking about tacos since breakfast. like, a LOT of tacos\""
+    },
+    {
+      "severity": "suggestion",
+      "check": "venue_name",
+      "file": "content/registry/venue_registry_campus.json",
+      "agent": "map_seeder",
+      "where": "campus_mole_cantina name",
+      "issue": "'Mole Cantina' hints at the peanut trap to players who know mole is often made with nuts. The neutral-name rule only applies from level_06, so this is advisory. Renaming a registry venue is a fixed-field change, so it is probably best left as it is.",
+      "suggested_fix": "Leave as is for level_02. Don't reuse this naming pattern for traps from level_06 on."
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_02/dialogue_level_02.json",
+      "agent": "narrative_writer",
+      "where": "script[8]",
+      "issue": "Cyrus writes 'pls', which reads more like Liam or Maya than Cyrus's deliberate, full-sentence voice (he writes 'please' in level_01).",
+      "suggested_fix": "Use \"please\" instead of \"pls\"."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_02/spec_level_02.json",
+      "agent": "puzzle_architect",
+      "where": "decoys / dialogue script[3]",
+      "issue": "The trap repeats level_01's 'peanut sauce on everything' decoy (Satay Spot to Mole Cantina), and Cyrus's reminder echoes his level_01 line ('Not even a sauce' / 'No peanut sauces, no exceptions'). The new budget layer keeps the level fresh, but the allergy beat feels familiar.",
+      "suggested_fix": "In later peanut levels, vary the trap (garnish, a dessert or a shared kitchen) and give Cyrus a different way to phrase his reminder."
+    },
+    {
+      "severity": "suggestion",
+      "check": "fairness",
+      "file": "content/levels/level_02/dialogue_level_02.json",
+      "agent": "narrative_writer",
+      "where": "script[11]",
+      "issue": "Cyrus's bullet summary hands the player the whole checklist. This is allowed in level_02 (the no-recap rule starts at level_03), but it makes an already stated level very easy.",
+      "suggested_fix": "Keep for level_02. Don't use recaps from level_03 on, as the brief already requires."
+    }
+  ],
+  "summary": "A clean, fair stated-clue level that introduces Maya well: all four scored needs are plain in the chat, every review evidences its venue's deciding attribute without contradicting the chat, and the outcome reactions are warm and in character. The one must-fix is a small continuity slip: Maya is called new to these lunches but also remembers an earlier shared counter meal. The rest are later-chapter rules flagged as advice, plus some light repetition of level_01's peanut-sauce trap.",
+  "generated_by": "critic"
+}

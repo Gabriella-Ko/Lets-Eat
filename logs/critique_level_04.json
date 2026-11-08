@@ -1,0 +1,71 @@
+{
+  "level_id": "level_04",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "unconfirmable_ask",
+      "file": "content/levels/level_04/dialogue_level_04.json",
+      "agent": "narrative_writer",
+      "where": "script[3]",
+      "issue": "Brooke's pitch names \"sandwiches\", which reads as a want, but no review confirms or rules out sandwiches. The only sandwich in any review is Griddle House's grilled cheese, so the line nudges a careful player toward the healthy-vibe decoy. Not a rule for level_04 (the no-unconfirmable-asks rule starts at level_06), so this is noted for consistency only.",
+      "suggested_fix": "\"love that. ok, my pitch: cafe lunch. coffee and good chats\""
+    },
+    {
+      "severity": "suggestion",
+      "check": "unconfirmable_ask",
+      "file": "content/levels/level_04/dialogue_level_04.json",
+      "agent": "narrative_writer",
+      "where": "script[5] and script[6]",
+      "issue": "The single vibe:healthy need is split into two asks (\"nothing greasy or oily\" and \"something fresh! salads, grain bowls\"), which can read as two separate requirements. The one-wish-per-soft-need rule starts at level_06, so this is only a note here.",
+      "suggested_fix": "Merge into one line: \"one thing for me: nothing greasy or oily. something fresh and light!\" and drop or untag script[6]."
+    },
+    {
+      "severity": "suggestion",
+      "check": "venue_name",
+      "file": "content/registry/venue_registry_campus.json",
+      "agent": "map_seeder",
+      "where": "campus_nutty_mug",
+      "issue": "\"The Nutty Mug\" announces its peanut trap from the card alone, before any review is read (the review even says \"Lives up to the name\"). The neutral-decoy-name rule only applies from level_06, and the name is a fixed registry field, so no change is required; just avoid reusing this pattern.",
+      "suggested_fix": "If the venue is ever replaced, use a neutral name such as \"The Corner Mug\", and drop \"Lives up to the name\" from the review."
+    },
+    {
+      "severity": "suggestion",
+      "check": "venue_name",
+      "file": "content/registry/venue_registry_campus.json",
+      "agent": "map_seeder",
+      "where": "campus_griddle_house",
+      "issue": "\"Griddle House\" hints at greasy food, so the healthy decoy is partly readable from its name. Allowed for level_04 (rule starts at level_06); noted only.",
+      "suggested_fix": "No change for level_04; in later levels give vibe decoys neutral names."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_04/outcomes_level_04.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.campus_green_bean_cafe lines[1] and lines[2]",
+      "issue": "The perfect reaction almost copies level_02's: Maya's \"and it's CHEAP?? the trip fund...\" and Cyrus's \"No peanuts ... on the menu. Well chosen.\" The puzzle shape (peanut trap, $$ twin, Maya's \"one dollar sign\" line) also echoes level_02, so the repeated wording makes it feel recycled.",
+      "suggested_fix": "Maya: \"under ten bucks for coffee AND lunch?? the coast is getting closer\". Cyrus: \"Peanut-free kitchen, confirmed with the barista. Excellent work.\""
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_04/outcomes_level_04.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.campus_griddle_house lines[1]",
+      "issue": "Maya's line on a partial result uses HAPPY; the bible's Scoring table gives ANNOYED or SURPRISED portraits for a partial. Her upbeat line works in character, but the emotion clashes with the result screen.",
+      "suggested_fix": "Keep the text, set emotion to SURPRISED, or rephrase: \"cheap, sure. but brooke is sipping coffee while i eat hash browns. awkward\" with ANNOYED."
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_04/outcomes_level_04.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.campus_nutty_mug lines[0]",
+      "issue": "Cyrus lists \"even the granola\", which no review mentions (reviews cite smoothies, bowls and bakes). It doesn't contradict anything but could match the reviews more closely.",
+      "suggested_fix": "\"There are peanuts in nearly everything here. The smoothies, the bowls, even the baked goods.\""
+    }
+  ],
+  "summary": "A clean, warm introduction for Brooke: every scored constraint (cafe craving, healthy, $ budget, peanut allergy) is stated plainly, there is no recap list, voices match the Cast, and the reviews evidence each deciding attribute without contradicting the chat. Continuity with level_02 and level_05 holds (Cyrus's lab section, Maya's coast trip). The suggestions are mostly level_06-era rules this level predates (the sandwiches ask, the split healthy wish, telling decoy names) plus perfect-outcome wording that repeats level_02.",
+  "generated_by": "critic"
+}

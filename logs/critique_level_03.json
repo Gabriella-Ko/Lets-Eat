@@ -1,0 +1,26 @@
+{
+  "level_id": "level_03",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_03/venues_level_03.json",
+      "agent": "map_seeder",
+      "where": "venue campus_noodle_cellar review 2",
+      "issue": "\"Strictly noodles though, so don't come in craving a burger\" reads like it was written for this puzzle. It points straight at today's craving, which feels meta. The card already shows the cuisine, so the line isn't needed as evidence.",
+      "suggested_fix": "Plenty of tofu and veggie broth bowls. It's noodles or nothing here, and I'm not complaining."
+    },
+    {
+      "severity": "suggestion",
+      "check": "venue_name",
+      "file": "content/registry/venue_registry_campus.json",
+      "agent": "map_seeder",
+      "where": "venue campus_brisket_box (name); also campus_bun_stop",
+      "issue": "Brisket Box tells the player it fails on the vegetarian diet before they read a review. Bun Stop's name also hints at a quick stop, which nudges toward the answer. The venue-name rule only starts at level_06, so this is advisory for an approved level, and recurring venues keep their names.",
+      "suggested_fix": "No change to this approved level. Keep in mind for any future campus decoys: use neutral names (e.g. 'Grill Yard' instead of 'Brisket Box')."
+    }
+  ],
+  "summary": "A warm, well-paced first implied level. Mina's vegetarianism comes out through Liam's fries callback (rule 6), and every deciding attribute (meat-only, slow table service, veggie patty, speed) is clearly evidenced in the reviews. The Brisket Box beef-fat fries pay off Mina's 'i can just get fries' nicely. Voices and outcomes are on model, with no recap line and no continuity issues; the only notes are a slightly meta review and decoy names that would break the later level_06 naming rule.",
+  "generated_by": "critic"
+}
