@@ -718,5 +718,15 @@
     "result": "SUCCESS (boot test not run: no Phaser build yet)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-08T21:25:00.223Z",
+    "level": "level_05",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 37 files, 0 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]
