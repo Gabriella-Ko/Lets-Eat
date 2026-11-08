@@ -19,5 +19,5 @@
     { "speaker": "maya", "text": "assistant pls hurry, i'm down to my last granola bar", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }

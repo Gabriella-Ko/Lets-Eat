@@ -17,5 +17,5 @@
     { "speaker": "liam", "text": "100%. assistant, you heard her. go go go", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
