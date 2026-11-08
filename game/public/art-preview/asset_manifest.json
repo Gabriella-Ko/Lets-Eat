@@ -1,0 +1,169 @@
+{
+  "portraits": {
+    "portrait_maya_happy": {
+      "file": "gfx/portrait_maya_happy.png",
+      "placeholder": false
+    },
+    "portrait_maya_annoyed": {
+      "file": "gfx/portrait_maya_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_maya_surprised": {
+      "file": "gfx/portrait_maya_surprised.png",
+      "placeholder": false
+    },
+    "portrait_maya_hungry": {
+      "file": "gfx/portrait_maya_neutral.png",
+      "placeholder": true
+    },
+    "portrait_maya_angry": {
+      "file": "gfx/portrait_maya_angry.png",
+      "placeholder": false
+    },
+    "portrait_maya_neutral": {
+      "file": "gfx/portrait_maya_neutral.png",
+      "placeholder": false
+    },
+    "portrait_liam_happy": {
+      "file": "gfx/portrait_liam_happy.png",
+      "placeholder": false
+    },
+    "portrait_liam_annoyed": {
+      "file": "gfx/portrait_liam_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_liam_surprised": {
+      "file": "gfx/portrait_liam_surprised.png",
+      "placeholder": false
+    },
+    "portrait_liam_hungry": {
+      "file": "gfx/portrait_liam_neutral.png",
+      "placeholder": true
+    },
+    "portrait_liam_angry": {
+      "file": "gfx/portrait_liam_angry.png",
+      "placeholder": false
+    },
+    "portrait_liam_neutral": {
+      "file": "gfx/portrait_liam_neutral.png",
+      "placeholder": false
+    },
+    "portrait_mina_happy": {
+      "file": "gfx/portrait_mina_happy.png",
+      "placeholder": false
+    },
+    "portrait_mina_annoyed": {
+      "file": "gfx/portrait_mina_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_mina_surprised": {
+      "file": "gfx/portrait_mina_surprised.png",
+      "placeholder": false
+    },
+    "portrait_mina_hungry": {
+      "file": "gfx/portrait_mina_neutral.png",
+      "placeholder": true
+    },
+    "portrait_mina_angry": {
+      "file": "gfx/portrait_mina_angry.png",
+      "placeholder": false
+    },
+    "portrait_mina_neutral": {
+      "file": "gfx/portrait_mina_neutral.png",
+      "placeholder": false
+    },
+    "portrait_roxy_happy": {
+      "file": "gfx/portrait_roxy_happy.png",
+      "placeholder": false
+    },
+    "portrait_roxy_annoyed": {
+      "file": "gfx/portrait_roxy_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_roxy_surprised": {
+      "file": "gfx/portrait_roxy_surprised.png",
+      "placeholder": false
+    },
+    "portrait_roxy_hungry": {
+      "file": "gfx/portrait_roxy_neutral.png",
+      "placeholder": true
+    },
+    "portrait_roxy_angry": {
+      "file": "gfx/portrait_roxy_angry.png",
+      "placeholder": false
+    },
+    "portrait_roxy_neutral": {
+      "file": "gfx/portrait_roxy_neutral.png",
+      "placeholder": false
+    },
+    "portrait_cyrus_happy": {
+      "file": "gfx/portrait_cyrus_happy.png",
+      "placeholder": false
+    },
+    "portrait_cyrus_annoyed": {
+      "file": "gfx/portrait_cyrus_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_cyrus_surprised": {
+      "file": "gfx/portrait_cyrus_surprised.png",
+      "placeholder": false
+    },
+    "portrait_cyrus_hungry": {
+      "file": "gfx/portrait_cyrus_neutral.png",
+      "placeholder": true
+    },
+    "portrait_cyrus_angry": {
+      "file": "gfx/portrait_cyrus_angry.png",
+      "placeholder": false
+    },
+    "portrait_cyrus_neutral": {
+      "file": "gfx/portrait_cyrus_neutral.png",
+      "placeholder": false
+    },
+    "portrait_brooke_happy": {
+      "file": "gfx/portrait_brooke_happy.png",
+      "placeholder": false
+    },
+    "portrait_brooke_annoyed": {
+      "file": "gfx/portrait_brooke_annoyed.png",
+      "placeholder": false
+    },
+    "portrait_brooke_surprised": {
+      "file": "gfx/portrait_brooke_surprised.png",
+      "placeholder": false
+    },
+    "portrait_brooke_hungry": {
+      "file": "gfx/portrait_brooke_neutral.png",
+      "placeholder": true
+    },
+    "portrait_brooke_angry": {
+      "file": "gfx/portrait_brooke_angry.png",
+      "placeholder": false
+    },
+    "portrait_brooke_neutral": {
+      "file": "gfx/portrait_brooke_neutral.png",
+      "placeholder": false
+    }
+  },
+  "generated_by": "human:gabby",
+  "note": "PREVIEW, cut by game/tools/slice_portraits.py; not the Art Asset agent output",
+  "outcomes": {
+    "outcome_level_01_campus_noodle_cellar": {
+      "file": "outcomes/outcome_level_01_campus_noodle_cellar.jpg"
+    },
+    "outcome_level_01_campus_noodle_nook": {
+      "file": "outcomes/outcome_level_01_campus_noodle_nook.jpg"
+    },
+    "outcome_level_01_campus_pizza_corner": {
+      "file": "outcomes/outcome_level_01_campus_pizza_corner.jpg"
+    },
+    "outcome_level_01_campus_satay_spot": {
+      "file": "outcomes/outcome_level_01_campus_satay_spot.jpg"
+    }
+  },
+  "backgrounds": {
+    "chat_bg_chapter_01": {
+      "file": "backgrounds/chat_bg_chapter_01.jpg"
+    }
+  }
+}
