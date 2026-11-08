@@ -43,7 +43,7 @@ logs/                           run_log.json, validation_, playtest_, integratio
 2. `puzzle-architect` writes `spec_level_XX.json` from its outline row.
 3. `narrative-writer` and `map-seeder` run (in parallel if possible) from the spec.
 4. Run the Validator. Any failure goes back to the agent that wrote the failing file (the log names it).
-5. Copy ONLY `dialogue_level_XX.json`, `venues_level_XX.json` and the matching registry entries into `content/playtest_input/level_XX/`. Never the spec or outcomes. From level_03 on, strip the `clue` field from every dialogue line in the copy, so the Playtester has to find the clues itself (Gabriella's decision, 2026-11-05). In the registry copy, keep only `id`, `name`, `cuisine` and `price_tier`: venue cards never show dietary or vibe tags, so the Playtester sees exactly what a player sees (bible, Constraint vocabulary; decision 2026-11-08).
+5. Run `node scripts/prepare_playtest.js level_XX`. It copies ONLY `dialogue_level_XX.json`, `venues_level_XX.json` and the matching registry entries into `content/playtest_input/level_XX/`. Never the spec or outcomes. From level_03 on, strip the `clue` field from every dialogue line in the copy, so the Playtester has to find the clues itself (Gabriella's decision, 2026-11-05). In the registry copy, keep only `id`, `name`, `cuisine` and `price_tier`: venue cards never show dietary or vibe tags, so the Playtester sees exactly what a player sees (bible, Constraint vocabulary; decision 2026-11-08).
 6. Run `blind-playtester` 3 times, each as a fresh delegation, writing `playtest_level_XX_run1.json` … `run3.json`. Give each run the exact file names in its input folder (it cannot list folders).
 7. Judge the playtests:
    - 3/3 correct with every constraint found → pass.
