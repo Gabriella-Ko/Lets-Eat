@@ -1,0 +1,10 @@
+{
+  "name": "lets-eat",
+  "private": true,
+  "description": "Root scripts. The game lives in game/; scripts/integrate.js runs `npm run boot-test` here.",
+  "scripts": {
+    "dev": "npm --prefix game run dev",
+    "build": "npm --prefix game run build",
+    "boot-test": "npm --prefix game run --silent boot-test"
+  }
+}
