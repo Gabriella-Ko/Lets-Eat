@@ -281,6 +281,7 @@ Nine crew members, run by one Orchestrator. These ids are the only values allowe
 | Art Asset Agent | `art_asset` | LLM + image script | `asset_manifest.json`, processed PNGs | 3 |
 | Integration | `integration` | Script | `integration_audit.log` | 4 |
 | Provenance | `provenance` | Git hooks + script | `provenance_manifest.json` | 4 |
+|Critic | `critic` | LLM | critique_level_##.json |2| 
 | You | `human:gabby` | Human | The bible, approvals, manual fixes | — |
 
 Each agent's full instructions live in its brief file, not here: `.claude/agents/<name>.md`, and `CLAUDE.md` for the Orchestrator. Briefs carry a version number starting at v1; bump it whenever a brief's rules change. The running order and failure routes are explained in the How the Orchestration Works doc.
