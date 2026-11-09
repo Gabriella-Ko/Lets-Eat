@@ -787,6 +787,36 @@
     "step": "spec",
     "result": "written; viet + healthy + dairy, solution downtown_little_lotus, 5 new downtown venues, all 4 constraints tested",
     "retries": 0,
+    "tokens": 32044
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "map_seeder",
+    "brief_version": "v4",
+    "step": "venues",
+    "result": "created downtown registry, 5 venues + reviews",
+    "retries": 0,
+    "tokens": 26397
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "dialogue+outcomes",
+    "result": "16 lines, 4 clue tags, Roxy debut",
+    "retries": 0,
+    "tokens": 31366
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
     "tokens": null
   }
 ]
