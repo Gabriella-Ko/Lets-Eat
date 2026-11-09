@@ -827,6 +827,46 @@
     "step": "critique",
     "result": "pass; 0 must_fix, 2 suggestions",
     "retries": 0,
+    "tokens": 37026
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints (read dairy as a deal-breaker)",
+    "retries": 0,
+    "tokens": 12033
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints (read dairy as a deal-breaker)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11660
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
     "tokens": null
   }
 ]
