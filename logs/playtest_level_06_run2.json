@@ -1,0 +1,44 @@
+{
+  "level_id": "level_06",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "downtown_little_lotus",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Vietnamese food (group agrees)",
+      "source_line": "roxy: \"wait. i've never had vietnamese food. let's do viet!!\" (confirmed by brooke and cyrus)"
+    },
+    {
+      "constraint": "Preference: healthy / light, not greasy",
+      "source_line": "brooke: \"viet sounds great. i'm in, as long as it's the healthy kind, nothing greasy\""
+    },
+    {
+      "constraint": "Allergy (deal-breaker): peanuts, including peanut sauce and crushed peanuts",
+      "source_line": "cyrus: \"I'm allergic to peanuts. No peanut sauce, no crushed peanuts on top.\""
+    },
+    {
+      "constraint": "Diet (deal-breaker): dairy-free, no milk, cream or butter",
+      "source_line": "roxy: \"ok so nothing with milk, cream or butter for me. i always forget until it's too late\""
+    },
+    {
+      "constraint": "Budget: not stated outright; lunch outing, all venues are $ so price does not separate them",
+      "source_line": "brooke: \"lunch crew is going downtown today!\" (no explicit budget line)"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanut sauce and crushed peanuts on nearly everything: fails Cyrus's allergy.",
+    "downtown_jade_lantern": "Butter, milk, cream and condensed milk in the mains: fails Roxy's dairy restriction.",
+    "downtown_ninth_street_eatery": "Allergy- and dairy-safe, but deep-fried and greasy: misses Brooke's healthy preference (-1 star).",
+    "downtown_koi_counter": "Safe and light, but sushi, not Vietnamese: misses the viet craving (-1 star).",
+    "downtown_little_lotus": "Viet, light and fresh, peanut-free kitchen, no milk/cream/butter, under ten bucks: meets everything."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Fair puzzle: each decoy fails exactly one constraint, and the reviews say so clearly.",
+    "The dairy constraint is a nice twist: Roxy first proposes condensed-milk iced coffee, then Brooke reminds her about the 'milkshake incident'. Easy to catch because Roxy spells it out right after ('nothing with milk, cream or butter'), so it isn't really hidden.",
+    "No explicit budget line in the chat. All five venues are $, so it doesn't matter here, but a player may wonder whether budget was meant to be a constraint.",
+    "Little Lotus's second review names both the peanut and dairy safety outright, which makes the answer fairly obvious once the constraints are listed.",
+    "Jade Lantern's review heads off the 'just skip the iced coffee' workaround by saying dairy runs through the mains. Good, it closes that loophole."
+  ]
+}
