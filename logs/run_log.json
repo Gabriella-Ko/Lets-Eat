@@ -878,5 +878,15 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:47:12.414Z",
+    "level": "level_06",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS; boot test passed (6 levels loaded in order)",
+    "retries": 0,
+    "tokens": null
   }
 ]
