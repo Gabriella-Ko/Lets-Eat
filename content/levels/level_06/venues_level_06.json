@@ -1,0 +1,43 @@
+{
+  "level_id": "level_06",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_little_lotus",
+      "reviews": [
+        "Fresh rice paper rolls packed with herbs and a clear, fragrant pho broth. Light, clean, and lunch came in under ten bucks.",
+        "They keep peanuts out of the kitchen entirely, and nothing is made with milk, cream or butter. My friend with the allergy and my lactose-sensitive coworker both ate without a worry."
+      ]
+    },
+    {
+      "id": "downtown_banyan_kitchen",
+      "reviews": [
+        "Crisp herb salads and fresh summer rolls, all light and cheap. Nothing creamy or buttery on the whole menu.",
+        "Peanuts are the star here: every plate comes with their peanut dipping sauce, and crushed peanuts go on top of nearly everything. Delicious if nuts are your thing."
+      ]
+    },
+    {
+      "id": "downtown_jade_lantern",
+      "reviews": [
+        "Fresh, light bowls loaded with herbs, and cheap for downtown. The staff told me there are no peanuts anywhere in the kitchen.",
+        "Dairy runs through the mains, not just the iced coffee: butter-garlic noodles, curries finished with cow's milk and cream, condensed milk stirred into the sauces. Hard to order around it if milk doesn't agree with you."
+      ]
+    },
+    {
+      "id": "downtown_ninth_street_eatery",
+      "reviews": [
+        "Deep-fried spring rolls, oily stir-fries and everything glistening with grease. Cheap and filling, but I needed a nap after.",
+        "No peanuts in the kitchen and they cook without milk or butter, so it's easy on allergies. Just don't come here looking for anything light."
+      ]
+    },
+    {
+      "id": "downtown_koi_counter",
+      "reviews": [
+        "Clean, simple sushi and fresh cucumber and avocado rolls. Light, cheap, and a nice break from the usual noodle spots.",
+        "Peanut-safe kitchen and no milk or cream in anything. Strictly sushi and sashimi, though, so don't come in craving pho."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}

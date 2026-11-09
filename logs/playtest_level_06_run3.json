@@ -1,0 +1,31 @@
+{
+  "level_id": "level_06",
+  "run": 3,
+  "generated_by": "blind_playtester",
+  "pick": "downtown_little_lotus",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Vietnamese food",
+      "type": "craving",
+      "source_line": "roxy: \"wait. i've never had vietnamese food. let's do viet!!\""
+    },
+    {
+      "constraint": "Preference: healthy, light, not greasy",
+      "type": "preference",
+      "source_line": "brooke: \"viet sounds great. i'm in, as long as it's the healthy kind, nothing greasy\""
+    },
+    {
+      "constraint": "Allergy: peanuts (Cyrus), no peanut sauce or crushed peanuts",
+      "type": "allergy",
+      "source_line": "cyrus: \"Viet works for me. Roxy, since you're new: I'm allergic to peanuts. No peanut sauce, no crushed peanuts on top.\""
+    },
+    {
+      "constraint": "Dietary restriction: no dairy (milk, cream, butter) for Roxy",
+      "type": "diet",
+      "source_line": "roxy: \"ok so nothing with milk, cream or butter for me. i always forget until it's too late\" (set up by brooke: \"roxy. the milkshake incident. remember?\" and roxy: \"oh no. right. dairy and me are not friends\")"
+    }
+  ],
+  "difficulty": 2,
+  "notes": "Each decoy fails exactly one constraint, which reads well: Banyan Kitchen is peanut-heavy (allergy), Jade Lantern has dairy throughout the mains (diet), Ninth Street Eatery is greasy (preference), Koi Counter is sushi, not Viet (craving). Little Lotus is the only venue that passes all four, and its reviews state each point plainly. Nobody states a budget in the chat. All five venues are $, so price never decides anything, but a player may wonder whether they missed a budget clue. The dairy clue is the one twist: Roxy's condensed-milk iced coffee line sets up a red herring, and Brooke's reminder turns it into a restriction. It is fair and well signposted. The second review of every venue confirms the allergy and dairy status almost word for word, so the puzzle is mostly about matching reviews to the chat, not working anything out. That keeps difficulty low."
+}

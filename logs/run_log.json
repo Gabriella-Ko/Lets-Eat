@@ -778,5 +778,125 @@
     "result": "pass; 0 must_fix, 4 suggestions",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:33:12.609Z",
+    "level": "level_06",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v4",
+    "step": "spec",
+    "result": "written; viet + healthy + dairy, solution downtown_little_lotus, 5 new downtown venues, all 4 constraints tested",
+    "retries": 0,
+    "tokens": 32044
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "map_seeder",
+    "brief_version": "v4",
+    "step": "venues",
+    "result": "created downtown registry, 5 venues + reviews",
+    "retries": 0,
+    "tokens": 26397
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "dialogue+outcomes",
+    "result": "16 lines, 4 clue tags, Roxy debut",
+    "retries": 0,
+    "tokens": 31366
+  },
+  {
+    "timestamp": "2026-11-09T15:34:35.017Z",
+    "level": "level_06",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:35:44.849Z",
+    "level": "level_06",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass; 0 must_fix, 2 suggestions",
+    "retries": 0,
+    "tokens": 37026
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run1",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints (read dairy as a deal-breaker)",
+    "retries": 0,
+    "tokens": 12033
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run2",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints (read dairy as a deal-breaker)",
+    "retries": 0,
+    "tokens": 11978
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "blind_playtester",
+    "brief_version": "v1",
+    "step": "playtest run3",
+    "result": "pick downtown_little_lotus, 3 stars, all constraints",
+    "retries": 0,
+    "tokens": 11660
+  },
+  {
+    "timestamp": "2026-11-09T15:36:32.000Z",
+    "level": "level_06",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge playtests",
+    "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:46:34.942Z",
+    "level": "level_06",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:47:12.414Z",
+    "level": "level_06",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS; boot test passed (6 levels loaded in order)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:47:16.856Z",
+    "level": "level_06",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 51 files, 1 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]

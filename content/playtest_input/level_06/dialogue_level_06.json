@@ -1,0 +1,85 @@
+{
+  "level_id": "level_06",
+  "script": [
+    {
+      "speaker": "brooke",
+      "text": "lunch crew is going downtown today! campus food has officially been conquered",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "also, meet roxy! she's from my climbing club. she said yes before i finished asking",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "hi!! new neighbourhood, new people. i'm down",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Welcome, Roxy. I've planned the route: bus from the north gate, then a short walk.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "love a plan. ok what are we eating",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "wait. i've never had vietnamese food. let's do viet!!",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "viet sounds great. i'm in, as long as it's the healthy kind, nothing greasy",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Viet works for me. Roxy, since you're new: I'm allergic to peanuts. No peanut sauce, no crushed peanuts on top.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "peanut-free, always. a lot of viet dishes use them, so we check",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "noted!! zero peanuts. i'll guard your plate",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "ooh and i'm getting one of those iced coffees with the sweet condensed milk. let's do it",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "roxy. the milkshake incident. remember?",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "oh no. right. dairy and me are not friends",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "ok so nothing with milk, cream or butter for me. i always forget until it's too late",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Good catch, Brooke. Better to know now than on the bus home.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "adventure is still ON. assistant, find us something. let's go!!",
+      "emotion": "HAPPY"
+    }
+  ]
+}

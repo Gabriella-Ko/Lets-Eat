@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "e624e761e722f8fb7c57619736f9d0cfb4a413b8",
+  "head": "2e90e8b25b549c0397e5d4c81bd39cc3c6aa113e",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -150,11 +150,18 @@
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
       "brief_version": "v1",
-      "timestamp": "2026-11-08T16:19:23-05:00",
-      "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
+      "timestamp": "2026-11-08T16:50:24-05:00",
+      "commit": "f4a21c19cbac92e23ebdecf74822cf1561faad55",
       "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f4a21c19cbac92e23ebdecf74822cf1561faad55",
+          "timestamp": "2026-11-08T16:50:24-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_02: fix critic must_fix (Maya 'new to these lunches' contradiction); Cyrus 'please'",
+          "pre_pipeline": false
+        },
         {
           "commit": "002f3b57bdeecfa61b6260786412cfab0502ca41",
           "timestamp": "2026-11-08T16:19:23-05:00",
@@ -507,11 +514,91 @@
       ]
     },
     {
+      "file": "content/levels/level_06/dialogue_level_06.json",
+      "level": "level_06",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-09T10:34:26-05:00",
+      "commit": "16534646b605d6b80595bd2f8c1efe2e68c6789d",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": true,
+      "history": [
+        {
+          "commit": "16534646b605d6b80595bd2f8c1efe2e68c6789d",
+          "timestamp": "2026-11-09T10:34:26-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_06: write chat (Roxy's debut, Downtown) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_06/outcomes_level_06.json",
+      "level": "level_06",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-09T10:34:26-05:00",
+      "commit": "16534646b605d6b80595bd2f8c1efe2e68c6789d",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "16534646b605d6b80595bd2f8c1efe2e68c6789d",
+          "timestamp": "2026-11-09T10:34:26-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_06: write chat (Roxy's debut, Downtown) and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_06/spec_level_06.json",
+      "level": "level_06",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v4",
+      "timestamp": "2026-11-09T10:33:12-05:00",
+      "commit": "7739a84604fb42a0381fc0d4313dcad135c2f44a",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7739a84604fb42a0381fc0d4313dcad135c2f44a",
+          "timestamp": "2026-11-09T10:33:12-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_06: write spec (viet, healthy, dairy, peanut trap; all 4 constraints tested)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_06/venues_level_06.json",
+      "level": "level_06",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v4",
+      "timestamp": "2026-11-09T10:34:01-05:00",
+      "commit": "f548dd593a374e7f65d85ca3eb0c8ec276a147e7",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f548dd593a374e7f65d85ca3eb0c8ec276a147e7",
+          "timestamp": "2026-11-09T10:34:01-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_06: create downtown registry with 5 venues, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
       "edited_by": null,
-      "brief_version": "v3",
+      "brief_version": "v4",
       "timestamp": "2026-11-06T00:00:41-05:00",
       "commit": "aba045620aa8d901418a3e818b02e3131511529e",
       "last_commit_by": "map_seeder",
@@ -558,6 +645,146 @@
           "agent_tag": null,
           "subject": "initial commit",
           "pre_pipeline": true
+        }
+      ]
+    },
+    {
+      "file": "content/registry/venue_registry_downtown.json",
+      "level": null,
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v4",
+      "timestamp": "2026-11-09T10:34:01-05:00",
+      "commit": "f548dd593a374e7f65d85ca3eb0c8ec276a147e7",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f548dd593a374e7f65d85ca3eb0c8ec276a147e7",
+          "timestamp": "2026-11-09T10:34:01-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_06: create downtown registry with 5 venues, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_01.json",
+      "level": "level_01",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:43:17-05:00",
+      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+          "timestamp": "2026-11-08T16:43:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] levels 01-05: audit critiques of approved chapter 1 levels (level_02: 1 must_fix)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_02.json",
+      "level": "level_02",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:43:17-05:00",
+      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+          "timestamp": "2026-11-08T16:43:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] levels 01-05: audit critiques of approved chapter 1 levels (level_02: 1 must_fix)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_03.json",
+      "level": "level_03",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:43:17-05:00",
+      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+          "timestamp": "2026-11-08T16:43:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] levels 01-05: audit critiques of approved chapter 1 levels (level_02: 1 must_fix)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_04.json",
+      "level": "level_04",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:43:17-05:00",
+      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+          "timestamp": "2026-11-08T16:43:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] levels 01-05: audit critiques of approved chapter 1 levels (level_02: 1 must_fix)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_05.json",
+      "level": "level_05",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-08T16:43:17-05:00",
+      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+          "timestamp": "2026-11-08T16:43:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] levels 01-05: audit critiques of approved chapter 1 levels (level_02: 1 must_fix)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_06.json",
+      "level": "level_06",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-09T10:35:45-05:00",
+      "commit": "c1faf3cb6d56b5f63d8dbfbde0f8d91d94b467dd",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c1faf3cb6d56b5f63d8dbfbde0f8d91d94b467dd",
+          "timestamp": "2026-11-09T10:35:45-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_06: critique pass (0 must_fix, 2 suggestions)",
+          "pre_pipeline": false
         }
       ]
     },
@@ -965,7 +1192,69 @@
           "pre_pipeline": false
         }
       ]
+    },
+    {
+      "file": "logs/playtest_level_06_run1.json",
+      "level": "level_06",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-09T10:36:32-05:00",
+      "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+          "timestamp": "2026-11-09T10:36:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_06: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_06_run2.json",
+      "level": "level_06",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-09T10:36:32-05:00",
+      "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+          "timestamp": "2026-11-09T10:36:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_06: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_06_run3.json",
+      "level": "level_06",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v1",
+      "timestamp": "2026-11-09T10:36:32-05:00",
+      "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "46f105f987f219b9bb6b3c985b5dcecd59f865ea",
+          "timestamp": "2026-11-09T10:36:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_06: playtest runs 1-3 (3/3 correct)",
+          "pre_pipeline": false
+        }
+      ]
     }
   ],
-  "issues": []
+  "issues": [
+    "content/levels/level_06/dialogue_level_06.json: has uncommitted changes, so this entry reflects the last commit, not the file on disk"
+  ]
 }

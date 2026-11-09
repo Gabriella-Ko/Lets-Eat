@@ -1,0 +1,18 @@
+{
+  "level_id": "level_06",
+  "chapter": 2,
+  "district": "downtown",
+  "difficulty": "stated",
+  "guests": ["roxy", "brooke", "cyrus"],
+  "hard": { "budget_max": null, "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "viet", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "downtown_little_lotus",
+  "decoys": [
+    { "id": "downtown_banyan_kitchen", "fails_on": "allergy:peanut" },
+    { "id": "downtown_jade_lantern", "fails_on": "intolerance:dairy" },
+    { "id": "downtown_ninth_street_eatery", "fails_on": "vibe:healthy" },
+    { "id": "downtown_koi_counter", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
