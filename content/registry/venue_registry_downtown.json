@@ -1,0 +1,52 @@
+{
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_little_lotus",
+      "name": "Little Lotus",
+      "cuisine": "viet",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_06"
+    },
+    {
+      "id": "downtown_banyan_kitchen",
+      "name": "Banyan Kitchen",
+      "cuisine": "viet",
+      "price_tier": "$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_06"
+    },
+    {
+      "id": "downtown_jade_lantern",
+      "name": "Jade Lantern",
+      "cuisine": "viet",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_06"
+    },
+    {
+      "id": "downtown_ninth_street_eatery",
+      "name": "Ninth Street Eatery",
+      "cuisine": "viet",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": [],
+      "first_level": "level_06"
+    },
+    {
+      "id": "downtown_koi_counter",
+      "name": "Koi Counter",
+      "cuisine": "sushi",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_06"
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}
