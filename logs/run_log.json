@@ -888,5 +888,15 @@
     "result": "SUCCESS; boot test passed (6 levels loaded in order)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:47:16.856Z",
+    "level": "level_06",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written, 51 files, 1 issues",
+    "retries": 0,
+    "tokens": null
   }
 ]
