@@ -1,0 +1,26 @@
+{
+  "level_id": "level_06",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_06/dialogue_level_06.json",
+      "agent": "narrative_writer",
+      "where": "script[7], script[8]",
+      "issue": "The peanut exchange follows level_04 closely: Cyrus addresses the newcomer by name to restate his allergy, then Brooke answers with the same words, \"peanut-free, always\" (level_04 script[11]). The new-friend setup is the same plot beat as level_04, and this half-line is lifted straight from it.",
+      "suggested_fix": "Reword Brooke's line so it doesn't reuse level_04's phrasing, e.g. \"good call. tons of viet dishes use peanuts, so we check every menu\"."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_06/venues_level_06.json",
+      "agent": "map_seeder",
+      "where": "venue downtown_jade_lantern review 2",
+      "issue": "Jade Lantern is meant to fail only on dairy, but \"butter-garlic noodles\" and \"curries finished with cow's milk and cream\" sound rich and heavy, so a careful player might think it also fails Brooke's healthy need, which blurs the minimal pair. \"cow's milk\" also reads a little forced.",
+      "suggested_fix": "Keep the dairy evidence but make it sound lighter, e.g. \"Dairy sneaks into a lot here: milky dipping sauces, a splash of cream in the soups, condensed milk in the dressings and the iced coffee. Hard to order around it if milk doesn't agree with you.\""
+    }
+  ],
+  "summary": "A clean, warm debut for Roxy and for Downtown. All four scored constraints (viet, healthy, peanut, dairy) are stated plainly, each soft need is a single clear wish, there are no unconfirmable asks, and Roxy's forgotten dairy need is handled the way rule 6 asks (Brooke's milkshake reminder). Reviews clearly support every deciding attribute, venue names are neutral, and the outcome lines are in character and match the reviews. The two suggestions are small polish: one phrase reused from level_04 and one decoy review that could read a bit heavy.",
+  "generated_by": "critic"
+}
