@@ -847,7 +847,7 @@
     "step": "playtest run2",
     "result": "pick downtown_little_lotus, 3 stars, all constraints (read dairy as a deal-breaker)",
     "retries": 0,
-    "tokens": null
+    "tokens": 11978
   },
   {
     "timestamp": "2026-11-09T15:36:32.000Z",
@@ -866,6 +866,16 @@
     "brief_version": "v1",
     "step": "judge playtests",
     "result": "PASS 3/3; awaiting Gabriella",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-09T15:46:34.942Z",
+    "level": "level_06",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
     "retries": 0,
     "tokens": null
   }
