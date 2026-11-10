@@ -1,0 +1,62 @@
+{
+  "level_id": "level_07",
+  "run": 2,
+  "agent_id": "blind_playtester",
+  "brief_version": "v2",
+  "files_read": [
+    "content/playtest_input/level_07/dialogue_level_07.json",
+    "content/playtest_input/level_07/venues_level_07.json",
+    "content/playtest_input/level_07/venue_registry_downtown.json"
+  ],
+  "pick": "downtown_tamarind_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: curry",
+      "source_lines": [
+        "maya: someone at my internship microwaved curry at 10am and i have been suffering ever since",
+        "liam: curry. yes. i'm in before you even ask",
+        "maya: liam. focus. curry. today."
+      ]
+    },
+    {
+      "constraint": "Preference: fast lunch, no long sit-down (Maya must be back by 1:00)",
+      "source_lines": [
+        "maya: also my manager does a head count at 1:00 sharp. i cannot be the one strolling back in at 1:20",
+        "liam: so no long sit-down lunch. in, eat, out. my stomach and i are ready"
+      ]
+    },
+    {
+      "constraint": "Budget: cheapest tier ($)",
+      "source_lines": [
+        "maya: and the trip fund is watching. if it's pricey, i'm eating crackers at my desk",
+        "maya: badly. my iced tea this morning cost what a whole lunch should. downtown is robbing me"
+      ]
+    },
+    {
+      "constraint": "Strict diet: Mina is vegetarian (implied; needs real meat-free mains, several curry options)",
+      "source_lines": [
+        "liam: ok ok. but mina orders a real main this time. no plate of fries",
+        "liam: burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her",
+        "maya: oh, like pizza day when she offered to pick the pepperoni off. absolutely not",
+        "mina: ...okay. somewhere with a few curries i can actually order would be really nice. thank you both"
+      ]
+    }
+  ],
+  "elimination": {
+    "downtown_copper_pot": "Deal-breaker: all curries are lamb, chicken or beef; vegetarian only gets plain rice.",
+    "downtown_cardamom_house": "$$ is one tier over budget (-1 star); otherwise fits. 2 stars.",
+    "downtown_indigo_arch": "Slow coursed sit-down service, reviewer was late back to the office (missed speed preference, -1 star). 2 stars.",
+    "downtown_pepper_tree": "Burgers, misses the curry craving (-1 star); veg patty and fast are fine. 2 stars.",
+    "downtown_tamarind_lane": "Curry, $, counter service with time to spare, three vegetarian curries. 3 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "The vegetarian diet is never stated outright; it is implied through the burger-day fries and pepperoni-picking callbacks plus Mina's 'a few curries i can actually order'. Fair and satisfying, but a player who skims the banter could miss it and pick Copper Pot.",
+    "The burger-day callback might also tempt a careless player toward Pepper Tree, but the review language ('doesn't eat meat') makes the veg reading clear.",
+    "Budget is implied rather than stated as a tier; 'if it's pricey' plus the iced tea complaint reads as $. Treating $$ as one over is my assumption.",
+    "Every venue review uses the same 'coworker/friend who doesn't eat meat' phrasing, which makes the veg constraint a bit easy to confirm once you suspect it.",
+    "The night-market noodle stall line is a red herring/setup; no venue matches it and Maya explicitly dismisses it. Fine.",
+    "Nothing contradictory or unfair found."
+  ]
+}
