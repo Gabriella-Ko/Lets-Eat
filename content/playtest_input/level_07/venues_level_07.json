@@ -1,0 +1,41 @@
+{
+  "level_id": "level_07",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_tamarind_lane",
+      "reviews": [
+        "My desk-mate doesn't eat meat and she had three different curries to choose from: chickpea, paneer and a smoky eggplant one. Full proper plates, not just rice and bread.",
+        "Ordered at the counter and had my bowl before my coworker finished paying. Back at the office with twenty minutes of lunch break to spare."
+      ]
+    },
+    {
+      "id": "downtown_copper_pot",
+      "reviews": [
+        "Every pot on the counter is lamb, chicken or beef. My fellow intern who skips meat asked what she could have and they offered her a bowl of plain rice.",
+        "They ladle it straight from the pot into a takeaway box. In and out in ten minutes, even at the noon rush."
+      ]
+    },
+    {
+      "id": "downtown_cardamom_house",
+      "reviews": [
+        "My manager doesn't eat meat and orders the spinach-and-paneer or the lentil curry every week. Plenty for her to pick from.",
+        "Lovely food and the kitchen sends it out in minutes, but it's a treat-yourself lunch: two visits here and my intern stipend felt it."
+      ]
+    },
+    {
+      "id": "downtown_indigo_arch",
+      "reviews": [
+        "Came on my lunch break and ended up asking for the curry to go before it even reached the table. Courses come out one at a time, slow and lovely, and I was still late back to the office.",
+        "Booked a long Saturday dinner here. My friend who doesn't eat meat had a whole page of lentil, paneer and vegetable dishes to choose from."
+      ]
+    },
+    {
+      "id": "downtown_pepper_tree",
+      "reviews": [
+        "The black bean patty is the real deal. My coworker who doesn't eat meat says it's the best burger on the block.",
+        "Burger and fries in a paper bag in under five minutes. My go-to when the lunch break is short."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_tamarind_lane",
+      "name": "Tamarind Lane",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_copper_pot",
+      "name": "Copper Pot",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_cardamom_house",
+      "name": "Cardamom House",
+      "cuisine": "curry",
+      "price_tier": "$$"
+    },
+    {
+      "id": "downtown_indigo_arch",
+      "name": "Indigo Arch",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_pepper_tree",
+      "name": "Pepper Tree",
+      "cuisine": "burgers",
+      "price_tier": "$"
+    }
+  ]
+}
