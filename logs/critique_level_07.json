@@ -8,8 +8,8 @@
       "file": "content/levels/level_07/dialogue_level_07.json",
       "agent": "narrative_writer",
       "where": "script[6] and script[8]",
-      "issue": "Maya's `$` budget is findable, but only just. 'if it's pricey' is relative, so the player has to work out that one dollar sign counts as not pricey. Downtown only has `$` and `$$`, Cardamom House's review calls it a 'treat-yourself lunch', and the trip fund callback is there, so a careful first-time player gets it. Still, it's the softest clue in the level, and there's no budget line in the past four levels with Maya where the tier wasn't named.",
-      "suggested_fix": "Point the line at the cheapest end without naming a tier, e.g. 'and the trip fund is watching. cheapest curry in town or i'm eating crackers at my desk'."
+      "issue": "Carried over from the first review, unchanged. Maya's `$` budget can be found, but 'if it's pricey' is relative, so the player has to work out that one dollar sign counts as not pricey. The trip fund callback, the iced tea line, a downtown range of only `$`/`$$`, and Cardamom House's 'treat-yourself lunch' review mean a careful player still gets there. It's still the softest clue in the level.",
+      "suggested_fix": "Point at the cheapest end without naming a tier, e.g. 'and the trip fund is watching. cheapest curry in town or i'm eating crackers at my desk'."
     },
     {
       "severity": "suggestion",
@@ -17,8 +17,8 @@
       "file": "content/levels/level_07/dialogue_level_07.json",
       "agent": "narrative_writer",
       "where": "script[11]; outcomes downtown_tamarind_lane line 2",
-      "issue": "'a real main' is the signature phrase of the level_16 'Mina speaks up' beat ('could we go somewhere I can order a real main this time?'). Using it twice here, through Liam and in Mina's perfect reaction, weakens that later payoff a little.",
-      "suggested_fix": "Use different wording here, e.g. Liam: 'ok ok. but mina gets an actual curry this time. no plate of fries', and Mina's perfect line: 'i had a whole curry of my own, and liam didn't have to watch me eat a side. thank you :)'."
+      "issue": "Carried over, unchanged. 'a real main' is the signature phrase of the level_16 'Mina speaks up' beat ('could we go somewhere I can order a real main this time?'). Using it twice here, through Liam and in Mina's perfect reaction, takes a little away from that later payoff.",
+      "suggested_fix": "Liam: 'ok ok. but mina gets an actual curry this time. no plate of fries'; Mina's perfect line: 'i had a whole curry of my own, and liam didn't have to watch me eat a side. thank you :)'."
     },
     {
       "severity": "suggestion",
@@ -26,26 +26,26 @@
       "file": "content/levels/level_07/outcomes_level_07.json",
       "agent": "narrative_writer",
       "where": "downtown_copper_pot lines 1 and 3",
-      "issue": "The vegetarian fail is now the third use of one template, with lines close to copies of level_05: Mina says 'oh. every [dish] here has meat... it's okay, i'll just have some [water/rice]' (level_03, level_05), and Maya says 'i'm leaving this chat and taking mina with me' (level_05). Maya's 'leaving this chat' is her voice and is fine; it's the whole line pattern that repeats.",
-      "suggested_fix": "Keep the beat but change the lines, e.g. Mina: 'oh. it's all lamb and chicken. i'll be fine with the rice, honestly' and Maya: 'i'm literally leaving this chat. we are NOT doing fries 2.0. mina, grab your bag'."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_07/dialogue_level_07.json",
-      "agent": "narrative_writer",
-      "where": "script[0]; outcomes downtown_pepper_tree line 1",
-      "issue": "Maya's craving again comes from smelling the food all morning ('smelling it from the dining hall all morning' in level_05, now 'microwaved curry at 10am'). Together with a 1pm deadline driving quick_bite (Mina's 1:15 critique in level_03), the level reads close to level_03/05. The calendar covers quick_bite itself, so this is only mild.",
-      "suggested_fix": "Give the craving another trigger, e.g. 'my coworker keeps showing me photos of her curry lunches and i've reached my limit'."
+      "issue": "Partly fixed. Maya's new line no longer copies level_05 word for word, and 'leaving this restaurant' is a nice twist on her catchphrase. But the beat is the same: Maya walks out and takes Mina with her (level_05: 'taking mina with me'). Mina's line wasn't changed and is still the level_03/level_05 template: 'oh. every [dish] here has meat... it's okay, i'll just have some [water/rice]'.",
+      "suggested_fix": "Mina: 'oh. it's all lamb and chicken. the rice is nice though, honestly'. Maya could get a different dramatic beat, e.g. 'this is OUTRAGEOUS! i'm leaving this restaurant. we are NOT doing fries 2.0'."
     },
     {
       "severity": "suggestion",
       "check": "voice",
       "file": "content/levels/level_07/dialogue_level_07.json",
       "agent": "narrative_writer",
-      "where": "script[19]",
-      "issue": "Mina's acceptance line copies the shape of level_05's line ('...okay, a proper veggie pizza would actually make my day. thank you both'), opening ellipsis and closing 'thank you both' included. It's in her voice, but it lands as a copy.",
-      "suggested_fix": "e.g. 'okay, okay :) a few curries to choose from would be really lovely. you're both very sweet'."
+      "where": "script[5] and script[11]",
+      "issue": "Liam's edited reply opens with 'ok ok.', and so does his line six bubbles later ('ok ok. but mina orders a real main'). Two identical openers this close together read like a tic, not a voice. The new line itself ('in, eat, out. my stomach and i are ready') is short and food-first, so it fits his voice.",
+      "suggested_fix": "Drop the opener in script[5]: 'in, eat, out. my stomach and i are ready'. Or change script[11] to 'fine. but mina gets...'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_07/dialogue_level_07.json",
+      "agent": "narrative_writer",
+      "where": "script[18]",
+      "issue": "The edit fixes the earlier copy of level_05 ('thank you both' is gone, and the leading '...' is her usual hesitation, so it's fine). It's soft, offhand and confirmable from reviews, so it fits clue rule 6. But the line now says 'okay' twice ('...okay.' and 'if that's okay'), which reads a bit clumsy.",
+      "suggested_fix": "'...okay. somewhere with a few curries i can actually order would be really nice, if you don't mind'."
     },
     {
       "severity": "suggestion",
@@ -53,10 +53,10 @@
       "file": "content/levels/level_07/venues_level_07.json",
       "agent": "map_seeder",
       "where": "venue downtown_indigo_arch review 1",
-      "issue": "'ended up asking for the curry to go before it even reached the table' reads a bit tangled next to 'courses come out one at a time'. The slowness is still clear, so this is wording only.",
-      "suggested_fix": "'Tried it on a lunch break: courses come out one at a time, slow and lovely, and I still walked back into the office twenty minutes late.'"
+      "issue": "The edited review clearly proves Indigo Arch isn't a quick lunch: the curry still hadn't arrived when the reviewer gave up, and the courses come one at a time. Together with review 2's 'long Saturday dinner', no careful player would mistake it for quick. Now 'Very slow paced.' states the fact outright. The map-seeder brief asks implied-level reviews to hint through experience, and the experience before it already makes the point.",
+      "suggested_fix": "Cut the last sentence, or swap it for an experience: '...Courses taste lovely but come out one at a time. I was back at my desk well after one.'"
     }
   ],
-  "summary": "A fair, warm implied level. Every scored constraint can be found without being stated: curry is a plain craving, quick_bite comes from Maya's 1:00 head count, `$` from the trip fund and 'pricey', and vegetarian from two friend callbacks (the plate of fries, and the picked-off pepperoni, which makes 'nothing else worked for her' readable as meat for a first-time player). Mina's soft acceptance follows clue rule 6. The reviews evidence every deciding attribute, the decoy names are neutral, and the night-market stall beat lands in one untagged Liam line. The suggestions are about freshness: the vegetarian-fail and acceptance lines lean on level_05 templates, and 'real main' borrows level_16's payoff phrase.",
+  "summary": "Still a fair, warm implied level, and Gabriella's edits mostly help. quick_bite is now easier to find: 'gonna be another quick lunch' plus Liam's 'in, eat, out' is close to stated, which matches level_03's precedent for a soft vibe in an implied level, while the hard vegetarian clue stays properly implied through the two callbacks and Mina's soft acceptance. Indigo Arch's review proves slowness without doubt. All six findings are suggestions: earlier suggestions 5 and 6 are fixed apart from small wording points, 3 is only partly fixed (Mina's fail line and Maya's 'take Mina with me' beat still echo level_05), and 1 and 2 are unchanged.",
   "generated_by": "critic"
 }
