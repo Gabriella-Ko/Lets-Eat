@@ -1,0 +1,18 @@
+{
+  "level_id": "level_07",
+  "chapter": 2,
+  "district": "downtown",
+  "difficulty": "implied",
+  "guests": ["maya", "mina", "liam"],
+  "hard": { "budget_max": "$", "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "curry", "vibe": ["quick_bite"], "intolerances": [] },
+  "solution_id": "downtown_tamarind_lane",
+  "decoys": [
+    { "id": "downtown_copper_pot", "fails_on": "diet:vegetarian" },
+    { "id": "downtown_cardamom_house", "fails_on": "budget_soft" },
+    { "id": "downtown_indigo_arch", "fails_on": "vibe:quick_bite" },
+    { "id": "downtown_pepper_tree", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
