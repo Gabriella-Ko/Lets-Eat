@@ -1,0 +1,49 @@
+{
+  "level_id": "level_07",
+  "by_venue": {
+    "downtown_tamarind_lane": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "maya", "text": "curry, cheap, AND i'm back before the head count. the trip fund and i are both thriving", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "i got a real main, and liam didn't have to watch me eat a side. thank you :)", "emotion": "HAPPY" },
+        { "speaker": "liam", "text": "fast and good. my favourite combination", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_copper_pot": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh. every curry here has meat in it. it's okay, really, i'll just have some rice", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "NO. not the plate of fries all over again. everybody up", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i'm literally leaving this chat. and this restaurant. mina, you're coming with me", "emotion": "ANGRY" }
+      ]
+    },
+    "downtown_cardamom_house": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "the curry is amazing but that's two dollar signs. the trip fund just fainted", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "fast and tasty though. i'll split my rice with you, trip fund", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_indigo_arch": {
+      "result": "partial",
+      "missed": ["vibe:quick_bite"],
+      "lines": [
+        { "speaker": "maya", "text": "it's lovely but we're STILL waiting. i'm going to miss the head count", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "worth it. tell your manager the curry made you do it", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_pepper_tree": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "maya", "text": "these are burgers. i have been smelling curry since 10am. this is a betrayal", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "it's quick, and there's something here i can order, at least. curry next time?", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
