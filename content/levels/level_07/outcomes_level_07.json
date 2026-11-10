@@ -16,7 +16,7 @@
       "lines": [
         { "speaker": "mina", "text": "oh. every curry here has meat in it. it's okay, really, i'll just have some rice", "emotion": "SURPRISED" },
         { "speaker": "liam", "text": "NO. not the plate of fries all over again. everybody up", "emotion": "SURPRISED" },
-        { "speaker": "maya", "text": "i'm literally leaving this chat. and this restaurant. mina, you're coming with me", "emotion": "ANGRY" }
+        { "speaker": "maya", "text": "this is OUTRAGEOUS! i'm leaving this restaurant. mina, you're coming with me", "emotion": "ANGRY" }
       ]
     },
     "downtown_cardamom_house": {
@@ -45,5 +45,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
