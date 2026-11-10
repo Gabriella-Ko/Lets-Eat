@@ -82,7 +82,7 @@ The crew also helped build its own tooling: the Validator, Integration and Prove
 Mostly, yes.  
 - It's a game about a group choosing food with constraints with a bit of narrative so it's kinda cute
 - Has similar(?) game mechanics to Meowdoku - which is what my game play was inspired by but not as hard as it
-- The pixel art that I generated with Nano Bana and has the aesthetics I'm looking for so far
+- The pixel art that I generated with Nano Banana and has the aesthetics I'm looking for so far
 - Still need to add touch ups to the art (later - and I could nitpick on this for forever) but that's what's mostly bugging me and that normally if I like a game, I'm super addicted even if its a casual puzzle game. This game isn't doing that for me so I don't feel the same passion for it
 
 Where it didn't sound right, I or the pipeline fixed it:
