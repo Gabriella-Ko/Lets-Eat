@@ -898,5 +898,35 @@
     "result": "manifest written, 51 files, 1 issues",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T03:59:27.922Z",
+    "level": "campaign",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v4",
+    "step": "outline_story_beats",
+    "result": "updated story_beat on levels 07,09,11,15,16,20; awaiting re-approval",
+    "retries": 0,
+    "tokens": 25723
+  },
+  {
+    "timestamp": "2026-11-10T04:06:37.080Z",
+    "level": "campaign",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v4",
+    "step": "outline_cravings",
+    "result": "added craving to all 20 rows; awaiting re-approval",
+    "retries": 0,
+    "tokens": 36020
+  },
+  {
+    "timestamp": "2026-11-10T04:15:17.156Z",
+    "level": "campaign",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "approval",
+    "result": "outline re-approved by Gabriella (cravings + story beats). Note for level_17: reviews must evidence dairy-free options at the answer.",
+    "retries": 0,
+    "tokens": null
   }
 ]
