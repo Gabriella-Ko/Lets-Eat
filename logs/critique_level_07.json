@@ -4,23 +4,14 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "fairness",
-      "file": "content/levels/level_07/dialogue_level_07.json",
-      "agent": "narrative_writer",
-      "where": "script[6] and script[8]",
-      "issue": "Carried over, unchanged. Maya's `$` budget can be found, but 'if it's pricey' is relative, so the player has to work out that one dollar sign counts as not pricey. The trip fund callback, the iced tea line, a downtown range of only `$`/`$$`, and Cardamom House's 'treat-yourself lunch' review still get a careful player there. It's still the softest clue in the level.",
-      "suggested_fix": "Point at the cheapest end without naming a tier, e.g. 'and the trip fund is watching. cheapest curry in town or i'm eating crackers at my desk'."
-    },
-    {
-      "severity": "suggestion",
       "check": "freshness",
       "file": "content/levels/level_07/outcomes_level_07.json",
       "agent": "narrative_writer",
-      "where": "downtown_copper_pot lines 1 and 3",
-      "issue": "Carried over, unchanged. Mina's fail line still follows the level_05 template ('oh. every pizza here has meat on it. it's okay, i'll just have some water' becomes '...every curry here has meat in it. it's okay, really, i'll just have some rice'). Maya walking out with Mina ('mina, you're coming with me') is the same beat as level_05's 'taking mina with me'. Liam's 'not the plate of fries all over again' is fresh and good.",
-      "suggested_fix": "Mina: 'oh. it's all lamb and chicken. the rice is nice though, honestly'. Maya could get a different dramatic beat, e.g. 'this is OUTRAGEOUS! i'm leaving this restaurant. we are NOT doing fries 2.0'."
+      "where": "downtown_copper_pot line 3",
+      "issue": "Maya's 'we are NOT doing fries 2.0' repeats the joke Liam makes in the line just before it ('not the plate of fries all over again'), so two of the three fail lines tell the same callback. It is also milder than her usual over-the-top complaining. It works, but it is the weakest line in an otherwise good reaction.",
+      "suggested_fix": "Give Maya her own story from the chat and a bigger reaction, e.g. 'first the pepperoni, now THIS. i'm literally walking out' (keeps her exaggeration without copying level_05's 'leaving this chat and taking mina with me')."
     }
   ],
-  "summary": "The 'a real main' replacements work. Liam's 'mina gets a full meal like the rest of us. no plate of fries' keeps the vegetarian clue implied: it never names her diet, the fries callback and Liam's and Maya's two stories carry it, and Mina's soft 'curries i can actually order' acceptance stays within clue rule 6. It points to every veggie-friendly venue, not just the answer. Mina's new perfect line is warm, soft-spoken and matches Tamarind Lane's review. Nothing regressed. Four earlier suggestions are now fixed: the reserved phrase is gone, Liam's doubled 'ok ok' is gone ('got it.' / 'fine.'), Mina's doubled 'okay' is gone, and Indigo Arch's review now shows the slowness through experience. Two suggestions remain (the relative budget wording and the Copper Pot fail lines that echo level_05).",
+  "summary": "The new Copper Pot fail reaction works. Mina's 'it's all lamb and chicken. the rice is nice though, honestly' is soft and makes the best of it, true to her Cast entry, and matches the review (meat pots only, plain rice offered). It no longer copies the 'i'll just have some water' line from levels 03 and 05, and 'lamb and chicken' just leaves beef out, which is no contradiction. Liam's 'everybody up' gives the dramatic exit without reusing level_05's 'taking mina with me'. Maya's line fits the result but doubles Liam's fries joke (one suggestion). The dialogue, venues and the other outcomes are unchanged and still hold: every clue is findable in the implied style, nothing gives the answer away, and the reviews carry every deciding attribute. The budget wording is closed as Gabriella decided.",
   "generated_by": "critic"
 }
