@@ -45,6 +45,51 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["healthy"],
       "first_level": "level_06"
+    },
+    {
+      "id": "downtown_tamarind_lane",
+      "name": "Tamarind Lane",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["vegetarian_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_07"
+    },
+    {
+      "id": "downtown_copper_pot",
+      "name": "Copper Pot",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": [],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_07"
+    },
+    {
+      "id": "downtown_cardamom_house",
+      "name": "Cardamom House",
+      "cuisine": "curry",
+      "price_tier": "$$",
+      "dietary_tags": ["vegetarian_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_07"
+    },
+    {
+      "id": "downtown_indigo_arch",
+      "name": "Indigo Arch",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["vegetarian_options"],
+      "vibe_tags": [],
+      "first_level": "level_07"
+    },
+    {
+      "id": "downtown_pepper_tree",
+      "name": "Pepper Tree",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["vegetarian_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_07"
     }
   ],
   "generated_by": "map_seeder",
