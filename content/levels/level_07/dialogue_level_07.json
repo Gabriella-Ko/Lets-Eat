@@ -12,7 +12,7 @@
     { "speaker": "maya", "text": "badly. my iced tea this morning cost what a whole lunch should. downtown is robbing me", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "liam", "text": "oh, someone at work said there's a noodle stall somewhere at the night market. nobody knows where. i'm obsessed", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "liam. focus. curry. today.", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "liam", "text": "ok ok. but mina orders a real main this time. no plate of fries", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "liam", "text": "fine. but this time mina gets a full meal like the rest of us. no plate of fries", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
     { "speaker": "maya", "text": "wait, plate of fries??", "emotion": "SURPRISED", "clue": null },
     { "speaker": "liam", "text": "burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
     { "speaker": "maya", "text": "oh, like pizza day when she offered to pick the pepperoni off. absolutely not", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
