@@ -100,6 +100,7 @@ if (outline) {
     if (spec.district !== r.district) diffs.push(`district ${spec.district} vs ${r.district}`);
     if (spec.difficulty !== r.clue_style) diffs.push(`difficulty ${spec.difficulty} vs clue_style ${r.clue_style}`);
     if ([...(spec.guests || [])].sort().join() !== [...r.guests].sort().join()) diffs.push(`guests [${spec.guests}] vs [${r.guests}]`);
+    if (r.craving !== undefined && spec.soft?.craving !== r.craving) diffs.push(`craving ${spec.soft?.craving} vs ${r.craving}`);
     if ([...hard].sort().join() !== [...r.hard_constraints].sort().join()) diffs.push(`hard constraints [${hard}] vs [${r.hard_constraints}]`);
     for (const d of diffs) {
       const msg = `${id} spec does not match its outline row: ${d}`;
