@@ -7,34 +7,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "craving: curry",
-      "source": "maya: \"someone at my internship microwaved curry at 10am and i have been suffering ever since\" / liam: \"curry. yes. i'm in before you even ask\" / maya: \"liam. focus. curry. today.\""
+      "constraint": "Craving: curry",
+      "who": "maya, liam",
+      "source_line": "maya: \"someone at my internship microwaved curry at 10am and i have been suffering ever since\" / liam: \"curry. yes. i'm in before you even ask\" / maya: \"liam. focus. curry. today.\""
     },
     {
-      "constraint": "preference: quick lunch, no long sit-down (Maya must be back by 1:00)",
-      "source": "maya: \"also my manager does a head count at 1:00 sharp. i cannot be the one strolling back in at 1:20\" / liam: \"so no long sit-down lunch. in, eat, out.\""
+      "constraint": "Quick lunch: has to be fast service (head count at 1:00)",
+      "who": "maya",
+      "source_line": "maya: \"also my manager does a head count at 1:00 sharp. gonna be another quick lunch\""
     },
     {
-      "constraint": "budget: cheap ($)",
-      "source": "maya: \"and the trip fund is watching. if it's pricey, i'm eating crackers at my desk\" / \"my iced tea this morning cost what a whole lunch should. downtown is robbing me\""
+      "constraint": "Budget: cheap ($); pricey places are out",
+      "who": "maya",
+      "source_line": "maya: \"and the trip fund is watching. if it's pricey, i'm eating crackers at my desk\" (reinforced by \"my iced tea this morning cost what a whole lunch should\")"
     },
     {
-      "constraint": "strict diet: Mina is vegetarian (implied, needs real vegetarian curry mains)",
-      "source": "liam: \"she had fries, because nothing else on the menu worked for her\" (burger day) / maya: \"like pizza day when she offered to pick the pepperoni off. absolutely not\" / mina: \"somewhere with a few curries i can actually order would be really nice\""
+      "constraint": "Strict diet: Mina doesn't eat meat (vegetarian)",
+      "who": "mina",
+      "source_line": "liam: \"she had fries, because nothing else on the menu worked for her\" / maya: \"like pizza day when she offered to pick the pepperoni off. absolutely not\" / liam: \"this time mina gets a full meal like the rest of us\""
+    },
+    {
+      "constraint": "Preference: several meat-free curries for Mina to choose from (a real meal, not a side)",
+      "who": "mina",
+      "source_line": "mina: \"somewhere with a few curries i can actually order would be really nice if you don't mind\""
     }
   ],
-  "elimination": {
-    "downtown_copper_pot": "Only lamb, chicken or beef curries; plain rice for a non-meat eater. Fails Mina's diet (deal-breaker).",
-    "downtown_cardamom_house": "Vegetarian options and fast, but $$ and reviewed as a treat-yourself lunch that strains an intern stipend. One tier over budget, minus a star.",
-    "downtown_indigo_arch": "$ and vegetarian-friendly, but slow coursed service; reviewer was late back to the office. Misses the quick-lunch preference, minus a star.",
-    "downtown_pepper_tree": "Fast, cheap, has a black bean burger, but it is a burger place, not curry. Misses the craving, minus a star (and a repeat of the burger-day problem).",
-    "downtown_tamarind_lane": "$, curry, three vegetarian curries as full plates, counter service with time to spare. Meets everything."
+  "venue_assessment": {
+    "downtown_tamarind_lane": "$ curry; review: three meat-free curries as full plates; counter service, back with 20 min to spare. Meets everything: 3 stars.",
+    "downtown_copper_pot": "$ curry and fast, but all meat; plain rice offered to the non-meat-eater. Breaks Mina's diet: deal-breaker.",
+    "downtown_cardamom_house": "Curry, fast, good vegetarian choice, but $$ and described as a treat that hurt an intern stipend. One tier over: 2 stars.",
+    "downtown_indigo_arch": "$ curry with lots of vegetarian dishes, but slow service; the reviewer was late back from lunch. Misses quick lunch: 2 stars.",
+    "downtown_pepper_tree": "$ and fast with a veggie burger, but burgers, not curry, and no curries for Mina. Misses the curry craving and Mina's curry wish: about 1 star."
   },
-  "difficulty": 3,
+  "difficulty": 2,
   "notes": [
-    "Mina's vegetarianism is never stated, only implied through the burger-day and pepperoni callbacks plus her line about curries she 'can actually order'. That was fair and enjoyable to work out, but a player who skims could take it as picky eating rather than a strict diet. It doesn't change the pick here, since Copper Pot is the only venue that fails it and it would lose on 'a few curries i can actually order' anyway.",
-    "The budget is clear in tone but has no explicit tier. 'If it's pricey' together with the iced-tea complaint points to $, and Cardamom House's stipend review confirms $$ is too much.",
-    "The night-market noodle stall line is a red herring or setup for a later level. Maya dismisses it right away, so it is not a constraint.",
-    "Each decoy fails exactly one constraint, which makes the elimination clean. Nothing felt contradictory."
+    "Nobody ever says that Mina is vegetarian. You have to work it out from the fries and pepperoni stories plus Mina's 'curries i can actually order'. That is fair and a nice bit of inference, but a player who skims could miss that it's a strict diet and treat it as only a preference. Copper Pot is still clearly the wrong pick either way, because the review says the non-meat-eater got only plain rice.",
+    "The budget is never given as a price tier. 'If it's pricey' combined with the Cardamom House review ('treat-yourself lunch... stipend felt it') makes it clear that $$ is too much. It is readable, though a bit indirect.",
+    "Each decoy fails on exactly one thing: Copper Pot on diet, Cardamom House on price, Indigo Arch on speed, Pepper Tree on cuisine. That makes the puzzle clean, but a player who checks every review will find the answer without much trouble. Nothing felt unfair or contradictory.",
+    "Liam's night-market noodle stall line is a red herring, and Maya shuts it down right away. It is harmless."
   ]
 }

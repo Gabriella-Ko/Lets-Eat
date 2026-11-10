@@ -3,16 +3,11 @@
   "run": 1,
   "agent_id": "blind_playtester",
   "brief_version": "v2",
-  "files_read": [
-    "content/playtest_input/level_07/dialogue_level_07.json",
-    "content/playtest_input/level_07/venues_level_07.json",
-    "content/playtest_input/level_07/venue_registry_downtown.json"
-  ],
   "pick": "downtown_tamarind_lane",
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: curry (whole group)",
+      "constraint": "Craving: curry",
       "type": "craving",
       "source_lines": [
         "maya: someone at my internship microwaved curry at 10am and i have been suffering ever since",
@@ -21,15 +16,15 @@
       ]
     },
     {
-      "constraint": "Quick lunch: must be fast, no long sit-down (Maya back by 1:00)",
+      "constraint": "Quick lunch: Maya has to be back for a 1:00 head count, so service has to be fast",
       "type": "preference",
       "source_lines": [
-        "maya: also my manager does a head count at 1:00 sharp. i cannot be the one strolling back in at 1:20",
-        "liam: so no long sit-down lunch. in, eat, out. my stomach and i are ready"
+        "maya: also my manager does a head count at 1:00 sharp. gonna be another quick lunch",
+        "liam: got it. in, eat, out. my stomach and i are ready"
       ]
     },
     {
-      "constraint": "Budget: cheap ($)",
+      "constraint": "Budget: cheap ($). Maya is saving for the trip and won't come if it's pricey",
       "type": "budget",
       "source_lines": [
         "maya: and the trip fund is watching. if it's pricey, i'm eating crackers at my desk",
@@ -37,29 +32,29 @@
       ]
     },
     {
-      "constraint": "Mina is vegetarian (implied, strict diet): needs real meat-free curry mains",
-      "type": "strict_diet",
+      "constraint": "Mina is vegetarian (strict diet, deal-breaker); she needs several real meat-free curries, not a side",
+      "type": "diet",
       "source_lines": [
-        "liam: ok ok. but mina orders a real main this time. no plate of fries",
+        "liam: fine. but this time mina gets a full meal like the rest of us. no plate of fries",
         "liam: burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her",
         "maya: oh, like pizza day when she offered to pick the pepperoni off. absolutely not",
-        "mina: ...okay. somewhere with a few curries i can actually order would be really nice. thank you both"
+        "mina: ...okay. somewhere with a few curries i can actually order would be really nice if you don't mind"
       ]
     }
   ],
-  "venue_evaluation": {
-    "downtown_tamarind_lane": "curry, $, fast counter service, three vegetarian curries as full plates. Meets everything: 3 stars.",
-    "downtown_copper_pot": "curry, $, fast, but every pot is meat; vegetarian only gets plain rice. Deal-breaker for Mina.",
-    "downtown_cardamom_house": "curry, fast, vegetarian options, but $$ ('treat-yourself', stipend felt it). One tier over: 2 stars.",
-    "downtown_indigo_arch": "curry, $, many vegetarian dishes, but slow coursed service made the reviewer late back to the office. Missed quick-lunch preference: 2 stars.",
-    "downtown_pepper_tree": "burgers, $, fast, good veggie patty, but not curry. Missed craving: 2 stars."
+  "venue_reasoning": {
+    "downtown_tamarind_lane": "Curry, $, review 1 shows three meat-free curries as full plates, review 2 shows very fast counter service. Meets everything.",
+    "downtown_copper_pot": "Curry, $, fast, but every pot is meat and only plain rice for the non-meat eater. Fails Mina's diet (deal-breaker).",
+    "downtown_cardamom_house": "Curry, fast, good veg options, but $$ and the review calls it a treat-yourself lunch. One tier over budget, so -1 star (2 stars).",
+    "downtown_indigo_arch": "Curry, $, veg options, but slow service; the reviewer was late back to the office. Misses the quick lunch (2 stars).",
+    "downtown_pepper_tree": "Fast, $, good veggie burger, but it's burgers, not curry. Misses the craving and echoes the burger-day story (2 stars)."
   },
-  "difficulty": 3,
+  "difficulty": 2,
   "notes": [
-    "Vegetarian constraint is never stated outright; it must be inferred from the fries and pepperoni callbacks plus Mina's 'curries i can actually order'. Fair and well-signposted once you connect them, and every venue review uses 'doesn't eat meat' phrasing, which confirms the reading.",
-    "Liam's night-market noodle stall line is a red herring; Maya shuts it down immediately and no noodle venue is offered, so it is harmless.",
-    "Budget is never given as a tier; '$' is inferred from 'if it's pricey' and the iced-tea complaint. Cardamom House's '$$' plus 'treat-yourself' review makes the one-tier-over penalty clear.",
-    "Each distractor fails exactly one constraint, which is a clean design. Slightly easy once the vegetarian inference is made, since only one venue passes all four checks.",
-    "Uncertain whether the game treats inferred vegetarianism as a deal-breaker (strict diet) or a one-star preference; either way Tamarind Lane is the only 3-star pick, so the answer does not depend on it."
+    "Mina's vegetarianism is never stated outright. You have to work it out from the fries and pepperoni stories plus 'a few curries i can actually order'. That's a good layered clue and still fair, since both stories point the same way, and every review mentions someone who 'doesn't eat meat' or 'skips meat', which confirms the reading.",
+    "The budget is implied ('if it's pricey', 'what a whole lunch should' cost) and never given as a tier. Reading it as $ seemed obvious, and only Cardamom House is $$, so it works.",
+    "Each decoy fails on exactly one constraint, so it's a clean one-answer puzzle. Moderately easy once the diet clue is decoded. It could be tough for players who miss the fries and pepperoni stories, because Copper Pot's meat-only menu only shows in its review.",
+    "Pepper Tree's veggie burger review is a nice twist: it fixes the fries problem from burger day but is still the wrong cuisine.",
+    "Nothing contradictory or unfair found."
   ]
 }
