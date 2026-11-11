@@ -13,7 +13,7 @@
     { "speaker": "roxy", "text": "brooke told me that story on the climbing wall. nothing satay-adjacent near cyrus, got it", "emotion": "SURPRISED", "clue": "allergy:peanut" },
     { "speaker": "roxy", "text": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it", "emotion": "HAPPY", "clue": "diet:vegetarian" },
     { "speaker": "mina", "text": "you remember that?? i got to order whatever looked good without asking about any of it. best lunch of my summer :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
-    { "speaker": "cyrus", "text": "Then that's the standard today. A cafe with a proper meat-free spread for Mina, not one option at the bottom.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "cyrus", "text": "Then sushi day is today's standard.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
     { "speaker": "mina", "text": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them?", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
     { "speaker": "roxy", "text": "...still not speaking. i would've remembered around the second bite. thank you mina", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
     { "speaker": "roxy", "text": "assistant, you're up. do it for the goose", "emotion": "HUNGRY", "clue": null }

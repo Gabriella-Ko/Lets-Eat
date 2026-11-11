@@ -14,8 +14,8 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "There are peanuts in all the food on this counter. I'm not eating here.", "emotion": "ANGRY" },
-        { "speaker": "brooke", "text": "i'm reading every label in here and they ALL say peanut. this is a disaster", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "There are peanuts in all the food on this counter. I'll be out on the pavement, keeping my pen company.", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "i just read the whole slate wall. satay dressing on every grain bowl, peanuts in the granola. this is a disaster", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
       ]
     },
@@ -23,7 +23,7 @@
       "result": "fail",
       "missed": ["diet:vegetarian"],
       "lines": [
-        { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the veggie bowls", "emotion": "SURPRISED" },
+        { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the soup is on bone broth", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "sushi day was the STANDARD. this is the opposite of sushi day", "emotion": "ANGRY" },
         { "speaker": "cyrus", "text": "I set that standard myself. I'm recording this as a personal failure.", "emotion": "ANGRY" }
       ]
