@@ -126,6 +126,42 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["healthy"],
       "first_level": "level_08"
+    },
+    {
+      "id": "downtown_orchid_row",
+      "name": "Orchid Row",
+      "cuisine": "thai",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_09"
+    },
+    {
+      "id": "downtown_monsoon_alley",
+      "name": "Monsoon Alley",
+      "cuisine": "thai",
+      "price_tier": "$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_09"
+    },
+    {
+      "id": "downtown_teak_door",
+      "name": "Teak Door",
+      "cuisine": "thai",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": [],
+      "first_level": "level_09"
+    },
+    {
+      "id": "downtown_river_bell",
+      "name": "River Bell",
+      "cuisine": "thai",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_09"
     }
   ],
   "generated_by": "map_seeder",

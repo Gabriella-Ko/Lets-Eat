@@ -1,0 +1,43 @@
+{
+  "level_id": "level_09",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_orchid_row",
+      "reviews": [
+        "My coworker with the peanut allergy normally sits out our Thai lunches. Here the server checked with the cooks and came back to tell him none of the dishes or sauces have a single peanut in them, so he ordered the pad see ew and actually enjoyed himself for once.",
+        "Steamed fish with lime and chili, a crunchy green papaya salad and a clear lemongrass soup. I walked back to my desk feeling fresh instead of sleepy, with change left over from a ten."
+      ]
+    },
+    {
+      "id": "downtown_monsoon_alley",
+      "reviews": [
+        "The satay is the reason to come: grilled skewers with a thick peanut dip on the side, and they shower the noodles and the salads with crushed peanuts too. You can smell it from the sidewalk.",
+        "Grilled chicken, bright herb salads and a broth that tastes clean, nothing swimming in oil. A smart pick when you still have a 2pm meeting to stay awake through."
+      ]
+    },
+    {
+      "id": "downtown_teak_door",
+      "reviews": [
+        "Our intern with the peanut allergy usually brings a packed lunch. The owner walked her through the whole menu and promised the kitchen has never kept a peanut on the shelf, so she ordered two dishes to make up for lost time.",
+        "Nearly everything comes out of the fryer: crispy pork belly, battered wings, spring rolls leaving grease spots on the paper. Tasty, but I spent the whole afternoon feeling like I'd swallowed a brick."
+      ]
+    },
+    {
+      "id": "downtown_river_bell",
+      "reviews": [
+        "Took my manager here for her birthday lunch. She can't go near peanuts, and the chef came out to tell her they don't stock them at all. Lovely treat, but the bill is a step up from the usual intern lunch.",
+        "Herb salad, steamed sea bass and a tom yum so clear you can see the bottom of the bowl. I stayed sharp right through the afternoon slump."
+      ]
+    },
+    {
+      "id": "downtown_koi_counter",
+      "reviews": [
+        "Still my favorite quick lunch on the block: a few cucumber rolls, salmon nigiri and a cup of miso, and I'm back at my desk feeling great instead of stuffed.",
+        "The new hire on our floor has a peanut allergy, so a teammate brought him here on day one. The chef confirmed nothing behind the counter has ever been near a peanut, and he's been back three times since."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}
