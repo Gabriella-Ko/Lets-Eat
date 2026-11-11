@@ -1,0 +1,53 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_09",
+  "run": 2,
+  "pick": "downtown_orchid_row",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "cyrus",
+      "constraint": "peanut allergy (deal-breaker)",
+      "source_lines": [
+        "liam: wait. thai. cyrus. are we okay after the satay incident??",
+        "brooke: i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always"
+      ]
+    },
+    {
+      "who": "liam, maya",
+      "constraint": "craving: thai",
+      "source_lines": [
+        "liam: ok so someone at work ate pad see ew at her desk and the whole floor smelled like it. i need thai",
+        "maya: thai. yes. i would fight someone for pad thai right now"
+      ]
+    },
+    {
+      "who": "maya",
+      "constraint": "budget: $ (cheap)",
+      "source_lines": [
+        "maya: tight. one pricey lunch and i'm eating toast until august",
+        "liam: cheap thai is the best thai anyway"
+      ]
+    },
+    {
+      "who": "brooke",
+      "constraint": "preference: nothing greasy / light food",
+      "source_lines": [
+        "brooke: count me in, just nothing greasy. i've got climbing after work and i'd like to actually make it up the wall"
+      ]
+    }
+  ],
+  "elimination": {
+    "downtown_monsoon_alley": "peanut dip and crushed peanuts on noodles and salads, so it's out on the allergy",
+    "downtown_teak_door": "peanut-free, thai and $, but almost everything is fried and greasy, which breaks Brooke's request (-1 star)",
+    "downtown_river_bell": "peanut-free, thai and light, but the review says it costs more and the card shows $$, one tier over budget (-1 star)",
+    "downtown_koi_counter": "peanut-free, $ and light, but it's sushi, not thai (misses the craving, -1 star)",
+    "downtown_orchid_row": "peanut-free (confirmed by kitchen), thai, $, fresh and light. Meets everything"
+  },
+  "difficulty": 2,
+  "notes": [
+    "The chat never says the word 'peanut'. Cyrus's allergy comes from the 'satay incident' line and Brooke's list (no satay, no dipping sauce, nothing crushed on the noodles). A returning player will pick it up easily. A player who starts at this level would have to work out that satay means peanuts, which is a fair inference but relies on what earlier levels set up.",
+    "Each decoy fails exactly one constraint and each failure is easy to read. The 'step up' wording in River Bell's review and its $$ card agree, so the price clue is consistent.",
+    "Maya's budget line ('one pricey lunch and i'm eating toast') is soft, but Liam's 'cheap thai' line backs it up. Nothing contradictory or unfair found."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_09",
+  "run": 1,
+  "pick": "downtown_orchid_row",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Thai food (Liam)",
+      "type": "craving",
+      "source_line": "liam: \"ok so someone at work ate pad see ew at her desk and the whole floor smelled like it. i need thai\""
+    },
+    {
+      "constraint": "Craving: Thai food (Maya)",
+      "type": "craving",
+      "source_line": "maya: \"thai. yes. i would fight someone for pad thai right now\""
+    },
+    {
+      "constraint": "Allergy: peanuts (Cyrus), a deal-breaker",
+      "type": "allergy",
+      "source_line": "liam: \"wait. thai. cyrus. are we okay after the satay incident??\" and brooke: \"i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always\""
+    },
+    {
+      "constraint": "Budget: cheapest tier ($); a pricier spot is out for Maya",
+      "type": "budget",
+      "source_line": "maya: \"tight. one pricey lunch and i'm eating toast until august\" (backed by liam: \"cheap thai is the best thai anyway\")"
+    },
+    {
+      "constraint": "Preference: nothing greasy or heavy (Brooke)",
+      "type": "preference",
+      "source_line": "brooke: \"count me in, just nothing greasy. i've got climbing after work and i'd like to actually make it up the wall\""
+    }
+  ],
+  "venue_reasoning": {
+    "downtown_orchid_row": "Thai, $, peanut-free kitchen per review, light fresh food. Meets everything.",
+    "downtown_monsoon_alley": "Thai, $, light, but peanut dip and crushed peanuts on noodles. Rules out Cyrus (allergy).",
+    "downtown_teak_door": "Thai, $, peanut-free, but almost everything is fried and greasy. Misses Brooke's preference (-1 star).",
+    "downtown_river_bell": "Thai, peanut-free, light, but $$, a step up in price. One tier over Maya's budget (-1 star).",
+    "downtown_koi_counter": "Peanut-free, light, $, but sushi rather than Thai. Misses the Thai craving (-1 star or more)."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Every constraint is clear once found. Each decoy fails exactly one constraint, which makes for a clean puzzle.",
+    "Cyrus never says 'peanut' himself in this chat. The allergy has to come from the 'satay incident' callback plus Brooke's list (no satay, no dipping sauce, nothing crushed on top). A player who has not played earlier levels can still work it out from Brooke's line and the peanut-heavy reviews, but it is the least direct clue. That seems fine for level 9.",
+    "The budget is implied ('one pricey lunch and i'm eating toast'), not given as a tier. The review that calls River Bell 'a step up from the usual intern lunch', together with its $$ card, makes the comparison clear enough.",
+    "Orchid Row's review mentions a 'crunchy green papaya salad'. Real-world som tam often comes with peanuts, which could make a cautious player hesitate, but the other review clearly says none of the dishes or sauces have peanuts. Not unfair, just a small trap.",
+    "Each venue card shows only name, cuisine and price, so the reviews do all the work for allergy and greasiness. That works well here."
+  ]
+}

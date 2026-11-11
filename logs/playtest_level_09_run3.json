@@ -1,0 +1,43 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_09",
+  "run": 3,
+  "pick": "downtown_orchid_row",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Thai food",
+      "who": "liam, maya",
+      "source_line": "liam: \"ok so someone at work ate pad see ew at her desk and the whole floor smelled like it. i need thai\" / maya: \"thai. yes. i would fight someone for pad thai right now\""
+    },
+    {
+      "constraint": "Allergy (deal-breaker): peanuts",
+      "who": "cyrus",
+      "source_line": "liam: \"wait. thai. cyrus. are we okay after the satay incident??\" / brooke: \"i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always\""
+    },
+    {
+      "constraint": "Budget: cheapest tier ($)",
+      "who": "maya",
+      "source_line": "maya: \"tight. one pricey lunch and i'm eating toast until august\" / liam: \"cheap thai is the best thai anyway\""
+    },
+    {
+      "constraint": "Preference: nothing greasy / light food",
+      "who": "brooke",
+      "source_line": "brooke: \"count me in, just nothing greasy. i've got climbing after work and i'd like to actually make it up the wall\""
+    }
+  ],
+  "elimination": {
+    "downtown_monsoon_alley": "Thai, $, light food, but peanut dip and crushed peanuts on noodles and salads: allergy deal-breaker.",
+    "downtown_teak_door": "Thai, $, peanut-free, but almost everything is fried and greasy: misses Brooke's preference (2 stars).",
+    "downtown_river_bell": "Thai, peanut-free, light, but $$ (review says the bill is a step up): one tier over Maya's budget (2 stars).",
+    "downtown_koi_counter": "Peanut-free, $, light, but sushi not Thai: misses the Thai craving (2 stars).",
+    "downtown_orchid_row": "Thai, $, kitchen confirmed no peanuts in any dish or sauce, fresh steamed/clear dishes, under ten dollars. Meets everything."
+  },
+  "difficulty": 2,
+  "notes": [
+    "The peanut allergy is never named outright in this chat; it is inferred from 'the satay incident' and Brooke's 'no satay, no dipping sauce, nothing crushed on top of the noodles'. That works fine as a callback for returning players, and Brooke's line is concrete enough for a new player to land it.",
+    "Each decoy fails on exactly one constraint, which is clean design. Every venue except Monsoon Alley has a peanut-free review, so the allergy only eliminates one option; the real work is the grease and budget checks.",
+    "River Bell's price issue is visible on the card ($$) and echoed in its review, so it is fair.",
+    "Nothing unfair or contradictory found. Slightly easy for level 9: once you note the four constraints, Orchid Row is the only venue that hits all of them."
+  ]
+}
