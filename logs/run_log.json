@@ -1500,5 +1500,195 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:38:14.548Z",
+    "level": "level_09",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "branch",
+    "result": "created level/09 from master",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:39:22.040Z",
+    "level": "level_09",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v5",
+    "step": "spec",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 24613
+  },
+  {
+    "timestamp": "2026-11-11T04:41:08.178Z",
+    "level": "level_09",
+    "agent_id": "map_seeder",
+    "brief_version": "v5",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 29845
+  },
+  {
+    "timestamp": "2026-11-11T04:41:08.178Z",
+    "level": "level_09",
+    "agent_id": "narrative_writer",
+    "brief_version": "v4",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 40165
+  },
+  {
+    "timestamp": "2026-11-11T04:41:08.178Z",
+    "level": "level_09",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:43:55.932Z",
+    "level": "level_09",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 8 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:44:35.027Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:44:35.027Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": 12301
+  },
+  {
+    "timestamp": "2026-11-11T04:44:35.027Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": 12487
+  },
+  {
+    "timestamp": "2026-11-11T04:44:35.027Z",
+    "level": "level_09",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "narrative_writer",
+    "brief_version": "v5",
+    "step": "fix_lines",
+    "result": "critic suggestions applied under v5",
+    "retries": 1,
+    "tokens": 32017
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "fix_reviews",
+    "result": "critic suggestions applied under v6",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:07:52.906Z",
+    "level": "level_09",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after v5/v6 fixes: pass, 0 must_fix, 2 suggestions (7 of 8 earlier fixed; 8th is for level_10)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:07:52.906Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_fixes",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 12698
+  },
+  {
+    "timestamp": "2026-11-11T05:07:52.906Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_fixes",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 12657
+  },
+  {
+    "timestamp": "2026-11-11T05:07:52.906Z",
+    "level": "level_09",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_fixes",
+    "result": "correct (orchid_row, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 12913
+  },
+  {
+    "timestamp": "2026-11-11T05:07:52.906Z",
+    "level": "level_09",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (after fixes)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:22:46.788Z",
+    "level": "level_09",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

@@ -1,0 +1,52 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_09",
+  "run": 3,
+  "pick": "downtown_orchid_row",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cyrus has a peanut allergy (deal-breaker)",
+      "source_lines": [
+        "liam: wait. thai. cyrus. are we okay after the satay incident??",
+        "brooke: i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always"
+      ]
+    },
+    {
+      "constraint": "Craving: Thai food",
+      "source_lines": [
+        "liam: ok so i dreamed about thai food last night. a whole table of it. woke up starving. i need thai",
+        "maya: i would fight someone for thai right now. i'm in",
+        "liam: assistant, please. i dreamed about thai and i need it to come true"
+      ]
+    },
+    {
+      "constraint": "Budget: cheapest tier ($)",
+      "source_lines": [
+        "maya: tight. if lunch costs more than a few bucks, the trip fund cries. and then i cry",
+        "liam: cheap thai is the best thai anyway"
+      ]
+    },
+    {
+      "constraint": "Preference: light, not fried/greasy (Brooke is climbing after work)",
+      "source_lines": [
+        "brooke: count me in! climbing after work though, and the last time i had a fried lunch i didn't make it past the first hold"
+      ]
+    }
+  ],
+  "venue_analysis": {
+    "downtown_orchid_row": "Thai, $, review confirms peanut-allergic diner eats curries and dipping sauces safely for a year; second review is steamed/clear soup and 'feeling fresh'. Meets everything: 3 stars.",
+    "downtown_monsoon_alley": "Thai, $, light, but satay with peanut dip and crushed peanuts on noodles. Deal-breaker for Cyrus.",
+    "downtown_teak_door": "Thai, $, peanut-safe, but almost everything fried/oily. Misses Brooke's preference: 2 stars.",
+    "downtown_river_bell": "Thai, peanut-safe, light, but $$ ('a step up' in price). One tier over budget: 2 stars.",
+    "downtown_koi_counter": "Peanut-safe, $, light, but sushi, not Thai. Misses the craving: 2 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Fair puzzle: each decoy fails exactly one constraint, and every constraint is findable in the chat.",
+    "The allergy is never named outright. A new player has to infer it from 'the satay incident' plus Brooke's list (satay, dipping sauce, crushed toppings). Brooke's line makes it clear enough, but someone who skims could read it as a dislike rather than an allergy.",
+    "Brooke's no-fried constraint is indirect (climbing plus a fried lunch story). It is fair, but it is the easiest one to miss, which makes Teak Door the strongest trap.",
+    "Maya's budget is 'more than a few bucks', so it is open to interpretation; Orchid Row's 'change left over from a ten' backs up the $ tier nicely.",
+    "Nothing contradictory found."
+  ]
+}

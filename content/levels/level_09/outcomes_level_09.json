@@ -1,0 +1,49 @@
+{
+  "level_id": "level_09",
+  "by_venue": {
+    "downtown_orchid_row": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "liam", "text": "the dream came true. best thai of my life. i'm a little emotional", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "light, fresh, and i can still climb tonight. great pick!", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "Not a peanut in sight. The process works.", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_monsoon_alley": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Satay on the first page. Peanut sauce on the second. I can't eat here.", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "NOT the satay incident part two. abort abort", "emotion": "SURPRISED" },
+        { "speaker": "brooke", "text": "i said i'd double check and i didn't. cyrus, we're getting you out of here", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_teak_door": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "so tasty! but everything here is deep-fried. climbing tonight is going to be rough", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "more spring rolls for me then?? ...sorry brooke", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_river_bell": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "the food is lovely. the two dollar signs are not. the trip fund is crying, and so am i", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "I'll cover your iced tea, Maya. Consider it a trip fund contribution.", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_koi_counter": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "sushi?? it's good, but i literally dreamed about thai last night. i'm still thinking about it", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "wait, cyrus and i were here last week. cheap, so no complaints from me. but liam wanted thai", "emotion": "SURPRISED" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
