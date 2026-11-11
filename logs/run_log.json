@@ -1820,5 +1820,55 @@
     "result": "PASS",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T06:07:22.705Z",
+    "level": "level_10",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after fixes: pass, 0 must_fix, 3 suggestions (2-8 fixed; 1 resolved by bible callback)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T06:07:22.705Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_fixes",
+    "result": "correct (linden_corner, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14033
+  },
+  {
+    "timestamp": "2026-11-11T06:07:22.705Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_fixes",
+    "result": "correct (linden_corner, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14052
+  },
+  {
+    "timestamp": "2026-11-11T06:07:22.705Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_fixes",
+    "result": "correct (linden_corner, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14288
+  },
+  {
+    "timestamp": "2026-11-11T06:07:22.705Z",
+    "level": "level_10",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (after fixes)",
+    "retries": 0,
+    "tokens": null
   }
 ]
