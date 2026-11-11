@@ -14,7 +14,7 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "There are peanuts in half the food on this counter. I'm not eating here.", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "There are peanuts in all the food on this counter. I'm not eating here.", "emotion": "ANGRY" },
         { "speaker": "brooke", "text": "i'm reading every label in here and they ALL say peanut. this is a disaster", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
       ]
@@ -23,7 +23,7 @@
       "result": "fail",
       "missed": ["diet:vegetarian"],
       "lines": [
-        { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the salad", "emotion": "SURPRISED" },
+        { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the veggie bowls", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "sushi day was the STANDARD. this is the opposite of sushi day", "emotion": "ANGRY" },
         { "speaker": "cyrus", "text": "I set that standard myself. I'm recording this as a personal failure.", "emotion": "ANGRY" }
       ]
@@ -46,5 +46,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }

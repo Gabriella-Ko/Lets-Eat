@@ -1,7 +1,7 @@
 {
   "level_id": "level_10",
   "script": [
-    { "speaker": "roxy", "text": "SOS. the coffee machine at my internship made a noise like a dying goose and quit", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "roxy", "text": "S.O.S. the coffee machine at my internship made a noise like a dying goose and quit", "emotion": "SURPRISED", "clue": null },
     { "speaker": "roxy", "text": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "brooke", "text": "cafe lunch, yes! i'm in", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "mina", "text": "a cafe sounds lovely :) roxy, are you okay? that sounds like a rough morning", "emotion": "NEUTRAL", "clue": null },
@@ -19,5 +19,5 @@
     { "speaker": "roxy", "text": "assistant, you're up. do it for the goose", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
