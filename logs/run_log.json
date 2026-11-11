@@ -1600,5 +1600,35 @@
     "result": "pass 3/3",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "narrative_writer",
+    "brief_version": "v5",
+    "step": "fix_lines",
+    "result": "critic suggestions applied under v5",
+    "retries": 1,
+    "tokens": 32017
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "fix_reviews",
+    "result": "critic suggestions applied under v6",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T05:06:09.221Z",
+    "level": "level_09",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
   }
 ]
