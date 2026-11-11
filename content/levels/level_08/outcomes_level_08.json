@@ -16,7 +16,7 @@
       "lines": [
         { "speaker": "cyrus", "text": "There are peanuts all over this menu. I can't eat here.", "emotion": "ANGRY" },
         { "speaker": "roxy", "text": "abort!! i promised zero peanuts. everybody out", "emotion": "SURPRISED" },
-        { "speaker": "maya", "text": "i'm literally leaving this restaurant. cyrus, walk with me, we're finding somewhere safe", "emotion": "SURPRISED" }
+        { "speaker": "maya", "text": "cyrus, walk with me, we're finding somewhere safe", "emotion": "SURPRISED" }
       ]
     },
     "downtown_silver_reed": {
@@ -31,7 +31,7 @@
       "result": "partial",
       "missed": ["intolerance:dairy"],
       "lines": [
-        { "speaker": "roxy", "text": "so good. but there's dairy in these rolls and my stomach is staging a protest", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "it's delicious but there's dairy in these rolls", "emotion": "ANNOYED" },
         { "speaker": "mina", "text": "oh roxy, do you want some of my water? the rest of us are very happy, at least", "emotion": "SURPRISED" }
       ]
     },
@@ -45,5 +45,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
