@@ -6,43 +6,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi (cold food, too hot for anything warm)",
+      "constraint": "Craving: sushi",
       "type": "craving",
-      "who": "roxy",
-      "line": "SUSHI. way too hot out for anything warm. let's do it!!"
+      "source_speaker": "roxy",
+      "source_line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Budget: $ max (one dollar sign)",
+      "constraint": "Budget: $ max",
       "type": "budget",
-      "who": "maya",
-      "line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+      "source_speaker": "maya",
+      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
       "constraint": "Peanut allergy (deal-breaker)",
       "type": "allergy",
-      "who": "cyrus",
-      "line": "One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+      "source_speaker": "cyrus",
+      "source_line": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
     },
     {
-      "constraint": "Vegetarian, needs real veggie rolls / a meat-free section (strict diet, deal-breaker)",
+      "constraint": "Vegetarian with real veggie options, ideally a whole meat-free section (strict diet)",
       "type": "diet",
-      "who": "mina",
-      "line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
+      "source_speaker": "maya / cyrus",
+      "source_line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
     },
     {
-      "constraint": "Dairy intolerance, nothing creamy / no cream cheese (costs one star)",
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
       "type": "intolerance",
-      "who": "roxy",
-      "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+      "source_speaker": "roxy",
+      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
   "venue_analysis": {
-    "downtown_koi_counter": "$, sushi, whole meat-free section, no peanuts, no dairy. Meets everything: 3 stars.",
-    "downtown_kumo_bar": "Crushed peanuts and peanut sauce on everything: deal-breaker for Cyrus.",
-    "downtown_silver_reed": "Fish in every roll, fish-stock miso: deal-breaker for vegetarian Mina.",
-    "downtown_hinoki_table": "Cream cheese on nearly everything: Roxy's intolerance, 2 stars.",
-    "downtown_cedar_line": "$$, one tier over budget: 2 stars."
+    "downtown_koi_counter": "$, sushi, peanut-free kitchen, whole meat-free section, no dairy at all. Meets everything: 3 stars.",
+    "downtown_kumo_bar": "$, veggie and dairy-free, but crushed peanuts and peanut sauce everywhere. Deal-breaker.",
+    "downtown_silver_reed": "$, peanut-free and dairy-free, but fish in every roll and fish stock in the soup, so nothing for the vegetarian. Deal-breaker.",
+    "downtown_hinoki_table": "$, peanut-free, vegetarian rolls, but cream cheese in nearly everything. Safe, but the dairy intolerance costs a star: 2 stars.",
+    "downtown_cedar_line": "Meets every diet need but is $$, one tier over budget: 2 stars."
   },
   "difficulty": 2,
-  "notes": "Clean, fair puzzle. Each decoy fails exactly one constraint, and the reviews are explicit. Hinoki Table and Cedar Line are good 2-star traps. Mina's diet arrives via Maya rather than Mina herself, which makes it a little less obvious, but it is clearly stated. Cyrus's cream cheese line reinforces Roxy's dairy note, so the clue is easy to catch. Nothing unfair or contradictory. Possibly slightly easy for level 8."
+  "notes": "Fair and clear. Each decoy fails exactly one constraint (peanuts, vegetarian, dairy, price), so you have to read every review, but the answer is clear once you do. Cyrus's cream cheese line puts a helpful spotlight on the Hinoki Table trap. Cedar Line's price shows on the card ($$) and is also hinted at in its review, which is consistent. No contradictions found. One small point: the vegetarian clue is spoken by Maya on Mina's behalf, not by Mina herself, but Mina's reactions confirm it."
 }
