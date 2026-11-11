@@ -5,7 +5,7 @@
       "result": "perfect",
       "missed": [],
       "lines": [
-        { "speaker": "liam", "text": "best pad see ew of my life. i'm a little emotional", "emotion": "HAPPY" },
+        { "speaker": "liam", "text": "the dream came true. best thai of my life. i'm a little emotional", "emotion": "HAPPY" },
         { "speaker": "brooke", "text": "light, fresh, and i can still climb tonight. great pick!", "emotion": "HAPPY" },
         { "speaker": "cyrus", "text": "Not a peanut in sight. The process works.", "emotion": "HAPPY" }
       ]
@@ -31,7 +31,7 @@
       "result": "partial",
       "missed": ["budget"],
       "lines": [
-        { "speaker": "maya", "text": "the food is lovely. the two dollar signs are not. toast until august, here i come", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "the food is lovely. the two dollar signs are not. the trip fund is crying, and so am i", "emotion": "ANNOYED" },
         { "speaker": "cyrus", "text": "I'll cover your iced tea, Maya. Consider it a trip fund contribution.", "emotion": "SURPRISED" }
       ]
     },
@@ -39,8 +39,8 @@
       "result": "partial",
       "missed": ["craving"],
       "lines": [
-        { "speaker": "liam", "text": "sushi?? it's good, but my whole floor smelled like thai noodles. i'm still thinking about them", "emotion": "ANNOYED" },
-        { "speaker": "maya", "text": "wait, this is where we went last week. cheap, so no complaints from me. but liam wanted thai", "emotion": "SURPRISED" }
+        { "speaker": "liam", "text": "sushi?? it's good, but i literally dreamed about thai last night. i'm still thinking about it", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "wait, cyrus and i were here last week. cheap, so no complaints from me. but liam wanted thai", "emotion": "SURPRISED" }
       ]
     }
   },
