@@ -4,77 +4,32 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_10/dialogue_level_10.json",
-      "agent": "narrative_writer",
-      "where": "script[10], script[11]; outcomes downtown_linden_corner line 2, downtown_wren_house line 2",
-      "issue": "'Sushi day' carries the vegetarian clue the way a bible Callback does, but it isn't in the Callbacks table. The Story Beats section says agents may only use the callbacks listed there and that anything new is added first. Continuity is accurate: level_08's guests were Cyrus, Mina, Roxy and Maya, Cyrus did raise the 'whole section with no fish or meat' idea, and only Roxy, Mina and Cyrus are named here. Level_07's 'pizza day' and 'burger day' references set a precedent, so a player won't notice anything wrong. This is a call for Gabriella, not a writer error.",
-      "suggested_fix": "Either add 'Sushi day | Mina | Vegetarian (Cyrus found a sushi spot with a whole meat-free section) | level_08' to the bible's Callbacks table, or keep it as a one-off continuity reference and note in the PR that it is not a reusable callback."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_10/dialogue_level_10.json",
-      "agent": "narrative_writer",
-      "where": "script[12]",
-      "issue": "Cyrus's 'not one option at the bottom' echoes Maya's distinctive level_08 line ('not one lonely cucumber roll at the bottom of the menu'). 'A proper meat-free spread for Mina' is also the plainest vegetarian line in an implied level. It doesn't say 'vegetarian', so it's acceptable, but the callback lines before it already do the work.",
-      "suggested_fix": "'Then that's the standard today. Somewhere Mina can order off the whole menu, not around it.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_10/venues_level_10.json",
-      "agent": "map_seeder",
-      "where": "venue downtown_linden_corner review 1",
-      "issue": "Cyrus asks for 'a proper meat-free spread' (script[12]). The answer's vegetarian evidence is one friend rotating between two dishes, which is weaker than Paper Kite's 'half the board is meat-free' or Slate Window's 'a different full plate every week'. A careful player could hesitate over whether two dishes count as a spread. The hard constraint is still met and clearly evidenced, so this is a polish point.",
-      "suggested_fix": "'My friend who gave up meat years ago works her way through the meat-free half of the board (that bowl, the lentil soup, the roasted veg toastie) and has never had to settle for a side.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_10/venues_level_10.json",
-      "agent": "map_seeder",
-      "where": "all venues, review 2 (and Linden Corner review 1 ending)",
-      "issue": "Every venue's safe-attribute review follows the same pattern, a roll call of relatives and coworkers with conditions ('my deskmate... my cousin', 'one of the interns... our team lead', 'my little brother... my boyfriend... my sister'). Each one is fair, but read together they feel like a template, which map-seeder v6 asks to avoid ('No shared template').",
-      "suggested_fix": "Vary at least two venues, e.g. Wren House review 2 in first person ('I can't do dairy and I've never had to ask: oat milk by default, olive oil instead of butter...'), and Slate Window evidencing dairy through the bar itself ('oat is the only milk they stock; there isn't a jug of dairy behind the counter') with no third-party diner."
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_10/venues_level_10.json",
-      "agent": "map_seeder",
-      "where": "venue downtown_wren_house review 1",
-      "issue": "The trap is unambiguous: 'every sandwich, bowl and soup... has meat or fish', the beef-jerky jar and the flatmate leaving with a black coffee. A lean-protein cafe is believable. The one small gap is that cafes usually have a pastry case, and the review doesn't rule one out. Also, 'turkey and roasted veg bowls' could catch a skimming reader's eye as a veggie option.",
-      "suggested_fix": "Add a closing clause: '...left with a black coffee, since even the counter snacks are jerky and egg-and-ham muffins.' Optionally change 'turkey and roasted veg bowls' to 'turkey and freekeh bowls'."
-    },
-    {
-      "severity": "suggestion",
       "check": "outcomes",
-      "file": "content/levels/level_10/outcomes_level_10.json",
-      "agent": "narrative_writer",
-      "where": "downtown_slate_window lines 1-2",
-      "issue": "Cyrus says 'peanuts in half the food' and Brooke says the labels 'ALL say peanut', so the two lines disagree. Neither matches the review, where the specials are chalked on a wall (no labels), the grain bowls and granola carry the peanuts, and the soup and greens are mentioned without them.",
-      "suggested_fix": "Brooke: 'satay dressing on every bowl and peanuts in the granola. you can smell it from the door. this is a disaster'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_10/outcomes_level_10.json",
-      "agent": "narrative_writer",
-      "where": "downtown_wren_house line 1",
-      "issue": "Mina's 'even the salad' points to a dish the review never lists. The review's own detail is stronger: the soup is made on bone broth.",
-      "suggested_fix": "'oh... every single thing here has meat in it. even the soup is on bone broth'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
       "file": "content/levels/level_10/outcomes_level_10.json",
       "agent": "narrative_writer",
       "where": "downtown_slate_window line 1",
-      "issue": "Cyrus's fail line ('There are peanuts in half the food on this counter. I'm not eating here.') is nearly a copy of his level_08 fail line ('There are peanuts all over this menu. I can't eat here.'), and level_09 closes with 'I can't eat here.' too. This is the same fail-reaction shape three levels running, which narrative-writer v5 asks to avoid.",
-      "suggested_fix": "Give him a different angle, e.g. 'I can smell the granola from the door. The pen is staying in the bag, and so am I: outside.'"
+      "issue": "Cyrus's 'There are peanuts in all the food on this counter' overstates the review. Slate Window review 2 lists lentil soup, steamed greens, a chickpea stew and a quinoa salad with no peanuts, and Brooke's next line names only the grain bowls and granola. 'On this counter' can be read as the display counter and fail lines may be dramatic, so this is polish. The new pen-company ending does fix the repeated 'I can't eat here' shape.",
+      "suggested_fix": "'Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the pavement, keeping my pen company.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_10/venues_level_10.json",
+      "agent": "map_seeder",
+      "where": "venue downtown_linden_corner review 2, downtown_wren_house review 2, downtown_marble_steps review 2",
+      "issue": "The roll-call template is gone, but the rewrite added a new shared shape. Three safe-attribute reviews each list ingredient swaps (oat by default, olive oil instead of butter, white beans for silkiness / pumpkin seeds for crunch, herby oil where you'd expect crème fraîche / flour-and-water batter, syrup rather than butter, no milk jug). Each one is fair and evidences its venue, but side by side they read like the 'repeated checklists' map-seeder v6 asks to avoid.",
+      "suggested_fix": "Shorten one of them to a single experiential detail, e.g. Marble Steps review 2: '...and fritters crowd the plate, all fried in sunflower oil. My sister, who's badly allergic to peanuts and can't have dairy either, picks this place for her birthday brunch every year with zero worry.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "continuity",
+      "file": "content/levels/level_10/outcomes_level_10.json",
+      "agent": "narrative_writer",
+      "where": "downtown_slate_window line 1 (Cyrus 'pavement'); venue downtown_linden_corner review 1 ('sidewalk'); venue downtown_wren_house review 2 ('cricket')",
+      "issue": "The level mixes regional registers: Linden Corner's review says 'sidewalk' while Cyrus says 'pavement', and Wren House's radio plays the cricket. Nobody will be confused, but the fictional city reads slightly inconsistent. Worth choosing one register in the bible for future levels.",
+      "suggested_fix": "Change Cyrus's 'pavement' to 'sidewalk', or leave as is and note a preferred register for later levels."
     }
   ],
-  "summary": "A strong chapter 2 finale. Every scored constraint is findable in implied style, and no line gives away the answer. The peanut clue never uses the word: Cyrus's emergency pen plus his satay callback, then Roxy's 'nothing satay-adjacent', give a first-time player enough (the bible's own implied example is the satay callback), and Linden Corner's 'auto-injector' and Slate Window's 'satay-style dressing... whole peanuts' tie it off. Mina never states her diet: it surfaces through Roxy's sushi-day callback and Cyrus planning ahead, which is a fresh route that avoids the old side-dish pattern. Roxy's dairy follows clue rule 6 (Mina hints late, Roxy admits she'd have forgotten). Brooke's healthy need is one clear wish in new words. Continuity checks out: Brooke and Mina last ate together in level_05 on campus, the sushi-day reference names only level_08 guests, and Roxy plausibly heard the satay story from Brooke at climbing. All five reviews evidence their deciding attributes, and none contradicts the registry. Marble Steps is convincingly heavy without dairy (oil-fried, water batter), and Wren House's no-vegetarian trap is clear. Remaining points are polish: whether to make 'sushi day' a listed Callback, a level_08 echo in Cyrus's vegetarian line, a roll-call template across the reviews, and small mismatches between the outcomes and the reviews.",
+  "summary": "Re-review after the human edits, narrative-writer v5 and map-seeder v6. Earlier suggestions 1-8 are all resolved. 'Sushi day' is now a bible Callback. Cyrus's vegetarian line is the new 'Then sushi day is today's standard.' Linden Corner lists five meat-free dishes. The multi-person roll calls are gone. Wren House rules out a bake case. Slate Window's fail lines now point to the satay bowls and granola. Mina's line has the bone broth. Cyrus has a new fail shape. Nothing regressed. Every scored constraint is still findable in implied style. Mina never states her diet, and the vegetarian clue is still carried by Roxy's 'whole section with zero meat in it', Mina's 'without asking about any of it' and Cyrus's 'standard', as clue rule 1 requires. Every review still evidences its venue's deciding attributes. Wren House's peanut safety ('haven't spotted a nut on the premises', seed crunch, plain dressings) is a firsthand observation, enough for an implied level, and it isn't the attribute that decides Wren's score. All outcome lines now match the rewritten reviews. What's left is polish: Cyrus's 'all the food' overstatement, a new ingredient-swap checklist shared by three reviews, and mixed regional words.",
   "generated_by": "critic"
 }
