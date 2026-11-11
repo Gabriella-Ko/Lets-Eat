@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_08",
+  "run": 2,
+  "pick": "downtown_koi_counter",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (cold food, it's hot out)",
+      "type": "craving",
+      "who": "roxy",
+      "source_line": "SUSHI. way too hot out for anything warm. let's do it!!"
+    },
+    {
+      "constraint": "Budget: $ max",
+      "type": "budget",
+      "who": "maya",
+      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+    },
+    {
+      "constraint": "Vegetarian, needs real vegetarian rolls, not just sides (strict diet, deal-breaker)",
+      "type": "diet",
+      "who": "mina",
+      "source_line": "mina. you're vegetarian. rice and edamame is a side, not a lunch (maya); confirmed by cyrus: 'We need somewhere with proper vegetarian rolls, not just a side dish.' and mina: 'a few veggie rolls to choose from would be really nice.'"
+    },
+    {
+      "constraint": "Dairy intolerance, nothing creamy (costs a star, not a deal-breaker)",
+      "type": "intolerance",
+      "who": "roxy",
+      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+    }
+  ],
+  "venue_analysis": {
+    "downtown_koi_counter": "$, sushi, no peanuts, full meat-free roll section, no milk/cream/cream cheese. Meets everything: 3 stars.",
+    "downtown_kumo_bar": "Peanuts on rolls and peanut dipping sauce: fails Cyrus's allergy. Deal-breaker.",
+    "downtown_silver_reed": "Fish in every roll, fish-stock miso: nothing for vegetarian Mina. Deal-breaker.",
+    "downtown_hinoki_table": "Cream cheese and creamy mayo on nearly everything, veggie rolls included: misses Roxy's dairy intolerance, 2 stars.",
+    "downtown_cedar_line": "$$, one tier over Maya's $ budget: 2 stars. Otherwise meets everything."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Puzzle is fair and solvable; each decoy fails exactly one constraint, which is clean design.",
+    "Mina tries to downplay her own diet ('i'm easy, rice and edamame'); Maya and Cyrus correct her. Nice misdirection, but it is resolved right away in the chat, so it is not very hard.",
+    "Koi Counter's reviews tick every box explicitly (veg section, no peanuts, no dairy, under ten bucks), which makes the answer close to obvious once you've read all five reviews.",
+    "Two decoys (Hinoki at 2 stars, Cedar Line at 2 stars) are plausible near-misses, so a careless player could still lose a star.",
+    "Minor: 'nothing creamy' plus 'dairy' could be read as also excluding mayo (not dairy). It doesn't change the answer here, since Hinoki also has cream cheese.",
+    "Nothing contradictory or unfair found."
+  ]
+}

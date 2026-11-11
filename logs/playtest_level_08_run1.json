@@ -1,0 +1,48 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_08",
+  "run": 1,
+  "pick": "downtown_koi_counter",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (cold food, too hot for anything warm)",
+      "type": "craving",
+      "who": "roxy",
+      "source_line": "script[2] roxy: \"SUSHI. way too hot out for anything warm. let's do it!!\""
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign max)",
+      "type": "budget",
+      "who": "maya",
+      "source_line": "script[5] maya: \"sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable\""
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "who": "cyrus",
+      "source_line": "script[8] cyrus: \"Sushi works for me. One rule, as always: I'm allergic to peanuts...\""
+    },
+    {
+      "constraint": "Vegetarian, needs proper vegetarian rolls, not just sides (strict diet, deal-breaker)",
+      "type": "diet",
+      "who": "mina",
+      "source_line": "script[11] maya: \"mina. you're vegetarian. rice and edamame is a side, not a lunch\"; reinforced by script[12] cyrus and script[13] mina: \"a few veggie rolls to choose from would be really nice\""
+    },
+    {
+      "constraint": "Dairy intolerance: nothing creamy, no cream cheese (costs a star)",
+      "type": "intolerance",
+      "who": "roxy",
+      "source_line": "script[14] roxy: \"nothing creamy in mine pls. dairy and i don't get along\"; reinforced by script[17] cyrus: \"Some rolls have cream cheese in them\""
+    }
+  ],
+  "venue_evaluation": {
+    "downtown_koi_counter": "Sushi, $, no peanuts, full meat-free roll section, no milk/cream/cream cheese. Meets everything: 3 stars.",
+    "downtown_kumo_bar": "Peanuts on rolls and peanut sauce with every set. Allergy deal-breaker: 0 stars.",
+    "downtown_silver_reed": "Fish in every roll, nothing vegetarian. Diet deal-breaker: 0 stars.",
+    "downtown_hinoki_table": "Cream cheese and creamy mayo on nearly everything, including veggie rolls. Dairy intolerance costs a star: 2 stars.",
+    "downtown_cedar_line": "$$, one tier over budget, costs a star: 2 stars."
+  },
+  "difficulty": 2,
+  "notes": "Fair and consistent. Every constraint is stated plainly, and Cyrus repeats both the peanut and cream-cheese warnings, so nothing is hidden. The vegetarian clue is the most subtle part: Mina downplays it ('i'm easy'), but Maya states it outright straight away. Each decoy breaks exactly one constraint (peanut, vegetarian, dairy, price), which makes a nice elimination puzzle. It may be a little easy, because the reviews name each constraint almost word for word (Koi Counter's second review mentions an 'allergic coworker and lactose-intolerant intern'). Two small things: the 'too hot for anything warm' remark could hint at a cold-food preference, but every venue is sushi so it doesn't change the pick. The miso soup with fish stock note at Silver Reed is a nice extra detail. Nothing unfair or contradictory."
+}

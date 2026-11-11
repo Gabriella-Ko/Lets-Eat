@@ -1,0 +1,49 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_08",
+  "run": 3,
+  "pick": "downtown_koi_counter",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (and nothing warm)",
+      "who": "roxy",
+      "line": "SUSHI. way too hot out for anything warm. let's do it!!"
+    },
+    {
+      "constraint": "Budget: $ (one dollar sign max)",
+      "who": "maya",
+      "line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+    },
+    {
+      "constraint": "Allergy: peanuts (deal-breaker)",
+      "who": "cyrus",
+      "line": "Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+    },
+    {
+      "constraint": "Strict diet: vegetarian, needs proper vegetarian rolls, not just a side (deal-breaker)",
+      "who": "mina",
+      "line": "mina. you're vegetarian. rice and edamame is a side, not a lunch (maya); confirmed by mina: ...okay. a few veggie rolls to choose from would be really nice. thank you both"
+    },
+    {
+      "constraint": "Intolerance: dairy, nothing creamy (costs one star)",
+      "who": "roxy",
+      "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+    }
+  ],
+  "venue_reasoning": {
+    "downtown_koi_counter": "Sushi, $, no peanuts, no dairy at all, a full meat-free roll section. Meets everything: 3 stars.",
+    "downtown_kumo_bar": "Peanuts on half the rolls and peanut sauce with every set. Allergy deal-breaker.",
+    "downtown_silver_reed": "Fish in every roll, nothing vegetarian. Strict-diet deal-breaker.",
+    "downtown_hinoki_table": "Cream cheese and creamy mayo on nearly everything, veggie rolls included. Dairy intolerance costs a star: 2 stars.",
+    "downtown_cedar_line": "Meets every diet need but is $$, one tier over budget. Costs a star: 2 stars."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Mina tries to hide her need ('i'm easy... rice and edamame'), and Maya reveals she is vegetarian. That is a nice touch, and Mina's follow-up line confirms it, so it is fair.",
+    "Each decoy fails exactly one constraint, and the reviews say so plainly. Once all five constraints are listed, the answer is clear. It is a good fit for a mid-campaign level, but slightly obvious.",
+    "Every venue is sushi, so the craving does not narrow the field. Roxy's 'too hot for anything warm' did not separate any venue (Silver Reed's fish-stock miso is the only warm item mentioned, and it is already out for the vegetarian rule).",
+    "Cedar Line's price shows as $$ on the card, and a review also hints at it ('a clear step up in price'). That is consistent.",
+    "Nothing contradictory or unfair found."
+  ]
+}
