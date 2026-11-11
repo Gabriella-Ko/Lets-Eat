@@ -1,0 +1,60 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_10",
+  "run": 1,
+  "pick": "downtown_linden_corner",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "roxy",
+      "constraint": "Cuisine: cafe with real coffee and food",
+      "type": "craving",
+      "source_line": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5. let's do it!!"
+    },
+    {
+      "who": "brooke",
+      "constraint": "Healthy / wholesome, light food",
+      "type": "preference",
+      "source_line": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind"
+    },
+    {
+      "who": "cyrus",
+      "constraint": "Peanut allergy (carries an emergency pen; satay reaction)",
+      "type": "allergy (deal-breaker)",
+      "source_line": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay."
+    },
+    {
+      "who": "mina",
+      "constraint": "Vegetarian, needs a full meat-free menu, not a token option",
+      "type": "strict diet (deal-breaker)",
+      "source_line": "Then that's the standard today. A cafe with a proper meat-free spread for Mina, not one option at the bottom. (supported by: 'cyrus found you that whole section with zero meat in it')"
+    },
+    {
+      "who": "roxy",
+      "constraint": "Dairy / lactose intolerance",
+      "type": "intolerance (-1 star)",
+      "source_line": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them? / ...still not speaking."
+    },
+    {
+      "who": "group",
+      "constraint": "Budget: none stated explicitly; every candidate is $, so budget does not separate them",
+      "type": "budget",
+      "source_line": "(no explicit budget line)"
+    }
+  ],
+  "venue_analysis": {
+    "downtown_linden_corner": "Healthy grain bowl and lentil soup, full vegetarian options, peanut-allergic regular never needed the pen, dairy-sensitive regular uses oat latte. Meets everything: 3 stars.",
+    "downtown_slate_window": "Satay-style dressing on every bowl and peanut granola: peanut allergy deal-breaker (0).",
+    "downtown_wren_house": "Every dish has meat or fish: vegetarian deal-breaker (0).",
+    "downtown_paper_kite": "Healthy, vegetarian and peanut-safe, but a heavy dairy kitchen with whole milk only: dairy intolerance costs 1 star (2).",
+    "downtown_marble_steps": "Vegetarian, dairy-free and peanut-safe, but heavy fried food: misses Brooke's healthy preference (2)."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Fair puzzle. Each decoy fails on exactly one constraint, so every clue has to be found, which is good design.",
+    "Cyrus's peanut allergy is implied (emergency pen + satay) rather than named; Roxy's line 'nothing satay-adjacent' helps confirm it. Fair but indirect, appropriate for a late level.",
+    "Roxy's dairy intolerance is phrased very obliquely ('is your stomach still not speaking to them?'); it relies on Mina's previous clause listing milk, butter and cheese. Findable, but a careless reader could miss it. It only separates Linden Corner from Paper Kite.",
+    "No budget is stated anywhere in the chat; all venues are $ so it does not matter, but a player might wonder whether they missed a budget clue.",
+    "Venue safety evidence is all second-hand anecdote ('never once reached for it', 'never had a bad afternoon'). Consistent with earlier style, but slightly softer than an explicit statement that the kitchen is peanut-free."
+  ]
+}

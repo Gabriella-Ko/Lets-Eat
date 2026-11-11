@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_10",
+  "run": 3,
+  "pick": "downtown_linden_corner",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cafe lunch (cuisine: cafe)",
+      "who": "roxy",
+      "line": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5. let's do it!!"
+    },
+    {
+      "constraint": "Healthy / wholesome food (preference)",
+      "who": "brooke",
+      "line": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind"
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "who": "cyrus",
+      "line": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay."
+    },
+    {
+      "constraint": "Vegetarian with a full meat-free menu, not a token option (strict diet)",
+      "who": "mina",
+      "line": "Then that's the standard today. A cafe with a proper meat-free spread for Mina, not one option at the bottom. (supported by roxy: 'cyrus found you that whole section with zero meat in it')"
+    },
+    {
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
+      "who": "roxy",
+      "line": "...still not speaking. i would've remembered around the second bite. thank you mina (prompted by mina: 'half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them?')"
+    },
+    {
+      "constraint": "Budget: none stated; all five venues are $, so price never matters",
+      "who": null,
+      "line": null
+    }
+  ],
+  "venue_analysis": {
+    "downtown_linden_corner": "Wholesome grain bowl and lentil soup, full vegetarian rotation, peanut-allergic regular never needs her pen, dairy-intolerant regular fine on oat latte. Meets everything: 3 stars.",
+    "downtown_slate_window": "Healthy, vegetarian-rich, oat milk only, but satay dressing on every bowl and peanut granola. Fails Cyrus's allergy: deal-breaker.",
+    "downtown_wren_house": "Every dish has meat or fish; vegetarian flatmate left with only coffee. Fails Mina: deal-breaker.",
+    "downtown_paper_kite": "Healthy, half the board meat-free, peanut-safe, but dairy-heavy with whole milk only. Fails Roxy's intolerance: 2 stars.",
+    "downtown_marble_steps": "Vegetarian-friendly, dairy-free frying, peanut-safe, but heavy fried food. Misses Brooke's wholesome request: 2 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Clean, fair puzzle. Each decoy fails exactly one constraint, and each constraint knocks out exactly one decoy, so a careful read lands on Linden Corner with no ambiguity.",
+    "Cyrus's peanut allergy is only implied (emergency pen + satay story + Roxy's 'nothing satay-adjacent'). It's a nice indirect clue and still solvable; the Slate Window review says 'satay-style dressing' and 'whole peanuts' outright, which links the two.",
+    "Mina's vegetarianism is never named. 'Zero meat' and 'meat-free spread' make it clear enough. Nothing points to vegan, and Linden's reviews only show vegetarian (no explicit vegan claim), so I read it as vegetarian.",
+    "Roxy's dairy intolerance is phrased obliquely ('stomach still not speaking to them'). Mina's setup line names milk, butter and cheese, so it is findable.",
+    "No budget is stated, but every venue is $, so price doesn't matter here. That's fine, but a player might go looking for a budget clue that isn't there.",
+    "Linden Corner shows peanut and dairy safety only through reviewers' anecdotes ('never once reached for it', 'never had to ask what's in anything'). That's consistent with the other cards and fair."
+  ]
+}
