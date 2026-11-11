@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "d39eadc2604dc6898f6013730c979e3d47723843",
+  "head": "d45be724a99edc973bbe641dfc821bb4d2b36a5d",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -894,11 +894,119 @@
       ]
     },
     {
+      "file": "content/levels/level_09/dialogue_level_09.json",
+      "level": "level_09",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-11T00:05:30-05:00",
+      "commit": "4fbeed042e9c8146fb4aec701c7473f13a97250a",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "4fbeed042e9c8146fb4aec701c7473f13a97250a",
+          "timestamp": "2026-11-11T00:05:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_09: critic fixes under v5 (new craving trigger, no named dishes, Brooke's new wording, no trip dates, Koi Counter continuity)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ea6a1e0fff0ac1fe20ffdd27249b1cb77ee31cb5",
+          "timestamp": "2026-11-10T23:40:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_09: chat and outcomes (Cyrus stops double-checking)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_09/outcomes_level_09.json",
+      "level": "level_09",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-11T00:05:30-05:00",
+      "commit": "4fbeed042e9c8146fb4aec701c7473f13a97250a",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "4fbeed042e9c8146fb4aec701c7473f13a97250a",
+          "timestamp": "2026-11-11T00:05:30-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_09: critic fixes under v5 (new craving trigger, no named dishes, Brooke's new wording, no trip dates, Koi Counter continuity)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ea6a1e0fff0ac1fe20ffdd27249b1cb77ee31cb5",
+          "timestamp": "2026-11-10T23:40:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_09: chat and outcomes (Cyrus stops double-checking)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_09/spec_level_09.json",
+      "level": "level_09",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-10T23:39:22-05:00",
+      "commit": "f03a37702fc93feca157a722d114eedcc522ecac",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f03a37702fc93feca157a722d114eedcc522ecac",
+          "timestamp": "2026-11-10T23:39:22-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_09: write spec (thai, peanut trap, healthy/budget/craving near misses)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_09/venues_level_09.json",
+      "level": "level_09",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-11T00:22:46-05:00",
+      "commit": "c8620fd3140311f1d769d2a1d132b47cb61af2ac",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c8620fd3140311f1d769d2a1d132b47cb61af2ac",
+          "timestamp": "2026-11-11T00:22:46-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_09: Orchid Row sauce wording, Monsoon Alley playlist detail",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fc66a05965138e39436214076fe04c178377ef15",
+          "timestamp": "2026-11-11T00:06:09-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_09: critic fixes under v6 (no shared review template, food facts, dishes at several venues)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "79bfc749b77a1f54fcce02dea94e2214faf9b062",
+          "timestamp": "2026-11-10T23:40:33-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_09: venues and 4 new downtown registry entries",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
       "edited_by": null,
-      "brief_version": "v5",
+      "brief_version": "v6",
       "timestamp": "2026-11-06T00:00:41-05:00",
       "commit": "aba045620aa8d901418a3e818b02e3131511529e",
       "last_commit_by": "map_seeder",
@@ -953,12 +1061,19 @@
       "level": null,
       "author_id": "map_seeder",
       "edited_by": null,
-      "brief_version": "v5",
-      "timestamp": "2026-11-10T22:42:35-05:00",
-      "commit": "cda80313e59f647d491b913e6e1fbaa51bea0f4b",
+      "brief_version": "v6",
+      "timestamp": "2026-11-10T23:40:33-05:00",
+      "commit": "79bfc749b77a1f54fcce02dea94e2214faf9b062",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "79bfc749b77a1f54fcce02dea94e2214faf9b062",
+          "timestamp": "2026-11-10T23:40:33-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_09: venues and 4 new downtown registry entries",
+          "pre_pipeline": false
+        },
         {
           "commit": "cda80313e59f647d491b913e6e1fbaa51bea0f4b",
           "timestamp": "2026-11-10T22:42:35-05:00",
@@ -1180,6 +1295,33 @@
           "timestamp": "2026-11-10T22:45:02-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_08: pass, 6 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_09.json",
+      "level": "level_09",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T00:07:53-05:00",
+      "commit": "b0e5016e171703edf146e1b4269ec8074222de98",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "b0e5016e171703edf146e1b4269ec8074222de98",
+          "timestamp": "2026-11-11T00:07:53-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_09: re-review after v5/v6 fixes, pass, 2 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "37ce2c23ed41035e5cfc145fa69d25c5998c6564",
+          "timestamp": "2026-11-10T23:43:56-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_09: pass, 8 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -1870,6 +2012,87 @@
           "timestamp": "2026-11-10T22:45:49-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_08: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_09_run1.json",
+      "level": "level_09",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T00:07:53-05:00",
+      "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+          "timestamp": "2026-11-11T00:07:53-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88f1cb892f3309a77915ce89f0877326a682e26c",
+          "timestamp": "2026-11-10T23:44:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_09_run2.json",
+      "level": "level_09",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T00:07:53-05:00",
+      "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+          "timestamp": "2026-11-11T00:07:53-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88f1cb892f3309a77915ce89f0877326a682e26c",
+          "timestamp": "2026-11-10T23:44:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_09_run3.json",
+      "level": "level_09",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T00:07:53-05:00",
+      "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "424142a1839ecff954f8de387dab00e1c24240fc",
+          "timestamp": "2026-11-11T00:07:53-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88f1cb892f3309a77915ce89f0877326a682e26c",
+          "timestamp": "2026-11-10T23:44:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_09: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
