@@ -922,12 +922,13 @@
   {
     "timestamp": "2026-11-10T04:15:17.156Z",
     "level": "campaign",
-    "agent_id": "orchestrator",
-    "brief_version": "v1",
-    "step": "approval",
-    "result": "outline re-approved by Gabriella (cravings + story beats). Note for level_17: reviews must evidence dairy-free options at the answer.",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "outline_approval",
+    "result": "approved",
     "retries": 0,
-    "tokens": null
+    "tokens": null,
+    "note": "outline re-approved by Gabriella (cravings + story beats). Note for level_17: reviews must evidence dairy-free options at the answer."
   },
   {
     "timestamp": "2026-11-10T04:22:11.054Z",
@@ -1162,11 +1163,12 @@
   {
     "timestamp": "2026-11-11T03:33:40.050Z",
     "level": "level_07",
-    "agent_id": "orchestrator",
-    "brief_version": "v1",
+    "agent_id": "human:gabby",
+    "brief_version": null,
     "step": "approval",
-    "result": "approved by Gabriella",
+    "result": "approved",
     "retries": 0,
-    "tokens": null
+    "tokens": null,
+    "note": "approved by Gabriella"
   }
 ]
