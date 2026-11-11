@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "60680f69d15088cb27d27141093550440669bbce",
+  "head": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1447,14 +1447,21 @@
     {
       "file": "logs/playtest_level_07_run1.json",
       "level": "level_07",
-      "author_id": null,
+      "author_id": "blind_playtester",
       "edited_by": null,
-      "brief_version": null,
-      "timestamp": "2026-11-10T13:25:01-05:00",
-      "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
-      "last_commit_by": "blind_playtester",
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T22:35:31-05:00",
+      "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+      "last_commit_by": "orchestrator",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+          "timestamp": "2026-11-10T22:35:31-05:00",
+          "agent_tag": "orchestrator",
+          "subject": "[orchestrator] level_07: add missing generated_by to retest playtest reports",
+          "pre_pipeline": false
+        },
         {
           "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
           "timestamp": "2026-11-10T13:25:01-05:00",
@@ -1474,14 +1481,21 @@
     {
       "file": "logs/playtest_level_07_run2.json",
       "level": "level_07",
-      "author_id": null,
+      "author_id": "blind_playtester",
       "edited_by": null,
-      "brief_version": null,
-      "timestamp": "2026-11-10T13:25:01-05:00",
-      "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
-      "last_commit_by": "blind_playtester",
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T22:35:31-05:00",
+      "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+      "last_commit_by": "orchestrator",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+          "timestamp": "2026-11-10T22:35:31-05:00",
+          "agent_tag": "orchestrator",
+          "subject": "[orchestrator] level_07: add missing generated_by to retest playtest reports",
+          "pre_pipeline": false
+        },
         {
           "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
           "timestamp": "2026-11-10T13:25:01-05:00",
@@ -1501,14 +1515,21 @@
     {
       "file": "logs/playtest_level_07_run3.json",
       "level": "level_07",
-      "author_id": null,
+      "author_id": "blind_playtester",
       "edited_by": null,
-      "brief_version": null,
-      "timestamp": "2026-11-10T13:25:01-05:00",
-      "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
-      "last_commit_by": "blind_playtester",
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T22:35:31-05:00",
+      "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+      "last_commit_by": "orchestrator",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+          "timestamp": "2026-11-10T22:35:31-05:00",
+          "agent_tag": "orchestrator",
+          "subject": "[orchestrator] level_07: add missing generated_by to retest playtest reports",
+          "pre_pipeline": false
+        },
         {
           "commit": "038e5cc7e5c2b9c14c2c25c8faf72e44b756ddca",
           "timestamp": "2026-11-10T13:25:01-05:00",
@@ -1526,9 +1547,5 @@
       ]
     }
   ],
-  "issues": [
-    "logs/playtest_level_07_run1.json: no generated_by",
-    "logs/playtest_level_07_run2.json: no generated_by",
-    "logs/playtest_level_07_run3.json: no generated_by"
-  ]
+  "issues": []
 }
