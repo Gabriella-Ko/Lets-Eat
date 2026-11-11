@@ -3,7 +3,7 @@
   "script": [
     { "speaker": "roxy", "text": "lunch crew!! who's free at noon", "emotion": "HUNGRY", "clue": null },
     { "speaker": "maya", "text": "me. hi roxy, i'm maya. i've been staring at spreadsheets since 8 and i'm starving", "emotion": "HUNGRY", "clue": null },
-    { "speaker": "roxy", "text": "SUSHI. way too hot out for anything warm. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "roxy", "text": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "mina", "text": "sushi sounds perfect :) hi roxy, i don't think we've had lunch together yet! how's downtown treating you?", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "roxy", "text": "loving it. tried three new things this week. sushi makes four", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable", "emotion": "ANNOYED", "clue": "budget" },
