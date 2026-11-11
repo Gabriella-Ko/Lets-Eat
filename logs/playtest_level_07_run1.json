@@ -56,5 +56,6 @@
     "Each decoy fails on exactly one constraint, so it's a clean one-answer puzzle. Moderately easy once the diet clue is decoded. It could be tough for players who miss the fries and pepperoni stories, because Copper Pot's meat-only menu only shows in its review.",
     "Pepper Tree's veggie burger review is a nice twist: it fixes the fries problem from burger day but is still the wrong cuisine.",
     "Nothing contradictory or unfair found."
-  ]
+  ],
+  "generated_by": "blind_playtester"
 }

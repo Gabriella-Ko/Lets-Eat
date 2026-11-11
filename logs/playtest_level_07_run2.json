@@ -56,5 +56,6 @@
     "Each distractor fails exactly one constraint, which makes a clean elimination puzzle. Indigo Arch's slow-service clue is well hidden inside a review, a nice touch.",
     "The noodle stall line is a harmless red herring or setup for a later level; Maya shuts it down in the very next line.",
     "Nothing unfair or contradictory found."
-  ]
+  ],
+  "generated_by": "blind_playtester"
 }
