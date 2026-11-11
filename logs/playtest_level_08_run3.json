@@ -1,0 +1,48 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_08",
+  "run": 3,
+  "pick": "downtown_koi_counter",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (cold food, it's hot out)",
+      "type": "craving",
+      "source_speaker": "roxy",
+      "source_line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
+    },
+    {
+      "constraint": "Budget: $ max",
+      "type": "budget",
+      "source_speaker": "maya",
+      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "source_speaker": "cyrus",
+      "source_line": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+    },
+    {
+      "constraint": "Vegetarian, needs a real meat-free section (strict diet, deal-breaker)",
+      "type": "strict_diet",
+      "source_speaker": "maya / cyrus",
+      "source_line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
+    },
+    {
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
+      "type": "intolerance",
+      "source_speaker": "roxy",
+      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+    }
+  ],
+  "venue_assessment": {
+    "downtown_koi_counter": "$, sushi, peanut-free, meat-free section, no dairy. Fits everything: 3 stars.",
+    "downtown_kumo_bar": "Peanuts on rolls and peanut sauce with every set. Deal-breaker (Cyrus's allergy).",
+    "downtown_silver_reed": "Fish in every roll, nothing vegetarian. Deal-breaker (Mina).",
+    "downtown_hinoki_table": "Cream cheese everywhere, including the veggie rolls. Dairy intolerance costs 1 star: 2 stars.",
+    "downtown_cedar_line": "$$, one tier over budget, costs 1 star: 2 stars."
+  },
+  "difficulty": 2,
+  "notes": "Fair and solvable. Each decoy fails exactly one constraint, so the player has to read every review closely. Cyrus's peanut line and his cream cheese reminder both point at the kind of thing to look for in reviews, which makes it quite easy. The only check that needs the registry is Cedar Line's price ($$), and its review hints at that too. Nothing contradictory. Small point: Hinoki Table's second review starts with a lowercase letter ('peanut-free.'), which looks a bit odd next to the other reviews."
+}

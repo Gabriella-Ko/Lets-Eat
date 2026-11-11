@@ -90,6 +90,42 @@
       "dietary_tags": ["vegetarian_options"],
       "vibe_tags": ["quick_bite"],
       "first_level": "level_07"
+    },
+    {
+      "id": "downtown_kumo_bar",
+      "name": "Kumo Bar",
+      "cuisine": "sushi",
+      "price_tier": "$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_08"
+    },
+    {
+      "id": "downtown_silver_reed",
+      "name": "Silver Reed",
+      "cuisine": "sushi",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_08"
+    },
+    {
+      "id": "downtown_hinoki_table",
+      "name": "Hinoki Table",
+      "cuisine": "sushi",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_08"
+    },
+    {
+      "id": "downtown_cedar_line",
+      "name": "Cedar Line",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_08"
     }
   ],
   "generated_by": "map_seeder",

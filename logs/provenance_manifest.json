@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "2c2cba79cd64aca4914b4b98c943373b3c5abda7",
+  "head": "d39eadc2604dc6898f6013730c979e3d47723843",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -737,6 +737,163 @@
       ]
     },
     {
+      "file": "content/levels/level_08/dialogue_level_08.json",
+      "level": "level_08",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v4",
+      "timestamp": "2026-11-10T23:31:37-05:00",
+      "commit": "2d6a61a08c6afe97d291e7dbee6f80992c5d1604",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "2d6a61a08c6afe97d291e7dbee6f80992c5d1604",
+          "timestamp": "2026-11-10T23:31:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Roxy greets Maya, varied review wording, Hinoki Table reviews",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fa7525e8b04095528ac6da33b8b5d951675c8c05",
+          "timestamp": "2026-11-10T23:12:20-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: Mina's clue via Maya planning ahead, hellos, fresh Kumo Bar and Koi Counter reactions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ac2ed716fdc4a10ded9704fb20c14bafe20f7547",
+          "timestamp": "2026-11-10T23:06:54-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: fix Roxy's plate-guard and Hinoki Table lines",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "772726a45f88a9c3d90aa7dc08da9aba96e23883",
+          "timestamp": "2026-11-10T23:06:04-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Roxy's plate-guard line, Mina's veggie-rolls line, Kumo Bar and Hinoki Table reactions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fd428ede1538acf3ae05fdc429b0e2ae1f8a8910",
+          "timestamp": "2026-11-10T22:43:10-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_08/outcomes_level_08.json",
+      "level": "level_08",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v4",
+      "timestamp": "2026-11-10T23:12:20-05:00",
+      "commit": "fa7525e8b04095528ac6da33b8b5d951675c8c05",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "fa7525e8b04095528ac6da33b8b5d951675c8c05",
+          "timestamp": "2026-11-10T23:12:20-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: Mina's clue via Maya planning ahead, hellos, fresh Kumo Bar and Koi Counter reactions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ac2ed716fdc4a10ded9704fb20c14bafe20f7547",
+          "timestamp": "2026-11-10T23:06:54-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: fix Roxy's plate-guard and Hinoki Table lines",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "772726a45f88a9c3d90aa7dc08da9aba96e23883",
+          "timestamp": "2026-11-10T23:06:04-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Roxy's plate-guard line, Mina's veggie-rolls line, Kumo Bar and Hinoki Table reactions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fd428ede1538acf3ae05fdc429b0e2ae1f8a8910",
+          "timestamp": "2026-11-10T22:43:10-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_08/spec_level_08.json",
+      "level": "level_08",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-10T22:41:45-05:00",
+      "commit": "8703b1bcb08b2e920ab194d1d0d037dbed837afc",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "8703b1bcb08b2e920ab194d1d0d037dbed837afc",
+          "timestamp": "2026-11-10T22:41:45-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_08: write spec (sushi, peanut + vegetarian traps, dairy + budget near misses)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_08/venues_level_08.json",
+      "level": "level_08",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v5",
+      "timestamp": "2026-11-10T23:36:09-05:00",
+      "commit": "3767745be551524f45ef8e95773d7d883429436f",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "3767745be551524f45ef8e95773d7d883429436f",
+          "timestamp": "2026-11-10T23:36:09-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Hinoki Table and Silver Reed review wording",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "018fa4c3399a7c5fce65213ac7c6a5bcad479e87",
+          "timestamp": "2026-11-10T23:34:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Kumo Bar and Hinoki Table review wording",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2d6a61a08c6afe97d291e7dbee6f80992c5d1604",
+          "timestamp": "2026-11-10T23:31:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_08: Roxy greets Maya, varied review wording, Hinoki Table reviews",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "5ba6af3d5e5f3873dc155e13d5b7d44cc7f97953",
+          "timestamp": "2026-11-10T23:11:43-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_08: reviews no longer treat mayo as dairy",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "cda80313e59f647d491b913e6e1fbaa51bea0f4b",
+          "timestamp": "2026-11-10T22:42:35-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_08: venues and 4 new downtown registry entries",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -797,11 +954,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v5",
-      "timestamp": "2026-11-09T23:23:12-05:00",
-      "commit": "8858e7a36e6393b09d725d373eb7d3acec780d49",
+      "timestamp": "2026-11-10T22:42:35-05:00",
+      "commit": "cda80313e59f647d491b913e6e1fbaa51bea0f4b",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "cda80313e59f647d491b913e6e1fbaa51bea0f4b",
+          "timestamp": "2026-11-10T22:42:35-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_08: venues and 4 new downtown registry entries",
+          "pre_pipeline": false
+        },
         {
           "commit": "8858e7a36e6393b09d725d373eb7d3acec780d49",
           "timestamp": "2026-11-09T23:23:12-05:00",
@@ -975,6 +1139,47 @@
           "timestamp": "2026-11-09T23:25:58-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_07: pass, 6 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_08.json",
+      "level": "level_08",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T23:32:32-05:00",
+      "commit": "cd0238121630de3e3a5fc0a826106873d4930508",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "cd0238121630de3e3a5fc0a826106873d4930508",
+          "timestamp": "2026-11-10T23:32:32-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_08: re-review after human edits, pass, 2 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "99e7d5e87e8178b6b30e6f71d4418b7558c6ec3d",
+          "timestamp": "2026-11-10T23:13:48-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_08: re-review after fixes, pass, 3 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e5e2f2e8c3d1710b595a721761cfb9b29a42328e",
+          "timestamp": "2026-11-10T23:08:08-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_08: re-review after edits, pass, 5 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "289cfaa2da1fc65cfb061e59d01970fd5d697d36",
+          "timestamp": "2026-11-10T22:45:02-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_08: pass, 6 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -1542,6 +1747,129 @@
           "timestamp": "2026-11-09T23:26:55-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_07: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_08_run1.json",
+      "level": "level_08",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T23:32:32-05:00",
+      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+          "timestamp": "2026-11-10T23:32:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after human edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "deb7312d1da8a1926a9b6f8f65205bbd5b5e483b",
+          "timestamp": "2026-11-10T23:13:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4c2983904421410e3f0d643940f74b64f5fe4eb6",
+          "timestamp": "2026-11-10T23:08:08-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "9b9aafccad7f52cce3182c8039846d764b4ac4b0",
+          "timestamp": "2026-11-10T22:45:49-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_08_run2.json",
+      "level": "level_08",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T23:32:32-05:00",
+      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+          "timestamp": "2026-11-10T23:32:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after human edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "deb7312d1da8a1926a9b6f8f65205bbd5b5e483b",
+          "timestamp": "2026-11-10T23:13:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4c2983904421410e3f0d643940f74b64f5fe4eb6",
+          "timestamp": "2026-11-10T23:08:08-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "9b9aafccad7f52cce3182c8039846d764b4ac4b0",
+          "timestamp": "2026-11-10T22:45:49-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_08_run3.json",
+      "level": "level_08",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-10T23:32:32-05:00",
+      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+          "timestamp": "2026-11-10T23:32:32-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after human edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "deb7312d1da8a1926a9b6f8f65205bbd5b5e483b",
+          "timestamp": "2026-11-10T23:13:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4c2983904421410e3f0d643940f74b64f5fe4eb6",
+          "timestamp": "2026-11-10T23:08:08-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: retest after edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "9b9aafccad7f52cce3182c8039846d764b4ac4b0",
+          "timestamp": "2026-11-10T22:45:49-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]

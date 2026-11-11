@@ -1,0 +1,26 @@
+{
+  "level_id": "level_08",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_08/venues_level_08.json",
+      "agent": "map_seeder",
+      "where": "downtown_kumo_bar review 2; downtown_silver_reed review 2",
+      "issue": "The varied wording landed for Hinoki Table and Cedar Line ('dairy-free kitchen'), and the peanut wording now differs across venues. Kumo Bar ('no cream cheese, no milk, no cream') and Silver Reed ('skip cream cheese, milk and cream entirely') still use the same three-item list as Koi Counter ('no milk, cream or cream cheese'), so three reviews still read like one checklist. The evidence is fair and plain, as a stated level needs.",
+      "suggested_fix": "Kumo Bar review 2: '...(sweet potato, mushroom, pickled veggies) and not a drop of dairy on the menu, cream cheese included. Cheap enough for a weekday lunch.' Silver Reed review 2: 'No peanuts on anything, and the whole menu is dairy-free. Quick and cheap, a solid lunch for the summer interns.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_08/venues_level_08.json",
+      "agent": "map_seeder",
+      "where": "venue downtown_hinoki_table review 2",
+      "issue": "The review opens with a lowercase fragment ('peanut-free.') and then switches to capitalised sentences, so it reads like a typo, not a diner's voice. The content is correct: it confirms peanut-free and vegetarian, and says nothing about dairy.",
+      "suggested_fix": "'Totally peanut-free, with lots of vegetarian rolls: tofu, avocado, pickled carrot. Fast and cheap enough for a lunch break.'"
+    }
+  ],
+  "summary": "Gabriella's edits hold up and nothing regressed. Every venue's deciding attributes are still evidenced by its reviews alone: Koi Counter shows peanut-free, dairy-free, real veggie rolls and cheap; each decoy has one review naming its single failure (peanut toppings, fish in every roll, cream cheese even in the veggie rolls, a step up in price) and one confirming everything else. No review implies Hinoki Table is dairy-free, and none contradicts the registry, the spec or the chat. Roxy's new 'hi maya!' closes the greeting loop and stays in her voice. Two small wording points remain: the dairy-free lists at Kumo Bar and Silver Reed, and the lowercase opening of Hinoki review 2.",
+  "generated_by": "critic"
+}
