@@ -7,74 +7,20 @@
       "check": "reviews",
       "file": "content/levels/level_09/venues_level_09.json",
       "agent": "map_seeder",
-      "where": "venues downtown_orchid_row review 1, downtown_teak_door review 1, downtown_river_bell review 1, downtown_koi_counter review 2",
-      "issue": "All four peanut-safe venues use the same template: a colleague with a peanut allergy, then a staff member who states the fact outright ('none of the dishes or sauces have a single peanut', 'never kept a peanut on the shelf', 'don't stock them at all', 'nothing behind the counter has ever been near a peanut'). Each is framed as an experience, so the brief's implied-level rule is technically met, but the quoted conclusions are about as direct as level_06's stated-level Jade Lantern review ('no peanuts anywhere in the kitchen'). The identical shape also makes the trap easy to spot as the odd one out. The level stays fair, just on the easy side for an implied level.",
-      "suggested_fix": "Keep the explicit staff assurance on one or two venues and switch the others to pure experience. Teak Door: 'Our intern with the peanut allergy usually brings a packed lunch. The owner went through every sauce with her one by one, and she ended up ordering two dishes to make up for lost time.' River Bell: 'Took my manager here for her birthday lunch. She has to be careful about peanuts, so the chef came out and talked her through the menu himself. She ordered without a second thought. Lovely treat, but the bill is a step up from the usual intern lunch.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_09/dialogue_level_09.json",
-      "agent": "narrative_writer",
-      "where": "script[7], script[16]",
-      "issue": "The craving starts from the same plot device as level_07 two levels ago (a coworker's food smell takes over the office: 'someone at my internship microwaved curry at 10am' vs. 'someone at work ate pad see ew at her desk and the whole floor smelled like it'), and level_05 also used a smell trigger. The closing line brings the smell back again.",
-      "suggested_fix": "Give Liam a different reason, ideally in his food-first voice, e.g. script[7]: 'ok so i walked past a thai place on my way in and i've thought about nothing else for three hours. i need thai'. Then script[16]: 'assistant, please. i've been thinking about noodles since 9am'. Adjust the Koi Counter outcome line ('my whole floor smelled like thai noodles') to match."
-    },
-    {
-      "severity": "suggestion",
-      "check": "unconfirmable_ask",
-      "file": "content/levels/level_09/dialogue_level_09.json",
-      "agent": "narrative_writer",
-      "where": "script[8] (Maya: pad thai); script[7]/script[16] with venue downtown_orchid_row review 1 (pad see ew)",
-      "issue": "Named dishes do some unintended work. Maya's 'i would fight someone for pad thai' reads as hyperbole, but no review confirms pad thai anywhere, and pad thai is the classic peanut-topped dish in a peanut level, which may make a careful player hunt for it. Separately, Liam's pad see ew is the one dish named in the answer's review ('ordered the pad see ew'), so the dish match acts as a small shortcut to Orchid Row.",
-      "suggested_fix": "Maya, script[8]: 'thai. yes. i would fight someone for a bowl of noodles right now'. Either mention pad see ew in a decoy review too (e.g. Teak Door or River Bell), or change the dish in Orchid Row's review (e.g. 'so he ordered the drunken noodles')."
-    },
-    {
-      "severity": "suggestion",
-      "check": "fairness",
-      "file": "content/levels/level_09/dialogue_level_09.json",
-      "agent": "narrative_writer",
-      "where": "script[18]",
-      "issue": "Brooke's 'just nothing greasy' repeats the wording of her stated-level lines in level_04 ('nothing greasy or oily') and level_06 ('nothing greasy'). The climbing reason already implies the need, so this line reads more stated than implied. It is one clear wish, so it is not a rule break.",
-      "suggested_fix": "'count me in! climbing after work though, and the last time i had a fried lunch i didn't make it past the first hold'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_09/dialogue_level_09.json",
-      "agent": "narrative_writer",
-      "where": "script[14]",
-      "issue": "'the coast trip is six weeks out' pins a hard timeline that chapters 3 and 4 (late summer, then end of summer before the trip, about 11 more levels) must now respect. 'toast until august' adds a second calendar anchor. The bible only says 'end of summer'.",
-      "suggested_fix": "Keep it vague: 'also, gentle reminder: the coast trip is coming up fast and the fund is not where it should be'. 'toast until august' can stay as a joke, or become 'toast until the trip'."
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_09/outcomes_level_09.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.downtown_koi_counter lines[1]",
-      "issue": "The line is accurate: Maya and Cyrus ate at Koi Counter in level_08 (with Mina and Roxy). Liam and Brooke weren't there, though, so 'where we went last week', said to this group, reads as if all four went.",
-      "suggested_fix": "'wait, cyrus and i were here last week. cheap, so no complaints from me. but liam wanted thai'"
+      "where": "venue downtown_orchid_row review 1",
+      "issue": "The answer's review says the allergic sister orders 'curries and dipping sauces included', while Brooke's peanut line in script[10] lists 'no dipping sauce'. In context Brooke clearly means peanut dipping sauce, and the review is meant to show the sauces are safe, so it is not a real contradiction. Still, a very literal player could read it as the answer serving the exact thing Brooke ruled out.",
+      "suggested_fix": "Drop the overlap: 'She's been ordering something different every week for a year, curries and all the sauces on the side, and has never had a single reaction.' (Alternatively 'curries and salads included'.)"
     },
     {
       "severity": "suggestion",
       "check": "reviews",
       "file": "content/levels/level_09/venues_level_09.json",
       "agent": "map_seeder",
-      "where": "venue downtown_koi_counter review 1",
-      "issue": "'Still my favorite quick lunch on the block' hints at a speed vibe that Koi Counter's registry entry doesn't have (vibe_tags: healthy only). It isn't scored here, but a recurring venue's reviews should stay consistent with its fixed tags.",
-      "suggested_fix": "'Still my favorite light lunch on the block: a few cucumber rolls, salmon nigiri and a cup of miso, and I'm back at my desk feeling great instead of stuffed.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_09/spec_level_09.json",
-      "agent": "puzzle_architect",
-      "where": "decoys: downtown_koi_counter (fails_on craving)",
-      "issue": "Koi Counter is now on its third appearance: craving decoy in level_06, answer in level_08, craving decoy again here. The nod to last week works, but returning players may start to read it as a filler wrong-cuisine card. Fine for now; consider resting it in level_10.",
-      "suggested_fix": "No change needed in level_09. For level_10 (cafe craving), prefer a fresh or different recurring venue as the craving decoy."
+      "where": "venue downtown_monsoon_alley reviews 1-2",
+      "issue": "Every other venue now has a detail that has nothing to do with the puzzle (Orchid Row's orchids and noon line, Teak Door's unmarked carved door, River Bell's river-view back room, Koi Counter's eight stools). Monsoon Alley, the trap, has only peanut and healthy evidence, so it is a little easier to pick out as the odd one out. Map-seeder v6 asks for at least one detail unrelated to the puzzle at every venue; 'smell it from the sidewalk' arguably counts, but it is tied to the satay.",
+      "suggested_fix": "Add a neutral detail to review 2, e.g. 'Grilled chicken, bright herb salads and a broth that tastes clean, nothing swimming in oil. The owner's playlist is all old love songs, which I've come to enjoy. A smart pick when you still have a 2pm meeting to stay awake through.' Avoid anything that hints at seating, noise or speed, since the venue has none of those tags."
     }
   ],
-  "summary": "A warm, well-paced level whose story beat lands cleanly: Cyrus never says 'peanut' or 'allergic', 'The assistant knows the drill by now' and Maya's 'no bullet points??' give the moment charm, and the peanut clue is fairly carried by Liam's satay callback and Brooke's 'no satay, no dipping sauce, nothing crushed on top of the noodles'. Monsoon Alley's review mirrors that line almost word for word, and the other reviews name peanut allergies, so a first-time player can still work it out. Maya's $ budget is properly implied through the trip fund, every decoy is evidenced by its reviews, and all names are neutral. The main polish points are a repeated 'office food smell' craving trigger, the samey and rather direct peanut-assurance reviews, and some small wording tweaks.",
+  "summary": "Re-review after the v5/v6 fixes. Seven of the eight earlier suggestions are fixed: (1) the peanut reviews no longer share a template, and River Bell has the level's only staff promise; (2) the craving now starts from Liam's dream instead of an office smell; (3) Maya no longer mentions pad thai, and pad see ew appears at Orchid Row, Teak Door and River Bell; (4) Brooke has new words (climbing, fried lunch, first hold); (5) the trip has no week count or month; (6) the Koi Counter outcome names only Cyrus and Maya; (7) Koi Counter says 'light lunch'. The eighth (resting Koi Counter in level_10) was advice for level_10 and is still open there. Nothing regressed. The story beat lands in three lines, and Cyrus never says 'peanut'. The peanut clue is still implied, carried by Liam's satay callback and Brooke's 'no satay, no dipping sauce, nothing crushed on top of the noodles'. Maya's $ budget is implied through the trip fund and 'more than a few bucks'. Brooke's healthy need is one clear wish. Every review evidences its venue's deciding attributes through experience. River Bell's 'farewell lunch' is a stranger's team lead and doesn't touch the friends' story, so it doesn't step on the level_20 send-off beat. Two small new polish points: a literal overlap between 'dipping sauces' and Brooke's line, and Monsoon Alley lacking a detail unrelated to the puzzle.",
   "generated_by": "critic"
 }
