@@ -1,0 +1,62 @@
+{
+  "level_id": "level_08",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_08/dialogue_level_08.json",
+      "agent": "narrative_writer",
+      "where": "script[10]-script[13]",
+      "issue": "Mina's vegetarian clue repeats the same plot beat for the fourth time: she offers to eat a side (fries in level_03, pepperoni off and a salad in level_05, now rice and edamame), a friend calls it out, and she ends with '...okay. a few X would be really nice. thank you both'. That closing line is nearly the same as level_05 script[15] and level_07 script[16]. It follows clue rule 6 and isn't wrong, but the pattern is getting predictable, and level_10 and level_12 still need Mina beats.",
+      "suggested_fix": "Keep Maya's call-out but vary how Mina takes it, e.g. script[13]: 'ha, fair. okay, i'd love a proper veggie roll or two. you're all very bossy and i appreciate it'. Or have Mina mention the edamame and let Cyrus spot the problem, which also gives a first exchange between Cyrus and Mina."
+    },
+    {
+      "severity": "suggestion",
+      "check": "continuity",
+      "file": "content/levels/level_08/dialogue_level_08.json",
+      "agent": "narrative_writer",
+      "where": "script[1], script[3], script[8]",
+      "issue": "This is the first level with Maya and Roxy, and with Mina and Cyrus, but only Mina and Roxy's first meeting comes up ('i don't think we've had lunch together yet'). Maya never greets Roxy, and Cyrus's 'as always' is aimed partly at Mina, who has never heard it. Roxy's 'trip fund?' shows the writer knew they hadn't met.",
+      "suggested_fix": "Add a short hello for the new pairs, e.g. script[1]: 'me. hi roxy, i'm maya. i've been staring at spreadsheets since 8 and i'm starving'. Change Cyrus's 'One rule, as always:' to 'One rule, for anyone new:'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_08/outcomes_level_08.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.downtown_kumo_bar",
+      "issue": "The peanut fail replays level_06's Banyan Kitchen fail line by line: Roxy broke her plate-guard promise and says 'everybody out', and another friend says 'we're finding somewhere safe'.",
+      "suggested_fix": "Keep the plate-guard callback but give it a new turn, e.g. Roxy: 'plate guard has failed. i'm demoting myself. everybody out!!' Have Maya react in her own voice without 'finding somewhere safe', e.g. 'i'm literally leaving this restaurant. cyrus, i'll buy you a rice ball on the way. a cheap one'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_08/outcomes_level_08.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.downtown_hinoki_table lines[0]; by_venue.downtown_koi_counter lines[0]",
+      "issue": "Roxy's dairy partial is almost a copy of level_06's Jade Lantern line ('so good. but ... and my stomach is filing a complaint' versus '... staging a protest'). Her perfect line ends with 'let's come back tomorrow!!', copied from her level_06 perfect line.",
+      "suggested_fix": "Hinoki, e.g. 'cream cheese. in the VEGGIE roll. my stomach and i need a minute'. Koi, drop 'let's come back tomorrow!!' and keep 'new thing number four: CRUSHED IT', or add 'what's number five?'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_08/venues_level_08.json",
+      "agent": "map_seeder",
+      "where": "venue downtown_hinoki_table review 1; downtown_kumo_bar review 2; downtown_silver_reed review 2",
+      "issue": "Mayo comes up as if it were dairy ('creamy mayo drizzle' as Hinoki's dairy evidence; 'no mayo' in the dairy-free lists). Mayo is egg and oil, not dairy. Hinoki's cream cheese still carries its dairy miss and Koi's dairy-free evidence is clear, so this isn't a contradiction, but it muddles the signal for careful players.",
+      "suggested_fix": "Hinoki review 1: 'Cream cheese in nearly every roll, and the house sauce is a cream cheese drizzle that goes on everything. Even the veggie rolls come loaded with it.' Remove 'no mayo' from the Kumo Bar and Silver Reed reviews."
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_08/dialogue_level_08.json",
+      "agent": "narrative_writer",
+      "where": "script[9]",
+      "issue": "'plate guard duty, reporting back!! zero peanuts' reads as if Roxy has already checked something. 'reporting for duty' is the idiom and fits her action-first voice.",
+      "suggested_fix": "'plate guard, reporting for duty!! zero peanuts'"
+    }
+  ],
+  "summary": "A fair, well-built stated level. All five scored constraints are voiced plainly in their own moments. Cyrus states his peanut allergy outright, setting up level_09's beat. Roxy's dairy comes up offhand late with the milkshake callback, and Maya hints at Mina's diet, both per clue rule 6. No vibe wish or unconfirmable ask appears. Each review clearly evidences the one attribute its venue fails on, Koi Counter's new reviews fit its level_06 ones, and the decoy names are neutral. The remaining issues are freshness: Mina's side-dish beat and several outcome lines closely repeat levels 05-07.",
+  "generated_by": "critic"
+}
