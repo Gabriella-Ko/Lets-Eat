@@ -1,0 +1,49 @@
+{
+  "level_id": "level_08",
+  "by_venue": {
+    "downtown_koi_counter": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "roxy", "text": "new thing number four: CRUSHED IT. let's come back tomorrow!!", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "so many veggie rolls to pick from. thank you, everyone :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "and it's cheap?? the trip fund lives to see another day", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_kumo_bar": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "There are peanuts all over this menu. I can't eat here.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "abort!! i promised zero peanuts. everybody out", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i'm literally leaving this restaurant. cyrus, walk with me, we're finding somewhere safe", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_silver_reed": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... there's fish in every roll here. it's okay, i'll just have tea", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "absolutely not. tea is not lunch. mina eats too, we're going", "emotion": "ANGRY" }
+      ]
+    },
+    "downtown_hinoki_table": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "so good. but there's dairy in these rolls and my stomach is staging a protest", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "oh roxy, do you want some of my water? the rest of us are very happy, at least", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_cedar_line": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "delicious. also two dollar signs. the trip fund felt that one", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "worth it though?? ...sorry maya. soup tomorrow, i'll join you", "emotion": "SURPRISED" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

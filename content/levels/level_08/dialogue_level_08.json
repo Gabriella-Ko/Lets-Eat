@@ -1,0 +1,26 @@
+{
+  "level_id": "level_08",
+  "script": [
+    { "speaker": "roxy", "text": "lunch crew!! who's free at noon", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "maya", "text": "me. i've been staring at spreadsheets since 8 and i'm starving", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "roxy", "text": "SUSHI. way too hot out for anything warm. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "mina", "text": "sushi sounds perfect :) hi roxy, i don't think we've had lunch together yet! how's downtown treating you?", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "roxy", "text": "loving it. tried three new things this week. sushi makes four", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "roxy", "text": "trip fund?", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "maya", "text": "coast trip, end of summer. i've brought soup from home three days in a row. that's how serious this is", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "cyrus", "text": "Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "roxy", "text": "plate guard duty, reporting back!! zero peanuts", "emotion": "HAPPY", "clue": "allergy:peanut" },
+    { "speaker": "mina", "text": "and don't worry about me, i'm easy. i can just have some rice and edamame", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "mina. you're vegetarian. rice and edamame is a side, not a lunch", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
+    { "speaker": "cyrus", "text": "Agreed. We need somewhere with proper vegetarian rolls, not just a side dish.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "...okay. a few veggie rolls to choose from would be really nice. thank you both", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "roxy", "text": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "mina", "text": "oh no, did something happen?", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "roxy", "text": "the milkshake incident. we don't talk about the milkshake incident", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "cyrus", "text": "Noted. Some rolls have cream cheese in them, so that's worth checking too.", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "maya", "text": "assistant, you heard us. i'm about to eat my keyboard", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
