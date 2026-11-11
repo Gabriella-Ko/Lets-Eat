@@ -1,0 +1,18 @@
+{
+  "level_id": "level_08",
+  "chapter": 2,
+  "district": "downtown",
+  "difficulty": "stated",
+  "guests": ["cyrus", "mina", "roxy", "maya"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "sushi", "vibe": [], "intolerances": ["dairy"] },
+  "solution_id": "downtown_koi_counter",
+  "decoys": [
+    { "id": "downtown_kumo_bar", "fails_on": "allergy:peanut" },
+    { "id": "downtown_silver_reed", "fails_on": "diet:vegetarian" },
+    { "id": "downtown_hinoki_table", "fails_on": "intolerance:dairy" },
+    { "id": "downtown_cedar_line", "fails_on": "budget_soft" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
