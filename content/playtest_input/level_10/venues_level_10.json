@@ -1,0 +1,41 @@
+{
+  "level_id": "level_10",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_linden_corner",
+      "reviews": [
+        "I've eaten most of my internship lunches at the window counter here, watching the linden tree outside drop its blossoms on the sidewalk. The grain bowl is roasted squash, brown rice, chickpeas and greens under a lemon-tahini drizzle, and I go back to my desk feeling light, not weighed down. My friend who gave up meat years ago rotates between that and the lentil soup and has never had to settle for a side.",
+        "My deskmate carries an auto-injector for her peanut allergy and normally grills every barista in town. Here she just orders. She's worked her way through the whole menu since June and never once reached for it. My cousin, whose stomach rebels at a splash of milk, is a regular too: banana loaf and an oat latte twice a week, and she's never had a bad afternoon or had to ask what's in anything."
+      ]
+    },
+    {
+      "id": "downtown_slate_window",
+      "reviews": [
+        "The specials are chalked on a slate wall behind the counter, redrawn every Monday by a barista with seriously good handwriting. Heads up: every grain bowl comes under a thick satay-style dressing, and the house granola is roasted with whole peanuts, so you can smell them from the door.",
+        "Lentil soup that tastes like actual vegetables, steamed greens, a quinoa salad bright with herbs: I came back from lunch alert for once. My teammate who hasn't touched meat since uni has a different full plate every week. Our manager can't have dairy and says it's the one cafe where she doesn't read the fine print; oat is the only milk behind the bar."
+      ]
+    },
+    {
+      "id": "downtown_wren_house",
+      "reviews": [
+        "Every sandwich, bowl and soup on the board has meat or fish in it: chicken and barley soup on a bone-broth base, turkey and roasted veg bowls, smoked trout on rye, and the jar by the till is beef jerky. All lean, nothing fried, and I never get that post-lunch fog. My vegetarian flatmate read the board twice and left with a black coffee.",
+        "The owner keeps a little radio tuned to the cricket and gives you the score with your change whether you asked or not. One of the interns on my floor can't go anywhere near peanuts and eats here every week without asking a single question. Our team lead, who reacts badly to dairy, is just as relaxed: oat milk in the coffee by default, olive oil wherever other kitchens would reach for butter, nothing creamy on the menu."
+      ]
+    },
+    {
+      "id": "downtown_paper_kite",
+      "reviews": [
+        "Paper kites made by the owner's kids hang from every beam and sway when the door opens. The food is fresh and light (roasted beets, herb salads, poached eggs on seeded bread) and keeps me sharp for afternoon calls. Half the board is meat-free, and the friend I bring, a lifelong vegetarian, always struggles to choose.",
+        "It's a cheese-and-cream kind of kitchen: crumbled feta and a yogurt dressing on the grain bowl, ricotta and a thick swipe of butter on the toast, a cream-topped soup of the day, and whole milk is the only milk behind the bar. My lactose-intolerant roommate loved every bite and regretted it all evening. On the plus side, there's no satay or peanut crumble anywhere, and the guy in our intern cohort with the peanut allergy ordered without a second look."
+      ]
+    },
+    {
+      "id": "downtown_marble_steps",
+      "reviews": [
+        "You climb a short flight of marble steps to get in, and a ginger cat sleeps on the top one most afternoons. The cooking is gloriously heavy: hash browns fried in oil, battered tofu, chickpea fritters straight from the fryer, churros rolled in cinnamon sugar and a banana loaf under a sticky syrup glaze. I treated myself in the last week of my internship and needed a nap by three.",
+        "My little brother has been meat-free since he was twelve and finally got a full plate instead of picking at sides: fritters, tofu, the works. My boyfriend can't do dairy, and the counter guy showed him the batter is mixed with water and everything fries in sunflower oil, so he ate the lot without trouble. My sister, who's badly allergic to peanuts, picks this place for her birthday brunch every year with zero worry."
+      ]
+    }
+  ]
+}

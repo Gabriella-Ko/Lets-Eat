@@ -1,0 +1,35 @@
+{
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_linden_corner",
+      "name": "Linden Corner",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_slate_window",
+      "name": "Slate Window",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_wren_house",
+      "name": "Wren House",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_paper_kite",
+      "name": "Paper Kite",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_marble_steps",
+      "name": "Marble Steps",
+      "cuisine": "cafe",
+      "price_tier": "$"
+    }
+  ]
+}
