@@ -5,7 +5,7 @@
       "result": "perfect",
       "missed": [],
       "lines": [
-        { "speaker": "roxy", "text": "new thing number four: CRUSHED IT. let's come back tomorrow!!", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "new thing number four: CRUSHED IT. what's number five??", "emotion": "HAPPY" },
         { "speaker": "mina", "text": "so many veggie rolls to pick from. thank you, everyone :)", "emotion": "HAPPY" },
         { "speaker": "maya", "text": "and it's cheap?? the trip fund lives to see another day", "emotion": "HAPPY" }
       ]
@@ -15,8 +15,8 @@
       "missed": ["allergy:peanut"],
       "lines": [
         { "speaker": "cyrus", "text": "There are peanuts all over this menu. I can't eat here.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "abort!! i promised zero peanuts. everybody out", "emotion": "SURPRISED" },
-        { "speaker": "maya", "text": "cyrus, walk with me, we're finding somewhere safe", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "abort!! i promised zero peanuts. plate guard is demoting herself", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i'm literally leaving this restaurant. cyrus, walk with me, i'll find you a rice ball. a cheap one", "emotion": "SURPRISED" }
       ]
     },
     "downtown_silver_reed": {
