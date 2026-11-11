@@ -172,9 +172,10 @@ Story beats are fixed facts about the friends' shared story. Agents may only use
 | Callback | Friend | Points to | First appears |
 | --- | --- | --- | --- |
 | The satay incident | Cyrus | Peanut allergy | level_01 |
-| The milkshake incident | Roxy | Dairy intolerance | level_06 |
-| The plate of fries | Mina | Vegetarian (she once ate only fries while everyone else had burgers) | level_03 |
 | The trip fund | Maya | Her budget (`$` saving, `$$` from chapter 4) | level_02 |
+| The plate of fries | Mina | Vegetarian (she once ate only fries while everyone else had burgers) | level_03 |
+| The milkshake incident | Roxy | Dairy intolerance | level_06 |
+| Sushi day | Mina | Vegetarian (menu where she didn't need to double check for meat) | level_10 |
 
 In `stated` levels a callback may sit next to a plain statement. In `implied` and `buried` levels, the callback alone may carry the clue, as long as a returning player can read it and a first-time player can still work it out from context.
  
