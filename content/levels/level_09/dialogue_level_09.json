@@ -1,0 +1,24 @@
+{
+  "level_id": "level_09",
+  "script": [
+    { "speaker": "brooke", "text": "lunch crew, downtown edition! who's out at noon?", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "me. always me", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "brooke", "text": "liam!! cyrus talks about you all the time, but this is our first actual lunch. hi!", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "hi brooke! heard you're the one who keeps this chat alive. respect", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "ok so someone at work ate pad see ew at her desk and the whole floor smelled like it. i need thai", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "maya", "text": "thai. yes. i would fight someone for pad thai right now", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "wait. thai. cyrus. are we okay after the satay incident??", "emotion": "SURPRISED", "clue": "allergy:peanut" },
+    { "speaker": "cyrus", "text": "We're okay. The assistant knows the drill by now.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "no bullet points?? cyrus are you feeling alright", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "cyrus", "text": "I'm fine. I'm learning to trust the process.", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "maya", "text": "also, gentle reminder: the coast trip is six weeks out and i am not there yet", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "brooke", "text": "the trip fund! how's it looking?", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "maya", "text": "tight. one pricey lunch and i'm eating toast until august", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "liam", "text": "cheap thai is the best thai anyway", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "count me in, just nothing greasy. i've got climbing after work and i'd like to actually make it up the wall", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "liam", "text": "assistant, please. i can still smell that pad see ew from here", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
