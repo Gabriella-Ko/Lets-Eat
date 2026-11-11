@@ -1190,5 +1190,35 @@
     "result": "pass after 1 retry (dropped untested healthy vibe)",
     "retries": 1,
     "tokens": 27761
+  },
+  {
+    "timestamp": "2026-11-11T03:43:18.987Z",
+    "level": "level_08",
+    "agent_id": "map_seeder",
+    "brief_version": "v5",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 26096
+  },
+  {
+    "timestamp": "2026-11-11T03:43:18.987Z",
+    "level": "level_08",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 32963
+  },
+  {
+    "timestamp": "2026-11-11T03:43:18.987Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
   }
 ]
