@@ -1,0 +1,61 @@
+{
+  "level_id": "level_07",
+  "run": 2,
+  "agent_id": "blind_playtester",
+  "brief_version": "v2",
+  "pick": "downtown_tamarind_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: curry (Maya, Liam agrees)",
+      "type": "craving",
+      "source_lines": [
+        "maya: someone at my internship microwaved curry at 10am and i have been suffering ever since",
+        "liam: curry. yes. i'm in before you even ask",
+        "maya: liam. focus. curry. today."
+      ]
+    },
+    {
+      "constraint": "Quick service: Maya has a short lunch break",
+      "type": "preference",
+      "source_lines": [
+        "maya: also my manager does a head count at 1:00 sharp. gonna be another quick lunch",
+        "liam: got it. in, eat, out. my stomach and i are ready"
+      ]
+    },
+    {
+      "constraint": "Budget: cheap ($)",
+      "type": "budget",
+      "source_lines": [
+        "maya: and the trip fund is watching. if it's pricey, i'm eating crackers at my desk",
+        "maya: badly. my iced tea this morning cost what a whole lunch should. downtown is robbing me"
+      ]
+    },
+    {
+      "constraint": "Mina is vegetarian (strict diet, deal-breaker) and needs several real meat-free main options, not a side",
+      "type": "strict_diet",
+      "source_lines": [
+        "liam: fine. but this time mina gets a full meal like the rest of us. no plate of fries",
+        "liam: burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her",
+        "maya: oh, like pizza day when she offered to pick the pepperoni off. absolutely not",
+        "mina: ...okay. somewhere with a few curries i can actually order would be really nice if you don't mind"
+      ]
+    }
+  ],
+  "venue_reasoning": {
+    "downtown_tamarind_lane": "Curry, $, review says three vegetarian curries as full plates, and counter service fast enough for a short break. Meets everything.",
+    "downtown_copper_pot": "Curry, $, fast, but every pot is meat; vegetarian gets plain rice. Fails Mina's diet (deal-breaker).",
+    "downtown_cardamom_house": "Curry, fast, vegetarian options, but $$ and 'treat-yourself' strains a stipend. One tier over budget, so -1 star (2 stars).",
+    "downtown_indigo_arch": "Curry, $, many vegetarian dishes, but slow service made a lunch-break diner late. Misses quick lunch, -1 star (2 stars).",
+    "downtown_pepper_tree": "Burgers, $, fast, good veggie burger, but misses the curry craving (-1 star) and echoes the burger-day story."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Vegetarianism is never stated outright; it is inferred from the fries and pepperoni anecdotes plus Mina's 'curries i can actually order'. Fair and readable, and reviews consistently use 'doesn't eat meat', which confirms it.",
+    "Budget is implied rather than stated as a tier. 'If it's pricey, I'm eating crackers' plus Cardamom House's 'treat-yourself' review makes $ the clear target. A player might wonder whether $$ is one or two tiers over, but either way it loses to Tamarind Lane.",
+    "Each distractor fails exactly one constraint, which makes a clean elimination puzzle. Indigo Arch's slow-service clue is well hidden inside a review, a nice touch.",
+    "The noodle stall line is a harmless red herring or setup for a later level; Maya shuts it down in the very next line.",
+    "Nothing unfair or contradictory found."
+  ],
+  "generated_by": "blind_playtester"
+}

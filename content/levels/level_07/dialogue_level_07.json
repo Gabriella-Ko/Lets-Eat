@@ -1,0 +1,25 @@
+{
+  "level_id": "level_07",
+  "script": [
+    { "speaker": "maya", "text": "someone at my internship microwaved curry at 10am and i have been suffering ever since", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "curry. yes. i'm in before you even ask", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "mina", "text": "curry sounds lovely :) how's the internship going, maya? last time you said your desk was right next to the printer", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "still next to the printer. it's loud and it hates me", "emotion": "ANNOYED", "clue": null },
+    { "speaker": "maya", "text": "also my manager does a head count at 1:00 sharp. gonna be another quick lunch", "emotion": "ANNOYED", "clue": "vibe:quick_bite" },
+    { "speaker": "liam", "text": "got it. in, eat, out. my stomach and i are ready", "emotion": "HAPPY", "clue": "vibe:quick_bite" },
+    { "speaker": "maya", "text": "and the trip fund is watching. if it's pricey, i'm eating crackers at my desk", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "mina", "text": "the coast trip! how's the saving going?", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "badly. my iced tea this morning cost what a whole lunch should. downtown is robbing me", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "liam", "text": "oh, someone at work said there's a noodle stall somewhere at the night market. nobody knows where. i'm obsessed", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "liam. focus. curry. today.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "fine. but this time mina gets a full meal like the rest of us. no plate of fries", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "maya", "text": "wait, plate of fries??", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "liam", "text": "burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "maya", "text": "oh, like pizza day when she offered to pick the pepperoni off. absolutely not", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "you two are never letting either of those go, are you", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "...okay. somewhere with a few curries i can actually order would be really nice if you don't mind", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "liam", "text": "assistant, it's on you. my stomach is louder than maya's printer", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

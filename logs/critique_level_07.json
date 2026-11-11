@@ -1,0 +1,17 @@
+{
+  "level_id": "level_07",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_07/outcomes_level_07.json",
+      "agent": "narrative_writer",
+      "where": "downtown_copper_pot line 3",
+      "issue": "Maya's 'we are NOT doing fries 2.0' repeats the joke Liam makes in the line just before it ('not the plate of fries all over again'), so two of the three fail lines tell the same callback. It is also milder than her usual over-the-top complaining. It works, but it is the weakest line in an otherwise good reaction.",
+      "suggested_fix": "Give Maya her own story from the chat and a bigger reaction, e.g. 'first the pepperoni, now THIS. i'm literally walking out' (keeps her exaggeration without copying level_05's 'leaving this chat and taking mina with me')."
+    }
+  ],
+  "summary": "The new Copper Pot fail reaction works. Mina's 'it's all lamb and chicken. the rice is nice though, honestly' is soft and makes the best of it, true to her Cast entry, and matches the review (meat pots only, plain rice offered). It no longer copies the 'i'll just have some water' line from levels 03 and 05, and 'lamb and chicken' just leaves beef out, which is no contradiction. Liam's 'everybody up' gives the dramatic exit without reusing level_05's 'taking mina with me'. Maya's line fits the result but doubles Liam's fries joke (one suggestion). The dialogue, venues and the other outcomes are unchanged and still hold: every clue is findable in the implied style, nothing gives the answer away, and the reviews carry every deciding attribute. The budget wording is closed as Gabriella decided.",
+  "generated_by": "critic"
+}

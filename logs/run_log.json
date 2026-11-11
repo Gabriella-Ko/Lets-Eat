@@ -922,11 +922,253 @@
   {
     "timestamp": "2026-11-10T04:15:17.156Z",
     "level": "campaign",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "outline_approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null,
+    "note": "outline re-approved by Gabriella (cravings + story beats). Note for level_17: reviews must evidence dairy-free options at the answer."
+  },
+  {
+    "timestamp": "2026-11-10T04:22:11.054Z",
+    "level": "level_07",
     "agent_id": "orchestrator",
     "brief_version": "v1",
-    "step": "approval",
-    "result": "outline re-approved by Gabriella (cravings + story beats). Note for level_17: reviews must evidence dairy-free options at the answer.",
+    "step": "branch",
+    "result": "created level/07 from master",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T04:22:11.054Z",
+    "level": "level_07",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v5",
+    "step": "spec",
+    "result": "pass after 1 retry (craving decoy thai -> burgers: thai serves curry)",
+    "retries": 1,
+    "tokens": 33580
+  },
+  {
+    "timestamp": "2026-11-10T04:24:17.128Z",
+    "level": "level_07",
+    "agent_id": "map_seeder",
+    "brief_version": "v5",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 23201
+  },
+  {
+    "timestamp": "2026-11-10T04:24:17.128Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 34249
+  },
+  {
+    "timestamp": "2026-11-10T04:24:17.128Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T04:25:58.253Z",
+    "level": "level_07",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 6 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T04:26:55.377Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (tamarind_lane, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": 12587
+  },
+  {
+    "timestamp": "2026-11-10T04:26:55.377Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (tamarind_lane, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": 12178
+  },
+  {
+    "timestamp": "2026-11-10T04:26:55.377Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (tamarind_lane, 3 stars), all 4 constraints found",
+    "retries": 0,
+    "tokens": 12210
+  },
+  {
+    "timestamp": "2026-11-10T04:26:55.377Z",
+    "level": "level_07",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:17:20.618Z",
+    "level": "level_07",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after human:gabby edits: pass, 0 must_fix, 6 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:24:00.459Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "fix_real_main",
+    "result": "replaced reserved level_16 phrase in 2 lines",
+    "retries": 1,
+    "tokens": 13755
+  },
+  {
+    "timestamp": "2026-11-10T18:24:00.459Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:25:01.057Z",
+    "level": "level_07",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after real-main fix: pass, 0 must_fix, 2 suggestions",
+    "retries": 0,
+    "tokens": 30476
+  },
+  {
+    "timestamp": "2026-11-10T18:25:01.057Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_retest",
+    "result": "correct (tamarind_lane, 3 stars), all constraints found",
+    "retries": 0,
+    "tokens": 12702
+  },
+  {
+    "timestamp": "2026-11-10T18:25:01.057Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_retest",
+    "result": "correct (tamarind_lane, 3 stars), all constraints found",
+    "retries": 0,
+    "tokens": 12598
+  },
+  {
+    "timestamp": "2026-11-10T18:25:01.057Z",
+    "level": "level_07",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_retest",
+    "result": "correct (tamarind_lane, 3 stars), all constraints found; read Mina curry line as an extra preference",
+    "retries": 0,
+    "tokens": 12756
+  },
+  {
+    "timestamp": "2026-11-10T18:25:01.057Z",
+    "level": "level_07",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (retest after edits)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:32:44.664Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "fix_copper_pot_fail",
+    "result": "critic suggestion applied per Gabriella",
+    "retries": 2,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:32:44.664Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-10T18:33:30.399Z",
+    "level": "level_07",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after Copper Pot fix: pass, 0 must_fix, 1 suggestion",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T03:31:09.710Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v3",
+    "step": "fix_copper_pot_maya",
+    "result": "critic suggestion applied per Gabriella",
+    "retries": 3,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T03:31:09.710Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T03:33:40.050Z",
+    "level": "level_07",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null,
+    "note": "approved by Gabriella"
   }
 ]

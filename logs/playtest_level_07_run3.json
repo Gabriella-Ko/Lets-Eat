@@ -1,0 +1,50 @@
+{
+  "level_id": "level_07",
+  "run": 3,
+  "agent_id": "blind_playtester",
+  "brief_version": "v2",
+  "pick": "downtown_tamarind_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: curry",
+      "who": "maya, liam",
+      "source_line": "maya: \"someone at my internship microwaved curry at 10am and i have been suffering ever since\" / liam: \"curry. yes. i'm in before you even ask\" / maya: \"liam. focus. curry. today.\""
+    },
+    {
+      "constraint": "Quick lunch: has to be fast service (head count at 1:00)",
+      "who": "maya",
+      "source_line": "maya: \"also my manager does a head count at 1:00 sharp. gonna be another quick lunch\""
+    },
+    {
+      "constraint": "Budget: cheap ($); pricey places are out",
+      "who": "maya",
+      "source_line": "maya: \"and the trip fund is watching. if it's pricey, i'm eating crackers at my desk\" (reinforced by \"my iced tea this morning cost what a whole lunch should\")"
+    },
+    {
+      "constraint": "Strict diet: Mina doesn't eat meat (vegetarian)",
+      "who": "mina",
+      "source_line": "liam: \"she had fries, because nothing else on the menu worked for her\" / maya: \"like pizza day when she offered to pick the pepperoni off. absolutely not\" / liam: \"this time mina gets a full meal like the rest of us\""
+    },
+    {
+      "constraint": "Preference: several meat-free curries for Mina to choose from (a real meal, not a side)",
+      "who": "mina",
+      "source_line": "mina: \"somewhere with a few curries i can actually order would be really nice if you don't mind\""
+    }
+  ],
+  "venue_assessment": {
+    "downtown_tamarind_lane": "$ curry; review: three meat-free curries as full plates; counter service, back with 20 min to spare. Meets everything: 3 stars.",
+    "downtown_copper_pot": "$ curry and fast, but all meat; plain rice offered to the non-meat-eater. Breaks Mina's diet: deal-breaker.",
+    "downtown_cardamom_house": "Curry, fast, good vegetarian choice, but $$ and described as a treat that hurt an intern stipend. One tier over: 2 stars.",
+    "downtown_indigo_arch": "$ curry with lots of vegetarian dishes, but slow service; the reviewer was late back from lunch. Misses quick lunch: 2 stars.",
+    "downtown_pepper_tree": "$ and fast with a veggie burger, but burgers, not curry, and no curries for Mina. Misses the curry craving and Mina's curry wish: about 1 star."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Nobody ever says that Mina is vegetarian. You have to work it out from the fries and pepperoni stories plus Mina's 'curries i can actually order'. That is fair and a nice bit of inference, but a player who skims could miss that it's a strict diet and treat it as only a preference. Copper Pot is still clearly the wrong pick either way, because the review says the non-meat-eater got only plain rice.",
+    "The budget is never given as a price tier. 'If it's pricey' combined with the Cardamom House review ('treat-yourself lunch... stipend felt it') makes it clear that $$ is too much. It is readable, though a bit indirect.",
+    "Each decoy fails on exactly one thing: Copper Pot on diet, Cardamom House on price, Indigo Arch on speed, Pepper Tree on cuisine. That makes the puzzle clean, but a player who checks every review will find the answer without much trouble. Nothing felt unfair or contradictory.",
+    "Liam's night-market noodle stall line is a red herring, and Maya shuts it down right away. It is harmless."
+  ],
+  "generated_by": "blind_playtester"
+}
