@@ -7,29 +7,20 @@
       "check": "reviews",
       "file": "content/levels/level_08/venues_level_08.json",
       "agent": "map_seeder",
-      "where": "venue downtown_hinoki_table review 1",
-      "issue": "The mayo fix landed, but the new sentence says 'cream cheese' twice in a row ('Cream cheese in nearly every roll, and the house sauce is a cream cheese drizzle'), so it reads clumsily. The dairy evidence itself is clear and matches the spec's intolerance:dairy miss.",
-      "suggested_fix": "'Cream cheese in nearly every roll, plus a rich cream sauce drizzled over everything. Even the veggie rolls come loaded with it.'"
+      "where": "downtown_kumo_bar review 2; downtown_silver_reed review 2",
+      "issue": "The varied wording landed for Hinoki Table and Cedar Line ('dairy-free kitchen'), and the peanut wording now differs across venues. Kumo Bar ('no cream cheese, no milk, no cream') and Silver Reed ('skip cream cheese, milk and cream entirely') still use the same three-item list as Koi Counter ('no milk, cream or cream cheese'), so three reviews still read like one checklist. The evidence is fair and plain, as a stated level needs.",
+      "suggested_fix": "Kumo Bar review 2: '...(sweet potato, mushroom, pickled veggies) and not a drop of dairy on the menu, cream cheese included. Cheap enough for a weekday lunch.' Silver Reed review 2: 'No peanuts on anything, and the whole menu is dairy-free. Quick and cheap, a solid lunch for the summer interns.'"
     },
     {
       "severity": "suggestion",
       "check": "reviews",
       "file": "content/levels/level_08/venues_level_08.json",
       "agent": "map_seeder",
-      "where": "downtown_koi_counter review 2; downtown_kumo_bar review 2; downtown_silver_reed review 2; downtown_cedar_line review 1-2",
-      "issue": "With 'no mayo' removed, four venues now use almost the same dairy-free list ('no milk, cream or cream cheese' / 'no cream cheese, no milk, no cream' / 'skip cream cheese, milk and cream' / 'nothing made with milk, cream or cream cheese'), and three use 'no peanuts in the kitchen'. Fair for a stated level, but the reviews read like copies of one checklist rather than different diners. Koi Counter also opens both reviews with 'still' ('Still our lunch-break regular', 'still no milk').",
-      "suggested_fix": "Vary the wording while keeping it plain, e.g. Kumo Bar review 2: '...and not a drop of dairy on the menu, cream cheese included.' Silver Reed review 2: 'No peanuts allowed back there, and the kitchen is completely dairy-free.' Koi Counter review 2: drop the second 'still' ('...and no milk, cream or cream cheese in anything...')."
-    },
-    {
-      "severity": "suggestion",
-      "check": "voice",
-      "file": "content/levels/level_08/dialogue_level_08.json",
-      "agent": "narrative_writer",
-      "where": "script[2]",
-      "issue": "The greeting fix landed (Maya introduces herself, Cyrus's 'for anyone new' now fits Mina's first lunch with him). Roxy never says hi back to Maya, though, and jumps straight to sushi. That's in character for impulsive Roxy, but one word would close the loop.",
-      "suggested_fix": "script[2]: 'hi maya!! SUSHI. way too hot out for anything warm. let's do it!!'"
+      "where": "venue downtown_hinoki_table review 2",
+      "issue": "The review opens with a lowercase fragment ('peanut-free.') and then switches to capitalised sentences, so it reads like a typo, not a diner's voice. The content is correct: it confirms peanut-free and vegetarian, and says nothing about dairy.",
+      "suggested_fix": "'Totally peanut-free, with lots of vegetarian rolls: tofu, avocado, pickled carrot. Fast and cheap enough for a lunch break.'"
     }
   ],
-  "summary": "All five approved fixes landed cleanly and nothing regressed. The vegetarian clue is stated plainly by Maya at script[10], and Cyrus and Mina back it up with a menu detail every review can confirm or rule out ('a whole section with no fish or meat'). It also breaks the old side-dish pattern. The new Kumo Bar and Koi Counter reactions are fresh and in voice. Only small wording polish remains: a doubled 'cream cheese' in Hinoki review 1, near-identical dairy-free lists across four reviews, and Roxy not greeting Maya back.",
+  "summary": "Gabriella's edits hold up and nothing regressed. Every venue's deciding attributes are still evidenced by its reviews alone: Koi Counter shows peanut-free, dairy-free, real veggie rolls and cheap; each decoy has one review naming its single failure (peanut toppings, fish in every roll, cream cheese even in the veggie rolls, a step up in price) and one confirming everything else. No review implies Hinoki Table is dairy-free, and none contradicts the registry, the spec or the chat. Roxy's new 'hi maya!' closes the greeting loop and stays in her voice. Two small wording points remain: the dairy-free lists at Kumo Bar and Silver Reed, and the lowercase opening of Hinoki review 2.",
   "generated_by": "critic"
 }
