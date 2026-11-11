@@ -6,48 +6,40 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "who": "cyrus",
-      "constraint": "peanut allergy (deal-breaker)",
+      "constraint": "Craving: Thai food (Liam, backed by Maya)",
+      "source_lines": [
+        "liam: ok so i dreamed about thai food last night. a whole table of it. woke up starving. i need thai",
+        "maya: i would fight someone for thai right now. i'm in"
+      ]
+    },
+    {
+      "constraint": "Allergy (deal-breaker): Cyrus is allergic to peanuts",
       "source_lines": [
         "liam: wait. thai. cyrus. are we okay after the satay incident??",
         "brooke: i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always"
       ]
     },
     {
-      "who": "liam, maya",
-      "constraint": "craving: thai",
+      "constraint": "Budget: cheapest tier ($), saving for the coast trip",
       "source_lines": [
-        "liam: ok so someone at work ate pad see ew at her desk and the whole floor smelled like it. i need thai",
-        "maya: thai. yes. i would fight someone for pad thai right now"
-      ]
-    },
-    {
-      "who": "maya",
-      "constraint": "budget: $ (cheap)",
-      "source_lines": [
-        "maya: tight. one pricey lunch and i'm eating toast until august",
+        "maya: tight. if lunch costs more than a few bucks, the trip fund cries. and then i cry",
         "liam: cheap thai is the best thai anyway"
       ]
     },
     {
-      "who": "brooke",
-      "constraint": "preference: nothing greasy / light food",
+      "constraint": "Preference: light, not fried or greasy (Brooke is climbing after work)",
       "source_lines": [
-        "brooke: count me in, just nothing greasy. i've got climbing after work and i'd like to actually make it up the wall"
+        "brooke: count me in! climbing after work though, and the last time i had a fried lunch i didn't make it past the first hold"
       ]
     }
   ],
-  "elimination": {
-    "downtown_monsoon_alley": "peanut dip and crushed peanuts on noodles and salads, so it's out on the allergy",
-    "downtown_teak_door": "peanut-free, thai and $, but almost everything is fried and greasy, which breaks Brooke's request (-1 star)",
-    "downtown_river_bell": "peanut-free, thai and light, but the review says it costs more and the card shows $$, one tier over budget (-1 star)",
-    "downtown_koi_counter": "peanut-free, $ and light, but it's sushi, not thai (misses the craving, -1 star)",
-    "downtown_orchid_row": "peanut-free (confirmed by kitchen), thai, $, fresh and light. Meets everything"
+  "venue_reasoning": {
+    "downtown_orchid_row": "Thai, $, a reviewer with a peanut allergy has eaten there every week (sauces included) with no reaction, and the food is steamed and light. Meets every constraint.",
+    "downtown_monsoon_alley": "Thai, $, light, but peanut satay dip and crushed peanuts on the noodles. Deal-breaker for Cyrus.",
+    "downtown_teak_door": "Thai, $, peanut-safe, but almost everything is fried or oily. Misses Brooke's preference: 2 stars.",
+    "downtown_river_bell": "Thai, peanut-free, light, but $$, one tier over budget: 2 stars.",
+    "downtown_koi_counter": "Sushi, $, light, peanut-safe, but not Thai. Misses the craving: 2 stars."
   },
   "difficulty": 2,
-  "notes": [
-    "The chat never says the word 'peanut'. Cyrus's allergy comes from the 'satay incident' line and Brooke's list (no satay, no dipping sauce, nothing crushed on the noodles). A returning player will pick it up easily. A player who starts at this level would have to work out that satay means peanuts, which is a fair inference but relies on what earlier levels set up.",
-    "Each decoy fails exactly one constraint and each failure is easy to read. The 'step up' wording in River Bell's review and its $$ card agree, so the price clue is consistent.",
-    "Maya's budget line ('one pricey lunch and i'm eating toast') is soft, but Liam's 'cheap thai' line backs it up. Nothing contradictory or unfair found."
-  ]
+  "notes": "Fair and solvable. The peanut allergy is never named outright. You have to infer it from the 'satay incident' and Brooke's list (satay, dipping sauce, crushed toppings), which is a good indirect clue for a returning player. A new player might take a moment longer. 'More than a few bucks' clearly points to $. Brooke's fried-lunch line is clear. Each decoy fails exactly one constraint, so the puzzle is clean. Small note: Orchid Row's review says 'curries and dipping sauces included' are safe, which directly answers Brooke's dipping-sauce worry. That is good design, not too obvious. Nothing contradictory found."
 }
