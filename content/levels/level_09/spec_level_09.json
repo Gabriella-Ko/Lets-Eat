@@ -1,0 +1,18 @@
+{
+  "level_id": "level_09",
+  "chapter": 2,
+  "district": "downtown",
+  "difficulty": "implied",
+  "guests": ["brooke", "liam", "cyrus", "maya"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "thai", "vibe": ["healthy"], "intolerances": [] },
+  "solution_id": "downtown_orchid_row",
+  "decoys": [
+    { "id": "downtown_monsoon_alley", "fails_on": "allergy:peanut" },
+    { "id": "downtown_teak_door", "fails_on": "vibe:healthy" },
+    { "id": "downtown_river_bell", "fails_on": "budget_soft" },
+    { "id": "downtown_koi_counter", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
