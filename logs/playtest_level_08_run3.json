@@ -6,33 +6,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Cuisine: sushi (craving)",
-      "source": "roxy: \"SUSHI. way too hot out for anything warm. let's do it!!\""
+      "constraint": "Cuisine craving: sushi",
+      "type": "craving",
+      "source_speaker": "roxy",
+      "source_line": "SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Budget: $ max",
-      "source": "maya: \"sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable\""
+      "constraint": "Budget: $ (one dollar sign max)",
+      "type": "budget",
+      "source_speaker": "maya",
+      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
       "constraint": "Peanut allergy (deal-breaker)",
-      "source": "cyrus: \"Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check.\""
+      "type": "allergy",
+      "source_speaker": "cyrus",
+      "source_line": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
     },
     {
-      "constraint": "Vegetarian with proper vegetarian rolls, not just sides (strict diet, deal-breaker)",
-      "source": "maya: \"mina. you're vegetarian. rice and edamame is a side, not a lunch\" / cyrus: \"We need somewhere with proper vegetarian rolls, not just a side dish.\" / mina: \"a few veggie rolls to choose from would be really nice.\""
+      "constraint": "Vegetarian with a real meat-free selection, not a token roll (strict diet, deal-breaker)",
+      "type": "diet",
+      "source_speaker": "maya",
+      "source_line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
     },
     {
-      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
-      "source": "roxy: \"ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along\""
+      "constraint": "Dairy intolerance, no cream cheese (costs one star)",
+      "type": "intolerance",
+      "source_speaker": "roxy",
+      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
-  "venue_analysis": {
-    "downtown_koi_counter": "$, whole meat-free roll section, no peanuts, no milk/cream/cream cheese. Meets everything: 3 stars.",
+  "venue_assessment": {
+    "downtown_koi_counter": "$, sushi, no peanuts, whole meat-free section, no dairy. Meets everything: 3 stars.",
     "downtown_kumo_bar": "Peanuts on rolls and peanut dipping sauce. Deal-breaker for Cyrus.",
-    "downtown_silver_reed": "Fish in every roll, nothing vegetarian. Deal-breaker for Mina.",
-    "downtown_hinoki_table": "Cream cheese and mayo on nearly everything, veggie rolls included. Dairy miss for Roxy: 2 stars.",
-    "downtown_cedar_line": "$$, one tier over budget. Otherwise meets everything: 2 stars."
+    "downtown_silver_reed": "Fish in every roll, fish-stock miso. Deal-breaker for Mina.",
+    "downtown_hinoki_table": "Cream cheese everywhere. Dairy intolerance costs a star: 2 stars.",
+    "downtown_cedar_line": "$$, one tier over budget, costs a star: 2 stars."
   },
   "difficulty": 2,
-  "notes": "Fair and solvable. Every distractor fails on exactly one constraint, which reads clearly in the reviews. Mina's need comes out well: she plays it down and the others name it, so you have to read past what she says she wants. Roxy's dairy line is clear, and the milkshake follow-up backs it up. Cyrus spelling out the cream-cheese risk makes the dairy check fairly obvious, though. Both Hinoki Table and Cedar Line come out at 2 stars, so there are two near-miss options, which is fine. Nothing contradictory."
+  "notes": "Fair and consistent. Each decoy fails exactly one constraint, and the reviews state it clearly. Nothing contradicts itself. The puzzle is fairly easy because the reviews name each constraint almost word for word (peanuts, meat-free section, cream cheese, price). The Koi Counter review even mentions an 'allergic coworker' and a 'lactose-intolerant intern', which makes the answer pretty obvious. The dairy clue is a little hidden behind the milkshake banter, but Cyrus's cream cheese line spells it out. The one tricky part is Cedar Line: the card shows $$, and the review says it is 'a clear step up in price', so it is hard to miss."
 }

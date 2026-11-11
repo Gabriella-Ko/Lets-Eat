@@ -6,43 +6,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Cuisine craving: sushi",
+      "constraint": "Cuisine craving: sushi, nothing warm",
       "type": "craving",
-      "source_speaker": "roxy",
-      "source_line": "SUSHI. way too hot out for anything warm. let's do it!!"
+      "speaker": "roxy",
+      "line": "SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Budget: $ max (one dollar sign)",
+      "constraint": "Budget: $ max",
       "type": "budget",
-      "source_speaker": "maya",
-      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+      "speaker": "maya",
+      "line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
       "constraint": "Peanut allergy (deal-breaker)",
       "type": "allergy",
-      "source_speaker": "cyrus",
-      "source_line": "Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+      "speaker": "cyrus",
+      "line": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
     },
     {
-      "constraint": "Vegetarian, needs proper vegetarian rolls, not just sides (strict diet, deal-breaker)",
+      "constraint": "Vegetarian with a real veggie section (strict diet, deal-breaker)",
       "type": "diet",
-      "source_speaker": "maya / cyrus / mina",
-      "source_line": "mina. you're vegetarian. rice and edamame is a side, not a lunch | We need somewhere with proper vegetarian rolls, not just a side dish. | a few veggie rolls to choose from would be really nice."
+      "speaker": "maya (about mina)",
+      "line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
     },
     {
-      "constraint": "Dairy intolerance, nothing creamy / no cream cheese (costs a star)",
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
       "type": "intolerance",
-      "source_speaker": "roxy",
-      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+      "speaker": "roxy",
+      "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
-  "venue_analysis": {
-    "downtown_koi_counter": "$, sushi, no peanuts, full meat-free roll section, no milk/cream/cream cheese. Meets everything.",
-    "downtown_kumo_bar": "Peanuts on half the rolls and peanut sauce with every set. Allergy deal-breaker.",
-    "downtown_silver_reed": "Fish in every roll, nothing vegetarian. Diet deal-breaker.",
-    "downtown_hinoki_table": "Cream cheese and creamy mayo on nearly everything, veggie rolls included. Loses a star for Roxy's dairy intolerance (2 stars max).",
-    "downtown_cedar_line": "$$, one tier over budget, costs a star. Otherwise fine (2 stars)."
+  "venue_reasoning": {
+    "downtown_koi_counter": "$, full meat-free section, no peanuts, no dairy. Meets everything: 3 stars.",
+    "downtown_kumo_bar": "Peanuts on rolls and peanut sauce with every set. Deal-breaker for Cyrus.",
+    "downtown_silver_reed": "Fish in every roll, including the garden roll. Deal-breaker for Mina.",
+    "downtown_hinoki_table": "Cream cheese everywhere. Dairy intolerance costs a star: 2 stars.",
+    "downtown_cedar_line": "$$, one tier over budget, costs a star: 2 stars."
   },
   "difficulty": 2,
-  "notes": "Fair and solvable. Every decoy fails on exactly one constraint, and each failure is spelled out in its reviews. Mina's attempt to downplay her need ('rice and edamame') is a nice trap, but Maya and Cyrus correct it right away, so it is hard to miss. Roxy's dairy line is phrased casually as a 'small thing', which hides it a little. Hinoki Table and Cedar Line are both 2-star near-misses, which makes it a reasonable test of reading all constraints. Nothing contradictory. Slightly easy, since Koi Counter's reviews clearly confirm every constraint."
+  "notes": "Fair and solvable. Every constraint is stated plainly and each decoy fails exactly one constraint, which reads cleanly. Cedar Line's price shows on its card as $$ and the review backs that up. Mild note: Koi Counter's reviews name both an allergic coworker and a lactose-intolerant intern, so the answer is a bit easy to spot once you've read all the reviews. Hinoki and Cedar both land at 2 stars, so the near-misses are well balanced. Nothing contradictory found. I read only the three input files I was given."
 }

@@ -1380,5 +1380,55 @@
     "result": "PASS",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:13:48.547Z",
+    "level": "level_08",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after 5 fixes: pass, 0 must_fix, 3 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-11T04:13:48.547Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_final",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found",
+    "retries": 0,
+    "tokens": 12514
+  },
+  {
+    "timestamp": "2026-11-11T04:13:48.547Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_final",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found",
+    "retries": 0,
+    "tokens": 12445
+  },
+  {
+    "timestamp": "2026-11-11T04:13:48.547Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_final",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found",
+    "retries": 0,
+    "tokens": 12481
+  },
+  {
+    "timestamp": "2026-11-11T04:13:48.547Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (final text)",
+    "retries": 0,
+    "tokens": null
   }
 ]
