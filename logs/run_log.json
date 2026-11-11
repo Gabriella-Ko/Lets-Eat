@@ -1709,6 +1709,36 @@
     "step": "spec",
     "result": "pass",
     "retries": 0,
+    "tokens": 30995
+  },
+  {
+    "timestamp": "2026-11-11T05:29:08.139Z",
+    "level": "level_10",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 44734
+  },
+  {
+    "timestamp": "2026-11-11T05:29:08.139Z",
+    "level": "level_10",
+    "agent_id": "narrative_writer",
+    "brief_version": "v5",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 56728
+  },
+  {
+    "timestamp": "2026-11-11T05:29:08.139Z",
+    "level": "level_10",
+    "agent_id": "validator",
+    "brief_version": "v1",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
     "tokens": null
   }
 ]
