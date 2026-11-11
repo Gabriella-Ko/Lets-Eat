@@ -10,7 +10,7 @@
     { "speaker": "roxy", "text": "trip fund?", "emotion": "SURPRISED", "clue": null },
     { "speaker": "maya", "text": "coast trip, end of summer. i've brought soup from home three days in a row. that's how serious this is", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "cyrus", "text": "Sushi works for me. One rule, as always: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
-    { "speaker": "roxy", "text": "plate guard duty, reporting for duty!! zero peanuts", "emotion": "HAPPY", "clue": "allergy:peanut" },
+    { "speaker": "roxy", "text": "plate guard, reporting for duty!! zero peanuts", "emotion": "HAPPY", "clue": "allergy:peanut" },
     { "speaker": "mina", "text": "and don't worry about me, i'm easy. i can just have some rice and edamame", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "maya", "text": "mina. you're vegetarian. rice and edamame is a side, not a lunch", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
     { "speaker": "cyrus", "text": "Agreed. We need somewhere with proper vegetarian rolls, not just a side dish.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
