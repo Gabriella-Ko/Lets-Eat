@@ -1,5 +1,9 @@
+/** A press that moves less than this (px) counts as a click, not a drag. */
+export const DRAG_THRESHOLD = 6;
+
 /**
- * A masked, wheel-scrollable area. Add children to `.content` at y >= 0, then call `.setContentHeight(h)`.
+ * A masked scrollable area: mouse wheel, drag (mouse or touch) and `.scrollBy()` for keys.
+ * Add children to `.content` at y >= 0, then call `.setContentHeight(h)`.
  */
 export function scrollArea(scene, x, y, w, h) {
   const content = scene.add.container(x, y);
@@ -10,23 +14,49 @@ export function scrollArea(scene, x, y, w, h) {
   let offset = 0;
   const listeners = [];
   const maxOffset = () => Math.max(0, contentHeight - h);
-  const apply = () => {
+  /** byUser: true when the player scrolled (wheel, drag, scrollBy), false for code-driven moves. */
+  const apply = (byUser = false) => {
     offset = Math.min(Math.max(offset, 0), maxOffset());
     content.y = y - offset;
     const fraction = maxOffset() ? offset / maxOffset() : 0;
-    for (const fn of listeners) fn(fraction);
+    for (const fn of listeners) fn(fraction, byUser);
   };
 
+  const inside = (p) => p.x >= x && p.x <= x + w && p.y >= y && p.y <= y + h;
+
   scene.input.on('wheel', (pointer, objs, dx, dy) => {
-    if (pointer.x >= x && pointer.x <= x + w && pointer.y >= y && pointer.y <= y + h) {
+    if (inside(pointer)) {
       offset += dy * 0.6;
-      apply();
+      apply(true);
     }
+  });
+
+  // Drag to scroll. It only starts once the press has moved DRAG_THRESHOLD px, so taps stay taps.
+  let drag = null;
+  scene.input.on('pointerdown', (p) => {
+    drag = inside(p) ? { startY: p.y, startOffset: offset, active: false } : null;
+  });
+  scene.input.on('pointermove', (p) => {
+    if (!drag || !p.isDown) return;
+    if (!drag.active && Math.abs(p.y - drag.startY) < DRAG_THRESHOLD) return;
+    drag.active = true;
+    offset = drag.startOffset - (p.y - drag.startY);
+    apply(true);
+  });
+  scene.input.on('pointerup', () => {
+    drag = null;
   });
 
   return {
     content,
-    /** Call fn(fraction) whenever the view moves: 0 at the top, 1 scrolled to the bottom. */
+    /** Scroll by dy px (positive = down). */
+    scrollBy(dy) {
+      offset += dy;
+      apply(true);
+    },
+    /** Visible height, for page-sized key scrolling. */
+    viewHeight: h,
+    /** Call fn(fraction, byUser) whenever the view moves: fraction 0 at the top, 1 scrolled to the bottom. */
     onScroll(fn) {
       listeners.push(fn);
     },
@@ -37,6 +67,10 @@ export function scrollArea(scene, x, y, w, h) {
     scrollToBottom() {
       offset = maxOffset();
       apply();
+    },
+    /** True when the view shows the end of the content (or everything fits). */
+    atBottom() {
+      return offset >= maxOffset() - 4;
     },
     /** Scroll so content-space y sits near the top third of the view. */
     scrollTo(cy) {

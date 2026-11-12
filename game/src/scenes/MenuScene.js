@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { C, W, H, DISTRICTS, pixel, text } from '../ui/theme.js';
-import { panel, star, loadProgress } from '../ui/widgets.js';
+import { panel, star, button, loadProgress } from '../ui/widgets.js';
+import { loadPages } from '../ui/scrapbookStore.js';
 
 // Title + level select. Only unlocked levels are shown: a level opens once the previous one is
 // cleared, and a chapter heading appears with its first open level. Add ?all to the URL to show every level (testing).
@@ -17,6 +18,13 @@ export default class MenuScene extends Phaser.Scene {
 
     this.add.text(W / 2, 58, "LET'S EAT!", pixel(64, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     this.add.text(W / 2, 108, 'read the chat · f‌ind the spot · feed your friends', pixel(18, C.highlight)).setOrigin(0.5); // ‌ stops the font's "fi" ligature
+
+    // Scrapbook (bible: Scrapbook > Where), with how many memories are collected.
+    const pages = Object.keys(this.registry.get('rules').callbacks || {}).length;
+    if (pages) {
+      const got = Object.keys(loadPages()).length;
+      button(this, W - 100, 40, `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: 168, h: 38, size: 15, fill: C.blue });
+    }
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);

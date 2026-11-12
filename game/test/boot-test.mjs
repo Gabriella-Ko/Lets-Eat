@@ -10,6 +10,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildLevels } from '../src/logic/levels.js';
 import { scorePick } from '../src/logic/scoring.js';
+import { recapRows } from '../src/logic/recap.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -53,6 +54,14 @@ for (const id of requested) {
     const b = [...score.missed].sort().join(',');
     if (a !== b) problems.push(`${id}: "${venue.id}" misses [${b}] in the game but [${a}] in its outcome`);
     if (!outcome.lines || !outcome.lines.length) problems.push(`${id}: "${venue.id}" has no reaction lines`);
+    // Clue recap: every row points at a chat line, and its ✓/✗ agrees with the score.
+    const rows = recapRows(level, score);
+    if (!rows.length) problems.push(`${id}: "${venue.id}" clue recap is empty`);
+    for (const r of rows) {
+      if (!r.lines.length) problems.push(`${id}: clue recap for "${r.tag}" finds no chat line tagged with it`);
+      if (r.met === score.missed.includes(r.tag)) problems.push(`${id}: "${venue.id}" recap marks "${r.tag}" ${r.met ? 'met' : 'missed'}, scoring disagrees`);
+    }
+    if (score.result === 'fail' && rows.some((r) => r.met)) problems.push(`${id}: "${venue.id}" fail recap shows needs beyond the broken one`);
   }
   if (perfect !== 1) problems.push(`${id}: ${perfect} venues score 3 stars, expected exactly 1`);
   if (hardFail < 1) problems.push(`${id}: no hard-fail trap`);
