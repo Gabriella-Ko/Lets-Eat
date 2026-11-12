@@ -24,7 +24,7 @@ game/
 ```
 
 ## Commands (from `game/`)
-- `npm run dev`: dev server. Add `?all` to unlock every level.
+- `npm run dev`: dev server. Add `?all` to unlock every level. These URL shortcuts work only on the dev server; a built game ignores them, so locked levels stay hidden.
   Jump to a scene: `?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll]`.
 - `npm run build`: production build into `game/dist/`.
 - `npm run boot-test`: both tests. Root `npm run boot-test` calls this; it is Integration's check 5
@@ -46,7 +46,7 @@ Run `npm run boot-test` before every commit.
 ## Art
 - Source sheets: `art/source/<character>_sheet.jpg`, a 3x2 grid of HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL.
 - Outcome pictures: `art/source/level_XX_result_<venue name>.jpg` (3:2, venue name without the district, e.g. `level_01_result_satay_spot.jpg`). The script below cuts them to 680x456 as `outcome_level_XX_<venue id>`.
-- Chat backdrops: `art/source/chat_background_chapter_XX_<district>.jpg`, any shape. The script crops it to the chat panel (644x486, centred at `BG_FOCUS` of the height), mutes it (`MUTE_SATURATION`, `CREAM_WASH`) and saves `chat_bg_chapter_XX`. ChatScene shows it for every level in that chapter.
+- Chat backdrops: `art/source/chat_background_chapter_XX_<district>.jpg`, tall pictures work best. The script keeps the whole picture, only muting it (`MUTE_SATURATION`, `CREAM_WASH`), and saves `chat_bg_chapter_XX`. ChatScene shows it at the panel's width for every level in that chapter and pans down it: by reading progress while messages arrive, then with the scroll position once the chat is fully shown.
 - **Preview portraits** are cut by `python game/tools/slice_portraits.py` into `game/public/art-preview/` (PNGs + manifest). `BootScene` loads that manifest; anything it doesn't cover (cuisine icons for now) gets a generated placeholder under the bible's key.
 - The official assets are the Art Asset agent's job (`public/assets/`). When they exist, change `MANIFEST` in `BootScene.js` and serve the root `public/` folder.
 - Open with Gabriella: the sheets have CONTENT but no HUNGRY (HUNGRY shows NEUTRAL for now), and they keep their painted backgrounds although the bible asks for transparent ones.

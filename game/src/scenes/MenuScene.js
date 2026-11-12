@@ -12,7 +12,8 @@ export default class MenuScene extends Phaser.Scene {
   create() {
     const levels = this.registry.get('levels');
     const progress = loadProgress();
-    const unlockAll = new URLSearchParams(window.location.search).has('all');
+    // ?all is a testing shortcut, so it only works on the dev server, never in a built game.
+    const unlockAll = import.meta.env.DEV && new URLSearchParams(window.location.search).has('all');
 
     this.add.text(W / 2, 58, "LET'S EAT!", pixel(64, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     this.add.text(W / 2, 108, 'read the chat · f‌ind the spot · feed your friends', pixel(18, C.highlight)).setOrigin(0.5); // ‌ stops the font's "fi" ligature

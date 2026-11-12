@@ -48,7 +48,8 @@ export default class BootScene extends Phaser.Scene {
     // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll]
     const q = new URLSearchParams(window.location.search);
     const level = levels.find((l) => l.id === q.get('level'));
-    if (q.get('scene') && level) {
+    // Dev server only: in a built game this would let players open locked levels.
+    if (import.meta.env.DEV && q.get('scene') && level) {
       this.scene.start(q.get('scene'), {
         levelId: level.id,
         venueId: q.get('venue') || level.spec.solution_id,

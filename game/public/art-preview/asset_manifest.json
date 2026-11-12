@@ -164,6 +164,15 @@
   "backgrounds": {
     "chat_bg_chapter_01": {
       "file": "backgrounds/chat_bg_chapter_01.jpg"
+    },
+    "chat_bg_chapter_02": {
+      "file": "backgrounds/chat_bg_chapter_02.jpg"
+    },
+    "chat_bg_chapter_03": {
+      "file": "backgrounds/chat_bg_chapter_03.jpg"
+    },
+    "chat_bg_chapter_04": {
+      "file": "backgrounds/chat_bg_chapter_04.jpg"
     }
   }
 }

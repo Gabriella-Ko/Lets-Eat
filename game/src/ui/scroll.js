@@ -8,10 +8,13 @@ export function scrollArea(scene, x, y, w, h) {
 
   let contentHeight = 0;
   let offset = 0;
+  const listeners = [];
   const maxOffset = () => Math.max(0, contentHeight - h);
   const apply = () => {
     offset = Math.min(Math.max(offset, 0), maxOffset());
     content.y = y - offset;
+    const fraction = maxOffset() ? offset / maxOffset() : 0;
+    for (const fn of listeners) fn(fraction);
   };
 
   scene.input.on('wheel', (pointer, objs, dx, dy) => {
@@ -23,6 +26,10 @@ export function scrollArea(scene, x, y, w, h) {
 
   return {
     content,
+    /** Call fn(fraction) whenever the view moves: 0 at the top, 1 scrolled to the bottom. */
+    onScroll(fn) {
+      listeners.push(fn);
+    },
     setContentHeight(hgt) {
       contentHeight = hgt;
       apply();

@@ -29,9 +29,14 @@ export default class ChatScene extends Phaser.Scene {
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));
 
     panel(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
-    this.drawBackground(lvl.chapter);
+    this.bg = this.drawBackground(lvl.chapter);
     this.notebook = notebook(this, this.highlight);
     this.chat = scrollArea(this, CHAT.x + 10, CHAT.y + 10, CHAT.w - 20, CHAT.h - 20);
+    // While reading, the picture follows reading progress (see next()); once the whole chat is shown,
+    // it follows the scroll position, so scrolling back up pans back up the picture.
+    this.chat.onScroll((f) => {
+      if (this.bg && this.shown >= lvl.script.length) this.panBackground(this.bg, f);
+    });
     this.chatY = 6;
     this.shown = 0;
     this.firstHighlightY = null;
@@ -53,13 +58,26 @@ export default class ChatScene extends Phaser.Scene {
     }
   }
 
-  /** Chapter backdrop (chat_bg_chapter_XX, already muted by the art script), clipped to the panel's rounded corners. */
+  /**
+   * Chapter backdrop (chat_bg_chapter_XX, full picture, already muted by the art script).
+   * Shown at the panel's width, so the tall picture is longer than the panel; it pans with the chat.
+   */
   drawBackground(chapter) {
     const key = `chat_bg_chapter_${String(chapter).padStart(2, '0')}`;
-    if (!this.textures.exists(key)) return;
-    const img = this.add.image(CHAT.x, CHAT.y, key).setOrigin(0).setDisplaySize(CHAT.w, CHAT.h);
+    if (!this.textures.exists(key)) return null;
+    const src = this.textures.get(key).getSourceImage();
+    const img = this.add.image(CHAT.x, CHAT.y, key).setOrigin(0);
+    img.setDisplaySize(CHAT.w, Math.max(CHAT.h, (CHAT.w * src.height) / src.width));
     const shape = this.make.graphics({}, false).fillStyle(0xffffff).fillRoundedRect(CHAT.x, CHAT.y, CHAT.w, CHAT.h, 16);
     img.setMask(shape.createGeometryMask());
+    return img;
+  }
+
+  /** Top of the picture when the chat is at the top, bottom of the picture when it's scrolled to the end. */
+  panBackground(img, fraction) {
+    const y = CHAT.y - fraction * (img.displayHeight - CHAT.h);
+    this.tweens.killTweensOf(img);
+    this.tweens.add({ targets: img, y, duration: 350, ease: 'Sine.easeOut' });
   }
 
   next(instant = false) {
@@ -69,6 +87,7 @@ export default class ChatScene extends Phaser.Scene {
     this.addMessage(line, instant);
     if (line.clue) this.notebook.add(line);
     if (!instant) this.chat.scrollToBottom();
+    if (this.bg && !instant && this.shown < script.length) this.panBackground(this.bg, (this.shown - 1) / Math.max(1, script.length - 1));
     if (this.shown >= script.length) {
       if (!this.highlight.length) this.prompt.setText('that’s the whole chat. scroll up to reread');
       this.go.setVisible(true);
