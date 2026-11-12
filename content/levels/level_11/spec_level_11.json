@@ -1,0 +1,19 @@
+{
+  "level_id": "level_11",
+  "chapter": 3,
+  "district": "night_market",
+  "difficulty": "stated",
+  "guests": ["maya", "liam", "roxy", "brooke"],
+  "hard": { "budget_max": "$", "allergies": [], "diets": [] },
+  "soft": { "craving": "tacos", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "night_market_blue_awning",
+  "decoys": [
+    { "id": "night_market_willow_gate", "fails_on": "budget_hard" },
+    { "id": "night_market_tin_star", "fails_on": "budget_soft" },
+    { "id": "night_market_little_comet", "fails_on": "intolerance:dairy" },
+    { "id": "night_market_moonlit_corner", "fails_on": "vibe:healthy" },
+    { "id": "night_market_plum_bridge", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
