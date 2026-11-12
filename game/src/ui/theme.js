@@ -18,7 +18,8 @@ export const C = {
   rust: 0x8a4a2c,
   gold: 0xf2c14e,
   goldDim: 0x5a4a45,
-  highlight: 0xf6d78b,
+  highlight: 0xf6d78b, // a missed clue line, after a wrong pick
+  starred: 0xfdf0dc, // a chat bubble the player starred (soft cream, kept apart from highlight)
   good: 0x6f8f5a,
   bad: 0xc0452f,
   angry: 0x391811,

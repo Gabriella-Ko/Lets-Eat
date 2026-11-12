@@ -248,10 +248,11 @@ export default class ChatScene extends Phaser.Scene {
 
   /**
    * Save-to-notebook star beside the bubble (Gabriella, 2026-11-11: star instead of a push-pin).
-   * Always visible (touch has no hover). Unsaved: white outline star. Saved: filled gold star, and the
-   * line is in the Notebook. Code still calls these "pins".
+   * Always visible (touch has no hover). Unsaved: white outline star. Saved: filled orange star, the
+   * bubble turns `C.starred` with an orange edge (see addMessage), and the line is in the Notebook.
+   * Code still calls these "pins". onChange(pinned) lets the bubble redraw.
    */
-  addPin(c, x, y, idx, line) {
+  addPin(c, x, y, idx, line, onChange) {
     // Drawn around its own origin so the pop animation scales in place.
     const g = this.add.graphics({ x, y });
     const pts = [];
@@ -262,7 +263,7 @@ export default class ChatScene extends Phaser.Scene {
     }
     const draw = (pinned, hover) => {
       g.clear();
-      g.fillStyle(pinned ? C.gold : 0xffffff, 1).fillPoints(pts, true);
+      g.fillStyle(pinned ? C.accent : 0xffffff, 1).fillPoints(pts, true);
       g.lineStyle(hover ? 2.5 : 2, pinned || hover ? C.ink : C.inkSoft, 1).strokePoints(pts, true, true);
     };
     const isPinned = () => getPins(this, this.level.id).includes(idx);
@@ -280,6 +281,7 @@ export default class ChatScene extends Phaser.Scene {
       if (pinned) this.notebook.add(line, idx);
       else this.notebook.remove(idx);
       draw(pinned, true);
+      onChange(pinned);
       this.tweens.add({ targets: g, scale: { from: 1.25, to: 1 }, duration: 160, ease: 'Back.easeOut' });
     });
     c.add([g, zone]);
@@ -299,10 +301,18 @@ export default class ChatScene extends Phaser.Scene {
     const bw = Math.max(body.width + 28, 60);
     const bh = body.height + 18;
     const bubble = this.add.graphics();
-    bubble.fillStyle(hl ? C.highlight : 0xffffff, 1).fillRoundedRect(70, 19, bw, bh, 10);
-    if (hl) bubble.lineStyle(3, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
+    // Missed line (after a wrong pick): yellow with a thick orange edge. Starred: soft cream with a thin
+    // orange edge. If both, the missed highlight wins: it's the one the player needs to notice.
+    const drawBubble = (starred) => {
+      bubble.clear();
+      const fill = hl ? C.highlight : starred ? C.starred : 0xffffff;
+      bubble.fillStyle(fill, 1).fillRoundedRect(70, 19, bw, bh, 10);
+      if (hl) bubble.lineStyle(3, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
+      else if (starred) bubble.lineStyle(2, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
+    };
+    drawBubble(this.pinning && getPins(this, this.level.id).includes(idx));
     c.add([bubble, face, name, body]);
-    if (this.pinning) this.addPin(c, 70 + bw + 20, 19 + Math.min(bh / 2, 18), idx, line);
+    if (this.pinning) this.addPin(c, 70 + bw + 20, 19 + Math.min(bh / 2, 18), idx, line, drawBubble);
     this.chat.content.add(c);
     if (hl && this.firstHighlightY === null) this.firstHighlightY = y;
     const rowH = Math.max(19 + bh, 64);
