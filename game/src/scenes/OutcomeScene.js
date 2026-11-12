@@ -5,6 +5,10 @@ import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
 import { pinMode, getPins } from '../ui/notebook.js';
+import { badge } from '../ui/badge.js';
+
+const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
+const UNLOCK_DEPTH = 30; // above the clue recap (20)
 
 const RECAP = { x: 100, y: 46, w: 760, h: 548 };
 const RECAP_DEPTH = 20;
@@ -37,6 +41,8 @@ export default class OutcomeScene extends Phaser.Scene {
     this.openRecapOnStart = !!data.recap;
     this.recap = null;
     this.pageNote = null; // the scene object is reused between visits
+    this.unlockCard = null;
+    this.unlockQueue = [];
   }
 
   create() {
@@ -98,7 +104,7 @@ export default class OutcomeScene extends Phaser.Scene {
     const x0 = W / 2 - ((btns.length - 1) * (bw + 20)) / 2;
     btns.forEach(([label, fn, fill], i) => button(this, x0 + i * (bw + 20), H - 44, label, fn, { w: bw, fill }));
 
-    this.input.keyboard.on('keydown-ESC', () => this.closeRecap());
+    this.input.keyboard.on('keydown-ESC', () => (this.unlockCard ? this.showNextUnlock() : this.closeRecap()));
     if (this.openRecapOnStart) this.openRecap();
   }
 
@@ -209,6 +215,88 @@ export default class OutcomeScene extends Phaser.Scene {
     c.setAlpha(0);
     this.tweens.add({ targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
+    // Then the unlock card for each new page, once the reactions have had a moment.
+    this.unlockQueue = [...ids];
+    this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
+  }
+
+  /**
+   * "New scrapbook page" card (Gabriella, 2026-11-12): the page slides up, the badge pops in with rays and
+   * sparkles, then title and friend fade in. "See it" opens that page in the Scrapbook; "Keep going" closes
+   * (or shows the next card when a level unlocked two). Shown here, after the level, never in the chat,
+   * so it can't flag which chat line was a callback (and so often a clue).
+   */
+  showNextUnlock() {
+    this.closeUnlock();
+    const id = this.unlockQueue?.shift();
+    if (!id) return;
+    const cb = (this.registry.get('rules').callbacks || {})[id];
+    if (!cb) return this.showNextUnlock();
+    const page = { id, ...cb };
+    const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
+    const D = UNLOCK_DEPTH;
+    const objs = [];
+    const keep = (o) => (objs.push(o), o.setDepth(D));
+    const card = { x: W / 2 - 230, y: 120, w: 460, h: 380 };
+    const bx = W / 2;
+    const by = card.y + 150;
+
+    const shade = keep(this.add.rectangle(0, 0, W, H, 0x000000, 0.65).setOrigin(0).setInteractive().setAlpha(0));
+    this.tweens.add({ targets: shade, alpha: 1, duration: 200 });
+    const sheet = keep(this.add.container(0, 40).setAlpha(0));
+    const bg = this.add.graphics();
+    bg.fillStyle(0x000000, 0.25).fillRoundedRect(card.x + 4, card.y + 6, card.w, card.h, 18);
+    bg.fillStyle(C.panel, 1).fillRoundedRect(card.x, card.y, card.w, card.h, 18);
+    bg.lineStyle(3, C.accent, 1).strokeRoundedRect(card.x, card.y, card.w, card.h, 18);
+    // faint ruled lines: it's a scrapbook page
+    bg.lineStyle(1, C.panelDark, 1);
+    for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
+    const head = this.add.text(bx, card.y + 30, 'NEW SCRAPBOOK PAGE!', pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
+    sheet.add([bg, head]);
+    this.tweens.add({ targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
+
+    // rays behind the badge, slowly turning
+    const rays = keep(this.add.graphics({ x: bx, y: by }).setDepth(D + 1).setAlpha(0));
+    rays.fillStyle(C.highlight, 0.55);
+    for (let i = 0; i < 12; i++) {
+      const a = (i * Math.PI * 2) / 12;
+      rays.fillTriangle(0, 0, Math.cos(a - 0.12) * 110, Math.sin(a - 0.12) * 110, Math.cos(a + 0.12) * 110, Math.sin(a + 0.12) * 110);
+    }
+    this.tweens.add({ targets: rays, alpha: 1, delay: 300, duration: 300 });
+    this.tweens.add({ targets: rays, angle: 360, duration: 12000, repeat: -1 });
+
+    const b = keep(badge(this, bx, by, 120, page, true).setDepth(D + 2).setScale(0).setAngle(-25));
+    this.tweens.add({ targets: b, scale: 1, angle: 0, delay: 350, duration: 520, ease: 'Back.easeOut' });
+
+    // sparkles burst out once the badge lands
+    this.time.delayedCall(700, () => {
+      if (this.unlockCard?.objs !== objs) return; // card already closed
+      for (let i = 0; i < 14; i++) {
+        const a = (i * Math.PI * 2) / 14 + Math.random() * 0.3;
+        const s = keep(this.add.star(bx, by, 4, 2, 5, i % 2 ? C.gold : C.accent).setDepth(D + 3));
+        this.tweens.add({ targets: s, x: bx + Math.cos(a) * 130, y: by + Math.sin(a) * 110, alpha: 0, angle: 180, scale: 0.4, duration: 700, ease: 'Quad.easeOut' });
+      }
+    });
+
+    const title = keep(this.add.text(bx, card.y + 252, cb.title.toUpperCase(), pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    const who = keep(this.add.text(bx, card.y + 282, `a memory with ${ch.name}`, text(15, ch.color, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    this.tweens.add({ targets: [title, who], alpha: 1, delay: 800, duration: 300 });
+
+    const more = this.unlockQueue.length > 0;
+    const see = keep(button(this, bx - 105, card.y + card.h - 44, 'See it', () => this.scene.start('Scrapbook', { select: id }), { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
+    const go = keep(button(this, bx + 105, card.y + card.h - 44, more ? 'Next page →' : 'Keep going', () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
+    this.tweens.add({ targets: [see, go], alpha: 1, delay: 950, duration: 250 });
+
+    this.unlockCard = { id, objs };
+  }
+
+  closeUnlock() {
+    if (!this.unlockCard) return;
+    for (const o of this.unlockCard.objs) {
+      this.tweens.killTweensOf(o);
+      o.destroy();
+    }
+    this.unlockCard = null;
   }
 
   closeRecap() {

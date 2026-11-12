@@ -1,8 +1,9 @@
 import Phaser from 'phaser';
 import { C, W, CHARACTERS, pixel, text } from '../ui/theme.js';
-import { panel, button, portrait, loadProgress } from '../ui/widgets.js';
+import { panel, button, loadProgress } from '../ui/widgets.js';
 import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
+import { badge } from '../ui/badge.js';
 
 const LIST = { x: 24, y: 96, w: 290, h: 468 };
 const PAGE = { x: 330, y: 96, w: 606, h: 468 };
@@ -16,6 +17,11 @@ const ART = { w: 320, h: 240 }; // bible suggests 320x240 (size still Open)
 export default class ScrapbookScene extends Phaser.Scene {
   constructor() {
     super('Scrapbook');
+  }
+
+  /** data: { select?: callback id to open on (from the Outcome unlock card) } */
+  init(data) {
+    this.openOn = data?.select || null;
   }
 
   create() {
@@ -40,7 +46,7 @@ export default class ScrapbookScene extends Phaser.Scene {
     const rowH = Math.min(80, (LIST.h - 20 - gap * (this.pages.length - 1)) / Math.max(1, this.pages.length));
     this.rows = this.pages.map((p, i) => this.makeRow(p, LIST.x + 10, LIST.y + 10 + i * (rowH + gap), LIST.w - 20, rowH));
 
-    const first = this.pages.find((p) => p.id in this.unlocked);
+    const first = (this.openOn in this.unlocked && this.pages.find((p) => p.id === this.openOn)) || this.pages.find((p) => p.id in this.unlocked);
     if (first) this.select(first.id);
     else {
       this.page.add(this.add.text(PAGE.x + PAGE.w / 2, PAGE.y + PAGE.h / 2,
@@ -61,15 +67,16 @@ export default class ScrapbookScene extends Phaser.Scene {
     draw();
     if (open) {
       const ch = CHARACTERS[p.friend] || { name: p.friend, color: C.inkSoft };
-      portrait(this, x + 8 + 22, y + h / 2, 44, p.friend, 'HAPPY');
-      this.add.text(x + 64, y + h / 2 - 10, p.title, pixel(15, C.ink, { fontStyle: 'bold', wordWrap: { width: w - 76 } })).setOrigin(0, 0.5);
-      this.add.text(x + 64, y + h / 2 + 13, ch.name, text(13, ch.color)).setOrigin(0, 0.5);
+      badge(this, x + 8 + 24, y + h / 2 - 2, 52, p, true);
+      this.add.text(x + 66, y + h / 2 - 10, p.title, pixel(15, C.ink, { fontStyle: 'bold', wordWrap: { width: w - 76 } })).setOrigin(0, 0.5);
+      this.add.text(x + 66, y + h / 2 + 13, ch.name, text(13, ch.color)).setOrigin(0, 0.5);
       const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
       zone.on('pointerover', () => this.selected !== p.id && draw('hover'));
       zone.on('pointerout', () => this.selected !== p.id && draw());
       zone.on('pointerdown', () => this.select(p.id));
     } else {
-      this.add.text(x + w / 2, y + h / 2, '???', pixel(22, C.inkSoft, { fontStyle: 'bold' })).setOrigin(0.5);
+      badge(this, x + 8 + 24, y + h / 2 - 2, 52, p, false);
+      this.add.text(x + 66, y + h / 2, '???', pixel(22, C.inkSoft, { fontStyle: 'bold' })).setOrigin(0, 0.5);
     }
     return { id: p.id, draw };
   }
@@ -84,9 +91,13 @@ export default class ScrapbookScene extends Phaser.Scene {
     const ax = PAGE.x + (PAGE.w - ART.w) / 2;
     const ay = PAGE.y + 22;
     this.page.add(this.drawArt(p, ax, ay));
+    // Badge pinned to the picture's corner, like a sticker in a scrapbook.
+    this.page.add(badge(this, ax - 8, ay + 20, 84, p, true).setAngle(-12));
     let y = ay + ART.h + 18;
     const title = this.add.text(PAGE.x + 36, y, p.title.toUpperCase(), pixel(22, C.ink, { fontStyle: 'bold' }));
-    const who = this.add.text(PAGE.x + 36, y + 30, `a memory with ${ch.name}`, text(14, ch.color, { fontStyle: 'bold' }));
+    const lvl = this.registry.get('levels').find((l) => l.id === this.unlocked[id]);
+    const found = lvl ? `  ·  found in level ${lvl.number}` : '';
+    const who = this.add.text(PAGE.x + 36, y + 30, `a memory with ${ch.name}${found}`, text(14, ch.color, { fontStyle: 'bold' }));
     this.page.add([title, who]);
     y += 58;
     for (const [i, para] of pageText(p, this.reachedChapter).entries()) {
