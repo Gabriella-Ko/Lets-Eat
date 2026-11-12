@@ -19,7 +19,6 @@ export const OPTIONS = {
   chatPace: [
     { id: 'quick', label: 'Quick', ms: 1000 }, // Gabriella's default, 2026-11-11
     { id: 'relaxed', label: 'Relaxed', ms: 2000 },
-    { id: 'tap', label: 'Tap to continue', ms: null },
   ],
   contrast: [
     { id: 'normal', label: 'Off' },
@@ -65,7 +64,7 @@ export function setSetting(key, id) {
 
 const opt = (key) => OPTIONS[key].find((o) => o.id === getSettings()[key]);
 export const textScale = () => opt('textSize').scale;
-/** Milliseconds between chat messages, or null for tap-to-continue. */
+/** Milliseconds each "typing…" bubble lasts before the next chat message. */
 export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';

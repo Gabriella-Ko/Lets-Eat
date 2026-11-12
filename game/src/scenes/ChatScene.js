@@ -11,8 +11,8 @@ const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
 /**
  * Chat pacing: after each message the next speaker shows a "typing…" bubble, then their message arrives
- * on its own. The wait comes from the Chat pace option: Quick 1 s (Gabriella's default, 2026-11-11),
- * Relaxed 2 s, or Tap to continue (no typing bubble, no auto-advance: click, space or enter).
+ * on its own. The wait comes from the Chat pace option: Quick 1 s (Gabriella's default, 2026-11-11)
+ * or Relaxed 2 s.
  */
 /** Resting the pointer this long on an older message pauses the chat. */
 const HOVER_PAUSE_MS = 300;
@@ -20,7 +20,6 @@ const KEY_STEP = 48;
 
 const PROMPT = {
   idle: 'scroll up anytime to reread. the chat will wait',
-  tap: 'click or press space for the next message',
   reread: 'take your time. scroll down or click to keep going',
   manual: 'paused. press P or click to keep going',
   done: 'that’s the whole chat. take your time and scroll up to read it all',
@@ -83,7 +82,7 @@ export default class ChatScene extends Phaser.Scene {
     });
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
-    const keyHint = `space: next${chatPaceMs() === null ? '' : '   ·   P: pause'}   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
+    const keyHint = `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
     // On the dark page background, so it uses the light label colour (readable in high contrast too).
     this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, keyHint, text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
@@ -103,7 +102,7 @@ export default class ChatScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => this.next());
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
-      if (this.done() || chatPaceMs() === null) return; // nothing to pause in tap-to-continue
+      if (this.done()) return;
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
@@ -169,7 +168,7 @@ export default class ChatScene extends Phaser.Scene {
     if (this.done()) {
       this.hold.manual = false;
       this.go.setVisible(true);
-    } else if (!instant && chatPaceMs() !== null) {
+    } else if (!instant) {
       this.showTyping(script[this.shown].speaker);
       this.timer = this.time.delayedCall(chatPaceMs(), () => this.next());
       this.applyHold();
@@ -197,7 +196,7 @@ export default class ChatScene extends Phaser.Scene {
 
   refreshPrompt() {
     if (!this.prompt) return;
-    let msg = chatPaceMs() === null ? PROMPT.tap : PROMPT.idle;
+    let msg = PROMPT.idle;
     if (this.done()) msg = this.highlight.length ? PROMPT.missed : PROMPT.done;
     else if (this.hold.manual) msg = PROMPT.manual;
     else if (this.hold.reread || this.hold.hover) msg = PROMPT.reread;

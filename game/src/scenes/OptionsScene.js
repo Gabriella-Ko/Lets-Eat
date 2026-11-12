@@ -5,7 +5,7 @@ import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.j
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
-  { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts, or wait for your tap every time.' },
+  { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts before the next message.' },
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
   { key: 'motion', title: 'Reduce motion', about: 'No sliding, popping, pulsing or spinning: things simply appear.' },
 ];
