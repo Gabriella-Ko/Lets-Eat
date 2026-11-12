@@ -264,7 +264,8 @@ export default class ChatScene extends Phaser.Scene {
     const draw = (pinned, hover) => {
       g.clear();
       g.fillStyle(pinned ? C.accent : 0xffffff, 1).fillPoints(pts, true);
-      g.lineStyle(hover ? 2.5 : 2, pinned || hover ? C.ink : C.inkSoft, 1).strokePoints(pts, true, true);
+      // Starred: outline in the same orange as the starred bubble's edge (Gabriella, 2026-11-11).
+      g.lineStyle(hover ? 2.5 : 2, pinned ? C.accent : hover ? C.ink : C.inkSoft, 1).strokePoints(pts, true, true);
     };
     const isPinned = () => getPins(this, this.level.id).includes(idx);
     draw(isPinned(), false);
