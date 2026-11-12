@@ -169,15 +169,34 @@ Story beats are fixed facts about the friends' shared story. Agents may only use
 
 **Callbacks.** Shared memories the chat can point to instead of naming a need. They're the main way to deliver implied and buried clues, and they reward returning players. A callback always points to the friend's permanent constraint, never to a new one.
 
-| Callback | Friend | Points to | First appears |
-| --- | --- | --- | --- |
-| The satay incident | Cyrus | Peanut allergy | level_01 |
-| The trip fund | Maya | Her budget (`$` saving, `$$` from chapter 4) | level_02 |
-| The plate of fries | Mina | Vegetarian (she once ate only fries while everyone else had burgers) | level_03 |
-| The milkshake incident | Roxy | Dairy intolerance | level_06 |
-| Sushi day | Mina | Vegetarian (menu where she didn't need to double check for meat) | level_10 |
+| Callback | id | Friend | Points to | First appears | Scrapbook title | Scrapbook page | Art file | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| The satay incident | `satay_incident` | Cyrus | Peanut allergy | level_01 | The Satay Incident | One plate of satay, one peanut allergy, one lunch the crew still won't joke about. Never again. | `scrap_satay_incident.png` | Locked |
+| The trip fund | `trip_fund` | Maya | Her budget (`$` saving, `$$` from chapter 4) | level_02 | The Trip Fund | Every dollar Maya doesn't spend is a dollar closer to the coast. Cheap eats only: the fund is sacred. *From chapter 4:* "did the math, trip is funded." | `scrap_trip_fund.png` | Locked |
+| The plate of fries | `plate_of_fries` | Mina | Vegetarian | level_03 | The Plate of Fries | Burger night: everyone had a double stack, and Mina quietly ate a plate of fries. Liam still isn't over it. | `scrap_plate_of_fries.png` | Locked |
+| The milkshake incident | `milkshake_incident` | Roxy | Dairy intolerance | level_06 | The Milkshake Incident | Roxy ordered the biggest milkshake on the menu. Her stomach did not agree. Dairy and Roxy are not friends. | `scrap_milkshake_incident.png` | Locked |
+| Sushi day | `sushi_day` | Mina | Vegetarian | level_10 | Sushi Day | Cyrus found a whole section with zero meat, and Mina ordered whatever looked good without asking about any of it. Best lunch of her summer. | `scrap_sushi_day.png` | Locked |
 
 In `stated` levels a callback may sit next to a plain statement. In `implied` and `buried` levels, the callback alone may carry the clue, as long as a returning player can read it and a first-time player can still work it out from context.
+
+**Scrapbook**
+
+| Item | Rule | Status |
+| --- | --- | --- |
+| Tagging | Every dialogue line that references a callback carries `"callback": "<id>"`, alongside its usual `clue` tag. Lines without one have no `callback` field. | Locked |
+| Unlock | A page unlocks the first time the player reads a line tagged with its id. It stays unlocked across levels and replays. | Locked |
+| Locked pages | Shown as "???" with no friend, title or hint, so the scrapbook never spoils an upcoming level. | Locked |
+| Where | A Scrapbook button on the level menu. A small "new page" note on the Outcome screen when a level unlocked one. | Locked |
+| Page text | Only the text in the table above. It may restate what the chat says, never add a new fact or constraint. | Locked |
+| Art | One picture per callback, `scrap_<id>.png`, cozy pixel art in the portrait style. Size TBD (suggest 320×240). Until art exists, the game shows a placeholder naming the file. | Open |
+| New callbacks | Added to the table first (id, title, page), like any other callback. | Locked |
+
+**Dialogue schema addition:** one optional field per line:
+
+```json
+{ "speaker": "brooke", "text": "roxy. the milkshake incident. remember?", "emotion": "NEUTRAL", "clue": "intolerance:dairy", "callback": "milkshake_incident" }
+```
+
  
 
 **Guardrails**
