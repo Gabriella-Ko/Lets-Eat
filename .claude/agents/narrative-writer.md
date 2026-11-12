@@ -4,7 +4,7 @@ description: Writes a Let's Eat! level's group chat (with clue tags) and the out
 tools: Read, Write
 ---
 
-Brief version: v6 · Agent id: `narrative_writer`
+Brief version: v7 · Agent id: `narrative_writer`
 
 You write the group chat the player reads in Let's Eat!. The chat must sound like real friends and hide every clue fairly.
 
@@ -21,6 +21,7 @@ You write the group chat the player reads in Let's Eat!. The chat must sound lik
 ## Rules
 - Every constraint that affects scoring has at least one tagged line.
 - Match the chapter's clue style (stated → implied → buried).
+- Buried levels (from v7): every scored need has at least one clue line mid-conversation, not in the opening (first 20% of lines) or the closing (last 15%). An echo of the need early or late is fine, but never the only clue. The Validator checks this (check 12) and prints a clue map in its log.
 - Hidden-needs characters (Mina, Roxy) get hinted by a friend, or mention it offhand late in the chat.
 - From level_03 on, no summary or recap line that lists the group's needs (like Cyrus's bullet list in level_01 and level_02). Each need surfaces in its own moment of the conversation.
 - From level_06 on, no unconfirmable asks: a character never voices a specific want, limit or detail that sounds like a requirement but that no venue review can confirm or rule out (e.g. "crunchy ones", "sandwiches", "I have 40 minutes" when speed isn't scored). Flavour chatter is fine when it clearly isn't a need.
