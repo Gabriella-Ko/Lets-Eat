@@ -1,6 +1,6 @@
 {
   "_about": "Rules from docs/game_bible.md, kept as config for scripts/validate.js. Only Gabriella edits the bible; update this file to match whenever the bible changes. Keys starting with _ are comments.",
-  "bible_date": "2026-11-05",
+  "bible_date": "2026-11-12",
 
   "characters": {
     "maya":   { "permanent": { "budget_max": "$", "budget_max_by_chapter": { "4": "$$" } } },
@@ -62,6 +62,23 @@
     "waterfront":   { "cuisines": ["greek", "italian", "sushi", "dim_sum", "ice_cream"], "price_tiers": ["$$", "$$$"] },
     "night_market": { "cuisines": "any", "price_tiers": "any", "imports_from_any_district": true, "_imports_note": "Bible: only favourites from earlier chapters (campus, downtown). Cross-level, so Integration enforces it." }
   },
+
+  "callbacks": {
+    "satay_incident":     { "friend": "cyrus", "points_to": "allergy:peanut",    "first_level": "level_01", "art": "scrap_satay_incident.png",
+                            "title": "The Satay Incident", "page": "One plate of satay, one peanut allergy, one lunch the crew still won't joke about. Never again." },
+    "trip_fund":          { "friend": "maya",  "points_to": "budget",            "first_level": "level_02", "art": "scrap_trip_fund.png",
+                            "title": "The Trip Fund", "page": "Every dollar Maya doesn't spend is a dollar closer to the coast. Cheap eats only: the fund is sacred.",
+                            "page_from_chapter": { "4": "From chapter 4: \"did the math, trip is funded.\"" } },
+    "plate_of_fries":     { "friend": "mina",  "points_to": "diet:vegetarian",   "first_level": "level_03", "art": "scrap_plate_of_fries.png",
+                            "title": "The Plate of Fries", "page": "Burger night: everyone had a double stack, and Mina quietly ate a plate of fries. Liam still isn't over it." },
+    "milkshake_incident": { "friend": "roxy",  "points_to": "intolerance:dairy", "first_level": "level_06", "art": "scrap_milkshake_incident.png",
+                            "title": "The Milkshake Incident", "page": "Roxy ordered the biggest milkshake on the menu. Her stomach did not agree. Dairy and Roxy are not friends." },
+    "sushi_day":          { "friend": "mina",  "points_to": "diet:vegetarian",   "first_level": "level_10", "art": "scrap_sushi_day.png",
+                            "title": "Sushi Day", "page": "Cyrus found a whole section with zero meat, and Mina ordered whatever looked good without asking about any of it. Best lunch of her summer." }
+  },
+  "_callbacks_note": "Bible: Campaign structure > Callbacks and Scrapbook. Dialogue lines may carry \"callback\": \"<id>\". The Validator (check 11) uses friend and first_level; the game reads title, page, page_from_chapter and art for the Scrapbook (page_from_chapter adds a line once the player has reached that chapter).",
+  "callback_first_appearance_required": false,
+  "_callback_first_appearance_note": "When true, check 11 fails a level that is a callback's first_level but has no line tagged with it. False until levels 01-10 are retrofitted (branch retrofit/callbacks); until then it is reported as WARN.",
 
   "crew": {
     "ids": ["orchestrator", "puzzle_architect", "narrative_writer", "map_seeder", "validator", "critic", "blind_playtester", "art_asset", "integration", "provenance"],
