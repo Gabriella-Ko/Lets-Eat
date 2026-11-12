@@ -1960,5 +1960,205 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_10",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 5 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_10",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_01",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": 56484
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_01",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_02",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_02",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_03",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_03",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_04",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_04",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_05",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_05",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_06",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 1 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_06",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 4 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_08",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 2 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_09",
+    "agent_id": "narrative_writer",
+    "brief_version": "v6",
+    "step": "retrofit_callbacks",
+    "result": "tagged 4 callback line(s); only the callback field added (checked by script)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:07:50.187Z",
+    "level": "level_09",
+    "agent_id": "validator",
+    "brief_version": "v2",
+    "step": "validate_after_callback_retrofit",
+    "result": "PASS (check 11 strict)",
+    "retries": 0,
+    "tokens": null
   }
 ]
