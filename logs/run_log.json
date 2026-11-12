@@ -2160,5 +2160,25 @@
     "result": "PASS (check 11 strict)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:17:17.000Z",
+    "level": "retrofit_callbacks",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved by merging PR #11 (merge commit 8bb9922) before Integration/Provenance ran; both run afterwards on master",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:19:52.425Z",
+    "level": "retrofit_callbacks",
+    "agent_id": "integration",
+    "brief_version": "v1",
+    "step": "integration",
+    "result": "SUCCESS; boot test passed, 10 levels loaded in order",
+    "retries": 0,
+    "tokens": null
   }
 ]
