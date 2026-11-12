@@ -26,7 +26,8 @@ export default class BootScene extends Phaser.Scene {
     }
     // Outcome illustrations load straight under their key (outcome_<level>_<venue>); OutcomeScene picks them up.
     // Chat backgrounds (chat_bg_chapter_XX), likewise; ChatScene picks them up by chapter.
-    for (const group of ['outcomes', 'backgrounds']) {
+    // Scrapbook art (scrap_<callback id>), likewise; ScrapbookScene shows a placeholder until it exists.
+    for (const group of ['outcomes', 'backgrounds', 'scrapbook']) {
       for (const [key, entry] of Object.entries(manifest?.[group] || {})) this.load.image(key, base + entry.file);
     }
     this.load.once('complete', () => {

@@ -36,6 +36,8 @@ try {
   };
 
   await boot('', 'Menu');
+  const firstLevel = await page.evaluate(() => window.__game.registry.get('levels')[0]?.id);
+  if (firstLevel) await boot(`scene=Scrapbook&level=${firstLevel}`, 'Scrapbook');
   const levelIds = requested.length ? requested : await page.evaluate(() => window.__game.registry.get('levels').map((l) => l.id));
   for (const id of levelIds) {
     const venues = await page.evaluate((lid) => window.__game.registry.get('levels').find((l) => l.id === lid)?.venues.map((v) => v.id), id);

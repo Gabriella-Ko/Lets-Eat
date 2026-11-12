@@ -3,6 +3,7 @@ import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text } from '../ui/theme.js
 import { panel, button, portrait } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
+import { unlockPage } from '../ui/scrapbookStore.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -44,6 +45,8 @@ export default class ChatScene extends Phaser.Scene {
     this.revealAll = !!data.revealAll || this.highlight.length > 0;
     this.pinning = pinMode(this.level);
     if (this.pinning && !this.revealAll) setPins(this, this.level.id, []);
+    // Scrapbook pages unlocked during this visit to the level; the Outcome screen announces them.
+    if (!this.revealAll) this.registry.set(`newPages:${this.level.id}`, []);
   }
 
   create() {
@@ -149,6 +152,11 @@ export default class ChatScene extends Phaser.Scene {
     const idx = this.shown++;
     const line = script[idx];
     this.addMessage(line, instant, idx);
+    // Reading a callback line unlocks its scrapbook page (bible: Scrapbook > Unlock).
+    if (line.callback && unlockPage(line.callback, this.level.id)) {
+      const key = `newPages:${this.level.id}`;
+      this.registry.set(key, [...(this.registry.get(key) || []), line.callback]);
+    }
     if (this.pinning ? getPins(this, this.level.id).includes(idx) : line.clue) this.notebook.add(line, idx);
     if (!instant) this.chat.scrollToBottom();
     if (this.bg && !instant && !this.done()) this.panBackground(this.bg, (this.shown - 1) / Math.max(1, script.length - 1));

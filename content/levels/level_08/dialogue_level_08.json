@@ -6,7 +6,7 @@
     { "speaker": "roxy", "text": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "mina", "text": "sushi sounds perfect :) hi roxy, i don't think we've had lunch together yet! how's downtown treating you?", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "roxy", "text": "loving it. tried three new things this week. sushi makes four", "emotion": "HAPPY", "clue": null },
-    { "speaker": "maya", "text": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "maya", "text": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
     { "speaker": "roxy", "text": "trip fund?", "emotion": "SURPRISED", "clue": null },
     { "speaker": "maya", "text": "coast trip, end of summer. i've brought soup from home three days in a row. that's how serious this is", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "cyrus", "text": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
@@ -17,7 +17,7 @@
     { "speaker": "mina", "text": "a whole section?? okay, now i'm actually excited", "emotion": "HAPPY", "clue": "diet:vegetarian" },
     { "speaker": "roxy", "text": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
     { "speaker": "mina", "text": "oh no, did something happen?", "emotion": "SURPRISED", "clue": null },
-    { "speaker": "roxy", "text": "the milkshake incident. we don't talk about the milkshake incident", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "the milkshake incident. we don't talk about the milkshake incident", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
     { "speaker": "cyrus", "text": "Noted. Some rolls have cream cheese in them, so that's worth checking too.", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
     { "speaker": "maya", "text": "assistant, you heard us. i'm about to eat my keyboard", "emotion": "HUNGRY", "clue": null }
   ],
