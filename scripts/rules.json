@@ -80,6 +80,11 @@
   "callback_first_appearance_required": true,
   "_callback_first_appearance_note": "When true, check 11 fails a level that is a callback's first_level but has no line tagged with it (false would report it as WARN only). Switched on by the levels 01-10 retrofit (branch retrofit/callbacks).",
 
+  "clue_depth": {
+    "buried": { "opening_fraction": 0.2, "closing_fraction": 0.15 }
+  },
+  "_clue_depth_note": "Check 12 (bible clue rule 5: buried clues sit mid-conversation). In a buried level the opening is the first floor(opening_fraction x lines) lines and the closing the last floor(closing_fraction x lines); every scored need needs at least one clue line between them (echoes in the opening or closing are fine). Gabriella chose this 'moderate' rule on 2026-11-12; the fractions are proposed values. Stated and implied levels have no positional rule: the log only gets a clue map.",
+
   "crew": {
     "ids": ["orchestrator", "puzzle_architect", "narrative_writer", "map_seeder", "validator", "critic", "blind_playtester", "art_asset", "integration", "provenance"],
     "human_pattern": "^human:[a-z][a-z0-9_]*$",

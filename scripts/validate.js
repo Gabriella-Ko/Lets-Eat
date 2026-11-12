@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Let's Eat! Validator · brief v2 · agent id: validator
+// Let's Eat! Validator · brief v3 · agent id: validator
 // Spec: docs/specs/validator.md. Rules: scripts/rules.json (from docs/game_bible.md).
 //
 // Usage: node scripts/validate.js level_XX
@@ -519,6 +519,39 @@ if (dialogueOk) {
   }
 }
 
+// ---------- check 12: clue depth (bible: clue rule 5, buried clues sit mid-conversation) ----------
+// Every level: a clue map (where each scored need's clue lines sit), written to the log for the critic and
+// Gabriella. Buried levels: each scored need must have at least one clue line in the middle band.
+const clueMap = [];
+let clueMapLines = 0;
+if (specOk && dialogueOk) {
+  const n = dialogue.script.length;
+  clueMapLines = n;
+  const needed = [
+    ...spec.hard.allergies.map((t) => `allergy:${t}`),
+    ...spec.hard.diets.map((t) => `diet:${t}`),
+    ...(spec.hard.budget_max !== null ? ['budget'] : []),
+    ...(spec.soft.craving !== null ? ['craving'] : []),
+    ...spec.soft.vibe.map((t) => `vibe:${t}`),
+    ...spec.soft.intolerances.map((t) => `intolerance:${t}`),
+  ];
+  const at = (tag) => dialogue.script.map((l, i) => (l.clue === tag ? i : -1)).filter((i) => i >= 0);
+  for (const tag of needed) clueMap.push({ tag, lines: at(tag) });
+
+  const depth = rules.clue_depth && rules.clue_depth[spec.difficulty];
+  if (depth) {
+    const start = Math.floor(depth.opening_fraction * n); // first middle line
+    const end = n - 1 - Math.floor(depth.closing_fraction * n); // last middle line
+    for (const { tag, lines } of clueMap) {
+      if (!lines.length) continue; // no clue line at all: check 8 already reports it
+      if (lines.some((i) => i >= start && i <= end)) continue;
+      const where = lines.every((i) => i < start) ? 'only in the opening' : lines.every((i) => i > end) ? 'only in the closing' : 'only in the opening and closing';
+      fail(12, R.dialogue, `${spec.difficulty} level: "${tag}" is revealed ${where} (line${lines.length > 1 ? 's' : ''} ${lines.join(', ')}); ` +
+        `at least one clue line must sit mid-conversation, lines ${start}-${end} of ${n}`);
+    }
+  }
+}
+
 // ---------- write log ----------
 const logsDir = path.join(ROOT, 'logs');
 fs.mkdirSync(logsDir, { recursive: true });
@@ -529,6 +562,11 @@ const lines = failures.length
      ...failures.map((x) => `[check ${x.check}] ${x.file} (agent: ${x.agent}): ${x.msg}`)]
   : [`PASS ${levelId}`];
 for (const x of warnings) lines.push(`WARN [check ${x.check}] ${x.file} (agent: ${x.agent}): ${x.msg}`);
+if (clueMap.length) {
+  const w = Math.max(...clueMap.map((c) => c.tag.length));
+  lines.push(`clue map (${spec.difficulty}, ${clueMapLines} lines):`);
+  for (const c of clueMap) lines.push(`  ${c.tag.padEnd(w)}  @ ${c.lines.length ? c.lines.join(', ') : 'none'}`);
+}
 fs.writeFileSync(logPath, lines.join('\n') + '\n');
 
 console.log(lines.join('\n'));

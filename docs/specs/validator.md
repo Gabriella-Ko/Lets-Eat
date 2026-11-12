@@ -1,6 +1,6 @@
 # Validator spec (script)
 
-Brief version: v2 · Agent id: `validator`
+Brief version: v3 · Agent id: `validator`
 
 Build this as `scripts/validate.js`, run as `node scripts/validate.js level_XX`. It must be deterministic: no LLM calls.
 
@@ -21,9 +21,10 @@ Build this as `scripts/validate.js`, run as `node scripts/validate.js level_XX`.
 9. Outcomes cover every venue, with `result` and `missed` matching the computed score.
 10. Venue fixed fields match the registry.
 11. Callbacks (bible: Callbacks, Scrapbook). A dialogue line's optional `callback` is an id from `rules.json` `callbacks`; it is not used before that callback's `first_level`; its `friend` is a guest in the level. A level that is a callback's `first_level` contains at least one line tagged with it: a failure when `callback_first_appearance_required` is true, otherwise a WARN line. Lines without `callback` are fine.
+12. Clue depth (bible: clue rule 5, buried clues sit mid-conversation). In a `buried` level, every scored need has at least one clue line in the middle band: after the opening (first `floor(opening_fraction × lines)` lines) and before the closing (last `floor(closing_fraction × lines)` lines), fractions from `rules.json` `clue_depth.buried` (0.2 and 0.15). Echoes in the opening or closing are fine. Stated and implied levels have no positional rule.
 
 ## Writes
-`logs/validation_level_XX.log`: PASS or FAIL, then one line per failure naming the check, the file and the agent that wrote it (from `generated_by`), then any `WARN` lines (reported, but they don't fail the level). Exit code 1 on any failure.
+`logs/validation_level_XX.log`: PASS or FAIL, then one line per failure naming the check, the file and the agent that wrote it (from `generated_by`), then any `WARN` lines (reported, but they don't fail the level), then a clue map: one line per scored need with the indexes of its clue lines (every level, any difficulty; information only). Exit code 1 on any failure.
 
 ## Never
 Fix content. It only reports.
