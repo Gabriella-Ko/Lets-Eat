@@ -1,0 +1,45 @@
+{
+  "level_id": "level_11",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_11/outcomes_level_11.json",
+      "agent": "narrative_writer",
+      "where": "night_market_tin_star lines[0]",
+      "issue": "Maya's budget_soft line 'really good tacos. also two dollar signs. the trip fund just flinched' has the same shape as level_08's Cedar Line line 'delicious. also two dollar signs. the trip fund felt that one'. It reads as that line with three words swapped.",
+      "suggested_fix": "e.g. 'really good tacos. then i saw two dollar signs on the price board and the trip fund started sweating'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_11/outcomes_level_11.json",
+      "agent": "narrative_writer",
+      "where": "night_market_moonlit_corner lines[0]",
+      "issue": "Brooke's healthy-miss line opens 'so tasty, but so heavy', almost the same as her level_10 Marble Steps line 'tasty, but so heavy'. The rest of the line, the brick before bed, is new and fits the late-night reason.",
+      "suggested_fix": "e.g. 'loved every bite, but i'm going to bed with a brick in my stomach. so much for a light night'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_11/dialogue_level_11.json",
+      "agent": "narrative_writer",
+      "where": "script[15]",
+      "issue": "Brooke's healthy wish is new in substance (eating late, sleeping on it), but the frame 'one ask from me: <reason>' repeats her level_10 opener 'one request from me: <reason>'. Two levels in a row of the same shape makes the device easy to spot.",
+      "suggested_fix": "Drop the frame: 'cheap tacos, done! but we're eating at 9 and i'll be sleeping on whatever i eat. light and fresh, please'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_11/dialogue_level_11.json",
+      "agent": "narrative_writer",
+      "where": "script[19]",
+      "issue": "Liam's retraction 'ok, you got me' reads oddly, because Roxy thanked him and didn't call him out. It is also the line that tells the player his cheese-and-crema want (script[16]) no longer counts, so it should say that plainly.",
+      "suggested_fix": "e.g. 'ok, cheese is off. dairy-free tacos for the table. i'm not making you watch'"
+    }
+  ],
+  "summary": "A warm, well-paced chapter 3 opener. The story beat follows the bible's Locked wording in Roxy's first two lines without using a clue line. Liam and Roxy greet each other properly at their first meeting. Liam's noodle-stall aside is a passing question that he puts off himself ('noodle hunt another night'), so the level_15 payoff is still intact. Every scored need is stated plainly: Maya's three days of holding off on tacos, her one-dollar-sign limit, Brooke's single 'light and fresh' wish with a new reason (eating at 9), and Roxy catching herself after Liam's cheese and crema, which follows clue rule 6 and is withdrawn on screen. All six stalls' reviews show their deciding attributes, match the registry, and none is described as outdoor or lively. The four suggestions are small wording repeats and one unclear retraction line."
+  ,
+  "generated_by": "critic"
+}
