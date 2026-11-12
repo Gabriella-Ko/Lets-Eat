@@ -5,7 +5,7 @@
       "result": "perfect",
       "missed": [],
       "lines": [
-        { "speaker": "roxy", "text": "real coffee, happy stomach, and the goose has been avenged. new favourite!!", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "real coffee, happy stomach, and the goose has been avenged. new favorite!!", "emotion": "HAPPY" },
         { "speaker": "mina", "text": "i couldn't decide, there was so much i could order. sushi day all over again :)", "emotion": "HAPPY" },
         { "speaker": "cyrus", "text": "The pen never left my bag. Well chosen.", "emotion": "HAPPY" }
       ]
@@ -14,7 +14,7 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "There are peanuts in all the food on this counter. I'll be out on the pavement, keeping my pen company.", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the sidewalk, keeping my pen company.", "emotion": "ANGRY" },
         { "speaker": "brooke", "text": "i just read the whole slate wall. satay dressing on every grain bowl, peanuts in the granola. this is a disaster", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
       ]
