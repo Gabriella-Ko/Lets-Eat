@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
-import { C, W, pixel, text } from '../ui/theme.js';
+import { C, W, pixel, text, readText } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { notebook, pinMode, getPins } from '../ui/notebook.js';
 import { scrollArea } from '../ui/scroll.js';
 import { loadVisits, recordSeen } from '../ui/visitStore.js';
 import { pastVisit } from '../logic/beenHere.js';
+import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
 
-const BADGE = { been: { label: 'BEEN HERE', fill: C.accent }, seen: { label: 'SEEN BEFORE', fill: C.blue } };
+// Getters, so the colours follow the High contrast option.
+const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
 
 const LIST = { x: 24, y: 78, w: 290, h: 486 };
 const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
@@ -18,6 +20,9 @@ const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
  * "Been here before": a recurring venue the player met in an EARLIER level gets a badge on its card
  * (BEEN HERE if they picked it, SEEN BEFORE if it was only listed), and its detail panel adds that
  * level's reviews. It never says how the earlier pick scored (see logic/beenHere.js).
+ * Sort and filter (top of the list): Mixed / Cheapest / A–Z, and chips for the price tiers and cuisines
+ * in the level (several at once; none = all). Uses only what the cards show (logic/resultsView.js).
+ * The choice is kept in the registry for this level, so it survives a trip back to the chat.
  * data: { levelId }
  */
 export default class ResultsListScene extends Phaser.Scene {
@@ -48,9 +53,13 @@ export default class ResultsListScene extends Phaser.Scene {
     const visits = loadVisits();
     this.past = new Map(this.venues.map((v) => [v.id, pastVisit(visits, levels, v.id, lvl.number)]));
     recordSeen(lvl.id, this.venues.map((v) => v.id));
-    const gap = 8;
-    const cardH = Math.min(96, (LIST.h - 20 - gap * (this.venues.length - 1)) / this.venues.length);
-    this.cards = this.venues.map((v, i) => this.makeCard(v, LIST.x + 10, LIST.y + 10 + i * (cardH + gap), LIST.w - 20, cardH));
+
+    this.viewKey = `resultsView:${lvl.id}`;
+    this.view = { sort: 'mixed', prices: [], cuisines: [], ...(this.registry.get(this.viewKey) || {}) };
+    this.options = filterOptions(this.venues);
+    this.controls = this.add.container(0, 0);
+    this.cardLayer = this.add.container(0, 0);
+    this.cards = [];
 
     this.detail = this.add.container(0, 0);
     // Reviews scroll, so earlier-visit reviews never run into the button.
@@ -62,9 +71,106 @@ export default class ResultsListScene extends Phaser.Scene {
     }, { w: DETAIL.w - 40 });
     this.pickBtn.setVisible(false);
     this.empty = this.add.text(DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h / 2, 'pick a place to read its reviews', text(15, C.inkSoft)).setOrigin(0.5);
+
+    this.drawControls();
+    this.drawCards();
+  }
+
+  /** Change the view, remember it for this level, and redraw. */
+  setView(patch) {
+    this.view = { ...this.view, ...patch };
+    this.registry.set(this.viewKey, this.view);
+    this.drawControls();
+    this.drawCards();
+  }
+
+  /** A small rounded toggle. Returns its width. */
+  pill(c, x, y, label, on, onClick, title) {
+    const t = this.add.text(0, 0, label, pixel(12, on ? C.panel : C.ink, { fontStyle: 'bold' }));
+    const w = Math.max(30, t.width + 18), h = 24;
+    const g = this.add.graphics();
+    const draw = (hover) => {
+      g.clear();
+      g.fillStyle(on ? C.accent : hover ? 0xfffaf2 : 0xffffff, 1).fillRoundedRect(x, y, w, h, 12);
+      g.lineStyle(1, on ? C.accentDark : C.panelDark, 1).strokeRoundedRect(x, y, w, h, 12);
+    };
+    draw(false);
+    t.setPosition(x + (w - t.width) / 2, y + (h - t.height) / 2);
+    const z = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
+    z.on('pointerover', () => draw(true));
+    z.on('pointerout', () => draw(false));
+    z.on('pointerdown', onClick);
+    z.pillLabel = title || label;
+    c.add([g, t, z]);
+    return w;
+  }
+
+  /** SORT row, then SHOW chips (price tiers, and cuisines when there's more than one), wrapping as needed. */
+  drawControls() {
+    const c = this.controls;
+    c.removeAll(true);
+    const x0 = LIST.x + 12, right = LIST.x + LIST.w - 12, labelW = 46, rowH = 30;
+    let y = LIST.y + 12;
+    c.add(this.add.text(x0, y + 5, 'SORT', pixel(12, C.inkSoft, { fontStyle: 'bold' })));
+    let x = x0 + labelW;
+    for (const s of SORTS) x += this.pill(c, x, y, s.label, this.view.sort === s.id, () => this.setView({ sort: s.id }), `sort:${s.id}`) + 6;
+
+    const chips = [
+      ...this.options.prices.map((p) => ({ key: 'prices', value: p, label: p })),
+      ...(this.options.cuisines.length > 1 ? this.options.cuisines.map((cu) => ({ key: 'cuisines', value: cu, label: pretty(cu) })) : []),
+    ];
+    if (chips.length > 1) {
+      y += rowH;
+      c.add(this.add.text(x0, y + 5, 'SHOW', pixel(12, C.inkSoft, { fontStyle: 'bold' })));
+      x = x0 + labelW;
+      for (const ch of chips) {
+        const list = this.view[ch.key];
+        const on = list.includes(ch.value);
+        const t = this.add.text(0, 0, ch.label, pixel(12, C.ink, { fontStyle: 'bold' }));
+        const w = Math.max(30, t.width + 18);
+        t.destroy();
+        if (x + w > right) { x = x0 + labelW; y += rowH; }
+        x += this.pill(c, x, y, ch.label, on, () => this.setView({ [ch.key]: on ? list.filter((v) => v !== ch.value) : [...list, ch.value] }), `${ch.key}:${ch.value}`) + 6;
+      }
+    }
+    this.cardsTop = y + rowH + 6;
+    c.add(this.add.graphics().lineStyle(1, C.panelDark, 1).lineBetween(LIST.x + 10, this.cardsTop - 4, LIST.x + LIST.w - 10, this.cardsTop - 4));
+  }
+
+  drawCards() {
+    this.cardLayer.removeAll(true);
+    const shown = applyView(this.venues, this.view);
+    this.shown = shown;
+    // Card size from the full list, so cards don't jump in size when a filter hides some.
+    const gap = 8, top = this.cardsTop, avail = LIST.y + LIST.h - 10 - top;
+    const cardH = Math.min(96, (avail - gap * (this.venues.length - 1)) / this.venues.length);
+    this.cards = shown.map((v, i) => this.makeCard(v, LIST.x + 10, top + i * (cardH + gap), LIST.w - 20, cardH));
+    if (!shown.length) {
+      this.cardLayer.add(this.add.text(LIST.x + LIST.w / 2, top + 40, 'no places match these filters', text(14, C.inkSoft)).setOrigin(0.5));
+      this.cardLayer.add(button(this, LIST.x + LIST.w / 2, top + 84, 'Clear filters', () => this.setView({ prices: [], cuisines: [] }), { w: 160, h: 34, size: 14, fill: C.blue }));
+    }
+    const filtered = this.view.prices.length || this.view.cuisines.length;
+    if (filtered && shown.length) {
+      this.cardLayer.add(this.add.text(LIST.x + LIST.w - 12, LIST.y + LIST.h - 8, `${shown.length} of ${this.venues.length} places`, text(12, C.inkSoft)).setOrigin(1, 1));
+    }
+    // A selected place that the filters hide is deselected.
+    if (this.selected && !shown.includes(this.selected)) this.deselect();
+    else if (this.selected) this.cards.forEach((c) => c.draw(c.venue === this.selected ? 'selected' : undefined));
+  }
+
+  deselect() {
+    this.selected = null;
+    this.detail.removeAll(true);
+    this.reviews.content.removeAll(true);
+    this.reviews.setContentHeight(0);
+    this.moreHint.setVisible(false);
+    this.pickBtn.setVisible(false);
+    this.empty.setVisible(true);
   }
 
   makeCard(venue, x, y, w, h) {
+    const layer = this.add.container(0, 0);
+    this.cardLayer.add(layer);
     const g = this.add.graphics();
     const draw = (state) => {
       g.clear();
@@ -72,20 +178,23 @@ export default class ResultsListScene extends Phaser.Scene {
       g.lineStyle(state === 'selected' ? 3 : 1, state === 'selected' ? C.accent : C.panelDark, 1).strokeRoundedRect(x, y, w, h, 8);
     };
     draw();
+    layer.add(g);
     const iconSize = Math.min(h - 16, 60);
-    this.add.image(x + 8 + iconSize / 2, y + h / 2, `icon_${venue.cuisine}`).setDisplaySize(iconSize, iconSize);
-    this.add.text(x + iconSize + 20, y + h / 2 - 11, venue.name, pixel(17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5);
-    this.add.text(x + iconSize + 20, y + h / 2 + 12, `${pretty(venue.cuisine)} · ${venue.price_tier}`, text(14, C.inkSoft)).setOrigin(0, 0.5);
+    // Tighter text on short cards (chapters with 6-7 venues).
+    const tight = h < 64;
+    layer.add(this.add.image(x + 8 + iconSize / 2, y + h / 2, `icon_${venue.cuisine}`).setDisplaySize(iconSize, iconSize));
+    layer.add(this.add.text(x + iconSize + 20, y + h / 2 - (tight ? 9 : 11), venue.name, pixel(tight ? 15 : 17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5));
+    layer.add(this.add.text(x + iconSize + 20, y + h / 2 + (tight ? 10 : 12), `${pretty(venue.cuisine)} · ${venue.price_tier}`, text(tight ? 13 : 14, C.inkSoft)).setOrigin(0, 0.5));
     const past = this.past.get(venue.id);
     if (past) {
       // Bottom-right of the card, beside the short cuisine line, so it never collides with a long name.
       const b = BADGE[past.kind];
-      const t = this.add.text(x + w - 14, y + h - 12, b.label, pixel(11, C.panel, { fontStyle: 'bold' })).setOrigin(1, 1);
+      const t = this.add.text(x + w - 14, y + h - (tight ? 7 : 12), b.label, pixel(11, C.panel, { fontStyle: 'bold' })).setOrigin(1, 1);
       const pg = this.add.graphics().fillStyle(b.fill, 1).fillRoundedRect(t.x - t.width - 8, t.y - t.height - 3, t.width + 16, t.height + 6, 9);
-      t.setDepth(1);
-      pg.setDepth(0.5);
+      layer.add([pg, t]);
     }
     const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
+    layer.add(zone);
     const card = { venue, draw };
     zone.on('pointerover', () => this.selected !== venue && draw('hover'));
     zone.on('pointerout', () => this.selected !== venue && draw());
@@ -116,7 +225,7 @@ export default class ResultsListScene extends Phaser.Scene {
     let ry = 0;
     const add = (o) => (area.content.add(o), o);
     const review = (r, past) => {
-      const t = add(this.add.text(12, ry + 9, `“${r}”`, text(14, past ? C.inkSoft : C.ink, { wordWrap: { width: RW - 24, useAdvancedWrap: true }, lineSpacing: 2 })));
+      const t = add(this.add.text(12, ry + 9, `“${r}”`, readText(14, past ? C.inkSoft : C.ink, { wordWrap: { width: RW - 24, useAdvancedWrap: true }, lineSpacing: 2 })));
       const g = this.add.graphics().fillStyle(past ? 0xfaf3ea : 0xffffff, 1).fillRoundedRect(0, ry, RW, t.height + 18, 8);
       area.content.addAt(g, area.content.getIndex(t));
       ry += t.height + 28;

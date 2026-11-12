@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, CHARACTERS, pixel, text } from '../ui/theme.js';
+import { C, W, CHARACTERS, pixel, text, readText } from '../ui/theme.js';
 import { panel, button, loadProgress } from '../ui/widgets.js';
 import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
@@ -101,7 +101,7 @@ export default class ScrapbookScene extends Phaser.Scene {
     this.page.add([title, who]);
     y += 58;
     for (const [i, para] of pageText(p, this.reachedChapter).entries()) {
-      const t = this.add.text(PAGE.x + 36, y, para, text(i === 0 ? 16 : 14, i === 0 ? C.ink : C.inkSoft, {
+      const t = this.add.text(PAGE.x + 36, y, para, readText(i === 0 ? 16 : 14, i === 0 ? C.ink : C.inkSoft, {
         wordWrap: { width: PAGE.w - 72, useAdvancedWrap: true }, fontStyle: i === 0 ? 'normal' : 'italic',
       }));
       this.page.add(t);
