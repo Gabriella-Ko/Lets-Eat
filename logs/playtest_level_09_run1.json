@@ -1,0 +1,56 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_09",
+  "run": 1,
+  "pick": "downtown_orchid_row",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "liam",
+      "type": "craving",
+      "constraint": "Thai food",
+      "line": "ok so i dreamed about thai food last night. a whole table of it. woke up starving. i need thai"
+    },
+    {
+      "who": "maya",
+      "type": "craving",
+      "constraint": "Thai food (shared)",
+      "line": "i would fight someone for thai right now. i'm in"
+    },
+    {
+      "who": "cyrus",
+      "type": "allergy",
+      "constraint": "Peanut allergy (deal-breaker)",
+      "line": "wait. thai. cyrus. are we okay after the satay incident??",
+      "supporting_line": "i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always"
+    },
+    {
+      "who": "maya",
+      "type": "budget",
+      "constraint": "Cheapest tier ($)",
+      "line": "tight. if lunch costs more than a few bucks, the trip fund cries. and then i cry",
+      "supporting_line": "cheap thai is the best thai anyway"
+    },
+    {
+      "who": "brooke",
+      "type": "preference",
+      "constraint": "Light, not fried or greasy (climbing after work)",
+      "line": "count me in! climbing after work though, and the last time i had a fried lunch i didn't make it past the first hold"
+    }
+  ],
+  "elimination": {
+    "downtown_monsoon_alley": "Peanut dip with satay and crushed peanuts on noodles and salads: allergy deal-breaker.",
+    "downtown_teak_door": "Peanut-safe and $, but nearly everything is fried or oily: misses Brooke's light preference (2 stars).",
+    "downtown_river_bell": "Peanut-safe, Thai and light, but $$ is one tier over budget (2 stars).",
+    "downtown_koi_counter": "Peanut-safe, $ and light, but sushi, not Thai: misses the craving (2 stars).",
+    "downtown_orchid_row": "Thai, $, peanut-safe including the dipping sauces, light steamed/clear dishes: meets everything."
+  },
+  "difficulty": 3,
+  "notes": [
+    "No constraint is ever stated outright, which is good. The peanut allergy comes only from 'satay incident' plus Brooke's list (satay, dipping sauce, crushed topping), so a player has to infer it. It is fair because the reviews say 'peanut' explicitly.",
+    "Budget is fair: 'a few bucks' plus 'cheap thai' points to $. River Bell's review adds 'a step up from our usual intern lunch', which fits its $$ tag.",
+    "Brooke's 'fried lunch' line clearly points to light food. Teak Door's greasy review spells out the trade-off.",
+    "Each decoy fails exactly one constraint, which makes a clean puzzle. Koi Counter is a strong peanut-safe, light decoy, but it is clearly not Thai.",
+    "Nothing unfair or contradictory found. Orchid Row's review says 'dipping sauces included' and that answers Brooke's dipping-sauce worry directly."
+  ]
+}

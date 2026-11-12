@@ -1,0 +1,35 @@
+{
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_orchid_row",
+      "name": "Orchid Row",
+      "cuisine": "thai",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_monsoon_alley",
+      "name": "Monsoon Alley",
+      "cuisine": "thai",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_teak_door",
+      "name": "Teak Door",
+      "cuisine": "thai",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_river_bell",
+      "name": "River Bell",
+      "cuisine": "thai",
+      "price_tier": "$$"
+    },
+    {
+      "id": "downtown_koi_counter",
+      "name": "Koi Counter",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    }
+  ]
+}

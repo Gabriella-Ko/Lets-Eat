@@ -1,0 +1,53 @@
+{
+  "level_id": "level_06",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "downtown_little_lotus",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Vietnamese food",
+      "type": "craving",
+      "source_speaker": "roxy",
+      "source_line": "wait. i've never had vietnamese food. let's do viet!!"
+    },
+    {
+      "constraint": "Preference: healthy, light, not greasy",
+      "type": "preference",
+      "source_speaker": "brooke",
+      "source_line": "viet sounds great. i'm in, as long as it's the healthy kind, nothing greasy"
+    },
+    {
+      "constraint": "Allergy: peanuts (no peanut sauce, no crushed peanuts)",
+      "type": "allergy",
+      "source_speaker": "cyrus",
+      "source_line": "Viet works for me. Roxy, since you're new: I'm allergic to peanuts. No peanut sauce, no crushed peanuts on top."
+    },
+    {
+      "constraint": "Dietary: dairy-free (no milk, cream or butter)",
+      "type": "diet",
+      "source_speaker": "roxy",
+      "source_line": "ok so nothing with milk, cream or butter for me. i always forget until it's too late"
+    },
+    {
+      "constraint": "Budget: cheap (implied, student lunch crew; no explicit tier stated)",
+      "type": "budget",
+      "source_speaker": "brooke",
+      "source_line": "lunch crew is going downtown today! campus food has officially been conquered"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanut sauce and crushed peanuts on nearly everything: allergy deal-breaker.",
+    "downtown_jade_lantern": "Butter, milk, cream and condensed milk through the mains: dairy deal-breaker.",
+    "downtown_ninth_street_eatery": "Allergy-safe but deep-fried and greasy: misses Brooke's healthy/not greasy preference (-1 star).",
+    "downtown_koi_counter": "Safe and light but sushi, not Vietnamese: misses Roxy's viet craving (-1 star).",
+    "downtown_little_lotus": "Viet, light and fresh, peanut-free kitchen, no milk/cream/butter, under ten bucks: meets everything."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Clean one-answer puzzle: each decoy fails exactly one constraint, which reads well.",
+    "The dairy clue is a nice two-step (iced coffee request, then Brooke's 'milkshake incident' reminder) and Roxy then states it explicitly, so it is not buried.",
+    "No explicit budget line in the chat; all venues are $, so budget never matters. Fine, but price is not a lever in this level.",
+    "Slightly obvious: Little Lotus's second review names both the peanut allergy and dairy outright, practically answering the puzzle. Decoy reviews are equally direct, so difficulty is low."
+  ]
+}

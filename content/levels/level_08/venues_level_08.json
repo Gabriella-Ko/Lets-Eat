@@ -1,0 +1,43 @@
+{
+  "level_id": "level_08",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_koi_counter",
+      "reviews": [
+        "Our go-to lunch spot. Cucumber, avocado, pickled radish and mushroom rolls fill a whole meat-free section, so the vegetarian on our team orders a proper meal, not a side. Under ten bucks a head.",
+        "No peanuts anywhere in the kitchen, and still no milk, cream or cream cheese in anything, sauces included. My allergic coworker and my lactose-intolerant intern both ordered whatever they wanted."
+      ]
+    },
+    {
+      "id": "downtown_kumo_bar",
+      "reviews": [
+        "Crushed peanuts on top of half the rolls, and every set comes with their peanut dipping sauce. Delicious if nuts are your thing.",
+        "Lots of meat-free rolls (sweet potato, mushroom, pickled veggies) and not a drop of dairy on the menu. Cheap enough for a weekday lunch."
+      ]
+    },
+    {
+      "id": "downtown_silver_reed",
+      "reviews": [
+        "Fish or seafood in every single roll. Even the 'garden' roll gets bonito flakes, and the miso soup is made with fish stock. My vegetarian coworker couldn't find one thing to order.",
+        "No peanuts on anything and the whole menu is dairy-free. Quick and cheap, a solid lunch for the summer interns."
+      ]
+    },
+    {
+      "id": "downtown_hinoki_table",
+      "reviews": [
+        "Cream cheese in nearly every roll, and in the house sauce that's drizzled on everything! Even the veggie rolls come loaded with it.",
+        "Totally peanut-free. Lots of vegetarian rolls: tofu, avocado, pickled carrot. Fast and cheap enough for a lunch break."
+      ]
+    },
+    {
+      "id": "downtown_cedar_line",
+      "reviews": [
+        "Gorgeous lunch sets, but bring a bit more than usual: it's a clear step up in price from the other downtown counters. My intern stipend felt it.",
+        "Peanut-free, dairy-free kitchen, and a long list of vegetable rolls. Easy for any group, if the wallet allows."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": "human:gabby"
+}

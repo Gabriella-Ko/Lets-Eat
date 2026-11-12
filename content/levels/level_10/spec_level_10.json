@@ -1,0 +1,18 @@
+{
+  "level_id": "level_10",
+  "chapter": 2,
+  "district": "downtown",
+  "difficulty": "implied",
+  "guests": ["roxy", "mina", "cyrus", "brooke"],
+  "hard": { "budget_max": null, "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "cafe", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "downtown_linden_corner",
+  "decoys": [
+    { "id": "downtown_slate_window", "fails_on": "allergy:peanut" },
+    { "id": "downtown_wren_house", "fails_on": "diet:vegetarian" },
+    { "id": "downtown_paper_kite", "fails_on": "intolerance:dairy" },
+    { "id": "downtown_marble_steps", "fails_on": "vibe:healthy" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

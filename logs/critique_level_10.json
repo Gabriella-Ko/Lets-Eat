@@ -1,0 +1,18 @@
+{
+  "level_id": "level_10",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_10/venues_level_10.json",
+      "agent": "map_seeder",
+      "where": "venue downtown_linden_corner review 2; venue downtown_marble_steps review 1",
+      "issue": "Banana bread is a selling point at two cafes in the same level: Linden's is baked with olive oil, Marble Steps' has a syrup glaze. In Linden review 2, olive oil also shows up twice ('griddled in olive oil' and 'baked with olive oil'). This review is now the only one left with a run of ingredient swaps, so the repeat stands out a little. Both reviews still evidence their venues correctly.",
+      "suggested_fix": "Swap one of the bakes, e.g. Marble Steps review 1: '...churros rolled in cinnamon sugar and a sticky date loaf under a syrup glaze.' Or in Linden review 2 change the last clause to '...and the banana bread is made with no butter at all, which is why it's my standing three o'clock snack.'"
+    }
+  ],
+  "summary": "Quick re-review. All three earlier suggestions are in place. Cyrus's Slate Window fail now points only to the satay bowls and the peanut granola, which matches review 1 and Brooke's next line, and it uses 'sidewalk'. Marble Steps review 2 now evidences dairy-free and peanut-free through one moment (the sister orders freely, churros included), and the regional wording is consistently North American. Every venue's deciding attributes are still evident from reviews alone and agree with the registry. Linden Corner: meat-free board, light, oat by default, a peanut-allergic deskmate. Slate Window: satay and peanut granola. Wren House: everything has meat or fish, a vegetarian coworker leaves, no pastry case, lean, black or oat coffee. Paper Kite: feta, cheddar, butter, whole milk. Marble Steps: 'gloriously heavy', fried, nap by three; vegetarian through the bacon-free plate, tofu and fritters. Gabriella's shorter craving lines still state the cafe craving clearly, all outcomes match the reviews, and nothing new crept in beyond one minor banana bread overlap."
+  ,
+  "generated_by": "critic"
+}

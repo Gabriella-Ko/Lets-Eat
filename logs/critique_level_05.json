@@ -1,0 +1,44 @@
+{
+  "level_id": "level_05",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_05/dialogue_level_05.json",
+      "agent": "narrative_writer (edited_by human:gabby)",
+      "where": "script[9] to script[15]",
+      "issue": "Mina's arc follows level_03's beat for beat: she plays down her need ('pick the pepperoni off' / 'just get a salad' vs 'just get fries'), a friend calls it out, she worries about making it 'complicated' (the same word as level_03 script[12]), then gives in with '...a proper veggie pizza would actually make my day' (level_03 script[11]: '...a veggie patty would make my whole day'). It fits her Cast entry, but by her second appearance it reads as a template.",
+      "suggested_fix": "Keep the deflect-then-rescue structure but change the last beat, e.g. script[15]: '...okay. if there's one with roasted peppers on it, i'm genuinely excited' and drop 'complicated' from script[12] ('oh no, i didn't want to be a whole thing. a salad is fine, really')."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_05/dialogue_level_05.json",
+      "agent": "narrative_writer (edited_by human:gabby)",
+      "where": "script[6] and script[17]",
+      "issue": "Maya's budget line nearly copies level_04 script[7] ('fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching'), and the closing line repeats level_04's 'assistant pls hurry, i'm ...' formula. The toast callback is a nice running joke, but these two lines together make the chat feel recycled.",
+      "suggested_fix": "script[6]: 'pizza place, sure. but one dollar sign max. every slice i don't overpay for is a beach towel'. script[17]: 'assistant, i'm begging. i can smell the dining hall pizza through my laptop'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_05/spec_level_05.json",
+      "agent": "puzzle_architect",
+      "where": "soft and hard constraints",
+      "issue": "The puzzle closely re-runs level_04: Maya at $, Brooke's healthy vibe with a greasy near-miss decoy, and the level_04 answer (Green Bean Cafe) back as a decoy, with vegetarian taking the place of peanut. Fair and solvable, but the chapter finale doesn't add a new kind of reasoning. Noted for awareness only since the level is approved.",
+      "suggested_fix": "For future chapter finales, vary at least one soft axis from the previous level (e.g. a group_friendly or outdoor_seating need instead of repeating Brooke's healthy)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_05/dialogue_level_05.json",
+      "agent": "narrative_writer (edited_by human:gabby)",
+      "where": "script[11]",
+      "issue": "Maya's 'absolutely not ... i will riot otherwise' is her dramatic register, but it carries the NEUTRAL emotion, so her portrait won't match the line.",
+      "suggested_fix": "Change the emotion to ANNOYED (or SURPRISED)."
+    }
+  ],
+  "summary": "A fair, warm chapter-1 finale: every scored constraint (pizza, healthy, $, vegetarian) is stated plainly, Mina's hidden need is surfaced by Brooke as clue rule 6 requires, and every deciding attribute is clearly evidenced in the reviews with no contradictions. Voices and outcomes are on model and never mean. The main weakness is freshness: Mina's arc, Maya's budget line and the overall puzzle shape closely echo levels 03 and 04.",
+  "generated_by": "critic"
+}

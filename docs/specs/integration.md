@@ -6,7 +6,7 @@ Build this as `scripts/integrate.js`, run after each approved level. Determinist
 
 ## Checks
 1. Re-run the Validator on every approved level, so a rule change cannot silently break an old level.
-2. Character appearances match the approved campaign outline and the Campaign structure guardrails.
+2. Character appearances match the approved campaign outline and the Campaign structure guardrails. Each built level's spec matches its outline row (chapter, district, clue style, guests, hard constraints and craving).
 3. Every recurring venue matches its registry entry exactly; no venue appears outside its district except at the Night Market.
 4. No duplicate ids across levels or registries.
 5. Boot test: start the Phaser build headlessly and load levels 01–20 in order (skip levels not yet built, but report them).

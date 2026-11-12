@@ -35,7 +35,7 @@ function walk(dir) {
 const relPath = (p) => path.relative(ROOT, p).split(path.sep).join('/');
 const files = [
   ...walk(path.join(ROOT, 'content')).filter((p) => p.endsWith('.json') && !relPath(p).startsWith('content/playtest_input/')),
-  ...walk(path.join(ROOT, 'logs')).filter((p) => /playtest_level_\d{2}_run\d+\.json$/.test(p)),
+  ...walk(path.join(ROOT, 'logs')).filter((p) => /(playtest_level_\d{2}_run\d+|critique_level_\d{2})\.json$/.test(p)),
 ].map(relPath).sort();
 
 let runLog = [];

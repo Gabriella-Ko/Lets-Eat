@@ -1,0 +1,35 @@
+{
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_koi_counter",
+      "name": "Koi Counter",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_kumo_bar",
+      "name": "Kumo Bar",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_silver_reed",
+      "name": "Silver Reed",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_hinoki_table",
+      "name": "Hinoki Table",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_cedar_line",
+      "name": "Cedar Line",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    }
+  ]
+}

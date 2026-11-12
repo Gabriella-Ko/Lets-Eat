@@ -118,7 +118,7 @@ The chat should read like real friends texting, and every answer must be findabl
 3. Reviews may confirm or reveal venue details, but never contradict the chat.
 4. Each decoy fails for exactly one reason, named in the spec, so partial-success feedback can point to it. Decoys are built as minimal pairs: a copy of the solution with only that one attribute changed.
 5. Difficulty rises by how clues are given: stated ("I'm allergic to peanuts") → implied ("remember the satay incident?") → buried mid-conversation.
-6. Characters who hide or forget their needs (Mina, Roxy) still follow rule 1. When their constraint matters, another friend hints at it for them ("Roxy, remember the milkshake incident?"), or they mention it offhand late in the chat.
+6. Characters who hide or forget their needs (Mina, Roxy) still follow rule 1. When their constraint matters, another friend hints at it for them ("Roxy, remember the milkshake incident?"), or they mention it offhand late in the chat. Exception: where a Story beat says otherwise (e.g. Mina speaks up, level_16).
 
 The Blind Playtester tests rule 1 in practice: if it can't find a constraint, the level goes back to the Writer.
 
@@ -145,7 +145,39 @@ The Map Seeder builds each level's venues from its district's profile, not the w
 | `waterfront` | `greek`, `italian`, `sushi`, `dim_sum`, `ice_cream` | `$$`–`$$$` | `outdoor_seating`, `lively`, `quiet` | One tier over budget, `lively` vs. `quiet` clashes  |
 
 **Story Beats**  
-- Maya's promotion: hinted at in one chapter 3 level (she mentions a work win, budget still $); revealed in her first chapter 4 level ("did the math, trip is funded"). Every chapter 4 level with Maya restates her new $$ budget in chat.
+Story beats are fixed facts about the friends' shared story. Agents may only use the beats and callbacks listed here; anything new gets added to this section first. At most one story beat per level. A beat takes 2–3 chat lines at most, never replaces a clue line, and works best when it also delivers a clue or gives the level a reason for its craving or vibe.
+
+| Beat | Levels | What happens | Status |
+| --- | --- | --- | --- |
+| The lunch crew grows | Chapters 1–2 | Brooke runs the "lunch crew" chat and adds new people: Mina (level_05), Roxy (level_06). | Locked |
+| Cyrus stops double-checking | level_09 | Through level_08 Cyrus states his peanut allergy plainly, often with a satay incident callback. In level_09, his first implied level in chapter 2, he trusts the assistant enough not to spell it out ("assistant knows the drill by now"). The clue is still there, but implied: the callback or another friend carries it. From then on, his allergy follows the level's clue style like everyone else's. | Locked |
+| Roxy finds the Night Market | level_11 | Roxy discovers the late-night market and talks the crew into going ("found a whole market that opens at 9. we're going."). It opens chapter 3 in 1–2 lines. Her dairy clue follows clue rule 6 as usual. | Locked |
+| The stall Liam won't stop talking about | Setup: level_07. Payoff: level_15 | In level_07 Liam mentions a noodle stall he's heard about "somewhere at the night market" (one line, no clue tag). He keeps bringing it up; chapter 3 levels with Liam may mention it in passing. In level_15, the Night Market finale, the crew finally goes, and his excitement gives the level its noodle craving ("THE stall. tonight. no arguments"). It takes 1–2 lines and adds no new constraint. If a Campus noodle venue returns as a Night Market favourite, it may be the answer or a decoy; the Puzzle Architect decides. | Locked |
+| Maya's promotion | Hint: one chapter 3 level. Reveal: her first chapter 4 level | Chapter 3: she mentions a work win, but her budget is still `$`. Chapter 4 reveal: "did the math, trip is funded". Every chapter 4 level with Maya restates her new `$$` budget in chat. | Locked |
+| Mina speaks up | level_16; echo in level_20 | Mina has always hidden her needs until a friend noticed. In level_16 she raises her own need first, still in her soft way and in the level's clue style ("could we go somewhere I can order a real main this time?"), never by announcing her diet. In level_20 one short line shows she still does. | Locked |
+| Maya's send-off | level_20 | The finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke. It's the only level with all six friends. It takes 2–3 lines of framing at most, and Maya's `$$` budget is restated through it ("trip's paid for, tonight's on the fun budget"). | Locked |
+
+
+**Calendar.** Each chapter is a season, which gives vibes a natural reason:
+
+| Chapter | District | Season | Typical reasons |
+| --- | --- | --- | --- |
+| 1 | Campus | Spring semester | Between classes, study groups |
+| 2 | Downtown | Summer internships | Lunch breaks, so `quick_bite` |
+| 3 | Night Market | Late summer nights | Warm evenings, so `outdoor_seating` and `lively` |
+| 4 | Waterfront | End of summer | Before Maya's trip, so `quiet` dinners and celebrations |
+
+**Callbacks.** Shared memories the chat can point to instead of naming a need. They're the main way to deliver implied and buried clues, and they reward returning players. A callback always points to the friend's permanent constraint, never to a new one.
+
+| Callback | Friend | Points to | First appears |
+| --- | --- | --- | --- |
+| The satay incident | Cyrus | Peanut allergy | level_01 |
+| The trip fund | Maya | Her budget (`$` saving, `$$` from chapter 4) | level_02 |
+| The plate of fries | Mina | Vegetarian (she once ate only fries while everyone else had burgers) | level_03 |
+| The milkshake incident | Roxy | Dairy intolerance | level_06 |
+| Sushi day | Mina | Vegetarian (menu where she didn't need to double check for meat) | level_10 |
+
+In `stated` levels a callback may sit next to a plain statement. In `implied` and `buried` levels, the callback alone may carry the clue, as long as a returning player can read it and a first-time player can still work it out from context.
  
 
 **Guardrails**
@@ -281,6 +313,7 @@ Nine crew members, run by one Orchestrator. These ids are the only values allowe
 | Art Asset Agent | `art_asset` | LLM + image script | `asset_manifest.json`, processed PNGs | 3 |
 | Integration | `integration` | Script | `integration_audit.log` | 4 |
 | Provenance | `provenance` | Git hooks + script | `provenance_manifest.json` | 4 |
+|Critic | `critic` | LLM | critique_level_##.json |2| 
 | You | `human:gabby` | Human | The bible, approvals, manual fixes | — |
 
 Each agent's full instructions live in its brief file, not here: `.claude/agents/<name>.md`, and `CLAUDE.md` for the Orchestrator. Briefs carry a version number starting at v1; bump it whenever a brief's rules change. The running order and failure routes are explained in the How the Orchestration Works doc.

@@ -1,0 +1,35 @@
+{
+  "level_id": "level_01",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "unconfirmable_ask",
+      "file": "content/levels/level_01/dialogue_level_01.json",
+      "agent": "human:gabby",
+      "where": "script[2]",
+      "issue": "Cyrus's \"I have 40 minutes before my study group\" sounds like a speed requirement, but quick_bite isn't scored and only Satay Spot's review mentions speed. The no-unconfirmable-asks rule only starts at level_06, so this isn't a violation here, and the narrative-writer brief itself names this line as the example to avoid. A careful player could still waste time checking for a speed clue that doesn't exist.",
+      "suggested_fix": "Make it clearly flavour, e.g. \"Agreed. I have a study group later, so I'll be efficient about this.\" Or keep it as is, since it's the gold standard and the brief already uses it as its counter-example."
+    },
+    {
+      "severity": "suggestion",
+      "check": "venue_name",
+      "file": "content/registry/venue_registry_campus.json",
+      "agent": "map_seeder",
+      "where": "campus_satay_spot, campus_noodle_cellar",
+      "issue": "\"Satay Spot\" points to peanuts and \"The Noodle Cellar\" points to an indoor basement, so both decoys show why they fail from the card alone. The neutral-name rule starts at level_06, and in the tutorial level this probably helps teach the game. Note it so later writers don't treat it as the house style.",
+      "suggested_fix": "No change needed for level_01. If it's ever reworked, neutral names such as \"Golden Bowl\" and \"Broth & Co.\" would make the player rely on the reviews."
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_01/outcomes_level_01.json",
+      "agent": "human:gabby",
+      "where": "by_venue campus_noodle_cellar lines[1], campus_pizza_corner lines[1]",
+      "issue": "Cyrus reacts with NEUTRAL in both partial outcomes. His calm voice suits that, but the bible's Scoring rules table lists ANNOYED or SURPRISED portraits for a partial success. Since this is the reference level, later writers may copy NEUTRAL into partial reactions.",
+      "suggested_fix": "Leave Liam as the ANNOYED voice and keep Cyrus NEUTRAL as an intentional exception, or switch Cyrus to ANNOYED on the pizza line (\"The patio is pleasant, at least.\") so the portrait follows the table."
+    }
+  ],
+  "summary": "level_01 is a clean, fair tutorial. All three scored constraints (noodles, patio, peanuts) are stated plainly, and every decoy is a true minimal pair whose deciding attribute is clear from its reviews (satay sauce, basement with no windows, pizza at picnic tables). Liam and Cyrus are in voice, and the outcomes are warm and consistent with the reviews. The only open points are later-level rules (the 40-minute line and telling decoy names) and a portrait choice, none of which breaks a rule in force for level_01.",
+  "generated_by": "critic"
+}

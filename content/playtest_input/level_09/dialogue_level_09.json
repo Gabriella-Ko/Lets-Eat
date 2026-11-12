@@ -1,0 +1,90 @@
+{
+  "level_id": "level_09",
+  "script": [
+    {
+      "speaker": "brooke",
+      "text": "lunch crew, downtown edition! who's out at noon?",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "me. always me",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "liam!! cyrus talks about you all the time, but this is our first actual lunch. hi!",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "hi brooke! heard you're the one who keeps this chat alive. respect",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "ok so i dreamed about thai food last night. a whole table of it. woke up starving. i need thai",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "maya",
+      "text": "i would fight someone for thai right now. i'm in",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "liam",
+      "text": "wait. thai. cyrus. are we okay after the satay incident??",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "We're okay. The assistant knows the drill by now.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "no bullet points?? cyrus are you feeling alright",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "I'm fine. I'm learning to trust the process.",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "i'll still double check for you. no satay, no dipping sauce, nothing crushed on top of the noodles. same as always",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "also, gentle reminder: the coast trip is coming up fast and the fund is not where it should be",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "brooke",
+      "text": "the trip fund! how's it looking?",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "maya",
+      "text": "tight. if lunch costs more than a few bucks, the trip fund cries. and then i cry",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "liam",
+      "text": "cheap thai is the best thai anyway",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "count me in! climbing after work though, and the last time i had a fried lunch i didn't make it past the first hold",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "assistant, please. i dreamed about thai and i need it to come true",
+      "emotion": "HUNGRY"
+    }
+  ]
+}

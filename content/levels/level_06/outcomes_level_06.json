@@ -1,0 +1,49 @@
+{
+  "level_id": "level_06",
+  "by_venue": {
+    "downtown_little_lotus": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "roxy", "text": "first viet lunch EVER and i'm obsessed. let's come back tomorrow", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "so fresh and light. great pick!", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "No peanuts, no dairy, and everyone is happy. Well chosen.", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_banyan_kitchen": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Peanut sauce with the rolls, crushed peanuts on everything else. I can't eat here.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "i said i'd guard your plate and i FAILED. everybody out!!", "emotion": "SURPRISED" },
+        { "speaker": "brooke", "text": "cyrus, don't touch anything. we're finding somewhere safe", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_jade_lantern": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "so good. but this sauce is SO buttery and my stomach is filing a complaint", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "fresh and tasty though! roxy, water. lots of water", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_ninth_street_eatery": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "everything here is deep-fried. my napkin is see-through already", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "crispy fried everything though?? i'm not complaining", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_koi_counter": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "roxy", "text": "this sushi is great but... where's the viet?? i was ready for an adventure", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "light and clean, i'll take it! viet next time, promise", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
