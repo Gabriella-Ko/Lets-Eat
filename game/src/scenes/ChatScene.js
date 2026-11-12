@@ -7,12 +7,10 @@ import { notebook, NOTEBOOK } from '../ui/notebook.js';
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
 /**
- * Chat pacing: after each message the next speaker shows a "typing…" bubble, and their message
- * arrives on its own once the player has had time to read the previous one.
- * Wait = BASE + PER_CHAR × length of the message just shown, clamped to [MIN, MAX] ms.
+ * Chat pacing: after each message the next speaker shows a "typing…" bubble for TYPING_MS,
+ * then their message arrives on its own (Gabriella, 2026-11-11: bubbles last 1 s).
  */
-const PACE = { BASE: 700, PER_CHAR: 28, MIN: 1000, MAX: 2800 };
-const readTime = (line) => Phaser.Math.Clamp(PACE.BASE + PACE.PER_CHAR * line.text.length, PACE.MIN, PACE.MAX);
+const TYPING_MS = 1000;
 
 /**
  * The group chat. Messages arrive one at a time on their own, each announced by a typing bubble;
@@ -107,7 +105,7 @@ export default class ChatScene extends Phaser.Scene {
       this.go.setVisible(true);
     } else if (!instant) {
       this.showTyping(script[this.shown].speaker);
-      this.timer = this.time.delayedCall(readTime(line), () => this.next());
+      this.timer = this.time.delayedCall(TYPING_MS, () => this.next());
     }
   }
 
