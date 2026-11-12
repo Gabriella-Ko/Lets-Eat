@@ -77,7 +77,7 @@ export default class ChatScene extends Phaser.Scene {
     });
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
-    const keyHint = `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   pin: save to notebook' : ''}`;
+    const keyHint = `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
     this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, keyHint, text(12, C.inkSoft)).setOrigin(0.5);
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
@@ -247,23 +247,23 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   /**
-   * Pin toggle at the bubble's top-right corner. Always visible (touch has no hover).
-   * Unpinned: a pale outline pin. Pinned: a filled accent pin, and the line is in the Notebook.
+   * Save-to-notebook star beside the bubble (Gabriella, 2026-11-11: star instead of a push-pin).
+   * Always visible (touch has no hover). Unsaved: white outline star. Saved: filled gold star, and the
+   * line is in the Notebook. Code still calls these "pins".
    */
   addPin(c, x, y, idx, line) {
     // Drawn around its own origin so the pop animation scales in place.
     const g = this.add.graphics({ x, y });
+    const pts = [];
+    for (let i = 0; i < 10; i++) {
+      const r = i % 2 === 0 ? 12 : 5.2;
+      const a = -Math.PI / 2 + (i * Math.PI) / 5;
+      pts.push({ x: Math.cos(a) * r, y: Math.sin(a) * r });
+    }
     const draw = (pinned, hover) => {
       g.clear();
-      // round button
-      g.fillStyle(pinned ? C.accent : 0xffffff, 1).fillCircle(0, 0, 13);
-      g.lineStyle(2, pinned || hover ? C.ink : C.inkSoft, 1).strokeCircle(0, 0, 13);
-      // push-pin glyph: cap, tapered body, collar, needle
-      const fill = pinned ? 0xffffff : C.accent;
-      g.lineStyle(2, C.ink, 1).lineBetween(0, 2, 0, 9);
-      g.fillStyle(fill, 1).fillRect(-4, -8, 8, 3).strokeRect(-4, -8, 8, 3);
-      g.fillPoints([{ x: -2, y: -5 }, { x: 2, y: -5 }, { x: 3, y: 0 }, { x: -3, y: 0 }], true);
-      g.fillRect(-6, 0, 12, 2).strokeRect(-6, 0, 12, 2);
+      g.fillStyle(pinned ? C.gold : 0xffffff, 1).fillPoints(pts, true);
+      g.lineStyle(hover ? 2.5 : 2, pinned || hover ? C.ink : C.inkSoft, 1).strokePoints(pts, true, true);
     };
     const isPinned = () => getPins(this, this.level.id).includes(idx);
     draw(isPinned(), false);
@@ -293,7 +293,7 @@ export default class ChatScene extends Phaser.Scene {
     const face = portrait(this, 30, 30, 52, line.speaker, line.emotion);
     // Names sit on the backdrop, so a cream outline keeps them readable.
     const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
-    // In pin levels, wrap a little narrower so the pin button fits beside the widest bubble.
+    // In pin levels, wrap a little narrower so the star fits beside the widest bubble.
     const wrap = CHAT.w - (this.pinning ? 164 : 140);
     const body = this.add.text(84, 28, line.text, text(16, C.ink, { wordWrap: { width: wrap, useAdvancedWrap: true } }));
     const bw = Math.max(body.width + 28, 60);

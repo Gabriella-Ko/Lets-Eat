@@ -18,8 +18,8 @@ export const setPins = (scene, levelId, pins) => scene.registry.set(`pins:${leve
 
 const COPY = {
   auto: { sub: 'lines worth remembering', empty: '' },
-  pinChat: { sub: 'your notebook only keeps what you pin. tap the pin beside a message to save it.', empty: 'nothing saved yet.\n\ntap the pin next to any message to keep it in your notebook.' },
-  pinResults: { sub: 'the lines you saved from the chat', empty: 'nothing saved.\n\ngo back to the chat and tap the pin next to a message to keep it here.' },
+  pinChat: { sub: 'your notebook only keeps what you star. tap the star beside a message to save it.', empty: 'nothing saved yet.\n\ntap the star next to any message to keep it in your notebook.' },
+  pinResults: { sub: 'the lines you saved from the chat', empty: 'nothing saved.\n\ngo back to the chat and tap the star next to a message to keep it here.' },
 };
 
 /**
