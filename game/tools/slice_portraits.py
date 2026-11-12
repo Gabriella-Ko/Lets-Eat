@@ -87,15 +87,15 @@ def cut_outcomes():
         out[key] = {'file': f'outcomes/{key}.jpg'}
     return out
 
-# Chat panel is 644x486; backgrounds are cropped to that shape, muted, and washed toward the UI cream.
-CHAT_W, CHAT_H = 644, 486
-MUTE_SATURATION = 0.6   # 1 = original colour, 0 = grey
-CREAM_WASH = 0.28       # 0 = none, 1 = flat cream
+# Chat backgrounds keep the whole picture (no crop): the game shows them at the chat panel's width
+# and pans down the tall picture as the chat goes on. Here they are only muted and washed toward the UI cream.
+CHAT_W = 644            # chat panel width in the game
+MUTE_SATURATION = 0.45  # 1 = original colour, 0 = grey
+CREAM_WASH = 0.35      # 0 = none, 1 = flat cream
 CREAM = (243, 228, 208) # theme.js C.panel
-BG_FOCUS = 0.6          # vertical centre of the crop, as a fraction of image height
 
 def cut_chat_backgrounds():
-    """art/source/chat_background_chapter_XX_<district>.jpg -> backgrounds/chat_bg_chapter_XX.jpg"""
+    """art/source/chat_background_chapter_XX_<district>.jpg -> backgrounds/chat_bg_chapter_XX.jpg (whole picture)"""
     from PIL import ImageEnhance
     out = {}
     os.makedirs(os.path.join(OUT, 'backgrounds'), exist_ok=True)
@@ -106,14 +106,10 @@ def cut_chat_backgrounds():
         key = f'chat_bg_chapter_{m.group(1)}'
         im = Image.open(os.path.join(SRC, f)).convert('RGB')
         w, h = im.size
-        ch = round(w * CHAT_H / CHAT_W) if w / h < CHAT_W / CHAT_H else h
-        cw = round(ch * CHAT_W / CHAT_H)
-        top = min(max(round(h * BG_FOCUS - ch / 2), 0), h - ch)
-        left = (w - cw) // 2
-        im = im.crop((left, top, left + cw, top + ch))
         im = ImageEnhance.Color(im).enhance(MUTE_SATURATION)
         im = Image.blend(im, Image.new('RGB', im.size, CREAM), CREAM_WASH)
-        im = im.resize((CHAT_W * 2, CHAT_H * 2) if cw >= CHAT_W * 2 else (cw, ch), Image.LANCZOS)
+        if w > CHAT_W * 2:  # no point keeping more than 2x the panel width
+            im = im.resize((CHAT_W * 2, round(h * CHAT_W * 2 / w)), Image.LANCZOS)
         im.save(os.path.join(OUT, 'backgrounds', key + '.jpg'), quality=90)
         out[key] = {'file': f'backgrounds/{key}.jpg'}
     return out
