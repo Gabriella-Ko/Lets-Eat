@@ -1,0 +1,50 @@
+{
+  "level_id": "level_10",
+  "by_venue": {
+    "downtown_linden_corner": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "roxy", "text": "real coffee, happy stomach, and the goose has been avenged. new favorite!!", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "i couldn't decide, there was so much i could order. sushi day all over again :)", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "The pen never left my bag. Well chosen.", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_slate_window": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the sidewalk, keeping my pen company.", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "i just read the whole slate wall. satay dressing on every grain bowl, peanuts in the granola. this is a disaster", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_wren_house": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the soup is on bone broth", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "sushi day was the STANDARD. this is the opposite of sushi day", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "I set that standard myself. I'm recording this as a personal failure.", "emotion": "ANGRY" }
+      ]
+    },
+    "downtown_paper_kite": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "so good!! but there was cheese in it, butter on it and milk in the coffee. my stomach is filing a complaint", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "the food was so fresh though. roxy, black coffee's on me next time", "emotion": "SURPRISED" }
+      ]
+    },
+    "downtown_marble_steps": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "tasty, but so heavy. i traded a week of office cake for a lunch that's just as rich. nap incoming", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "i feel like a sleepy bear, but my stomach's fine for once!", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

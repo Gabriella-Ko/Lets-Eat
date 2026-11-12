@@ -1,0 +1,41 @@
+{
+  "level_id": "level_10",
+  "district": "downtown",
+  "venues": [
+    {
+      "id": "downtown_linden_corner",
+      "reviews": [
+        "I've eaten most of my internship lunches at the window counter here, watching the linden tree outside drop its blossoms on the sidewalk. I went meat-free at lunch this summer, and this is the one place where it has never felt like a sacrifice: six weeks in and I'm still working through the board. There's the squash grain bowl with brown rice, chickpeas and lemon-tahini, the lentil soup, a roasted vegetable and hummus grilled sandwich, falafel wraps with pickled turnip, and a sweet potato and black bean stew on Thursdays. It all tastes fresh and nothing sits heavy, so I go back to my desk light instead of sleepy.",
+        "My deskmate carries an auto-injector for her peanut allergy and normally grills every barista in town. Here she just orders, and she's been through the whole menu since June without once reaching for it. A latte arrives made with oat without you saying a word, the sandwiches are griddled in olive oil, the tomato soup gets its silkiness from white beans, and the banana bread is baked with olive oil, which is why it's my standing three o'clock snack."
+      ]
+    },
+    {
+      "id": "downtown_slate_window",
+      "reviews": [
+        "The specials are chalked on a slate wall behind the counter, redrawn every Monday by a barista with seriously good handwriting. Every grain bowl comes coated with a delicious, thick satay dressing. The house granola's peanuts are roasted in-house and give the cafe a lovely aroma.",
+        "Lentil soup that tastes like actual vegetables, steamed greens, a chickpea and roast pepper stew, a quinoa salad bright with herbs: most of the board has never been near meat, and I came back from lunch alert for once. There's no milk fridge behind the bar, just cartons of oat stacked beside the machine, and you won't find a crumb of cheese anywhere on that slate."
+      ]
+    },
+    {
+      "id": "downtown_wren_house",
+      "reviews": [
+        "Every sandwich, bowl and soup on the board has meat or fish in it: chicken and barley soup on a bone-broth base, turkey bowls with roasted vegetables, smoked trout on rye. There's no pastry case either, only a jar of beef jerky by the register and a fridge of chicken salad cups and boiled eggs. All lean, nothing fried, and I never get that post-lunch fog. My vegetarian coworker read the board twice and left with a black coffee.",
+        "The owner keeps a little radio tuned to the ballgame and gives you the score with your change whether you asked or not. In two months of lunches I haven't spotted a nut on the premises: the bowls get their crunch from toasted pumpkin seeds, the rye is studded with caraway, and the dressings are lemon, mustard and olive oil. The trout sits under a bright green herb oil, the soups are clear broths, and coffee is black or oat, take it or leave it."
+      ]
+    },
+    {
+      "id": "downtown_paper_kite",
+      "reviews": [
+        "Paper kites made by the owner's kids hang from every beam and sway when the door opens. The food is fresh and light (roasted beets, herb salads, poached eggs on seeded toast spread with sunflower-seed butter where most cafes would use peanut) and keeps me sharp for afternoon calls. Meat only shows up on a couple of lines of the board; the rest is a spiced chickpea bowl, a mushroom melt, a beet and lentil salad and the like, and that's the half I always order from. Even the granola gets its crunch from oats and pumpkin seeds.",
+        "It's a cheese-and-cream kind of kitchen: crumbled feta and a yogurt dressing on the grain bowl, a mushroom melt oozing cheddar and griddled in butter, a cream-topped soup of the day, and the barista pours whole milk into everything. My lactose-intolerant roommate loved every bite and regretted it all evening."
+      ]
+    },
+    {
+      "id": "downtown_marble_steps",
+      "reviews": [
+        "You climb a short flight of marble steps to get in, and a ginger cat sleeps on the top one most afternoons. The cooking is gloriously heavy: hash browns fried in oil, battered tofu, chickpea fritters straight from the fryer, churros rolled in cinnamon sugar and a sticky date loaf under a sticky syrup glaze. I treated myself in the last week of my internship and needed a nap by three.",
+        "The big breakfast plate skips the bacon altogether: battered tofu, mushrooms, beans and fritters crowd the plate, all fried in sunflower oil. My sister is badly allergic to peanuts and a splash of milk wrecks her stomach for days, yet she picks this place for her birthday brunch every year, orders whatever catches her eye, churros included, and has never once had to flag down the server with a question."
+      ]
+    }
+  ]
+}

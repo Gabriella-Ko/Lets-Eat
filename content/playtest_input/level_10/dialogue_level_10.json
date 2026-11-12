@@ -1,0 +1,85 @@
+{
+  "level_id": "level_10",
+  "script": [
+    {
+      "speaker": "roxy",
+      "text": "S.O.S. the coffee machine at my internship made a noise like a dying goose and quit",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5!!",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "cafe lunch, i'm in!",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "a cafe sounds lovely :) roxy, are you okay? that sounds like a rough morning",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "i'll live. the goose won't",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "mina!! our first lunch together since campus. i've missed you",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "me too! summer has been so busy. i'm really glad it's all of you today",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "brooke told me that story on the climbing wall. nothing satay-adjacent near cyrus, got it",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "you remember that?? i got to order whatever looked good without asking about any of it. best lunch of my summer :)",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Then sushi day is today's standard.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "mina",
+      "text": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them?",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "...still not speaking. i would've remembered around the second bite. thank you mina",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "assistant, you're up. do it for the goose",
+      "emotion": "HUNGRY"
+    }
+  ]
+}

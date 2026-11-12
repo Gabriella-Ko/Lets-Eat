@@ -1,0 +1,54 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_10",
+  "run": 3,
+  "pick": "downtown_linden_corner",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "group (roxy)",
+      "constraint": "Cuisine: cafe, with real coffee and real food",
+      "type": "craving",
+      "source_line": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5!!"
+    },
+    {
+      "who": "brooke",
+      "constraint": "Wholesome, healthy, light food (not heavy or indulgent)",
+      "type": "preference",
+      "source_line": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind"
+    },
+    {
+      "who": "cyrus",
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "source_line": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay. / nothing satay-adjacent near cyrus, got it"
+    },
+    {
+      "who": "mina",
+      "constraint": "Vegetarian (strict diet, deal-breaker); she should be able to order freely from a meat-free menu",
+      "type": "diet",
+      "source_line": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it / Then sushi day is today's standard."
+    },
+    {
+      "who": "roxy",
+      "constraint": "Dairy intolerance (costs one star, not a deal-breaker)",
+      "type": "intolerance",
+      "source_line": "half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them? / ...still not speaking."
+    },
+    {
+      "who": "group",
+      "constraint": "Budget: none stated; every venue is $, so price is not a factor",
+      "type": "budget",
+      "source_line": "(no budget line in chat)"
+    }
+  ],
+  "venue_analysis": {
+    "downtown_linden_corner": "Cafe, $. Meat-free board, peanut-safe (deskmate with auto-injector eats the whole menu), dairy-free by default (oat latte, olive oil, white-bean soup), fresh and light. Meets every constraint: 3 stars.",
+    "downtown_slate_window": "Thick satay dressing on every grain bowl and in-house roasted peanuts. Fails Cyrus's peanut allergy: 0 stars.",
+    "downtown_wren_house": "Every dish has meat or fish. Fails Mina's vegetarian diet: 0 stars.",
+    "downtown_paper_kite": "Peanut-safe, light and healthy, half the menu vegetarian, but cheese, cream, butter and whole milk everywhere. Roxy's dairy intolerance costs a star: 2 stars (maybe fewer if half a meat-free menu doesn't meet the 'sushi day' bar).",
+    "downtown_marble_steps": "Peanut-safe and dairy-safe, but the food is heavy and fried. Misses Brooke's wholesome request: 2 stars at best. It's also unclear whether the rest of the menu is vegetarian."
+  },
+  "difficulty": 3,
+  "notes": "Fair and solvable. Each decoy fails exactly one constraint, and the clues are indirect but readable: the satay plus emergency pen means peanuts, 'stomach not speaking' to milk, butter and cheese means a dairy intolerance, and sushi day means vegetarian. Small point: Linden Corner never says outright that its whole menu is meat-free. You have to infer it from 'went meat-free... never felt like a sacrifice... still working through the board'. That matches the 'sushi day standard' clue, but it's softer than the explicit wording on the other cards. Paper Kite's 'half the board is meat-free' puts the line between 'the menu has vegetarian options' and 'the whole menu is safe' to the test, and a first-time player could stop to think about it. Nothing unfair or contradictory."
+}

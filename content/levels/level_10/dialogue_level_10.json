@@ -1,0 +1,23 @@
+{
+  "level_id": "level_10",
+  "script": [
+    { "speaker": "roxy", "text": "S.O.S. the coffee machine at my internship made a noise like a dying goose and quit", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "roxy", "text": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5!!", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "brooke", "text": "cafe lunch, i'm in!", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "mina", "text": "a cafe sounds lovely :) roxy, are you okay? that sounds like a rough morning", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "roxy", "text": "i'll live. the goose won't", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "mina!! our first lunch together since campus. i've missed you", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "me too! summer has been so busy. i'm really glad it's all of you today", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "cyrus", "text": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "roxy", "text": "brooke told me that story on the climbing wall. nothing satay-adjacent near cyrus, got it", "emotion": "SURPRISED", "clue": "allergy:peanut" },
+    { "speaker": "roxy", "text": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "you remember that?? i got to order whatever looked good without asking about any of it. best lunch of my summer :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "cyrus", "text": "Then sushi day is today's standard.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them?", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "...still not speaking. i would've remembered around the second bite. thank you mina", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "assistant, you're up. do it for the goose", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}
