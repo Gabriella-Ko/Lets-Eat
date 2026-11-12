@@ -8,7 +8,7 @@
     { "speaker": "maya", "text": "noted. i will personally fight any peanut that comes near you", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "BUT it has to be cheap. like actually cheap. one dollar sign, max", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "maya", "text": "every dollar i don't spend is a dollar closer to my trip. i will not be stopped", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "liam", "text": "trip fund respected", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "trip fund respected", "emotion": "HAPPY", "clue": null, "callback": "trip_fund" },
     { "speaker": "cyrus", "text": "Also somewhere that's good for groups please. Last time the three of us ate standing at a counter.", "emotion": "NEUTRAL", "clue": "vibe:group_friendly" },
     { "speaker": "maya", "text": "the counter. my back has never recovered. i am literally never eating standing up again", "emotion": "ANNOYED", "clue": null },
     { "speaker": "liam", "text": "big table. lots of tacos. let's gooo", "emotion": "HAPPY", "clue": null },

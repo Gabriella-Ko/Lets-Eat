@@ -12,7 +12,7 @@
     { "speaker": "brooke", "text": "peanut-free, always. a lot of viet dishes use them tho, so we need to check", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
     { "speaker": "roxy", "text": "noted!! zero peanuts. i'll guard your plate", "emotion": "HAPPY", "clue": null },
     { "speaker": "roxy", "text": "ooh and i'm getting one of those iced coffees with the sweet condensed milk. let's do it", "emotion": "HAPPY", "clue": null },
-    { "speaker": "brooke", "text": "roxy. the milkshake incident. remember?", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "brooke", "text": "roxy. the milkshake incident. remember?", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
     { "speaker": "roxy", "text": "oh no. right. dairy and me are not friends", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
     { "speaker": "roxy", "text": "ok so nothing with milk, cream or butter for me. i always forget until it's too late", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
     { "speaker": "cyrus", "text": "Good catch, Brooke. Better to know now than on the bus home.", "emotion": "NEUTRAL", "clue": null },

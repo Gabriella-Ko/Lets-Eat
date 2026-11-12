@@ -7,7 +7,7 @@
     { "speaker": "maya", "text": "i need pizza. i've been smelling it from the dining hall all morning and i can't take it anymore", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "brooke", "text": "pizza sounds fun, i'm in!", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "brooke", "text": "just not the greasy, heavy kind for me. something fresh and light", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
-    { "speaker": "maya", "text": "fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "maya", "text": "fresh is fine. CHEAP is mandatory. one dollar sign max, it's all for the trip fund", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
     { "speaker": "mina", "text": "a trip? that sounds lovely. where are you going?", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "maya", "text": "the coast!! still saving. i have eaten so much toast", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "pizza sounds good to me too. and don't worry about me, i can always just pick the pepperoni off", "emotion": "NEUTRAL", "clue": null },
