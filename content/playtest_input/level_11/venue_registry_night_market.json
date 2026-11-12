@@ -1,0 +1,41 @@
+{
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_blue_awning",
+      "name": "Blue Awning",
+      "cuisine": "tacos",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_willow_gate",
+      "name": "Willow Gate",
+      "cuisine": "tacos",
+      "price_tier": "$$$"
+    },
+    {
+      "id": "night_market_tin_star",
+      "name": "Tin Star",
+      "cuisine": "tacos",
+      "price_tier": "$$"
+    },
+    {
+      "id": "night_market_little_comet",
+      "name": "Little Comet",
+      "cuisine": "tacos",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_moonlit_corner",
+      "name": "Moonlit Corner",
+      "cuisine": "tacos",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_plum_bridge",
+      "name": "Plum Bridge",
+      "cuisine": "dim_sum",
+      "price_tier": "$"
+    }
+  ]
+}
