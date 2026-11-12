@@ -11,6 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { buildLevels } from '../src/logic/levels.js';
 import { scorePick } from '../src/logic/scoring.js';
 import { recapRows } from '../src/logic/recap.js';
+import { pastVisit } from '../src/logic/beenHere.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -69,6 +70,26 @@ for (const id of requested) {
   if (!solution || scorePick(level.spec, solution, rules).stars !== 3) problems.push(`${id}: the spec's solution does not score 3 stars`);
   if (!level.script.length) problems.push(`${id}: empty chat`);
   console.log(`${problems.length ? '…' : 'ok'} ${id}: ${level.venues.length} venues, ${level.script.length} messages`);
+}
+
+// "Been here before" (logic/beenHere.js): only earlier levels count, and never a past score.
+// Uses every venue that recurs across the loaded levels, with a made-up play history.
+{
+  const appearances = new Map();
+  for (const l of levels) for (const v of l.venues) appearances.set(v.id, [...(appearances.get(v.id) || []), l]);
+  for (const [vid, ls] of appearances) {
+    if (ls.length < 2) continue;
+    const [first, second] = ls;
+    const visits = { [vid]: { seen: ls.map((l) => l.id), picked: [first.id] } };
+    const atFirst = pastVisit(visits, levels, vid, first.number);
+    const atSecond = pastVisit(visits, levels, vid, second.number);
+    if (atFirst) problems.push(`been here: "${vid}" shows a badge in ${first.id}, its first appearance`);
+    if (!atSecond || atSecond.kind !== 'been' || atSecond.last.number !== first.number) problems.push(`been here: "${vid}" in ${second.id} should point back to ${first.id} as BEEN HERE`);
+    else if (JSON.stringify(atSecond.last.reviews) !== JSON.stringify(first.venues.find((v) => v.id === vid).reviews)) problems.push(`been here: "${vid}" shows the wrong level's reviews`);
+    if (atSecond && Object.keys(atSecond).some((k) => /star|score|result/i.test(k))) problems.push(`been here: "${vid}" exposes a past score`);
+    const seenOnly = pastVisit({ [vid]: { seen: [first.id], picked: [] } }, levels, vid, second.number);
+    if (seenOnly?.kind !== 'seen') problems.push(`been here: "${vid}" seen but never picked should be SEEN BEFORE`);
+  }
 }
 
 if (problems.length) {
