@@ -4,7 +4,9 @@
     "steps": 13,
     "retries": 2,
     "levels_with_retries": 2,
-    "tokens": 367942,
+    "runs": 13,
+    "tokens": 1305112,
+    "tokens_output": 69332,
     "latest_brief": "v5",
     "brief_versions": 5
   },
@@ -13,7 +15,9 @@
     "steps": 29,
     "retries": 9,
     "levels_with_retries": 5,
-    "tokens": 474519,
+    "runs": 20,
+    "tokens": 1632305,
+    "tokens_output": 132686,
     "latest_brief": "v6",
     "brief_versions": 6
   },
@@ -22,7 +26,9 @@
     "steps": 13,
     "retries": 4,
     "levels_with_retries": 3,
-    "tokens": 276125,
+    "runs": 13,
+    "tokens": 1299643,
+    "tokens_output": 96966,
     "latest_brief": "v6",
     "brief_versions": 6
   },
@@ -31,7 +37,9 @@
     "steps": 19,
     "retries": 0,
     "levels_with_retries": 0,
-    "tokens": 204577,
+    "runs": 20,
+    "tokens": 4014082,
+    "tokens_output": 168849,
     "latest_brief": "v2",
     "brief_versions": 2
   },
@@ -40,7 +48,9 @@
     "steps": 66,
     "retries": 1,
     "levels_with_retries": 1,
-    "tokens": 776680,
+    "runs": 66,
+    "tokens": 1984126,
+    "tokens_output": 165312,
     "latest_brief": "v2",
     "brief_versions": 2
   }

@@ -1,6 +1,6 @@
 {
   "generated_by": "orchestrator",
-  "generated_at": "2026-11-12T15:01:40.977Z",
+  "generated_at": "2026-11-12T15:10:33.517Z",
   "source": "logs/run_log.json, git history of logs/critique_level_XX.json, logs/playtest_level_XX_runN.json, content/levels/*/spec",
   "totals": {
     "levels": 10,
@@ -86,7 +86,14 @@
           "difficulty": 1
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 191415,
+        "output": 10745,
+        "new_input": 58581,
+        "cache_read": 122089,
+        "subagent_total": 191415
+      }
     },
     {
       "id": "level_02",
@@ -174,7 +181,14 @@
           "difficulty": 1
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 469220,
+        "output": 28989,
+        "new_input": 148174,
+        "cache_read": 292057,
+        "subagent_total": 469220
+      }
     },
     {
       "id": "level_03",
@@ -242,7 +256,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 5235957,
+        "output": 58750,
+        "new_input": 240604,
+        "cache_read": 4936603,
+        "subagent_total": 648112
+      }
     },
     {
       "id": "level_04",
@@ -335,7 +356,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 3363473,
+        "output": 41662,
+        "new_input": 187244,
+        "cache_read": 3134567,
+        "subagent_total": 571962
+      }
     },
     {
       "id": "level_05",
@@ -413,7 +441,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 13899935,
+        "output": 64030,
+        "new_input": 516506,
+        "cache_read": 13319399,
+        "subagent_total": 589826
+      }
     },
     {
       "id": "level_06",
@@ -481,7 +516,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 6523138,
+        "output": 37648,
+        "new_input": 173969,
+        "cache_read": 6311521,
+        "subagent_total": 504963
+      }
     },
     {
       "id": "level_07",
@@ -638,7 +680,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 7890050,
+        "output": 86567,
+        "new_input": 594232,
+        "cache_read": 7209251,
+        "subagent_total": 1185536
+      }
     },
     {
       "id": "level_08",
@@ -800,7 +849,14 @@
           "difficulty": 2
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 16887032,
+        "output": 129531,
+        "new_input": 538859,
+        "cache_read": 16218642,
+        "subagent_total": 1715039
+      }
     },
     {
       "id": "level_09",
@@ -916,7 +972,14 @@
           "difficulty": 3
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 12179728,
+        "output": 108610,
+        "new_input": 389058,
+        "cache_read": 11682060,
+        "subagent_total": 1380552
+      }
     },
     {
       "id": "level_10",
@@ -1050,7 +1113,14 @@
           "difficulty": 3
         }
       ],
-      "playtests_correct": 3
+      "playtests_correct": 3,
+      "tok": {
+        "total": 22142318,
+        "output": 135780,
+        "new_input": 858349,
+        "cache_read": 21148189,
+        "subagent_total": 1523151
+      }
     }
   ],
   "agents": [

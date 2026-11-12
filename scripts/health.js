@@ -67,6 +67,97 @@ const levels = levelIds.map((id) => {
   };
 });
 
+// ---------- exact tokens from Claude Code session transcripts ----------
+// Claude Code keeps every session (and each subagent run) as JSONL under ~/.claude/projects/<project slug>/.
+// Each API call there carries its usage. We count each call once (one call can span several lines) and split
+// it into new input, cache writes, cache reads and output. Subagent runs are exact; the Orchestrator's own
+// calls are given to a level by time (its window in run_log, first entry to approval), so they're estimates.
+// Set LETS_EAT_TRANSCRIPTS to another folder if the transcripts live elsewhere. Without them, run_log tokens are used.
+const os = require('os');
+const slug = ROOT.replace(/[^A-Za-z0-9]/g, '-');
+const TRANSCRIPTS = process.env.LETS_EAT_TRANSCRIPTS || path.join(os.homedir(), '.claude', 'projects', slug);
+const AGENT_OF = { 'puzzle-architect': 'puzzle_architect', 'narrative-writer': 'narrative_writer', 'map-seeder': 'map_seeder', critic: 'critic', 'blind-playtester': 'blind_playtester' };
+const zero = () => ({ input: 0, cache_write: 0, cache_read: 0, output: 0, calls: 0 });
+const addUsage = (t, u) => { t.input += u.input_tokens || 0; t.cache_write += u.cache_creation_input_tokens || 0; t.cache_read += u.cache_read_input_tokens || 0; t.output += u.output_tokens || 0; t.calls++; };
+const readJsonl = (p) => fs.readFileSync(p, 'utf8').split('\n').filter(Boolean).map((l) => { try { return JSON.parse(l); } catch { return null; } }).filter(Boolean);
+const usageCalls = (lines) => {
+  const m = new Map();
+  for (const l of lines) if (l.type === 'assistant' && l.message?.usage) m.set(l.message.id || l.uuid, { usage: l.message.usage, at: l.timestamp });
+  return [...m.values()];
+};
+// Bucket for a subagent run, from its description (the prompt can mention other levels).
+const bucketOf = (desc) => {
+  if (/outline/i.test(desc)) return 'campaign_outline';
+  if (/levels?\s*\d\d\s*[-–]\s*\d\d/i.test(desc)) return 'retrofit_callbacks';
+  return desc.match(/level_\d\d/)?.[0] || 'other';
+};
+// Level windows for the Orchestrator estimate.
+const windows = levelIds.map((id) => {
+  const ts = runLog.filter((e) => e.level === id).map((e) => e.timestamp).sort();
+  const appr = runLog.filter((e) => e.level === id && e.step === 'approval').map((e) => e.timestamp).sort();
+  return { id, from: ts[0], to: appr[0] || ts.at(-1) };
+}).filter((w) => w.from);
+const windowOf = (at) => windows.filter((w) => at >= w.from && at <= w.to).sort((a, b) => (a.from < b.from ? 1 : -1))[0]?.id || 'other';
+
+const tokenRows = []; // {bucket, agent, kind, input, cache_write, cache_read, output, calls, runs}
+let tokensSource = 'run_log';
+if (fs.existsSync(TRANSCRIPTS)) {
+  tokensSource = 'transcripts';
+  const acc = new Map();
+  const bump = (bucket, agent, kind, u, run) => {
+    const k = `${bucket}|${agent}|${kind}`;
+    const t = acc.get(k) || { bucket, agent, kind, ...zero(), runs: new Set() };
+    addUsage(t, u);
+    if (run) t.runs.add(run);
+    acc.set(k, t);
+  };
+  for (const s of fs.readdirSync(TRANSCRIPTS)) {
+    const sub = path.join(TRANSCRIPTS, s, 'subagents');
+    if (!fs.existsSync(sub)) continue;
+    let crew = false;
+    for (const f of fs.readdirSync(sub).filter((x) => x.endsWith('.jsonl'))) {
+      const metaPath = path.join(sub, f.replace(/\.jsonl$/, '.meta.json'));
+      const meta = fs.existsSync(metaPath) ? JSON.parse(fs.readFileSync(metaPath, 'utf8')) : {};
+      const agent = AGENT_OF[meta.agentType];
+      if (!agent) continue; // not a crew agent (e.g. Explore)
+      crew = true;
+      for (const c of usageCalls(readJsonl(path.join(sub, f)))) bump(bucketOf(meta.description || ''), agent, 'subagent', c.usage, f);
+    }
+    // The main session of a session that ran the crew is the Orchestrator.
+    const main = path.join(TRANSCRIPTS, `${s}.jsonl`);
+    if (crew && fs.existsSync(main)) {
+      for (const c of usageCalls(readJsonl(main))) bump(windowOf(c.at), 'orchestrator', 'orchestrator_estimated', c.usage, null);
+    }
+  }
+  for (const t of acc.values()) tokenRows.push({ ...t, runs: t.runs.size, total: t.input + t.cache_write + t.cache_read + t.output });
+} else {
+  for (const e of runLog.filter((x) => x.tokens != null)) {
+    tokenRows.push({ bucket: e.level, agent: e.agent_id, kind: 'run_log', input: 0, cache_write: 0, cache_read: 0, output: 0, calls: 0, runs: 1, total: e.tokens });
+  }
+}
+const tokOf = (bucket) => {
+  const rows = tokenRows.filter((r) => r.bucket === bucket);
+  const sum = (k) => rows.reduce((s, r) => s + r[k], 0);
+  return { total: sum('total'), output: sum('output'), new_input: sum('input') + sum('cache_write'), cache_read: sum('cache_read'),
+    subagent_total: rows.filter((r) => r.kind === 'subagent').reduce((s, r) => s + r.total, 0) };
+};
+for (const l of levels) l.tok = tokOf(l.id);
+
+// ---------- cast and brief versions ----------
+const cast = levels.flatMap((l) => readJson(`content/levels/${l.id}/spec_${l.id}.json`).guests.map((g) => ({ level: l.id, number: l.number, chapter: l.chapter, character: g })));
+const vnum = (v) => Number(String(v).replace(/^v/, '')) || 0;
+const briefs = [];
+for (const a of [...CREW, 'orchestrator']) {
+  const e = runLog.filter((x) => x.agent_id === a && x.brief_version).sort((x, y) => (x.timestamp < y.timestamp ? -1 : 1));
+  const byV = new Map();
+  for (const x of e) {
+    const b = byV.get(x.brief_version) || { agent: a, version: x.brief_version, n: vnum(x.brief_version), first_at: x.timestamp, first_level: x.level, last_at: x.timestamp, steps: 0 };
+    b.last_at = x.timestamp; b.steps++;
+    byV.set(x.brief_version, b);
+  }
+  briefs.push(...[...byV.values()].sort((x, y) => x.n - y.n));
+}
+
 // ---------- critic findings across all rounds ----------
 const byCheck = {};
 for (const l of levels) {
@@ -127,7 +218,11 @@ fs.mkdirSync(rowsDir, { recursive: true });
 const writeRows = (name, rows) => fs.writeFileSync(path.join(rowsDir, `${name}.json`), JSON.stringify(rows, null, 2) + '\n');
 writeRows('levels', levels.map((l) => ({
   level: l.id, number: l.number, chapter: l.chapter, difficulty: l.difficulty, guests: l.guests, needs: l.needs,
-  steps: l.steps, retries: l.total_retries, tokens: l.tokens, tokens_logged: l.tokens_logged,
+  steps: l.steps, retries: l.total_retries,
+  tokens: l.tok.total, tokens_output: l.tok.output, tokens_new_input: l.tok.new_input, tokens_cache_read: l.tok.cache_read,
+  tokens_subagents: l.tok.subagent_total, tokens_run_log: l.tokens, tokens_logged: l.tokens_logged,
+  playtest_difficulty: l.playtests.length && l.playtests.every((r) => typeof r.difficulty === 'number')
+    ? Math.round((l.playtests.reduce((s, r) => s + r.difficulty, 0) / l.playtests.length) * 10) / 10 : null,
   critique_rounds: l.critique_rounds, first_suggestions: l.critiques[0]?.suggestions ?? 0,
   final_suggestions: l.final_suggestions ?? 0, must_fix: l.critiques.reduce((t, c) => t + c.must_fix, 0),
   playtests_correct: l.playtests_correct, playtests: l.playtests.length,
@@ -138,11 +233,34 @@ writeRows('findings', findings.map((f) => ({
   levels: f.levels.length, recurring: f.recurring,
   main_agent: Object.entries(f.agents).sort((a, b) => b[1] - a[1])[0]?.[0]?.replace(/ \(.*\)$/, '') ?? null,
 })));
-writeRows('agents', agents.map((a) => ({
-  agent: a.agent, steps: a.steps, retries: a.retries, levels_with_retries: a.levels_with_retries.length,
-  tokens: a.tokens, latest_brief: a.brief_versions.at(-1) ?? null, brief_versions: a.brief_versions.length,
-})));
-writeRows('totals', [{ ...out.totals, suggestions_total: levels.reduce((s, l) => s + l.critiques.reduce((t, c) => t + c.suggestions, 0), 0), generated_at: out.generated_at }]);
+writeRows('agents', agents.map((a) => {
+  const rows = tokenRows.filter((r) => r.agent === a.agent);
+  return {
+    agent: a.agent, steps: a.steps, retries: a.retries, levels_with_retries: a.levels_with_retries.length,
+    runs: rows.reduce((s, r) => s + r.runs, 0), tokens: tokensSource === 'transcripts' ? rows.reduce((s, r) => s + r.total, 0) : a.tokens,
+    tokens_output: rows.reduce((s, r) => s + r.output, 0),
+    latest_brief: a.brief_versions.at(-1) ?? null, brief_versions: a.brief_versions.length,
+  };
+}));
+const tsum = (rows, k) => rows.reduce((s, r) => s + r[k], 0);
+const sub = tokenRows.filter((r) => r.kind === 'subagent');
+writeRows('totals', [{
+  ...out.totals,
+  suggestions_total: levels.reduce((s, l) => s + l.critiques.reduce((t, c) => t + c.suggestions, 0), 0),
+  tokens_source: tokensSource,
+  tokens_all: tsum(tokenRows, 'total'), tokens_output: tsum(tokenRows, 'output'),
+  tokens_new_input: tsum(tokenRows, 'input') + tsum(tokenRows, 'cache_write'), tokens_cache_read: tsum(tokenRows, 'cache_read'),
+  tokens_subagents: tsum(sub, 'total'), subagent_runs: sub.reduce((s, r) => s + r.runs, 0),
+  tokens_orchestrator: tsum(tokenRows.filter((r) => r.agent === 'orchestrator'), 'total'),
+  generated_at: out.generated_at,
+}]);
+const chapterOf = Object.fromEntries(levels.map((l) => [l.id, l.chapter]));
+writeRows('tokens', tokenRows.map((r) => ({
+  bucket: r.bucket, chapter: chapterOf[r.bucket] ?? null, agent: r.agent, kind: r.kind, runs: r.runs, calls: r.calls,
+  new_input: r.input + r.cache_write, cache_read: r.cache_read, output: r.output, total: r.total,
+})).sort((a, b) => (a.bucket + a.agent < b.bucket + b.agent ? -1 : 1)));
+writeRows('cast', cast);
+writeRows('briefs', briefs);
 const t = out.totals;
 console.log(`pipeline health: ${t.levels} levels (${t.approved} approved), ${t.retries} retries, ${t.must_fix_total} must-fix findings over ${t.critique_rounds} critique rounds, playtests ${t.playtests_correct}/${t.playtests_total} correct, ${t.tokens} tokens logged`);
 console.log(`written to ${path.relative(ROOT, dest)}`);

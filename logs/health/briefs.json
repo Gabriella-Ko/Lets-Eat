@@ -1,0 +1,200 @@
+[
+  {
+    "agent": "puzzle_architect",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-03T00:00:00Z",
+    "first_level": "campaign",
+    "last_at": "2026-11-03T00:00:00Z",
+    "steps": 1
+  },
+  {
+    "agent": "puzzle_architect",
+    "version": "v2",
+    "n": 2,
+    "first_at": "2026-11-05T00:00:00Z",
+    "first_level": "campaign",
+    "last_at": "2026-11-06T04:38:45.545Z",
+    "steps": 3
+  },
+  {
+    "agent": "puzzle_architect",
+    "version": "v3",
+    "n": 3,
+    "first_at": "2026-11-06T04:54:35.152Z",
+    "first_level": "level_04",
+    "last_at": "2026-11-06T04:54:35.152Z",
+    "steps": 1
+  },
+  {
+    "agent": "puzzle_architect",
+    "version": "v4",
+    "n": 4,
+    "first_at": "2026-11-06T05:00:00.327Z",
+    "first_level": "level_05",
+    "last_at": "2026-11-10T04:06:37.080Z",
+    "steps": 4
+  },
+  {
+    "agent": "puzzle_architect",
+    "version": "v5",
+    "n": 5,
+    "first_at": "2026-11-10T04:22:11.054Z",
+    "first_level": "level_07",
+    "last_at": "2026-11-11T05:25:42.440Z",
+    "steps": 4
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-05T00:00:00Z",
+    "first_level": "level_02",
+    "last_at": "2026-11-05T00:00:00Z",
+    "steps": 1
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v2",
+    "n": 2,
+    "first_at": "2026-11-06T04:39:51.418Z",
+    "first_level": "level_03",
+    "last_at": "2026-11-06T05:01:03.236Z",
+    "steps": 4
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v3",
+    "n": 3,
+    "first_at": "2026-11-09T15:34:35.017Z",
+    "first_level": "level_06",
+    "last_at": "2026-11-11T03:43:18.987Z",
+    "steps": 6
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v4",
+    "n": 4,
+    "first_at": "2026-11-11T04:06:54.494Z",
+    "first_level": "level_08",
+    "last_at": "2026-11-11T04:41:08.178Z",
+    "steps": 4
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v5",
+    "n": 5,
+    "first_at": "2026-11-11T05:06:09.221Z",
+    "first_level": "level_09",
+    "last_at": "2026-11-12T03:24:39.063Z",
+    "steps": 4
+  },
+  {
+    "agent": "narrative_writer",
+    "version": "v6",
+    "n": 6,
+    "first_at": "2026-11-12T06:07:50.187Z",
+    "first_level": "level_10",
+    "last_at": "2026-11-12T06:07:50.187Z",
+    "steps": 10
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-05T00:00:00Z",
+    "first_level": "level_02",
+    "last_at": "2026-11-06T04:39:51.418Z",
+    "steps": 2
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v2",
+    "n": 2,
+    "first_at": "2026-11-06T04:55:30.455Z",
+    "first_level": "level_04",
+    "last_at": "2026-11-06T04:55:30.455Z",
+    "steps": 1
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v3",
+    "n": 3,
+    "first_at": "2026-11-06T05:01:03.236Z",
+    "first_level": "level_05",
+    "last_at": "2026-11-06T05:01:03.236Z",
+    "steps": 1
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v4",
+    "n": 4,
+    "first_at": "2026-11-09T15:34:35.017Z",
+    "first_level": "level_06",
+    "last_at": "2026-11-09T15:34:35.017Z",
+    "steps": 1
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v5",
+    "n": 5,
+    "first_at": "2026-11-10T04:24:17.128Z",
+    "first_level": "level_07",
+    "last_at": "2026-11-11T04:41:08.178Z",
+    "steps": 4
+  },
+  {
+    "agent": "map_seeder",
+    "version": "v6",
+    "n": 6,
+    "first_at": "2026-11-11T05:06:09.221Z",
+    "first_level": "level_09",
+    "last_at": "2026-11-12T03:24:39.063Z",
+    "steps": 4
+  },
+  {
+    "agent": "critic",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-08T21:43:16.733Z",
+    "first_level": "level_01",
+    "last_at": "2026-11-08T21:43:16.733Z",
+    "steps": 5
+  },
+  {
+    "agent": "critic",
+    "version": "v2",
+    "n": 2,
+    "first_at": "2026-11-09T15:35:44.849Z",
+    "first_level": "level_06",
+    "last_at": "2026-11-12T03:27:01.918Z",
+    "steps": 14
+  },
+  {
+    "agent": "blind_playtester",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-05T00:00:00Z",
+    "first_level": "level_02",
+    "last_at": "2026-11-09T15:36:32.000Z",
+    "steps": 33
+  },
+  {
+    "agent": "blind_playtester",
+    "version": "v2",
+    "n": 2,
+    "first_at": "2026-11-10T04:26:55.377Z",
+    "first_level": "level_07",
+    "last_at": "2026-11-12T03:27:01.918Z",
+    "steps": 33
+  },
+  {
+    "agent": "orchestrator",
+    "version": "v1",
+    "n": 1,
+    "first_at": "2026-11-05T00:00:00Z",
+    "first_level": "level_02",
+    "last_at": "2026-11-12T03:27:01.918Z",
+    "steps": 26
+  }
+]
