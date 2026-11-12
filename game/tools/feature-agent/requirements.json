@@ -1,0 +1,129 @@
+{
+  "_about": "What the GDD (docs/game_bible.md) requires of the game code, one entry per feature, for tools/feature-agent/feature_agent.mjs. 'detect' rules are checked against game/ (paths relative to it): a requirement is met when all its rules pass. 'status' is the bible item's status (Locked weighs more than Proposed). 'impact' and 'effort' are 1-5. 'depends' lists requirement ids that must be met first.",
+  "requirements": [
+    {
+      "id": "core_loop_scenes",
+      "title": "Core loop scenes",
+      "bible": "Game identity > Core loop: read chat, inspect search results and reviews, recommend, see the reaction.",
+      "status": "Locked", "impact": 5, "effort": 4, "depends": [],
+      "detect": [
+        { "file": "src/scenes/ChatScene.js" }, { "file": "src/scenes/ResultsListScene.js" }, { "file": "src/scenes/OutcomeScene.js" },
+        { "contains": "src/main.js", "pattern": "ChatScene.*ResultsListScene.*OutcomeScene" }
+      ]
+    },
+    {
+      "id": "static_content_no_runtime_ai",
+      "title": "Static JSON content, no runtime AI or network calls",
+      "bible": "Game identity > Engine: Phaser 3, static JSON loaded at startup, no runtime AI calls.",
+      "status": "Locked", "impact": 5, "effort": 2, "depends": [],
+      "detect": [
+        { "contains": "src/content.js", "pattern": "import\\.meta\\.glob" },
+        { "absent": "src", "pattern": "\\bfetch\\(|XMLHttpRequest|anthropic|openai" }
+      ]
+    },
+    {
+      "id": "scoring_rules",
+      "title": "Scoring: hard check, start at 3, -1 per soft miss, floor of 1",
+      "bible": "Scoring rules (Locked).",
+      "status": "Locked", "impact": 5, "effort": 3, "depends": [],
+      "detect": [
+        { "contains": "src/logic/scoring.js", "pattern": "export function scorePick" },
+        { "contains": "src/logic/scoring.js", "pattern": "floor_stars" },
+        { "contains": "src/logic/scoring.js", "pattern": "hardMisses" }
+      ]
+    },
+    {
+      "id": "emotion_fallback",
+      "title": "Portrait per emotion tag, unknown tags fall back to NEUTRAL",
+      "bible": "Emotion tags and art rules: any unknown tag falls back to NEUTRAL; portrait_<character>_<tag>.",
+      "status": "Locked", "impact": 3, "effort": 1, "depends": [],
+      "detect": [{ "contains": "src/ui/theme.js", "pattern": "portrait_\\$\\{character\\}.*NEUTRAL|NEUTRAL[\\s\\S]*portrait_\\$\\{character\\}" }]
+    },
+    {
+      "id": "cuisine_icons",
+      "title": "One icon per cuisine",
+      "bible": "Emotion tags and art rules > Venue icon: one per cuisine, icon_<cuisine>.png.",
+      "status": "Locked", "impact": 2, "effort": 1, "depends": [],
+      "detect": [{ "contains": "src/scenes/ResultsListScene.js", "pattern": "icon_\\$\\{" }]
+    },
+    {
+      "id": "notebook_sidebar",
+      "title": "Notebook sidebar fed by tagged lines",
+      "bible": "Data schemas > Dialogue: tagged lines feed the Notebook sidebar as the player reads them.",
+      "status": "Locked", "impact": 4, "effort": 2, "depends": ["core_loop_scenes"],
+      "detect": [{ "contains": "src/ui/notebook.js", "pattern": "export function notebook" }]
+    },
+    {
+      "id": "partial_hint_and_highlight",
+      "title": "Partial-success hint names each miss; reread highlights the missed line",
+      "bible": "Scoring rules > Partial success: hint names each missed preference. Data schemas: a partial-success hint highlights the tagged line the player missed.",
+      "status": "Locked", "impact": 4, "effort": 2, "depends": ["core_loop_scenes"],
+      "detect": [
+        { "contains": "src/scenes/OutcomeScene.js", "pattern": "Missed:" },
+        { "contains": "src/scenes/ChatScene.js", "pattern": "highlight" }
+      ]
+    },
+    {
+      "id": "fail_retry",
+      "title": "Failed level must be retried",
+      "bible": "Scoring rules > Complete failure: 0 stars, Failed, retry with a hint.",
+      "status": "Locked", "impact": 4, "effort": 1, "depends": ["core_loop_scenes"],
+      "detect": [{ "contains": "src/scenes/OutcomeScene.js", "pattern": "Try again" }]
+    },
+    {
+      "id": "scrapbook",
+      "title": "Scrapbook pages unlocked by callbacks",
+      "bible": "Campaign structure > Scrapbook (Locked): a page unlocks the first time the player reads a line tagged with its id.",
+      "status": "Locked", "impact": 3, "effort": 3, "depends": ["core_loop_scenes"],
+      "detect": [
+        { "file": "src/scenes/ScrapbookScene.js" },
+        { "contains": "src/scenes/ChatScene.js", "pattern": "unlockPage\\(" }
+      ]
+    },
+    {
+      "id": "credits_file",
+      "title": "Credits file for music tracks",
+      "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks, sourced by hand from Bensound and Pixabay Music, not by agents. Each track's license and any required credit are logged in a credits file shown in the game's credits screen.",
+      "status": "Locked", "impact": 2, "effort": 1, "depends": [],
+      "spec": "Create game/public/credits.json: { \"music\": [ ...tracks ], \"art\": [ ...entries ], \"_about\": \"...\" }. Each music track entry: file, title, artist, source (Bensound | Pixabay Music), license, credit_line, url. Gabriella adds tracks by hand; agents never pick or download music, so leave \"music\" as an empty list. For \"art\", one entry crediting the portrait and venue art as Gabriella's own (Nano Banana-generated pixel art). Load it in BootScene with this.load.json('credits', 'credits.json') and store it in the registry as 'credits'.",
+      "detect": [
+        { "contains": "public/credits.json", "pattern": "\"music\"\\s*:" },
+        { "contains": "src/scenes/BootScene.js", "pattern": "credits\\.json" }
+      ]
+    },
+    {
+      "id": "credits_screen",
+      "title": "Credits screen",
+      "bible": "Game identity > Audio (Locked): ... logged in a credits file shown in the game's credits screen.",
+      "status": "Locked", "impact": 3, "effort": 2, "depends": ["credits_file"],
+      "spec": "Add src/scenes/CreditsScene.js (scene key 'Credits'), registered in main.js, reached from a 'Credits' button on the menu and back with '← Levels' and Esc. It lists every entry of the registry's 'credits' (music: title, artist, source, license and credit_line; art). With no music yet it says so plainly. Long lists scroll (ui/scroll.js). Use the theme's text()/pixel()/readText() and C colours; respect the game's accessibility rules in CLAUDE.md.",
+      "detect": [
+        { "file": "src/scenes/CreditsScene.js" },
+        { "contains": "src/main.js", "pattern": "CreditsScene" },
+        { "contains": "src/scenes/MenuScene.js", "pattern": "'Credits'" }
+      ]
+    },
+    {
+      "id": "music_player",
+      "title": "Background music from the credited tracks",
+      "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks.",
+      "status": "Locked", "impact": 3, "effort": 3, "depends": ["credits_file"],
+      "spec": "Add src/ui/music.js: plays only tracks listed in the registry's 'credits'.music (files under public/music/), looping through them at a low volume, starting only after the player's first click or key press (browsers block autoplay). If the list is empty it does nothing and never errors. Exports start(scene), setEnabled(on) and isEnabled(). Loading the audio files is done in BootScene from the credits list.",
+      "detect": [
+        { "file": "src/ui/music.js" },
+        { "contains": "src/ui/music.js", "pattern": "export function setEnabled" }
+      ]
+    },
+    {
+      "id": "music_option",
+      "title": "Music on/off in Options",
+      "bible": "Game identity > Audio (Locked); the game's accessibility options live on the Options screen.",
+      "status": "Locked", "impact": 2, "effort": 1, "depends": ["music_player"],
+      "spec": "Add a 'music' setting (On / Off, default On) to src/ui/settings.js OPTIONS and a row for it on the Options screen; apply it through music.js setEnabled().",
+      "detect": [
+        { "contains": "src/ui/settings.js", "pattern": "music\\s*:" },
+        { "contains": "src/scenes/OptionsScene.js", "pattern": "'music'" }
+      ]
+    }
+  ]
+}

@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "boot-test": "node test/boot-test.mjs && node test/browser-boot.mjs"
+    "boot-test": "node test/boot-test.mjs && node test/browser-boot.mjs",
+    "feature-agent": "node tools/feature-agent/feature_agent.mjs"
   },
   "dependencies": {
     "@fontsource/pixelify-sans": "^5.3.0",
