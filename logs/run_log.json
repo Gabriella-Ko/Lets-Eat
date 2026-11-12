@@ -2180,5 +2180,15 @@
     "result": "SUCCESS; boot test passed, 10 levels loaded in order",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T06:20:23.572Z",
+    "level": "retrofit_callbacks",
+    "agent_id": "provenance",
+    "brief_version": "v1",
+    "step": "provenance",
+    "result": "manifest written; dialogue_level_01..10 now point to their retrofit commits (narrative_writer v6)",
+    "retries": 0,
+    "tokens": null
   }
 ]
