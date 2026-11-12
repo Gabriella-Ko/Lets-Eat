@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, pixel, text } from '../ui/theme.js';
+import { C, W, pixel, text, readText } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { notebook, pinMode, getPins } from '../ui/notebook.js';
 import { scrollArea } from '../ui/scroll.js';
@@ -7,7 +7,8 @@ import { loadVisits, recordSeen } from '../ui/visitStore.js';
 import { pastVisit } from '../logic/beenHere.js';
 import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
 
-const BADGE = { been: { label: 'BEEN HERE', fill: C.accent }, seen: { label: 'SEEN BEFORE', fill: C.blue } };
+// Getters, so the colours follow the High contrast option.
+const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
 
 const LIST = { x: 24, y: 78, w: 290, h: 486 };
 const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
@@ -224,7 +225,7 @@ export default class ResultsListScene extends Phaser.Scene {
     let ry = 0;
     const add = (o) => (area.content.add(o), o);
     const review = (r, past) => {
-      const t = add(this.add.text(12, ry + 9, `“${r}”`, text(14, past ? C.inkSoft : C.ink, { wordWrap: { width: RW - 24, useAdvancedWrap: true }, lineSpacing: 2 })));
+      const t = add(this.add.text(12, ry + 9, `“${r}”`, readText(14, past ? C.inkSoft : C.ink, { wordWrap: { width: RW - 24, useAdvancedWrap: true }, lineSpacing: 2 })));
       const g = this.add.graphics().fillStyle(past ? 0xfaf3ea : 0xffffff, 1).fillRoundedRect(0, ry, RW, t.height + 18, 8);
       area.content.addAt(g, area.content.getIndex(t));
       ry += t.height + 28;

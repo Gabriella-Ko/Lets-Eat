@@ -59,6 +59,8 @@ export function star(g, cx, cy, r, filled) {
     pts.push({ x: cx + Math.cos(a) * rad, y: cy + Math.sin(a) * rad });
   }
   g.fillStyle(filled ? C.gold : C.goldDim, 1).fillPoints(pts, true);
+  // Empty stars also get an outline, so filled and empty differ by shape, not only by colour.
+  if (!filled) g.lineStyle(Math.max(1.5, r / 10), C.label, 0.9).strokePoints(pts, true, true);
 }
 
 /**

@@ -1,5 +1,6 @@
 import Phaser from 'phaser';
-import { C, W, H, CHARACTERS, pixel, text } from '../ui/theme.js';
+import { tween } from '../ui/motion.js';
+import { C, W, H, CHARACTERS, pixel, text, readText } from '../ui/theme.js';
 import { panel, button, star, saveStars, portrait } from '../ui/widgets.js';
 import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
@@ -60,8 +61,10 @@ export default class OutcomeScene extends Phaser.Scene {
       const s = this.add.graphics({ x: W / 2 - 56 + i * 56, y: 124 });
       star(s, 0, 0, 22, i < score.stars);
       s.setScale(0);
-      this.tweens.add({ targets: s, scale: 1, delay: 200 + i * 180, duration: 260, ease: 'Back.easeOut' });
+      tween(this, { targets: s, scale: 1, delay: 200 + i * 180, duration: 260, ease: 'Back.easeOut' });
     }
+    // The count in words too, so it never depends on telling the star colours apart.
+    this.starsLabel = this.add.text(W / 2 + 100, 124, `${score.stars} of 3 stars`, pixel(14, C.label)).setOrigin(0, 0.5);
 
     this.drawImageSlot(score.result);
     this.newPageNote();
@@ -73,11 +76,11 @@ export default class OutcomeScene extends Phaser.Scene {
       const c = this.add.container(0, y);
       c.add(portrait(this, REACT.x + 42, 30, 52, line.speaker, line.emotion));
       c.add(this.add.text(REACT.x + 80, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold' })));
-      const body = this.add.text(REACT.x + 94, 28, line.text, text(15, C.ink, { wordWrap: { width: REACT.w - 130, useAdvancedWrap: true } }));
+      const body = this.add.text(REACT.x + 94, 28, line.text, readText(15, C.ink, { wordWrap: { width: REACT.w - 130, useAdvancedWrap: true } }));
       const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(REACT.x + 80, 19, body.width + 28, body.height + 18, 10);
       c.add([bubble, body]);
       c.setAlpha(0);
-      this.tweens.add({ targets: c, alpha: 1, delay: 700 + i * 500, duration: 250 });
+      tween(this, { targets: c, alpha: 1, delay: 700 + i * 500, duration: 250 });
       y += Math.max(body.height + 46, 70);
     });
     const panelH = Math.max(IMG.h, y - REACT.y + 6);
@@ -154,7 +157,7 @@ export default class OutcomeScene extends Phaser.Scene {
         const ch = CHARACTERS[line.speaker] || { name: line.speaker, color: C.inkSoft };
         const isSaved = saved?.has(index);
         const quoteX = 38 + 14;
-        const quote = this.add.text(quoteX, ry + 4, `“${line.text}”`, text(14, C.ink, { wordWrap: { width: LIST_W - quoteX - (saved ? 150 : 24), useAdvancedWrap: true } }));
+        const quote = this.add.text(quoteX, ry + 4, `“${line.text}”`, readText(14, C.ink, { wordWrap: { width: LIST_W - quoteX - (saved ? 150 : 24), useAdvancedWrap: true } }));
         const who = this.add.text(quoteX, ry + quote.height + 6, ch.name, pixel(13, ch.color, { fontStyle: 'bold' }));
         const bar = this.add.graphics().fillStyle(isSaved ? C.accent : C.panelDark, 1).fillRect(38, ry + 2, 4, quote.height + who.height + 6);
         area.content.add([bar, quote, who]);
@@ -215,7 +218,7 @@ export default class OutcomeScene extends Phaser.Scene {
     g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, 58, 10);
     c.add([g, t1, t2]);
     c.setAlpha(0);
-    this.tweens.add({ targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
+    tween(this, { targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
     // Then the unlock card for each new page, once the reactions have had a moment.
     this.unlockQueue = [...ids];
@@ -244,7 +247,7 @@ export default class OutcomeScene extends Phaser.Scene {
     const by = card.y + 150;
 
     const shade = keep(this.add.rectangle(0, 0, W, H, 0x000000, 0.65).setOrigin(0).setInteractive().setAlpha(0));
-    this.tweens.add({ targets: shade, alpha: 1, duration: 200 });
+    tween(this, { targets: shade, alpha: 1, duration: 200 });
     const sheet = keep(this.add.container(0, 40).setAlpha(0));
     const bg = this.add.graphics();
     bg.fillStyle(0x000000, 0.25).fillRoundedRect(card.x + 4, card.y + 6, card.w, card.h, 18);
@@ -255,7 +258,7 @@ export default class OutcomeScene extends Phaser.Scene {
     for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
     const head = this.add.text(bx, card.y + 30, 'NEW SCRAPBOOK PAGE!', pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
     sheet.add([bg, head]);
-    this.tweens.add({ targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
+    tween(this, { targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
 
     // rays behind the badge, slowly turning
     const rays = keep(this.add.graphics({ x: bx, y: by }).setDepth(D + 1).setAlpha(0));
@@ -264,11 +267,11 @@ export default class OutcomeScene extends Phaser.Scene {
       const a = (i * Math.PI * 2) / 12;
       rays.fillTriangle(0, 0, Math.cos(a - 0.12) * 110, Math.sin(a - 0.12) * 110, Math.cos(a + 0.12) * 110, Math.sin(a + 0.12) * 110);
     }
-    this.tweens.add({ targets: rays, alpha: 1, delay: 300, duration: 300 });
-    this.tweens.add({ targets: rays, angle: 360, duration: 12000, repeat: -1 });
+    tween(this, { targets: rays, alpha: 1, delay: 300, duration: 300 });
+    tween(this, { targets: rays, angle: 360, duration: 12000, repeat: -1 });
 
     const b = keep(badge(this, bx, by, 120, page, true).setDepth(D + 2).setScale(0).setAngle(-25));
-    this.tweens.add({ targets: b, scale: 1, angle: 0, delay: 350, duration: 520, ease: 'Back.easeOut' });
+    tween(this, { targets: b, scale: 1, angle: 0, delay: 350, duration: 520, ease: 'Back.easeOut' });
 
     // sparkles burst out once the badge lands
     this.time.delayedCall(700, () => {
@@ -276,18 +279,18 @@ export default class OutcomeScene extends Phaser.Scene {
       for (let i = 0; i < 14; i++) {
         const a = (i * Math.PI * 2) / 14 + Math.random() * 0.3;
         const s = keep(this.add.star(bx, by, 4, 2, 5, i % 2 ? C.gold : C.accent).setDepth(D + 3));
-        this.tweens.add({ targets: s, x: bx + Math.cos(a) * 130, y: by + Math.sin(a) * 110, alpha: 0, angle: 180, scale: 0.4, duration: 700, ease: 'Quad.easeOut' });
+        tween(this, { targets: s, x: bx + Math.cos(a) * 130, y: by + Math.sin(a) * 110, alpha: 0, angle: 180, scale: 0.4, duration: 700, ease: 'Quad.easeOut' });
       }
     });
 
     const title = keep(this.add.text(bx, card.y + 252, cb.title.toUpperCase(), pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
     const who = keep(this.add.text(bx, card.y + 282, `a memory with ${ch.name}`, text(15, ch.color, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
-    this.tweens.add({ targets: [title, who], alpha: 1, delay: 800, duration: 300 });
+    tween(this, { targets: [title, who], alpha: 1, delay: 800, duration: 300 });
 
     const more = this.unlockQueue.length > 0;
     const see = keep(button(this, bx - 105, card.y + card.h - 44, 'See it', () => this.scene.start('Scrapbook', { select: id }), { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
     const go = keep(button(this, bx + 105, card.y + card.h - 44, more ? 'Next page →' : 'Keep going', () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
-    this.tweens.add({ targets: [see, go], alpha: 1, delay: 950, duration: 250 });
+    tween(this, { targets: [see, go], alpha: 1, delay: 950, duration: 250 });
 
     this.unlockCard = { id, objs };
   }

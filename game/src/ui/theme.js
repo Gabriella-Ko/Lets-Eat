@@ -1,6 +1,8 @@
 // Palette sampled from Gabriella's portrait sheets (art/source/*_sheet.jpg):
 // warm dark-brown label bars, dusty-rose label text, dusty blue, rust and ribbon orange.
 // The bible lists the palette as Open; once confirmed, record it there.
+import { highContrast, textScale } from './settings.js';
+
 export const W = 960;
 export const H = 640;
 
@@ -25,6 +27,29 @@ export const C = {
   angry: 0x391811,
 };
 
+// High-contrast option: darker ink, white panels, stronger highlight and buttons. Applied in place to C,
+// so every scene that draws after applyPalette() picks it up (Options restarts the scene it changes).
+const BASE = { ...C };
+const HIGH_CONTRAST = {
+  label: 0xf7ece0,
+  panel: 0xf6efe6, // off-white, so white bubbles and review boxes still stand out on it
+  panelDark: 0xe2d6c7,
+  ink: 0x000000,
+  inkSoft: 0x3d322d,
+  accent: 0xb55400,
+  accentDark: 0x8a3f00,
+  blue: 0x2e5566,
+  goldDim: 0x8f7d72,
+  highlight: 0xffd84d,
+  starred: 0xfff1d6,
+  good: 0x3f6b2c,
+  bad: 0xa3260f,
+};
+export function applyPalette() {
+  Object.assign(C, BASE, highContrast() ? HIGH_CONTRAST : {});
+}
+applyPalette();
+
 export const hex = (n) => '#' + n.toString(16).padStart(6, '0');
 
 export const PIXEL = '"Pixelify Sans", "Trebuchet MS", sans-serif'; // headings, labels, buttons
@@ -37,6 +62,8 @@ export const text = (size, color = C.ink, extra = {}) => ({
   ...extra,
 });
 export const pixel = (size, color = C.ink, extra = {}) => text(size, color, { fontFamily: PIXEL, ...extra });
+/** Text the player reads (chat, reviews, Notebook, reactions, recap, scrapbook pages): grows with the Text size option. */
+export const readText = (size, color = C.ink, extra = {}) => text(Math.round(size * textScale()), color, extra);
 
 // Name colours echo each sheet, darkened enough to read on cream.
 export const CHARACTERS = {
