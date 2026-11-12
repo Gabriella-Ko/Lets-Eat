@@ -7,8 +7,17 @@ import { notebook, NOTEBOOK } from '../ui/notebook.js';
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
 /**
- * The group chat. Messages appear one at a time (click, space or enter).
- * Tagged lines are copied into the Notebook as the player reads them.
+ * Chat pacing: after each message the next speaker shows a "typing…" bubble, and their message
+ * arrives on its own once the player has had time to read the previous one.
+ * Wait = BASE + PER_CHAR × length of the message just shown, clamped to [MIN, MAX] ms.
+ */
+const PACE = { BASE: 700, PER_CHAR: 28, MIN: 1000, MAX: 2800 };
+const readTime = (line) => Phaser.Math.Clamp(PACE.BASE + PACE.PER_CHAR * line.text.length, PACE.MIN, PACE.MAX);
+
+/**
+ * The group chat. Messages arrive one at a time on their own, each announced by a typing bubble;
+ * click, space or enter skips the wait. Scrolling up to reread pauses the chat until the player
+ * scrolls back to the bottom. Tagged lines are copied into the Notebook as the player reads them.
  * data: { levelId, revealAll?: boolean, highlight?: string[] (clue tags to highlight after a missed pick) }
  */
 export default class ChatScene extends Phaser.Scene {
@@ -36,12 +45,16 @@ export default class ChatScene extends Phaser.Scene {
     // it follows the scroll position, so scrolling back up pans back up the picture.
     this.chat.onScroll((f) => {
       if (this.bg && this.shown >= lvl.script.length) this.panBackground(this.bg, f);
+      // Rereading while messages are still arriving: hold the next one until the player is back at the bottom.
+      if (this.timer) this.setPaused(!this.chat.atBottom());
     });
     this.chatY = 6;
     this.shown = 0;
     this.firstHighlightY = null;
+    this.typing = null;
+    this.timer = null;
 
-    this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 38, 'click or press space to keep reading', pixel(16, C.highlight)).setOrigin(0.5);
+    this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 38, 'click or press space to skip ahead', pixel(16, C.highlight)).setOrigin(0.5);
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
 
@@ -82,6 +95,7 @@ export default class ChatScene extends Phaser.Scene {
 
   next(instant = false) {
     const script = this.level.script;
+    this.clearTyping();
     if (this.shown >= script.length) return;
     const line = script[this.shown++];
     this.addMessage(line, instant);
@@ -91,7 +105,46 @@ export default class ChatScene extends Phaser.Scene {
     if (this.shown >= script.length) {
       if (!this.highlight.length) this.prompt.setText('that’s the whole chat. scroll up to reread');
       this.go.setVisible(true);
+    } else if (!instant) {
+      this.showTyping(script[this.shown].speaker);
+      this.timer = this.time.delayedCall(readTime(line), () => this.next());
     }
+  }
+
+  /** Pause or resume the wait for the next message (used while the player scrolls up to reread). */
+  setPaused(paused) {
+    if (!this.timer || this.timer.paused === paused) return;
+    this.timer.paused = paused;
+    this.prompt.setText(paused ? 'paused while you reread. scroll down or click to continue' : 'click or press space to skip ahead');
+  }
+
+  /** "Name is typing" row under the last message: the speaker's portrait and three pulsing dots. */
+  showTyping(speaker) {
+    const ch = CHARACTERS[speaker] || { name: speaker, color: C.inkSoft };
+    const c = this.add.container(0, this.chatY);
+    const face = portrait(this, 30, 30, 52, speaker, 'NEUTRAL');
+    const name = this.add.text(70, 0, `${ch.name.toUpperCase()} is typing`, pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
+    const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(70, 19, 64, 34, 10);
+    const dots = [0, 1, 2].map((i) => this.add.circle(88 + i * 14, 36, 4, C.inkSoft).setAlpha(0.3));
+    c.add([bubble, face, name, ...dots]);
+    c.setAlpha(0);
+    this.tweens.add({ targets: c, alpha: 1, duration: 150 });
+    dots.forEach((d, i) => this.tweens.add({ targets: d, alpha: 1, y: 32, duration: 320, delay: i * 140, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' }));
+    this.chat.content.add(c);
+    this.typing = { c, dots };
+    this.chat.setContentHeight(this.chatY + 64);
+    this.chat.scrollToBottom();
+  }
+
+  clearTyping() {
+    if (this.timer) this.timer.remove(false);
+    this.timer = null;
+    if (!this.typing) return;
+    this.tweens.killTweensOf([this.typing.c, ...this.typing.dots]);
+    this.typing.c.destroy();
+    this.typing = null;
+    this.chat.setContentHeight(this.chatY);
+    if (this.shown < this.level.script.length) this.prompt.setText('click or press space to skip ahead');
   }
 
   addMessage(line, instant) {

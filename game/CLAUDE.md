@@ -42,6 +42,7 @@ Run `npm run boot-test` before every commit.
 - **Outcome image slot** on the result screen. First texture found wins: `outcome_<level>_<venue>`, then `outcome_<level>_<perfect|partial|fail>`, then `outcome_<result>`. Until one exists, a placeholder names the file it expects.
 - **Palette and fonts** come from Gabriella's portrait sheets (`src/ui/theme.js`): Pixelify Sans (bundled, no network) for headings and buttons, a plain sans for chat and reviews.
 - **Fail hint** names the broken hard constraint; "Reread the chat" highlights the tagged lines for every miss.
+- **Chat pacing** (`PACE` in `ChatScene.js`): messages arrive on their own after a "<name> is typing" bubble, waiting 1–2.8 s depending on the length of the message just shown. Click, space or enter skips the wait; scrolling up to reread pauses it. Reread-after-a-miss and `?revealAll` stay instant. The typing row uses the NEUTRAL portrait so it doesn't give away the next line's mood.
 
 ## Art
 - Source sheets: `art/source/<character>_sheet.jpg`, a 3x2 grid of HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL.

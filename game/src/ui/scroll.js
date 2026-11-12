@@ -38,6 +38,10 @@ export function scrollArea(scene, x, y, w, h) {
       offset = maxOffset();
       apply();
     },
+    /** True when the view shows the end of the content (or everything fits). */
+    atBottom() {
+      return offset >= maxOffset() - 4;
+    },
     /** Scroll so content-space y sits near the top third of the view. */
     scrollTo(cy) {
       offset = cy - h / 3;
