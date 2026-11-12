@@ -1,0 +1,1273 @@
+{
+  "generated_by": "orchestrator",
+  "generated_at": "2026-11-12T15:01:40.977Z",
+  "source": "logs/run_log.json, git history of logs/critique_level_XX.json, logs/playtest_level_XX_runN.json, content/levels/*/spec",
+  "totals": {
+    "levels": 10,
+    "approved": 10,
+    "run_log_entries": 219,
+    "retries": 16,
+    "tokens": 2099843,
+    "tokens_logged_entries": 111,
+    "critique_rounds": 19,
+    "must_fix_total": 1,
+    "playtests_correct": 30,
+    "playtests_total": 30
+  },
+  "levels": [
+    {
+      "id": "level_01",
+      "number": 1,
+      "chapter": 1,
+      "difficulty": "stated",
+      "guests": 2,
+      "needs": 3,
+      "steps": 8,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 0,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 0,
+      "tokens": 117713,
+      "tokens_logged": 5,
+      "approved_at": "2026-11-06T04:19:05.202Z",
+      "critique_rounds": 1,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 3,
+      "critiques": [
+        {
+          "commit": "5b4a3da",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 3,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "unconfirmable_ask",
+              "agent": "human:gabby"
+            },
+            {
+              "severity": "suggestion",
+              "check": "venue_name",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "human:gabby"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "campus_noodle_nook",
+          "correct": true,
+          "constraints_found": 3,
+          "difficulty": 1
+        },
+        {
+          "run": 2,
+          "pick": "campus_noodle_nook",
+          "correct": true,
+          "constraints_found": 3,
+          "difficulty": 1
+        },
+        {
+          "run": 3,
+          "pick": "campus_noodle_nook",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 1
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_02",
+      "number": 2,
+      "chapter": 1,
+      "difficulty": "stated",
+      "guests": 3,
+      "needs": 4,
+      "steps": 18,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 0,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 0,
+      "tokens": 162393,
+      "tokens_logged": 10,
+      "approved_at": "2026-11-05T00:00:00Z",
+      "critique_rounds": 1,
+      "first_must_fix": 1,
+      "final_must_fix": 1,
+      "final_suggestions": 5,
+      "critiques": [
+        {
+          "commit": "5b4a3da",
+          "verdict": "must_fix",
+          "must_fix": 1,
+          "suggestions": 5,
+          "findings": [
+            {
+              "severity": "must_fix",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "unconfirmable_ask",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "venue_name",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "puzzle_architect"
+            },
+            {
+              "severity": "suggestion",
+              "check": "fairness",
+              "agent": "narrative_writer"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "campus_taco_town",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 1
+        },
+        {
+          "run": 2,
+          "pick": "campus_taco_town",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 1
+        },
+        {
+          "run": 3,
+          "pick": "campus_taco_town",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 1
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_03",
+      "number": 3,
+      "chapter": 1,
+      "difficulty": "implied",
+      "guests": 2,
+      "needs": 3,
+      "steps": 24,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 1,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 1
+      },
+      "total_retries": 2,
+      "tokens": 225013,
+      "tokens_logged": 14,
+      "approved_at": "2026-11-06T04:47:57.484Z",
+      "critique_rounds": 1,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 2,
+      "critiques": [
+        {
+          "commit": "5b4a3da",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 2,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "venue_name",
+              "agent": "map_seeder"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "campus_bun_stop",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "campus_bun_stop",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "campus_bun_stop",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_04",
+      "number": 4,
+      "chapter": 1,
+      "difficulty": "stated",
+      "guests": 3,
+      "needs": 4,
+      "steps": 18,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 0,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 0,
+      "tokens": 182233,
+      "tokens_logged": 10,
+      "approved_at": "2026-11-06T04:58:01.958Z",
+      "critique_rounds": 1,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 7,
+      "critiques": [
+        {
+          "commit": "5b4a3da",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 7,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "unconfirmable_ask",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "unconfirmable_ask",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "venue_name",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "venue_name",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "campus_green_bean_cafe",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "campus_green_bean_cafe",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "campus_green_bean_cafe",
+          "correct": true,
+          "constraints_found": 6,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_05",
+      "number": 5,
+      "chapter": 1,
+      "difficulty": "stated",
+      "guests": 3,
+      "needs": 4,
+      "steps": 18,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 0,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 0,
+      "tokens": 149596,
+      "tokens_logged": 9,
+      "approved_at": "2026-11-08T21:24:47.957Z",
+      "critique_rounds": 1,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 4,
+      "critiques": [
+        {
+          "commit": "5b4a3da",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 4,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer (edited_by human:gabby)"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer (edited_by human:gabby)"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "puzzle_architect"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer (edited_by human:gabby)"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "campus_basil_hearth",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "campus_basil_hearth",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "campus_basil_hearth",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_06",
+      "number": 6,
+      "chapter": 2,
+      "difficulty": "stated",
+      "guests": 3,
+      "needs": 4,
+      "steps": 14,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 0,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 0,
+      "tokens": 162504,
+      "tokens_logged": 7,
+      "approved_at": "2026-11-09T15:46:34.942Z",
+      "critique_rounds": 1,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 2,
+      "critiques": [
+        {
+          "commit": "c1faf3c",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 2,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "downtown_little_lotus",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "downtown_little_lotus",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "downtown_little_lotus",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_07",
+      "number": 7,
+      "chapter": 2,
+      "difficulty": "implied",
+      "guests": 3,
+      "needs": 4,
+      "steps": 26,
+      "retries": {
+        "puzzle_architect": 1,
+        "narrative_writer": 3,
+        "map_seeder": 0,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 4,
+      "tokens": 210292,
+      "tokens_logged": 11,
+      "approved_at": "2026-11-11T03:33:40.050Z",
+      "critique_rounds": 4,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 1,
+      "critiques": [
+        {
+          "commit": "c2cb884",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 6,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "fairness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        },
+        {
+          "commit": "16f5a9c",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 6,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "fairness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        },
+        {
+          "commit": "8936844",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 2,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "fairness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            }
+          ]
+        },
+        {
+          "commit": "7bef28c",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 1,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "downtown_tamarind_lane",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "downtown_tamarind_lane",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 3
+        },
+        {
+          "run": 3,
+          "pick": "downtown_tamarind_lane",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_08",
+      "number": 8,
+      "chapter": 2,
+      "difficulty": "stated",
+      "guests": 4,
+      "needs": 5,
+      "steps": 35,
+      "retries": {
+        "puzzle_architect": 1,
+        "narrative_writer": 2,
+        "map_seeder": 1,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 4,
+      "tokens": 277559,
+      "tokens_logged": 17,
+      "approved_at": "2026-11-11T04:36:33.190Z",
+      "critique_rounds": 4,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 2,
+      "critiques": [
+        {
+          "commit": "289cfaa",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 6,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            }
+          ]
+        },
+        {
+          "commit": "e5e2f2e",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 5,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        },
+        {
+          "commit": "99e7d5e",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 3,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "voice",
+              "agent": "narrative_writer"
+            }
+          ]
+        },
+        {
+          "commit": "cd02381",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 2,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "downtown_koi_counter",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 2,
+          "pick": "downtown_koi_counter",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "downtown_koi_counter",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 2
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_09",
+      "number": 9,
+      "chapter": 2,
+      "difficulty": "implied",
+      "guests": 4,
+      "needs": 4,
+      "steps": 21,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 1,
+        "map_seeder": 1,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 2,
+      "tokens": 189696,
+      "tokens_logged": 9,
+      "approved_at": "2026-11-11T05:22:46.788Z",
+      "critique_rounds": 2,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 2,
+      "critiques": [
+        {
+          "commit": "37ce2c2",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 8,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "unconfirmable_ask",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "fairness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "puzzle_architect"
+            }
+          ]
+        },
+        {
+          "commit": "b0e5016",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 2,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "downtown_orchid_row",
+          "correct": true,
+          "constraints_found": 5,
+          "difficulty": 3
+        },
+        {
+          "run": 2,
+          "pick": "downtown_orchid_row",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 2
+        },
+        {
+          "run": 3,
+          "pick": "downtown_orchid_row",
+          "correct": true,
+          "constraints_found": 4,
+          "difficulty": 3
+        }
+      ],
+      "playtests_correct": 3
+    },
+    {
+      "id": "level_10",
+      "number": 10,
+      "chapter": 2,
+      "difficulty": "implied",
+      "guests": 4,
+      "needs": 5,
+      "steps": 29,
+      "retries": {
+        "puzzle_architect": 0,
+        "narrative_writer": 2,
+        "map_seeder": 2,
+        "critic": 0,
+        "blind_playtester": 0
+      },
+      "total_retries": 4,
+      "tokens": 312893,
+      "tokens_logged": 15,
+      "approved_at": "2026-11-12T03:30:11.952Z",
+      "critique_rounds": 3,
+      "first_must_fix": 0,
+      "final_must_fix": 0,
+      "final_suggestions": 1,
+      "critiques": [
+        {
+          "commit": "e0a9b2a",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 8,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "narrative_writer"
+            }
+          ]
+        },
+        {
+          "commit": "ab956f3",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 3,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "outcomes",
+              "agent": "narrative_writer"
+            },
+            {
+              "severity": "suggestion",
+              "check": "reviews",
+              "agent": "map_seeder"
+            },
+            {
+              "severity": "suggestion",
+              "check": "continuity",
+              "agent": "narrative_writer"
+            }
+          ]
+        },
+        {
+          "commit": "5ed8a81",
+          "verdict": "pass",
+          "must_fix": 0,
+          "suggestions": 1,
+          "findings": [
+            {
+              "severity": "suggestion",
+              "check": "freshness",
+              "agent": "map_seeder"
+            }
+          ]
+        }
+      ],
+      "playtests": [
+        {
+          "run": 1,
+          "pick": "downtown_linden_corner",
+          "correct": true,
+          "constraints_found": 6,
+          "difficulty": 3
+        },
+        {
+          "run": 2,
+          "pick": "downtown_linden_corner",
+          "correct": true,
+          "constraints_found": 6,
+          "difficulty": 3
+        },
+        {
+          "run": 3,
+          "pick": "downtown_linden_corner",
+          "correct": true,
+          "constraints_found": 6,
+          "difficulty": 3
+        }
+      ],
+      "playtests_correct": 3
+    }
+  ],
+  "agents": [
+    {
+      "agent": "puzzle_architect",
+      "steps": 13,
+      "retries": 2,
+      "levels_with_retries": [
+        "level_07",
+        "level_08"
+      ],
+      "tokens": 367942,
+      "brief_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5"
+      ]
+    },
+    {
+      "agent": "narrative_writer",
+      "steps": 29,
+      "retries": 9,
+      "levels_with_retries": [
+        "level_03",
+        "level_07",
+        "level_08",
+        "level_09",
+        "level_10"
+      ],
+      "tokens": 474519,
+      "brief_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ]
+    },
+    {
+      "agent": "map_seeder",
+      "steps": 13,
+      "retries": 4,
+      "levels_with_retries": [
+        "level_08",
+        "level_09",
+        "level_10"
+      ],
+      "tokens": 276125,
+      "brief_versions": [
+        "v1",
+        "v2",
+        "v3",
+        "v4",
+        "v5",
+        "v6"
+      ]
+    },
+    {
+      "agent": "critic",
+      "steps": 19,
+      "retries": 0,
+      "levels_with_retries": [],
+      "tokens": 204577,
+      "brief_versions": [
+        "v1",
+        "v2"
+      ]
+    },
+    {
+      "agent": "blind_playtester",
+      "steps": 66,
+      "retries": 1,
+      "levels_with_retries": [
+        "level_03"
+      ],
+      "tokens": 776680,
+      "brief_versions": [
+        "v1",
+        "v2"
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "check": "continuity",
+      "must_fix": 1,
+      "suggestion": 7,
+      "levels": [
+        "level_02",
+        "level_07",
+        "level_08",
+        "level_09",
+        "level_10"
+      ],
+      "agents": {
+        "narrative_writer": 8
+      },
+      "recurring": true
+    },
+    {
+      "check": "freshness",
+      "must_fix": 0,
+      "suggestion": 22,
+      "levels": [
+        "level_02",
+        "level_04",
+        "level_05",
+        "level_06",
+        "level_07",
+        "level_08",
+        "level_09",
+        "level_10"
+      ],
+      "agents": {
+        "puzzle_architect": 3,
+        "narrative_writer": 16,
+        "narrative_writer (edited_by human:gabby)": 2,
+        "map_seeder": 1
+      },
+      "recurring": true
+    },
+    {
+      "check": "reviews",
+      "must_fix": 0,
+      "suggestion": 18,
+      "levels": [
+        "level_03",
+        "level_06",
+        "level_07",
+        "level_08",
+        "level_09",
+        "level_10"
+      ],
+      "agents": {
+        "map_seeder": 18
+      },
+      "recurring": true
+    },
+    {
+      "check": "outcomes",
+      "must_fix": 0,
+      "suggestion": 7,
+      "levels": [
+        "level_01",
+        "level_04",
+        "level_09",
+        "level_10"
+      ],
+      "agents": {
+        "human:gabby": 1,
+        "narrative_writer": 6
+      },
+      "recurring": true
+    },
+    {
+      "check": "voice",
+      "must_fix": 0,
+      "suggestion": 7,
+      "levels": [
+        "level_02",
+        "level_05",
+        "level_07",
+        "level_08"
+      ],
+      "agents": {
+        "narrative_writer": 6,
+        "narrative_writer (edited_by human:gabby)": 1
+      },
+      "recurring": true
+    },
+    {
+      "check": "unconfirmable_ask",
+      "must_fix": 0,
+      "suggestion": 5,
+      "levels": [
+        "level_01",
+        "level_02",
+        "level_04",
+        "level_09"
+      ],
+      "agents": {
+        "human:gabby": 1,
+        "narrative_writer": 4
+      },
+      "recurring": true
+    },
+    {
+      "check": "venue_name",
+      "must_fix": 0,
+      "suggestion": 5,
+      "levels": [
+        "level_01",
+        "level_02",
+        "level_03",
+        "level_04"
+      ],
+      "agents": {
+        "map_seeder": 5
+      },
+      "recurring": true
+    },
+    {
+      "check": "fairness",
+      "must_fix": 0,
+      "suggestion": 5,
+      "levels": [
+        "level_02",
+        "level_07",
+        "level_09"
+      ],
+      "agents": {
+        "narrative_writer": 5
+      },
+      "recurring": true
+    }
+  ]
+}

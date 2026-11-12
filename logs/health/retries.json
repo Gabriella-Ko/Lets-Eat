@@ -1,0 +1,302 @@
+[
+  {
+    "level": "level_01",
+    "number": 1,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_01",
+    "number": 1,
+    "agent": "narrative_writer",
+    "retries": 0
+  },
+  {
+    "level": "level_01",
+    "number": 1,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_01",
+    "number": 1,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_01",
+    "number": 1,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_02",
+    "number": 2,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_02",
+    "number": 2,
+    "agent": "narrative_writer",
+    "retries": 0
+  },
+  {
+    "level": "level_02",
+    "number": 2,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_02",
+    "number": 2,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_02",
+    "number": 2,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_03",
+    "number": 3,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_03",
+    "number": 3,
+    "agent": "narrative_writer",
+    "retries": 1
+  },
+  {
+    "level": "level_03",
+    "number": 3,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_03",
+    "number": 3,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_03",
+    "number": 3,
+    "agent": "blind_playtester",
+    "retries": 1
+  },
+  {
+    "level": "level_04",
+    "number": 4,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_04",
+    "number": 4,
+    "agent": "narrative_writer",
+    "retries": 0
+  },
+  {
+    "level": "level_04",
+    "number": 4,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_04",
+    "number": 4,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_04",
+    "number": 4,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_05",
+    "number": 5,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_05",
+    "number": 5,
+    "agent": "narrative_writer",
+    "retries": 0
+  },
+  {
+    "level": "level_05",
+    "number": 5,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_05",
+    "number": 5,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_05",
+    "number": 5,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_06",
+    "number": 6,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_06",
+    "number": 6,
+    "agent": "narrative_writer",
+    "retries": 0
+  },
+  {
+    "level": "level_06",
+    "number": 6,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_06",
+    "number": 6,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_06",
+    "number": 6,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_07",
+    "number": 7,
+    "agent": "puzzle_architect",
+    "retries": 1
+  },
+  {
+    "level": "level_07",
+    "number": 7,
+    "agent": "narrative_writer",
+    "retries": 3
+  },
+  {
+    "level": "level_07",
+    "number": 7,
+    "agent": "map_seeder",
+    "retries": 0
+  },
+  {
+    "level": "level_07",
+    "number": 7,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_07",
+    "number": 7,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_08",
+    "number": 8,
+    "agent": "puzzle_architect",
+    "retries": 1
+  },
+  {
+    "level": "level_08",
+    "number": 8,
+    "agent": "narrative_writer",
+    "retries": 2
+  },
+  {
+    "level": "level_08",
+    "number": 8,
+    "agent": "map_seeder",
+    "retries": 1
+  },
+  {
+    "level": "level_08",
+    "number": 8,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_08",
+    "number": 8,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_09",
+    "number": 9,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_09",
+    "number": 9,
+    "agent": "narrative_writer",
+    "retries": 1
+  },
+  {
+    "level": "level_09",
+    "number": 9,
+    "agent": "map_seeder",
+    "retries": 1
+  },
+  {
+    "level": "level_09",
+    "number": 9,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_09",
+    "number": 9,
+    "agent": "blind_playtester",
+    "retries": 0
+  },
+  {
+    "level": "level_10",
+    "number": 10,
+    "agent": "puzzle_architect",
+    "retries": 0
+  },
+  {
+    "level": "level_10",
+    "number": 10,
+    "agent": "narrative_writer",
+    "retries": 2
+  },
+  {
+    "level": "level_10",
+    "number": 10,
+    "agent": "map_seeder",
+    "retries": 2
+  },
+  {
+    "level": "level_10",
+    "number": 10,
+    "agent": "critic",
+    "retries": 0
+  },
+  {
+    "level": "level_10",
+    "number": 10,
+    "agent": "blind_playtester",
+    "retries": 0
+  }
+]

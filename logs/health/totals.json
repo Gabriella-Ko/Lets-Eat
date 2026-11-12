@@ -1,0 +1,16 @@
+[
+  {
+    "levels": 10,
+    "approved": 10,
+    "run_log_entries": 219,
+    "retries": 16,
+    "tokens": 2099843,
+    "tokens_logged_entries": 111,
+    "critique_rounds": 19,
+    "must_fix_total": 1,
+    "playtests_correct": 30,
+    "playtests_total": 30,
+    "suggestions_total": 76,
+    "generated_at": "2026-11-12T15:01:40.977Z"
+  }
+]

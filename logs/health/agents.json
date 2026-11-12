@@ -1,0 +1,47 @@
+[
+  {
+    "agent": "puzzle_architect",
+    "steps": 13,
+    "retries": 2,
+    "levels_with_retries": 2,
+    "tokens": 367942,
+    "latest_brief": "v5",
+    "brief_versions": 5
+  },
+  {
+    "agent": "narrative_writer",
+    "steps": 29,
+    "retries": 9,
+    "levels_with_retries": 5,
+    "tokens": 474519,
+    "latest_brief": "v6",
+    "brief_versions": 6
+  },
+  {
+    "agent": "map_seeder",
+    "steps": 13,
+    "retries": 4,
+    "levels_with_retries": 3,
+    "tokens": 276125,
+    "latest_brief": "v6",
+    "brief_versions": 6
+  },
+  {
+    "agent": "critic",
+    "steps": 19,
+    "retries": 0,
+    "levels_with_retries": 0,
+    "tokens": 204577,
+    "latest_brief": "v2",
+    "brief_versions": 2
+  },
+  {
+    "agent": "blind_playtester",
+    "steps": 66,
+    "retries": 1,
+    "levels_with_retries": 1,
+    "tokens": 776680,
+    "latest_brief": "v2",
+    "brief_versions": 2
+  }
+]

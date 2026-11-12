@@ -1,0 +1,74 @@
+[
+  {
+    "check": "continuity",
+    "must_fix": 1,
+    "suggestion": 7,
+    "total": 8,
+    "levels": 5,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  },
+  {
+    "check": "freshness",
+    "must_fix": 0,
+    "suggestion": 22,
+    "total": 22,
+    "levels": 8,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  },
+  {
+    "check": "reviews",
+    "must_fix": 0,
+    "suggestion": 18,
+    "total": 18,
+    "levels": 6,
+    "recurring": true,
+    "main_agent": "map_seeder"
+  },
+  {
+    "check": "outcomes",
+    "must_fix": 0,
+    "suggestion": 7,
+    "total": 7,
+    "levels": 4,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  },
+  {
+    "check": "voice",
+    "must_fix": 0,
+    "suggestion": 7,
+    "total": 7,
+    "levels": 4,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  },
+  {
+    "check": "unconfirmable_ask",
+    "must_fix": 0,
+    "suggestion": 5,
+    "total": 5,
+    "levels": 4,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  },
+  {
+    "check": "venue_name",
+    "must_fix": 0,
+    "suggestion": 5,
+    "total": 5,
+    "levels": 4,
+    "recurring": true,
+    "main_agent": "map_seeder"
+  },
+  {
+    "check": "fairness",
+    "must_fix": 0,
+    "suggestion": 5,
+    "total": 5,
+    "levels": 3,
+    "recurring": true,
+    "main_agent": "narrative_writer"
+  }
+]
