@@ -1,0 +1,29 @@
+{
+  "level_id": "level_11",
+  "script": [
+    { "speaker": "roxy", "text": "ok. biked home a different way and found a whole market that opens at 9. we're going.", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "strings of lights, like fifty food stalls. i'm already putting my shoes on", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "a night market?? i'm in. lunch crew is officially a dinner crew!", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "food at 9pm? say less. i'm in", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "roxy", "text": "LIAM. the famous liam. brooke says you've never once turned down food", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "hi roxy! it's true. it's kind of my whole thing", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "confession: i've wanted tacos for three straight days and said no every single time because of the trip fund. i have been so brave", "emotion": "HUNGRY", "clue": "craving", "callback": "trip_fund" },
+    { "speaker": "liam", "text": "tacos at a night market?? maya, that's not a confession, that's a plan", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "roxy", "text": "TACOS. let's do it!!", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "wait. is this the market with the mystery noodle stall?", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "roxy", "text": "maybe?? it's huge. i got lost twice", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "noodle hunt another night. tonight belongs to maya's tacos", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "thank you. but i mean it about the fund. one-dollar-sign stalls only. the coast trip is not paying for itself", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "brooke", "text": "how close are you?", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "close enough that one fancy taco would set me back. cheap, or i'm sitting on the curb watching you all eat", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "brooke", "text": "cheap tacos, done! one ask from me: we're eating at 9 and i'll be sleeping on whatever i eat. light and fresh, please", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "liam", "text": "and i'm piling cheese and crema on mine. all of it", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "roxy", "text": "ooh same, cheese on every... wait. no. dairy and i broke up, and it was NOT a clean breakup", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "so no cheese, no crema, no milk anything for me. good thing liam said it out loud", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "liam", "text": "ok, you got me. dairy-free tacos for the table. i'm not making you watch", "emotion": "HAPPY", "clue": "intolerance:dairy" },
+    { "speaker": "brooke", "text": "look at us, planning. roxy, lead the way", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "shoes are ON. assistant, pick our stall. go go go!!", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
