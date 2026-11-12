@@ -12,6 +12,7 @@ import { buildLevels } from '../src/logic/levels.js';
 import { scorePick } from '../src/logic/scoring.js';
 import { recapRows } from '../src/logic/recap.js';
 import { pastVisit } from '../src/logic/beenHere.js';
+import { filterOptions, applyView } from '../src/logic/resultsView.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -70,6 +71,32 @@ for (const id of requested) {
   if (!solution || scorePick(level.spec, solution, rules).stars !== 3) problems.push(`${id}: the spec's solution does not score 3 stars`);
   if (!level.script.length) problems.push(`${id}: empty chat`);
   console.log(`${problems.length ? '…' : 'ok'} ${id}: ${level.venues.length} venues, ${level.script.length} messages`);
+}
+
+// Sort and filter on the restaurant list (logic/resultsView.js), for every level.
+{
+  const TIERS = ['$', '$$', '$$$'];
+  for (const l of levels) {
+    const vs = l.venues;
+    const ids = (a) => a.map((v) => v.id).join(',');
+    if (ids(applyView(vs, { sort: 'mixed' })) !== ids(vs)) problems.push(`${l.id}: "Mixed" sort changes the order`);
+    const byPrice = applyView(vs, { sort: 'price' });
+    if (byPrice.some((v, i) => i && TIERS.indexOf(v.price_tier) < TIERS.indexOf(byPrice[i - 1].price_tier))) problems.push(`${l.id}: "Cheapest" isn't in price order`);
+    const byName = applyView(vs, { sort: 'name' });
+    if (byName.some((v, i) => i && v.name.localeCompare(byName[i - 1].name) < 0)) problems.push(`${l.id}: "A–Z" isn't alphabetical`);
+    const opts = filterOptions(vs);
+    for (const p of opts.prices) {
+      const got = applyView(vs, { prices: [p] });
+      if (!got.length || got.some((v) => v.price_tier !== p)) problems.push(`${l.id}: price filter "${p}" keeps the wrong places`);
+    }
+    for (const c of opts.cuisines) {
+      const got = applyView(vs, { cuisines: [c] });
+      if (!got.length || got.some((v) => v.cuisine !== c)) problems.push(`${l.id}: cuisine filter "${c}" keeps the wrong places`);
+    }
+    const all = applyView(vs, { prices: opts.prices, cuisines: opts.cuisines, sort: 'name' });
+    if (all.length !== vs.length || new Set(all.map((v) => v.id)).size !== vs.length) problems.push(`${l.id}: selecting every filter doesn't show every place exactly once`);
+    if (Object.keys(opts).some((k) => !['prices', 'cuisines'].includes(k))) problems.push(`${l.id}: list filters offer a field the cards don't show`);
+  }
 }
 
 // "Been here before" (logic/beenHere.js): only earlier levels count, and never a past score.
