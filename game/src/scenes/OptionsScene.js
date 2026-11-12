@@ -76,15 +76,16 @@ export default class OptionsScene extends Phaser.Scene {
       const on = o.id === current;
       const t = this.add.text(0, 0, o.label, pixel(14, on ? C.panel : C.ink, { fontStyle: 'bold' }));
       const w = t.width + 26, h = 28;
+      const bx = x; // this button's own x: the loop moves `x` on, and hover redraws happen later
       const g = this.add.graphics();
       const draw = (hover) => {
         g.clear();
-        g.fillStyle(on ? C.accent : hover ? C.starred : 0xffffff, 1).fillRoundedRect(x, py, w, h, 14);
-        g.lineStyle(on ? 2 : 1, on ? C.accentDark : C.inkSoft, 1).strokeRoundedRect(x, py, w, h, 14);
+        g.fillStyle(on ? C.accent : hover ? C.starred : 0xffffff, 1).fillRoundedRect(bx, py, w, h, 14);
+        g.lineStyle(on ? 2 : 1, on ? C.accentDark : C.inkSoft, 1).strokeRoundedRect(bx, py, w, h, 14);
       };
       draw(false);
-      t.setPosition(x + 13, py + (h - t.height) / 2).setDepth(1);
-      const z = this.add.zone(x + w / 2, py + h / 2, w, h).setInteractive({ useHandCursor: true });
+      t.setPosition(bx + 13, py + (h - t.height) / 2).setDepth(1);
+      const z = this.add.zone(bx + w / 2, py + h / 2, w, h).setInteractive({ useHandCursor: true });
       z.optionId = `${row.key}:${o.id}`;
       z.on('pointerover', () => draw(true));
       z.on('pointerout', () => draw(false));
