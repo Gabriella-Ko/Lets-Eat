@@ -57,6 +57,7 @@ Run `npm run boot-test` before every commit.
   - **Reduce motion** (on by default when the OS asks for reduced motion): every animation goes through `tween()` in `src/ui/motion.js`, which jumps to the end values instead. Use it instead of `this.tweens.add` for anything new.
   - For everyone: empty stars have an outline, and the result screen says "N of 3 stars".
   - Options screen works by keyboard (↑ ↓ setting, ← → choice, Esc back) with a focus ring and a live preview. Not in the bible.
+- **Credits file** (`public/credits.json`; bible: Game identity > Audio). `{ "_about", "music": [], "art": [...] }`. Each music track: file, title, artist, source (Bensound | Pixabay Music), license, credit_line, url. Gabriella adds tracks by hand; agents never pick or download music, so `music` starts empty. `art` has one entry crediting the portraits and venue art as Gabriella's own (Nano Banana pixel art). `BootScene` loads it and stores it in the registry as `credits` (empty lists if missing), ready for the credits screen, which isn't built yet (feature agent, 2026-11-12).
 
 ## Art
 - Source sheets: `art/source/<character>_sheet.jpg`, a 3x2 grid of HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL.

@@ -1,0 +1,13 @@
+{
+  "_about": "Credits shown on the game's credits screen (bible: Game identity > Audio). Music tracks are free or copyright-free lo-fi, picked and downloaded by hand by Gabriella from Bensound or Pixabay Music, never by agents. Each music entry: file, title, artist, source (Bensound | Pixabay Music), license, credit_line, url.",
+  "music": [],
+  "art": [
+    {
+      "what": "Character portraits, venue and outcome art, chat backdrops",
+      "artist": "Gabriella",
+      "source": "Gabriella's own pixel art, generated with Nano Banana",
+      "license": "Owned by the author",
+      "credit_line": "Pixel art by Gabriella (made with Nano Banana)"
+    }
+  ]
+}

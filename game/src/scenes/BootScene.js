@@ -13,6 +13,7 @@ export default class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.json('manifest', MANIFEST);
+    this.load.json('credits', 'credits.json'); // music + art credits for the credits screen
   }
 
   create() {
@@ -45,6 +46,7 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('levels', levels);
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
+    this.registry.set('credits', this.cache.json.get('credits') || { music: [], art: [] });
 
     // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll][&recap]
     const q = new URLSearchParams(window.location.search);
