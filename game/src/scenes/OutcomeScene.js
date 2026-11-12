@@ -36,6 +36,7 @@ export default class OutcomeScene extends Phaser.Scene {
     this.venue = this.level.venues.find((v) => v.id === data.venueId);
     this.openRecapOnStart = !!data.recap;
     this.recap = null;
+    this.pageNote = null; // the scene object is reused between visits
   }
 
   create() {
@@ -55,6 +56,7 @@ export default class OutcomeScene extends Phaser.Scene {
     }
 
     this.drawImageSlot(score.result);
+    this.newPageNote();
 
     // Reaction lines
     let y = REACT.y + 16;
@@ -182,6 +184,31 @@ export default class OutcomeScene extends Phaser.Scene {
     const close = button(this, x + w / 2, y + ph - 36, 'Close', () => this.closeRecap(), { w: 180, fill: C.accent });
     keep(close);
     this.recap = { objs, rows };
+  }
+
+  /**
+   * Bible (Scrapbook > Where): a small "new page" note when this level unlocked a scrapbook page.
+   * Shown once per visit: the list is cleared after it's announced.
+   */
+  newPageNote() {
+    const key = `newPages:${this.level.id}`;
+    const ids = this.registry.get(key) || [];
+    if (!ids.length) return;
+    this.registry.set(key, []);
+    const callbacks = this.registry.get('rules').callbacks || {};
+    const titles = ids.map((id) => callbacks[id]?.title || id);
+    const label = `${ids.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE'}`;
+    const c = this.add.container(W - 24, 22);
+    const t1 = this.add.text(-14, 10, label, pixel(13, C.accent, { fontStyle: 'bold' })).setOrigin(1, 0);
+    const t2 = this.add.text(-14, 30, titles.join(' · '), text(14, C.ink)).setOrigin(1, 0);
+    const bw = Math.max(t1.width, t2.width) + 28;
+    const g = this.add.graphics();
+    g.fillStyle(C.panel, 1).fillRoundedRect(-bw, 0, bw, 58, 10);
+    g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, 58, 10);
+    c.add([g, t1, t2]);
+    c.setAlpha(0);
+    this.tweens.add({ targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
+    this.pageNote = { ids, titles };
   }
 
   closeRecap() {
