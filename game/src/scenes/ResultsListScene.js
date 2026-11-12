@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { C, W, pixel, text } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
-import { notebook } from '../ui/notebook.js';
+import { notebook, pinMode, getPins } from '../ui/notebook.js';
 
 const LIST = { x: 24, y: 78, w: 290, h: 486 };
 const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
@@ -29,7 +29,9 @@ export default class ResultsListScene extends Phaser.Scene {
 
     panel(this, LIST.x, LIST.y, LIST.w, LIST.h);
     panel(this, DETAIL.x, DETAIL.y, DETAIL.w, DETAIL.h);
-    notebook(this).addAll(lvl.script);
+    this.notebook = pinMode(lvl) ? notebook(this, [], 'pinResults') : notebook(this);
+    if (pinMode(lvl)) this.notebook.addPinned(lvl.script, getPins(this, lvl.id));
+    else this.notebook.addAll(lvl.script);
 
     // The venues file often lists the answer first, so shuffle, seeded by level id so the order is stable.
     this.venues = seededShuffle(lvl.venues, lvl.id);
