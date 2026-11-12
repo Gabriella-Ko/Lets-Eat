@@ -11,6 +11,10 @@
 //   node tools/feature-agent/feature_agent.mjs --dry-run          scan + score + print the plan, write nothing
 //   node tools/feature-agent/feature_agent.mjs --max-rounds 1     build the top missing feature, verify, commit
 //   options: --budget <usd per round, default 3>  --model <model>
+//            --resume-at 14:30   when the usage limit is hit and Claude's message gives no reset time, resume then
+//            --max-pauses 3      how many usage-limit pauses before giving up
+// Usage limit: the agent undoes the files the unfinished round touched, waits until the limit resets (+1 min) and
+// retries the same feature. Keep the computer awake while it waits.
 // Needs the Claude Code CLI: on PATH as `claude`, set in CLAUDE_BIN, or the copy bundled with the VS Code extension.
 // Every round is appended to tools/feature-agent/feature_agent.log (JSON lines).
 
@@ -32,6 +36,8 @@ const DRY = args.includes('--dry-run');
 const MAX_ROUNDS = Number(opt('--max-rounds', 5));
 const BUDGET = opt('--budget', '3');
 const MODEL = opt('--model', null);
+const RESUME_AT = opt('--resume-at', null); // e.g. 14:30 or 2:30pm: used when a limit message gives no reset time
+const MAX_PAUSES = Number(opt('--max-pauses', 3));
 
 const log = (entry) => fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), ...entry }) + '\n');
 
@@ -94,17 +100,54 @@ const plan = (scanned) => scanned.filter((r) => !r.met)
 
 // ---------------------------------------------------------------- 3. code writing
 
+/** The Claude Code CLI as { cmd, pre } (pre = arguments before ours). CLAUDE_BIN may also be a .js/.mjs stand-in for testing. */
 function claudeBin() {
-  if (process.env.CLAUDE_BIN) return process.env.CLAUDE_BIN;
+  const env = process.env.CLAUDE_BIN;
+  if (env) return /\.m?js$/.test(env) ? { cmd: process.execPath, pre: [env] } : { cmd: env, pre: [] };
   const onPath = spawnSync(process.platform === 'win32' ? 'where' : 'which', ['claude'], { encoding: 'utf8' });
-  if (onPath.status === 0 && onPath.stdout.trim()) return onPath.stdout.trim().split(/\r?\n/)[0];
+  if (onPath.status === 0 && onPath.stdout.trim()) return { cmd: onPath.stdout.trim().split(/\r?\n/)[0], pre: [] };
   const ext = path.join(os.homedir(), '.vscode', 'extensions');
   const found = fs.existsSync(ext) ? fs.readdirSync(ext).filter((d) => d.startsWith('anthropic.claude-code-')).sort().reverse() : [];
   for (const d of found) {
     const exe = path.join(ext, d, 'resources', 'native-binary', process.platform === 'win32' ? 'claude.exe' : 'claude');
-    if (fs.existsSync(exe)) return exe;
+    if (fs.existsSync(exe)) return { cmd: exe, pre: [] };
   }
   return null;
+}
+
+// ---- usage limits: pause, then resume when the limit resets
+
+const LIMIT_RE = /usage limit|limit reached|rate[ -]?limit|too many requests|\b429\b|out of (?:tokens|usage)|quota/i;
+
+/** The next time the local clock shows h:m (today, or tomorrow if that's past). */
+export function nextLocal(h, m, now = new Date()) {
+  const d = new Date(now);
+  d.setHours(h, m, 0, 0);
+  if (d <= now) d.setDate(d.getDate() + 1);
+  return d;
+}
+
+/** "14:30", "2:30pm", "2pm" -> { h, m }, or null. */
+export function parseClock(s) {
+  const x = String(s || '').trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?$/i);
+  if (!x) return null;
+  let h = Number(x[1]);
+  const m = Number(x[2] || 0);
+  if (x[3]) h = (h % 12) + (x[3].toLowerCase() === 'pm' ? 12 : 0);
+  return h < 24 && m < 60 ? { h, m } : null;
+}
+
+/**
+ * If an error says the usage limit was hit, when to resume: the reset time in the message
+ * ("…|1731420600" epoch seconds, or "resets 2:30pm"), else --resume-at, else in an hour. null if it isn't a limit.
+ */
+export function limitReset(text, now = new Date(), resumeAt = null) {
+  if (!LIMIT_RE.test(text || '')) return null;
+  const epoch = String(text).match(/\|\s*(\d{10})\b/);
+  if (epoch) return new Date(Number(epoch[1]) * 1000);
+  const said = String(text).match(/resets?\s*(?:at\s*)?(\d{1,2}(?::\d{2})?\s*(?:am|pm)?)/i);
+  const clock = parseClock(said?.[1]) || parseClock(resumeAt);
+  return clock ? nextLocal(clock.h, clock.m, now) : new Date(now.getTime() + 60 * 60 * 1000);
 }
 
 function promptFor(req) {
@@ -132,14 +175,15 @@ function promptFor(req) {
 function writeFeature(req) {
   const bin = claudeBin();
   if (!bin) return { ok: false, error: 'Claude Code CLI not found (set CLAUDE_BIN)' };
-  const cli = ['-p', promptFor(req), '--output-format', 'json', '--permission-mode', 'acceptEdits',
+  const cli = [...bin.pre, '-p', promptFor(req), '--output-format', 'json', '--permission-mode', 'acceptEdits',
     '--max-budget-usd', String(BUDGET), '--allowedTools', 'Read', 'Edit', 'Write', 'Glob', 'Grep'];
   if (MODEL) cli.push('--model', MODEL);
-  const run = spawnSync(bin, cli, { cwd: GAME, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 });
+  const run = spawnSync(bin.cmd, cli, { cwd: GAME, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024, timeout: 30 * 60 * 1000 });
   let out = null;
   try { out = JSON.parse(run.stdout); } catch { /* not JSON */ }
   if (run.status !== 0 || !out || out.is_error) {
-    return { ok: false, error: (out?.result || run.stderr || run.error?.message || `exit ${run.status}`).slice(0, 800), cost: out?.total_cost_usd };
+    const error = (out?.result || [run.stdout, run.stderr].filter(Boolean).join('\n') || run.error?.message || `exit ${run.status}`).slice(0, 800);
+    return { ok: false, error, cost: out?.total_cost_usd, resumeAt: limitReset(error, new Date(), RESUME_AT) };
   }
   return { ok: true, summary: out.result, cost: out.total_cost_usd, turns: out.num_turns, usage: out.usage };
 }
@@ -148,6 +192,36 @@ function writeFeature(req) {
 
 const git = (...a) => spawnSync('git', a, { cwd: REPO, encoding: 'utf8' });
 const changedFiles = () => git('status', '--porcelain', '--untracked-files=all').stdout.split('\n').filter(Boolean).map((l) => l.slice(3).replace(/^"|"$/g, ''));
+/** git status as a map: path -> status code ("??" = untracked). */
+const statusMap = () => new Map(git('status', '--porcelain', '--untracked-files=all').stdout.split('\n').filter(Boolean)
+  .map((l) => [l.slice(3).replace(/^"|"$/g, ''), l.slice(0, 2)]));
+
+/**
+ * Undo a half-finished write: only files in game/ that changed since `before` (a statusMap taken just before the
+ * write), and never anything in the agent's own folder. Anything already uncommitted before the write is left alone.
+ */
+function discardPartial(before) {
+  const undone = [];
+  for (const [f, code] of statusMap()) {
+    if (!f.startsWith('game/') || f.startsWith('game/tools/feature-agent/') || before.has(f)) continue;
+    if (code === '??') fs.rmSync(path.join(REPO, f), { force: true });
+    else git('checkout', '--', f);
+    undone.push(f);
+  }
+  return undone;
+}
+
+const fmtTime = (d) => d.toLocaleString(undefined, { weekday: 'short', hour: 'numeric', minute: '2-digit' });
+/** Wait until a time, saying how long is left now and then. */
+async function sleepUntil(when) {
+  for (;;) {
+    const left = when.getTime() - Date.now();
+    if (left <= 0) return;
+    console.log(`  paused: ${Math.ceil(left / 60000)} min until ${fmtTime(when)}`);
+    await new Promise((r) => setTimeout(r, Math.min(left, 15 * 60 * 1000)));
+  }
+}
+
 const bootTest = () => {
   const r = spawnSync(process.platform === 'win32' ? 'npm.cmd' : 'npm', ['run', 'boot-test'], { cwd: GAME, encoding: 'utf8', shell: process.platform === 'win32', timeout: 15 * 60 * 1000 });
   return { ok: r.status === 0, tail: `${r.stdout}\n${r.stderr}`.trim().split('\n').slice(-6).join('\n') };
@@ -159,8 +233,9 @@ function printScan(scanned) {
   for (const r of scanned) console.log(`  ${r.met ? '✓' : '✗'} ${r.id.padEnd(30)} ${r.met ? '' : r.failing[0] || ''}`);
 }
 
-function main() {
+async function main() {
   console.log(`feature agent: ${REQS.length} requirements from the GDD${DRY ? ' (dry run)' : `, up to ${MAX_ROUNDS} round(s), $${BUDGET} per round`}`);
+  let pauses = 0;
   const before = changedFiles().filter((f) => !f.startsWith('game/tools/feature-agent/'));
   if (!DRY && before.length) {
     console.log(`stop: uncommitted changes would mix with the agent's work:\n  ${before.join('\n  ')}`);
@@ -181,8 +256,24 @@ function main() {
     if (round > MAX_ROUNDS) { console.log(`\nstop: reached --max-rounds ${MAX_ROUNDS}; next would be "${next.id}".`); return 0; }
 
     console.log(`\nround ${round}: writing "${next.id}" with Claude Code…`);
-    const w = writeFeature(next);
-    log({ round, event: 'write', id: next.id, ok: w.ok, cost_usd: w.cost ?? null, turns: w.turns ?? null, error: w.error, summary: w.summary });
+    let w;
+    for (;;) {
+      const beforeWrite = statusMap();
+      w = writeFeature(next);
+      log({ round, event: 'write', id: next.id, ok: w.ok, cost_usd: w.cost ?? null, turns: w.turns ?? null, error: w.error, summary: w.summary });
+      if (w.ok || !w.resumeAt) break;
+      // Usage limit: undo what this attempt half-wrote, wait for the reset (+1 min), then try the same requirement again.
+      if (pauses >= MAX_PAUSES) { console.log(`stop: hit the usage limit ${pauses + 1} times (--max-pauses ${MAX_PAUSES}).`); return 1; }
+      pauses++;
+      const until = new Date(w.resumeAt.getTime() + 60 * 1000);
+      const undone = discardPartial(beforeWrite);
+      console.log(`  usage limit reached: ${w.error.split('\n')[0]}`);
+      if (undone.length) console.log(`  undid unfinished edits: ${undone.join(', ')}`);
+      log({ round, event: 'paused', id: next.id, until: until.toISOString(), undone });
+      await sleepUntil(until);
+      log({ round, event: 'resumed', id: next.id });
+      console.log(`  resumed at ${fmtTime(new Date())}; trying "${next.id}" again…`);
+    }
     if (!w.ok) { console.log(`stop: the write step failed: ${w.error}`); return 1; }
     console.log(`  ${w.summary}\n  cost: $${(w.cost ?? 0).toFixed(2)}, ${w.turns} turns`);
 
@@ -204,4 +295,4 @@ function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) process.exit(main());
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) main().then((code) => process.exit(code));
