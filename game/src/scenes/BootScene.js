@@ -45,7 +45,7 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
 
-    // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll]
+    // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll][&recap]
     const q = new URLSearchParams(window.location.search);
     const level = levels.find((l) => l.id === q.get('level'));
     // Dev server only: in a built game this would let players open locked levels.
@@ -55,6 +55,7 @@ export default class BootScene extends Phaser.Scene {
         venueId: q.get('venue') || level.spec.solution_id,
         highlight: q.get('highlight') ? q.get('highlight').split(',') : undefined,
         revealAll: q.has('revealAll'),
+        recap: q.has('recap'),
       });
     } else {
       this.scene.start('Menu');
