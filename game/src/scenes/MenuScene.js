@@ -25,6 +25,9 @@ export default class MenuScene extends Phaser.Scene {
       const got = Object.keys(loadPages()).length;
       button(this, W - 100, 40, `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: 168, h: 38, size: 15, fill: C.blue });
     }
+    // Accessibility options: text size, chat pace, high contrast, reduce motion.
+    button(this, 90, 40, 'Options', () => this.scene.start('Options'), { w: 140, h: 38, size: 15, fill: C.bar });
+    this.input.keyboard?.on('keydown-O', () => this.scene.start('Options'));
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);

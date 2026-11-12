@@ -1,4 +1,4 @@
-import { C, CHARACTERS, hex, pixel, text } from './theme.js';
+import { C, CHARACTERS, hex, pixel, text, readText } from './theme.js';
 import { panel } from './widgets.js';
 import { scrollArea } from './scroll.js';
 
@@ -72,7 +72,7 @@ export function notebook(scene, highlight = [], mode = 'auto') {
       if (entries.some((e) => e.key === key)) return;
       const ch = CHARACTERS[line.speaker] || { name: line.speaker };
       const hl = highlight.includes(line.clue);
-      const obj = scene.add.text(0, 0, `${ch.name}: “${line.text}”`, text(13, C.ink, {
+      const obj = scene.add.text(0, 0, `${ch.name}: “${line.text}”`, readText(13, C.ink, {
         wordWrap: { width: w - 32, useAdvancedWrap: true },
         backgroundColor: hl ? hex(C.highlight) : undefined,
         padding: { x: 4, y: 3 },

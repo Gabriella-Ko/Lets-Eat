@@ -1,5 +1,7 @@
 import Phaser from 'phaser';
-import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text } from '../ui/theme.js';
+import { tween } from '../ui/motion.js';
+import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text, readText } from '../ui/theme.js';
+import { chatPaceMs, highContrast } from '../ui/settings.js';
 import { panel, button, portrait } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
@@ -8,16 +10,17 @@ import { unlockPage } from '../ui/scrapbookStore.js';
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
 /**
- * Chat pacing: after each message the next speaker shows a "typing…" bubble for TYPING_MS,
- * then their message arrives on its own (Gabriella, 2026-11-11: bubbles last 1 s).
+ * Chat pacing: after each message the next speaker shows a "typing…" bubble, then their message arrives
+ * on its own. The wait comes from the Chat pace option: Quick 1 s (Gabriella's default, 2026-11-11),
+ * Relaxed 2 s, or Tap to continue (no typing bubble, no auto-advance: click, space or enter).
  */
-const TYPING_MS = 1000;
 /** Resting the pointer this long on an older message pauses the chat. */
 const HOVER_PAUSE_MS = 300;
 const KEY_STEP = 48;
 
 const PROMPT = {
   idle: 'scroll up anytime to reread. the chat will wait',
+  tap: 'click or press space for the next message',
   reread: 'take your time. scroll down or click to keep going',
   manual: 'paused. press P or click to keep going',
   done: 'that’s the whole chat. take your time and scroll up to read it all',
@@ -80,8 +83,9 @@ export default class ChatScene extends Phaser.Scene {
     });
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
-    const keyHint = `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, keyHint, text(12, C.inkSoft)).setOrigin(0.5);
+    const keyHint = `space: next${chatPaceMs() === null ? '' : '   ·   P: pause'}   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
+    // On the dark page background, so it uses the light label colour (readable in high contrast too).
+    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, keyHint, text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
 
@@ -99,7 +103,7 @@ export default class ChatScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => this.next());
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
-      if (this.done()) return;
+      if (this.done() || chatPaceMs() === null) return; // nothing to pause in tap-to-continue
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
@@ -135,6 +139,8 @@ export default class ChatScene extends Phaser.Scene {
     img.setDisplaySize(CHAT.w, Math.max(CHAT.h, (CHAT.w * src.height) / src.width));
     const shape = this.make.graphics({}, false).fillStyle(0xffffff).fillRoundedRect(CHAT.x, CHAT.y, CHAT.w, CHAT.h, 16);
     img.setMask(shape.createGeometryMask());
+    // High contrast: fade the picture so text and bubbles stand out.
+    if (highContrast()) img.setAlpha(0.25);
     return img;
   }
 
@@ -142,7 +148,7 @@ export default class ChatScene extends Phaser.Scene {
   panBackground(img, fraction) {
     const y = CHAT.y - fraction * (img.displayHeight - CHAT.h);
     this.tweens.killTweensOf(img);
-    this.tweens.add({ targets: img, y, duration: 350, ease: 'Sine.easeOut' });
+    tween(this, { targets: img, y, duration: 350, ease: 'Sine.easeOut' });
   }
 
   next(instant = false) {
@@ -163,9 +169,9 @@ export default class ChatScene extends Phaser.Scene {
     if (this.done()) {
       this.hold.manual = false;
       this.go.setVisible(true);
-    } else if (!instant) {
+    } else if (!instant && chatPaceMs() !== null) {
       this.showTyping(script[this.shown].speaker);
-      this.timer = this.time.delayedCall(TYPING_MS, () => this.next());
+      this.timer = this.time.delayedCall(chatPaceMs(), () => this.next());
       this.applyHold();
     }
     this.refreshPrompt();
@@ -191,7 +197,7 @@ export default class ChatScene extends Phaser.Scene {
 
   refreshPrompt() {
     if (!this.prompt) return;
-    let msg = PROMPT.idle;
+    let msg = chatPaceMs() === null ? PROMPT.tap : PROMPT.idle;
     if (this.done()) msg = this.highlight.length ? PROMPT.missed : PROMPT.done;
     else if (this.hold.manual) msg = PROMPT.manual;
     else if (this.hold.reread || this.hold.hover) msg = PROMPT.reread;
@@ -235,9 +241,9 @@ export default class ChatScene extends Phaser.Scene {
     c.add([bubble, face, name, ...dots]);
     // Slightly faded so it never reads as an empty message.
     c.setAlpha(0);
-    this.tweens.add({ targets: c, alpha: 0.8, duration: 150 });
+    tween(this, { targets: c, alpha: 0.8, duration: 150 });
     // A full pulse across the three dots fits inside the 1 s bubble.
-    dots.forEach((d, i) => this.tweens.add({ targets: d, alpha: 1, y: 32, duration: 250, delay: i * 100, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' }));
+    dots.forEach((d, i) => tween(this, { targets: d, alpha: 1, y: 32, duration: 250, delay: i * 100, yoyo: true, repeat: -1, ease: 'Sine.easeInOut' }));
     this.chat.content.add(c);
     this.typing = { c, dots };
     this.chat.setContentHeight(this.chatY + 64);
@@ -291,7 +297,7 @@ export default class ChatScene extends Phaser.Scene {
       else this.notebook.remove(idx);
       draw(pinned, true);
       onChange(pinned);
-      this.tweens.add({ targets: g, scale: { from: 1.25, to: 1 }, duration: 160, ease: 'Back.easeOut' });
+      tween(this, { targets: g, scale: { from: 1.25, to: 1 }, duration: 160, ease: 'Back.easeOut' });
     });
     c.add([g, zone]);
   }
@@ -306,7 +312,7 @@ export default class ChatScene extends Phaser.Scene {
     const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
     // In pin levels, wrap a little narrower so the star fits beside the widest bubble.
     const wrap = CHAT.w - (this.pinning ? 164 : 140);
-    const body = this.add.text(84, 28, line.text, text(16, C.ink, { wordWrap: { width: wrap, useAdvancedWrap: true } }));
+    const body = this.add.text(84, 28, line.text, readText(16, C.ink, { wordWrap: { width: wrap, useAdvancedWrap: true } }));
     const bw = Math.max(body.width + 28, 60);
     const bh = body.height + 18;
     const bubble = this.add.graphics();
@@ -331,7 +337,7 @@ export default class ChatScene extends Phaser.Scene {
     if (!instant) {
       c.setAlpha(0);
       c.x = -12;
-      this.tweens.add({ targets: c, alpha: 1, x: 0, duration: 180, ease: 'Quad.easeOut' });
+      tween(this, { targets: c, alpha: 1, x: 0, duration: 180, ease: 'Quad.easeOut' });
     }
   }
 }
