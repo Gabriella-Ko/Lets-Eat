@@ -6,6 +6,7 @@ import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
 import { pinMode, getPins } from '../ui/notebook.js';
 import { badge } from '../ui/badge.js';
+import { recordPick } from '../ui/visitStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -50,6 +51,7 @@ export default class OutcomeScene extends Phaser.Scene {
     const score = scorePick(lvl.spec, this.venue, this.registry.get('rules'));
     const outcome = lvl.outcomes[this.venue.id] || { lines: [] };
     saveStars(lvl.id, score.stars);
+    recordPick(lvl.id, this.venue.id); // for "been here before" in later levels
 
     const title = { perfect: 'PERFECT MATCH!', partial: 'CLEARED', fail: 'OH NO…' }[score.result];
     this.add.text(W / 2, 38, title, pixel(38, score.result === 'fail' ? C.bad : C.label, { fontStyle: 'bold' })).setOrigin(0.5);

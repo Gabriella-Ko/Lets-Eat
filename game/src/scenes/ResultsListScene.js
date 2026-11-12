@@ -2,6 +2,11 @@ import Phaser from 'phaser';
 import { C, W, pixel, text } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { notebook, pinMode, getPins } from '../ui/notebook.js';
+import { scrollArea } from '../ui/scroll.js';
+import { loadVisits, recordSeen } from '../ui/visitStore.js';
+import { pastVisit } from '../logic/beenHere.js';
+
+const BADGE = { been: { label: 'BEEN HERE', fill: C.accent }, seen: { label: 'SEEN BEFORE', fill: C.blue } };
 
 const LIST = { x: 24, y: 78, w: 290, h: 486 };
 const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
@@ -10,6 +15,9 @@ const DETAIL = { x: 330, y: 78, w: 342, h: 486 };
  * Search results: one card per venue (name, cuisine, price), reviews in the detail panel,
  * and the Notebook alongside so the player can check clues against reviews.
  * Dietary and vibe tags stay hidden: the player learns them from reviews, as the bible intends.
+ * "Been here before": a recurring venue the player met in an EARLIER level gets a badge on its card
+ * (BEEN HERE if they picked it, SEEN BEFORE if it was only listed), and its detail panel adds that
+ * level's reviews. It never says how the earlier pick scored (see logic/beenHere.js).
  * data: { levelId }
  */
 export default class ResultsListScene extends Phaser.Scene {
@@ -35,11 +43,20 @@ export default class ResultsListScene extends Phaser.Scene {
 
     // The venues file often lists the answer first, so shuffle, seeded by level id so the order is stable.
     this.venues = seededShuffle(lvl.venues, lvl.id);
+    // Look up earlier visits before recording this one.
+    const levels = this.registry.get('levels');
+    const visits = loadVisits();
+    this.past = new Map(this.venues.map((v) => [v.id, pastVisit(visits, levels, v.id, lvl.number)]));
+    recordSeen(lvl.id, this.venues.map((v) => v.id));
     const gap = 8;
     const cardH = Math.min(96, (LIST.h - 20 - gap * (this.venues.length - 1)) / this.venues.length);
     this.cards = this.venues.map((v, i) => this.makeCard(v, LIST.x + 10, LIST.y + 10 + i * (cardH + gap), LIST.w - 20, cardH));
 
     this.detail = this.add.container(0, 0);
+    // Reviews scroll, so earlier-visit reviews never run into the button.
+    this.reviews = scrollArea(this, DETAIL.x + 18, DETAIL.y + 98, DETAIL.w - 36, DETAIL.h - 98 - 74);
+    this.moreHint = this.add.text(DETAIL.x + DETAIL.w - 18, DETAIL.y + DETAIL.h - 66, '↓ scroll for more', text(12, C.inkSoft)).setOrigin(1, 0.5).setVisible(false);
+    this.reviews.onScroll(() => this.moreHint.setVisible(!!this.selected && !this.reviews.atBottom()));
     this.pickBtn = button(this, DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h - 36, 'Recommend this', () => {
       this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
     }, { w: DETAIL.w - 40 });
@@ -59,6 +76,15 @@ export default class ResultsListScene extends Phaser.Scene {
     this.add.image(x + 8 + iconSize / 2, y + h / 2, `icon_${venue.cuisine}`).setDisplaySize(iconSize, iconSize);
     this.add.text(x + iconSize + 20, y + h / 2 - 11, venue.name, pixel(17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5);
     this.add.text(x + iconSize + 20, y + h / 2 + 12, `${pretty(venue.cuisine)} · ${venue.price_tier}`, text(14, C.inkSoft)).setOrigin(0, 0.5);
+    const past = this.past.get(venue.id);
+    if (past) {
+      // Bottom-right of the card, beside the short cuisine line, so it never collides with a long name.
+      const b = BADGE[past.kind];
+      const t = this.add.text(x + w - 14, y + h - 12, b.label, pixel(11, C.panel, { fontStyle: 'bold' })).setOrigin(1, 1);
+      const pg = this.add.graphics().fillStyle(b.fill, 1).fillRoundedRect(t.x - t.width - 8, t.y - t.height - 3, t.width + 16, t.height + 6, 9);
+      t.setDepth(1);
+      pg.setDepth(0.5);
+    }
     const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
     const card = { venue, draw };
     zone.on('pointerover', () => this.selected !== venue && draw('hover'));
@@ -81,16 +107,41 @@ export default class ResultsListScene extends Phaser.Scene {
       this.add.text(x + 74, y + 4, v.name, pixel(22, C.ink, { fontStyle: 'bold', wordWrap: { width: DETAIL.w - 110 } })),
       this.add.text(x + 74, y + 36, `${pretty(v.cuisine)} · ${v.price_tier}`, text(15, C.inkSoft)),
     ];
-    y += 80;
-    items.push(this.add.text(x, y, 'REVIEWS', pixel(16, C.ink, { fontStyle: 'bold' })));
-    y += 26;
-    for (const r of v.reviews) {
-      const t = this.add.text(x + 12, y + 9, `“${r}”`, text(14, C.ink, { wordWrap: { width: DETAIL.w - 60, useAdvancedWrap: true }, lineSpacing: 2 }));
-      const g = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(x, y, DETAIL.w - 36, t.height + 18, 8);
-      items.push(g, t);
-      y += t.height + 28;
-    }
     this.detail.add(items);
+
+    // Reviews (scrollable): today's, then what the player saw on an earlier visit.
+    const area = this.reviews;
+    area.content.removeAll(true);
+    const RW = DETAIL.w - 36;
+    let ry = 0;
+    const add = (o) => (area.content.add(o), o);
+    const review = (r, past) => {
+      const t = add(this.add.text(12, ry + 9, `“${r}”`, text(14, past ? C.inkSoft : C.ink, { wordWrap: { width: RW - 24, useAdvancedWrap: true }, lineSpacing: 2 })));
+      const g = this.add.graphics().fillStyle(past ? 0xfaf3ea : 0xffffff, 1).fillRoundedRect(0, ry, RW, t.height + 18, 8);
+      area.content.addAt(g, area.content.getIndex(t));
+      ry += t.height + 28;
+    };
+    add(this.add.text(0, ry, 'REVIEWS', pixel(16, C.ink, { fontStyle: 'bold' })));
+    ry += 26;
+    for (const r of v.reviews) review(r, false);
+
+    const past = this.past.get(v.id);
+    if (past) {
+      const b = BADGE[past.kind];
+      add(this.add.graphics().lineStyle(1, C.panelDark, 1).lineBetween(0, ry, RW, ry));
+      ry += 12;
+      add(this.add.text(0, ry, `FROM LEVEL ${past.last.number}`, pixel(15, C.ink, { fontStyle: 'bold' })));
+      const tag = add(this.add.text(RW, ry + 2, b.label, pixel(11, b.fill, { fontStyle: 'bold' })).setOrigin(1, 0));
+      ry += Math.max(22, tag.height + 6);
+      const note = past.pickedIn.length
+        ? `you sent the crew here in level ${past.pickedIn.join(' and ')}.`
+        : `it was on the list in level ${past.last.number}.`;
+      const n = add(this.add.text(0, ry, note, text(13, C.inkSoft, { fontStyle: 'italic', wordWrap: { width: RW } })));
+      ry += n.height + 8;
+      for (const r of past.last.reviews) review(r, true);
+    }
+    area.setContentHeight(ry);
+    area.scrollTo(-1e6);
     this.pickBtn.setVisible(true);
   }
 }
