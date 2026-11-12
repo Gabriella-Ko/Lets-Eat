@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "d45be724a99edc973bbe641dfc821bb4d2b36a5d",
+  "head": "58dc33a923fab10c8e591e1beda364856e2ca6a9",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1002,6 +1002,156 @@
       ]
     },
     {
+      "file": "content/levels/level_10/dialogue_level_10.json",
+      "level": "level_10",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v5",
+      "timestamp": "2026-11-11T22:24:02-05:00",
+      "commit": "7dc50e5c7fc58a3fff408d3e646acdde08819903",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7dc50e5c7fc58a3fff408d3e646acdde08819903",
+          "timestamp": "2026-11-11T22:24:02-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_10: shorter Roxy and Brooke craving lines",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "22a1f94224b6de0d35a2c88278fc4ca515d73e90",
+          "timestamp": "2026-11-11T01:03:09-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: critic fixes 2-5 (softer vegetarian line, consistent fail lines, new Cyrus fail shape)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1e9217d8368324d6ad3e41b24fd0cfdf8cc00375",
+          "timestamp": "2026-11-11T01:02:08-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_10: Roxy's S.O.S., Slate Window and Wren House fail lines, Slate Window review",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "a45cead596027fb8ac11ee67a06f4c6084f57458",
+          "timestamp": "2026-11-11T00:28:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_10/outcomes_level_10.json",
+      "level": "level_10",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v5",
+      "timestamp": "2026-11-11T22:24:03-05:00",
+      "commit": "c47d83fb87bcefa9723697f4a4bcdc655c6ccee0",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c47d83fb87bcefa9723697f4a4bcdc655c6ccee0",
+          "timestamp": "2026-11-11T22:24:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: Cyrus's Slate Window fail matches the review; North American wording",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "22a1f94224b6de0d35a2c88278fc4ca515d73e90",
+          "timestamp": "2026-11-11T01:03:09-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: critic fixes 2-5 (softer vegetarian line, consistent fail lines, new Cyrus fail shape)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1e9217d8368324d6ad3e41b24fd0cfdf8cc00375",
+          "timestamp": "2026-11-11T01:02:08-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_10: Roxy's S.O.S., Slate Window and Wren House fail lines, Slate Window review",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "a45cead596027fb8ac11ee67a06f4c6084f57458",
+          "timestamp": "2026-11-11T00:28:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_10/spec_level_10.json",
+      "level": "level_10",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-11T00:25:42-05:00",
+      "commit": "04f82eca09739eba8f65c44331f3c8fadb03d25d",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "04f82eca09739eba8f65c44331f3c8fadb03d25d",
+          "timestamp": "2026-11-11T00:25:42-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_10: write spec (cafe; peanut + vegetarian traps, dairy + healthy near misses)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_10/venues_level_10.json",
+      "level": "level_10",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-11T22:30:11-05:00",
+      "commit": "1da887c378ac7ff5018a278f5adca70c0181e442",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "1da887c378ac7ff5018a278f5adca70c0181e442",
+          "timestamp": "2026-11-11T22:30:11-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_10: Marble Steps bakes a sticky date loaf",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4cc732ee2464a95b8a34c3492342d08e7987be5c",
+          "timestamp": "2026-11-11T22:24:39-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_10: Marble Steps review reshaped; North American wording across reviews",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "dc3e5ef0461011ffbdf423bb4a723b341fd09cea",
+          "timestamp": "2026-11-11T01:05:35-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_10: critic fixes 6-8 (Linden Corner spread, no roll-call template, Wren House has no bake case)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1e9217d8368324d6ad3e41b24fd0cfdf8cc00375",
+          "timestamp": "2026-11-11T01:02:08-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_10: Roxy's S.O.S., Slate Window and Wren House fail lines, Slate Window review",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "dd6d7863a460bfe8b04454ccfae851d519a02003",
+          "timestamp": "2026-11-11T00:28:28-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_10: venues and 5 new downtown cafes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1062,11 +1212,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-10T23:40:33-05:00",
-      "commit": "79bfc749b77a1f54fcce02dea94e2214faf9b062",
+      "timestamp": "2026-11-11T00:28:28-05:00",
+      "commit": "dd6d7863a460bfe8b04454ccfae851d519a02003",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "dd6d7863a460bfe8b04454ccfae851d519a02003",
+          "timestamp": "2026-11-11T00:28:28-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_10: venues and 5 new downtown cafes",
+          "pre_pipeline": false
+        },
         {
           "commit": "79bfc749b77a1f54fcce02dea94e2214faf9b062",
           "timestamp": "2026-11-10T23:40:33-05:00",
@@ -1322,6 +1479,40 @@
           "timestamp": "2026-11-10T23:43:56-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_09: pass, 8 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_10.json",
+      "level": "level_10",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T22:27:02-05:00",
+      "commit": "5ed8a817f87481372365d6319abc462ff78e87b4",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "5ed8a817f87481372365d6319abc462ff78e87b4",
+          "timestamp": "2026-11-11T22:27:02-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_10: final check, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ab956f3c2f84552fdcfa54899b71e0d8a714f68a",
+          "timestamp": "2026-11-11T01:07:22-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_10: re-review after fixes, pass, 3 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e0a9b2a64f14dd817982df410f24e04e72bab6df",
+          "timestamp": "2026-11-11T00:32:02-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_10: pass, 8 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -2093,6 +2284,108 @@
           "timestamp": "2026-11-10T23:44:35-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_09: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_10_run1.json",
+      "level": "level_10",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T22:27:02-05:00",
+      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+          "timestamp": "2026-11-11T22:27:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c59e5d29b95d71706eebbc7ece592821e45fda76",
+          "timestamp": "2026-11-11T01:07:22-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c42e8c0239f855582044dcafbb368196c830461a",
+          "timestamp": "2026-11-11T00:32:47-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_10_run2.json",
+      "level": "level_10",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T22:27:02-05:00",
+      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+          "timestamp": "2026-11-11T22:27:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c59e5d29b95d71706eebbc7ece592821e45fda76",
+          "timestamp": "2026-11-11T01:07:22-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c42e8c0239f855582044dcafbb368196c830461a",
+          "timestamp": "2026-11-11T00:32:47-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_10_run3.json",
+      "level": "level_10",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-11T22:27:02-05:00",
+      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+          "timestamp": "2026-11-11T22:27:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: final retest, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c59e5d29b95d71706eebbc7ece592821e45fda76",
+          "timestamp": "2026-11-11T01:07:22-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: retest after fixes, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c42e8c0239f855582044dcafbb368196c830461a",
+          "timestamp": "2026-11-11T00:32:47-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_10: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
