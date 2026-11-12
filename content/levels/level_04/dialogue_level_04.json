@@ -8,7 +8,7 @@
     { "speaker": "maya", "text": "a cafe?? yes. i need coffee to survive this afternoon", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "brooke", "text": "one thing though: nothing greasy or oily for me", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "brooke", "text": "something fresh! salads, grain bowls, that kind of thing", "emotion": "HAPPY", "clue": "vibe:healthy" },
-    { "speaker": "maya", "text": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "maya", "text": "fresh is fine but it has to be CHEAP. one dollar sign. the trip fund is watching", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
     { "speaker": "brooke", "text": "ooh a trip? where to?", "emotion": "SURPRISED", "clue": null },
     { "speaker": "maya", "text": "the coast. i've been saving since march. i will eat toast for dinner if i have to", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "cyrus", "text": "Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
