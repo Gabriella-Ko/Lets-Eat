@@ -4,32 +4,15 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_10/outcomes_level_10.json",
-      "agent": "narrative_writer",
-      "where": "downtown_slate_window line 1",
-      "issue": "Cyrus's 'There are peanuts in all the food on this counter' overstates the review. Slate Window review 2 lists lentil soup, steamed greens, a chickpea stew and a quinoa salad with no peanuts, and Brooke's next line names only the grain bowls and granola. 'On this counter' can be read as the display counter and fail lines may be dramatic, so this is polish. The new pen-company ending does fix the repeated 'I can't eat here' shape.",
-      "suggested_fix": "'Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the pavement, keeping my pen company.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
+      "check": "freshness",
       "file": "content/levels/level_10/venues_level_10.json",
       "agent": "map_seeder",
-      "where": "venue downtown_linden_corner review 2, downtown_wren_house review 2, downtown_marble_steps review 2",
-      "issue": "The roll-call template is gone, but the rewrite added a new shared shape. Three safe-attribute reviews each list ingredient swaps (oat by default, olive oil instead of butter, white beans for silkiness / pumpkin seeds for crunch, herby oil where you'd expect crème fraîche / flour-and-water batter, syrup rather than butter, no milk jug). Each one is fair and evidences its venue, but side by side they read like the 'repeated checklists' map-seeder v6 asks to avoid.",
-      "suggested_fix": "Shorten one of them to a single experiential detail, e.g. Marble Steps review 2: '...and fritters crowd the plate, all fried in sunflower oil. My sister, who's badly allergic to peanuts and can't have dairy either, picks this place for her birthday brunch every year with zero worry.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_10/outcomes_level_10.json",
-      "agent": "narrative_writer",
-      "where": "downtown_slate_window line 1 (Cyrus 'pavement'); venue downtown_linden_corner review 1 ('sidewalk'); venue downtown_wren_house review 2 ('cricket')",
-      "issue": "The level mixes regional registers: Linden Corner's review says 'sidewalk' while Cyrus says 'pavement', and Wren House's radio plays the cricket. Nobody will be confused, but the fictional city reads slightly inconsistent. Worth choosing one register in the bible for future levels.",
-      "suggested_fix": "Change Cyrus's 'pavement' to 'sidewalk', or leave as is and note a preferred register for later levels."
+      "where": "venue downtown_linden_corner review 2; venue downtown_marble_steps review 1",
+      "issue": "Banana bread is a selling point at two cafes in the same level: Linden's is baked with olive oil, Marble Steps' has a syrup glaze. In Linden review 2, olive oil also shows up twice ('griddled in olive oil' and 'baked with olive oil'). This review is now the only one left with a run of ingredient swaps, so the repeat stands out a little. Both reviews still evidence their venues correctly.",
+      "suggested_fix": "Swap one of the bakes, e.g. Marble Steps review 1: '...churros rolled in cinnamon sugar and a sticky date loaf under a syrup glaze.' Or in Linden review 2 change the last clause to '...and the banana bread is made with no butter at all, which is why it's my standing three o'clock snack.'"
     }
   ],
-  "summary": "Re-review after the human edits, narrative-writer v5 and map-seeder v6. Earlier suggestions 1-8 are all resolved. 'Sushi day' is now a bible Callback. Cyrus's vegetarian line is the new 'Then sushi day is today's standard.' Linden Corner lists five meat-free dishes. The multi-person roll calls are gone. Wren House rules out a bake case. Slate Window's fail lines now point to the satay bowls and granola. Mina's line has the bone broth. Cyrus has a new fail shape. Nothing regressed. Every scored constraint is still findable in implied style. Mina never states her diet, and the vegetarian clue is still carried by Roxy's 'whole section with zero meat in it', Mina's 'without asking about any of it' and Cyrus's 'standard', as clue rule 1 requires. Every review still evidences its venue's deciding attributes. Wren House's peanut safety ('haven't spotted a nut on the premises', seed crunch, plain dressings) is a firsthand observation, enough for an implied level, and it isn't the attribute that decides Wren's score. All outcome lines now match the rewritten reviews. What's left is polish: Cyrus's 'all the food' overstatement, a new ingredient-swap checklist shared by three reviews, and mixed regional words.",
+  "summary": "Quick re-review. All three earlier suggestions are in place. Cyrus's Slate Window fail now points only to the satay bowls and the peanut granola, which matches review 1 and Brooke's next line, and it uses 'sidewalk'. Marble Steps review 2 now evidences dairy-free and peanut-free through one moment (the sister orders freely, churros included), and the regional wording is consistently North American. Every venue's deciding attributes are still evident from reviews alone and agree with the registry. Linden Corner: meat-free board, light, oat by default, a peanut-allergic deskmate. Slate Window: satay and peanut granola. Wren House: everything has meat or fish, a vegetarian coworker leaves, no pastry case, lean, black or oat coffee. Paper Kite: feta, cheddar, butter, whole milk. Marble Steps: 'gloriously heavy', fried, nap by three; vegetarian through the bacon-free plate, tofu and fritters. Gabriella's shorter craving lines still state the cafe craving clearly, all outcomes match the reviews, and nothing new crept in beyond one minor banana bread overlap."
+  ,
   "generated_by": "critic"
 }
