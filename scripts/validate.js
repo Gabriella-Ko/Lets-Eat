@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Let's Eat! Validator · brief v1 · agent id: validator
+// Let's Eat! Validator · brief v2 · agent id: validator
 // Spec: docs/specs/validator.md. Rules: scripts/rules.json (from docs/game_bible.md).
 //
 // Usage: node scripts/validate.js level_XX
@@ -30,6 +30,11 @@ const fileAgent = {}; // rel path -> generated_by (or expected writer when unkno
 
 function fail(check, file, msg) {
   failures.push({ check, file, agent: fileAgent[file] || 'unknown', msg });
+}
+// Warnings are logged but don't fail the level (used for rules switched off in rules.json).
+const warnings = [];
+function warn(check, file, msg) {
+  warnings.push({ check, file, agent: fileAgent[file] || 'unknown', msg });
 }
 
 // ---------- small helpers ----------
@@ -486,6 +491,34 @@ if (outcomesOk && venuesOk) {
   }
 }
 
+// ---------- check 11: callbacks (bible: Callbacks, Scrapbook) ----------
+// A line's optional "callback" must be a known id, not used before its first level, about a friend who is
+// a guest; and a callback's first level must contain a line tagged with it (WARN until
+// rules.callback_first_appearance_required is true).
+if (dialogueOk) {
+  const f = R.dialogue;
+  const CB = rules.callbacks || {};
+  const used = new Set();
+  dialogue.script.forEach((line, i) => {
+    if (!('callback' in line)) return;
+    const id = line.callback;
+    if (!isStr(id) || !CB[id]) {
+      fail(11, f, `script[${i}]: unknown callback ${JSON.stringify(id)} (known: ${Object.keys(CB).join(', ')})`);
+      return;
+    }
+    used.add(id);
+    const first = Number(CB[id].first_level.slice(6));
+    if (levelNum < first) fail(11, f, `script[${i}]: callback "${id}" first appears in ${CB[id].first_level}, so it can't be used in ${levelId}`);
+    if (guests && !guests.includes(CB[id].friend)) fail(11, f, `script[${i}]: callback "${id}" is about ${CB[id].friend}, who is not a guest in this level`);
+  });
+  for (const [id, cb] of Object.entries(CB)) {
+    if (cb.first_level !== levelId || used.has(id)) continue;
+    const msg = `${levelId} is where callback "${id}" first appears, but no line is tagged "callback": "${id}"`;
+    if (rules.callback_first_appearance_required) fail(11, f, msg);
+    else warn(11, f, msg);
+  }
+}
+
 // ---------- write log ----------
 const logsDir = path.join(ROOT, 'logs');
 fs.mkdirSync(logsDir, { recursive: true });
@@ -495,6 +528,7 @@ const lines = failures.length
   ? [`FAIL ${levelId}: ${failures.length} failure${failures.length === 1 ? '' : 's'}`,
      ...failures.map((x) => `[check ${x.check}] ${x.file} (agent: ${x.agent}): ${x.msg}`)]
   : [`PASS ${levelId}`];
+for (const x of warnings) lines.push(`WARN [check ${x.check}] ${x.file} (agent: ${x.agent}): ${x.msg}`);
 fs.writeFileSync(logPath, lines.join('\n') + '\n');
 
 console.log(lines.join('\n'));
