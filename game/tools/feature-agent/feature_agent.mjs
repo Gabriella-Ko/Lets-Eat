@@ -13,6 +13,8 @@
 //   options: --budget <usd per round, default 3>  --model <model>
 //            --resume-at 14:30   when the usage limit is hit and Claude's message gives no reset time, resume then
 //            --max-pauses 3      how many usage-limit pauses before giving up
+//            --on-limit stop     at the usage limit, undo the unfinished round and exit instead of waiting;
+//                                run the agent again to continue (finished features are already committed)
 // Usage limit: the agent undoes the files the unfinished round touched, waits until the limit resets (+1 min) and
 // retries the same feature. Keep the computer awake while it waits.
 // Needs the Claude Code CLI: on PATH as `claude`, set in CLAUDE_BIN, or the copy bundled with the VS Code extension.
@@ -38,6 +40,7 @@ const BUDGET = opt('--budget', '3');
 const MODEL = opt('--model', null);
 const RESUME_AT = opt('--resume-at', null); // e.g. 14:30 or 2:30pm: used when a limit message gives no reset time
 const MAX_PAUSES = Number(opt('--max-pauses', 3));
+const ON_LIMIT = opt('--on-limit', 'wait'); // wait: sleep until the reset, then resume; stop: undo the round and exit (code 3)
 
 const log = (entry) => fs.appendFileSync(LOG, JSON.stringify({ at: new Date().toISOString(), ...entry }) + '\n');
 
@@ -262,6 +265,15 @@ async function main() {
       w = writeFeature(next);
       log({ round, event: 'write', id: next.id, ok: w.ok, cost_usd: w.cost ?? null, turns: w.turns ?? null, error: w.error, summary: w.summary });
       if (w.ok || !w.resumeAt) break;
+      // --on-limit stop: undo what this attempt half-wrote and stop; running the agent again continues from here.
+      if (ON_LIMIT === 'stop') {
+        const undone = discardPartial(beforeWrite);
+        log({ round, event: 'paused', id: next.id, mode: 'stop', reset: w.resumeAt.toISOString(), undone });
+        console.log(`\npaused: usage limit reached while writing "${next.id}" (${w.error.split('\n')[0]}).`);
+        if (undone.length) console.log(`  undid unfinished edits: ${undone.join(', ')}`);
+        console.log(`  the limit resets around ${fmtTime(w.resumeAt)}. run the agent again to continue; finished features are already committed.`);
+        return 3;
+      }
       // Usage limit: undo what this attempt half-wrote, wait for the reset (+1 min), then try the same requirement again.
       if (pauses >= MAX_PAUSES) { console.log(`stop: hit the usage limit ${pauses + 1} times (--max-pauses ${MAX_PAUSES}).`); return 1; }
       pauses++;
