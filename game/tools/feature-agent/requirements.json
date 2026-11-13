@@ -493,15 +493,15 @@
       "impact": 3,
       "effort": 1,
       "depends": [],
-      "spec": "In src/scenes/HudScene.js, when music is off OR the volume is 0, draw the speaker button with a bold diagonal slash right across the whole round button (from its top-left edge to its bottom-right edge, about 3 px wide, in C.bad, over the speaker shape), and no sound waves. Put it in a function drawMutedSlash(g) that draw() calls. When music is on and the volume is above 0, no slash. The slash must update as soon as the slider reaches 0 or the On/Off switch is used.",
+      "spec": "In src/scenes/HudScene.js, when music is off OR the volume is 0, draw the speaker button with a bold diagonal slash right across the whole round button (from its top-left edge to its bottom-right edge, about 3 px wide, in WHITE (0xffffff), over the speaker shape), and no sound waves. Put it in a function drawMutedSlash(g) that draw() calls. When music is on and the volume is above 0, no slash. The slash must update as soon as the slider reaches 0 or the On/Off switch is used.",
       "detect": [
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "function drawMutedSlash|drawMutedSlash\\s*\\(g\\)\\s*\\{"
+          "pattern": "drawMutedSlash\\("
         },
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "drawMutedSlash\\("
+          "pattern": "function drawMutedSlash\\(g\\)\\s*\\{[\\s\\S]{0,300}0xffffff"
         }
       ]
     },
@@ -578,7 +578,7 @@
         },
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "window.addEventListener('pointerdown'"
+          "pattern": "window\\.addEventListener\\(\\s*'pointerdown'"
         },
         {
           "contains": "src/scenes/HudScene.js",
