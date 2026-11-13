@@ -195,7 +195,9 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   next(instant = false) {
-    if (this.introOpen) return; // the chapter card is up; the chat starts when it closes
+    // While an intro card is up, the player can't advance the chat; the intro itself may still place messages
+    // instantly (the first lines behind How to play).
+    if (this.introOpen && !instant) return;
     const script = this.level.script;
     this.clearTyping();
     if (this.done()) return;
