@@ -10,7 +10,7 @@ const TRACK = { x: PANEL.x + 16, y: PANEL.y + 48, w: 150 };
 /** Muted: a bold slash right across the round speaker button, top-left edge to bottom-right edge, over the speaker. */
 function drawMutedSlash(g) {
   const d = ICON.r * Math.SQRT1_2; // the button's edge at 45 degrees
-  g.lineStyle(3, C.bad, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
+  g.lineStyle(3, 0xffffff, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
 }
 
 /**
