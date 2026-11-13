@@ -28,9 +28,20 @@ export const OPTIONS = {
     { id: 'full', label: 'Off' },
     { id: 'reduced', label: 'On' },
   ],
+  // Applied through ui/music.js setEnabled(), which also keeps its own saved on/off.
+  music: [
+    { id: 'on', label: 'On' },
+    { id: 'off', label: 'Off' },
+  ],
 };
 
-const defaults = () => ({ textSize: 'normal', chatPace: 'quick', contrast: 'normal', motion: osReducedMotion() ? 'reduced' : 'full' });
+const defaults = () => ({
+  textSize: 'normal',
+  chatPace: 'quick',
+  contrast: 'normal',
+  motion: osReducedMotion() ? 'reduced' : 'full',
+  music: 'on',
+});
 
 let memory = null; // fallback when storage is blocked
 let cache = null;
@@ -68,3 +79,4 @@ export const textScale = () => opt('textSize').scale;
 export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';
+export const musicOn = () => getSettings().music === 'on';

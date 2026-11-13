@@ -6,6 +6,10 @@ import { panel, button, portrait } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
 import { unlockPage } from '../ui/scrapbookStore.js';
+import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
+import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
+import { introSteps } from '../logic/introOrder.js';
+import { recordOpened } from '../ui/openedStore.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -16,6 +20,9 @@ const CHAT = { x: 24, y: 78, w: 644, h: 486 };
  */
 /** Resting the pointer this long on an older message pauses the chat. */
 const HOVER_PAUSE_MS = 300;
+/** How to play: messages already showing behind the steps (from Options / on the first visit to level 1). */
+const DEMO_LINES = 4;
+const FIRST_TIME_LINES = 2;
 const KEY_STEP = 48;
 
 const PROMPT = {
@@ -45,6 +52,9 @@ export default class ChatScene extends Phaser.Scene {
     this.level = this.registry.get('levels').find((l) => l.id === data.levelId);
     this.highlight = data.highlight || [];
     this.revealAll = !!data.revealAll || this.highlight.length > 0;
+    // How to play shown from Options: a real level screen behind the steps, then back to returnTo.
+    this.howToPlayDemo = !!data.howToPlay;
+    this.returnTo = data.returnTo || 'Menu';
     this.pinning = pinMode(this.level);
     if (this.pinning && !this.revealAll) setPins(this, this.level.id, []);
     // Scrapbook pages unlocked during this visit to the level; the Outcome screen announces them.
@@ -53,6 +63,7 @@ export default class ChatScene extends Phaser.Scene {
 
   create() {
     const lvl = this.level;
+    recordOpened(lvl.id); // its guests now count as met on the Friends page
     this.add.text(W / 2, 36, `LEVEL ${lvl.number} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));
@@ -90,7 +101,7 @@ export default class ChatScene extends Phaser.Scene {
 
     // Only a tap on the chat panel skips ahead (not the Notebook), and not the end of a drag.
     this.input.on('pointerup', (p, over) => {
-      if (over.some((o) => o.isPin)) return; // tapping a pin saves the line, it doesn't skip
+      if (over.some((o) => o.isPin || o.isIntro)) return; // tapping a pin saves the line, it doesn't skip
       const inChat = p.downX >= CHAT.x && p.downX <= CHAT.x + CHAT.w && p.downY >= CHAT.y && p.downY <= CHAT.y + CHAT.h;
       if (inChat && Phaser.Math.Distance.Between(p.downX, p.downY, p.upX, p.upY) < DRAG_THRESHOLD) this.next();
     });
@@ -102,7 +113,7 @@ export default class ChatScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => this.next());
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
-      if (this.done()) return;
+      if (this.done() || this.introOpen) return;
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
@@ -118,8 +129,41 @@ export default class ChatScene extends Phaser.Scene {
       if (this.firstHighlightY !== null) this.chat.scrollTo(this.firstHighlightY);
       this.refreshPrompt();
     } else {
-      this.next();
+      this.startWithIntros();
     }
+  }
+
+  /**
+   * Before the first message, the intros from introSteps(): the chapter's season card the first time a
+   * level of that chapter opens, then How to play the first time level 1 opens. The chat starts once all are closed.
+   */
+  startWithIntros() {
+    const lvl = this.level;
+    // From Options: the first few messages already showing, the steps over them, then back.
+    if (this.howToPlayDemo) {
+      for (let i = 0; i < DEMO_LINES && !this.done(); i++) this.next(true);
+      this.introOpen = true;
+      showHowToPlay(this, () => this.scene.start(this.returnTo));
+      return;
+    }
+    const steps = introSteps(lvl.number, { howToPlay: howToPlaySeen(), chapter: chapterIntroSeen(lvl.chapter) });
+    const run = (i) => {
+      if (i >= steps.length) {
+        this.introOpen = false;
+        this.next();
+        return;
+      }
+      this.introOpen = true;
+      if (steps[i] === 'chapter') {
+        // The chapter card can sit over the empty chat.
+        showChapterIntro(this, lvl.chapter, () => run(i + 1));
+      } else {
+        // The first messages show behind the steps, so they point at a real chat, not an empty panel.
+        for (let n = 0; n < FIRST_TIME_LINES && !this.done(); n++) this.next(true);
+        showHowToPlay(this, () => run(i + 1));
+      }
+    };
+    run(0);
   }
 
   done() {
@@ -151,6 +195,9 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   next(instant = false) {
+    // While an intro card is up, the player can't advance the chat; the intro itself may still place messages
+    // instantly (the first lines behind How to play).
+    if (this.introOpen && !instant) return;
     const script = this.level.script;
     this.clearTyping();
     if (this.done()) return;
@@ -178,7 +225,7 @@ export default class ChatScene extends Phaser.Scene {
 
   /** A: reveal every remaining message at once and jump to the end. */
   showAll() {
-    if (this.done()) return;
+    if (this.done() || this.introOpen) return;
     while (!this.done()) this.next(true);
     this.chat.scrollToBottom();
   }

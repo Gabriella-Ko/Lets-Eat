@@ -1,0 +1,163 @@
+{
+  "_about": "Credits shown on the game's credits screen (bible: Game identity > Audio). Music tracks are free or copyright-free lo-fi, picked and downloaded by hand by Gabriella from Bensound or Pixabay Music, never by agents. Each music entry: file, title, artist, source (Bensound | Pixabay Music), license, url, license_file, credit_line. Tracks with a Pixabay license certificate (music/*-license.txt, matched by the Pixabay ID in both file names) take title, artist (Pixabay username) and url from it; tracks without one have title and artist guessed from the file name, url and license_file null, and \"check\": true until Gabriella confirms them.",
+  "music": [
+    {
+      "file": "music/23843807-chill-groove-1-jazz-electronicahip-hop-90bpm-251s-14342.mp3",
+      "title": "Chill Groove 1 (Jazz Electronica Hip-Hop, 90 BPM)",
+      "artist": "23843807",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Chill Groove 1 (Jazz Electronica Hip-Hop, 90 BPM) by 23843807 (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/51383504-naks-shepherd-nostalgic-yue-yeyex27s-frozen-lake-410592.mp3",
+      "title": "Naks Shepherd Nostalgic - Yue Yeye's Frozen Lake",
+      "artist": "51383504",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Naks Shepherd Nostalgic - Yue Yeye's Frozen Lake by 51383504 (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/alex-morgan-lofi-chill-vlog-beats-573883.mp3",
+      "title": "Lofi Chill Vlog Beats",
+      "artist": "alex-morgan",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Lofi Chill Vlog Beats by alex-morgan (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/alex-morgan-night-music-601101.mp3",
+      "title": "Night Music",
+      "artist": "alex-morgan",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Night Music by alex-morgan (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/bursanchank-pixelated-game-vibe-music-450640.mp3",
+      "title": "Pixelated Game Vibe Music",
+      "artist": "bursanchank",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Pixelated Game Vibe Music by bursanchank (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/fassounds-good-night-lofi-cozy-chill-music-160166.mp3",
+      "title": "Good Night - Lofi Cozy Chill Music",
+      "artist": "fassounds",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Good Night - Lofi Cozy Chill Music by fassounds (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/lafrey_music-art-aesthetic-599374.mp3",
+      "title": "Art Aesthetic",
+      "artist": "lafrey_music",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": "https://pixabay.com/music/beats-art-aesthetic-599374/",
+      "license_file": "music/beats-art-aesthetic-599374-license.txt",
+      "credit_line": "Art Aesthetic by lafrey_music (Pixabay)"
+    },
+    {
+      "file": "music/lafrey_music-city-memories-464665.mp3",
+      "title": "City Memories",
+      "artist": "lafrey_music",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": "https://pixabay.com/music/lofi-city-memories-464665/",
+      "license_file": "music/lofi-city-memories-464665-license.txt",
+      "credit_line": "City Memories by lafrey_music (Pixabay)"
+    },
+    {
+      "file": "music/lafrey_music-retro-vibe-543034.mp3",
+      "title": "Retro Vibe",
+      "artist": "lafrey_music",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": "https://pixabay.com/music/beats-retro-vibe-543034/",
+      "license_file": "music/beats-retro-vibe-543034-license.txt",
+      "credit_line": "Retro Vibe by lafrey_music (Pixabay)"
+    },
+    {
+      "file": "music/lafrey_music-smooth-aesthetic-602647.mp3",
+      "title": "Smooth Aesthetic",
+      "artist": "lafrey_music",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": "https://pixabay.com/music/beats-smooth-aesthetic-602647/",
+      "license_file": "music/beats-smooth-aesthetic-602647-license.txt",
+      "credit_line": "Smooth Aesthetic by lafrey_music (Pixabay)"
+    },
+    {
+      "file": "music/lafrey_music-time-for-yourself-540388.mp3",
+      "title": "Time for Yourself",
+      "artist": "lafrey_music",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": "https://pixabay.com/music/beats-time-for-yourself-540388/",
+      "license_file": "music/beats-time-for-yourself-540388-license.txt",
+      "credit_line": "Time for Yourself by lafrey_music (Pixabay)"
+    },
+    {
+      "file": "music/prettyjohn1-jazz-cafe-music_pixabay.mp3",
+      "title": "Jazz Cafe Music",
+      "artist": "prettyjohn1",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Jazz Cafe Music by prettyjohn1 (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/turning_pages-seoul-night-market-south-korea-580215.mp3",
+      "title": "Seoul Night Market (South Korea)",
+      "artist": "turning_pages",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Seoul Night Market (South Korea) by turning_pages (Pixabay)",
+      "check": true
+    },
+    {
+      "file": "music/zephiramusic-abstract-lofi-602638.mp3",
+      "title": "Abstract Lofi",
+      "artist": "zephiramusic",
+      "source": "Pixabay Music",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Abstract Lofi by zephiramusic (Pixabay)",
+      "check": true
+    }
+  ],
+  "art": [
+    {
+      "what": "Character portraits, venue and outcome art, chat backdrops",
+      "artist": "Gabriella",
+      "source": "Gabriella's own pixel art, generated with Nano Banana",
+      "license": "Owned by the author",
+      "credit_line": "Pixel art by Gabriella (made with Nano Banana)"
+    }
+  ]
+}

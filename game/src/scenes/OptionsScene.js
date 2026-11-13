@@ -1,17 +1,20 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
-import { panel, button, portrait, star } from '../ui/widgets.js';
+import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
+import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
+import { setEnabled as setMusicEnabled } from '../ui/music.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
   { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts before the next message.' },
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
   { key: 'motion', title: 'Reduce motion', about: 'No sliding, popping, pulsing or spinning: things simply appear.' },
+  { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
 ];
-const LEFT = { x: 40, y: 92, w: 540 };
-const PREVIEW = { x: 604, y: 92, w: 316, h: 440 };
-const ROW_H = 104;
+const LEFT = { x: 40, y: 88, w: 540 };
+const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
+const ROW_H = 98; // five rows still clear the key hint at the bottom
 
 /**
  * Accessibility options (saved per browser, see ui/settings.js). Mouse or keyboard:
@@ -37,15 +40,71 @@ export default class OptionsScene extends Phaser.Scene {
     const s = getSettings();
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
-    this.add.text(LEFT.x, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   Esc: back', text(13, C.label));
+    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
+    button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
+    button(this, W - 110, 36, 'Reset progress', () => this.confirmReset(), { w: 180, h: 34, size: 14, fill: C.bad });
     this.drawFocus();
 
+    // While How to play or the reset check is up, its own keys act and this screen's keys wait.
+    this.helpOpen = false;
     const kb = this.input.keyboard;
-    kb.on('keydown-UP', () => { this.focus = (this.focus + ROWS.length - 1) % ROWS.length; this.drawFocus(); });
-    kb.on('keydown-DOWN', () => { this.focus = (this.focus + 1) % ROWS.length; this.drawFocus(); });
-    kb.on('keydown-LEFT', () => this.step(-1));
-    kb.on('keydown-RIGHT', () => this.step(1));
-    kb.on('keydown-ESC', () => this.scene.start('Menu'));
+    const when = (fn) => () => { if (!this.helpOpen) fn(); };
+    kb.on('keydown-UP', when(() => { this.focus = (this.focus + ROWS.length - 1) % ROWS.length; this.drawFocus(); }));
+    kb.on('keydown-DOWN', when(() => { this.focus = (this.focus + 1) % ROWS.length; this.drawFocus(); }));
+    kb.on('keydown-LEFT', when(() => this.step(-1)));
+    kb.on('keydown-RIGHT', when(() => this.step(1)));
+    kb.on('keydown-H', when(() => this.howToPlay()));
+    kb.on('keydown-ESC', when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); }));
+  }
+
+  /**
+   * Show the How to play steps again, over a real level screen (level 1's chat with its first messages),
+   * since the steps point at parts of that screen. Closing them comes back here.
+   * (They also open on their own the first time level 1 starts.)
+   */
+  howToPlay() {
+    if (this.helpOpen) return;
+    const first = this.registry.get('levels')?.[0];
+    if (!first) return;
+    this.scene.start('Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
+  }
+
+  /**
+   * Reset progress, after a check drawn in the game (no browser confirm()).
+   * Reset: clears stars, Scrapbook pages, friends and "been here" history and the seen intros (resetProgress), then back to the menu.
+   * Cancel (or Esc): closes the check and changes nothing. Enter does not reset, so it can't happen by accident.
+   */
+  confirmReset() {
+    if (this.helpOpen) return;
+    this.helpOpen = true;
+    const layer = this.add.container(0, 0).setDepth(100);
+    const shade = this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0.55).setInteractive(); // blocks clicks below
+    const bw = 460, bh = 230, bx = (W - bw) / 2, by = (H - bh) / 2;
+    const box = this.add.container(0, 0);
+    const card = panel(this, bx, by, bw, bh);
+    const title = this.add.text(W / 2, by + 30, 'RESET PROGRESS?', pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);
+    const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages, friends met and the places you have been, and shows How to play and the chapter cards again. Your options and music stay as they are.',
+      readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
+    const close = () => {
+      if (this.registry.get('hudPanelOpen')) return; // that Esc belongs to the volume panel
+      this.input.keyboard.off('keydown-ESC', close);
+      layer.destroy();
+      this.helpOpen = false;
+    };
+    const reset = () => {
+      this.input.keyboard.off('keydown-ESC', close);
+      resetProgress();
+      this.scene.start('Menu');
+    };
+    const cancelBtn = button(this, W / 2 - 100, by + bh - 40, 'Cancel', close, { w: 160, h: 40, size: 16, fill: C.bar });
+    const resetBtn = button(this, W / 2 + 100, by + bh - 40, 'Reset', reset, { w: 160, h: 40, size: 16, fill: C.bad });
+    box.add([card, title, body, cancelBtn, resetBtn]);
+    layer.add([shade, box]);
+    this.input.keyboard.on('keydown-ESC', close);
+    shade.setAlpha(0);
+    box.setAlpha(0).setY(16);
+    tween(this, { targets: shade, alpha: 1, duration: 150 });
+    tween(this, { targets: box, alpha: 1, y: 0, duration: 200, ease: 'Quad.easeOut' });
   }
 
   /** Move the focused setting one choice left or right. */
@@ -59,6 +118,7 @@ export default class OptionsScene extends Phaser.Scene {
 
   choose(key, id) {
     setSetting(key, id);
+    if (key === 'music') setMusicEnabled(id === 'on');
     applyPalette();
     this.scene.restart({ focus: this.focus });
   }

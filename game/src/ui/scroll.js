@@ -54,6 +54,16 @@ export function scrollArea(scene, x, y, w, h) {
       offset += dy;
       apply(true);
     },
+    /** Scroll by dy px on the game's own account (auto-scrolling): listeners get byUser = false. */
+    drift(dy) {
+      offset += dy;
+      apply(false);
+    },
+    /** Back to the top on the game's own account. */
+    toTop() {
+      offset = 0;
+      apply(false);
+    },
     /** Visible height, for page-sized key scrolling. */
     viewHeight: h,
     /** Call fn(fraction, byUser) whenever the view moves: fraction 0 at the top, 1 scrolled to the bottom. */

@@ -15,6 +15,16 @@ export function loadVisits() {
   return JSON.parse(JSON.stringify(memory || {}));
 }
 
+/** Forget every seen and picked venue (Options > Reset progress). */
+export function clearVisits() {
+  memory = null;
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
 function save(visits) {
   memory = visits;
   try {
