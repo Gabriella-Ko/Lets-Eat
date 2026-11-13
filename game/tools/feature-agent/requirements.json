@@ -487,7 +487,7 @@
     },
     {
       "id": "hud_muted_slash",
-      "title": "Speaker icon has a slash through it when muted or at volume 0",
+      "title": "Speaker icon has a white slash through it when muted or at volume 0",
       "bible": "The music volume control on every screen (Gabriella, 2026-11-13).",
       "status": "Proposed",
       "impact": 3,
@@ -557,6 +557,32 @@
         {
           "contains": "src/scenes/OutcomeScene.js",
           "pattern": "FRIEND_TAGLINES"
+        }
+      ]
+    },
+    {
+      "id": "hud_close_outside",
+      "title": "Volume panel closes when you click outside it",
+      "bible": "The music volume control on every screen (Gabriella, 2026-11-13): hide the volume slider when the area outside its box is clicked.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "hud_muted_slash"
+      ],
+      "spec": "In src/scenes/HudScene.js, the open volume panel closes on any click or tap outside the panel box (PANEL) and the speaker button: anywhere on any screen, including on other screens' buttons and cards, AND anywhere in the browser page outside the game canvas (the dark bars around the game when the window is not the game's shape): add a window-level pointerdown listener (window.addEventListener('pointerdown', ...)) that closes the panel when the click is outside the canvas, and remove it when the Hud shuts down. Put the check in a function closeIfOutside(...). Clicks inside the panel box (the slider, the On/Off switch, or the panel background) keep it open. Esc also closes it (keydown-ESC), without stopping the screen underneath from using Esc for its own back action. Keep M as the toggle.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "closeIfOutside"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "window.addEventListener('pointerdown'"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "keydown-ESC"
         }
       ]
     }
