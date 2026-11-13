@@ -8,6 +8,7 @@ import { scrollArea } from '../ui/scroll.js';
 import { pinMode, getPins } from '../ui/notebook.js';
 import { badge } from '../ui/badge.js';
 import { newFriends, markAnnounced } from '../ui/friendsAnnounced.js';
+import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
@@ -69,7 +70,7 @@ export default class OutcomeScene extends Phaser.Scene {
     this.starsLabel = this.add.text(W / 2 + 100, 124, `${score.stars} of 3 stars`, pixel(14, C.label)).setOrigin(0, 0.5);
 
     this.drawImageSlot(score.result);
-    this.newPageNote();
+    this.newPageNote(score.stars >= 1);
 
     // Reaction lines
     let y = REACT.y + 16;
@@ -224,9 +225,11 @@ export default class OutcomeScene extends Phaser.Scene {
    * Bible (Scrapbook > Where): a small "new page" note when this level unlocked a scrapbook page.
    * Shown once per visit: the list is cleared after it's announced.
    */
-  newPageNote() {
-    // Friends met for the first time on this level get their own card first (announced once each).
-    const friends = newFriends(this.level.guests);
+  newPageNote(cleared) {
+    // Friends met for the first time on this level get their own card first (announced once each), in the
+    // level's guest order. Only on a cleared level: the card's tagline names a need, so after a fail it
+    // would hand the answer to the retry.
+    const friends = cleared ? newFriends(this.level.guests) : [];
     markAnnounced(friends);
     this.newFriendIds = friends;
     const key = `newPages:${this.level.id}`;
@@ -254,7 +257,8 @@ export default class OutcomeScene extends Phaser.Scene {
   /**
    * Unlock cards, shown one after another ~1.4 s into the Outcome screen:
    *  - "A new friend has joined!" (Gabriella, 2026-11-13): a friend met for the first time; their happy
-   *    portrait pops in with rays and sparkles, then their name. "See friends" opens the Friends page.
+   *    portrait pops in with rays and sparkles, then their name and tagline (logic/friendTaglines.js), only
+   *    after a cleared level. "See friends" opens the Friends page.
    *  - "New scrapbook page!" (Gabriella, 2026-11-12): the page's badge pops in, then title and friend.
    *    "See it" opens that page in the Scrapbook.
    * "Keep going" closes (or "Next →" when more cards follow). Shown here, after the level, never in the chat,
@@ -271,7 +275,7 @@ export default class OutcomeScene extends Phaser.Scene {
       view = {
         head: 'A NEW FRIEND HAS JOINED!', ruled: false,
         centre: (x, y) => portrait(this, x, y, 112, id, 'HAPPY'),
-        title: ch.name.toUpperCase(), titleColor: ch.color, sub: 'say hi on your Friends page', subColor: C.inkSoft,
+        title: ch.name.toUpperCase(), titleColor: ch.color, sub: FRIEND_TAGLINES[id] || '', subColor: C.inkSoft,
         seeLabel: 'See friends', see: () => this.scene.start('Friends'),
       };
     } else {
@@ -306,6 +310,9 @@ export default class OutcomeScene extends Phaser.Scene {
     }
     const head = this.add.text(bx, card.y + 30, view.head, pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
     sheet.add([bg, head]);
+    // A click anywhere on the card outside its buttons moves on, like "Next friend →" / "Keep going".
+    keep(this.add.zone(card.x + card.w / 2, card.y + card.h / 2, card.w, card.h).setInteractive())
+      .on('pointerdown', () => this.showNextUnlock());
     tween(this, { targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
 
     // rays behind the badge, slowly turning
