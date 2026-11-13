@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { C, W, H, DISTRICTS, pixel, text } from '../ui/theme.js';
 import { panel, star, button, loadProgress } from '../ui/widgets.js';
 import { loadPages } from '../ui/scrapbookStore.js';
+import { starTotals } from '../logic/progress.js';
 
 // Title + level select. Only unlocked levels are shown: a level opens once the previous one is
 // cleared, and a chapter heading appears with its first open level. Add ?all to the URL to show every level (testing).
@@ -41,6 +42,11 @@ export default class MenuScene extends Phaser.Scene {
       return;
     }
 
+    // Campaign star total over every built level (bible: Scoring rules, Campaign structure).
+    const totals = starTotals(levels, progress);
+    const total = this.add.text(W - 22, 72, `${totals.earned} / ${totals.max}`, pixel(16, C.label)).setOrigin(1, 0);
+    star(this.add.graphics(), total.x - total.width - 12, 81, 8, totals.earned > 0);
+
     // 4 chapters x 5 levels: one row per chapter.
     const cols = 5;
     const cw = 150;
@@ -54,7 +60,18 @@ export default class MenuScene extends Phaser.Scene {
       const y = 210 + r * 118;
       if (!headed.has(lvl.chapter)) {
         headed.add(lvl.chapter);
-        this.add.text(x0 - cw / 2, y - ch / 2 - 26, `CHAPTER ${lvl.chapter} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(16, C.label));
+        const hy = y - ch / 2 - 26;
+        this.add.text(x0 - cw / 2, hy, `CHAPTER ${lvl.chapter} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(16, C.label));
+        // Chapter stars: earned / max over its built levels, and a PERFECT mark when all are 3 stars.
+        const t = totals.byChapter[lvl.chapter];
+        if (t) {
+          const right = x0 + (cols - 1) * (cw + 20) + cw / 2;
+          const score = this.add.text(right, hy, `${t.earned} / ${t.max}`, pixel(16, C.label)).setOrigin(1, 0);
+          star(this.add.graphics(), score.x - score.width - 12, hy + 9, 8, t.earned > 0);
+          if (t.perfect) {
+            this.add.text(score.x - score.width - 28, hy, 'PERFECT', pixel(14, C.highlight, { fontStyle: 'bold' })).setOrigin(1, 0);
+          }
+        }
       }
       panel(this, x - cw / 2, y - ch / 2, cw, ch, C.panel, 8);
       this.add.text(x, y - 20, `LEVEL ${lvl.number}`, pixel(20, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);

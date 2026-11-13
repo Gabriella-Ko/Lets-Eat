@@ -13,6 +13,7 @@ import { scorePick } from '../src/logic/scoring.js';
 import { recapRows } from '../src/logic/recap.js';
 import { pastVisit } from '../src/logic/beenHere.js';
 import { filterOptions, applyView } from '../src/logic/resultsView.js';
+import { starTotals } from '../src/logic/progress.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -116,6 +117,27 @@ for (const id of requested) {
     if (atSecond && Object.keys(atSecond).some((k) => /star|score|result/i.test(k))) problems.push(`been here: "${vid}" exposes a past score`);
     const seenOnly = pastVisit({ [vid]: { seen: [first.id], picked: [] } }, levels, vid, second.number);
     if (seenOnly?.kind !== 'seen') problems.push(`been here: "${vid}" seen but never picked should be SEEN BEFORE`);
+  }
+}
+
+// Star totals (logic/progress.js): only built levels count, 3 stars each, best stars clamped to 0-3.
+{
+  const none = starTotals(levels, {});
+  if (none.earned !== 0 || none.max !== levels.length * 3) problems.push(`star totals: empty progress gives ${none.earned} / ${none.max}, expected 0 / ${levels.length * 3}`);
+  const full = starTotals(levels, Object.fromEntries(levels.map((l) => [l.id, 3])));
+  if (full.earned !== full.max) problems.push('star totals: all 3-star progress is not full marks');
+  for (const [c, t] of Object.entries(full.byChapter)) {
+    const built = levels.filter((l) => String(l.chapter) === c).length;
+    if (t.max !== built * 3 || !t.perfect) problems.push(`star totals: chapter ${c} should be ${built * 3} max and perfect`);
+  }
+  if (levels.length > 1) {
+    const [first] = levels;
+    const one = starTotals(levels, { [first.id]: 2, unbuilt_level: 3, [levels[levels.length - 1].id]: 9 });
+    const expect = 2 + 3;
+    if (one.earned !== expect) problems.push(`star totals: expected ${expect} earned (unbuilt ignored, best clamped to 3), got ${one.earned}`);
+    if (one.byChapter[first.chapter].perfect) problems.push(`star totals: chapter ${first.chapter} marked perfect with a 2-star level`);
+    const sum = Object.values(one.byChapter).reduce((n, t) => n + t.earned, 0);
+    if (sum !== one.earned) problems.push('star totals: chapter totals don\'t add up to the campaign total');
   }
 }
 
