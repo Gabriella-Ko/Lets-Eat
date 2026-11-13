@@ -7,10 +7,10 @@ const ICON = { x: 26, y: H - 22, r: 14 };
 const PANEL = { x: 10, y: H - 108, w: 236, h: 72 };
 const TRACK = { x: PANEL.x + 16, y: PANEL.y + 48, w: 150 };
 
-/** Muted: a bold slash right across the round speaker button, top-left edge to bottom-right edge, over the speaker. */
+/** Muted: a bold slash right across the round speaker button, top-left edge to bottom-right edge, over the speaker, in the border ring's colour. */
 function drawMutedSlash(g) {
   const d = ICON.r * Math.SQRT1_2; // the button's edge at 45 degrees
-  g.lineStyle(3, 0xffffff, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
+  g.lineStyle(3, C.label, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
 }
 
 /**
@@ -98,7 +98,7 @@ export default class HudScene extends Phaser.Scene {
     const on = isEnabled();
     const v = getVolume();
     const silent = !on || v === 0;
-    // Speaker button: a round badge with a speaker, sound waves by volume, or a red slash across it when off or at 0%.
+    // Speaker button: a round badge with a speaker, sound waves by volume, or a slash in the border colour across it when off or at 0%.
     const g = this.icon.clear();
     g.fillStyle(this.open ? C.accent : C.bar, 0.95).fillCircle(ICON.x, ICON.y, ICON.r);
     g.lineStyle(2, C.label, 1).strokeCircle(ICON.x, ICON.y, ICON.r);
