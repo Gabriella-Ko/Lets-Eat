@@ -3,6 +3,7 @@ import { C, W, H, DISTRICTS, pixel, text } from '../ui/theme.js';
 import { panel, star, button, loadProgress } from '../ui/widgets.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { starTotals } from '../logic/progress.js';
+import { showChapterIntro } from '../ui/chapterIntro.js';
 
 // Title + level select. Only unlocked levels are shown: a level opens once the previous one is
 // cleared, and a chapter heading appears with its first open level. Add ?all to the URL to show every level (testing).
@@ -61,7 +62,9 @@ export default class MenuScene extends Phaser.Scene {
       if (!headed.has(lvl.chapter)) {
         headed.add(lvl.chapter);
         const hy = y - ch / 2 - 26;
-        this.add.text(x0 - cw / 2, hy, `CHAPTER ${lvl.chapter} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(16, C.label));
+        const heading = this.add.text(x0 - cw / 2, hy, `CHAPTER ${lvl.chapter} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(16, C.label));
+        // Tapping the heading shows the chapter's intro card again.
+        heading.setInteractive({ useHandCursor: true }).on('pointerdown', () => showChapterIntro(this, lvl.chapter));
         // Chapter stars: earned / max over its built levels, and a PERFECT mark when all are 3 stars.
         const t = totals.byChapter[lvl.chapter];
         if (t) {

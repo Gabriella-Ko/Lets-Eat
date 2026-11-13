@@ -6,6 +6,7 @@ import { panel, button, portrait } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
 import { unlockPage } from '../ui/scrapbookStore.js';
+import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -90,7 +91,7 @@ export default class ChatScene extends Phaser.Scene {
 
     // Only a tap on the chat panel skips ahead (not the Notebook), and not the end of a drag.
     this.input.on('pointerup', (p, over) => {
-      if (over.some((o) => o.isPin)) return; // tapping a pin saves the line, it doesn't skip
+      if (over.some((o) => o.isPin || o.isIntro)) return; // tapping a pin saves the line, it doesn't skip
       const inChat = p.downX >= CHAT.x && p.downX <= CHAT.x + CHAT.w && p.downY >= CHAT.y && p.downY <= CHAT.y + CHAT.h;
       if (inChat && Phaser.Math.Distance.Between(p.downX, p.downY, p.upX, p.upY) < DRAG_THRESHOLD) this.next();
     });
@@ -102,7 +103,7 @@ export default class ChatScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => this.next());
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
-      if (this.done()) return;
+      if (this.done() || this.introOpen) return;
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
@@ -117,6 +118,13 @@ export default class ChatScene extends Phaser.Scene {
       while (!this.done()) this.next(true);
       if (this.firstHighlightY !== null) this.chat.scrollTo(this.firstHighlightY);
       this.refreshPrompt();
+    } else if (!chapterIntroSeen(lvl.chapter)) {
+      // First level opened in a new chapter: its season card first, then the chat starts.
+      this.introOpen = true;
+      showChapterIntro(this, lvl.chapter, () => {
+        this.introOpen = false;
+        this.next();
+      });
     } else {
       this.next();
     }
@@ -151,6 +159,7 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   next(instant = false) {
+    if (this.introOpen) return; // the chapter card is up; the chat starts when it closes
     const script = this.level.script;
     this.clearTyping();
     if (this.done()) return;
@@ -178,7 +187,7 @@ export default class ChatScene extends Phaser.Scene {
 
   /** A: reveal every remaining message at once and jump to the end. */
   showAll() {
-    if (this.done()) return;
+    if (this.done() || this.introOpen) return;
     while (!this.done()) this.next(true);
     this.chat.scrollToBottom();
   }
