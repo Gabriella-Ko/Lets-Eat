@@ -7,6 +7,12 @@ const ICON = { x: 26, y: H - 22, r: 14 };
 const PANEL = { x: 10, y: H - 108, w: 236, h: 72 };
 const TRACK = { x: PANEL.x + 16, y: PANEL.y + 48, w: 150 };
 
+/** Muted: a bold slash right across the round speaker button, top-left edge to bottom-right edge, over the speaker. */
+function drawMutedSlash(g) {
+  const d = ICON.r * Math.SQRT1_2; // the button's edge at 45 degrees
+  g.lineStyle(3, C.bad, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
+}
+
 /**
  * Always-on layer above every screen (launched by BootScene, kept on top). Holds the music volume control:
  * a speaker button bottom left that opens a small panel with a volume slider and Music on/off. It's also the
@@ -74,7 +80,7 @@ export default class HudScene extends Phaser.Scene {
     const on = isEnabled();
     const v = getVolume();
     const silent = !on || v === 0;
-    // Speaker button: a round badge with a speaker, sound waves by volume, or a slash when silent.
+    // Speaker button: a round badge with a speaker, sound waves by volume, or a red slash across it when off or at 0%.
     const g = this.icon.clear();
     g.fillStyle(this.open ? C.accent : C.bar, 0.95).fillCircle(ICON.x, ICON.y, ICON.r);
     g.lineStyle(2, C.label, 1).strokeCircle(ICON.x, ICON.y, ICON.r);
@@ -82,7 +88,7 @@ export default class HudScene extends Phaser.Scene {
     g.fillTriangle(ICON.x - 5, ICON.y - 3, ICON.x + 1, ICON.y - 8, ICON.x + 1, ICON.y + 8);
     g.fillTriangle(ICON.x - 5, ICON.y - 3, ICON.x + 1, ICON.y + 8, ICON.x - 5, ICON.y + 3);
     g.lineStyle(2, C.label, 1);
-    if (silent) g.lineBetween(ICON.x + 3, ICON.y - 5, ICON.x + 9, ICON.y + 5);
+    if (silent) drawMutedSlash(g);
     else {
       g.beginPath().arc(ICON.x + 2, ICON.y, 4, -0.9, 0.9).strokePath();
       if (v > 0.4) g.beginPath().arc(ICON.x + 2, ICON.y, 8, -0.9, 0.9).strokePath();
