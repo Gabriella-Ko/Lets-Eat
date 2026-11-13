@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { levels, problems, rules } from '../content.js';
 import { makePlaceholderArt } from '../ui/widgets.js';
+import { musicKey, start as startMusic } from '../ui/music.js';
 
 // Where portrait art comes from. Today: the preview cut by game/tools/slice_portraits.py.
 // When the Art Asset agent's public/assets/asset_manifest.json exists, point this at it.
@@ -31,6 +32,11 @@ export default class BootScene extends Phaser.Scene {
     for (const group of ['outcomes', 'backgrounds', 'scrapbook']) {
       for (const [key, entry] of Object.entries(manifest?.[group] || {})) this.load.image(key, base + entry.file);
     }
+    // Background music: only the tracks credited in credits.json (src/ui/music.js plays them).
+    const music = this.cache.json.get('credits')?.music;
+    for (const entry of Array.isArray(music) ? music : []) {
+      if (entry?.file && !this.cache.audio.exists(musicKey(entry.file))) this.load.audio(musicKey(entry.file), entry.file);
+    }
     this.load.once('complete', () => {
       for (const [key, entry] of Object.entries(manifest?.portraits || {})) {
         const src = this.textures.get(`file:${entry.file}`);
@@ -47,6 +53,7 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
     this.registry.set('credits', this.cache.json.get('credits') || { music: [], art: [] });
+    startMusic(this); // waits for the player's first click or key press
 
     // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll][&recap]
     const q = new URLSearchParams(window.location.search);
