@@ -2279,7 +2279,7 @@
     "step": "playtest_run3",
     "result": "correct (blue_awning, 3 stars), all 4 constraints found; difficulty 2/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 13951
   },
   {
     "timestamp": "2026-11-12T15:49:04.560Z",

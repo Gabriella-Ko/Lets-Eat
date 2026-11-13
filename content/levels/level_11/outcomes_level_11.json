@@ -23,7 +23,7 @@
       "result": "partial",
       "missed": ["budget"],
       "lines": [
-        { "speaker": "maya", "text": "really good tacos. also two dollar signs. the trip fund just flinched", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "really good tacos but the two dollar signs got the trip fund flinching", "emotion": "ANNOYED" },
         { "speaker": "liam", "text": "i'll split my last taco with you. trip fund rescue mission", "emotion": "HAPPY" }
       ]
     },
@@ -53,5 +53,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
