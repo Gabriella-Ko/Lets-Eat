@@ -1,0 +1,58 @@
+{
+  "level_id": "level_12",
+  "by_venue": {
+    "night_market_firefly_lane": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "i had so many choices i kept changing my mind. this market is a gift :)", "emotion": "HAPPY" },
+        { "speaker": "cyrus", "text": "No tub on the counter, nothing to check twice. I ate the whole meal without looking up. Well chosen.", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "fresh, bright, and my legs are already grateful. sunrise, here i come", "emotion": "HAPPY" }
+      ]
+    },
+    "downtown_banyan_kitchen": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Peanut sauce on the table, crushed peanuts on top of the bowls. I'm stepping away from this counter. Far away.", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "i literally warned us about the peanuts!! cyrus, don't touch a thing. we're moving", "emotion": "SURPRISED" },
+        { "speaker": "mina", "text": "cyrus, come walk with me. we'll find somewhere you can actually sit down", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_stone_well": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... i read the whole board twice. there's meat or fish in every single thing", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "where's the no-meat half?? this board doesn't even have a no-meat corner", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "We had one plan for Mina tonight, and this isn't it. Everyone up, we're leaving.", "emotion": "ANGRY" }
+      ]
+    },
+    "night_market_twelve_bells": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "delicious, but every plate came straight out of the fryer. sunrise me is going to have words with tonight me", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "more crispy stuff for me. i'll run with you tomorrow, brooke. maybe. probably not", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_plum_bridge": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "the dumplings are great, but we walked right past the viet row to get here. i could smell it", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "these are lovely though! liam, we can take the long way out, right past the viet stalls", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_red_thread": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "i loved it. but somewhere back there is a viet row with my name on it", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "I'll circle the viet row again for next time, Liam. Twice.", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
