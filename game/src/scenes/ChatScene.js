@@ -8,6 +8,7 @@ import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js
 import { unlockPage } from '../ui/scrapbookStore.js';
 import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
+import { introSteps } from '../logic/introOrder.js';
 import { recordOpened } from '../ui/openedStore.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
@@ -133,8 +134,8 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   /**
-   * Before the first message: How to play the first time level 1 opens, then the chapter's season card
-   * the first time a level of that chapter opens. The chat starts once both are closed.
+   * Before the first message, the intros from introSteps(): the chapter's season card the first time a
+   * level of that chapter opens, then How to play the first time level 1 opens. The chat starts once all are closed.
    */
   startWithIntros() {
     const lvl = this.level;
@@ -145,26 +146,24 @@ export default class ChatScene extends Phaser.Scene {
       showHowToPlay(this, () => this.scene.start(this.returnTo));
       return;
     }
-    const chapterCard = () => {
-      if (!chapterIntroSeen(lvl.chapter)) {
-        this.introOpen = true;
-        showChapterIntro(this, lvl.chapter, () => {
-          this.introOpen = false;
-          this.next();
-        });
-      } else {
+    const steps = introSteps(lvl.number, { howToPlay: howToPlaySeen(), chapter: chapterIntroSeen(lvl.chapter) });
+    const run = (i) => {
+      if (i >= steps.length) {
         this.introOpen = false;
         this.next();
+        return;
+      }
+      this.introOpen = true;
+      if (steps[i] === 'chapter') {
+        // The chapter card can sit over the empty chat.
+        showChapterIntro(this, lvl.chapter, () => run(i + 1));
+      } else {
+        // The first messages show behind the steps, so they point at a real chat, not an empty panel.
+        for (let n = 0; n < FIRST_TIME_LINES && !this.done(); n++) this.next(true);
+        showHowToPlay(this, () => run(i + 1));
       }
     };
-    if (lvl.number === 1 && !howToPlaySeen()) {
-      // The first messages show behind the steps, so they point at a real chat, not an empty panel.
-      for (let i = 0; i < FIRST_TIME_LINES && !this.done(); i++) this.next(true);
-      this.introOpen = true;
-      showHowToPlay(this, chapterCard);
-    } else {
-      chapterCard();
-    }
+    run(0);
   }
 
   done() {

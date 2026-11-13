@@ -14,6 +14,7 @@ import { recapRows } from '../src/logic/recap.js';
 import { pastVisit } from '../src/logic/beenHere.js';
 import { filterOptions, applyView } from '../src/logic/resultsView.js';
 import { starTotals } from '../src/logic/progress.js';
+import { introSteps } from '../src/logic/introOrder.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -139,6 +140,16 @@ for (const id of requested) {
     const sum = Object.values(one.byChapter).reduce((n, t) => n + t.earned, 0);
     if (sum !== one.earned) problems.push('star totals: chapter totals don\'t add up to the campaign total');
   }
+}
+
+// Intro order: chapter card first, then How to play (level 1 only).
+for (const [num, seen, expect] of [
+  [1, { howToPlay: false, chapter: false }, ['chapter', 'howToPlay']],
+  [2, { howToPlay: false, chapter: true }, []],
+  [6, { howToPlay: true, chapter: false }, ['chapter']],
+]) {
+  const got = introSteps(num, seen);
+  if (JSON.stringify(got) !== JSON.stringify(expect)) problems.push(`intro order: level ${num} with ${JSON.stringify(seen)} gives ${JSON.stringify(got)}, expected ${JSON.stringify(expect)}`);
 }
 
 if (problems.length) {
