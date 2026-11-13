@@ -42,6 +42,25 @@ Each character has permanent traits that never change between levels, and per-le
 | Brooke | Steady, bright, extroverted, social presence | Health conscious, not greasy/oily | Short confident messages, pushes for lively, social spots ("somewhere with a good vibe!"), pragmatic, warm | Locked |
 
 A character's permanent constraints apply in every level they appear in, even when the chat doesn't mention them that day. A peanut allergy is never forgotten between chapters.
+The Friends page displays  
+- name
+- happy photo from expression sheet
+- personality
+- A friend's need appears only after clearing a level where the chat states or implies it.  
+
+On first encounter, show an "unlock" or "you've meet a new friend" screen at the end of a level. From the friends page - only reveal a friend once they've been encountered.
+
+**New-friend card.** "A NEW FRIEND HAS JOINED!" appears on the Outcome screen for each friend met for the first time, one card per friend, in the order they speak (level 1: Liam, then Cyrus). It shows their happy portrait, name and one line about them. It only appears after a cleared level, never after a fail, because the line names a need. (Locked)
+
+| Friend | Card line |
+| --- | --- |
+| Liam | always hungry, down for anything |
+| Cyrus | peanut allergy |
+| Mina | vegetarian |
+| Brooke | healthy foods |
+| Maya | on a budget |
+| Roxy | dairy intolerance |
+
 
 ## Constraint vocabulary
 
@@ -144,6 +163,8 @@ The Map Seeder builds each level's venues from its district's profile, not the w
 | `night_market` | Any | `$`–`$$$` | Any | Any; the widest mix of options  |
 | `waterfront` | `greek`, `italian`, `sushi`, `dim_sum`, `ice_cream` | `$$`–`$$$` | `outdoor_seating`, `lively`, `quiet` | One tier over budget, `lively` vs. `quiet` clashes  |
 
+Each district/chapter will be displayed on a city menu map when each level is unlocked. Use placeholder map art if none is provided.
+
 **Story Beats**  
 Story beats are fixed facts about the friends' shared story. Agents may only use the beats and callbacks listed here; anything new gets added to this section first. At most one story beat per level. A beat takes 2–3 chat lines at most, never replaces a clue line, and works best when it also delivers a clue or gives the level a reason for its craving or vibe.
 
@@ -158,7 +179,7 @@ Story beats are fixed facts about the friends' shared story. Agents may only use
 | Maya's send-off | level_20 | The finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke. It's the only level with all six friends. It takes 2–3 lines of framing at most, and Maya's `$$` budget is restated through it ("trip's paid for, tonight's on the fun budget"). | Locked |
 
 
-**Calendar.** Each chapter is a season, which gives vibes a natural reason:
+**Calendar.** Each chapter is a season, which gives vibes a natural reason. Use this info for chapter intro cards.
 
 | Chapter | District | Season | Typical reasons |
 | --- | --- | --- | --- |
@@ -166,6 +187,8 @@ Story beats are fixed facts about the friends' shared story. Agents may only use
 | 2 | Downtown | Summer internships | Lunch breaks, so `quick_bite` |
 | 3 | Night Market | Late summer nights | Warm evenings, so `outdoor_seating` and `lively` |
 | 4 | Waterfront | End of summer | Before Maya's trip, so `quiet` dinners and celebrations |
+
+**Chapter intro card.** The first time a chapter's first level opens, a card names the chapter, its district and its season from the table above, before anything else (in level 1, before How to play). Seen cards are remembered until Reset progress.
 
 **Callbacks.** Shared memories the chat can point to instead of naming a need. They're the main way to deliver implied and buried clues, and they reward returning players. A callback always points to the friend's permanent constraint, never to a new one.
 
@@ -207,7 +230,25 @@ In `stated` levels a callback may sit next to a plain statement. In `implied` an
 - Every non-solution venue is a decoy with a reason to fail. Each level has at least one hard-fail trap and at least one near miss (exactly one soft miss).
 - The Validator checks guest counts, venue counts, hard-constraint counts and character appearances against this table across all levels.
 - Venues can recur within their district. A recurring venue keeps its id, name, cuisine, price tier and vibe tags; only its reviews may change between levels.
+- **Been here before.** A recurring venue the player met in an earlier level gets a badge on its card: "Been here" if they picked it, "Seen before" if it was only in the results. The card also shows that earlier level's reviews. It never shows how the earlier pick scored, because a decoy in one level can be the answer in another (Koi Counter: decoy in level_06, answer in level_08). Only earlier levels count.
 - A venue never appears outside its home district, except at the Night Market, which can bring back favourites from earlier chapter.
+
+
+## Screens and controls
+
+What the player sees and uses outside the chat itself. Every screen works with mouse or keyboard.
+
+| Feature | Rule | Status |
+| --- | --- | --- |
+| How to play | Shown the first time level 1 opens, right after the chapter 1 card: three steps over a real chat screen (read the chat, check the results and reviews, recommend). Can be skipped, and replayed from Options. | Locked |
+| Chat pacing | Each message follows a short "*name* is typing…" bubble (1 second; 2 seconds on Relaxed). Click or Space skips ahead, scrolling up to reread pauses the chat, P pauses and A shows everything. | Locked |
+| Results list | Sort by Mixed (the level's fixed shuffle, so the answer isn't always on top), Cheapest or A–Z, and filter by price and cuisine. It only uses what's on the venue cards, never dietary or vibe tags. | Locked |
+| Clue recap | A button on the result screen. After a cleared level it lists every need, ✓ or ✗ for the pick, with the chat line that gave it away. After a fail it shows only the need that was broken, so the retry isn't handed the answer. | Locked |
+| Star totals | The menu shows stars earned per chapter and for the whole campaign, out of 3 per level. | Locked |
+| Keyboard play | Every screen can be played by keyboard: arrows and Enter to choose, Esc to go back. | Locked |
+| Music control | A speaker button in the bottom-left corner of every screen opens a volume slider and Music on/off (M also opens it). The icon shows a slash when muted or at volume 0. Clicking outside the panel or pressing Esc closes it. Music shuffles the credited tracks and starts after the player's first click or key press. | Locked |
+| Options | Text size (Normal or Large), Chat pace (Quick or Relaxed), High contrast, Reduce motion, Music, How to play and Reset progress. Stars never rely on colour alone: empty stars are outlined and the result screen says "3 of 3 stars". | Locked |
+| Reset progress | In Options, after a confirm: clears stars, Scrapbook pages, friends met, "been here" history and the intro cards already seen. | Locked |
 
 ## Data schemas
 
@@ -254,7 +295,8 @@ Four files per level plus one venue registry per district, all sharing the same 
 }
 ```
 
-Every line carries a `clue` tag, or `null`. Tagged lines feed the Notebook sidebar as the player reads them, and a partial-success hint highlights the tagged line the player missed.
+Every line carries a `clue` tag, or `null`. In chapter 1, tagged lines feed the Notebook sidebar as the player reads them. From chapter 2, the player stars the lines they want to keep, and any line can be starred, so the Notebook never reveals which lines are clues. A partial-success hint highlights the tagged line the player missed.
+
 
 **Outcomes** (written by the Narrative Writer, kept separate so the Blind Playtester never sees them)
 
