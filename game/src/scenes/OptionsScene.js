@@ -1,6 +1,7 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
-import { panel, button, portrait, star } from '../ui/widgets.js';
+import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
+import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled } from '../ui/music.js';
 import { showHowToPlay } from '../ui/howToPlay.js';
@@ -42,9 +43,10 @@ export default class OptionsScene extends Phaser.Scene {
     this.drawPreview();
     this.add.text(LEFT.x, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
+    button(this, W - 110, 36, 'Reset progress', () => this.confirmReset(), { w: 180, h: 34, size: 14, fill: C.bad });
     this.drawFocus();
 
-    // While How to play is up, its own Enter/Esc act and this screen's keys wait.
+    // While How to play or the reset check is up, its own keys act and this screen's keys wait.
     this.helpOpen = false;
     const kb = this.input.keyboard;
     const when = (fn) => () => { if (!this.helpOpen) fn(); };
@@ -61,6 +63,43 @@ export default class OptionsScene extends Phaser.Scene {
     if (this.helpOpen) return;
     this.helpOpen = true;
     showHowToPlay(this, () => { this.helpOpen = false; });
+  }
+
+  /**
+   * Reset progress, after a check drawn in the game (no browser confirm()).
+   * Reset: clears stars, Scrapbook pages and "been here" history, then back to the menu.
+   * Cancel (or Esc): closes the check and changes nothing. Enter does not reset, so it can't happen by accident.
+   */
+  confirmReset() {
+    if (this.helpOpen) return;
+    this.helpOpen = true;
+    const layer = this.add.container(0, 0).setDepth(100);
+    const shade = this.add.rectangle(W / 2, H / 2, W, H, 0x000000, 0.55).setInteractive(); // blocks clicks below
+    const bw = 460, bh = 230, bx = (W - bw) / 2, by = (H - bh) / 2;
+    const box = this.add.container(0, 0);
+    const card = panel(this, bx, by, bw, bh);
+    const title = this.add.text(W / 2, by + 30, 'RESET PROGRESS?', pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);
+    const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages and the places you have been. Your options stay as they are.',
+      readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
+    const close = () => {
+      this.input.keyboard.off('keydown-ESC', close);
+      layer.destroy();
+      this.helpOpen = false;
+    };
+    const reset = () => {
+      this.input.keyboard.off('keydown-ESC', close);
+      resetProgress();
+      this.scene.start('Menu');
+    };
+    const cancelBtn = button(this, W / 2 - 100, by + bh - 40, 'Cancel', close, { w: 160, h: 40, size: 16, fill: C.bar });
+    const resetBtn = button(this, W / 2 + 100, by + bh - 40, 'Reset', reset, { w: 160, h: 40, size: 16, fill: C.bad });
+    box.add([card, title, body, cancelBtn, resetBtn]);
+    layer.add([shade, box]);
+    this.input.keyboard.on('keydown-ESC', close);
+    shade.setAlpha(0);
+    box.setAlpha(0).setY(16);
+    tween(this, { targets: shade, alpha: 1, duration: 150 });
+    tween(this, { targets: box, alpha: 1, y: 0, duration: 200, ease: 'Quad.easeOut' });
   }
 
   /** Move the focused setting one choice left or right. */

@@ -1,4 +1,6 @@
 import { C, CHARACTERS, CUISINES, EMOTIONS, PIXEL, hex, pixel, portraitKey } from './theme.js';
+import { clearPages } from './scrapbookStore.js';
+import { clearVisits } from './visitStore.js';
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
@@ -145,4 +147,18 @@ export function saveStars(levelId, stars) {
   } catch {
     /* storage blocked: progress just won't persist */
   }
+}
+
+/**
+ * Forget this browser's play history: best stars (so levels lock again), Scrapbook pages and
+ * "been here" venues. Accessibility settings, music on/off and seen intros are kept.
+ */
+export function resetProgress() {
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+  clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
+  clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
 }
