@@ -1,0 +1,6 @@
+PASS level_12
+clue map (implied, 22 lines):
+  allergy:peanut   @ 8, 10
+  diet:vegetarian  @ 13, 14
+  craving          @ 3, 4, 5
+  vibe:healthy     @ 17, 18, 19
