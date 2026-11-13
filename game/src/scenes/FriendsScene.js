@@ -74,6 +74,6 @@ export default class FriendsScene extends Phaser.Scene {
 
     this.add.text(W / 2, 624, 'needs show up here once you clear a level where they come up in the chat', pixel(13, C.label)).setOrigin(0.5);
 
-    this.input.keyboard?.on('keydown-ESC', () => this.scene.start('Menu'));
+    this.input.keyboard?.on('keydown-ESC', () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
   }
 }

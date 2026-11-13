@@ -132,7 +132,10 @@ export default class OutcomeScene extends Phaser.Scene {
     });
     this.drawFocus();
 
-    this.input.keyboard.on('keydown-ESC', () => (this.unlockCard ? this.showNextUnlock() : this.closeRecap()));
+    this.input.keyboard.on('keydown-ESC', () => {
+      if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel
+      if (this.unlockCard) this.showNextUnlock(); else this.closeRecap();
+    });
     if (this.openRecapOnStart) this.openRecap();
   }
 

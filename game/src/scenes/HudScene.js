@@ -69,8 +69,15 @@ export default class HudScene extends Phaser.Scene {
     this.events.once('shutdown', () => window.removeEventListener('pointerdown', this.onWindowDown));
     this.events.once('destroy', () => window.removeEventListener('pointerdown', this.onWindowDown));
     this.input.keyboard?.on('keydown-M', () => this.setOpen(!this.open));
-    // Esc closes it too; the event isn't stopped, so the screen underneath still gets its own Esc (back).
-    this.input.keyboard?.on('keydown-ESC', () => this.open && this.setOpen(false));
+    // Esc with the panel open closes it and nothing else: this scene is on top, so stopping the event keeps
+    // the screens underneath from also using it (back, closing their cards). 'hudPanelOpen' stays set until
+    // after this key press, so any screen whose Esc handler still fires can ignore it.
+    this.input.keyboard?.on('keydown-ESC', (event) => {
+      if (!this.open) return;
+      event?.stopImmediatePropagation?.();
+      this.setOpen(false, { deferFlag: true });
+    });
+    this.events.once('shutdown', () => this.registry.set('hudPanelOpen', false));
 
     onVolume(() => this.draw());
     this.draw();
@@ -87,9 +94,12 @@ export default class HudScene extends Phaser.Scene {
     this.setOpen(false);
   }
 
-  setOpen(open) {
+  /** deferFlag: clear 'hudPanelOpen' only after the current key press has reached every scene. */
+  setOpen(open, { deferFlag = false } = {}) {
     this.open = open;
     this.panel.setVisible(open);
+    if (open || !deferFlag) this.registry.set('hudPanelOpen', open);
+    else setTimeout(() => { if (!this.open) this.registry.set('hudPanelOpen', false); }, 0);
     this.draw();
   }
 

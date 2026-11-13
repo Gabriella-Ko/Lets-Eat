@@ -54,7 +54,7 @@ export default class OptionsScene extends Phaser.Scene {
     kb.on('keydown-LEFT', when(() => this.step(-1)));
     kb.on('keydown-RIGHT', when(() => this.step(1)));
     kb.on('keydown-H', when(() => this.howToPlay()));
-    kb.on('keydown-ESC', when(() => this.scene.start('Menu')));
+    kb.on('keydown-ESC', when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); }));
   }
 
   /**
@@ -86,6 +86,7 @@ export default class OptionsScene extends Phaser.Scene {
     const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages, friends met and the places you have been, and shows How to play and the chapter cards again. Your options and music stay as they are.',
       readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
     const close = () => {
+      if (this.registry.get('hudPanelOpen')) return; // that Esc belongs to the volume panel
       this.input.keyboard.off('keydown-ESC', close);
       layer.destroy();
       this.helpOpen = false;

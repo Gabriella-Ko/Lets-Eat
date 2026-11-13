@@ -91,7 +91,7 @@ export default class CreditsScene extends Phaser.Scene {
     const kb = this.input.keyboard;
     if (kb) {
       const page = area.viewHeight - 40;
-      kb.on('keydown-ESC', () => this.scene.start('Menu'));
+      kb.on('keydown-ESC', () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
       kb.on('keydown-UP', () => area.scrollBy(-40));
       kb.on('keydown-DOWN', () => area.scrollBy(40));
       kb.on('keydown-PAGE_UP', () => area.scrollBy(-page));
