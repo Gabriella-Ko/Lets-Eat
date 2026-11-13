@@ -2190,5 +2190,115 @@
     "result": "manifest written; dialogue_level_01..10 now point to their retrofit commits (narrative_writer v6)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T15:41:51.053Z",
+    "level": "level_11",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "branch",
+    "result": "created level/11 from master",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T15:43:19.515Z",
+    "level": "level_11",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v5",
+    "step": "spec",
+    "result": "pass after 1 retry (Koi Counter rested; craving decoy is a new dim sum stall)",
+    "retries": 1,
+    "tokens": 35985
+  },
+  {
+    "timestamp": "2026-11-12T15:46:26.778Z",
+    "level": "level_11",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 40336
+  },
+  {
+    "timestamp": "2026-11-12T15:46:26.778Z",
+    "level": "level_11",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 67657
+  },
+  {
+    "timestamp": "2026-11-12T15:46:26.778Z",
+    "level": "level_11",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T15:48:17.167Z",
+    "level": "level_11",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 4 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-12T15:49:04.560Z",
+    "level": "level_11",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (blue_awning, 3 stars), all 4 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13801
+  },
+  {
+    "timestamp": "2026-11-12T15:49:04.560Z",
+    "level": "level_11",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (blue_awning, 3 stars), all 4 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13835
+  },
+  {
+    "timestamp": "2026-11-12T15:49:04.560Z",
+    "level": "level_11",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (blue_awning, 3 stars), all 4 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13951
+  },
+  {
+    "timestamp": "2026-11-12T15:49:04.560Z",
+    "level": "level_11",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:09:48.042Z",
+    "level": "level_11",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

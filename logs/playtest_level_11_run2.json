@@ -1,0 +1,45 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_11",
+  "run": 2,
+  "pick": "night_market_blue_awning",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: tacos (Maya; group agrees)",
+      "source_line": "maya: \"confession: i've wanted tacos for three straight days and said no every single time because of the trip fund...\"",
+      "also_supported_by": "roxy: \"TACOS. let's do it!!\"; liam: \"noodle hunt another night. tonight belongs to maya's tacos\""
+    },
+    {
+      "constraint": "Budget: $ only (Maya)",
+      "source_line": "maya: \"thank you. but i mean it about the fund. one-dollar-sign stalls only. the coast trip is not paying for itself\"",
+      "also_supported_by": "maya: \"close enough that one fancy taco would set me back. cheap, or i'm sitting on the curb watching you all eat\""
+    },
+    {
+      "constraint": "Preference: light and fresh, not heavy or fried (Brooke)",
+      "source_line": "brooke: \"cheap tacos, done! one ask from me: we're eating at 9 and i'll be sleeping on whatever i eat. light and fresh, please\""
+    },
+    {
+      "constraint": "Intolerance: dairy (Roxy) - no cheese, crema or milk",
+      "source_line": "roxy: \"ooh same, cheese on every... wait. no. dairy and i broke up, and it was NOT a clean breakup\"",
+      "also_supported_by": "roxy: \"so no cheese, no crema, no milk anything for me...\"; liam: \"ok, you got me. dairy-free tacos for the table.\""
+    }
+  ],
+  "venue_reasoning": {
+    "night_market_blue_awning": "$, tacos, 'bright and clean... feeling light', no cheese or crema. Meets everything: 3 stars.",
+    "night_market_little_comet": "$, tacos, fresh and light, but queso fresco and crema on every taco. Fails dairy intolerance: 2 stars.",
+    "night_market_tin_star": "Tacos, light, dairy-free, but $$ (one tier over). 2 stars.",
+    "night_market_willow_gate": "Tacos, light, dairy-free, but $$$ (two tiers over): deal-breaker.",
+    "night_market_moonlit_corner": "$, tacos, dairy-free, but everything fried and greasy. Fails light/fresh: 2 stars.",
+    "night_market_plum_bridge": "$, dairy-free, steamed and light, but dim sum, not tacos. Misses craving: 2 stars."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Clean, fair design: each decoy fails exactly one constraint, so every review has to be read. The answer is unambiguous.",
+    "Liam's cheese-and-crema line is a fair red herring that he withdraws himself ('dairy-free tacos for the table'). It also sets up Roxy's dairy reveal naturally.",
+    "The 'mystery noodle stall' bit is a mild red herring, closed off clearly by Liam ('noodle hunt another night').",
+    "Budget is stated literally ('one-dollar-sign stalls only'), which makes it quite easy. The cards show price_tier, so it can be checked straight away.",
+    "Little Comet's review mentions a 'lactose-intolerant cousin' outright, so the dairy decoy is easy to spot. Blue Awning's review also names lactose directly. These keywords make the dairy check a little too obvious, but still fair.",
+    "No contradictions found."
+  ]
+}

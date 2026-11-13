@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "49b18d5b3966e4b43d0e930b5cae358e5e130cbc",
+  "head": "e4ba9b43203a5fd97d5f0e6189757868719dc556",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1222,6 +1222,100 @@
       ]
     },
     {
+      "file": "content/levels/level_11/dialogue_level_11.json",
+      "level": "level_11",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-13T18:05:32-05:00",
+      "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
+          "timestamp": "2026-11-13T18:05:32-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_11: Brooke's healthy line, Liam drops the cheese, Maya's Tin Star reaction",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "63bb93c455b3b535e044e0b8a65b6286f95df640",
+          "timestamp": "2026-11-12T10:46:16-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_11: chat and outcomes (Roxy finds the Night Market)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_11/outcomes_level_11.json",
+      "level": "level_11",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-13T18:05:32-05:00",
+      "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
+          "timestamp": "2026-11-13T18:05:32-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_11: Brooke's healthy line, Liam drops the cheese, Maya's Tin Star reaction",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "63bb93c455b3b535e044e0b8a65b6286f95df640",
+          "timestamp": "2026-11-12T10:46:16-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_11: chat and outcomes (Roxy finds the Night Market)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_11/spec_level_11.json",
+      "level": "level_11",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-12T10:43:19-05:00",
+      "commit": "ade3ffd5aeca4e4ed57611477ffa32d8b5ecfa26",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "ade3ffd5aeca4e4ed57611477ffa32d8b5ecfa26",
+          "timestamp": "2026-11-12T10:43:19-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_11: write spec (tacos at the Night Market; $$$ trap, budget, dairy, healthy, craving near misses)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_11/venues_level_11.json",
+      "level": "level_11",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-12T10:45:18-05:00",
+      "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
+          "timestamp": "2026-11-12T10:45:18-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_11: venues and new night_market registry (6 stalls)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1320,6 +1414,26 @@
           "timestamp": "2026-11-09T10:34:01-05:00",
           "agent_tag": "map_seeder",
           "subject": "[map_seeder] level_06: create downtown registry with 5 venues, write venues and reviews",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/registry/venue_registry_night_market.json",
+      "level": null,
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-12T10:45:18-05:00",
+      "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
+          "timestamp": "2026-11-12T10:45:18-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_11: venues and new night_market registry (6 stalls)",
           "pre_pipeline": false
         }
       ]
@@ -1583,6 +1697,26 @@
           "timestamp": "2026-11-11T00:32:02-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_10: pass, 8 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_11.json",
+      "level": "level_11",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-12T10:48:17-05:00",
+      "commit": "9f7585fffef2fa0105aa4c7d17a53dc7bcc8a66d",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9f7585fffef2fa0105aa4c7d17a53dc7bcc8a66d",
+          "timestamp": "2026-11-12T10:48:17-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_11: pass, 4 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -2456,6 +2590,66 @@
           "timestamp": "2026-11-11T00:32:47-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_10: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_11_run1.json",
+      "level": "level_11",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-12T10:49:04-05:00",
+      "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+          "timestamp": "2026-11-12T10:49:04-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_11: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_11_run2.json",
+      "level": "level_11",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-12T10:49:04-05:00",
+      "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+          "timestamp": "2026-11-12T10:49:04-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_11: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_11_run3.json",
+      "level": "level_11",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-12T10:49:04-05:00",
+      "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c1daf9b31899d27931f452a2e760e2b400a29f73",
+          "timestamp": "2026-11-12T10:49:04-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_11: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]

@@ -1,0 +1,49 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_11",
+  "run": 3,
+  "pick": "night_market_blue_awning",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: tacos",
+      "source_speaker": "maya",
+      "source_line": "confession: i've wanted tacos for three straight days and said no every single time because of the trip fund. i have been so brave",
+      "reinforced_by": "liam: \"noodle hunt another night. tonight belongs to maya's tacos\" (rules out the noodle / non-taco detour)"
+    },
+    {
+      "constraint": "Budget: $ only",
+      "source_speaker": "maya",
+      "source_line": "thank you. but i mean it about the fund. one-dollar-sign stalls only. the coast trip is not paying for itself",
+      "reinforced_by": "maya: \"close enough that one fancy taco would set me back. cheap, or i'm sitting on the curb watching you all eat\""
+    },
+    {
+      "constraint": "Preference: light and fresh (nothing heavy or fried)",
+      "source_speaker": "brooke",
+      "source_line": "cheap tacos, done! one ask from me: we're eating at 9 and i'll be sleeping on whatever i eat. light and fresh, please"
+    },
+    {
+      "constraint": "Intolerance: dairy-free (no cheese, crema, milk)",
+      "source_speaker": "roxy",
+      "source_line": "so no cheese, no crema, no milk anything for me. good thing liam said it out loud",
+      "reinforced_by": "roxy: \"dairy and i broke up, and it was NOT a clean breakup\"; liam: \"dairy-free tacos for the table\" (Liam drops his cheese/crema wish, so it is not a constraint)"
+    }
+  ],
+  "venue_evaluation": {
+    "night_market_blue_awning": "tacos, $, light/bright/clean, no cheese or crema. Meets everything. 3 stars.",
+    "night_market_little_comet": "tacos, $, fresh and light, but queso fresco and crema on every taco. Misses dairy intolerance. 2 stars.",
+    "night_market_tin_star": "tacos, light, dairy-free, but $$ (one tier over). 2 stars.",
+    "night_market_moonlit_corner": "tacos, $, dairy-free, but everything fried and greasy. Misses light/fresh. 2 stars.",
+    "night_market_plum_bridge": "$, steamed and light, dairy-free, but dim sum, not tacos. Misses craving. 2 stars.",
+    "night_market_willow_gate": "tacos, light, dairy-free, but $$$ (two tiers over Maya's $). Deal-breaker."
+  },
+  "difficulty": 2,
+  "notes": [
+    "Clean one-miss-each design: every decoy fails exactly one constraint, so the solution is unique and fair.",
+    "Liam's cheese line is a nice red herring that turns into the dairy clue via Roxy; he explicitly withdraws it, so no contradiction.",
+    "Budget is very explicit ('one-dollar-sign stalls only'), which makes Willow Gate and Tin Star easy to eliminate from the cards alone. Reviews also reinforce price (Willow 'sit-down restaurant prices', Tin Star 'a few dollars more').",
+    "Brooke's 'light and fresh' is the subtlest constraint; Moonlit Corner's review makes the fried issue very clear, so it is findable.",
+    "Mystery noodle stall mention could briefly tempt players toward Plum Bridge, but Liam closes it off in the next line. Fair.",
+    "Slightly on the easy side for level 11; Blue Awning's second review names every constraint (lactose, no cheese/crema) almost directly."
+  ]
+}

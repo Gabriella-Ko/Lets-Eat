@@ -1,0 +1,57 @@
+{
+  "level_id": "level_11",
+  "by_venue": {
+    "night_market_blue_awning": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "maya", "text": "three days of being brave, and these tacos were worth every cent. which was not many cents. the trip fund approves", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "zero dairy, zero regrets. new favorite stall!!", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "fresh, light, and i'm going to sleep like a baby. roxy, your market is a keeper", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_willow_gate": {
+      "result": "fail",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "THREE dollar signs. for TACOS. i'm going home to eat toast in the dark. tell the coast i tried", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "maya, come back, there are like fifty other stalls!! ...she's already on the bus", "emotion": "SURPRISED" },
+        { "speaker": "brooke", "text": "i saw that price board and my jaw dropped. we're going after her, everybody grab a napkin", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_tin_star": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "really good tacos but the two dollar signs got the trip fund flinching", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll split my last taco with you. trip fund rescue mission", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_little_comet": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "the tacos were amazing, but every single one came buried in cheese and crema. my stomach would like a word", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i scraped mine off in solidarity. too late for yours though. sorry roxy", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_moonlit_corner": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "so tasty, but so heavy. i'm going to bed with a brick in my stomach. so much for a light night", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "heavy, but cheap! brooke, walk it off with me. the market's huge", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_plum_bridge": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "maya", "text": "dim sum?? it's delicious, but i held out for tacos for THREE DAYS", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "the dumplings were great though. tacos tomorrow, maya. i promise", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

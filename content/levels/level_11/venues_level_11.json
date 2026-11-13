@@ -1,0 +1,50 @@
+{
+  "level_id": "level_11",
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_blue_awning",
+      "reviews": [
+        "Look for the faded blue awning; by a quarter past nine the line already curls past the lemonade cart. The owner's aunt presses the corn tortillas to order, and they go under grilled fish tacos with cabbage slaw and pineapple salsa, or a charred corn and black bean taco for the meat-skippers. It all tastes bright and clean, and I wandered the rest of the market feeling light instead of stuffed. Three tacos for under ten bucks.",
+        "My partner can't do lactose, so at most taco places we spend dinner scraping off sour cream. Here there's nothing to scrape: no cheese, no crema, just a smoky avocado salsa that does the same job. The teenager on the register remembers every regular's order by the second visit."
+      ]
+    },
+    {
+      "id": "night_market_willow_gate",
+      "reviews": [
+        "Gorgeous food at sit-down restaurant prices: two small tacos cost me more than a whole dinner out usually does, and that was before a drink. The grilled fish taco with mango and pickled red onion and the squash blossom taco on blue corn are both crisp, fresh and light. A treat, not a regular stop.",
+        "I asked about dairy for my friend and the cook just grinned: \"Not a drop of milk back here, not even in the tortillas.\" She ordered one of everything. There's an old willow leaning over the stall, hung with paper lanterns, and half the market seems to stop under it for photos."
+      ]
+    },
+    {
+      "id": "night_market_tin_star",
+      "reviews": [
+        "Every taco here runs a few dollars more than at the stalls on either side. Not a splurge, but by the second round I'd noticed. The al pastor gets shaved straight off the spit with grilled pineapple, and the mushroom taco with salsa verde is my favorite thing in the whole market. Lots of lime and cilantro, nothing fried, and I didn't feel weighed down at all.",
+        "Corn tortillas, salsas, avocado and pickled onions, and nothing dairy anywhere on the board. A dented tin star hangs over the grill, and the owner rings a little bell whenever someone braves the habanero salsa."
+      ]
+    },
+    {
+      "id": "night_market_little_comet",
+      "reviews": [
+        "Generous with the dairy: queso fresco crumbled over every taco and a swirl of lime crema on top, the veggie ones included. My lactose-intolerant cousin ate three anyway and regretted it the whole ride home.",
+        "Grilled fish tacos on corn tortillas, piled with shredded cabbage and radish and finished with a squeeze of lime. Fresh, light, and about seven bucks a plate. The owner paints a new comet on the chalkboard menu every night, and the regulars bet on what color it'll be."
+      ]
+    },
+    {
+      "id": "night_market_moonlit_corner",
+      "reviews": [
+        "Everything here meets the fryer. Crispy potato tacos, battered fish tacos, folded tacos fried until they shatter, every one soaking grease spots through the paper plate. Incredible at midnight, but I needed to lie down afterward.",
+        "Surprisingly, there isn't any cheese or sour cream on the menu; the richness all comes from tortillas dunked in hot oil and a chili oil the cook spoons on with a heavy hand. He hums along to a crackly radio and calls everyone \"boss.\" Cheap, too."
+      ]
+    },
+    {
+      "id": "night_market_plum_bridge",
+      "reviews": [
+        "Stacks of bamboo steamers and not a taco in sight, which is a nice change in this aisle. Shrimp har gow, mushroom and chive dumplings, fluffy steamed buns, gai lan with garlic: all of it steamed or blanched, and I left feeling good. A grandmother folds dumplings at the front table while you wait.",
+        "Dairy simply doesn't come into it: the sauces are soy, ginger, scallion and black vinegar, and the buns are made without milk. Three baskets for about eight dollars. The little painted bridge on their sign is the easiest landmark in the market once the string lights come on."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}

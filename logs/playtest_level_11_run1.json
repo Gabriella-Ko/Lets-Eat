@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_11",
+  "run": 1,
+  "pick": "night_market_blue_awning",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: tacos (Maya)",
+      "type": "craving",
+      "source_line": "maya: \"confession: i've wanted tacos for three straight days and said no every single time because of the trip fund...\""
+    },
+    {
+      "constraint": "Budget: $ only (Maya, trip fund)",
+      "type": "budget",
+      "source_line": "maya: \"one-dollar-sign stalls only. the coast trip is not paying for itself\" (reinforced by \"cheap, or i'm sitting on the curb watching you all eat\")"
+    },
+    {
+      "constraint": "Preference: light and fresh, not heavy (Brooke)",
+      "type": "preference",
+      "source_line": "brooke: \"we're eating at 9 and i'll be sleeping on whatever i eat. light and fresh, please\""
+    },
+    {
+      "constraint": "Dairy-free (Roxy; reads as an intolerance, not an allergy)",
+      "type": "intolerance",
+      "source_line": "roxy: \"dairy and i broke up, and it was NOT a clean breakup\" / \"so no cheese, no crema, no milk anything for me\""
+    },
+    {
+      "constraint": "Red herring: Liam's cheese and crema wish is withdrawn",
+      "type": "red_herring",
+      "source_line": "liam: \"ok, you got me. dairy-free tacos for the table. i'm not making you watch\""
+    },
+    {
+      "constraint": "Red herring: the mystery noodle stall is put off",
+      "type": "red_herring",
+      "source_line": "liam: \"noodle hunt another night. tonight belongs to maya's tacos\""
+    }
+  ],
+  "elimination": {
+    "night_market_willow_gate": "$$$, two tiers over the $ budget: deal-breaker",
+    "night_market_tin_star": "$$, one tier over: loses a star (otherwise tacos, light, dairy-free)",
+    "night_market_little_comet": "queso fresco and crema on every taco: fails Roxy's dairy-free (minus one star)",
+    "night_market_moonlit_corner": "everything fried and greasy: fails Brooke's light and fresh (minus one star)",
+    "night_market_plum_bridge": "dim sum, no tacos: misses Maya's craving (minus one star)",
+    "night_market_blue_awning": "$, tacos, bright and light, no cheese or crema: meets everything"
+  },
+  "difficulty": 2,
+  "notes": [
+    "Clean, fair puzzle. Each decoy fails on exactly one thing, and the review text makes each failure clear.",
+    "The cheese/crema red herring is well done. Liam brings it up, Roxy's reaction makes her dairy issue visible, and then Liam backs down.",
+    "Dairy is framed as an intolerance (a bad breakup), so Little Comet would get 2 stars, not 0. That is fine, but a player who reads it as a strict diet might treat Little Comet as a deal-breaker. The pick is the same either way.",
+    "Tin Star's 'a few dollars more' fits its $$ card well. Willow Gate's 'sit-down restaurant prices' fits $$$.",
+    "Not too obvious: you have to read every review for the fried, dairy and price details, because all five taco cards look the same apart from the price."
+  ]
+}

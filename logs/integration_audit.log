@@ -1,4 +1,4 @@
 SUCCESS
-built: level_01, level_02, level_03, level_04, level_05, level_06, level_07, level_08, level_09, level_10 · approved: level_01, level_02, level_03, level_04, level_05, level_06, level_07, level_08, level_09, level_10
-boot test: passed, loaded 10 level(s) in order
-[check 5] note: levels not built yet, skipped: level_11, level_12, level_13, level_14, level_15, level_16, level_17, level_18, level_19, level_20
+built: level_01, level_02, level_03, level_04, level_05, level_06, level_07, level_08, level_09, level_10, level_11 · approved: level_01, level_02, level_03, level_04, level_05, level_06, level_07, level_08, level_09, level_10, level_11
+boot test: passed, loaded 11 level(s) in order
+[check 5] note: levels not built yet, skipped: level_12, level_13, level_14, level_15, level_16, level_17, level_18, level_19, level_20
