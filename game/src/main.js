@@ -9,6 +9,7 @@ import ResultsListScene from './scenes/ResultsListScene.js';
 import OutcomeScene from './scenes/OutcomeScene.js';
 import ScrapbookScene from './scenes/ScrapbookScene.js';
 import OptionsScene from './scenes/OptionsScene.js';
+import CreditsScene from './scenes/CreditsScene.js';
 
 // Canvas text needs the pixel font loaded before the first scene draws.
 await Promise.all([document.fonts.load('20px "Pixelify Sans"'), document.fonts.load('bold 20px "Pixelify Sans"')]).catch(() => {});
@@ -20,5 +21,5 @@ window.__game = new Phaser.Game({
   height: H,
   backgroundColor: C.bg,
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-  scene: [BootScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene],
+  scene: [BootScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene, CreditsScene],
 });

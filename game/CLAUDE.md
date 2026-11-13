@@ -59,6 +59,7 @@ Run `npm run boot-test` before every commit.
   - Options screen works by keyboard (↑ ↓ setting, ← → choice, Esc back) with a focus ring and a live preview. Not in the bible.
 - **Credits file** (`public/credits.json`; bible: Game identity > Audio). `{ "_about", "music": [], "art": [...] }`. Each music track: file, title, artist, source (Bensound | Pixabay Music), license, credit_line, url. Gabriella adds tracks by hand; agents never pick or download music, so `music` starts empty. `art` has one entry crediting the portraits and venue art as Gabriella's own (Nano Banana pixel art). `BootScene` loads it and stores it in the registry as `credits` (empty lists if missing), ready for the credits screen, which isn't built yet (feature agent, 2026-11-12).
 - **Music credits filled** (`public/credits.json` `music`). One entry per audio file in `public/music/` (14 Pixabay tracks Gabriella downloaded), sorted by file name, each with file, title, artist, source "Pixabay Music", license "Pixabay Content License", url, license_file and credit_line "<title> by <artist> (Pixabay)". A track is matched to its `*-license.txt` certificate by the Pixabay ID in both file names; with one (5 lafrey_music tracks), title, artist (Licensor's username) and url come from the certificate and license_file points to it. Without one (9 tracks), title and artist are guessed from the file name (`<username>-<title words>-<id>`), url and license_file are null and `"check": true` asks Gabriella to confirm the names (doubtful: the numeric usernames 23843807 and 51383504, and whether "alex-morgan" is the username). Music files are never chosen, renamed or deleted by agents. BootScene still loads it into the registry as `credits` (feature agent, 2026-11-13).
+- **Credits screen** (`src/scenes/CreditsScene.js`, scene key `Credits`; bible: Game identity > Audio). Reached from the menu's "Credits" button under Options (or C); back with "← Levels" or Esc. Lists every entry of the registry's `credits`: MUSIC (title, then artist, source, license and the credit line) and ART (what, artist, source, license, credit line). With no music it says so plainly. The list scrolls (`ui/scroll.js`: wheel, drag, ↑ ↓, Page Up/Down, Home/End) with a "↓ scroll for more" hint; entry text uses `readText()`, so Large text applies. No animation. The browser boot test opens it (`?scene=Credits`) (feature agent, 2026-11-13).
 
 ## Art
 - Source sheets: `art/source/<character>_sheet.jpg`, a 3x2 grid of HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL.
@@ -69,7 +70,7 @@ Run `npm run boot-test` before every commit.
 - Open with Gabriella: the sheets have CONTENT but no HUNGRY (HUNGRY shows NEUTRAL for now), and they keep their painted backgrounds although the bible asks for transparent ones.
 
 ## Not built yet
-- Audio and the credits screen (bible: hand-picked lo-fi tracks with logged licenses).
+- Audio playback (bible: hand-picked lo-fi tracks with logged licenses).
 - Palette in the bible (still Open there). `src/ui/theme.js` has the colours sampled from the sheets, ready to copy in.
 - Mobile layout check, chapter intro beats.
 - Accessibility still to do: a screen reader can't read the canvas, and most screens beyond Chat and Options aren't fully keyboard-operable (venue cards, Outcome buttons, Scrapbook rows).
