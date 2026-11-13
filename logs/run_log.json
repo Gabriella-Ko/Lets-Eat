@@ -2350,5 +2350,15 @@
     "result": "PASS",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:20:12.531Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "must_fix: 1 (vegetarian clue echoes only the answer review), 6 suggestions; routed to narrative_writer",
+    "retries": 0,
+    "tokens": null
   }
 ]

@@ -1,0 +1,72 @@
+{
+  "level_id": "level_12",
+  "verdict": "must_fix",
+  "findings": [
+    {
+      "severity": "must_fix",
+      "check": "fairness",
+      "file": "content/levels/level_12/dialogue_level_12.json",
+      "agent": "narrative_writer",
+      "where": "script[12]-script[14] (Liam's 'half its menu board marked no meat', Mina's 'that's my half', Cyrus's 'a stall with a menu like that')",
+      "issue": "The vegetarian clue describes one particular stall Liam saw on the viet row, and Cyrus turns it into the target ('we want a stall with a menu like that'). Firefly Lane is the only venue whose review echoes it almost word for word ('Half the board never touches meat'), so a player can match the line to the answer's review and pick it without weighing the other needs. Twelve Bells and Banyan Kitchen also serve vegetarians but have no 'half the board', so the line also reads as a stricter requirement than the spec's vegetarian need.",
+      "rule": "Bible, Clue rules 2 (no character says the answer outright); critic brief, Fairness ('No line names the answer or gives it away'); narrative-writer brief, Named dishes ('Never echo a dish that only the answer's reviews could confirm')",
+      "suggested_fix": "Keep the 'menu detail she reacts to' route, but make it a general fact about the row, not one stall. For example, Liam: 'oh and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl' / Mina: 'tofu everything?? that sounds like my kind of row :)' / Cyrus: 'Good. Then we pick a stall where Mina has real mains to choose from, not just a side.' Then update the Stone Well outcome's 'where's the no-meat half??' line to match (e.g. 'where's the tofu?? there isn't a single meat-free thing on this board')."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_12/venues_level_12.json",
+      "agent": "map_seeder",
+      "where": "venue night_market_firefly_lane review 1",
+      "issue": "'Half the board never touches meat' is the most distinctive vegetarian phrase in the result list and is the phrase the chat echoes. Even after the dialogue fix, describing the vegetarian range the way Twelve Bells and Red Thread do (listing dishes) would keep the answer from standing out.",
+      "suggested_fix": "e.g. 'Plenty here never touches meat: a mushroom pho built on a charred onion and star anise vegetable broth, tofu summer rolls with a soy-lime dip, a lemongrass tofu banh mi.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "fairness",
+      "file": "content/levels/level_12/dialogue_level_12.json",
+      "agent": "narrative_writer",
+      "where": "script[10] (Cyrus: 'I'll need a stall where peanuts aren't anywhere in the kitchen')",
+      "issue": "The peanut clue is fair and never says 'allergy', and Brooke's tub report is a good new route that needs no callback. But Cyrus's line says the need almost outright, so in an implied level it plays like a stated clue. Chapter 3 is 'mostly implied', so this is allowed, just easier than the level's style.",
+      "suggested_fix": "Let the implication carry it, e.g. Cyrus: 'Noted. My pen and I will be choosing very carefully, then. The far end of the counter isn't far enough.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_12/dialogue_level_12.json",
+      "agent": "narrative_writer",
+      "where": "script[17]-script[19] (Brooke's sunrise run)",
+      "issue": "The words are new and the wish is one clear ask (Liam's fryer line only confirms it). But the reason is exercise again, as in level_09 ('climbing after work... fried lunch... first hold'), which is one of the last 3 levels. It's in character for Brooke, but the device is close.",
+      "suggested_fix": "Optional: a non-athletic reason, e.g. a long day of street-food samples at work, or a family dinner tomorrow. Or keep it and avoid exercise reasons for Brooke in level_13-15."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_12/spec_level_12.json",
+      "agent": "puzzle_architect",
+      "where": "decoys",
+      "issue": "The puzzle closely mirrors level_06: viet craving with healthy and peanut, Banyan Kitchen again as the peanut trap, a greasy viet stall as the healthy near miss and a sushi stall as the craving decoy (level_06's Koi Counter). Plum Bridge is also the dim sum craving decoy for the second level running. Each choice is valid, but together they make the level feel familiar to a returning player.",
+      "suggested_fix": "Consider swapping one element: e.g. replace Red Thread or Plum Bridge with a craving decoy in a cuisine not yet used as a decoy at the market (thai, noodles, greek), or bring Plum Bridge back in a different role in a later level."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_12/venues_level_12.json",
+      "agent": "map_seeder",
+      "where": "venue night_market_red_thread review 1",
+      "issue": "'a whole column of the menu that skips fish and meat entirely' at a sushi stall is very close to Cyrus's level_08 line ('a whole section with no fish or meat at all') and the Sushi day scrapbook page. Returning players may read it as a nudge toward Red Thread, a craving decoy.",
+      "suggested_fix": "e.g. 'and for my roommate, who skips fish and meat, a good run of avocado and cucumber rolls, pickled radish, sweet tofu pockets and shiitake nigiri.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_12/outcomes_level_12.json",
+      "agent": "narrative_writer",
+      "where": "night_market_plum_bridge lines[0]",
+      "issue": "'the dumplings are great, but...' nearly repeats Liam's level_11 Plum Bridge line ('the dumplings were great though'), at the same stall with the same craving miss.",
+      "suggested_fix": "e.g. Liam: 'love a steamer basket, but my nose is still back on the viet row. i could smell it from here'"
+    }
+  ],
+  "summary": "A warm, well-voiced level. Cyrus's printed map, Brooke's tub report and the level_11 memories (Liam and Brooke were there; Mina and Cyrus are new to the market) all land, and Banyan Kitchen returns consistent with level_06 and the registry. Reviews evidence every deciding attribute without contradiction, and the outcomes fit. The one must-fix is the vegetarian clue: it points at a single stall whose review echoes it almost word for word, which hands the player the answer. The rest are freshness and difficulty polish: a puzzle shape close to level_06, Plum Bridge as craving decoy again, and Brooke's exercise reason.",
+  "generated_by": "critic"
+}
