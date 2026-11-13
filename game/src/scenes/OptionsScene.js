@@ -2,16 +2,18 @@ import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
 import { panel, button, portrait, star } from '../ui/widgets.js';
 import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
+import { setEnabled as setMusicEnabled } from '../ui/music.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
   { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts before the next message.' },
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
   { key: 'motion', title: 'Reduce motion', about: 'No sliding, popping, pulsing or spinning: things simply appear.' },
+  { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
 ];
-const LEFT = { x: 40, y: 92, w: 540 };
-const PREVIEW = { x: 604, y: 92, w: 316, h: 440 };
-const ROW_H = 104;
+const LEFT = { x: 40, y: 88, w: 540 };
+const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
+const ROW_H = 98; // five rows still clear the key hint at the bottom
 
 /**
  * Accessibility options (saved per browser, see ui/settings.js). Mouse or keyboard:
@@ -59,6 +61,7 @@ export default class OptionsScene extends Phaser.Scene {
 
   choose(key, id) {
     setSetting(key, id);
+    if (key === 'music') setMusicEnabled(id === 'on');
     applyPalette();
     this.scene.restart({ focus: this.focus });
   }

@@ -1,7 +1,8 @@
 import Phaser from 'phaser';
 import { levels, problems, rules } from '../content.js';
 import { makePlaceholderArt } from '../ui/widgets.js';
-import { musicKey, start as startMusic } from '../ui/music.js';
+import { musicKey, start as startMusic, setEnabled as setMusicEnabled, isEnabled as isMusicEnabled } from '../ui/music.js';
+import { musicOn } from '../ui/settings.js';
 
 // Where portrait art comes from. Today: the preview cut by game/tools/slice_portraits.py.
 // When the Art Asset agent's public/assets/asset_manifest.json exists, point this at it.
@@ -53,6 +54,7 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
     this.registry.set('credits', this.cache.json.get('credits') || { music: [], art: [] });
+    if (isMusicEnabled() !== musicOn()) setMusicEnabled(musicOn()); // the Options "Music" setting wins
     startMusic(this); // waits for the player's first click or key press
 
     // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll][&recap]
