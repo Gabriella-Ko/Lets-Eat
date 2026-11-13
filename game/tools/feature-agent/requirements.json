@@ -180,7 +180,7 @@
       "impact": 5,
       "effort": 2,
       "depends": [],
-      "spec": "Fill game/public/credits.json's \"music\" list with every audio file in game/public/music/ (mp3 or ogg), all downloaded by Gabriella from Pixabay Music. Some have a Pixabay license certificate (*-license.txt in the same folder, starting 'PIXABAY LICENSE CERTIFICATE'); match a track to its certificate by the Pixabay ID number in both file names (e.g. lafrey_music-art-aesthetic-599374.mp3 and beats-art-aesthetic-599374-license.txt). For a track WITH a certificate, take title (Audio File Title), artist (the username in the Licensor's Username URL), url (Audio File URL) and license_file (\"music/<certificate name>\") from it. For a track WITHOUT one (Gabriella confirmed these are free under Pixabay's license too), derive title and artist from the file name as well as possible (Pixabay names files <username>-<title words>-<id>.mp3), set url and license_file to null, and add \"check\": true so Gabriella can confirm the names. Every entry: file (\"music/<file name>\"), title, artist, source \"Pixabay Music\", license \"Pixabay Content License\", url, license_file, credit_line \"<title> by <artist> (Pixabay)\". Never choose, download, rename or delete music files. Keep the existing \"art\" entry. BootScene keeps loading credits.json into the registry as 'credits'.",
+      "spec": "Fill game/public/credits.json's \"music\" list with every audio file in assets/music/ at the repo root (mp3 or ogg; the sync step copies them to game/public/music/, where the game serves them), all downloaded by Gabriella from Pixabay Music. Some have a Pixabay license certificate (*-license.txt in assets/music/, starting 'PIXABAY LICENSE CERTIFICATE'); match a track to its certificate by the Pixabay ID number in both file names (e.g. lafrey_music-art-aesthetic-599374.mp3 and beats-art-aesthetic-599374-license.txt). For a track WITH a certificate, take title (Audio File Title), artist (the username in the Licensor's Username URL), url (Audio File URL) and license_file (\"music/<certificate name>\") from it. For a track WITHOUT one (Gabriella confirmed these are free under Pixabay's license too), derive title and artist from the file name as well as possible (Pixabay names files <username>-<title words>-<id>.mp3), set url and license_file to null, and add \"check\": true so Gabriella can confirm the names. Every entry: file (\"music/<file name>\"), title, artist, source \"Pixabay Music\", license \"Pixabay Content License\", url, license_file, credit_line \"<title> by <artist> (Pixabay)\". Never choose, download, rename or delete music files. Keep the existing \"art\" entry. BootScene keeps loading credits.json into the registry as 'credits'.",
       "detect": [
         {
           "contains": "public/credits.json",
@@ -445,6 +445,118 @@
         {
           "contains": "src/scenes/MenuScene.js",
           "pattern": "'Friends'"
+        }
+      ]
+    },
+    {
+      "id": "asset_folders",
+      "title": "Game and tools use the new assets/ folders",
+      "bible": "Game identity > Audio and Art: music is hand-picked by Gabriella and credited; art comes from her source images. Gabriella moved art/source/ to assets/art/ and the music to assets/music/ (2026-11-13).",
+      "status": "Proposed",
+      "impact": 5,
+      "effort": 2,
+      "depends": [
+        "credits_file"
+      ],
+      "spec": "Source art now lives in assets/art/ and music in assets/music/ (both at the repo root, one level above game/). 1) tools/slice_portraits.py: read from assets/art (SRC = os.path.join(ROOT, 'assets', 'art')) and update its docstrings. 2) Add tools/sync_assets.mjs (Node, no dependencies): copy every .mp3/.ogg and *-license.txt from ../assets/music/ into public/music/ (create the folder; remove files there that are no longer in assets/music/); print what it copied. 3) package.json scripts: \"sync-assets\": \"node tools/sync_assets.mjs\", plus \"predev\", \"prebuild\" and \"preboot-test\" that run it, so the music is always in place for the dev server, builds and tests. 4) Change every remaining 'art/source' mention in src/ and CLAUDE.md to 'assets/art' (e.g. the Outcome image placeholder text, comments in theme.js and cityMap.js, the Art section of CLAUDE.md), and say in CLAUDE.md that game/public/music/ is a generated copy of assets/music/ (ignored by Git). Never move, rename or delete files in assets/.",
+      "detect": [
+        {
+          "contains": "tools/slice_portraits.py",
+          "pattern": "'assets',\\s*'art'"
+        },
+        {
+          "file": "tools/sync_assets.mjs"
+        },
+        {
+          "contains": "package.json",
+          "pattern": "\"sync-assets\""
+        },
+        {
+          "contains": "package.json",
+          "pattern": "\"preboot-test\""
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "assets/art/"
+        },
+        {
+          "contains": "CLAUDE.md",
+          "pattern": "assets/music"
+        }
+      ]
+    },
+    {
+      "id": "hud_muted_slash",
+      "title": "Speaker icon has a slash through it when muted or at volume 0",
+      "bible": "The music volume control on every screen (Gabriella, 2026-11-13).",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/HudScene.js, when music is off OR the volume is 0, draw the speaker button with a bold diagonal slash right across the whole round button (from its top-left edge to its bottom-right edge, about 3 px wide, in C.bad, over the speaker shape), and no sound waves. Put it in a function drawMutedSlash(g) that draw() calls. When music is on and the volume is above 0, no slash. The slash must update as soon as the slider reaches 0 or the On/Off switch is used.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "function drawMutedSlash|drawMutedSlash\\s*\\(g\\)\\s*\\{"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "drawMutedSlash\\("
+        }
+      ]
+    },
+    {
+      "id": "chapter_card_first",
+      "title": "Chapter intro card before How to play",
+      "bible": "Campaign structure > Calendar (chapter seasons). Gabriella, 2026-11-13: the chapter 1 card comes before How to play.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 1,
+      "depends": [
+        "chapter_intro_cards",
+        "how_to_play"
+      ],
+      "spec": "Add src/logic/introOrder.js (pure, no Phaser) exporting introSteps(levelNumber, seen) where seen = { howToPlay: bool, chapter: bool }, returning the ordered list of intros to show before the chat starts: the chapter card first (when not seen), then How to play (only for level 1, when not seen). So a first visit to level 1 gives ['chapter', 'howToPlay']. ChatScene.startWithIntros() must follow introSteps(): show each in turn, then start the chat. Keep the first 2 messages showing behind How to play (FIRST_TIME_LINES); the chapter card can show over the empty chat. Add a check of introSteps to test/boot-test.mjs (first visit to level 1 -> ['chapter','howToPlay']; level 2 with nothing seen -> []; level 6 with the chapter unseen -> ['chapter']).",
+      "detect": [
+        {
+          "contains": "src/logic/introOrder.js",
+          "pattern": "export function introSteps"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "introSteps\\("
+        },
+        {
+          "contains": "test/boot-test.mjs",
+          "pattern": "introSteps"
+        }
+      ]
+    },
+    {
+      "id": "friend_card_wording",
+      "title": "New friend cards: one line about each friend; Liam then Cyrus in level 1",
+      "bible": "Cast: permanent constraints (Cyrus peanut allergy, Mina vegetarian, Brooke health conscious, Maya budget, Roxy dairy intolerance; Liam none, always hungry). Clue rules: implied clues are never said outright before the player has solved them.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "Add src/logic/friendTaglines.js exporting FRIEND_TAGLINES = { cyrus: 'peanut allergy', mina: 'vegetarian', brooke: 'healthy foods', maya: 'on a budget', roxy: 'dairy intolerance', liam: 'always hungry' } (Gabriella gave Cyrus, Mina and Brooke; the other three follow the bible's Cast and she may reword them). On the Outcome screen's 'A new friend has joined!' card, show the friend's tagline under their name instead of 'say hi on your Friends page'. Because the tagline names a need, welcome a friend only on a level the player CLEARS (1+ stars), never after a fail (a fail would hand the answer to the retry): src/ui/friendsAnnounced.js stays the record. Order and flow: in level 1 the first card is Liam; clicking 'Next friend →' (or clicking anywhere on the card outside its buttons) shows Cyrus's card; the last card's button says 'Keep going'.",
+      "detect": [
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "export const FRIEND_TAGLINES"
+        },
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "peanut allergy"
+        },
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "healthy foods"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "FRIEND_TAGLINES"
         }
       ]
     }
