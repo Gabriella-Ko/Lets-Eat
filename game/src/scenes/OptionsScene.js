@@ -3,6 +3,7 @@ import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '.
 import { panel, button, portrait, star } from '../ui/widgets.js';
 import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled } from '../ui/music.js';
+import { showHowToPlay } from '../ui/howToPlay.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -39,15 +40,27 @@ export default class OptionsScene extends Phaser.Scene {
     const s = getSettings();
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
-    this.add.text(LEFT.x, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   Esc: back', text(13, C.label));
+    this.add.text(LEFT.x, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
+    button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
     this.drawFocus();
 
+    // While How to play is up, its own Enter/Esc act and this screen's keys wait.
+    this.helpOpen = false;
     const kb = this.input.keyboard;
-    kb.on('keydown-UP', () => { this.focus = (this.focus + ROWS.length - 1) % ROWS.length; this.drawFocus(); });
-    kb.on('keydown-DOWN', () => { this.focus = (this.focus + 1) % ROWS.length; this.drawFocus(); });
-    kb.on('keydown-LEFT', () => this.step(-1));
-    kb.on('keydown-RIGHT', () => this.step(1));
-    kb.on('keydown-ESC', () => this.scene.start('Menu'));
+    const when = (fn) => () => { if (!this.helpOpen) fn(); };
+    kb.on('keydown-UP', when(() => { this.focus = (this.focus + ROWS.length - 1) % ROWS.length; this.drawFocus(); }));
+    kb.on('keydown-DOWN', when(() => { this.focus = (this.focus + 1) % ROWS.length; this.drawFocus(); }));
+    kb.on('keydown-LEFT', when(() => this.step(-1)));
+    kb.on('keydown-RIGHT', when(() => this.step(1)));
+    kb.on('keydown-H', when(() => this.howToPlay()));
+    kb.on('keydown-ESC', when(() => this.scene.start('Menu')));
+  }
+
+  /** Show the How to play steps again (they also open on their own the first time level 1 starts). */
+  howToPlay() {
+    if (this.helpOpen) return;
+    this.helpOpen = true;
+    showHowToPlay(this, () => { this.helpOpen = false; });
   }
 
   /** Move the focused setting one choice left or right. */

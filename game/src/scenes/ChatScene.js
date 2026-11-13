@@ -7,6 +7,7 @@ import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
 import { unlockPage } from '../ui/scrapbookStore.js';
 import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
+import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -118,15 +119,34 @@ export default class ChatScene extends Phaser.Scene {
       while (!this.done()) this.next(true);
       if (this.firstHighlightY !== null) this.chat.scrollTo(this.firstHighlightY);
       this.refreshPrompt();
-    } else if (!chapterIntroSeen(lvl.chapter)) {
-      // First level opened in a new chapter: its season card first, then the chat starts.
-      this.introOpen = true;
-      showChapterIntro(this, lvl.chapter, () => {
+    } else {
+      this.startWithIntros();
+    }
+  }
+
+  /**
+   * Before the first message: How to play the first time level 1 opens, then the chapter's season card
+   * the first time a level of that chapter opens. The chat starts once both are closed.
+   */
+  startWithIntros() {
+    const lvl = this.level;
+    const chapterCard = () => {
+      if (!chapterIntroSeen(lvl.chapter)) {
+        this.introOpen = true;
+        showChapterIntro(this, lvl.chapter, () => {
+          this.introOpen = false;
+          this.next();
+        });
+      } else {
         this.introOpen = false;
         this.next();
-      });
+      }
+    };
+    if (lvl.number === 1 && !howToPlaySeen()) {
+      this.introOpen = true;
+      showHowToPlay(this, chapterCard);
     } else {
-      this.next();
+      chapterCard();
     }
   }
 
