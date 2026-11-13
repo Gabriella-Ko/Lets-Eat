@@ -5,124 +5,447 @@
       "id": "core_loop_scenes",
       "title": "Core loop scenes",
       "bible": "Game identity > Core loop: read chat, inspect search results and reviews, recommend, see the reaction.",
-      "status": "Locked", "impact": 5, "effort": 4, "depends": [],
+      "status": "Locked",
+      "impact": 5,
+      "effort": 4,
+      "depends": [],
       "detect": [
-        { "file": "src/scenes/ChatScene.js" }, { "file": "src/scenes/ResultsListScene.js" }, { "file": "src/scenes/OutcomeScene.js" },
-        { "contains": "src/main.js", "pattern": "ChatScene.*ResultsListScene.*OutcomeScene" }
+        {
+          "file": "src/scenes/ChatScene.js"
+        },
+        {
+          "file": "src/scenes/ResultsListScene.js"
+        },
+        {
+          "file": "src/scenes/OutcomeScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "ChatScene.*ResultsListScene.*OutcomeScene"
+        }
       ]
     },
     {
       "id": "static_content_no_runtime_ai",
       "title": "Static JSON content, no runtime AI or network calls",
       "bible": "Game identity > Engine: Phaser 3, static JSON loaded at startup, no runtime AI calls.",
-      "status": "Locked", "impact": 5, "effort": 2, "depends": [],
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [],
       "detect": [
-        { "contains": "src/content.js", "pattern": "import\\.meta\\.glob" },
-        { "absent": "src", "pattern": "\\bfetch\\(|XMLHttpRequest|anthropic|openai" }
+        {
+          "contains": "src/content.js",
+          "pattern": "import\\.meta\\.glob"
+        },
+        {
+          "absent": "src",
+          "pattern": "\\bfetch\\(|XMLHttpRequest|anthropic|openai"
+        }
       ]
     },
     {
       "id": "scoring_rules",
       "title": "Scoring: hard check, start at 3, -1 per soft miss, floor of 1",
       "bible": "Scoring rules (Locked).",
-      "status": "Locked", "impact": 5, "effort": 3, "depends": [],
+      "status": "Locked",
+      "impact": 5,
+      "effort": 3,
+      "depends": [],
       "detect": [
-        { "contains": "src/logic/scoring.js", "pattern": "export function scorePick" },
-        { "contains": "src/logic/scoring.js", "pattern": "floor_stars" },
-        { "contains": "src/logic/scoring.js", "pattern": "hardMisses" }
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "export function scorePick"
+        },
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "floor_stars"
+        },
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "hardMisses"
+        }
       ]
     },
     {
       "id": "emotion_fallback",
       "title": "Portrait per emotion tag, unknown tags fall back to NEUTRAL",
       "bible": "Emotion tags and art rules: any unknown tag falls back to NEUTRAL; portrait_<character>_<tag>.",
-      "status": "Locked", "impact": 3, "effort": 1, "depends": [],
-      "detect": [{ "contains": "src/ui/theme.js", "pattern": "portrait_\\$\\{character\\}.*NEUTRAL|NEUTRAL[\\s\\S]*portrait_\\$\\{character\\}" }]
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "portrait_\\$\\{character\\}.*NEUTRAL|NEUTRAL[\\s\\S]*portrait_\\$\\{character\\}"
+        }
+      ]
     },
     {
       "id": "cuisine_icons",
       "title": "One icon per cuisine",
       "bible": "Emotion tags and art rules > Venue icon: one per cuisine, icon_<cuisine>.png.",
-      "status": "Locked", "impact": 2, "effort": 1, "depends": [],
-      "detect": [{ "contains": "src/scenes/ResultsListScene.js", "pattern": "icon_\\$\\{" }]
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "icon_\\$\\{"
+        }
+      ]
     },
     {
       "id": "notebook_sidebar",
       "title": "Notebook sidebar fed by tagged lines",
       "bible": "Data schemas > Dialogue: tagged lines feed the Notebook sidebar as the player reads them.",
-      "status": "Locked", "impact": 4, "effort": 2, "depends": ["core_loop_scenes"],
-      "detect": [{ "contains": "src/ui/notebook.js", "pattern": "export function notebook" }]
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "contains": "src/ui/notebook.js",
+          "pattern": "export function notebook"
+        }
+      ]
     },
     {
       "id": "partial_hint_and_highlight",
       "title": "Partial-success hint names each miss; reread highlights the missed line",
       "bible": "Scoring rules > Partial success: hint names each missed preference. Data schemas: a partial-success hint highlights the tagged line the player missed.",
-      "status": "Locked", "impact": 4, "effort": 2, "depends": ["core_loop_scenes"],
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
       "detect": [
-        { "contains": "src/scenes/OutcomeScene.js", "pattern": "Missed:" },
-        { "contains": "src/scenes/ChatScene.js", "pattern": "highlight" }
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "Missed:"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "highlight"
+        }
       ]
     },
     {
       "id": "fail_retry",
       "title": "Failed level must be retried",
       "bible": "Scoring rules > Complete failure: 0 stars, Failed, retry with a hint.",
-      "status": "Locked", "impact": 4, "effort": 1, "depends": ["core_loop_scenes"],
-      "detect": [{ "contains": "src/scenes/OutcomeScene.js", "pattern": "Try again" }]
+      "status": "Locked",
+      "impact": 4,
+      "effort": 1,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "Try again"
+        }
+      ]
     },
     {
       "id": "scrapbook",
       "title": "Scrapbook pages unlocked by callbacks",
       "bible": "Campaign structure > Scrapbook (Locked): a page unlocks the first time the player reads a line tagged with its id.",
-      "status": "Locked", "impact": 3, "effort": 3, "depends": ["core_loop_scenes"],
+      "status": "Locked",
+      "impact": 3,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
       "detect": [
-        { "file": "src/scenes/ScrapbookScene.js" },
-        { "contains": "src/scenes/ChatScene.js", "pattern": "unlockPage\\(" }
+        {
+          "file": "src/scenes/ScrapbookScene.js"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "unlockPage\\("
+        }
       ]
     },
     {
       "id": "credits_file",
-      "title": "Credits file for music tracks",
+      "title": "Credits file generated from the music folder",
       "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks, sourced by hand from Bensound and Pixabay Music, not by agents. Each track's license and any required credit are logged in a credits file shown in the game's credits screen.",
-      "status": "Locked", "impact": 2, "effort": 1, "depends": [],
-      "spec": "Create game/public/credits.json: { \"music\": [ ...tracks ], \"art\": [ ...entries ], \"_about\": \"...\" }. Each music track entry: file, title, artist, source (Bensound | Pixabay Music), license, credit_line, url. Gabriella adds tracks by hand; agents never pick or download music, so leave \"music\" as an empty list. For \"art\", one entry crediting the portrait and venue art as Gabriella's own (Nano Banana-generated pixel art). Load it in BootScene with this.load.json('credits', 'credits.json') and store it in the registry as 'credits'.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [],
+      "spec": "Fill game/public/credits.json's \"music\" list from the audio files in game/public/music/ (mp3 or ogg) and their Pixabay license certificates (*-license.txt in the same folder, each starting 'PIXABAY LICENSE CERTIFICATE'). Match a track to its certificate by the Pixabay ID number in both file names (e.g. lafrey_music-art-aesthetic-599374.mp3 and beats-art-aesthetic-599374-license.txt). For each matched track write: file (\"music/<file name>\"), title (Audio File Title), artist (the licensor username from the Licensor's Username URL), source \"Pixabay Music\", license \"Pixabay Content License\", url (Audio File URL), license_file (\"music/<certificate name>\"), credit_line \"<title> by <artist> (Pixabay)\". Only tracks with a certificate are listed; list any audio file without one under \"_missing_license\" (file names only) so Gabriella can fetch it. Never choose, download or rename music. Keep the existing \"art\" entry. BootScene keeps loading credits.json into the registry as 'credits'.",
       "detect": [
-        { "contains": "public/credits.json", "pattern": "\"music\"\\s*:" },
-        { "contains": "src/scenes/BootScene.js", "pattern": "credits\\.json" }
+        {
+          "contains": "public/credits.json",
+          "pattern": "\"music\"\\s*:\\s*\\[\\s*\\{"
+        },
+        {
+          "contains": "public/credits.json",
+          "pattern": "\"license_file\"\\s*:"
+        },
+        {
+          "contains": "src/scenes/BootScene.js",
+          "pattern": "credits\\.json"
+        }
       ]
     },
     {
       "id": "credits_screen",
       "title": "Credits screen",
       "bible": "Game identity > Audio (Locked): ... logged in a credits file shown in the game's credits screen.",
-      "status": "Locked", "impact": 3, "effort": 2, "depends": ["credits_file"],
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [
+        "credits_file"
+      ],
       "spec": "Add src/scenes/CreditsScene.js (scene key 'Credits'), registered in main.js, reached from a 'Credits' button on the menu and back with '← Levels' and Esc. It lists every entry of the registry's 'credits' (music: title, artist, source, license and credit_line; art). With no music yet it says so plainly. Long lists scroll (ui/scroll.js). Use the theme's text()/pixel()/readText() and C colours; respect the game's accessibility rules in CLAUDE.md.",
       "detect": [
-        { "file": "src/scenes/CreditsScene.js" },
-        { "contains": "src/main.js", "pattern": "CreditsScene" },
-        { "contains": "src/scenes/MenuScene.js", "pattern": "'Credits'" }
+        {
+          "file": "src/scenes/CreditsScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "CreditsScene"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Credits'"
+        }
       ]
     },
     {
       "id": "music_player",
       "title": "Background music from the credited tracks",
       "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks.",
-      "status": "Locked", "impact": 3, "effort": 3, "depends": ["credits_file"],
-      "spec": "Add src/ui/music.js: plays only tracks listed in the registry's 'credits'.music (files under public/music/), looping through them at a low volume, starting only after the player's first click or key press (browsers block autoplay). If the list is empty it does nothing and never errors. Exports start(scene), setEnabled(on) and isEnabled(). Loading the audio files is done in BootScene from the credits list.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 3,
+      "depends": [
+        "credits_file"
+      ],
+      "spec": "Add src/ui/music.js: plays only tracks listed in the registry's 'credits'.music (files under public/music/, paths as given in each entry's \"file\"), looping through them at a low volume, starting only after the player's first click or key press (browsers block autoplay). If the list is empty it does nothing and never errors. Exports start(scene), setEnabled(on) and isEnabled(). Loading the audio files is done in BootScene from the credits list.",
       "detect": [
-        { "file": "src/ui/music.js" },
-        { "contains": "src/ui/music.js", "pattern": "export function setEnabled" }
+        {
+          "file": "src/ui/music.js"
+        },
+        {
+          "contains": "src/ui/music.js",
+          "pattern": "export function setEnabled"
+        }
       ]
     },
     {
       "id": "music_option",
       "title": "Music on/off in Options",
       "bible": "Game identity > Audio (Locked); the game's accessibility options live on the Options screen.",
-      "status": "Locked", "impact": 2, "effort": 1, "depends": ["music_player"],
+      "status": "Locked",
+      "impact": 5,
+      "effort": 1,
+      "depends": [
+        "music_player"
+      ],
       "spec": "Add a 'music' setting (On / Off, default On) to src/ui/settings.js OPTIONS and a row for it on the Options screen; apply it through music.js setEnabled().",
       "detect": [
-        { "contains": "src/ui/settings.js", "pattern": "music\\s*:" },
-        { "contains": "src/scenes/OptionsScene.js", "pattern": "'music'" }
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "music\\s*:"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "'music'"
+        }
+      ]
+    },
+    {
+      "id": "chapter_intro_cards",
+      "title": "Chapter intro cards",
+      "bible": "Campaign structure > Calendar: each chapter is a season. 1 Campus Quarter, Spring semester: between classes, study groups. 2 Downtown, Summer internships: lunch breaks. 3 Night Market, Late summer nights: warm evenings. 4 Waterfront, End of summer: before Maya's trip, quiet dinners and celebrations.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/ui/chapterIntro.js exporting showChapterIntro(scene, chapter, onDone): a card over the screen with 'CHAPTER N', the district name and the season, plus one line from the bible's Calendar 'typical reasons' (use only the Calendar wording above, no new story text). It appears the first time a level of a new chapter opens (before its chat starts) and never again automatically (remember it in localStorage, wrapped in try/catch); tapping a chapter heading on the menu shows it again. Continue with a click, Enter or Esc. Animate only through tween() from src/ui/motion.js; use C colours and the theme text helpers.",
+      "detect": [
+        {
+          "file": "src/ui/chapterIntro.js"
+        },
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "export function showChapterIntro"
+        },
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "Late summer nights"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "showChapterIntro\\("
+        }
+      ]
+    },
+    {
+      "id": "how_to_play",
+      "title": "How to play, before level 1",
+      "bible": "Game identity > Core loop: read chat, inspect search results and reviews, recommend, see the reaction.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/ui/howToPlay.js exporting showHowToPlay(scene, onDone): a three-step overlay (1. read the group chat and notice what each friend needs; 2. open each place and read its reviews; 3. recommend the one place that suits everyone), each step pointing at the part of the screen it means. Shown automatically the first time level 1 opens (remember in localStorage, wrapped in try/catch), skippable at any step, keyboard-operable (Enter next, Esc skip). The Options screen gets a 'How to play' button that shows it again. Animate only through tween().",
+      "detect": [
+        {
+          "file": "src/ui/howToPlay.js"
+        },
+        {
+          "contains": "src/ui/howToPlay.js",
+          "pattern": "export function showHowToPlay"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "showHowToPlay\\("
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "How to play"
+        }
+      ]
+    },
+    {
+      "id": "star_totals",
+      "title": "Star totals and progress",
+      "bible": "Scoring rules: every level scores 0-3 stars. Campaign structure: 4 chapters of 5 levels.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/logic/progress.js (pure, no Phaser) exporting starTotals(levels, progress) -> { byChapter: { <chapter>: { earned, max } }, earned, max }, counting only built levels (max = 3 per level) and each level's best stars. The menu shows each chapter heading with 'earned / max' stars and a campaign total, and a small 'perfect' mark on a chapter where every built level has 3 stars. Add a check of starTotals to test/boot-test.mjs.",
+      "detect": [
+        {
+          "contains": "src/logic/progress.js",
+          "pattern": "export function starTotals"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "starTotals\\("
+        },
+        {
+          "contains": "test/boot-test.mjs",
+          "pattern": "starTotals"
+        }
+      ]
+    },
+    {
+      "id": "keyboard_play",
+      "title": "Keyboard play everywhere",
+      "bible": "Game identity > Tone: cozy and welcoming. The game already has accessibility options on its Options screen.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: up/down moves between unlocked pages. Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-DOWN"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "keydown-RIGHT"
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "keydown-DOWN"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-ENTER"
+        }
+      ]
+    },
+    {
+      "id": "reset_progress",
+      "title": "Reset progress",
+      "bible": "Game identity > Structure: levels unlock in order as each is cleared.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "Add resetProgress() to src/ui/widgets.js that clears saved stars ('lets-eat-progress-v1'), Scrapbook pages ('lets-eat-scrapbook-v1') and 'been here' history ('lets-eat-venues-v1') from localStorage (wrapped in try/catch) and keeps the accessibility settings. The Options screen gets a 'Reset progress' button with a confirmation step drawn in the game (no browser confirm()): 'Reset' clears and returns to the menu, 'Cancel' changes nothing.",
+      "detect": [
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "export function resetProgress"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "Reset progress"
+        }
+      ]
+    },
+    {
+      "id": "city_map_menu",
+      "title": "City map menu",
+      "bible": "Campaign structure: each chapter unlocks a new neighbourhood of one fictional city (Campus Quarter, Downtown, Night Market, Waterfront).",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 4,
+      "depends": [
+        "star_totals"
+      ],
+      "spec": "Add src/ui/cityMap.js exporting cityMap(scene, opts): the four districts drawn as a simple placeholder map (shapes in each district's own colour, labels with the district name and its star total from starTotals) until real art exists under the texture key 'city_map', which it uses when loaded. Districts whose chapter has no unlocked level look locked (greyed, no click). Clicking an unlocked district shows its level cards as the menu does today. The menu uses cityMap() instead of the plain chapter rows. Keep the Options and Scrapbook buttons.",
+      "detect": [
+        {
+          "file": "src/ui/cityMap.js"
+        },
+        {
+          "contains": "src/ui/cityMap.js",
+          "pattern": "city_map"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "cityMap\\("
+        }
+      ]
+    },
+    {
+      "id": "friends_page",
+      "title": "Friends page",
+      "bible": "Cast: each friend has permanent traits (allergies, strict diets, baseline budget, personality, voice). Clue rules: every scoring constraint appears in the chat; implied clues are never said outright.",
+      "status": "Open",
+      "impact": 2,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/scenes/FriendsScene.js (scene key 'Friends'), registered in main.js and reached from a 'Friends' button on the menu. One card per friend the player has met (a guest in a level they have opened): portrait, name, and their permanent needs from rules.json characters. A need is shown ONLY after the player has cleared (1+ stars) a level where that friend is a guest and the chat has a line tagged with that need; until then it shows '???'. Never reveal a need earlier: that would solve implied clues. Friends not met yet show only '???'.",
+      "detect": [
+        {
+          "file": "src/scenes/FriendsScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "FriendsScene"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Friends'"
+        }
       ]
     }
   ]
