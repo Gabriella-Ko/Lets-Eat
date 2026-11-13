@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_12",
+  "run": 1,
+  "pick": "night_market_firefly_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Vietnamese food",
+      "who": "liam (brooke and mina agree)",
+      "type": "craving",
+      "source_line": "liam: \"viet. tonight. please\" (and \"the viet row! it smelled incredible. i'm in\" from brooke)"
+    },
+    {
+      "constraint": "Peanut allergy, strict: no peanuts anywhere in the kitchen",
+      "who": "cyrus",
+      "type": "allergy (deal-breaker)",
+      "source_line": "cyrus: \"Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me.\""
+    },
+    {
+      "constraint": "Vegetarian (no meat): needs a real choice of meat-free mains",
+      "who": "mina",
+      "type": "strict diet (inferred)",
+      "source_line": "liam: \"oh, and mina, half that row does tofu versions of everything\" + cyrus: \"Mina gets a proper choice of mains, not one lonely option.\""
+    },
+    {
+      "constraint": "Light, non-fried dinner (running at sunrise)",
+      "who": "brooke",
+      "type": "preference",
+      "source_line": "brooke: \"tonight i want the kind of dinner my legs will thank me for\" + liam: \"so the stalls with the giant bubbling fryers are out for you\""
+    },
+    {
+      "constraint": "Budget: none stated; every card is $, so price is not a factor",
+      "who": "group",
+      "type": "budget",
+      "source_line": "no line; all venue cards show $"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanuts everywhere (peanut sauce, crushed peanuts, roasting peanuts on the side burner). Fails Cyrus's allergy.",
+    "night_market_stone_well": "Peanut-free and light, but a meat-free diner 'struck out': fish sauce or dried shrimp in everything. Fails Mina.",
+    "night_market_twelve_bells": "Viet, seems peanut-safe, has meat-free options, but everything is fried or oily. Misses Brooke's preference (-1 star).",
+    "night_market_plum_bridge": "Nut-safe, vegetarian options, steamed and light, but dim sum, not Vietnamese. Misses Liam's craving (-1 star).",
+    "night_market_red_thread": "Nut-safe, vegetarian column, light, but sushi, not Vietnamese. Misses Liam's craving (-1 star).",
+    "night_market_firefly_lane": "Viet; half the board is meat-free (mushroom pho on veg broth, tofu rolls, tofu banh mi); a peanut-allergic regular has eaten the whole board, with fried shallots instead of peanuts on top; clean broth, left feeling fresh. Meets everything."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Mina being vegetarian is never stated outright. It is inferred from Liam's tofu remark and Cyrus's 'proper choice of mains'. That works, but a player could read it as a soft preference rather than a strict diet. It doesn't change the pick here because Stone Well and Firefly differ on more than that, but it matters for how many stars a wrong pick would get.",
+    "Firefly Lane's peanut safety comes from one customer's story ('without my allergy pen ever leaving my bag') and is never directly stated as 'no peanuts in the kitchen', which is what Cyrus asked for. Stone Well gets an explicit 'Never had a peanut in this cart'. Twelve Bells gets a similar customer story to Firefly's. A careful player might worry that Firefly's evidence isn't strong enough. Consider having Firefly's owner state it outright.",
+    "Firefly tops its bowls with fried shallots. A player watching for fried food might pause on this, but it is a garnish, not a fryer stall, and the review says the food feels 'fresh instead of stuffed'. Fine, but it's a small red herring.",
+    "The Banyan Kitchen id starts with 'downtown_' while the card is in the night market list. Players don't see ids, so this is harmless, but the review explains it as a downtown restaurant's night cart.",
+    "The decoys are well spread: each one fails exactly one constraint, so the puzzle feels fair and needs every clue."
+  ]
+}

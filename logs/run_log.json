@@ -2390,5 +2390,45 @@
     "result": "re-run after must-fix: pass, 0 must_fix, 7 suggestions",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14471
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14994
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (two runs: answer has the softest peanut evidence)",
+    "retries": 0,
+    "tokens": null
   }
 ]

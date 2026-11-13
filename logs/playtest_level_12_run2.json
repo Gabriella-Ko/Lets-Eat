@@ -1,0 +1,49 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_12",
+  "run": 2,
+  "pick": "night_market_firefly_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "liam (group agrees)",
+      "constraint": "craving: Vietnamese (viet)",
+      "type": "craving",
+      "line": "viet. tonight. please"
+    },
+    {
+      "who": "cyrus",
+      "constraint": "peanut allergy, no peanuts anywhere in the kitchen (deal-breaker)",
+      "type": "allergy",
+      "line": "Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me."
+    },
+    {
+      "who": "mina",
+      "constraint": "vegetarian, needs a real choice of meat-free mains (strict diet, deal-breaker)",
+      "type": "diet",
+      "line": "tofu everything?? that sounds like my kind of row :) / Cyrus: Then wherever we land, Mina gets a proper choice of mains, not one lonely option."
+    },
+    {
+      "who": "brooke",
+      "constraint": "wants a light meal, no deep-fried / greasy stalls",
+      "type": "preference",
+      "line": "tonight i want the kind of dinner my legs will thank me for / Liam: so the stalls with the giant bubbling fryers are out for you / Brooke: way out."
+    },
+    {
+      "who": "group",
+      "constraint": "budget: none stated; all candidate venues are $, so no price risk",
+      "type": "budget",
+      "line": "(no budget line in chat)"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanut sauce, crushed peanuts on everything, roasts peanuts all night: fails Cyrus's allergy.",
+    "night_market_stone_well": "Peanut-free and light, but summer roll filling, sauces and greens all use meat/fish sauce/dried shrimp: fails Mina's vegetarian diet.",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but everything is fried/oily: misses Brooke's light-meal preference (-1 star).",
+    "night_market_plum_bridge": "Peanut-safe, vegetarian options, steamed and light, but dim sum not viet: misses Liam's craving (-1 star).",
+    "night_market_red_thread": "Peanut-safe, vegetarian column, light, but sushi not viet: misses craving (-1 star).",
+    "night_market_firefly_lane": "Viet, half the board meat-free (mushroom pho on veg broth, tofu rolls, tofu banh mi), peanut-allergic reviewer ate the whole board all summer with no issue, light and fresh. Meets everything."
+  },
+  "difficulty": 3,
+  "notes": "Fair, well-built puzzle. Each viet decoy fails exactly one constraint, and the three 2-star near-misses (Twelve Bells, Plum Bridge, Red Thread) are a good trap for players who track allergy and diet but forget the craving or the light-meal preference. Stone Well is the strongest decoy: its first review gives an explicit peanut-free quote and says 'felt light', so players have to read the second review to catch the vegetarian failure. Small quibble: Firefly Lane's vermicelli comes 'topped with fried shallots', which a cautious player might read as conflicting with Brooke's no-fryer rule; the first review saying 'clean broth... feeling fresh instead of stuffed' settles it, but the word 'fried' on the right answer adds slight noise. Mina's vegetarianism is never stated outright, only implied by 'tofu everything' plus Cyrus's 'proper choice of mains'. That's fair at this stage but leans on inference. The 'downtown_' id prefix on Banyan Kitchen in a night_market level stands out. I did not use it to decide, but a player who sees ids might. No budget is given, and all venues are $, so the budget rule is not tested here."
+}

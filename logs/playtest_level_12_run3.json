@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_12",
+  "run": 3,
+  "pick": "night_market_firefly_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "liam",
+      "constraint": "Craving: Vietnamese (the whole group agrees)",
+      "type": "craving",
+      "source_line": "viet. tonight. please"
+    },
+    {
+      "who": "cyrus",
+      "constraint": "Peanut allergy (deal-breaker): no peanuts anywhere in the kitchen",
+      "type": "allergy",
+      "source_line": "Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me."
+    },
+    {
+      "who": "mina",
+      "constraint": "Vegetarian (strict diet, inferred): needs a real choice of meat-free mains",
+      "type": "diet",
+      "source_line": "Good. Then wherever we land, Mina gets a proper choice of mains, not one lonely option. (supported by liam: 'half that row does tofu versions of everything' and mina: 'tofu everything?? that sounds like my kind of row')"
+    },
+    {
+      "who": "brooke",
+      "constraint": "Preference: light, non-fried dinner (running at sunrise)",
+      "type": "preference",
+      "source_line": "speaking of which: i'm running at sunrise tomorrow. tonight i want the kind of dinner my legs will thank me for / so the stalls with the giant bubbling fryers are out for you"
+    },
+    {
+      "who": "group",
+      "constraint": "Budget: cheap market stalls (every card is $, so price never separates the options)",
+      "type": "budget",
+      "source_line": "mina, it's a market with fifty stalls. we can plan around anyone we like"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanuts in everything and roasted on the side burner: fails Cyrus's allergy.",
+    "night_market_stone_well": "Peanut-free and light, but no meat-free mains (fish sauce and dried shrimp everywhere): fails Mina.",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but everything is fried: misses Brooke (would be 2 stars).",
+    "night_market_plum_bridge": "Peanut-free, steamed, vegetarian options, but dim sum not viet: misses the craving (2 stars).",
+    "night_market_red_thread": "Peanut-free, light, vegetarian column, but sushi not viet: misses the craving (2 stars).",
+    "night_market_firefly_lane": "Viet, half the board meat-free (mushroom pho, tofu rolls, tofu banh mi), clean light broth, and an allergic reviewer ate the whole board all summer; vermicelli topped with shallots instead of peanuts. Fits everyone."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Mina's vegetarianism is never stated outright in the chat. It is only implied by the tofu remark, her 'my kind of row' reply and Cyrus's 'proper choice of mains'. With the clue field stripped, a player could read it as a soft preference rather than a strict diet. It doesn't change the answer here, since Firefly Lane is the only viet stall that suits both Cyrus and Brooke, but the wording is soft for a strict diet.",
+    "Cyrus sets a high bar ('peanuts aren't anywhere in the kitchen'). Firefly Lane's evidence is only that an allergic diner never reacted over a summer, plus shallots replacing peanuts. Twelve Bells has the same kind of evidence. Stone Well, Plum Bridge and Red Thread have stronger, explicit 'no peanuts at all' statements. That is fair, but a cautious player might hesitate over Firefly Lane on the allergy.",
+    "Firefly Lane mentions fried shallots as a topping. A player could briefly worry about Brooke's no-fryer preference, but the review clearly frames the meal as light and fresh, so it reads as a garnish.",
+    "Venue id 'downtown_banyan_kitchen' sits in the night_market registry. The review explains it is a downtown lunch counter's night cart, so the cross-district id is intentional. It is mildly odd but harmless.",
+    "The non-viet decoys (Plum Bridge, Red Thread) are clearly peanut-safe, light and vegetarian-friendly. They are good 2-star traps for players who focus on the allergy and forget the craving."
+  ]
+}
