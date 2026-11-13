@@ -2,14 +2,20 @@ import Phaser from 'phaser';
 import { C, W, pixel, text, readText } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
+import { reduceMotion } from '../ui/settings.js';
 
 const BOX = { x: 60, y: 96, w: W - 120, h: 500 };
 const PAD = 28;
+const ROLL_PX_PER_S = 24; // slow, readable roll
+const START_DELAY_MS = 1500;
+const USER_PAUSE_MS = 5000;
+const END_HOLD_MS = 4000;
 
 /**
  * Credits (bible: Game identity > Audio): every entry of public/credits.json, loaded by BootScene
  * into the registry as 'credits'. Music: title, artist, source, license and credit line; then art.
- * The list scrolls (wheel, drag, arrows, Page Up/Down, Home/End). Back with "← Levels" or Esc.
+ * The list rolls up slowly by itself (not with Reduce motion); scrolling (wheel, drag, arrows, Page Up/Down,
+ * Home/End) pauses the roll for a few seconds. Back with "← Levels" or Esc.
  */
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
@@ -68,9 +74,18 @@ export default class CreditsScene extends Phaser.Scene {
     }
     area.setContentHeight(y + 8);
 
+    // Credits roll up slowly by themselves, like film credits (not with Reduce motion). Scrolling yourself
+    // pauses the roll for a few seconds; at the end it waits, then starts again from the top.
+    this.area = area;
+    this.atEndSince = null; // the scene object is reused between visits
+    this.rolling = !reduceMotion() && !area.atBottom();
+    this.holdUntil = this.time.now + START_DELAY_MS;
     const hint = this.add.text(W / 2, BOX.y + BOX.h + 22, '', pixel(13, C.label)).setOrigin(0.5);
-    const updateHint = () => hint.setText(area.atBottom() ? '' : '↓ scroll for more');
-    area.onScroll(updateHint);
+    const updateHint = () => hint.setText(this.rolling ? 'scroll to read at your own pace' : area.atBottom() ? '' : '↓ scroll for more');
+    area.onScroll((f, byUser) => {
+      if (byUser) this.holdUntil = this.time.now + USER_PAUSE_MS;
+      updateHint();
+    });
     updateHint();
 
     const kb = this.input.keyboard;
@@ -84,5 +99,21 @@ export default class CreditsScene extends Phaser.Scene {
       kb.on('keydown-HOME', () => area.scrollBy(-1e6));
       kb.on('keydown-END', () => area.scrollBy(1e6));
     }
+  }
+
+  update(time, delta) {
+    if (!this.rolling || time < this.holdUntil) return;
+    if (this.area.atBottom()) {
+      // Reached the end: hold, then roll again from the top.
+      if (this.atEndSince == null) this.atEndSince = time;
+      if (time - this.atEndSince >= END_HOLD_MS) {
+        this.atEndSince = null;
+        this.area.toTop();
+        this.holdUntil = time + START_DELAY_MS;
+      }
+      return;
+    }
+    this.atEndSince = null;
+    this.area.drift((ROLL_PX_PER_S * delta) / 1000);
   }
 }

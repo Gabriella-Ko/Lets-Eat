@@ -52,6 +52,7 @@ def main():
             manifest['portraits'][f'portrait_{ch}_{tag}'] = {'file': f'gfx/{name}', 'placeholder': src_tag != tag}
     manifest['outcomes'] = cut_outcomes()
     manifest['backgrounds'] = cut_chat_backgrounds()
+    manifest['ui'] = cut_ui_art()
     with open(os.path.join(OUT, 'asset_manifest.json'), 'w') as f:
         json.dump(manifest, f, indent=2)
     if '--contact' in sys.argv and cells:
@@ -114,6 +115,22 @@ def cut_chat_backgrounds():
         out[key] = {'file': f'backgrounds/{key}.jpg'}
     return out
 
+def cut_ui_art():
+    """art/source/City Map.jpg (any case, space or underscore) -> ui/city_map.jpg, whole picture, unchanged colours.
+    The menu draws it full width and places the district hotspots on it (src/ui/cityMap.js ART_DISTRICTS)."""
+    out = {}
+    if not os.path.isdir(SRC):
+        return out
+    for f in sorted(os.listdir(SRC)):
+        if re.match(r'city[ _]map\.(jpe?g|png)$', f, re.I):
+            os.makedirs(os.path.join(OUT, 'ui'), exist_ok=True)
+            im = Image.open(os.path.join(SRC, f)).convert('RGB')
+            im.save(os.path.join(OUT, 'ui', 'city_map.jpg'), quality=90)
+            out['city_map'] = {'file': 'ui/city_map.jpg', 'size': list(im.size)}
+            break
+    return out
+
+
 def cover_box(size, ratio):
     w, h = size
     if w / h > ratio:
@@ -122,4 +139,5 @@ def cover_box(size, ratio):
     nh = round(w / ratio)
     return (0, (h - nh) // 2, w, (h - nh) // 2 + nh)
 
-main()
+if __name__ == "__main__":
+    main()

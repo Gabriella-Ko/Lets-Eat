@@ -41,7 +41,7 @@ export default class FriendsScene extends Phaser.Scene {
       const px = 22 + PORTRAIT / 2;
       const py = 22 + PORTRAIT / 2;
       if (f.met) {
-        c.add(portrait(this, px, py, PORTRAIT, f.id, 'NEUTRAL'));
+        c.add(portrait(this, px, py, PORTRAIT, f.id, 'HAPPY'));
       } else {
         // Not met: no portrait, no colour, no name.
         const g = this.add.graphics();

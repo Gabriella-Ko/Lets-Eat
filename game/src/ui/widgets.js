@@ -151,12 +151,13 @@ export function saveStars(levelId, stars) {
 }
 
 /**
- * Forget this browser's play history: best stars (so levels lock again), Scrapbook pages and
- * "been here" venues. Accessibility settings, music on/off and seen intros are kept.
+ * Forget this browser's play history, as if starting fresh: best stars (so levels lock again), Scrapbook
+ * pages, "been here" venues, friends met and announced, and the How to play and chapter cards already seen
+ * (so they show again). Accessibility settings and music (on/off, volume) are kept.
  */
 export function resetProgress() {
   try {
-    localStorage.removeItem(KEY);
+    for (const k of [KEY, 'lets-eat-how-to-play-v1', 'lets-eat-chapter-intros-v1', 'lets-eat-friends-announced-v1']) localStorage.removeItem(k);
   } catch {
     /* storage blocked: nothing saved to clear */
   }

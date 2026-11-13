@@ -7,6 +7,7 @@ import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
 import { pinMode, getPins } from '../ui/notebook.js';
 import { badge } from '../ui/badge.js';
+import { newFriends, markAnnounced } from '../ui/friendsAnnounced.js';
 import { recordPick } from '../ui/visitStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
@@ -43,6 +44,7 @@ export default class OutcomeScene extends Phaser.Scene {
     this.openRecapOnStart = !!data.recap;
     this.recap = null;
     this.pageNote = null; // the scene object is reused between visits
+    this.newFriendIds = [];
     this.unlockCard = null;
     this.unlockQueue = [];
   }
@@ -223,8 +225,14 @@ export default class OutcomeScene extends Phaser.Scene {
    * Shown once per visit: the list is cleared after it's announced.
    */
   newPageNote() {
+    // Friends met for the first time on this level get their own card first (announced once each).
+    const friends = newFriends(this.level.guests);
+    markAnnounced(friends);
+    this.newFriendIds = friends;
     const key = `newPages:${this.level.id}`;
     const ids = this.registry.get(key) || [];
+    this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
+    if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
     this.registry.set(key, []);
     const callbacks = this.registry.get('rules').callbacks || {};
@@ -241,25 +249,42 @@ export default class OutcomeScene extends Phaser.Scene {
     c.setAlpha(0);
     tween(this, { targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
-    // Then the unlock card for each new page, once the reactions have had a moment.
-    this.unlockQueue = [...ids];
-    this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
   }
 
   /**
-   * "New scrapbook page" card (Gabriella, 2026-11-12): the page slides up, the badge pops in with rays and
-   * sparkles, then title and friend fade in. "See it" opens that page in the Scrapbook; "Keep going" closes
-   * (or shows the next card when a level unlocked two). Shown here, after the level, never in the chat,
+   * Unlock cards, shown one after another ~1.4 s into the Outcome screen:
+   *  - "A new friend has joined!" (Gabriella, 2026-11-13): a friend met for the first time; their happy
+   *    portrait pops in with rays and sparkles, then their name. "See friends" opens the Friends page.
+   *  - "New scrapbook page!" (Gabriella, 2026-11-12): the page's badge pops in, then title and friend.
+   *    "See it" opens that page in the Scrapbook.
+   * "Keep going" closes (or "Next →" when more cards follow). Shown here, after the level, never in the chat,
    * so it can't flag which chat line was a callback (and so often a clue).
    */
   showNextUnlock() {
     this.closeUnlock();
-    const id = this.unlockQueue?.shift();
-    if (!id) return;
-    const cb = (this.registry.get('rules').callbacks || {})[id];
-    if (!cb) return this.showNextUnlock();
-    const page = { id, ...cb };
-    const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
+    const item = this.unlockQueue?.shift();
+    if (!item) return;
+    const { type, id } = item;
+    let view;
+    if (type === 'friend') {
+      const ch = CHARACTERS[id] || { name: id, color: C.inkSoft };
+      view = {
+        head: 'A NEW FRIEND HAS JOINED!', ruled: false,
+        centre: (x, y) => portrait(this, x, y, 112, id, 'HAPPY'),
+        title: ch.name.toUpperCase(), titleColor: ch.color, sub: 'say hi on your Friends page', subColor: C.inkSoft,
+        seeLabel: 'See friends', see: () => this.scene.start('Friends'),
+      };
+    } else {
+      const cb = (this.registry.get('rules').callbacks || {})[id];
+      if (!cb) return this.showNextUnlock();
+      const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
+      view = {
+        head: 'NEW SCRAPBOOK PAGE!', ruled: true,
+        centre: (x, y) => badge(this, x, y, 120, { id, ...cb }, true),
+        title: cb.title.toUpperCase(), titleColor: C.ink, sub: `a memory with ${ch.name}`, subColor: ch.color,
+        seeLabel: 'See it', see: () => this.scene.start('Scrapbook', { select: id }),
+      };
+    }
     const D = UNLOCK_DEPTH;
     const objs = [];
     const keep = (o) => (objs.push(o), o.setDepth(D));
@@ -274,10 +299,12 @@ export default class OutcomeScene extends Phaser.Scene {
     bg.fillStyle(0x000000, 0.25).fillRoundedRect(card.x + 4, card.y + 6, card.w, card.h, 18);
     bg.fillStyle(C.panel, 1).fillRoundedRect(card.x, card.y, card.w, card.h, 18);
     bg.lineStyle(3, C.accent, 1).strokeRoundedRect(card.x, card.y, card.w, card.h, 18);
-    // faint ruled lines: it's a scrapbook page
-    bg.lineStyle(1, C.panelDark, 1);
-    for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
-    const head = this.add.text(bx, card.y + 30, 'NEW SCRAPBOOK PAGE!', pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
+    // faint ruled lines for a scrapbook page
+    if (view.ruled) {
+      bg.lineStyle(1, C.panelDark, 1);
+      for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
+    }
+    const head = this.add.text(bx, card.y + 30, view.head, pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
     sheet.add([bg, head]);
     tween(this, { targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
 
@@ -291,7 +318,7 @@ export default class OutcomeScene extends Phaser.Scene {
     tween(this, { targets: rays, alpha: 1, delay: 300, duration: 300 });
     tween(this, { targets: rays, angle: 360, duration: 12000, repeat: -1 });
 
-    const b = keep(badge(this, bx, by, 120, page, true).setDepth(D + 2).setScale(0).setAngle(-25));
+    const b = keep(view.centre(bx, by).setDepth(D + 2).setScale(0).setAngle(-25));
     tween(this, { targets: b, scale: 1, angle: 0, delay: 350, duration: 520, ease: 'Back.easeOut' });
 
     // sparkles burst out once the badge lands
@@ -304,18 +331,19 @@ export default class OutcomeScene extends Phaser.Scene {
       }
     });
 
-    const title = keep(this.add.text(bx, card.y + 252, cb.title.toUpperCase(), pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
-    const who = keep(this.add.text(bx, card.y + 282, `a memory with ${ch.name}`, text(15, ch.color, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    const title = keep(this.add.text(bx, card.y + 252, view.title, pixel(22, view.titleColor, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    const who = keep(this.add.text(bx, card.y + 282, view.sub, text(15, view.subColor, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
     tween(this, { targets: [title, who], alpha: 1, delay: 800, duration: 300 });
 
-    const more = this.unlockQueue.length > 0;
-    const see = keep(button(this, bx - 105, card.y + card.h - 44, 'See it', () => this.scene.start('Scrapbook', { select: id }), { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
-    const go = keep(button(this, bx + 105, card.y + card.h - 44, more ? 'Next page →' : 'Keep going', () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
+    const next = this.unlockQueue[0];
+    const nextLabel = !next ? 'Keep going' : next.type === 'friend' ? 'Next friend →' : 'Next page →';
+    const seeIt = view.see;
+    const see = keep(button(this, bx - 105, card.y + card.h - 44, view.seeLabel, seeIt, { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
+    const go = keep(button(this, bx + 105, card.y + card.h - 44, nextLabel, () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
     tween(this, { targets: [see, go], alpha: 1, delay: 950, duration: 250 });
 
-    const seeIt = () => this.scene.start('Scrapbook', { select: id });
     this.unlockCard = {
-      id, objs, focus: 1,
+      id, type, objs, focus: 1,
       buttons: [
         { x: bx - 105, y: card.y + card.h - 44, w: 190, h: 44, fn: seeIt },
         { x: bx + 105, y: card.y + card.h - 44, w: 190, h: 44, fn: () => this.showNextUnlock() },

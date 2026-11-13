@@ -4,7 +4,6 @@ import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled } from '../ui/music.js';
-import { showHowToPlay } from '../ui/howToPlay.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -41,7 +40,7 @@ export default class OptionsScene extends Phaser.Scene {
     const s = getSettings();
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
-    this.add.text(LEFT.x, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
+    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
     button(this, W - 110, 36, 'Reset progress', () => this.confirmReset(), { w: 180, h: 34, size: 14, fill: C.bad });
     this.drawFocus();
@@ -58,16 +57,21 @@ export default class OptionsScene extends Phaser.Scene {
     kb.on('keydown-ESC', when(() => this.scene.start('Menu')));
   }
 
-  /** Show the How to play steps again (they also open on their own the first time level 1 starts). */
+  /**
+   * Show the How to play steps again, over a real level screen (level 1's chat with its first messages),
+   * since the steps point at parts of that screen. Closing them comes back here.
+   * (They also open on their own the first time level 1 starts.)
+   */
   howToPlay() {
     if (this.helpOpen) return;
-    this.helpOpen = true;
-    showHowToPlay(this, () => { this.helpOpen = false; });
+    const first = this.registry.get('levels')?.[0];
+    if (!first) return;
+    this.scene.start('Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
   }
 
   /**
    * Reset progress, after a check drawn in the game (no browser confirm()).
-   * Reset: clears stars, Scrapbook pages and "been here" history, then back to the menu.
+   * Reset: clears stars, Scrapbook pages, friends and "been here" history and the seen intros (resetProgress), then back to the menu.
    * Cancel (or Esc): closes the check and changes nothing. Enter does not reset, so it can't happen by accident.
    */
   confirmReset() {
@@ -79,7 +83,7 @@ export default class OptionsScene extends Phaser.Scene {
     const box = this.add.container(0, 0);
     const card = panel(this, bx, by, bw, bh);
     const title = this.add.text(W / 2, by + 30, 'RESET PROGRESS?', pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);
-    const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages and the places you have been. Your options stay as they are.',
+    const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages, friends met and the places you have been, and shows How to play and the chapter cards again. Your options and music stay as they are.',
       readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
     const close = () => {
       this.input.keyboard.off('keydown-ESC', close);

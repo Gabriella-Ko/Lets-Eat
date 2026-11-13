@@ -19,6 +19,9 @@ const CHAT = { x: 24, y: 78, w: 644, h: 486 };
  */
 /** Resting the pointer this long on an older message pauses the chat. */
 const HOVER_PAUSE_MS = 300;
+/** How to play: messages already showing behind the steps (from Options / on the first visit to level 1). */
+const DEMO_LINES = 4;
+const FIRST_TIME_LINES = 2;
 const KEY_STEP = 48;
 
 const PROMPT = {
@@ -48,6 +51,9 @@ export default class ChatScene extends Phaser.Scene {
     this.level = this.registry.get('levels').find((l) => l.id === data.levelId);
     this.highlight = data.highlight || [];
     this.revealAll = !!data.revealAll || this.highlight.length > 0;
+    // How to play shown from Options: a real level screen behind the steps, then back to returnTo.
+    this.howToPlayDemo = !!data.howToPlay;
+    this.returnTo = data.returnTo || 'Menu';
     this.pinning = pinMode(this.level);
     if (this.pinning && !this.revealAll) setPins(this, this.level.id, []);
     // Scrapbook pages unlocked during this visit to the level; the Outcome screen announces them.
@@ -132,6 +138,13 @@ export default class ChatScene extends Phaser.Scene {
    */
   startWithIntros() {
     const lvl = this.level;
+    // From Options: the first few messages already showing, the steps over them, then back.
+    if (this.howToPlayDemo) {
+      for (let i = 0; i < DEMO_LINES && !this.done(); i++) this.next(true);
+      this.introOpen = true;
+      showHowToPlay(this, () => this.scene.start(this.returnTo));
+      return;
+    }
     const chapterCard = () => {
       if (!chapterIntroSeen(lvl.chapter)) {
         this.introOpen = true;
@@ -145,6 +158,8 @@ export default class ChatScene extends Phaser.Scene {
       }
     };
     if (lvl.number === 1 && !howToPlaySeen()) {
+      // The first messages show behind the steps, so they point at a real chat, not an empty panel.
+      for (let i = 0; i < FIRST_TIME_LINES && !this.done(); i++) this.next(true);
       this.introOpen = true;
       showHowToPlay(this, chapterCard);
     } else {
