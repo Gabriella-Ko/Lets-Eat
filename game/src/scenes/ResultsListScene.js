@@ -72,8 +72,38 @@ export default class ResultsListScene extends Phaser.Scene {
     this.pickBtn.setVisible(false);
     this.empty = this.add.text(DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h / 2, 'pick a place to read its reviews', text(15, C.inkSoft)).setOrigin(0.5);
 
+    // Keyboard: up/down move a focus ring between cards, Enter selects, Enter again (or R) recommends.
+    this.focusRing = this.add.graphics();
+    this.focus = 0;
+    const kb = this.input.keyboard;
+    if (kb) {
+      const move = (d) => {
+        if (!this.cards.length) return;
+        this.focus = (this.focus + d + this.cards.length) % this.cards.length;
+        this.drawFocus();
+      };
+      const recommend = () => this.selected && this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+      kb.on('keydown-UP', () => move(-1));
+      kb.on('keydown-DOWN', () => move(1));
+      kb.on('keydown-ENTER', () => {
+        const card = this.cards[this.focus];
+        if (!card) return;
+        if (this.selected === card.venue) recommend();
+        else this.select(card);
+      });
+      kb.on('keydown-R', recommend);
+    }
+
     this.drawControls();
     this.drawCards();
+  }
+
+  /** Focus ring around the focused card, in C.highlight (read at draw time so High contrast applies). */
+  drawFocus() {
+    const g = this.focusRing;
+    g.clear();
+    const card = this.cards[this.focus];
+    if (card) g.lineStyle(4, C.highlight, 1).strokeRoundedRect(card.x - 3, card.y - 3, card.w + 6, card.h + 6, 10);
   }
 
   /** Change the view, remember it for this level, and redraw. */
@@ -156,6 +186,9 @@ export default class ResultsListScene extends Phaser.Scene {
     // A selected place that the filters hide is deselected.
     if (this.selected && !shown.includes(this.selected)) this.deselect();
     else if (this.selected) this.cards.forEach((c) => c.draw(c.venue === this.selected ? 'selected' : undefined));
+    // Keep the focus on the selected card if it's still shown, else the first card.
+    this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === this.selected));
+    this.drawFocus();
   }
 
   deselect() {
@@ -195,7 +228,7 @@ export default class ResultsListScene extends Phaser.Scene {
     }
     const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
     layer.add(zone);
-    const card = { venue, draw };
+    const card = { venue, draw, x, y, w, h };
     zone.on('pointerover', () => this.selected !== venue && draw('hover'));
     zone.on('pointerout', () => this.selected !== venue && draw());
     zone.on('pointerdown', () => this.select(card));
@@ -204,6 +237,8 @@ export default class ResultsListScene extends Phaser.Scene {
 
   select(card) {
     this.selected = card.venue;
+    this.focus = Math.max(0, this.cards.indexOf(card));
+    this.drawFocus();
     this.cards.forEach((c) => c.draw(c === card ? 'selected' : undefined));
     this.empty.setVisible(false);
     this.detail.removeAll(true);

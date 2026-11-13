@@ -109,6 +109,26 @@ export default class OutcomeScene extends Phaser.Scene {
     const x0 = W / 2 - ((btns.length - 1) * (bw + 20)) / 2;
     btns.forEach(([label, fn, fill], i) => button(this, x0 + i * (bw + 20), H - 44, label, fn, { w: bw, fill }));
 
+    // Keyboard: left/right move a focus ring between the buttons, Enter presses. While the unlock card is up
+    // the keys work on its two buttons; while the recap is open, Enter closes it.
+    this.focusBtns = btns.map(([, fn], i) => ({ x: x0 + i * (bw + 20), y: H - 44, w: bw, h: 44, fn }));
+    this.focus = btns.length - 1; // the forward button (next level / try again / levels)
+    this.focusRing = this.add.graphics().setDepth(UNLOCK_DEPTH + 5);
+    const kb = this.input.keyboard;
+    const move = (d) => {
+      const list = this.activeButtons();
+      if (!list.length) return;
+      this.setFocus((this.focusIndex() + d + list.length) % list.length);
+    };
+    kb.on('keydown-LEFT', () => move(-1));
+    kb.on('keydown-RIGHT', () => move(1));
+    kb.on('keydown-ENTER', () => {
+      if (this.recap && !this.unlockCard) return this.closeRecap();
+      const b = this.activeButtons()[this.focusIndex()];
+      if (b) b.fn();
+    });
+    this.drawFocus();
+
     this.input.keyboard.on('keydown-ESC', () => (this.unlockCard ? this.showNextUnlock() : this.closeRecap()));
     if (this.openRecapOnStart) this.openRecap();
   }
@@ -195,6 +215,7 @@ export default class OutcomeScene extends Phaser.Scene {
     const close = button(this, x + w / 2, y + ph - 36, 'Close', () => this.closeRecap(), { w: 180, fill: C.accent });
     keep(close);
     this.recap = { objs, rows };
+    this.drawFocus();
   }
 
   /**
@@ -292,7 +313,15 @@ export default class OutcomeScene extends Phaser.Scene {
     const go = keep(button(this, bx + 105, card.y + card.h - 44, more ? 'Next page →' : 'Keep going', () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
     tween(this, { targets: [see, go], alpha: 1, delay: 950, duration: 250 });
 
-    this.unlockCard = { id, objs };
+    const seeIt = () => this.scene.start('Scrapbook', { select: id });
+    this.unlockCard = {
+      id, objs, focus: 1,
+      buttons: [
+        { x: bx - 105, y: card.y + card.h - 44, w: 190, h: 44, fn: seeIt },
+        { x: bx + 105, y: card.y + card.h - 44, w: 190, h: 44, fn: () => this.showNextUnlock() },
+      ],
+    };
+    this.drawFocus();
   }
 
   closeUnlock() {
@@ -302,12 +331,39 @@ export default class OutcomeScene extends Phaser.Scene {
       o.destroy();
     }
     this.unlockCard = null;
+    this.drawFocus();
   }
 
   closeRecap() {
     if (!this.recap) return;
     for (const o of this.recap.objs) o.destroy();
     this.recap = null;
+    this.drawFocus();
+  }
+
+  /** The buttons the arrow keys move between: the unlock card's while it's up, else the bottom row. */
+  activeButtons() {
+    if (this.unlockCard) return this.unlockCard.buttons || [];
+    return this.recap ? [] : this.focusBtns || [];
+  }
+
+  focusIndex() {
+    return this.unlockCard ? this.unlockCard.focus || 0 : this.focus;
+  }
+
+  setFocus(i) {
+    if (this.unlockCard) this.unlockCard.focus = i;
+    else this.focus = i;
+    this.drawFocus();
+  }
+
+  /** Focus ring in C.highlight (read at draw time so High contrast applies); hidden while the recap is open. */
+  drawFocus() {
+    const g = this.focusRing;
+    if (!g) return;
+    g.clear();
+    const b = this.activeButtons()[this.focusIndex()];
+    if (b) g.lineStyle(4, C.highlight, 1).strokeRoundedRect(b.x - b.w / 2 - 5, b.y - b.h / 2 - 5, b.w + 10, b.h + 10, 12);
   }
 
   /**

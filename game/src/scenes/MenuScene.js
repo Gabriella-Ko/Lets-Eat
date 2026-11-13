@@ -56,11 +56,47 @@ export default class MenuScene extends Phaser.Scene {
     const openChapters = [...new Set(open.map((l) => l.chapter))].sort((a, b) => a - b);
     const saved = this.registry.get('menuChapter');
     const selected = openChapters.includes(saved) ? saved : openChapters[openChapters.length - 1];
-    cityMap(this, {
+    const map = cityMap(this, {
       x: 24, y: 140, w: 470, h: 476, levels, open, totals, selected,
       onSelect: (chapter) => this.showChapter(chapter, open, totals, progress),
     });
     this.showChapter(selected, open, totals, progress);
+
+    // Keyboard: up/down move the focus ring between level cards, left/right switch district, Enter opens.
+    const kb = this.input.keyboard;
+    if (!kb) return;
+    const move = (d) => {
+      if (!this.levelCards?.length) return;
+      this.focus = (this.focus + d + this.levelCards.length) % this.levelCards.length;
+      this.drawFocus();
+    };
+    const district = (d) => {
+      const list = map.unlocked.length ? map.unlocked : openChapters;
+      const i = list.indexOf(this.registry.get('menuChapter'));
+      const next = list[(i + d + list.length) % list.length];
+      if (next == null || next === this.registry.get('menuChapter')) return;
+      map.select(next);
+      this.showChapter(next, open, totals, progress);
+    };
+    this.introOpen = false;
+    const when = (fn) => () => !this.introOpen && fn();
+    kb.on('keydown-UP', when(() => move(-1)));
+    kb.on('keydown-DOWN', when(() => move(1)));
+    kb.on('keydown-LEFT', when(() => district(-1)));
+    kb.on('keydown-RIGHT', when(() => district(1)));
+    kb.on('keydown-ENTER', () => {
+      if (this.introOpen) return;
+      const card = this.levelCards?.[this.focus];
+      if (card) this.scene.start('Chat', { levelId: card.lvl.id });
+    });
+  }
+
+  /** Focus ring (C.highlight, read at draw time so High contrast applies) around the focused level card. */
+  drawFocus() {
+    const g = this.focusRing;
+    const card = this.levelCards?.[this.focus];
+    if (!g || !card) return;
+    g.clear().lineStyle(4, C.highlight, 1).strokeRoundedRect(card.x - 4, card.y - 4, card.w + 8, card.h + 8, 10);
   }
 
   // The chosen district's level cards, as the menu listed them before the map: a heading with chapter stars,
@@ -70,6 +106,8 @@ export default class MenuScene extends Phaser.Scene {
     if (this.cards) this.cards.destroy();
     const c = (this.cards = this.add.container(0, 0));
     const lvls = open.filter((l) => l.chapter === chapter);
+    this.levelCards = [];
+    this.focus = 0;
     if (!lvls.length) return;
     const left = 520;
     const right = W - 24;
@@ -80,7 +118,10 @@ export default class MenuScene extends Phaser.Scene {
     const district = (DISTRICTS[lvls[0].district] || lvls[0].district).toUpperCase();
     const heading = this.add.text(left, hy, `CHAPTER ${chapter} · ${district}`, pixel(16, C.label));
     // Tapping the heading shows the chapter's intro card again.
-    heading.setInteractive({ useHandCursor: true }).on('pointerdown', () => showChapterIntro(this, chapter));
+    heading.setInteractive({ useHandCursor: true }).on('pointerdown', () => {
+      this.introOpen = true; // the menu's keys wait while the card is up
+      showChapterIntro(this, chapter, () => (this.introOpen = false));
+    });
     c.add(heading);
     // Chapter stars: earned / max over its built levels, and a PERFECT mark when all are 3 stars.
     const t = totals.byChapter[chapter];
@@ -105,7 +146,11 @@ export default class MenuScene extends Phaser.Scene {
       const hit = this.add.zone(left + cw / 2, cy, cw, ch).setInteractive({ useHandCursor: true });
       hit.on('pointerdown', () => this.scene.start('Chat', { levelId: lvl.id }));
       c.add(hit);
+      this.levelCards.push({ lvl, x: left, y, w: cw, h: ch });
     });
+    this.focusRing = this.add.graphics();
+    c.add(this.focusRing);
+    this.drawFocus();
 
     c.alpha = 0;
     c.x = 12;

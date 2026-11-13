@@ -45,6 +45,21 @@ export default class ScrapbookScene extends Phaser.Scene {
     const gap = 8;
     const rowH = Math.min(80, (LIST.h - 20 - gap * (this.pages.length - 1)) / Math.max(1, this.pages.length));
     this.rows = this.pages.map((p, i) => this.makeRow(p, LIST.x + 10, LIST.y + 10 + i * (rowH + gap), LIST.w - 20, rowH));
+    this.focusRing = this.add.graphics();
+
+    // Keyboard: up/down move between unlocked pages (locked ones are skipped), Esc goes back.
+    const kb = this.input.keyboard;
+    if (kb) {
+      const move = (d) => {
+        const open = this.rows.filter((r) => r.open);
+        if (!open.length) return;
+        const i = open.findIndex((r) => r.id === this.selected);
+        this.select(open[(i + d + open.length) % open.length].id);
+      };
+      kb.on('keydown-UP', () => move(-1));
+      kb.on('keydown-DOWN', () => move(1));
+      kb.on('keydown-ESC', () => this.scene.start('Menu'));
+    }
 
     const first = (this.openOn in this.unlocked && this.pages.find((p) => p.id === this.openOn)) || this.pages.find((p) => p.id in this.unlocked);
     if (first) this.select(first.id);
@@ -78,12 +93,16 @@ export default class ScrapbookScene extends Phaser.Scene {
       badge(this, x + 8 + 24, y + h / 2 - 2, 52, p, false);
       this.add.text(x + 66, y + h / 2, '???', pixel(22, C.inkSoft, { fontStyle: 'bold' })).setOrigin(0, 0.5);
     }
-    return { id: p.id, draw };
+    return { id: p.id, draw, open, x, y, w, h };
   }
 
   select(id) {
     this.selected = id;
     for (const r of this.rows) r.draw(r.id === id ? 'selected' : undefined);
+    // Focus ring in C.highlight (read at draw time so High contrast applies).
+    const fr = this.rows.find((r) => r.id === id);
+    this.focusRing.clear();
+    if (fr) this.focusRing.lineStyle(4, C.highlight, 1).strokeRoundedRect(fr.x - 3, fr.y - 3, fr.w + 6, fr.h + 6, 10);
     const p = this.pages.find((x) => x.id === id);
     const ch = CHARACTERS[p.friend] || { name: p.friend, color: C.inkSoft };
     this.page.removeAll(true);
