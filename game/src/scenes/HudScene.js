@@ -59,14 +59,32 @@ export default class HudScene extends Phaser.Scene {
     });
     this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone]);
 
-    // Click anywhere else closes the panel.
-    this.input.on('pointerdown', (p, over) => {
-      if (this.open && !over.some((o) => o.hudControl)) this.setOpen(false);
-    });
+    // A click anywhere outside the panel box and the speaker button closes the panel: on any screen's
+    // buttons and cards (this scene is on top, so it hears every press), and in the page around the canvas.
+    this.input.on('pointerdown', (p) => this.closeIfOutside(p.x, p.y));
+    this.onWindowDown = (e) => {
+      if (e.target !== this.game.canvas) this.closeIfOutside(null, null);
+    };
+    window.addEventListener('pointerdown', this.onWindowDown);
+    this.events.once('shutdown', () => window.removeEventListener('pointerdown', this.onWindowDown));
+    this.events.once('destroy', () => window.removeEventListener('pointerdown', this.onWindowDown));
     this.input.keyboard?.on('keydown-M', () => this.setOpen(!this.open));
+    // Esc closes it too; the event isn't stopped, so the screen underneath still gets its own Esc (back).
+    this.input.keyboard?.on('keydown-ESC', () => this.open && this.setOpen(false));
 
     onVolume(() => this.draw());
     this.draw();
+  }
+
+  /** Closes the open panel unless (x, y), in game pixels, is inside the panel box or the speaker button. Null = outside the canvas. */
+  closeIfOutside(x, y) {
+    if (!this.open) return;
+    if (x !== null && y !== null) {
+      const inPanel = x >= PANEL.x && x <= PANEL.x + PANEL.w && y >= PANEL.y && y <= PANEL.y + PANEL.h;
+      const inIcon = Math.abs(x - ICON.x) <= ICON.r + 3 && Math.abs(y - ICON.y) <= ICON.r + 3;
+      if (inPanel || inIcon) return;
+    }
+    this.setOpen(false);
   }
 
   setOpen(open) {
