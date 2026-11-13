@@ -53,7 +53,7 @@ Drop this whole folder into the root of your game project (the folder you open C
 - Every scoring constraint has a tagged chat line; reviews hint at tags without naming them.
 - No budget limit here, since Maya isn't a guest; level 2 is a good place to introduce Maya and her budget.
 
-# Assignment 4
+# Assignment 4: Dynamic Content Pipeline 
 
 ## 1. What content did you generate?
 
@@ -154,95 +154,56 @@ It repeats this until every requirement is met. Before I built the agent, I used
 | 13 Nov, second review | White slash on the muted speaker; volume panel closes when you click outside it | 2 | $0.70 |
 | 13 Nov, third review | Slash in the speaker button's border colour; Esc closes only the volume panel | 2 | $0.80 |
 
-### Built with Claude Code in conversation (before the feature agent)
-
-**In the game**
-
-| Feature | What it does |
-| --- | --- |
-| Chat pacing | Messages arrive on their own after a "*name* is typing…" bubble. Click or space skips ahead; scrolling up to reread pauses the chat; P pauses, A shows everything. |
-| Notebook stars | From chapter 2, the Notebook no longer fills itself. The player stars the lines they want to keep. Any line can be starred, so starring never gives away which lines are clues. |
-| Clue recap | A button on the result screen lists every need in the level, ✓ or ✗ for the pick, with the chat line that gave it away. After a fail it only shows the need that was broken, so a retry isn't handed the answer. |
-| Scrapbook | One page per shared memory from the bible's callbacks (the satay incident, the milkshake incident…). A page unlocks the first time the chat mentions it, with an unlock card, a placeholder badge and a "new page" note. |
-| "Been here before" | A restaurant the player met in an earlier level gets a "Been here" or "Seen before" badge, plus that earlier level's reviews. It never shows how that earlier pick scored. |
-| Sort and filter | The restaurant list can be sorted (Mixed, Cheapest, A–Z) and filtered by price and cuisine. It only uses what's on the cards, so hidden tags can't leak. |
-| Accessibility options | An Options screen with text size, chat pace, high contrast and reduce motion, usable by keyboard. Empty stars got an outline and the result screen says "3 of 3 stars", so stars don't rely on colour alone. |
-
-**In the pipeline**
-
-| Feature | What it does |
-| --- | --- |
-| Callback tagging (Validator check 11) | Dialogue lines can carry `"callback": "<id>"`. The Validator checks each id against the bible, and the Narrative Writer tagged the existing callback lines in levels 01–10 (one PR, 21 lines, nothing else changed). |
-| Clue-depth check (Validator check 12) | In chapter 4's "buried" levels, every need must have a clue line in the middle of the chat, not only at the start or end. Every validation log now ends with a clue map. |
-| Pipeline Health dashboard | A page showing retries per agent per level, critic findings by type, playtest results and difficulty, which friend is in which level, brief versions over time, and tokens. It has chapter and friend filters. A script (`scripts/health.js`) rebuilds the numbers, including exact token counts read from Claude Code's session logs. |
-
 ## 2. Why did the agent pick these features?
 
 ### The feature agent
 
 The order came from `priority_score`, and the log records every round's ranking. I set each feature's impact, and its status comes from the bible. Claude Code drafted the effort scores and dependencies, and I approved them. The agent's formula then decided the order:
 
-- **Credits file first (score 5.5).** The audio rules are Locked in the bible, the impact is 5, and two other missing features (the Credits screen and the music player) needed it.
-- **Then the Credits screen (5) and the music player (3.5).** The player needed more work (effort 3), which lowered its score.
-- **Music on/off jumped to 10** as soon as the player existed: Locked, impact 5 and effort 1.
-- **Then the Proposed features.**
-  - Star totals (3.5): cheap, and the city map needed it.
-  - Chapter cards, How to play and Reset progress, tied at 2.
-  - City map and keyboard play (1).
-  - Friends page last (0.33): an Open idea in the bible, impact 2 and effort 3.
-- **Review runs.**
-  - Chapter card before How to play came first (4): impact 4, effort 1.
-  - Then the muted slash (3), the `assets/` folders (2.5) and the friend card wording (2).
-- **The two small HUD runs.** The second feature scored 0 until the first was in, because I made it depend on the first (both change the same HUD code).
+1. **Credits file first (score 5.5).** The audio rules are Locked in the bible, the impact is 5, and two other missing features (the Credits screen and the music player) needed it.
+2. **Credits screen (5) and the music player (3.5).** The player needed more work (effort 3), which lowered its score.
+3. **Music on/off jumped to 10** as soon as the player existed: Locked, impact 5 and effort 1.
+
+**Proposed features.**
+
+4. Star totals (3.5): cheap, and the city map needed it.
+5. Chapter cards, How to play and Reset progress, tied at 2.
+6. City map and keyboard play (1).
+7. Friends page last (0.33): an Open idea in the bible, impact 2 and effort 3.
+
+**Review runs.**
+
+8. Chapter card before How to play came first (4): impact 4, effort 1.
+9. Then the muted slash (3), the `assets/` folders (2.5) and the friend card wording (2).
+10. **The two small HUD runs.** Both change the same HUD so the second feature scored 0 until the first was in.
 
 ### Built with Claude Code in conversation (before the feature agent)
 
-I asked for suggestions, and the agent looked at the bible, the game code and the pipeline logs before answering. It then ranked the ideas by how quick they were to build and how much they would show, and suggested an order. I picked from that list, and some features came out of the work itself:
+When first reading the assignment, I missed the part about the autonomous loop and added features through conversation with Claude. I asked for suggestions, and had Claude rank the ideas by working time to payout ratio. I ended up completing the whole list one at a time. Despite doing the assignment "wrong" the first time, I ended up with more features that helped polish the game (and would've eventually added anyways). It also helped me learn how tedious it felt and why the autonomous loop seems so streamlined - especially the part where we update the requirements.json instead of prompting the agent. This way there's a cleaner record of our wants list and it slightly saves on tokens.
 
-- **Chat pacing and the clue recap** were its top picks: small changes to code that already existed, but they change how the game feels. The recap reuses the clue tags every chat line already has.
-- **Notebook stars** came from the Critic. I had the agent run the Critic on the new chat pacing, and it pointed out that the Notebook copied exactly the clue lines, which gave away implied clues.
-- **The Scrapbook and "Been here before"** use things the campaign already had: the bible's callbacks and the restaurants that come back in later levels. Both reward players who come back, which the bible says callbacks should do. Before building, the agent checked that levels 1–10 had enough of each to test with.
-- **The clue-depth check** turns a bible rule that nothing checked yet ("buried mid-conversation") into a cheap script that runs before the expensive agent steps.
-- **The Pipeline Health page** makes the agent crew's work visible. It also surfaced something I hadn't noticed: the critic raised only 1 must-fix across 19 rounds, and all the extra fix rounds came from suggestions I chose to act on.
-- **Sort/filter and accessibility** were on the original list for later chapters (chapter 4 has 7 restaurants per level) and to make the game easier to read and play.
+These were the features added through conversation with Claude:
+
+1. **Chat pacing and the clue recap** were its top picks: small changes to code that already existed, but they change how the game feels. The recap reuses the clue tags every chat line already has.
+2. **Notebook stars** came from the Critic. I had the agent run the Critic on the new chat pacing, and it pointed out that the Notebook copied exactly the clue lines, which gave away implied clues.
+3. **The Scrapbook and "Been here before"** use things the campaign already had: the bible's callbacks and the restaurants that come back in later levels. Both reward players who come back, which the bible says callbacks should do. Before building, the agent checked that levels 1–10 had enough of each to test with.
+4. **The clue-depth check** turns a bible rule that nothing checked yet ("buried mid-conversation") into a cheap script that runs before the expensive agent steps.
+5. **The Pipeline Health page** makes the agent crew's work visible. It also surfaced something I hadn't noticed: the critic raised only 1 must-fix across 19 rounds, and all the extra fix rounds came from suggestions I chose to act on.
+6. **Sort/filter and accessibility** were on the original list for later chapters (chapter 4 has 7 restaurants per level) and to make the game easier to read and play.
 
 ## 3. What manual changes did I make before accepting the code?
-
-### The feature agent
-
-After each run I played every new feature and noted what I wanted changed.
 
 - **Small changes went back through the agent.** I added or edited a requirement in `requirements.json` and reran the loop; that's where the last three runs came from. Examples:
   - showing the chapter card before How to play
   - the muted slash and its colour
-  - closing the volume panel with an outside click or Esc
+  - controls to closing the volume panel (with an outside click or Esc)
+  - wording on character cards 
 - **Bigger fixes after the full run were made in conversation with Claude Code,** in one commit:
   - The credits now roll up slowly.
   - The agent's music player only ever played one song. It now shuffles all the tracks and loads one at a time.
   - A music volume slider is available on every screen.
   - The chapter 1 card didn't show again after a reset, because Reset progress didn't clear the "already seen" flags. It now does.
-  - How to play now sits over a real level screen.
+  - How to play now sits over a real level screen (instead of over the options page).
   - The menu now uses my City Map art.
-  - The Outcome screen gets an "A new friend has joined!" card, and the Friends page uses happy portraits.
-- **One bug the agent introduced was fixed by hand.** After the "chapter card first" round, How to play appeared over an empty chat. The boot test passed, so it was my browser check that caught it.
-- **My own edits.**
-  - I rewrote Liam's tagline ("always hungry, down for anything").
-  - I moved `art/` and `music/` into `assets/` and uploaded a new city map. The agent then updated the code paths (the `assets/` folders requirement).
-  - I left the two remixed tracks out of the game for copyright reasons.
-- **Fixes to the agent itself.**
-  - Its undo step once reverted uncommitted changes to the agent's own code. It now takes a snapshot first and never touches its own folder.
-  - A broken pattern in one detection rule crashed a dry run. Requirement edits are now validated before saving.
-  - Claude Code couldn't run the boot test inside its own session, so the agent script runs it after each write.
-  - Before merging each run, I also ran browser checks with screenshots.
-
-### Built with Claude Code in conversation (before the feature agent)
-
-Most of my changes were decisions and corrections I gave the agent after trying each feature:
-
-- **Chat pacing:** the agent first timed each wait by message length (1–2.8 s). I changed it to a flat 1 second.
-- **Notebook stars:** I decided they start in chapter 2, so chapter 1 still teaches what a clue looks like. I asked for an on-screen instruction telling players to pick their own lines. I changed the pin icon to a star, gave starred messages a tinted bubble, and matched the star's outline to the bubble's orange.
-- **Scrapbook:** I edited and locked the callback table and the Scrapbook rules in the game bible; the agent drafted them for me. I chose to tag levels 1–10 in a single PR. When I first saw only "???" pages (the branch didn't have the tagged dialogue yet), I asked for an unlock animation and badges. I merged the tagging PR before Integration and Provenance had run, so the agent ran both afterwards.
-- **Clue-depth check:** I chose how strict it is ("moderate") and that other levels only get a clue map, not warnings.
-- **Pipeline Health:** I asked for exact token figures instead of the run log's partial ones, plus chapter and friend filters and a brief-versions chart.
-- **Accessibility:** I removed the "Tap to continue" chat pace, and reported that the Options buttons jumped when hovered. The agent traced it to a bug in its own hover code and fixed it.
-- **Still open, on my to-do list:** real badge art and art sizes, and adding the Scrapbook unlock card, the "Been here before" badges and the accessibility options to the bible.
+  - The Outcome screen gets an "A new friend has joined!" card  
+  - Friends page uses happy portraits (used neutral portraits before).  
+  - Showing more than 'A new friend has joined!' card for the first level
