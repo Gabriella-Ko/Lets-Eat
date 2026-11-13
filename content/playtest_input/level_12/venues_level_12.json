@@ -1,0 +1,48 @@
+{
+  "level_id": "level_12",
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_firefly_lane",
+      "reviews": [
+        "The cart is strung with little jar lights that blink on around nine, and the owner's teenage son does his homework at the far end of the counter between orders. Half the board never touches meat: a mushroom pho built on a charred onion and star anise vegetable broth, tofu summer rolls with a soy-lime dip, a lemongrass tofu banh mi. Lots of herbs, a clean broth, and I wandered the rest of the market feeling fresh instead of stuffed.",
+        "I've had a peanut allergy since I was four, so Vietnamese stalls usually mean picking crushed nuts off the noodles and hoping for the best. Here the vermicelli bowls come topped with fried shallots, and I've eaten my way through the whole board, every roll and every dip, over a summer of Friday nights without my allergy pen ever leaving my bag."
+      ]
+    },
+    {
+      "id": "downtown_banyan_kitchen",
+      "reviews": [
+        "Downtown lunch regulars will recognize the night cart by the banyan leaf painted on its side. Same menu as the lunch counter: summer rolls packed with herbs and tofu or shrimp, a lemongrass tofu vermicelli bowl, a crisp green papaya salad. It's all fresh and light enough that I still had room for another lap of the aisles.",
+        "Peanuts are the whole personality here. Every order comes with a tub of their warm peanut dipping sauce, the papaya salad and the vermicelli bowls vanish under a handful of crushed peanuts, and the cook roasts a fresh batch on the side burner all night, so the whole aisle smells like it."
+      ]
+    },
+    {
+      "id": "night_market_stone_well",
+      "reviews": [
+        "The pho is the draw: a beef-bone broth that simmers from noon, clear and fragrant and heaped with basil and sprouts, and the broken rice with a grilled pork chop is lean and bright with pickles. I felt light all evening. When I asked the cook about peanuts for my boyfriend, she shook her head: \"Never had a peanut in this cart, not in the sauce, not on top.\" He ordered without a second thought. An older man plays Chinese chess on an upturned crate beside the cart most nights and will tell you who's winning.",
+        "Came with a friend who doesn't eat meat, and we struck out. She asked for the summer rolls without the shrimp and pork, but the filling is mixed in one big batch, and the dipping sauce, the dressings and even the stir-fried morning glory all lean on fish sauce or dried shrimp. She sipped a lime soda while I worked through my pho."
+      ]
+    },
+    {
+      "id": "night_market_twelve_bells",
+      "reviews": [
+        "Everything here goes through the fryer or a very oily pan: crackling imperial rolls (pork, or taro and mushroom), banh xeo crepes fried until the edges shatter, golden cubes of fried tofu, a pork belly banh mi dripping through the paper. The meat-free versions are just as rich as the rest. Worth every bite, but I was ready for bed halfway home.",
+        "A coworker of mine has carried an allergy pen for peanuts since grade school and usually eats before any night out. At this stall she just orders whatever is coming out of the oil, and two summers in she hasn't had so much as a tingle. Over the counter hangs a string of twelve little brass bells the owner brought from her hometown; she polishes them every Sunday before opening."
+      ]
+    },
+    {
+      "id": "night_market_plum_bridge",
+      "reviews": [
+        "Same grandmother folding dumplings at the front table, same painted bridge on the sign. This time I went for steamed rice noodle rolls with mushrooms, tofu skin rolls and a basket of chive dumplings, plus shrimp har gow for my brother. Everything steamed, nothing greasy, and I could easily have managed another round.",
+        "The stall owners on either side send their nut-allergic customers over here, and it's easy to see why: even the chiu chow dumplings, which usually hide crushed peanuts, are filled with jicama, mushroom and chives, and the table sauces are soy, chili oil and black vinegar. The steamer lids get stacked into a wobbly tower by the end of the night, and nobody has knocked it over yet."
+      ]
+    },
+    {
+      "id": "night_market_red_thread",
+      "reviews": [
+        "The chef ties a loop of red thread around every takeout box, a habit he brought from his old shop across the river. Salmon and yellowtail nigiri for me, and for my roommate a whole column of the menu that skips fish and meat entirely: avocado and cucumber rolls, pickled radish, sweet tofu pockets, shiitake nigiri. Clean, simple and light.",
+        "I asked about peanuts for my date, who is badly allergic, and the chef slid over his binder of ingredient sheets for every sauce and topping. Not a peanut or a drop of peanut oil in any of it; the crunch on the rolls is toasted sesame. She ordered whatever caught her eye, and we're going back next week."
+      ]
+    }
+  ]
+}

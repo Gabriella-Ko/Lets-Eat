@@ -1,0 +1,115 @@
+{
+  "level_id": "level_12",
+  "script": [
+    {
+      "speaker": "brooke",
+      "text": "market night, take two! who's coming?",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "me! i've heard about this market all week and still haven't seen it :)",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "I'm in. First visit for me as well. I've printed a map. Of a market. I'm aware.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "ok so. last time we walked past a whole row of viet stalls on the way to the tacos and i've thought about it every day since",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "liam",
+      "text": "viet. tonight. please",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "the viet row! it smelled incredible. i'm in",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "viet sounds lovely :) cyrus, does that work for you?",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "It should. Brooke, Liam, you two have seen the stalls. Anything I should know before we go?",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "honestly? a lot of the viet stalls had a big tub of crushed peanuts on the counter. they were spooning it onto everything",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "liam",
+      "text": "true. basically sprinkle stations",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "mina",
+      "text": "we'll find one :) i'd rather we all eat somewhere you can actually relax",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "oh, and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "mina",
+      "text": "tofu everything?? that sounds like my kind of row :)",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Good. Then wherever we land, Mina gets a proper choice of mains, not one lonely option.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "mina",
+      "text": "only if it's easy! i don't want the whole night planned around me",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "mina, it's a market with fifty stalls. we can plan around anyone we like",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "speaking of which: i'm running at sunrise tomorrow. tonight i want the kind of dinner my legs will thank me for",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "so the stalls with the giant bubbling fryers are out for you",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "brooke",
+      "text": "way out. my legs have spoken",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "I've circled the viet row on the map. Assistant, the rest is yours.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "pick us a winner. i'm already walking",
+      "emotion": "HUNGRY"
+    }
+  ]
+}
