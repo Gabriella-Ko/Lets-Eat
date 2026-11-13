@@ -24,7 +24,7 @@
       "missed": ["diet:vegetarian"],
       "lines": [
         { "speaker": "mina", "text": "oh... i read the whole board twice. there's meat or fish in every single thing", "emotion": "SURPRISED" },
-        { "speaker": "liam", "text": "where's the no-meat half?? this board doesn't even have a no-meat corner", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "i promised mina tofu everything and this board doesn't have a single cube", "emotion": "SURPRISED" },
         { "speaker": "cyrus", "text": "We had one plan for Mina tonight, and this isn't it. Everyone up, we're leaving.", "emotion": "ANGRY" }
       ]
     },
