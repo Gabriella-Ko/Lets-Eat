@@ -1,0 +1,617 @@
+{
+  "_about": "What the GDD (docs/game_bible.md) requires of the game code, one entry per feature, for tools/feature-agent/feature_agent.mjs. 'detect' rules are checked against game/ (paths relative to it): a requirement is met when all its rules pass. 'status' is the bible item's status (Locked weighs more than Proposed). 'impact' and 'effort' are 1-5. 'depends' lists requirement ids that must be met first.",
+  "requirements": [
+    {
+      "id": "core_loop_scenes",
+      "title": "Core loop scenes",
+      "bible": "Game identity > Core loop: read chat, inspect search results and reviews, recommend, see the reaction.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 4,
+      "depends": [],
+      "detect": [
+        {
+          "file": "src/scenes/ChatScene.js"
+        },
+        {
+          "file": "src/scenes/ResultsListScene.js"
+        },
+        {
+          "file": "src/scenes/OutcomeScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "ChatScene.*ResultsListScene.*OutcomeScene"
+        }
+      ]
+    },
+    {
+      "id": "static_content_no_runtime_ai",
+      "title": "Static JSON content, no runtime AI or network calls",
+      "bible": "Game identity > Engine: Phaser 3, static JSON loaded at startup, no runtime AI calls.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/content.js",
+          "pattern": "import\\.meta\\.glob"
+        },
+        {
+          "absent": "src",
+          "pattern": "\\bfetch\\(|XMLHttpRequest|anthropic|openai"
+        }
+      ]
+    },
+    {
+      "id": "scoring_rules",
+      "title": "Scoring: hard check, start at 3, -1 per soft miss, floor of 1",
+      "bible": "Scoring rules (Locked).",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 3,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "export function scorePick"
+        },
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "floor_stars"
+        },
+        {
+          "contains": "src/logic/scoring.js",
+          "pattern": "hardMisses"
+        }
+      ]
+    },
+    {
+      "id": "emotion_fallback",
+      "title": "Portrait per emotion tag, unknown tags fall back to NEUTRAL",
+      "bible": "Emotion tags and art rules: any unknown tag falls back to NEUTRAL; portrait_<character>_<tag>.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "portrait_\\$\\{character\\}.*NEUTRAL|NEUTRAL[\\s\\S]*portrait_\\$\\{character\\}"
+        }
+      ]
+    },
+    {
+      "id": "cuisine_icons",
+      "title": "One icon per cuisine",
+      "bible": "Emotion tags and art rules > Venue icon: one per cuisine, icon_<cuisine>.png.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "icon_\\$\\{"
+        }
+      ]
+    },
+    {
+      "id": "notebook_sidebar",
+      "title": "Notebook sidebar fed by tagged lines",
+      "bible": "Data schemas > Dialogue: tagged lines feed the Notebook sidebar as the player reads them.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "contains": "src/ui/notebook.js",
+          "pattern": "export function notebook"
+        }
+      ]
+    },
+    {
+      "id": "partial_hint_and_highlight",
+      "title": "Partial-success hint names each miss; reread highlights the missed line",
+      "bible": "Scoring rules > Partial success: hint names each missed preference. Data schemas: a partial-success hint highlights the tagged line the player missed.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "Missed:"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "highlight"
+        }
+      ]
+    },
+    {
+      "id": "fail_retry",
+      "title": "Failed level must be retried",
+      "bible": "Scoring rules > Complete failure: 0 stars, Failed, retry with a hint.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 1,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "Try again"
+        }
+      ]
+    },
+    {
+      "id": "scrapbook",
+      "title": "Scrapbook pages unlocked by callbacks",
+      "bible": "Campaign structure > Scrapbook (Locked): a page unlocks the first time the player reads a line tagged with its id.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "detect": [
+        {
+          "file": "src/scenes/ScrapbookScene.js"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "unlockPage\\("
+        }
+      ]
+    },
+    {
+      "id": "credits_file",
+      "title": "Credits file generated from the music folder",
+      "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks, sourced by hand from Bensound and Pixabay Music, not by agents. Each track's license and any required credit are logged in a credits file shown in the game's credits screen.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [],
+      "spec": "Fill game/public/credits.json's \"music\" list with every audio file in assets/music/ at the repo root (mp3 or ogg; the sync step copies them to game/public/music/, where the game serves them), all downloaded by Gabriella from Pixabay Music. Some have a Pixabay license certificate (*-license.txt in assets/music/, starting 'PIXABAY LICENSE CERTIFICATE'); match a track to its certificate by the Pixabay ID number in both file names (e.g. lafrey_music-art-aesthetic-599374.mp3 and beats-art-aesthetic-599374-license.txt). For a track WITH a certificate, take title (Audio File Title), artist (the username in the Licensor's Username URL), url (Audio File URL) and license_file (\"music/<certificate name>\") from it. For a track WITHOUT one (Gabriella confirmed these are free under Pixabay's license too), derive title and artist from the file name as well as possible (Pixabay names files <username>-<title words>-<id>.mp3), set url and license_file to null, and add \"check\": true so Gabriella can confirm the names. Every entry: file (\"music/<file name>\"), title, artist, source \"Pixabay Music\", license \"Pixabay Content License\", url, license_file, credit_line \"<title> by <artist> (Pixabay)\". Never choose, download, rename or delete music files. Keep the existing \"art\" entry. BootScene keeps loading credits.json into the registry as 'credits'.",
+      "detect": [
+        {
+          "contains": "public/credits.json",
+          "pattern": "\"music\"\\s*:\\s*\\[\\s*\\{"
+        },
+        {
+          "contains": "public/credits.json",
+          "pattern": "\"license_file\"\\s*:"
+        },
+        {
+          "contains": "src/scenes/BootScene.js",
+          "pattern": "credits\\.json"
+        }
+      ]
+    },
+    {
+      "id": "credits_screen",
+      "title": "Credits screen",
+      "bible": "Game identity > Audio (Locked): ... logged in a credits file shown in the game's credits screen.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 2,
+      "depends": [
+        "credits_file"
+      ],
+      "spec": "Add src/scenes/CreditsScene.js (scene key 'Credits'), registered in main.js, reached from a 'Credits' button on the menu and back with '← Levels' and Esc. It lists every entry of the registry's 'credits' (music: title, artist, source, license and credit_line; art). With no music yet it says so plainly. Long lists scroll (ui/scroll.js). Use the theme's text()/pixel()/readText() and C colours; respect the game's accessibility rules in CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/scenes/CreditsScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "CreditsScene"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Credits'"
+        }
+      ]
+    },
+    {
+      "id": "music_player",
+      "title": "Background music from the credited tracks",
+      "bible": "Game identity > Audio (Locked): free or copyright-free lo-fi tracks.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 3,
+      "depends": [
+        "credits_file"
+      ],
+      "spec": "Add src/ui/music.js: plays only tracks listed in the registry's 'credits'.music (files under public/music/, paths as given in each entry's \"file\"), looping through them at a low volume, starting only after the player's first click or key press (browsers block autoplay). If the list is empty it does nothing and never errors. Exports start(scene), setEnabled(on) and isEnabled(). Loading the audio files is done in BootScene from the credits list.",
+      "detect": [
+        {
+          "file": "src/ui/music.js"
+        },
+        {
+          "contains": "src/ui/music.js",
+          "pattern": "export function setEnabled"
+        }
+      ]
+    },
+    {
+      "id": "music_option",
+      "title": "Music on/off in Options",
+      "bible": "Game identity > Audio (Locked); the game's accessibility options live on the Options screen.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 1,
+      "depends": [
+        "music_player"
+      ],
+      "spec": "Add a 'music' setting (On / Off, default On) to src/ui/settings.js OPTIONS and a row for it on the Options screen; apply it through music.js setEnabled().",
+      "detect": [
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "music\\s*:"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "'music'"
+        }
+      ]
+    },
+    {
+      "id": "chapter_intro_cards",
+      "title": "Chapter intro cards",
+      "bible": "Campaign structure > Calendar: each chapter is a season. 1 Campus Quarter, Spring semester: between classes, study groups. 2 Downtown, Summer internships: lunch breaks. 3 Night Market, Late summer nights: warm evenings. 4 Waterfront, End of summer: before Maya's trip, quiet dinners and celebrations.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/ui/chapterIntro.js exporting showChapterIntro(scene, chapter, onDone): a card over the screen with 'CHAPTER N', the district name and the season, plus one line from the bible's Calendar 'typical reasons' (use only the Calendar wording above, no new story text). It appears the first time a level of a new chapter opens (before its chat starts) and never again automatically (remember it in localStorage, wrapped in try/catch); tapping a chapter heading on the menu shows it again. Continue with a click, Enter or Esc. Animate only through tween() from src/ui/motion.js; use C colours and the theme text helpers.",
+      "detect": [
+        {
+          "file": "src/ui/chapterIntro.js"
+        },
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "export function showChapterIntro"
+        },
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "Late summer nights"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "showChapterIntro\\("
+        }
+      ]
+    },
+    {
+      "id": "how_to_play",
+      "title": "How to play, before level 1",
+      "bible": "Game identity > Core loop: read chat, inspect search results and reviews, recommend, see the reaction.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/ui/howToPlay.js exporting showHowToPlay(scene, onDone): a three-step overlay (1. read the group chat and notice what each friend needs; 2. open each place and read its reviews; 3. recommend the one place that suits everyone), each step pointing at the part of the screen it means. Shown automatically the first time level 1 opens (remember in localStorage, wrapped in try/catch), skippable at any step, keyboard-operable (Enter next, Esc skip). The Options screen gets a 'How to play' button that shows it again. Animate only through tween().",
+      "detect": [
+        {
+          "file": "src/ui/howToPlay.js"
+        },
+        {
+          "contains": "src/ui/howToPlay.js",
+          "pattern": "export function showHowToPlay"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "showHowToPlay\\("
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "How to play"
+        }
+      ]
+    },
+    {
+      "id": "star_totals",
+      "title": "Star totals and progress",
+      "bible": "Scoring rules: every level scores 0-3 stars. Campaign structure: 4 chapters of 5 levels.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/logic/progress.js (pure, no Phaser) exporting starTotals(levels, progress) -> { byChapter: { <chapter>: { earned, max } }, earned, max }, counting only built levels (max = 3 per level) and each level's best stars. The menu shows each chapter heading with 'earned / max' stars and a campaign total, and a small 'perfect' mark on a chapter where every built level has 3 stars. Add a check of starTotals to test/boot-test.mjs.",
+      "detect": [
+        {
+          "contains": "src/logic/progress.js",
+          "pattern": "export function starTotals"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "starTotals\\("
+        },
+        {
+          "contains": "test/boot-test.mjs",
+          "pattern": "starTotals"
+        }
+      ]
+    },
+    {
+      "id": "keyboard_play",
+      "title": "Keyboard play everywhere",
+      "bible": "Game identity > Tone: cozy and welcoming. The game already has accessibility options on its Options screen.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: up/down moves between unlocked pages. Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-DOWN"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "keydown-RIGHT"
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "keydown-DOWN"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-ENTER"
+        }
+      ]
+    },
+    {
+      "id": "reset_progress",
+      "title": "Reset progress",
+      "bible": "Game identity > Structure: levels unlock in order as each is cleared.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "Add resetProgress() to src/ui/widgets.js that clears saved stars ('lets-eat-progress-v1'), Scrapbook pages ('lets-eat-scrapbook-v1') and 'been here' history ('lets-eat-venues-v1') from localStorage (wrapped in try/catch) and keeps the accessibility settings. The Options screen gets a 'Reset progress' button with a confirmation step drawn in the game (no browser confirm()): 'Reset' clears and returns to the menu, 'Cancel' changes nothing.",
+      "detect": [
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "export function resetProgress"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "Reset progress"
+        }
+      ]
+    },
+    {
+      "id": "city_map_menu",
+      "title": "City map menu",
+      "bible": "Campaign structure: each chapter unlocks a new neighbourhood of one fictional city (Campus Quarter, Downtown, Night Market, Waterfront).",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 4,
+      "depends": [
+        "star_totals"
+      ],
+      "spec": "Add src/ui/cityMap.js exporting cityMap(scene, opts): the four districts drawn as a simple placeholder map (shapes in each district's own colour, labels with the district name and its star total from starTotals) until real art exists under the texture key 'city_map', which it uses when loaded. Districts whose chapter has no unlocked level look locked (greyed, no click). Clicking an unlocked district shows its level cards as the menu does today. The menu uses cityMap() instead of the plain chapter rows. Keep the Options and Scrapbook buttons.",
+      "detect": [
+        {
+          "file": "src/ui/cityMap.js"
+        },
+        {
+          "contains": "src/ui/cityMap.js",
+          "pattern": "city_map"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "cityMap\\("
+        }
+      ]
+    },
+    {
+      "id": "friends_page",
+      "title": "Friends page",
+      "bible": "Cast: each friend has permanent traits (allergies, strict diets, baseline budget, personality, voice). Clue rules: every scoring constraint appears in the chat; implied clues are never said outright.",
+      "status": "Open",
+      "impact": 2,
+      "effort": 3,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add src/scenes/FriendsScene.js (scene key 'Friends'), registered in main.js and reached from a 'Friends' button on the menu. One card per friend the player has met (a guest in a level they have opened): portrait, name, and their permanent needs from rules.json characters. A need is shown ONLY after the player has cleared (1+ stars) a level where that friend is a guest and the chat has a line tagged with that need; until then it shows '???'. Never reveal a need earlier: that would solve implied clues. Friends not met yet show only '???'.",
+      "detect": [
+        {
+          "file": "src/scenes/FriendsScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "FriendsScene"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Friends'"
+        }
+      ]
+    },
+    {
+      "id": "asset_folders",
+      "title": "Game and tools use the new assets/ folders",
+      "bible": "Game identity > Audio and Art: music is hand-picked by Gabriella and credited; art comes from her source images. Gabriella moved art/source/ to assets/art/ and the music to assets/music/ (2026-11-13).",
+      "status": "Proposed",
+      "impact": 5,
+      "effort": 2,
+      "depends": [
+        "credits_file"
+      ],
+      "spec": "Source art now lives in assets/art/ and music in assets/music/ (both at the repo root, one level above game/). 1) tools/slice_portraits.py: read from assets/art (SRC = os.path.join(ROOT, 'assets', 'art')) and update its docstrings. 2) Add tools/sync_assets.mjs (Node, no dependencies): copy every .mp3/.ogg and *-license.txt from ../assets/music/ into public/music/ (create the folder; remove files there that are no longer in assets/music/); print what it copied. 3) package.json scripts: \"sync-assets\": \"node tools/sync_assets.mjs\", plus \"predev\", \"prebuild\" and \"preboot-test\" that run it, so the music is always in place for the dev server, builds and tests. 4) Change every remaining 'art/source' mention in src/ and CLAUDE.md to 'assets/art' (e.g. the Outcome image placeholder text, comments in theme.js and cityMap.js, the Art section of CLAUDE.md), and say in CLAUDE.md that game/public/music/ is a generated copy of assets/music/ (ignored by Git). Never move, rename or delete files in assets/.",
+      "detect": [
+        {
+          "contains": "tools/slice_portraits.py",
+          "pattern": "'assets',\\s*'art'"
+        },
+        {
+          "file": "tools/sync_assets.mjs"
+        },
+        {
+          "contains": "package.json",
+          "pattern": "\"sync-assets\""
+        },
+        {
+          "contains": "package.json",
+          "pattern": "\"preboot-test\""
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "assets/art/"
+        },
+        {
+          "contains": "CLAUDE.md",
+          "pattern": "assets/music"
+        }
+      ]
+    },
+    {
+      "id": "hud_muted_slash",
+      "title": "Speaker icon has a slash through it, in the icon's border colour, when muted or at volume 0",
+      "bible": "The music volume control on every screen (Gabriella, 2026-11-13).",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/HudScene.js, when music is off OR the volume is 0, draw the speaker button with a bold diagonal slash right across the whole round button (from its top-left edge to its bottom-right edge, about 3 px wide, in the same colour as the button's border ring (C.label, read when drawing so High contrast applies), over the speaker shape), and no sound waves. Put it in a function drawMutedSlash(g) that draw() calls. When music is on and the volume is above 0, no slash. The slash must update as soon as the slider reaches 0 or the On/Off switch is used.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "drawMutedSlash\\("
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "function drawMutedSlash\\(g\\)\\s*\\{[\\s\\S]{0,300}C\\.label"
+        }
+      ]
+    },
+    {
+      "id": "chapter_card_first",
+      "title": "Chapter intro card before How to play",
+      "bible": "Campaign structure > Calendar (chapter seasons). Gabriella, 2026-11-13: the chapter 1 card comes before How to play.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 1,
+      "depends": [
+        "chapter_intro_cards",
+        "how_to_play"
+      ],
+      "spec": "Add src/logic/introOrder.js (pure, no Phaser) exporting introSteps(levelNumber, seen) where seen = { howToPlay: bool, chapter: bool }, returning the ordered list of intros to show before the chat starts: the chapter card first (when not seen), then How to play (only for level 1, when not seen). So a first visit to level 1 gives ['chapter', 'howToPlay']. ChatScene.startWithIntros() must follow introSteps(): show each in turn, then start the chat. Keep the first 2 messages showing behind How to play (FIRST_TIME_LINES); the chapter card can show over the empty chat. Add a check of introSteps to test/boot-test.mjs (first visit to level 1 -> ['chapter','howToPlay']; level 2 with nothing seen -> []; level 6 with the chapter unseen -> ['chapter']).",
+      "detect": [
+        {
+          "contains": "src/logic/introOrder.js",
+          "pattern": "export function introSteps"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "introSteps\\("
+        },
+        {
+          "contains": "test/boot-test.mjs",
+          "pattern": "introSteps"
+        }
+      ]
+    },
+    {
+      "id": "friend_card_wording",
+      "title": "New friend cards: one line about each friend; Liam then Cyrus in level 1",
+      "bible": "Cast: permanent constraints (Cyrus peanut allergy, Mina vegetarian, Brooke health conscious, Maya budget, Roxy dairy intolerance; Liam none, always hungry). Clue rules: implied clues are never said outright before the player has solved them.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "Add src/logic/friendTaglines.js exporting FRIEND_TAGLINES = { cyrus: 'peanut allergy', mina: 'vegetarian', brooke: 'healthy foods', maya: 'on a budget', roxy: 'dairy intolerance', liam: 'always hungry, down for anything' } (Gabriella gave Cyrus, Mina and Brooke; the other three follow the bible's Cast and she may reword them). On the Outcome screen's 'A new friend has joined!' card, show the friend's tagline under their name instead of 'say hi on your Friends page'. Because the tagline names a need, welcome a friend only on a level the player CLEARS (1+ stars), never after a fail (a fail would hand the answer to the retry): src/ui/friendsAnnounced.js stays the record. Order and flow: in level 1 the first card is Liam; clicking 'Next friend →' (or clicking anywhere on the card outside its buttons) shows Cyrus's card; the last card's button says 'Keep going'.",
+      "detect": [
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "export const FRIEND_TAGLINES"
+        },
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "peanut allergy"
+        },
+        {
+          "contains": "src/logic/friendTaglines.js",
+          "pattern": "healthy foods"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "FRIEND_TAGLINES"
+        }
+      ]
+    },
+    {
+      "id": "hud_close_outside",
+      "title": "Volume panel closes when you click outside it",
+      "bible": "The music volume control on every screen (Gabriella, 2026-11-13): hide the volume slider when the area outside its box is clicked.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "hud_muted_slash"
+      ],
+      "spec": "In src/scenes/HudScene.js, the open volume panel closes on any click or tap outside the panel box (PANEL) and the speaker button: anywhere on any screen, including on other screens' buttons and cards, AND anywhere in the browser page outside the game canvas (the dark bars around the game when the window is not the game's shape): add a window-level pointerdown listener (window.addEventListener('pointerdown', ...)) that closes the panel when the click is outside the canvas, and remove it when the Hud shuts down. Put the check in a function closeIfOutside(...). Clicks inside the panel box (the slider, the On/Off switch, or the panel background) keep it open. Esc also closes it (keydown-ESC), without stopping the screen underneath from using Esc for its own back action. Keep M as the toggle.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "closeIfOutside"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "window\\.addEventListener\\(\\s*'pointerdown'"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "keydown-ESC"
+        }
+      ]
+    },
+    {
+      "id": "hud_esc_closes_panel_only",
+      "title": "Esc closes the volume panel and nothing else",
+      "bible": "The music volume control on every screen (Gabriella, 2026-11-13): allow pressing Esc to close the volume slider.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "hud_close_outside",
+        "hud_muted_slash"
+      ],
+      "spec": "While the volume panel is open, pressing Esc closes the panel and does nothing else: the screen underneath (Options, Credits, Friends, Scrapbook, Chat, Results, Outcome and so on) must not also act on that same Esc press (no 'back' to the menu, no closing of that screen's own cards). With the panel closed, Esc works on each screen exactly as before. Do it in src/scenes/HudScene.js: the Hud is the top scene, so in its keydown-ESC handler, when the panel is open, close it and call event.stopImmediatePropagation() on the keyboard event so lower scenes don't receive it; also set this.registry 'hudPanelOpen' while the panel is open and clear it when it closes, so any screen whose Esc handler still fires can ignore Esc while it's set (add that check to the Esc handlers in OptionsScene, CreditsScene, FriendsScene and ScrapbookScene).",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "stopImmediatePropagation"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "hudPanelOpen"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "hudPanelOpen"
+        }
+      ]
+    }
+  ]
+}

@@ -1,2 +1,4 @@
 node_modules/
 dist/
+# generated: copied from ../assets/music by the asset sync step (assets/music is the source)
+public/music/

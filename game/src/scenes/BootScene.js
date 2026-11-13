@@ -1,6 +1,8 @@
 import Phaser from 'phaser';
 import { levels, problems, rules } from '../content.js';
 import { makePlaceholderArt } from '../ui/widgets.js';
+import { setEnabled as setMusicEnabled, isEnabled as isMusicEnabled } from '../ui/music.js';
+import { musicOn } from '../ui/settings.js';
 
 // Where portrait art comes from. Today: the preview cut by game/tools/slice_portraits.py.
 // When the Art Asset agent's public/assets/asset_manifest.json exists, point this at it.
@@ -13,6 +15,7 @@ export default class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.json('manifest', MANIFEST);
+    this.load.json('credits', 'credits.json'); // music + art credits for the credits screen
   }
 
   create() {
@@ -27,9 +30,10 @@ export default class BootScene extends Phaser.Scene {
     // Outcome illustrations load straight under their key (outcome_<level>_<venue>); OutcomeScene picks them up.
     // Chat backgrounds (chat_bg_chapter_XX), likewise; ChatScene picks them up by chapter.
     // Scrapbook art (scrap_<callback id>), likewise; ScrapbookScene shows a placeholder until it exists.
-    for (const group of ['outcomes', 'backgrounds', 'scrapbook']) {
+    for (const group of ['outcomes', 'backgrounds', 'scrapbook', 'ui']) {
       for (const [key, entry] of Object.entries(manifest?.[group] || {})) this.load.image(key, base + entry.file);
     }
+    // Music isn't loaded here: src/ui/music.js fetches one track at a time, when it's about to play.
     this.load.once('complete', () => {
       for (const [key, entry] of Object.entries(manifest?.portraits || {})) {
         const src = this.textures.get(`file:${entry.file}`);
@@ -45,6 +49,10 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('levels', levels);
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
+    this.registry.set('credits', this.cache.json.get('credits') || { music: [], art: [] });
+    if (isMusicEnabled() !== musicOn()) setMusicEnabled(musicOn()); // the Options "Music" setting wins
+    // The Hud runs above every screen: the music volume control, and the host the music player loads through.
+    this.scene.launch('Hud');
 
     // Dev shortcut: ?scene=Chat|Results|Outcome&level=level_03[&venue=<id>][&highlight=craving][&revealAll][&recap]
     const q = new URLSearchParams(window.location.search);

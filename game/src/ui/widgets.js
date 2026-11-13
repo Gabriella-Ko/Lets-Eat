@@ -1,4 +1,7 @@
 import { C, CHARACTERS, CUISINES, EMOTIONS, PIXEL, hex, pixel, portraitKey } from './theme.js';
+import { clearPages } from './scrapbookStore.js';
+import { clearVisits } from './visitStore.js';
+import { clearOpened } from './openedStore.js';
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
@@ -145,4 +148,20 @@ export function saveStars(levelId, stars) {
   } catch {
     /* storage blocked: progress just won't persist */
   }
+}
+
+/**
+ * Forget this browser's play history, as if starting fresh: best stars (so levels lock again), Scrapbook
+ * pages, "been here" venues, friends met and announced, and the How to play and chapter cards already seen
+ * (so they show again). Accessibility settings and music (on/off, volume) are kept.
+ */
+export function resetProgress() {
+  try {
+    for (const k of [KEY, 'lets-eat-how-to-play-v1', 'lets-eat-chapter-intros-v1', 'lets-eat-friends-announced-v1']) localStorage.removeItem(k);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+  clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
+  clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
+  clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback
 }

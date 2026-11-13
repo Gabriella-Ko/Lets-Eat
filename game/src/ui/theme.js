@@ -1,4 +1,4 @@
-// Palette sampled from Gabriella's portrait sheets (art/source/*_sheet.jpg):
+// Palette sampled from Gabriella's portrait sheets (assets/art/*_sheet.jpg):
 // warm dark-brown label bars, dusty-rose label text, dusty blue, rust and ribbon orange.
 // The bible lists the palette as Open; once confirmed, record it there.
 import { highContrast, textScale } from './settings.js';

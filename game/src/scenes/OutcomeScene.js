@@ -7,6 +7,8 @@ import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
 import { pinMode, getPins } from '../ui/notebook.js';
 import { badge } from '../ui/badge.js';
+import { newFriends, markAnnounced } from '../ui/friendsAnnounced.js';
+import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
@@ -43,6 +45,7 @@ export default class OutcomeScene extends Phaser.Scene {
     this.openRecapOnStart = !!data.recap;
     this.recap = null;
     this.pageNote = null; // the scene object is reused between visits
+    this.newFriendIds = [];
     this.unlockCard = null;
     this.unlockQueue = [];
   }
@@ -67,7 +70,7 @@ export default class OutcomeScene extends Phaser.Scene {
     this.starsLabel = this.add.text(W / 2 + 100, 124, `${score.stars} of 3 stars`, pixel(14, C.label)).setOrigin(0, 0.5);
 
     this.drawImageSlot(score.result);
-    this.newPageNote();
+    this.newPageNote(score.stars >= 1);
 
     // Reaction lines
     let y = REACT.y + 16;
@@ -109,7 +112,30 @@ export default class OutcomeScene extends Phaser.Scene {
     const x0 = W / 2 - ((btns.length - 1) * (bw + 20)) / 2;
     btns.forEach(([label, fn, fill], i) => button(this, x0 + i * (bw + 20), H - 44, label, fn, { w: bw, fill }));
 
-    this.input.keyboard.on('keydown-ESC', () => (this.unlockCard ? this.showNextUnlock() : this.closeRecap()));
+    // Keyboard: left/right move a focus ring between the buttons, Enter presses. While the unlock card is up
+    // the keys work on its two buttons; while the recap is open, Enter closes it.
+    this.focusBtns = btns.map(([, fn], i) => ({ x: x0 + i * (bw + 20), y: H - 44, w: bw, h: 44, fn }));
+    this.focus = btns.length - 1; // the forward button (next level / try again / levels)
+    this.focusRing = this.add.graphics().setDepth(UNLOCK_DEPTH + 5);
+    const kb = this.input.keyboard;
+    const move = (d) => {
+      const list = this.activeButtons();
+      if (!list.length) return;
+      this.setFocus((this.focusIndex() + d + list.length) % list.length);
+    };
+    kb.on('keydown-LEFT', () => move(-1));
+    kb.on('keydown-RIGHT', () => move(1));
+    kb.on('keydown-ENTER', () => {
+      if (this.recap && !this.unlockCard) return this.closeRecap();
+      const b = this.activeButtons()[this.focusIndex()];
+      if (b) b.fn();
+    });
+    this.drawFocus();
+
+    this.input.keyboard.on('keydown-ESC', () => {
+      if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel
+      if (this.unlockCard) this.showNextUnlock(); else this.closeRecap();
+    });
     if (this.openRecapOnStart) this.openRecap();
   }
 
@@ -195,15 +221,24 @@ export default class OutcomeScene extends Phaser.Scene {
     const close = button(this, x + w / 2, y + ph - 36, 'Close', () => this.closeRecap(), { w: 180, fill: C.accent });
     keep(close);
     this.recap = { objs, rows };
+    this.drawFocus();
   }
 
   /**
    * Bible (Scrapbook > Where): a small "new page" note when this level unlocked a scrapbook page.
    * Shown once per visit: the list is cleared after it's announced.
    */
-  newPageNote() {
+  newPageNote(cleared) {
+    // Friends met for the first time on this level get their own card first (announced once each), in the
+    // level's guest order. Only on a cleared level: the card's tagline names a need, so after a fail it
+    // would hand the answer to the retry.
+    const friends = cleared ? newFriends(this.level.guests) : [];
+    markAnnounced(friends);
+    this.newFriendIds = friends;
     const key = `newPages:${this.level.id}`;
     const ids = this.registry.get(key) || [];
+    this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
+    if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
     this.registry.set(key, []);
     const callbacks = this.registry.get('rules').callbacks || {};
@@ -220,25 +255,43 @@ export default class OutcomeScene extends Phaser.Scene {
     c.setAlpha(0);
     tween(this, { targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
-    // Then the unlock card for each new page, once the reactions have had a moment.
-    this.unlockQueue = [...ids];
-    this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
   }
 
   /**
-   * "New scrapbook page" card (Gabriella, 2026-11-12): the page slides up, the badge pops in with rays and
-   * sparkles, then title and friend fade in. "See it" opens that page in the Scrapbook; "Keep going" closes
-   * (or shows the next card when a level unlocked two). Shown here, after the level, never in the chat,
+   * Unlock cards, shown one after another ~1.4 s into the Outcome screen:
+   *  - "A new friend has joined!" (Gabriella, 2026-11-13): a friend met for the first time; their happy
+   *    portrait pops in with rays and sparkles, then their name and tagline (logic/friendTaglines.js), only
+   *    after a cleared level. "See friends" opens the Friends page.
+   *  - "New scrapbook page!" (Gabriella, 2026-11-12): the page's badge pops in, then title and friend.
+   *    "See it" opens that page in the Scrapbook.
+   * "Keep going" closes (or "Next →" when more cards follow). Shown here, after the level, never in the chat,
    * so it can't flag which chat line was a callback (and so often a clue).
    */
   showNextUnlock() {
     this.closeUnlock();
-    const id = this.unlockQueue?.shift();
-    if (!id) return;
-    const cb = (this.registry.get('rules').callbacks || {})[id];
-    if (!cb) return this.showNextUnlock();
-    const page = { id, ...cb };
-    const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
+    const item = this.unlockQueue?.shift();
+    if (!item) return;
+    const { type, id } = item;
+    let view;
+    if (type === 'friend') {
+      const ch = CHARACTERS[id] || { name: id, color: C.inkSoft };
+      view = {
+        head: 'A NEW FRIEND HAS JOINED!', ruled: false,
+        centre: (x, y) => portrait(this, x, y, 112, id, 'HAPPY'),
+        title: ch.name.toUpperCase(), titleColor: ch.color, sub: FRIEND_TAGLINES[id] || '', subColor: C.inkSoft,
+        seeLabel: 'See friends', see: () => this.scene.start('Friends'),
+      };
+    } else {
+      const cb = (this.registry.get('rules').callbacks || {})[id];
+      if (!cb) return this.showNextUnlock();
+      const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
+      view = {
+        head: 'NEW SCRAPBOOK PAGE!', ruled: true,
+        centre: (x, y) => badge(this, x, y, 120, { id, ...cb }, true),
+        title: cb.title.toUpperCase(), titleColor: C.ink, sub: `a memory with ${ch.name}`, subColor: ch.color,
+        seeLabel: 'See it', see: () => this.scene.start('Scrapbook', { select: id }),
+      };
+    }
     const D = UNLOCK_DEPTH;
     const objs = [];
     const keep = (o) => (objs.push(o), o.setDepth(D));
@@ -253,11 +306,16 @@ export default class OutcomeScene extends Phaser.Scene {
     bg.fillStyle(0x000000, 0.25).fillRoundedRect(card.x + 4, card.y + 6, card.w, card.h, 18);
     bg.fillStyle(C.panel, 1).fillRoundedRect(card.x, card.y, card.w, card.h, 18);
     bg.lineStyle(3, C.accent, 1).strokeRoundedRect(card.x, card.y, card.w, card.h, 18);
-    // faint ruled lines: it's a scrapbook page
-    bg.lineStyle(1, C.panelDark, 1);
-    for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
-    const head = this.add.text(bx, card.y + 30, 'NEW SCRAPBOOK PAGE!', pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
+    // faint ruled lines for a scrapbook page
+    if (view.ruled) {
+      bg.lineStyle(1, C.panelDark, 1);
+      for (let ly = card.y + 60; ly < card.y + card.h - 20; ly += 26) bg.lineBetween(card.x + 24, ly, card.x + card.w - 24, ly);
+    }
+    const head = this.add.text(bx, card.y + 30, view.head, pixel(22, C.accent, { fontStyle: 'bold' })).setOrigin(0.5);
     sheet.add([bg, head]);
+    // A click anywhere on the card outside its buttons moves on, like "Next friend →" / "Keep going".
+    keep(this.add.zone(card.x + card.w / 2, card.y + card.h / 2, card.w, card.h).setInteractive())
+      .on('pointerdown', () => this.showNextUnlock());
     tween(this, { targets: sheet, y: 0, alpha: 1, duration: 320, ease: 'Back.easeOut' });
 
     // rays behind the badge, slowly turning
@@ -270,7 +328,7 @@ export default class OutcomeScene extends Phaser.Scene {
     tween(this, { targets: rays, alpha: 1, delay: 300, duration: 300 });
     tween(this, { targets: rays, angle: 360, duration: 12000, repeat: -1 });
 
-    const b = keep(badge(this, bx, by, 120, page, true).setDepth(D + 2).setScale(0).setAngle(-25));
+    const b = keep(view.centre(bx, by).setDepth(D + 2).setScale(0).setAngle(-25));
     tween(this, { targets: b, scale: 1, angle: 0, delay: 350, duration: 520, ease: 'Back.easeOut' });
 
     // sparkles burst out once the badge lands
@@ -283,16 +341,25 @@ export default class OutcomeScene extends Phaser.Scene {
       }
     });
 
-    const title = keep(this.add.text(bx, card.y + 252, cb.title.toUpperCase(), pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
-    const who = keep(this.add.text(bx, card.y + 282, `a memory with ${ch.name}`, text(15, ch.color, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    const title = keep(this.add.text(bx, card.y + 252, view.title, pixel(22, view.titleColor, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
+    const who = keep(this.add.text(bx, card.y + 282, view.sub, text(15, view.subColor, { fontStyle: 'bold' })).setOrigin(0.5).setDepth(D + 2).setAlpha(0));
     tween(this, { targets: [title, who], alpha: 1, delay: 800, duration: 300 });
 
-    const more = this.unlockQueue.length > 0;
-    const see = keep(button(this, bx - 105, card.y + card.h - 44, 'See it', () => this.scene.start('Scrapbook', { select: id }), { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
-    const go = keep(button(this, bx + 105, card.y + card.h - 44, more ? 'Next page →' : 'Keep going', () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
+    const next = this.unlockQueue[0];
+    const nextLabel = !next ? 'Keep going' : next.type === 'friend' ? 'Next friend →' : 'Next page →';
+    const seeIt = view.see;
+    const see = keep(button(this, bx - 105, card.y + card.h - 44, view.seeLabel, seeIt, { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
+    const go = keep(button(this, bx + 105, card.y + card.h - 44, nextLabel, () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
     tween(this, { targets: [see, go], alpha: 1, delay: 950, duration: 250 });
 
-    this.unlockCard = { id, objs };
+    this.unlockCard = {
+      id, type, objs, focus: 1,
+      buttons: [
+        { x: bx - 105, y: card.y + card.h - 44, w: 190, h: 44, fn: seeIt },
+        { x: bx + 105, y: card.y + card.h - 44, w: 190, h: 44, fn: () => this.showNextUnlock() },
+      ],
+    };
+    this.drawFocus();
   }
 
   closeUnlock() {
@@ -302,12 +369,39 @@ export default class OutcomeScene extends Phaser.Scene {
       o.destroy();
     }
     this.unlockCard = null;
+    this.drawFocus();
   }
 
   closeRecap() {
     if (!this.recap) return;
     for (const o of this.recap.objs) o.destroy();
     this.recap = null;
+    this.drawFocus();
+  }
+
+  /** The buttons the arrow keys move between: the unlock card's while it's up, else the bottom row. */
+  activeButtons() {
+    if (this.unlockCard) return this.unlockCard.buttons || [];
+    return this.recap ? [] : this.focusBtns || [];
+  }
+
+  focusIndex() {
+    return this.unlockCard ? this.unlockCard.focus || 0 : this.focus;
+  }
+
+  setFocus(i) {
+    if (this.unlockCard) this.unlockCard.focus = i;
+    else this.focus = i;
+    this.drawFocus();
+  }
+
+  /** Focus ring in C.highlight (read at draw time so High contrast applies); hidden while the recap is open. */
+  drawFocus() {
+    const g = this.focusRing;
+    if (!g) return;
+    g.clear();
+    const b = this.activeButtons()[this.focusIndex()];
+    if (b) g.lineStyle(4, C.highlight, 1).strokeRoundedRect(b.x - b.w / 2 - 5, b.y - b.h / 2 - 5, b.w + 10, b.h + 10, 12);
   }
 
   /**
@@ -333,8 +427,8 @@ export default class OutcomeScene extends Phaser.Scene {
     for (let i = 0; i < w + h; i += 18) g.lineBetween(x + Math.max(0, i - h), y + Math.min(h, i), x + Math.min(w, i), y + Math.max(0, i - w));
     g.fillStyle(C.bar, 0.85).fillRoundedRect(x + 30, y + h / 2 - 34, w - 60, 68, 6);
     this.add.text(x + w / 2, y + h / 2 - 12, 'IMAGE GOES HERE', pixel(18, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    // Name the source file Gabriella would add: art/source/level_XX_result_<venue name>.jpg
+    // Name the source file Gabriella would add: assets/art/level_XX_result_<venue name>.jpg
     const venueName = this.venue.id.replace(`${this.level.district}_`, '');
-    this.add.text(x + w / 2, y + h / 2 + 14, `art/source/${this.level.id}_result_${venueName}.jpg`, text(12, C.label)).setOrigin(0.5);
+    this.add.text(x + w / 2, y + h / 2 + 14, `assets/art/${this.level.id}_result_${venueName}.jpg`, text(12, C.label)).setOrigin(0.5);
   }
 }

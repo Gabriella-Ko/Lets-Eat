@@ -16,6 +16,16 @@ export function loadPages() {
   return { ...(memory || {}) };
 }
 
+/** Forget every unlocked page (Options > Reset progress). */
+export function clearPages() {
+  memory = null;
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
 /** Unlock a page. Returns true only the first time. */
 export function unlockPage(id, levelId) {
   const pages = loadPages();

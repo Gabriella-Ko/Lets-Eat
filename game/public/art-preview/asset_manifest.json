@@ -174,5 +174,14 @@
     "chat_bg_chapter_04": {
       "file": "backgrounds/chat_bg_chapter_04.jpg"
     }
+  },
+  "ui": {
+    "city_map": {
+      "file": "ui/city_map.jpg",
+      "size": [
+        1407,
+        768
+      ]
+    }
   }
 }
