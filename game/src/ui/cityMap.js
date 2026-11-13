@@ -101,7 +101,7 @@ export function cityMap(scene, opts) {
   return { select, unlocked: LAYOUT.map((d) => d.chapter).filter((ch) => openChapters.has(ch)) };
 }
 
-// ---- the real map (art/source/City Map.jpg -> texture 'city_map', 1408x768)
+// ---- the real map (assets/art/City Map.jpg -> texture 'city_map', 1408x768)
 
 /**
  * Where each district sits on the picture, in the picture's own pixels: the click area, and where its star

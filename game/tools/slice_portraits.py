@@ -1,6 +1,6 @@
 """Preview-only portrait cutter for the game prototype.
 
-Cuts each art/source/<character>_sheet.jpg (3x2 grid: HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL)
+Cuts each assets/art/<character>_sheet.jpg (3x2 grid: HAPPY ANNOYED SURPRISED / ANGRY CONTENT NEUTRAL)
 into 128x128 PNGs in game/public/art-preview/gfx/ and writes a manifest in the Art Asset agent's format.
 The official assets are the Art Asset agent's job (public/assets/); this only lets the game show real art now.
 Usage (from the repo root): python game/tools/slice_portraits.py [--contact out.png]
@@ -9,7 +9,7 @@ import json, os, re, sys
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
-SRC = os.path.join(ROOT, 'art', 'source')
+SRC = os.path.join(ROOT, 'assets', 'art')
 OUT = os.path.join(ROOT, 'game', 'public', 'art-preview')
 GRID = ['happy', 'annoyed', 'surprised', 'angry', 'content', 'neutral']
 BIBLE_TAGS = ['happy', 'annoyed', 'surprised', 'hungry', 'angry', 'neutral']
@@ -63,7 +63,7 @@ def main():
     print(f'wrote {len(manifest["portraits"])} portrait entries, {len(manifest["outcomes"])} outcome images, {len(manifest["backgrounds"])} chat backgrounds')
 
 def cut_outcomes():
-    """art/source/level_XX_result_<venue name>.jpg -> outcomes/outcome_level_XX_<venue id>.jpg (680x456).
+    """assets/art/level_XX_result_<venue name>.jpg -> outcomes/outcome_level_XX_<venue id>.jpg (680x456).
     The file name leaves out the district, so the venue id is looked up in that level's venues file."""
     out = {}
     os.makedirs(os.path.join(OUT, 'outcomes'), exist_ok=True)
@@ -96,7 +96,7 @@ CREAM_WASH = 0.35      # 0 = none, 1 = flat cream
 CREAM = (243, 228, 208) # theme.js C.panel
 
 def cut_chat_backgrounds():
-    """art/source/chat_background_chapter_XX_<district>.jpg -> backgrounds/chat_bg_chapter_XX.jpg (whole picture)"""
+    """assets/art/chat_background_chapter_XX_<district>.jpg -> backgrounds/chat_bg_chapter_XX.jpg (whole picture)"""
     from PIL import ImageEnhance
     out = {}
     os.makedirs(os.path.join(OUT, 'backgrounds'), exist_ok=True)
@@ -116,7 +116,7 @@ def cut_chat_backgrounds():
     return out
 
 def cut_ui_art():
-    """art/source/City Map.jpg (any case, space or underscore) -> ui/city_map.jpg, whole picture, unchanged colours.
+    """assets/art/City Map.jpg (any case, space or underscore) -> ui/city_map.jpg, whole picture, unchanged colours.
     The menu draws it full width and places the district hotspots on it (src/ui/cityMap.js ART_DISTRICTS)."""
     out = {}
     if not os.path.isdir(SRC):

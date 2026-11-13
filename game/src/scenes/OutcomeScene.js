@@ -417,8 +417,8 @@ export default class OutcomeScene extends Phaser.Scene {
     for (let i = 0; i < w + h; i += 18) g.lineBetween(x + Math.max(0, i - h), y + Math.min(h, i), x + Math.min(w, i), y + Math.max(0, i - w));
     g.fillStyle(C.bar, 0.85).fillRoundedRect(x + 30, y + h / 2 - 34, w - 60, 68, 6);
     this.add.text(x + w / 2, y + h / 2 - 12, 'IMAGE GOES HERE', pixel(18, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    // Name the source file Gabriella would add: art/source/level_XX_result_<venue name>.jpg
+    // Name the source file Gabriella would add: assets/art/level_XX_result_<venue name>.jpg
     const venueName = this.venue.id.replace(`${this.level.district}_`, '');
-    this.add.text(x + w / 2, y + h / 2 + 14, `art/source/${this.level.id}_result_${venueName}.jpg`, text(12, C.label)).setOrigin(0.5);
+    this.add.text(x + w / 2, y + h / 2 + 14, `assets/art/${this.level.id}_result_${venueName}.jpg`, text(12, C.label)).setOrigin(0.5);
   }
 }
