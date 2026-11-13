@@ -36,6 +36,9 @@ export default class MenuScene extends Phaser.Scene {
     // Credits: music and art (bible: Game identity > Audio).
     button(this, 90, 84, 'Credits', () => this.scene.start('Credits'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.input.keyboard?.on('keydown-C', () => this.scene.start('Credits'));
+    // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
+    button(this, W - 100, 112, 'Friends', () => this.scene.start('Friends'), { w: 168, h: 32, size: 15, fill: C.bar });
+    this.input.keyboard?.on('keydown-F', () => this.scene.start('Friends'));
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);

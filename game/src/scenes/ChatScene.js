@@ -8,6 +8,7 @@ import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js
 import { unlockPage } from '../ui/scrapbookStore.js';
 import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
+import { recordOpened } from '../ui/openedStore.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -55,6 +56,7 @@ export default class ChatScene extends Phaser.Scene {
 
   create() {
     const lvl = this.level;
+    recordOpened(lvl.id); // its guests now count as met on the Friends page
     this.add.text(W / 2, 36, `LEVEL ${lvl.number} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));

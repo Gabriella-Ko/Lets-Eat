@@ -1,6 +1,7 @@
 import { C, CHARACTERS, CUISINES, EMOTIONS, PIXEL, hex, pixel, portraitKey } from './theme.js';
 import { clearPages } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
+import { clearOpened } from './openedStore.js';
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
@@ -161,4 +162,5 @@ export function resetProgress() {
   }
   clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
   clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
+  clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback
 }
