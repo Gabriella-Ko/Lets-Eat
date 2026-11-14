@@ -15,7 +15,7 @@
     { "speaker": "mina", "text": "we'll find one :) i'd rather we all eat somewhere you can actually relax", "emotion": "HAPPY", "clue": null },
     { "speaker": "liam", "text": "oh, and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl", "emotion": "HUNGRY", "clue": null },
     { "speaker": "mina", "text": "tofu everything?? that sounds like my kind of row :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
-    { "speaker": "cyrus", "text": "Good. Then wherever we land, Mina gets a proper choice of mains, not one lonely option.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "cyrus", "text": "Good. Then wherever we land will have plenty of options for Mina.", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
     { "speaker": "mina", "text": "only if it's easy! i don't want the whole night planned around me", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "mina, it's a market with fifty stalls. we can plan around anyone we like", "emotion": "HAPPY", "clue": null },
     { "speaker": "brooke", "text": "speaking of which: i'm running at sunrise tomorrow. tonight i want the kind of dinner my legs will thank me for", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
@@ -25,5 +25,5 @@
     { "speaker": "liam", "text": "pick us a winner. i'm already walking", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }

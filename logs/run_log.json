@@ -2399,7 +2399,7 @@
     "step": "playtest_run1",
     "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15013
   },
   {
     "timestamp": "2026-11-13T23:23:15.002Z",
