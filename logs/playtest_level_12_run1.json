@@ -1,0 +1,50 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_12",
+  "run": 1,
+  "pick": "night_market_firefly_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: Vietnamese (group craving)",
+      "who": "liam (agreed by brooke, mina, cyrus)",
+      "source_line": "viet. tonight. please"
+    },
+    {
+      "constraint": "Peanut allergy, including cross-contact (deal-breaker). Implied, never named.",
+      "who": "cyrus",
+      "source_line": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough."
+    },
+    {
+      "constraint": "Vegetarian / meat-free (strict diet, deal-breaker). Implied through the tofu exchange.",
+      "who": "mina",
+      "source_line": "tofu everything?? that sounds like my kind of row :) (supported by cyrus: 'Then wherever we land will have plenty of options for Mina.')"
+    },
+    {
+      "constraint": "Light, clean food; no fried or heavy dishes (preference, costs a star)",
+      "who": "brooke",
+      "source_line": "speaking of which: it's way too warm tonight for anything heavy. i want a dinner that feels light and clean (and 'way out. i don't even want to stand next to one in this heat' re fryer stalls)"
+    },
+    {
+      "constraint": "Budget: none stated; every venue is $, so price does not separate options",
+      "who": "group",
+      "source_line": "(no line)"
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanuts everywhere, roasted on site; fails Cyrus (deal-breaker).",
+    "night_market_stone_well": "Peanut-free and light, but no meat-free options (fish sauce / dried shrimp in everything); fails Mina (deal-breaker).",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free items, but everything is fried and heavy; misses Brooke's light preference (-1 star).",
+    "night_market_plum_bridge": "Peanut-safe, vegetarian options, light, but dim sum, not Vietnamese; misses the craving (-1 star).",
+    "night_market_red_thread": "Peanut-safe, vegetarian options, light, but sushi, not Vietnamese; misses the craving (-1 star).",
+    "night_market_firefly_lane": "Viet, no peanuts stocked anywhere (dips and oil included), vegetarian mushroom pho and tofu dishes, light and clean. Meets every constraint."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Both deal-breakers are only implied. Cyrus never says 'allergy' and Mina never says 'vegetarian'. Cyrus's line is strong enough, and the 'far end of the counter' wording points to cross-contact. Mina's diet rests on her tofu excitement plus Cyrus's 'options for Mina' line. A player who reads those as enthusiasm rather than a diet could rank Stone Well level with Firefly Lane. Confirming the diet from earlier levels may be intended, but in this chat alone it is the weakest clue.",
+    "Firefly Lane's review says the son does homework 'at the far end of the counter', which echoes Cyrus's phrase. That reads as a deliberate red herring and is harmless because the second review clearly rules out peanuts.",
+    "Firefly Lane mentions fried shallots and 'frying oil', which might briefly make a player wonder about Brooke's no-fryer wish. The first review settles it ('clean broth', 'feeling fresh instead of stuffed').",
+    "Banyan Kitchen's id starts with 'downtown_' even though it is a night-market cart. Its review explains this (a downtown lunch counter's night cart). I did not use the id in deciding.",
+    "Twelve Bells has a near-miss: it is safe and has meat-free options, but it is all fried. Plum Bridge and Red Thread are good off-cuisine decoys. Overall the puzzle feels fair."
+  ]
+}

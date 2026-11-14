@@ -1,0 +1,60 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_12",
+  "run": 3,
+  "pick": "night_market_firefly_lane",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "liam",
+      "constraint": "Craving: Vietnamese",
+      "type": "craving",
+      "source_line": "viet. tonight. please",
+      "notes": "Brooke ('the viet row! ... i'm in') and Mina ('viet sounds lovely') agree, so it's a group craving."
+    },
+    {
+      "who": "cyrus",
+      "constraint": "Peanut allergy (deal-breaker), including any peanut kept anywhere on the stall",
+      "type": "allergy",
+      "source_line": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.",
+      "notes": "Implied, not stated outright. It follows Brooke's line about the 'big tub of crushed peanuts on the counter'. 'Somewhere you can actually relax' (Mina) backs it up."
+    },
+    {
+      "who": "mina",
+      "constraint": "Vegetarian (strict diet, deal-breaker)",
+      "type": "diet",
+      "source_line": "oh, and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl",
+      "notes": "Implied, backed up by Cyrus's 'Then wherever we land will have plenty of options for Mina.' Never said outright. I read it as vegetarian, not vegan."
+    },
+    {
+      "who": "brooke",
+      "constraint": "Preference: light, clean food and no fried or fryer-heavy stalls",
+      "type": "preference",
+      "source_line": "speaking of which: it's way too warm tonight for anything heavy. i want a dinner that feels light and clean",
+      "notes": "Liam's 'so the stalls with the giant bubbling fryers are out for you' and Brooke's 'way out' confirm it."
+    },
+    {
+      "who": "group",
+      "constraint": "Budget: not stated. Every venue is $, so price doesn't decide anything.",
+      "type": "budget",
+      "source_line": null
+    }
+  ],
+  "elimination": {
+    "downtown_banyan_kitchen": "Peanuts everywhere (peanut dipping sauce, crushed peanuts, roasting on the side burner). Fails Cyrus's allergy.",
+    "night_market_stone_well": "No peanuts, but the meat-free reviewer 'struck out': fish sauce or dried shrimp in everything. Fails Mina's diet.",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but 'Everything here goes through the fryer'. Misses Brooke's light/no-fryer preference (-1 star, 2 stars at best).",
+    "night_market_plum_bridge": "Safe and light with vegetarian dishes, but it's dim sum, not Viet. Misses the group's Viet craving (-1 star).",
+    "night_market_red_thread": "Safe and light with vegetarian options, but it's sushi, not Viet. Misses the craving (-1 star).",
+    "night_market_firefly_lane": "Viet. Peanuts 'simply aren't stocked anywhere on the cart, dips and frying oil included'. Mushroom pho in vegetable broth, tofu summer rolls and tofu banh mi. 'Clean broth... feeling fresh instead of stuffed'. Meets every constraint."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Both deal-breakers are implied rather than stated: Cyrus never says 'allergy' and Mina never says 'vegetarian'. Cyrus's line is clear enough in context. Mina's diet relies on the tofu line plus 'plenty of options for Mina', which a careless player could read as just a preference. This is fair at this stage of the campaign, but it's the weakest clue.",
+    "Nice touch: Firefly Lane's review mentions the son doing homework 'at the far end of the counter', which echoes Cyrus's 'far end of the counter isn't far enough'. That's flavour, not a trap, because the second review says peanuts aren't stocked anywhere.",
+    "Mild red herring: Firefly Lane's vermicelli is topped with fried shallots, and the review mentions 'frying oil'. A player might worry about Brooke's no-fryer rule, but the first review clearly calls it light and clean. Fried shallots as a garnish aren't a fryer stall. I think it's fair, but a cautious player could hesitate.",
+    "Banyan Kitchen has a 'downtown_' id but sits in the night_market registry. I ignored the id and went by the card, which explains it as a night cart of the downtown lunch counter. Not a problem.",
+    "Twelve Bells is a good near-miss: peanut-safe and has meat-free options, failing only on fried/heavy food.",
+    "No budget was given and every venue is $, so price never comes up."
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_firefly_lane",
+      "name": "Firefly Lane",
+      "cuisine": "viet",
+      "price_tier": "$"
+    },
+    {
+      "id": "downtown_banyan_kitchen",
+      "name": "Banyan Kitchen",
+      "cuisine": "viet",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_stone_well",
+      "name": "Stone Well",
+      "cuisine": "viet",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_twelve_bells",
+      "name": "Twelve Bells",
+      "cuisine": "viet",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_plum_bridge",
+      "name": "Plum Bridge",
+      "cuisine": "dim_sum",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_red_thread",
+      "name": "Red Thread",
+      "cuisine": "sushi",
+      "price_tier": "$"
+    }
+  ]
+}

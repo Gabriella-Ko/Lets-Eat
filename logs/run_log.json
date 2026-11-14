@@ -2300,5 +2300,225 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:13:05.249Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "branch",
+    "result": "created level/12 from master",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:14:39.809Z",
+    "level": "level_12",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v5",
+    "step": "spec",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 37228
+  },
+  {
+    "timestamp": "2026-11-13T23:17:58.822Z",
+    "level": "level_12",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 49571
+  },
+  {
+    "timestamp": "2026-11-13T23:17:58.822Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "dialogue_outcomes",
+    "result": "pass",
+    "retries": 0,
+    "tokens": 54341
+  },
+  {
+    "timestamp": "2026-11-13T23:17:58.822Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:20:12.531Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "must_fix: 1 (vegetarian clue echoes only the answer review), 6 suggestions; routed to narrative_writer",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:21:05.431Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "fix_must_fix",
+    "result": "vegetarian clue now about the whole viet row",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:21:05.431Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "PASS",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:22:19.683Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "re-run after must-fix: pass, 0 must_fix, 7 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15013
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14471
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14994
+  },
+  {
+    "timestamp": "2026-11-13T23:23:15.002Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (two runs: answer has the softest peanut evidence)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:33:48.551Z",
+    "level": "level_12",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestions: firm no-peanuts line at Firefly Lane review 2; Red Thread vegetarian wording",
+    "retries": 1,
+    "tokens": 37408
+  },
+  {
+    "timestamp": "2026-11-14T05:34:12.022Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "critic suggestions: implied Cyrus peanut line, Brooke healthy reason now the hot night (3 outcome lines updated), new Liam Plum Bridge line",
+    "retries": 2,
+    "tokens": 42139
+  },
+  {
+    "timestamp": "2026-11-14T05:34:21.272Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after suggestion rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:35:59.775Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 4 suggestions",
+    "retries": 0,
+    "tokens": 57751
+  },
+  {
+    "timestamp": "2026-11-14T05:36:04.282Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after rework (clues stripped, registry card fields only)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14897
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14579
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14942
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after rework (all runs: Mina vegetarian clue weakest; frying oil / far end of counter noticed, harmless)",
+    "retries": 0,
+    "tokens": null
   }
 ]
