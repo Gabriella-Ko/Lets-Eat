@@ -2449,6 +2449,26 @@
     "step": "chat_rework",
     "result": "critic suggestions: implied Cyrus peanut line, Brooke healthy reason now the hot night (3 outcome lines updated), new Liam Plum Bridge line",
     "retries": 2,
+    "tokens": 42139
+  },
+  {
+    "timestamp": "2026-11-14T05:34:21.272Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after suggestion rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:35:59.775Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 4 suggestions",
+    "retries": 0,
     "tokens": null
   }
 ]

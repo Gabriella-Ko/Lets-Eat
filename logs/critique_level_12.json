@@ -4,68 +4,41 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_12/dialogue_level_12.json",
-      "agent": "narrative_writer",
-      "where": "script[14] (Cyrus: 'Good. Then wherever we land, Mina gets a proper choice of mains, not one lonely option.')",
-      "issue": "The line works as a clue and doesn't point at one venue. Two small echoes, though. 'not one lonely option' is close to Maya's level_08 line ('not one lonely cucumber roll at the bottom of the menu'). The phrase 'not one option at the bottom' isn't in the final level_10 files, so level_08 is the real echo. 'a proper choice of mains' also brushes against Mina's reserved level_16 wording ('a real main'), and that payoff lands better if the group hasn't already framed her need as 'mains'. My last critique's suggested fix ('real mains to choose from') pointed the writer this way, so this is on that steer, not on the writer.",
-      "suggested_fix": "Use Cyrus's printed map instead, e.g. Cyrus: 'Good. I'll mark the tofu stalls on the map, then.' This keeps the clue implied, stays in his voice and avoids both 'lonely' and 'mains'."
+      "check": "reviews",
+      "file": "content/levels/level_12/venues_level_12.json",
+      "agent": "map_seeder",
+      "where": "venue night_market_firefly_lane review 1 ('the owner's teenage son does his homework at the far end of the counter')",
+      "issue": "Cyrus's reworked peanut line ends with 'The far end of the counter isn't far enough.' The answer's review is now the only place in the results that uses the same phrase. That's harmless as a fact, but an attentive player may read the phrase match as a wink toward Firefly Lane. It could also briefly seem to tie Firefly Lane to Cyrus's peanut worry.",
+      "suggested_fix": "Move the son elsewhere, e.g. 'the owner's teenage son does his homework on an upturned crate behind the cart between orders.' (Stone Well already uses a crate, so 'at a folding stool by the herb boxes' also works.)"
     },
     {
       "severity": "suggestion",
       "check": "reviews",
       "file": "content/levels/level_12/venues_level_12.json",
       "agent": "map_seeder",
-      "where": "venue night_market_firefly_lane review 1",
-      "issue": "Carried over. The dialogue fix removed the near-quote, but 'Half the board never touches meat' is still the most distinctive vegetarian phrase in the results, and it faintly echoes Liam's new 'half that row'. Listing dishes, as Twelve Bells and Red Thread do, would keep the answer from standing out.",
-      "suggested_fix": "e.g. 'Plenty here never touches meat: a mushroom pho built on a charred onion and star anise vegetable broth, tofu summer rolls with a soy-lime dip, a lemongrass tofu banh mi.'"
+      "where": "venue night_market_firefly_lane review 2 ('peanuts simply aren't stocked anywhere on the cart, dips and frying oil included')",
+      "issue": "The peanut evidence is now firm and matches Cyrus's 'tucked away in the back' bar. It doesn't single out the answer: Stone Well, Twelve Bells, Plum Bridge and Red Thread are all just as clearly peanut-safe, and Red Thread and Stone Well are just as explicit. Three small rough edges remain. 'frying oil' tells the player the healthy answer has a fryer, which rubs slightly against Brooke's fryer line. The flat statement is plainer than the implied style asks for. 'allergy pen' repeats Twelve Bells review 2's 'allergy pen for peanuts'.",
+      "suggested_fix": "e.g. '...from a big jar the owner keeps where other carts keep their peanut tub. I asked about the dips and dressings too, and she ran through every one without a peanut in sight. A summer of Friday nights later, my epinephrine has never left my bag.'"
     },
     {
       "severity": "suggestion",
       "check": "fairness",
       "file": "content/levels/level_12/dialogue_level_12.json",
-      "agent": "narrative_writer",
-      "where": "script[10] (Cyrus: 'Then I'll need a stall where peanuts aren't anywhere in the kitchen...')",
-      "issue": "Carried over. The peanut clue is fair and never says 'allergy', but the first half of the line says the need almost outright, so in an implied level it plays like a stated clue. Chapter 3 is 'mostly implied', so this is allowed, just easier than the level's style.",
-      "suggested_fix": "Let the implication carry it, e.g. Cyrus: 'Noted. My pen and I will be choosing very carefully, then. The far end of the counter isn't far enough.'"
+      "agent": "narrative_writer (hand-edited by human:gabby)",
+      "where": "script[14] (Cyrus: 'Good. Then wherever we land will have plenty of options for Mina.')",
+      "issue": "The line no longer echoes level_08 or brushes the level_16 'real main' wording, which is good. But 'will have' reads as a prediction (any viet stall will do) more than a requirement, even though Liam just said only half the row has tofu. Mina's reply 'only if it's easy!' answers a plan, not a prediction. The clue is still findable through Liam's and Mina's lines; this would just make the bar sharper.",
+      "suggested_fix": "Cyrus: 'Good. Then wherever we land needs plenty of options for Mina.'"
     },
     {
       "severity": "suggestion",
       "check": "freshness",
       "file": "content/levels/level_12/dialogue_level_12.json",
       "agent": "narrative_writer",
-      "where": "script[17]-script[19] (Brooke's sunrise run)",
-      "issue": "Carried over. The wording is new and it's one clear ask, but exercise is again the reason for Brooke's healthy need, as in level_09 (climbing after work), which is one of the last 3 levels.",
-      "suggested_fix": "Optional: give a non-athletic reason (e.g. a family dinner tomorrow). Or keep it and avoid exercise reasons for Brooke in level_13-15."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_12/spec_level_12.json",
-      "agent": "puzzle_architect",
-      "where": "decoys",
-      "issue": "Carried over. The puzzle closely mirrors level_06: a viet craving with healthy and peanut needs, Banyan Kitchen again as the peanut trap, a greasy viet stall as the healthy near miss and a sushi stall as a craving decoy. Plum Bridge is also the dim sum craving decoy for the second level running.",
-      "suggested_fix": "Consider swapping one element, e.g. replace Red Thread or Plum Bridge with a craving decoy in a cuisine not yet used as a decoy at the market (thai, noodles, greek)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_12/venues_level_12.json",
-      "agent": "map_seeder",
-      "where": "venue night_market_red_thread review 1",
-      "issue": "Carried over. 'a whole column of the menu that skips fish and meat entirely' at a sushi stall is close to Cyrus's level_08 line ('a whole section with no fish or meat at all') and to the Sushi Day scrapbook page, so returning players may read it as a nudge toward a craving decoy.",
-      "suggested_fix": "e.g. 'and for my roommate, who skips fish and meat, a good run of avocado and cucumber rolls, pickled radish, sweet tofu pockets and shiitake nigiri.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_12/outcomes_level_12.json",
-      "agent": "narrative_writer",
-      "where": "night_market_plum_bridge lines[0]",
-      "issue": "Carried over. 'the dumplings are great, but...' nearly repeats Liam's level_11 Plum Bridge line ('the dumplings were great though'), at the same stall with the same craving miss.",
-      "suggested_fix": "e.g. Liam: 'love a steamer basket, but my nose is still back on the viet row. i could smell it from here'"
+      "where": "script[17] (Brooke: '...i want a dinner that feels light and clean')",
+      "issue": "The hot-night reason is fresh, fits chapter 3's late-summer calendar, and is one clear wish (Liam's fryer line only confirms it). But 'light and clean' is close to Brooke's 'light and fresh, please' from level_11, a stated level, one level ago. Her perfect line 'light, bright and just right' also follows level_11's 'fresh, light'.",
+      "suggested_fix": "e.g. Brooke: 'speaking of which: it's way too warm tonight for anything heavy. i want the kind of dinner you could eat and then go for a walk'"
     }
   ],
-  "summary": "The must-fix is resolved. Liam's 'half that row does tofu versions of everything' now describes the viet row as a whole, and three of the four viet stalls (Firefly Lane, Banyan Kitchen, Twelve Bells) do show tofu or meat-free dishes in their reviews, so the line no longer points at the answer. The vegetarian clue stays implied and findable: it's aimed at Mina, she reacts warmly without stating her diet, and Cyrus implies the limit. The new Stone Well fail matches its review. What's left is polish: Cyrus's new line lightly echoes level_08's 'one lonely' and brushes the level_16 'real main' wording, and the six earlier suggestions still apply.",
+  "summary": "Every earlier finding the rework targeted is resolved. Cyrus's new peanut line is properly implied and still sets a findable 'no peanuts anywhere' bar: Brooke's tub warning is answered with 'on the counter or tucked away in the back', and he never says 'allergy'. The new Firefly Lane peanut review doesn't give the answer away, because four other venues are equally peanut-safe, and veg (Stone Well) and healthy (Twelve Bells) still decide the puzzle. Brooke's hot-night reason, Liam's new Plum Bridge line and the Red Thread rewording all land. The remaining notes are polish: a phrase echo between Cyrus's line and the answer's review, 'frying oil' at the healthy answer, Cyrus's 'will have' reading as a prediction, and Brooke's 'light and clean' sitting close to level_11.",
   "generated_by": "critic"
 }
