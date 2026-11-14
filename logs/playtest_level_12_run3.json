@@ -7,49 +7,54 @@
   "constraints_found": [
     {
       "who": "liam",
-      "constraint": "Craving: Vietnamese (the whole group agrees)",
+      "constraint": "Craving: Vietnamese",
       "type": "craving",
-      "source_line": "viet. tonight. please"
+      "source_line": "viet. tonight. please",
+      "notes": "Brooke ('the viet row! ... i'm in') and Mina ('viet sounds lovely') agree, so it's a group craving."
     },
     {
       "who": "cyrus",
-      "constraint": "Peanut allergy (deal-breaker): no peanuts anywhere in the kitchen",
+      "constraint": "Peanut allergy (deal-breaker), including any peanut kept anywhere on the stall",
       "type": "allergy",
-      "source_line": "Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me."
+      "source_line": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.",
+      "notes": "Implied, not stated outright. It follows Brooke's line about the 'big tub of crushed peanuts on the counter'. 'Somewhere you can actually relax' (Mina) backs it up."
     },
     {
       "who": "mina",
-      "constraint": "Vegetarian (strict diet, inferred): needs a real choice of meat-free mains",
+      "constraint": "Vegetarian (strict diet, deal-breaker)",
       "type": "diet",
-      "source_line": "Good. Then wherever we land, Mina gets a proper choice of mains, not one lonely option. (supported by liam: 'half that row does tofu versions of everything' and mina: 'tofu everything?? that sounds like my kind of row')"
+      "source_line": "oh, and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl",
+      "notes": "Implied, backed up by Cyrus's 'Then wherever we land will have plenty of options for Mina.' Never said outright. I read it as vegetarian, not vegan."
     },
     {
       "who": "brooke",
-      "constraint": "Preference: light, non-fried dinner (running at sunrise)",
+      "constraint": "Preference: light, clean food and no fried or fryer-heavy stalls",
       "type": "preference",
-      "source_line": "speaking of which: i'm running at sunrise tomorrow. tonight i want the kind of dinner my legs will thank me for / so the stalls with the giant bubbling fryers are out for you"
+      "source_line": "speaking of which: it's way too warm tonight for anything heavy. i want a dinner that feels light and clean",
+      "notes": "Liam's 'so the stalls with the giant bubbling fryers are out for you' and Brooke's 'way out' confirm it."
     },
     {
       "who": "group",
-      "constraint": "Budget: cheap market stalls (every card is $, so price never separates the options)",
+      "constraint": "Budget: not stated. Every venue is $, so price doesn't decide anything.",
       "type": "budget",
-      "source_line": "mina, it's a market with fifty stalls. we can plan around anyone we like"
+      "source_line": null
     }
   ],
   "elimination": {
-    "downtown_banyan_kitchen": "Peanuts in everything and roasted on the side burner: fails Cyrus's allergy.",
-    "night_market_stone_well": "Peanut-free and light, but no meat-free mains (fish sauce and dried shrimp everywhere): fails Mina.",
-    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but everything is fried: misses Brooke (would be 2 stars).",
-    "night_market_plum_bridge": "Peanut-free, steamed, vegetarian options, but dim sum not viet: misses the craving (2 stars).",
-    "night_market_red_thread": "Peanut-free, light, vegetarian column, but sushi not viet: misses the craving (2 stars).",
-    "night_market_firefly_lane": "Viet, half the board meat-free (mushroom pho, tofu rolls, tofu banh mi), clean light broth, and an allergic reviewer ate the whole board all summer; vermicelli topped with shallots instead of peanuts. Fits everyone."
+    "downtown_banyan_kitchen": "Peanuts everywhere (peanut dipping sauce, crushed peanuts, roasting on the side burner). Fails Cyrus's allergy.",
+    "night_market_stone_well": "No peanuts, but the meat-free reviewer 'struck out': fish sauce or dried shrimp in everything. Fails Mina's diet.",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but 'Everything here goes through the fryer'. Misses Brooke's light/no-fryer preference (-1 star, 2 stars at best).",
+    "night_market_plum_bridge": "Safe and light with vegetarian dishes, but it's dim sum, not Viet. Misses the group's Viet craving (-1 star).",
+    "night_market_red_thread": "Safe and light with vegetarian options, but it's sushi, not Viet. Misses the craving (-1 star).",
+    "night_market_firefly_lane": "Viet. Peanuts 'simply aren't stocked anywhere on the cart, dips and frying oil included'. Mushroom pho in vegetable broth, tofu summer rolls and tofu banh mi. 'Clean broth... feeling fresh instead of stuffed'. Meets every constraint."
   },
   "difficulty": 3,
   "notes": [
-    "Mina's vegetarianism is never stated outright in the chat. It is only implied by the tofu remark, her 'my kind of row' reply and Cyrus's 'proper choice of mains'. With the clue field stripped, a player could read it as a soft preference rather than a strict diet. It doesn't change the answer here, since Firefly Lane is the only viet stall that suits both Cyrus and Brooke, but the wording is soft for a strict diet.",
-    "Cyrus sets a high bar ('peanuts aren't anywhere in the kitchen'). Firefly Lane's evidence is only that an allergic diner never reacted over a summer, plus shallots replacing peanuts. Twelve Bells has the same kind of evidence. Stone Well, Plum Bridge and Red Thread have stronger, explicit 'no peanuts at all' statements. That is fair, but a cautious player might hesitate over Firefly Lane on the allergy.",
-    "Firefly Lane mentions fried shallots as a topping. A player could briefly worry about Brooke's no-fryer preference, but the review clearly frames the meal as light and fresh, so it reads as a garnish.",
-    "Venue id 'downtown_banyan_kitchen' sits in the night_market registry. The review explains it is a downtown lunch counter's night cart, so the cross-district id is intentional. It is mildly odd but harmless.",
-    "The non-viet decoys (Plum Bridge, Red Thread) are clearly peanut-safe, light and vegetarian-friendly. They are good 2-star traps for players who focus on the allergy and forget the craving."
+    "Both deal-breakers are implied rather than stated: Cyrus never says 'allergy' and Mina never says 'vegetarian'. Cyrus's line is clear enough in context. Mina's diet relies on the tofu line plus 'plenty of options for Mina', which a careless player could read as just a preference. This is fair at this stage of the campaign, but it's the weakest clue.",
+    "Nice touch: Firefly Lane's review mentions the son doing homework 'at the far end of the counter', which echoes Cyrus's 'far end of the counter isn't far enough'. That's flavour, not a trap, because the second review says peanuts aren't stocked anywhere.",
+    "Mild red herring: Firefly Lane's vermicelli is topped with fried shallots, and the review mentions 'frying oil'. A player might worry about Brooke's no-fryer rule, but the first review clearly calls it light and clean. Fried shallots as a garnish aren't a fryer stall. I think it's fair, but a cautious player could hesitate.",
+    "Banyan Kitchen has a 'downtown_' id but sits in the night_market registry. I ignored the id and went by the card, which explains it as a night cart of the downtown lunch counter. Not a problem.",
+    "Twelve Bells is a good near-miss: peanut-safe and has meat-free options, failing only on fried/heavy food.",
+    "No budget was given and every venue is $, so price never comes up."
   ]
 }

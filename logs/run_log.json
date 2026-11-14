@@ -2480,5 +2480,45 @@
     "result": "rebuilt after rework (clues stripped, registry card fields only)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14897
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14579
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_rework",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:36:49.905Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after rework (all runs: Mina vegetarian clue weakest; frying oil / far end of counter noticed, harmless)",
+    "retries": 0,
+    "tokens": null
   }
 ]

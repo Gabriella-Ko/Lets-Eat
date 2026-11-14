@@ -6,44 +6,44 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "who": "liam (group agrees)",
-      "constraint": "craving: Vietnamese (viet)",
-      "type": "craving",
-      "line": "viet. tonight. please"
+      "constraint": "Cuisine craving: Vietnamese (group agrees)",
+      "who": "liam",
+      "source_line": "viet. tonight. please"
     },
     {
+      "constraint": "Peanut allergy (deal-breaker): no stall that keeps peanuts at all, even in the back or at the far end of the counter",
       "who": "cyrus",
-      "constraint": "peanut allergy, no peanuts anywhere in the kitchen (deal-breaker)",
-      "type": "allergy",
-      "line": "Then I'll need a stall where peanuts aren't anywhere in the kitchen. The far end of the counter isn't far enough, for me."
+      "source_line": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough."
     },
     {
+      "constraint": "Vegetarian (strict diet, implied): needs real meat-free options",
       "who": "mina",
-      "constraint": "vegetarian, needs a real choice of meat-free mains (strict diet, deal-breaker)",
-      "type": "diet",
-      "line": "tofu everything?? that sounds like my kind of row :) / Cyrus: Then wherever we land, Mina gets a proper choice of mains, not one lonely option."
+      "source_line": "tofu everything?? that sounds like my kind of row :)  (supported by Cyrus: 'Then wherever we land will have plenty of options for Mina.')"
     },
     {
+      "constraint": "Light, clean meal; no fried / fryer-heavy stalls",
       "who": "brooke",
-      "constraint": "wants a light meal, no deep-fried / greasy stalls",
-      "type": "preference",
-      "line": "tonight i want the kind of dinner my legs will thank me for / Liam: so the stalls with the giant bubbling fryers are out for you / Brooke: way out."
+      "source_line": "speaking of which: it's way too warm tonight for anything heavy. i want a dinner that feels light and clean"
     },
     {
+      "constraint": "Budget: no explicit budget stated; all venues are $ so price is not a factor",
       "who": "group",
-      "constraint": "budget: none stated; all candidate venues are $, so no price risk",
-      "type": "budget",
-      "line": "(no budget line in chat)"
+      "source_line": "none"
     }
   ],
   "elimination": {
-    "downtown_banyan_kitchen": "Peanut sauce, crushed peanuts on everything, roasts peanuts all night: fails Cyrus's allergy.",
-    "night_market_stone_well": "Peanut-free and light, but summer roll filling, sauces and greens all use meat/fish sauce/dried shrimp: fails Mina's vegetarian diet.",
-    "night_market_twelve_bells": "Peanut-safe and has meat-free options, but everything is fried/oily: misses Brooke's light-meal preference (-1 star).",
-    "night_market_plum_bridge": "Peanut-safe, vegetarian options, steamed and light, but dim sum not viet: misses Liam's craving (-1 star).",
-    "night_market_red_thread": "Peanut-safe, vegetarian column, light, but sushi not viet: misses craving (-1 star).",
-    "night_market_firefly_lane": "Viet, half the board meat-free (mushroom pho on veg broth, tofu rolls, tofu banh mi), peanut-allergic reviewer ate the whole board all summer with no issue, light and fresh. Meets everything."
+    "downtown_banyan_kitchen": "Peanuts everywhere (peanut sauce, crushed peanuts, roasting on the side burner). Deal-breaker for Cyrus.",
+    "night_market_stone_well": "Peanut-free and light, but meat-free friend 'struck out': filling mixed in one batch, sauces use fish sauce/dried shrimp. Deal-breaker for Mina.",
+    "night_market_twelve_bells": "Peanut-safe and has meat-free items, but everything goes through the fryer. Misses Brooke's light/no-fryer preference (-1 star).",
+    "night_market_plum_bridge": "Peanut-safe, vegetarian options, steamed and light, but dim sum not Vietnamese. Misses Liam's craving (-1 star).",
+    "night_market_red_thread": "Peanut-safe, vegetarian rolls, light, but sushi not Vietnamese. Misses craving (-1 star).",
+    "night_market_firefly_lane": "Vietnamese, no peanuts stocked anywhere on the cart (dips and oil included), mushroom pho with vegetable broth and tofu dishes, clean and light. Meets everything."
   },
   "difficulty": 3,
-  "notes": "Fair, well-built puzzle. Each viet decoy fails exactly one constraint, and the three 2-star near-misses (Twelve Bells, Plum Bridge, Red Thread) are a good trap for players who track allergy and diet but forget the craving or the light-meal preference. Stone Well is the strongest decoy: its first review gives an explicit peanut-free quote and says 'felt light', so players have to read the second review to catch the vegetarian failure. Small quibble: Firefly Lane's vermicelli comes 'topped with fried shallots', which a cautious player might read as conflicting with Brooke's no-fryer rule; the first review saying 'clean broth... feeling fresh instead of stuffed' settles it, but the word 'fried' on the right answer adds slight noise. Mina's vegetarianism is never stated outright, only implied by 'tofu everything' plus Cyrus's 'proper choice of mains'. That's fair at this stage but leans on inference. The 'downtown_' id prefix on Banyan Kitchen in a night_market level stands out. I did not use it to decide, but a player who sees ids might. No budget is given, and all venues are $, so the budget rule is not tested here."
+  "notes": [
+    "Mina's vegetarianism is never stated outright; it is inferred from her delight at 'tofu versions of everything' and Cyrus saying the venue will have 'plenty of options for Mina'. Fair for a later level, but a first-timer could miss that it is a strict diet rather than a preference. Stone Well's review spelling out the meat-free failure helps confirm it.",
+    "Firefly Lane mentions 'fried shallots' and 'frying oil'. A cautious player might wonder whether that conflicts with Brooke's no-fryer wish, but the first review clearly frames it as light and fresh, so it reads as fine. Also, the 'far end of the counter' detail in the Firefly review (son doing homework) echoes Cyrus's line as flavour text, which is a nice red herring but not misleading.",
+    "Twelve Bells and Plum Bridge are good 2-star decoys; Stone Well is the trickiest trap because its peanut evidence is strongest.",
+    "Banyan Kitchen's id begins with 'downtown_' although it is in the night market registry; the review explains it is a night cart of a downtown lunch counter, so not a problem. Decision was made from chat and reviews, not ids."
+  ]
 }
