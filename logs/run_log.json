@@ -2430,5 +2430,15 @@
     "result": "pass 3/3 (two runs: answer has the softest peanut evidence)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-14T05:33:48.551Z",
+    "level": "level_12",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestions: firm no-peanuts line at Firefly Lane review 2; Red Thread vegetarian wording",
+    "retries": 1,
+    "tokens": 37408
   }
 ]
