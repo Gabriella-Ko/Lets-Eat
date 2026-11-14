@@ -7,7 +7,7 @@
       "lines": [
         { "speaker": "mina", "text": "i had so many choices i kept changing my mind. this market is a gift :)", "emotion": "HAPPY" },
         { "speaker": "cyrus", "text": "No tub on the counter, nothing to check twice. I ate the whole meal without looking up. Well chosen.", "emotion": "HAPPY" },
-        { "speaker": "brooke", "text": "fresh, bright, and my legs are already grateful. sunrise, here i come", "emotion": "HAPPY" }
+        { "speaker": "brooke", "text": "light, bright and just right for a hot night. i could eat like this all summer", "emotion": "HAPPY" }
       ]
     },
     "downtown_banyan_kitchen": {
@@ -32,15 +32,15 @@
       "result": "partial",
       "missed": ["vibe:healthy"],
       "lines": [
-        { "speaker": "brooke", "text": "delicious, but every plate came straight out of the fryer. sunrise me is going to have words with tonight me", "emotion": "ANNOYED" },
-        { "speaker": "liam", "text": "more crispy stuff for me. i'll run with you tomorrow, brooke. maybe. probably not", "emotion": "HAPPY" }
+        { "speaker": "brooke", "text": "delicious, but every plate came straight out of the fryer. on a night this hot, i feel like i ate the fryer too", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "more crispy stuff for me. brooke, i'll buy you something icy on the way out", "emotion": "HAPPY" }
       ]
     },
     "night_market_plum_bridge": {
       "result": "partial",
       "missed": ["craving"],
       "lines": [
-        { "speaker": "liam", "text": "the dumplings are great, but we walked right past the viet row to get here. i could smell it", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "love a steamer basket, but my nose is still back on the viet row. i could smell it from here", "emotion": "ANNOYED" },
         { "speaker": "mina", "text": "these are lovely though! liam, we can take the long way out, right past the viet stalls", "emotion": "HAPPY" }
       ]
     },
