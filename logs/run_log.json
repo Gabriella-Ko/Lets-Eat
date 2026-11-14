@@ -2469,6 +2469,16 @@
     "step": "critique",
     "result": "pass after rework, 0 must_fix, 4 suggestions",
     "retries": 0,
+    "tokens": 57751
+  },
+  {
+    "timestamp": "2026-11-14T05:36:04.282Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after rework (clues stripped, registry card fields only)",
+    "retries": 0,
     "tokens": null
   }
 ]
