@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "e4ba9b43203a5fd97d5f0e6189757868719dc556",
+  "head": "a3d1c8823cfb4e8375d00eda5ccc5bba37b99134",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1316,6 +1316,156 @@
       ]
     },
     {
+      "file": "content/levels/level_12/dialogue_level_12.json",
+      "level": "level_12",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-15T17:38:27-05:00",
+      "commit": "0292210a5b9fc1afa01aa82e349247d931c400c1",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "0292210a5b9fc1afa01aa82e349247d931c400c1",
+          "timestamp": "2026-11-15T17:38:27-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: Cyrus line as a requirement, new Brooke healthy wording",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "75906b197d1d2acc401618dd7ff5374a24b4ff33",
+          "timestamp": "2026-11-14T00:34:12-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: implied Cyrus peanut line, non-exercise healthy reason for Brooke, new Liam Plum Bridge line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fc4dd5ee27b22d50f9f9b25b9d945acc26b5cb03",
+          "timestamp": "2026-11-14T00:32:38-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_12: hand edit Cyrus vegetarian line and Firefly Lane dish list",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d26d4074e05249c4cbbd5cc5602f8bfabc36a89a",
+          "timestamp": "2026-11-13T18:21:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: must-fix, vegetarian clue describes the whole viet row, not one stall",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fe794fc6bab23f8a5661505a76d1476e483e45c6",
+          "timestamp": "2026-11-13T18:17:48-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_12/outcomes_level_12.json",
+      "level": "level_12",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-15T17:59:37-05:00",
+      "commit": "a84a697dc83e1926b10f382686421e79e32cd09d",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a84a697dc83e1926b10f382686421e79e32cd09d",
+          "timestamp": "2026-11-15T17:59:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_12: hand edit Brooke's Firefly Lane outcome line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "75906b197d1d2acc401618dd7ff5374a24b4ff33",
+          "timestamp": "2026-11-14T00:34:12-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: implied Cyrus peanut line, non-exercise healthy reason for Brooke, new Liam Plum Bridge line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d26d4074e05249c4cbbd5cc5602f8bfabc36a89a",
+          "timestamp": "2026-11-13T18:21:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: must-fix, vegetarian clue describes the whole viet row, not one stall",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fe794fc6bab23f8a5661505a76d1476e483e45c6",
+          "timestamp": "2026-11-13T18:17:48-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_12/spec_level_12.json",
+      "level": "level_12",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v5",
+      "timestamp": "2026-11-13T18:14:39-05:00",
+      "commit": "f414f97bb1f9fa186e80f9851377274562a806e9",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f414f97bb1f9fa186e80f9851377274562a806e9",
+          "timestamp": "2026-11-13T18:14:39-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_12: write spec (viet at the Night Market; peanut + vegetarian traps, healthy and two craving near misses)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_12/venues_level_12.json",
+      "level": "level_12",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-15T17:38:19-05:00",
+      "commit": "56576cc278f5e5334a230b63ae1995d93f3e32a2",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "56576cc278f5e5334a230b63ae1995d93f3e32a2",
+          "timestamp": "2026-11-15T17:38:19-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_12: Firefly Lane polish (counter echo, frying oil, allergy pen)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "0de74a98219392c677ad6fb5af161b8eaf3641e7",
+          "timestamp": "2026-11-14T00:33:48-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_12: firm no-peanuts evidence at Firefly Lane, reword Red Thread vegetarian line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fc4dd5ee27b22d50f9f9b25b9d945acc26b5cb03",
+          "timestamp": "2026-11-14T00:32:38-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_12: hand edit Cyrus vegetarian line and Firefly Lane dish list",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "90df37a60d5a69a8747428173e6ae7672685409b",
+          "timestamp": "2026-11-13T18:17:05-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_12: venues and 4 new night_market stalls",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1424,11 +1574,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-12T10:45:18-05:00",
-      "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
+      "timestamp": "2026-11-13T18:17:05-05:00",
+      "commit": "90df37a60d5a69a8747428173e6ae7672685409b",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "90df37a60d5a69a8747428173e6ae7672685409b",
+          "timestamp": "2026-11-13T18:17:05-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_12: venues and 4 new night_market stalls",
+          "pre_pipeline": false
+        },
         {
           "commit": "1a1529e371e66ae1b2df5f7a963f95bf373571a5",
           "timestamp": "2026-11-12T10:45:18-05:00",
@@ -1717,6 +1874,47 @@
           "timestamp": "2026-11-12T10:48:17-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_11: pass, 4 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_12.json",
+      "level": "level_12",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T17:39:23-05:00",
+      "commit": "eb285f4693ab8221c88f68ccdb217814dd52ee1c",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "eb285f4693ab8221c88f68ccdb217814dd52ee1c",
+          "timestamp": "2026-11-15T17:39:23-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_12: re-review after second rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3583269664b0c07afebf45639763faef0d50ccd8",
+          "timestamp": "2026-11-14T00:35:59-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_12: re-review after suggestion rework, pass, 4 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d7fa7c006d062b98f6f9657a0ff0c0ebacaa9d72",
+          "timestamp": "2026-11-13T18:22:19-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_12: re-review after must-fix, pass, 7 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "31bee58ea0eca6d8a9a5c321615fc0c71410a5b4",
+          "timestamp": "2026-11-13T18:20:12-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_12: must_fix 1 (vegetarian clue points at the answer), 6 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -2650,6 +2848,108 @@
           "timestamp": "2026-11-12T10:49:04-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_11: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_12_run1.json",
+      "level": "level_12",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T17:40:11-05:00",
+      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+          "timestamp": "2026-11-15T17:40:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after second rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8bcbc38c89d3f21ed9a5e3c50f5582a675d85388",
+          "timestamp": "2026-11-14T00:36:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8e80788641e1091976d2b13992b46a2e540b46ec",
+          "timestamp": "2026-11-13T18:23:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_12_run2.json",
+      "level": "level_12",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T17:40:11-05:00",
+      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+          "timestamp": "2026-11-15T17:40:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after second rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8bcbc38c89d3f21ed9a5e3c50f5582a675d85388",
+          "timestamp": "2026-11-14T00:36:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8e80788641e1091976d2b13992b46a2e540b46ec",
+          "timestamp": "2026-11-13T18:23:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_12_run3.json",
+      "level": "level_12",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T17:40:11-05:00",
+      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+          "timestamp": "2026-11-15T17:40:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after second rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8bcbc38c89d3f21ed9a5e3c50f5582a675d85388",
+          "timestamp": "2026-11-14T00:36:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "8e80788641e1091976d2b13992b46a2e540b46ec",
+          "timestamp": "2026-11-13T18:23:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
