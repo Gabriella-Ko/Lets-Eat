@@ -2629,6 +2629,16 @@
     "step": "spec",
     "result": "written: answer night_market_amber_lamp (burgers, $), 5 decoys incl. budget trap and returning campus_bun_stop as dairy near miss",
     "retries": 0,
+    "tokens": 72079
+  },
+  {
+    "timestamp": "2026-11-15T23:11:09.704Z",
+    "level": "level_13",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 venues, 5 new night_market burger stalls added to registry, campus_bun_stop reused",
+    "retries": 0,
     "tokens": null
   }
 ]
