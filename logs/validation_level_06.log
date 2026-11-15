@@ -1,1 +1,6 @@
 PASS level_06
+clue map (stated, 16 lines):
+  allergy:peanut     @ 7, 8
+  craving            @ 5
+  vibe:healthy       @ 6
+  intolerance:dairy  @ 11, 12, 13

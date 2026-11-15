@@ -1,1 +1,6 @@
 PASS level_09
+clue map (implied, 17 lines):
+  allergy:peanut  @ 6, 10
+  budget          @ 11, 13
+  craving         @ 4, 5
+  vibe:healthy    @ 15

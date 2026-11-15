@@ -1,0 +1,17 @@
+{
+  "level_id": "level_12",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_12/outcomes_level_12.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.night_market_firefly_lane lines[2] (Brooke: 'light, bright and just right for a hot night. i could eat like this all summer')",
+      "issue": "The chat line now has fresh wording ('a breeze, not a blanket'), but Brooke's perfect reaction still leans on 'light', like her level_11 perfect line 'fresh, light, and i'm going to sleep like a baby'. This is minor and partly her voice. Echoing tonight's new image would tie the payoff to the clue more neatly.",
+      "suggested_fix": "e.g. Brooke: 'that was a breeze in a bowl. hot night, happy stomach. i could eat like this all summer'"
+    }
+  ],
+  "summary": "All four earlier suggestions landed cleanly. Firefly Lane review 1 no longer echoes Cyrus's 'far end of the counter'. Review 2 now shows peanut safety through the regular's own shelf check ('not a peanut on the whole cart'), which clears Cyrus's 'on the counter or tucked away in the back' bar in the implied style, without the fryer hint or the repeated 'allergy pen'. Cyrus's 'needs plenty of options for Mina' reads as a plan, and Mina's 'only if it's easy!' now answers it. Brooke's 'a breeze, not a blanket' is one clear, fresh, confirmable healthy wish with a seasonal reason, and Liam's fryer line backs it up. Every scored need is findable and none is given away. The only note left is a small echo of level_11 in Brooke's perfect reaction.",
+  "generated_by": "critic"
+}

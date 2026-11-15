@@ -1,1 +1,5 @@
 PASS level_01
+clue map (stated, 8 lines):
+  allergy:peanut        @ 4, 5
+  craving               @ 1
+  vibe:outdoor_seating  @ 3

@@ -1,0 +1,19 @@
+{
+  "level_id": "level_12",
+  "chapter": 3,
+  "district": "night_market",
+  "difficulty": "implied",
+  "guests": ["mina", "cyrus", "liam", "brooke"],
+  "hard": { "budget_max": null, "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "viet", "vibe": ["healthy"], "intolerances": [] },
+  "solution_id": "night_market_firefly_lane",
+  "decoys": [
+    { "id": "downtown_banyan_kitchen", "fails_on": "allergy:peanut" },
+    { "id": "night_market_stone_well", "fails_on": "diet:vegetarian" },
+    { "id": "night_market_twelve_bells", "fails_on": "vibe:healthy" },
+    { "id": "night_market_plum_bridge", "fails_on": "craving" },
+    { "id": "night_market_red_thread", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
