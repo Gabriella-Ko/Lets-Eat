@@ -4,68 +4,14 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_13/outcomes_level_13.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.campus_bun_stop lines[0] and lines[1]",
-      "issue": "The 2-star result is fair: Amber Lamp clearly beats Bun Stop, and the review shows dairy built into the bun, the cheese and the fries, so 'hold the cheese' can't fix it. The only dairy-free option is a vegan lettuce wrap, not the loaded burger Roxy wanted. The reaction blames the wrong thing, though. Roxy says she ordered the classic 'the way it comes', cheese included, right after promising in chat to 'hold the cheese'. Then Liam says a lettuce wrap 'with none of that' was on the menu and he'll order for her next time. Together these suggest the stall was fine and Roxy just ordered badly, which weakens what the Clue recap teaches.",
-      "suggested_fix": "Make the dairy the stall's fault. Roxy: 'held the cheese like i promised. then the milk bun showed up toasted in butter, next to garlic butter fries. milkshake incident: the sequel. my stomach is NOT happy'. Liam: 'our old campus burger spot!! the only thing on that board without butter was a lettuce wrap. not exactly the most loaded burger in the market. sorry roxy'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_13/outcomes_level_13.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_hollow_oak lines[0]",
-      "issue": "Cyrus says 'Peanut sauce on every patty', but the reviews list peanut butter on the Oak Stack, peanut sauce and crushed peanuts on the satay burger, and peanuts in the slaw. They never say the lentil patty gets peanut sauce, and review 2 has a friend loving it 'with every topping'. The chat's 'brushes satay sauce on everything' still clearly points to this stall, but the fail line goes further than the reviews do.",
-      "suggested_fix": "Cyrus: 'Everyone, stop. Peanut butter on one burger, peanut sauce on the next, peanuts in the slaw. This is the stall from my notes.' (Or the Map Seeder could add a clause to Hollow Oak review 1 saying every patty gets a brush of peanut sauce on the grill.)"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_13/outcomes_level_13.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_velvet_tent lines[0]-[1]",
-      "issue": "Mina offers to 'just get some fries', but Velvet Tent review 1 says the fries are cooked in beef dripping, so she couldn't eat them either. The line also follows the same fail shape as level_03's Brisket Box ('oh... everything on the menu is meat. it's okay, i'll just have some water' / Liam: 'NO...') and level_08's Silver Reed, and level_10 and level_12 also opened their diet fails with Mina's 'oh... every X has meat'. This is now the fifth time.",
-      "suggested_fix": "Use the beef-dripping detail and drop the formula, e.g. Liam: 'mina just asked for fries and the guy said they're cooked in beef fat. FRIES. not even the plate of fries is safe here. everybody up' / Mina: 'it's okay, really... but maybe the stall next door?'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_13/dialogue_level_13.json",
-      "agent": "narrative_writer",
-      "where": "script[10], script[14]; outcomes velvet_tent lines[1], amber_lamp lines[0]",
-      "issue": "Liam calls tonight his 'redemption burger night' for the plate of fries. But in level_03 he already made up for it at Bun Stop, where Mina got her plant-based patty, and his own Bun Stop line here calls it 'our old campus burger spot'. A returning player may wonder why it still needs redeeming. The plate_of_fries callback with Liam's 'not this time... mina gets a burger' also closely mirrors level_03's 'not again... this time you get a real burger too'.",
-      "suggested_fix": "Present it as a standing promise rather than unfinished business, e.g. script[10]: 'also it's burger night, which means i'm on fries patrol'; script[14]: 'still on patrol. mina gets a burger with zero meat in it, picked off the board like the rest of us'. Change 'not on redemption night' in the Velvet Tent line to 'not on my watch'."
-    },
-    {
-      "severity": "suggestion",
-      "check": "voice",
-      "file": "content/levels/level_13/outcomes_level_13.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_hollow_oak lines[2]",
-      "issue": "Liam's 'i was one bite away. worth it.' comes right after Cyrus's allergy alarm. 'Worth it' is unclear and sounds a little careless during an allergy scare, which isn't the tone the bible asks for ('friction is funny, never mean').",
-      "suggested_fix": "e.g. 'i was one bite away. putting it down very slowly. cyrus, lead us somewhere safe'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_13/outcomes_level_13.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_crooked_pine lines[0]; night_market_hollow_oak lines[1]",
-      "issue": "Maya's 'THREE dollar signs for a burger??' copies the opening of her level_11 Willow Gate fail ('THREE dollar signs. for TACOS.'), from two levels ago. Roxy's 'abort abort!!' repeats her level_08 Kumo Bar peanut fail ('abort!!'), and level_08 has the same guests and decoy types as this level.",
-      "suggested_fix": "Maya: 'i saw the price board from the gate and i'm turning around, like i promised. wallets away, all of you. trip fund emergency'. Roxy: 'burgers DOWN!! nobody hand cyrus anything'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
+      "check": "reviews",
       "file": "content/levels/level_13/venues_level_13.json",
       "agent": "map_seeder",
-      "where": "venue night_market_crooked_pine review 2; night_market_amber_lamp review 2; night_market_velvet_tent review 1",
-      "issue": "Three small echoes of level_12. Crooked Pine's 'the chef shook his head: \"Peanuts have never been through my door\"' mirrors Stone Well's 'she shook her head: \"Never had a peanut in this cart\"'. Amber Lamp's peanut evidence is again a regular checking every jar and label on the cart, like Firefly Lane. Velvet Tent's vegetarian friend who 'read the board twice' repeats Mina's level_12 Stone Well fail line. All the evidence is still correct.",
-      "suggested_fix": "Crooked Pine: drop the head shake and keep the quote, e.g. 'When I mentioned my girlfriend's peanut allergy, the chef just pointed at the sunflower seeds: \"That's the crunch. Peanuts have never been through my door.\"' Velvet Tent: '...looked over the board, sighed, and wandered off to buy a corn cob from the next stall.'"
+      "where": "venue night_market_amber_lamp review 2",
+      "issue": "The new peanut evidence is firm ('nothing with a peanut in it is ever bought for the cart'), as firm as Bun Stop's 'never kept a peanut' and Velvet Tent's 'nothing containing peanuts has ever come onto the cart', so the answer stays fair. Two small problems. First, a night-market cart grill that is also wheeled in to cook weekday school lunches 'on this very grill' strains belief. Second, the sentence is tangled: 'the owner also cooks weekday lunches for his elementary school, which bans peanuts outright, on this very grill', and the owner is 'her' in review 1, so a reader has to stop and work out that 'his' means the nephew. The 'nothing ever comes onto the cart' shape now also appears three times in this level (Bun Stop, Velvet Tent, Amber Lamp).",
+      "suggested_fix": "Keep the school link but drop the shared grill and use a different shape, e.g. 'My nephew's peanut allergy is the serious kind, and what settled his mom was learning the owner is also the lunch cook at his elementary school, which bans peanuts outright. She says one peanut-free pantry for both jobs is simpler, so there's never been a peanut near this grill. A year on, he walks up and orders by himself.'"
     }
   ],
-  "summary": "A solid, fair implied level. Every scored need is findable and none is said outright. Cyrus's homework and satay line imply the peanut allergy, as the level_09 beat set up. Mina's plate-of-fries callback plus Liam's 'zero meat' plan is now easy to find without her stating her own diet. Maya's three-step price scale (cheapest fine, a little over she sulks, fancy she turns back) matches the $, $$ and $$$ cards and the 'couple of dollars more' and 'three burgers' price' reviews. Every venue's deciding attributes show in its reviews and agree with the registry. Bun Stop's dairy is built into its bun and fries, so the 2-star near miss is fair even with its vegan lettuce wrap, and the vegetarian and vegan difference between its tags doesn't change the score. The suggestions are about making the Bun Stop, Hollow Oak and Velvet Tent reactions match their reviews more closely, clearing up Liam's 'redemption' framing after level_03, and refreshing a few fail shapes that repeat levels 03, 08, 11 and 12.",
+  "summary": "The rework landed. All seven earlier suggestions are applied, and they now match the reviews: the Bun Stop partial puts the dairy on the stall's milk bun and garlic-butter fries, Velvet Tent's fail uses the beef-dripping fries and the corn cob from its review, Hollow Oak's fail names the exact peanut items, and the repeated level_08 and level_11 lines are gone. The plate-of-fries continuity now holds against level_03 and the bible entry: Liam frames 'fries patrol' as a standing habit since an unnamed burger night before Roxy joined, where he had a double stack and Mina had fries because nothing worked for her. That fits level_03's 'last time... not again' and doesn't clash with the Bun Stop visit. Liam's 'we're finding mina a real burger' is his own level_03 wording ('this time you get a real burger too'), not Mina's reserved level_16 'real main' request, so it doesn't take that beat. The only suggestion is to make Amber Lamp's new peanut evidence more plausible and easier to read.",
   "generated_by": "critic"
 }
