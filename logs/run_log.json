@@ -2520,5 +2520,15 @@
     "result": "pass 3/3 after rework (all runs: Mina vegetarian clue weakest; frying oil / far end of counter noticed, harmless)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T22:38:19.397Z",
+    "level": "level_12",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestions 1-2: Firefly Lane son moved off the counter; review 2 drops frying oil and allergy pen, no-peanuts shown via shelf check",
+    "retries": 2,
+    "tokens": null
   }
 ]
