@@ -2529,6 +2529,16 @@
     "step": "venues_rework",
     "result": "critic suggestions 1-2: Firefly Lane son moved off the counter; review 2 drops frying oil and allergy pen, no-peanuts shown via shelf check",
     "retries": 2,
+    "tokens": 30809
+  },
+  {
+    "timestamp": "2026-11-15T22:38:27.388Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "critic suggestions 3-4: Cyrus needs plenty of options; Brooke breeze not blanket",
+    "retries": 3,
     "tokens": null
   }
 ]
