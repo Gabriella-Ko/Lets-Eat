@@ -2760,5 +2760,35 @@
     "result": "pass after rework, 0 must_fix, 1 suggestion (Amber Lamp peanut sentence)",
     "retries": 0,
     "tokens": 56706
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestion: Amber Lamp peanut sentence (one peanut-free pantry for cart and school lunches)",
+    "retries": 2,
+    "tokens": 15849
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after rework",
+    "retries": 0,
+    "tokens": null
   }
 ]
