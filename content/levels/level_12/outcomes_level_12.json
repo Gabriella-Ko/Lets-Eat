@@ -7,7 +7,7 @@
       "lines": [
         { "speaker": "mina", "text": "i had so many choices i kept changing my mind. this market is a gift :)", "emotion": "HAPPY" },
         { "speaker": "cyrus", "text": "No tub on the counter, nothing to check twice. I ate the whole meal without looking up. Well chosen.", "emotion": "HAPPY" },
-        { "speaker": "brooke", "text": "light, bright and just right for a hot night. i could eat like this all summer", "emotion": "HAPPY" }
+        { "speaker": "brooke", "text": "that was a breeze in a bowl. hot night, happy stomach. i could eat like this all summer", "emotion": "HAPPY" }
       ]
     },
     "downtown_banyan_kitchen": {
@@ -54,5 +54,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
