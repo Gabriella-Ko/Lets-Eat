@@ -2669,7 +2669,7 @@
     "step": "critique",
     "result": "pass, 0 must_fix, 7 suggestions",
     "retries": 0,
-    "tokens": null
+    "tokens": 80130
   },
   {
     "timestamp": "2026-11-15T23:15:28.409Z",
@@ -2678,6 +2678,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14864
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15102
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14778
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs: plate-of-fries line contradicts Bun Stop review black bean patty from campus days)",
     "retries": 0,
     "tokens": null
   }

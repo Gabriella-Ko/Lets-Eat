@@ -1,0 +1,51 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_13",
+  "run": 3,
+  "pick": "night_market_amber_lamp",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "group",
+      "constraint": "cuisine: burgers",
+      "source_line": "cyrus: \"Next on my list is burgers. There's a whole cluster of grill stalls by the fountain.\""
+    },
+    {
+      "who": "maya",
+      "constraint": "budget: $ (one tier over costs a star, two tiers over is a deal-breaker)",
+      "source_line": "maya: \"cheapest-stall small. a little over and i'll sulk the whole bus ride home. fancy prices and i'm turning around at the gate\""
+    },
+    {
+      "who": "cyrus",
+      "constraint": "peanut allergy (deal-breaker)",
+      "source_line": "cyrus: \"...at least one grill here brushes satay sauce on everything. Satay and I have history, so that stall is crossed out.\" (confirmed by liam: \"anything peanut-y stays on the far side of the fountain\")"
+    },
+    {
+      "who": "mina",
+      "constraint": "strict meat-free diet; needs a meatless burger on the board (deal-breaker). Possibly vegan; treated as needing a plant-based option to be safe",
+      "source_line": "liam: \"mina gets a burger with zero meat in it, picked off the board like the rest of us\" (context: campus burger night where she ate only fries)"
+    },
+    {
+      "who": "roxy",
+      "constraint": "dairy intolerance (costs one star, not a deal-breaker)",
+      "source_line": "roxy: \"...no sequel. hold the cheese, no creamy sauce, no shake. my stomach makes the rules\""
+    }
+  ],
+  "venue_evaluation": {
+    "night_market_hollow_oak": "$, plant-based options, dairy-free, but peanuts everywhere: deal-breaker for Cyrus.",
+    "campus_bun_stop": "$, peanut-free, black bean patty for Mina, but butter brioche, melted cheese and garlic-butter fries: dairy, -1 star for Roxy. 2 stars.",
+    "night_market_amber_lamp": "$, peanut-free (checked thoroughly), black bean and mushroom burgers that are fully plant-based, oil not butter, no cheese. 3 stars.",
+    "night_market_velvet_tent": "$, peanut-free, dairy-free, but the board is all meat (even fries in beef dripping): deal-breaker for Mina.",
+    "night_market_midnight_orchard": "$$, one tier over budget: -1 star. Otherwise peanut-free, dairy-free, meatless options. 2 stars.",
+    "night_market_crooked_pine": "$$$, two tiers over Maya's budget: deal-breaker, even though it meets every other need."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Every clue is present and fair. The peanut allergy is phrased indirectly ('Satay and I have history') but Liam's follow-up confirms it, so it is findable.",
+    "Roxy's dairy clue relies on remembering a 'milkshake incident' from an earlier level, but her own line ('hold the cheese, no creamy sauce, no shake. my stomach makes the rules') is clear enough by itself.",
+    "Mina's diet is stated as 'zero meat', which reads as vegetarian. Liam's line doesn't clearly say whether she is vegan. It doesn't change the answer here, because Amber Lamp and Bun Stop both offer fully plant-based patties.",
+    "Maya's budget line maps cleanly onto the scoring: 'cheapest-stall' = $, 'a little over' = $$ (-1 star), 'fancy prices' = $$$ (deal-breaker). Nicely done.",
+    "Good set of distractors, each failing on a different constraint (peanut, meat-only, dairy, one price tier over, two price tiers over). Bun Stop, the familiar campus spot, is a strong decoy because it passes every deal-breaker and only loses on dairy.",
+    "Nothing unfair or contradictory found."
+  ]
+}
