@@ -1,1 +1,5 @@
 PASS level_03
+clue map (implied, 14 lines):
+  diet:vegetarian  @ 9, 10, 11
+  craving          @ 3, 4
+  vibe:quick_bite  @ 5, 6

@@ -1,1 +1,6 @@
 PASS level_04
+clue map (stated, 16 lines):
+  allergy:peanut  @ 10, 11, 12
+  budget          @ 7
+  craving         @ 3, 4
+  vibe:healthy    @ 5, 6
