@@ -1,0 +1,48 @@
+{
+  "level_id": "level_13",
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_hollow_oak",
+      "reviews": [
+        "The counter is built into a hollowed-out oak trunk the owner hauled in from his uncle's farm, and kids keep knocking on it to hear the echo. Peanuts are the house signature: the Oak Stack is a beef patty under peanut butter and chili jam, the mushroom satay burger gets a ladle of peanut sauce and a fistful of crushed roasted peanuts, and even the slaw comes tossed with them.",
+        "My friend who lives entirely on plants had the lentil and mushroom patty with every topping and called it the best burger at the market. The buns are brushed with oil and there's no cheese anywhere on the board, so my brother, who usually spends burger night picking cheese off his patty, ate his without a second look. Order, wait two minutes, eat it walking."
+      ]
+    },
+    {
+      "id": "campus_bun_stop",
+      "reviews": [
+        "The campus burger counter now runs a night cart by the bike racks at the market's north gate: same five-minute wait, same club stickers plastered all over the side. It's rich in the best way. The buns are milk brioche toasted in butter, the classic burgers all come with a slice of cheese melted on, and the fries are tossed in garlic butter. My roommate's stomach can't handle milk, but she orders the double cheese every Friday anyway and spends Saturday curled up on the couch.",
+        "The black bean patty from the campus days is still on the board, and my friend who eats nothing from animals gets it in a lettuce wrap with mustard and pickles. My lab partner can't go near peanuts and has eaten at the counter since freshman year. The cart is stocked from the same kitchen, which has never kept a peanut in it, so she orders at night without asking a thing."
+      ]
+    },
+    {
+      "id": "night_market_amber_lamp",
+      "reviews": [
+        "You'll spot it by the big amber glass lamp swinging over the grill; the owner swears it came off her grandfather's fishing boat. I'm hooked on her black bean burger: crisp at the edges, smoky, piled with pickled red onion and a chipotle tomato relish on a soft bun from the bakery two stalls down. The grilled mushroom stack is the other meatless one, and my cousin, who won't eat anything that came from an animal, orders it exactly as it comes. The night-shift nurses who queue up around eleven all get the beef smash burger.",
+        "My nephew's peanut allergy is the serious kind, so on our first visit his mom went through the whole cart: every sauce jar, the bun bags, the spice tins, the label on the fryer oil. Not a peanut on board, and the owner keeps it that way. A year on, he walks up and orders by himself. His mom's stomach and milk parted ways years ago, and she's just as relaxed here: the grill gets a slick of oil, never butter, and nobody asks if she wants cheese, because there isn't any."
+      ]
+    },
+    {
+      "id": "night_market_velvet_tent",
+      "reviews": [
+        "Plum-colored velvet drapes, a record player spinning old soul, and a short board that is meat from top to bottom: double beef smash, a lamb burger with mint, a fried chicken thigh on a bun. The fries are cooked in beef dripping and the baked beans are stewed with bacon. My friend who hasn't eaten meat since she was twelve read the board twice and wandered off to buy a corn cob from the next stall.",
+        "The owner's son has a bad peanut allergy, so nothing containing peanuts has ever come onto the cart, and my coworker, who reacts to them too, has worked through the whole board since spring without a flicker. The buns are made with oil, and in place of cheese you get grilled onion, pickles and a sharp mustard. My sister, who suffers for days after any milk, has never had a bad night after this stall. Food's in your hands within a few minutes."
+      ]
+    },
+    {
+      "id": "night_market_midnight_orchard",
+      "reviews": [
+        "Fairy lights wind through potted apple trees around the grill, and a sticky cider-glazed onion goes on almost everything. Burgers run a couple of dollars more than at the stalls nearby. I always get the smoked mushroom burger with apple slaw. There are three meatless patties to pick from, and the chalkboard marks two of them with a little leaf for anyone who keeps away from every animal product.",
+        "My best friend reacts badly to peanuts and reads everything, and this stall makes it easy: the ingredients for every sauce, bun and patty are on a clipboard hanging from the register post. We went down it together (sunflower oil, apple, tahini, smoked paprika) and found no peanut anywhere. Milk doesn't agree with her either, and she's never had trouble here; the slaw is dressed with cider vinegar and the burgers skip cheese altogether."
+      ]
+    },
+    {
+      "id": "night_market_crooked_pine",
+      "reviews": [
+        "A chef who used to run a fine-dining kitchen cooks under the one crooked pine at the market's edge, and the prices make sure you know it: one burger costs what three would elsewhere in this aisle, before you add the hand-cut fries. Dry-aged beef on a charcoal bun, a smoked king oyster mushroom patty, a beet and black bean burger with pickled shallots. Each one arrives in a little cedar box. A once-a-summer treat.",
+        "When I mentioned my girlfriend's peanut allergy, the chef shook his head: \"Peanuts have never been through my door. The crunch is sunflower seeds, the fryer is sunflower oil.\" She ordered without another thought. Buns and patties get brushed with herb oil rather than butter and nothing comes topped with cheese, which suited her roommate, whose stomach turns on dairy. The oyster mushroom burger is plant-based from patty to bun, and that's what the roommate had."
+      ]
+    }
+  ]
+}
