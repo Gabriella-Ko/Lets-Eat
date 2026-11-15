@@ -2559,7 +2559,7 @@
     "step": "critique",
     "result": "pass after second rework, 0 must_fix, 1 suggestion",
     "retries": 0,
-    "tokens": null
+    "tokens": 45903
   },
   {
     "timestamp": "2026-11-15T22:39:23.503Z",
@@ -2568,6 +2568,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "rebuilt after second rework",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T22:40:11.083Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_rework2",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T22:40:11.083Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_rework2",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14527
+  },
+  {
+    "timestamp": "2026-11-15T22:40:11.083Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_rework2",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14503
+  },
+  {
+    "timestamp": "2026-11-15T22:40:11.083Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after second rework (all runs: Mina vegetarian clue weakest, still found)",
     "retries": 0,
     "tokens": null
   }
