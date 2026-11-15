@@ -2819,7 +2819,7 @@
     "step": "playtest_run3_after_rework",
     "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 14885
   },
   {
     "timestamp": "2026-11-15T23:26:02.812Z",
