@@ -2729,6 +2729,16 @@
     "step": "venues_rework",
     "result": "critic suggestion: three level_12 echoes reworded (Crooked Pine, Amber Lamp peanut evidence, Velvet Tent)",
     "retries": 1,
+    "tokens": 21982
+  },
+  {
+    "timestamp": "2026-11-15T23:23:04.306Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "critic suggestions: plate-of-fries continuity (fries patrol), Bun Stop dairy on the stall, fresh Velvet Tent fail, Hollow Oak matches reviews, echoes replaced",
+    "retries": 1,
     "tokens": null
   }
 ]

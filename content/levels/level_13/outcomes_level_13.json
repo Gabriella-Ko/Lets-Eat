@@ -14,25 +14,25 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "Everyone, stop. Peanut sauce on every patty. This is the stall from my notes.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "abort abort!! burgers DOWN, nobody hand cyrus anything", "emotion": "SURPRISED" },
-        { "speaker": "liam", "text": "i was one bite away. worth it. cyrus, lead us somewhere safe", "emotion": "SURPRISED" }
+        { "speaker": "cyrus", "text": "Everyone, stop. Peanut butter on one burger, peanut sauce and crushed peanuts on another, peanuts tossed through the slaw. This is the stall from my notes.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "burgers on the counter, hands up!! nobody hand cyrus anything", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "mine's going back on the tray untouched. cyrus, you lead, we follow", "emotion": "SURPRISED" }
       ]
     },
     "night_market_velvet_tent": {
       "result": "fail",
       "missed": ["diet:vegetarian"],
       "lines": [
-        { "speaker": "mina", "text": "oh... there's meat in every burger here. it's okay, i can just get some fries", "emotion": "SURPRISED" },
-        { "speaker": "liam", "text": "NO. not the plate of fries. not on redemption night. everybody up", "emotion": "ANGRY" },
-        { "speaker": "maya", "text": "liam's right. we are not doing fries, round two", "emotion": "SURPRISED" }
+        { "speaker": "mina", "text": "the board is beef, lamb and chicken... and the man says even the fries are cooked in beef dripping. maybe there's a corn cob somewhere nearby?", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "not even FRIES?? fries patrol is officially in crisis. everybody up, we're finding mina a real burger", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "already packing up. liam, maybe the patrol reads the board before it marches in next time", "emotion": "SURPRISED" }
       ]
     },
     "night_market_crooked_pine": {
       "result": "fail",
       "missed": ["budget"],
       "lines": [
-        { "speaker": "maya", "text": "THREE dollar signs for a burger?? wallets away, all of you. we're leaving. this is a trip fund emergency", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "one burger here costs the same as three by the fountain?? i said i'd turn around at the gate, and i'm turning around. wallets away, all of you. this is a trip fund emergency", "emotion": "ANGRY" },
         { "speaker": "liam", "text": "she's confiscating our wallets. i'm scared and i respect it", "emotion": "SURPRISED" },
         { "speaker": "cyrus", "text": "For the record, the notes said cheap. Following Maya.", "emotion": "SURPRISED" }
       ]
@@ -49,8 +49,8 @@
       "result": "partial",
       "missed": ["intolerance:dairy"],
       "lines": [
-        { "speaker": "roxy", "text": "i just ordered the classic, the way it comes. milk bun toasted in butter, melted cheese, garlic butter fries. milkshake incident: the sequel. my stomach is NOT happy", "emotion": "ANNOYED" },
-        { "speaker": "liam", "text": "our old campus burger spot!! roxy, i'm so sorry. there was a lettuce-wrap one with none of that. next time i'm ordering for you", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "held the cheese like i promised! didn't matter. the bun is a milk bun toasted in butter and the fries come tossed in garlic butter. milkshake incident: the sequel. my stomach is NOT happy", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "our old campus burger spot!! i forgot they put butter in basically everything. that's on the stall, not you, roxy. i'm so sorry", "emotion": "SURPRISED" }
       ]
     }
   },
