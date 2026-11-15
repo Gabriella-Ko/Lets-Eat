@@ -2639,6 +2639,16 @@
     "step": "venues",
     "result": "written: 6 venues, 5 new night_market burger stalls added to registry, campus_bun_stop reused",
     "retries": 0,
-    "tokens": null
+    "tokens": 56644
+  },
+  {
+    "timestamp": "2026-11-15T23:11:59.893Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 20 lines, callbacks trip_fund/satay_incident/plate_of_fries/milkshake_incident; Bun Stop outcome framed as default order",
+    "retries": 0,
+    "tokens": 66176
   }
 ]

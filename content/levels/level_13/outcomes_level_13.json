@@ -1,0 +1,59 @@
+{
+  "level_id": "level_13",
+  "by_venue": {
+    "night_market_amber_lamp": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "i pointed at the board and ordered, just like everyone else. liam, you can stop worrying about the fries now :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "the spreadsheet line survived with change to spare. cyrus, your list is undefeated", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "loaded burger, zero cheese, quiet stomach. best market night yet!!", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_hollow_oak": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Everyone, stop. Peanut sauce on every patty. This is the stall from my notes.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "abort abort!! burgers DOWN, nobody hand cyrus anything", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "i was one bite away. worth it. cyrus, lead us somewhere safe", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_velvet_tent": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... there's meat in every burger here. it's okay, i can just get some fries", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "NO. not the plate of fries. not on redemption night. everybody up", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "liam's right. we are not doing fries, round two", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_crooked_pine": {
+      "result": "fail",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "THREE dollar signs for a burger?? wallets away, all of you. we're leaving. this is a trip fund emergency", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "she's confiscating our wallets. i'm scared and i respect it", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "For the record, the notes said cheap. Following Maya.", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_midnight_orchard": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "great burger. two dollar signs though, so i'm sulking the whole bus ride home. as promised", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll sit next to you on the bus. sulking's better with company", "emotion": "HAPPY" }
+      ]
+    },
+    "campus_bun_stop": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "i just ordered the classic, the way it comes. milk bun toasted in butter, melted cheese, garlic butter fries. milkshake incident: the sequel. my stomach is NOT happy", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "our old campus burger spot!! roxy, i'm so sorry. there was a lettuce-wrap one with none of that. next time i'm ordering for you", "emotion": "SURPRISED" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
