@@ -2660,5 +2660,25 @@
     "result": "pass",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:15:28.409Z",
+    "level": "level_13",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 7 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:15:28.409Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
   }
 ]
