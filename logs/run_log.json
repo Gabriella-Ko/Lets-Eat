@@ -2840,5 +2840,15 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:06:39.087Z",
+    "level": "level_14",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer night_market_marigold_cart (curry, $), vegetarian trap + dairy/healthy/budget_soft/craving near misses; Firefly Lane returns as craving decoy",
+    "retries": 0,
+    "tokens": 52099
   }
 ]
