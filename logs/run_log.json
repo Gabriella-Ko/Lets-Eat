@@ -3339,7 +3339,7 @@
     "step": "playtest_run3",
     "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15413
   },
   {
     "timestamp": "2026-11-16T06:17:58.795Z",
