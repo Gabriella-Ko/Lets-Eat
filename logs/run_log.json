@@ -2899,6 +2899,16 @@
     "step": "venues_rework",
     "result": "first-critique suggestions 6-8: Tall Grass run line, lap wording, dairy-free template varied",
     "retries": 1,
+    "tokens": 18690
+  },
+  {
+    "timestamp": "2026-11-16T04:15:04.986Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "first-critique suggestions 1-5 applied (budget wording, sushi-day eyewitness, Night Heron matches reviews, fresh Glass Bead fail, Tall Grass line)",
+    "retries": 1,
     "tokens": null
   }
 ]
