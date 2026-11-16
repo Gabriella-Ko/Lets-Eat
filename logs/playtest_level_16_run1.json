@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_16",
+  "run": 1,
+  "pick": "waterfront_tidewater",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "roxy",
+      "constraint": "Craving: Greek cuisine",
+      "line": "also i beat liam paddleboarding this morning, so winner picks. GREEK. the whole boardwalk smells like lemon and charcoal"
+    },
+    {
+      "who": "mina",
+      "constraint": "Diet (treated as strict): vegetarian, no meat and no fish. Needs a real meat-free, fish-free main, not a meal built from sides",
+      "line": "okay, can i ask for something? could we go somewhere i can order a real main this time? / i've had enough side salads and plates of fries to last me a lifetime / not fish either, sorry :) just a proper main of my own, not something i build out of the starters"
+    },
+    {
+      "who": "brooke",
+      "constraint": "Vibe preference: loud, lively, packed room",
+      "line": "ok my turn. our first dinner on the water deserves a crowd, so i want somewhere loud. a packed room, people laughing over each other, plates flying past"
+    },
+    {
+      "who": "brooke",
+      "constraint": "Preference: light food, not fried",
+      "line": "and after a whole summer of night-market fryers, i want a light plate. the kind you finish feeling better than when you sat down"
+    },
+    {
+      "who": "roxy",
+      "constraint": "Intolerance: dairy (no yogurt dips, no crumbly cheese)",
+      "line": "...so maybe no yogurt dips or crumbly cheese in mine. just remembered why (backed up by Brooke's 'milkshake incident' line)"
+    },
+    {
+      "who": "group",
+      "constraint": "Budget: no explicit budget stated; every venue is $$, so price does not separate options",
+      "line": "none"
+    }
+  ],
+  "elimination": {
+    "waterfront_salt_marsh": "No meat-free main (review says the flatmate had to piece a meal together from sides)",
+    "waterfront_driftwood": "The meat-free column is all seafood, so Mina has no main",
+    "waterfront_seawall": "Feta and yogurt on everything, including the meat-free mains (fails Roxy's dairy intolerance)",
+    "waterfront_copper_buoy": "Everything is fried (fails Brooke's light plate)",
+    "waterfront_cormorant": "Very quiet room (fails Brooke's loud room)",
+    "waterfront_breakwater": "Italian, not Greek (fails Roxy's craving)",
+    "waterfront_tidewater": "Greek, yemista as a full vegetarian main, loud with bouzouki and dancing, light olive-oil ladera and grilled food, no feta, yogurt or butter. Meets every constraint"
+  },
+  "difficulty": 3,
+  "notes": [
+    "Mina's diet is never named. You have to infer vegetarian from her complaints about side salads and fries, Roxy's fish offer and 'not fish either'. That's a good level of subtlety, but players could read 'real main' as a preference rather than a strict diet. In this level it doesn't matter, since only Tidewater satisfies it either way.",
+    "Tidewater's loudness evidence opens with 'Go on a Friday', which could read as loud only on Fridays. The chat never says what day it is. The bouzouki and line dancing make it clear enough, but one cautious player might hesitate. Minor.",
+    "Roxy's dairy clue is subtle but fair: 'no yogurt dips or crumbly cheese' together with the 'milkshake incident' line.",
+    "Each decoy fails exactly one constraint, so the elimination is clean. No contradictions found."
+  ]
+}

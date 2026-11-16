@@ -3299,7 +3299,7 @@
     "step": "critique",
     "result": "pass after rework, must-fix resolved, 1 suggestion (to PR)",
     "retries": 0,
-    "tokens": null
+    "tokens": 47444
   },
   {
     "timestamp": "2026-11-16T06:17:11.706Z",
@@ -3308,6 +3308,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15189
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15333
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs: Tidewater loud only \"on a Friday\"; Mina diet implied but found by all)",
     "retries": 0,
     "tokens": null
   }
