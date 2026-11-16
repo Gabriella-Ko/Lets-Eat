@@ -3099,6 +3099,16 @@
     "step": "venues",
     "result": "written: 6 new night_market noodle stalls added to registry",
     "retries": 0,
+    "tokens": 54480
+  },
+  {
+    "timestamp": "2026-11-16T05:44:21.104Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
     "tokens": null
   }
 ]
