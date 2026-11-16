@@ -1,0 +1,50 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_15",
+  "run": 1,
+  "pick": "night_market_juniper_yard",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: noodles (the noodle stall on noodle row)",
+      "who": "liam",
+      "line": "the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row"
+    },
+    {
+      "constraint": "Budget: $ (cheapest tier only, coins only)",
+      "who": "maya",
+      "line": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it"
+    },
+    {
+      "constraint": "Peanut allergy, any form (sauce, wok oil, toppings, cross-contact)",
+      "who": "cyrus",
+      "line": "It's grown since then. Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking."
+    },
+    {
+      "constraint": "Preference: green / vegetable-forward and light, not fried or greasy",
+      "who": "brooke",
+      "line": "so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging"
+    },
+    {
+      "constraint": "No dairy (no butter, milk or cream); read as dairy intolerance from the milkshake incident",
+      "who": "roxy",
+      "line": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine"
+    }
+  ],
+  "elimination": {
+    "night_market_bramble_row": "$$, one tier over Maya's coins-only budget (-1 star). Otherwise fits everything.",
+    "night_market_wild_thistle": "Deep-fried, greasy noodles: misses Brooke's light/green preference (-1 star).",
+    "night_market_kestrel": "Milk broth with butter on top: fails Roxy's no-dairy.",
+    "night_market_brass_kettle": "Peanut sauce and crushed peanuts: deal-breaker for Cyrus.",
+    "night_market_sundial": "Every bowl starts with roasted peanut oil: deal-breaker for Cyrus (the 'oil in the wok' clue).",
+    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, broth is ginger/scallion/kombu/soy with no milk, bok choy, nothing fried. Meets every constraint."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Fair and well built. Each decoy fails exactly one constraint, and the Sundial trap (peanut oil hidden in an otherwise perfect review) pays off Cyrus's 'the oil in the wok' line nicely.",
+    "Bramble Row's '$$' plus the review line 'a bowl runs a few dollars more' clearly backs up Maya's budget clue. Good near-miss.",
+    "Roxy's dairy restriction is never labelled as an allergy or an intolerance ('the milkshake incident'). The puzzle doesn't depend on it, since Kestrel is the only dairy venue and it is beaten anyway, but a player can't tell whether Kestrel is a deal-breaker or a 1-star loss.",
+    "Maya's budget is given indirectly ('coins only', 'the cheapest bowls'). It maps to $ readably, but a first-time player has to infer that $ is the coin tier.",
+    "Liam's 'which cart... you'll know at the first slurp' is flavour text with no constraint in it. It could make players hunt for a taste clue that doesn't exist, but that is harmless."
+  ]
+}

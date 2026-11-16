@@ -1,0 +1,41 @@
+{
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_bramble_row",
+      "name": "Bramble Row",
+      "cuisine": "noodles",
+      "price_tier": "$$"
+    },
+    {
+      "id": "night_market_wild_thistle",
+      "name": "Wild Thistle",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_juniper_yard",
+      "name": "Juniper Yard",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_kestrel",
+      "name": "Kestrel",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_brass_kettle",
+      "name": "Brass Kettle",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_sundial",
+      "name": "Sundial",
+      "cuisine": "noodles",
+      "price_tier": "$"
+    }
+  ]
+}

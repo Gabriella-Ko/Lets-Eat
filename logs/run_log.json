@@ -3070,5 +3070,145 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:31:21.907Z",
+    "level": "level_15",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer night_market_juniper_yard = Liam's stall (noodles, $); two peanut traps + budget_soft/dairy/healthy near misses; all six noodles",
+    "retries": 0,
+    "tokens": 65819
+  },
+  {
+    "timestamp": "2026-11-16T05:43:35.362Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 20 lines, Liam stall payoff (reveal in perfect outcome), callbacks trip_fund/satay_incident/milkshake_incident",
+    "retries": 0,
+    "tokens": 59401
+  },
+  {
+    "timestamp": "2026-11-16T05:44:11.013Z",
+    "level": "level_15",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 new night_market noodle stalls added to registry",
+    "retries": 0,
+    "tokens": 54480
+  },
+  {
+    "timestamp": "2026-11-16T05:44:21.104Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:47:10.343Z",
+    "level": "level_15",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 4 suggestions (all writer) sent for one rework round",
+    "retries": 0,
+    "tokens": 70257
+  },
+  {
+    "timestamp": "2026-11-16T05:48:10.596Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "first-critique suggestions 1-4 applied (grandma greens setup, beat merged to 19 lines, Sundial lines match review)",
+    "retries": 1,
+    "tokens": 36027
+  },
+  {
+    "timestamp": "2026-11-16T05:48:18.112Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:49:20.673Z",
+    "level": "level_15",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 2 suggestions (to PR)",
+    "retries": 0,
+    "tokens": 46618
+  },
+  {
+    "timestamp": "2026-11-16T05:49:20.673Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:50:11.034Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14780
+  },
+  {
+    "timestamp": "2026-11-16T05:50:11.034Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15134
+  },
+  {
+    "timestamp": "2026-11-16T05:50:11.034Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14861
+  },
+  {
+    "timestamp": "2026-11-16T05:50:11.034Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (all runs: Roxy dairy allergy vs intolerance unclear, harmless; Sundial praised as a fair trap)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:03:58.482Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

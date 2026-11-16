@@ -1,0 +1,19 @@
+{
+  "level_id": "level_15",
+  "chapter": 3,
+  "district": "night_market",
+  "difficulty": "implied",
+  "guests": ["cyrus", "maya", "brooke", "liam", "roxy"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "noodles", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "night_market_juniper_yard",
+  "decoys": [
+    { "id": "night_market_brass_kettle", "fails_on": "allergy:peanut" },
+    { "id": "night_market_sundial", "fails_on": "allergy:peanut" },
+    { "id": "night_market_bramble_row", "fails_on": "budget_soft" },
+    { "id": "night_market_kestrel", "fails_on": "intolerance:dairy" },
+    { "id": "night_market_wild_thistle", "fails_on": "vibe:healthy" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

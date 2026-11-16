@@ -1,0 +1,26 @@
+{
+  "level_id": "level_15",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_15/dialogue_level_15.json",
+      "agent": "narrative_writer",
+      "where": "script[12] and script[13] (Brooke: 'ok my turn. my grandma lands tomorrow...' / 'so tonight, a bowl that's actually green...')",
+      "issue": "The grandma device itself is new: there is no grandma in levels 12-14 dialogue or outcomes. But the two-line shape copies Brooke's level_14 setup almost beat for beat: 'ok, my news: i'm pacing my cousin through her first 10k at 7am tomorrow' / 'so tonight i need fuel, not a food coma'. Both are a family member and 'tomorrow' on line one, then 'so tonight' plus the wish on line two. The motive is different (honesty with grandma, not race fuel), so this is an echo of structure, not a reused device. Note that this wording came from my own earlier suggested fix.",
+      "suggested_fix": "Break the template. script[12]: 'my grandma lands tomorrow. her first question is always \"are you eating your greens?\" and i'd love to say yes without crossing my fingers' (NEUTRAL, clue null). script[13]: 'a bowl that's actually green, and nothing that leaves me feeling like a fried dumpling. my body is begging' (NEUTRAL, clue vibe:healthy)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_15/outcomes_level_15.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.night_market_sundial lines[1] (Roxy: 'WAIT. it looked so safe!! menus down, nobody order, we're going')",
+      "issue": "The timing now fits Cyrus's ask-before-ordering routine, so the fix landed. Two small points remain. Market stalls in this chapter use price boards, not menus (script[7], Bramble Row outcome), so 'menus down' reads a little off. And the 'X down, nobody Y' command echoes Roxy's level_13 peanut-fail line ('burgers on the counter, hands up!! nobody hand cyrus anything'). Calling back her own line from this chat would fit better.",
+      "suggested_fix": "lines[1]: 'WAIT. it looked so safe!! nobody order. any peanut, any form, we walk' (SURPRISED)."
+    }
+  ],
+  "summary": "All four fixes from the first review landed cleanly. The beat now opens on the craving line. Brooke's office-cake reason is gone, and 'actually green / not a fried dumpling' is a fresh implied healthy clue that every review can confirm or rule out. The Wild Thistle reaction ('glossy with oil', grandma's greens) matches its review and the new setup, and Cyrus's Sundial line now names the review's peanut-oil tin. Fairness, voice, the stall payoff and the trap set are unchanged and still sound. The grandma device doesn't appear anywhere in levels 12-14. The two remaining suggestions are optional polish: Brooke's two-line shape echoes level_14's, and Roxy's 'menus down'.",
+  "generated_by": "critic"
+}

@@ -1,0 +1,58 @@
+{
+  "level_id": "level_15",
+  "by_venue": {
+    "night_market_juniper_yard": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "liam", "text": "wait. first slurp. WAIT. this is it. this is THE stall. i've chased this bowl all summer and you walked us straight to it", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "and it cost coins. the trip fund and i are both a little emotional", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "no butter, no milk, happy stomach, and liam is crying into his noodles. best market night ever!!", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_brass_kettle": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "I didn't need to ask. Peanut in the sauce, peanuts crushed over the top. My question has a very short answer here. I'll be by the exit.", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "and it's not even the stall. i'd have known. cyrus's safe bowl first, my stall second", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "i'm carrying cyrus's jacket out of here and i'm literally leaving this cart", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_sundial": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "No sauce, nothing on top that I could see. Then the cook answered the rest of my question: every bowl starts with peanut oil from that tin, straight into the wok. That counts.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "WAIT. it looked so safe!! nobody order. any peanut, any form, we walk", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "it's not the stall anyway. the stall would never do this to us", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_bramble_row": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "delicious. but i had to break a bill. i warned you i'd be dramatic, so: this is me being dramatic", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "good bowl. not THE bowl though. maya, the coins for the next one are on me", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_kestrel": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "so good. then the cook told me what makes the broth so silky. it's dairy. of course it's dairy. my stomach and i are not speaking", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "my tipster warned me and i still walked us into a creamy one. sorry roxy. and no first-slurp moment either, so the stall's still out there", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_wild_thistle": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "tasty, but every bowl here is glossy with oil. grandma's going to ask about my greens tomorrow and i'm going to have to confess", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "not my stall either. the one in my head doesn't drip. brooke, you pick the next cart on the hunt", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}
