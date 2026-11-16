@@ -3089,6 +3089,16 @@
     "step": "chat_outcomes",
     "result": "written: 20 lines, Liam stall payoff (reveal in perfect outcome), callbacks trip_fund/satay_incident/milkshake_incident",
     "retries": 0,
+    "tokens": 59401
+  },
+  {
+    "timestamp": "2026-11-16T05:44:11.013Z",
+    "level": "level_15",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 new night_market noodle stalls added to registry",
+    "retries": 0,
     "tokens": null
   }
 ]
