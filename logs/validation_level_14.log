@@ -1,0 +1,7 @@
+PASS level_14
+clue map (implied, 19 lines):
+  diet:vegetarian    @ 11, 12
+  budget             @ 5, 6, 7
+  craving            @ 0, 1, 2
+  vibe:healthy       @ 9
+  intolerance:dairy  @ 14, 15, 16

@@ -2870,5 +2870,15 @@
     "result": "written: 6 venues, 5 new night_market curry stalls added to registry, Firefly Lane reused",
     "retries": 0,
     "tokens": 52116
+  },
+  {
+    "timestamp": "2026-11-16T04:10:12.290Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
   }
 ]
