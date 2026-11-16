@@ -1,0 +1,66 @@
+{
+  "level_id": "level_16",
+  "by_venue": {
+    "waterfront_tidewater": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "i asked, and i ordered a real main. straight off the mains list, no sides, no asking the waiter twice. i might cry a little :)", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "a loud table, a light plate and mina ordering first. best way to say goodbye to summer", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "no yogurt, no cheese, calm stomach. that water taxi ride home is going to be smooth sailing!!", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_salt_marsh": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "every main here comes off the grill with meat on it. the only things without meat are the sides... and i said a real main this time", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "nope. we are not doing the plate of fries all over again. everybody up", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "mina finally asked out loud and we walked her straight into sides. we're moving, and she's choosing the next door", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_driftwood": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "the waiter keeps pointing me to the meat-free mains... and every one of them is fish or seafood", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "i'm the one who ASKED about fish!! and she said no!! we're out", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "nothing with a face. she said it once and that should've been enough. let's go", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_seawall": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "so good, but every plate came with a yogurt dip or cheese crumbled on top. this water taxi ride is going to feel very long", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll ride back with you and point you at the horizon. sailors swear by it", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_copper_buoy": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "love the buzz in here, but my plate is swimming in oil. i asked for a light plate and got the night-market fryers all over again", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "long walk down the boardwalk after? we'll shake it off together", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_cormorant": {
+      "result": "partial",
+      "missed": ["vibe:lively"],
+      "lines": [
+        { "speaker": "brooke", "text": "the food was lovely. but it was so quiet i could hear my own fork. summer ended early after all", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i whispered 'pass the bread' and three tables looked at me. next time, the loud place", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_breakwater": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "roxy", "text": "pasta?? i won that race fair and square and i said GREEK", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'm not complaining, i'd eat anything right now. but roxy earned her greek. rematch next weekend?", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
