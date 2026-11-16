@@ -1,0 +1,41 @@
+{
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_night_heron",
+      "name": "Night Heron",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_marigold_cart",
+      "name": "Marigold Cart",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_lucky_seven",
+      "name": "Lucky Seven",
+      "cuisine": "curry",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_firefly_lane",
+      "name": "Firefly Lane",
+      "cuisine": "viet",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_tall_grass",
+      "name": "Tall Grass",
+      "cuisine": "curry",
+      "price_tier": "$$"
+    },
+    {
+      "id": "night_market_glass_bead",
+      "name": "Glass Bead",
+      "cuisine": "curry",
+      "price_tier": "$"
+    }
+  ]
+}
