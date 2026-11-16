@@ -1,7 +1,7 @@
 PASS level_15
-clue map (implied, 20 lines):
-  allergy:peanut     @ 10, 11, 12
-  budget             @ 6, 8
-  craving            @ 1, 3, 5
-  vibe:healthy       @ 14
-  intolerance:dairy  @ 15, 16, 17
+clue map (implied, 19 lines):
+  allergy:peanut     @ 9, 10, 11
+  budget             @ 5, 7
+  craving            @ 0, 2, 4
+  vibe:healthy       @ 13
+  intolerance:dairy  @ 14, 15, 16

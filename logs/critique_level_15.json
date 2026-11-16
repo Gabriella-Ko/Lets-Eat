@@ -7,38 +7,20 @@
       "check": "freshness",
       "file": "content/levels/level_15/dialogue_level_15.json",
       "agent": "narrative_writer",
-      "where": "script[13] and script[14] (Brooke: 'a birthday at the office every single day this week. cake for breakfast...' / 'a bowl that's clean and actually green')",
-      "issue": "Brooke's reason for wanting something healthy is again a week of office birthday cake, the same joke as her level_10 line ('a whole week of office birthday cake'). Her Wild Thistle reaction repeats it too (see the outcomes finding). 'clean' also echoes her level_14 wording ('fresh and clean, please'). The clue is fair and lands; only the setup is reused.",
-      "suggested_fix": "Replace script[13] with: 'ok my turn. my grandma lands tomorrow and her first question is always \"are you eating your greens?\" i want to say yes and mean it' (emotion NEUTRAL, clue null). Replace script[14] with: 'so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging' (emotion NEUTRAL, clue vibe:healthy)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_15/outcomes_level_15.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_wild_thistle lines[0] (Brooke: 'a week of cake, and now this')",
-      "issue": "This repeats level_10's Marble Steps line ('i traded a week of office cake for a lunch that's just as rich'). If the dialogue fix above is applied, the line should follow the new setup.",
-      "suggested_fix": "Replace with: 'tasty, but every bowl here is glossy with oil. grandma's going to ask about my greens tomorrow and i'm going to have to confess' (emotion ANNOYED)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_15/dialogue_level_15.json",
-      "agent": "narrative_writer",
-      "where": "script[0]-script[4] (the stall beat)",
-      "issue": "The bible gives a story beat 2-3 lines at most, and this beat 1-2. Here it opens with five lines (Liam x4, Brooke x1) before any other need appears. script[1], [2] and [3] each do a job: the craving, telling the player the stall can't be found from the chat, and the reserved line. script[0] is a preface that could be cut. This is a finale, so the length isn't harmful, but trimming it keeps the beat inside the bible's limit.",
-      "suggested_fix": "Delete script[0] and open script[1] with it: 'everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row' (emotion HAPPY, clue craving). Keep script[2]-[4] as they are."
+      "where": "script[12] and script[13] (Brooke: 'ok my turn. my grandma lands tomorrow...' / 'so tonight, a bowl that's actually green...')",
+      "issue": "The grandma device itself is new: there is no grandma in levels 12-14 dialogue or outcomes. But the two-line shape copies Brooke's level_14 setup almost beat for beat: 'ok, my news: i'm pacing my cousin through her first 10k at 7am tomorrow' / 'so tonight i need fuel, not a food coma'. Both are a family member and 'tomorrow' on line one, then 'so tonight' plus the wish on line two. The motive is different (honesty with grandma, not race fuel), so this is an echo of structure, not a reused device. Note that this wording came from my own earlier suggested fix.",
+      "suggested_fix": "Break the template. script[12]: 'my grandma lands tomorrow. her first question is always \"are you eating your greens?\" and i'd love to say yes without crossing my fingers' (NEUTRAL, clue null). script[13]: 'a bowl that's actually green, and nothing that leaves me feeling like a fried dumpling. my body is begging' (NEUTRAL, clue vibe:healthy)."
     },
     {
       "severity": "suggestion",
       "check": "outcomes",
       "file": "content/levels/level_15/outcomes_level_15.json",
       "agent": "narrative_writer",
-      "where": "by_venue.night_market_sundial lines[0] and lines[1]",
-      "issue": "Cyrus's 'Peanut was in the wok' matches the review: roasted peanut oil from the tin goes into every bowl before the wok toss. Naming the oil would tie the fail more clearly to the review a player missed. Roxy's 'chopsticks down' says the group was already eating, which contradicts Cyrus's routine in script[9] ('I ask the cook one question before anyone orders') and his own line that the cook answered it.",
-      "suggested_fix": "lines[0]: 'No sauce, nothing on top that I could see. Then the cook answered the rest of my question: every bowl starts with peanut oil from that tin, straight into the wok. That counts.' lines[1]: 'WAIT. it looked so safe!! menus down, nobody order, we're going'."
+      "where": "by_venue.night_market_sundial lines[1] (Roxy: 'WAIT. it looked so safe!! menus down, nobody order, we're going')",
+      "issue": "The timing now fits Cyrus's ask-before-ordering routine, so the fix landed. Two small points remain. Market stalls in this chapter use price boards, not menus (script[7], Bramble Row outcome), so 'menus down' reads a little off. And the 'X down, nobody Y' command echoes Roxy's level_13 peanut-fail line ('burgers on the counter, hands up!! nobody hand cyrus anything'). Calling back her own line from this chat would fit better.",
+      "suggested_fix": "lines[1]: 'WAIT. it looked so safe!! nobody order. any peanut, any form, we walk' (SURPRISED)."
     }
   ],
-  "summary": "A strong finale with a payoff that works. Liam's lines give only the craving, script[2] and [18] tell the player that which stall it is can't be worked out from the chat, no review marks Juniper Yard as THE stall (Bramble Row's hype queue is a fair narrative red herring and its outcome confirms it), and the perfect outcome is the reveal. Both peanut traps are fair. Brass Kettle is obvious. Sundial's 'roasted peanut oil from the big tin by the burner' is plain once read and is covered exactly by Cyrus's 'the oil in the wok'. Juniper Yard's allergy-board evidence (market office sign-off, a cousin twice hospitalised who eats there weekly) is as firm as the decoys'. Maya's coins-versus-bills device reads clearly as $, and 'very dramatic', not walking out, fits a soft $$ miss. The two queues don't confuse because speed isn't scored. The open items are freshness (Brooke's office-cake reason repeats level_10), trimming the beat's opening line, and a small continuity slip in the Sundial fail.",
+  "summary": "All four fixes from the first review landed cleanly. The beat now opens on the craving line. Brooke's office-cake reason is gone, and 'actually green / not a fried dumpling' is a fresh implied healthy clue that every review can confirm or rule out. The Wild Thistle reaction ('glossy with oil', grandma's greens) matches its review and the new setup, and Cyrus's Sundial line now names the review's peanut-oil tin. Fairness, voice, the stall payoff and the trap set are unchanged and still sound. The grandma device doesn't appear anywhere in levels 12-14. The two remaining suggestions are optional polish: Brooke's two-line shape echoes level_14's, and Roxy's 'menus down'.",
   "generated_by": "critic"
 }

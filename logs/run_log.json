@@ -3119,7 +3119,7 @@
     "step": "critique",
     "result": "pass, 0 must_fix, 4 suggestions (all writer) sent for one rework round",
     "retries": 0,
-    "tokens": null
+    "tokens": 70257
   },
   {
     "timestamp": "2026-11-16T05:48:10.596Z",
@@ -3129,6 +3129,36 @@
     "step": "chat_rework",
     "result": "first-critique suggestions 1-4 applied (grandma greens setup, beat merged to 19 lines, Sundial lines match review)",
     "retries": 1,
+    "tokens": 36027
+  },
+  {
+    "timestamp": "2026-11-16T05:48:18.112Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:49:20.673Z",
+    "level": "level_15",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 2 suggestions (to PR)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:49:20.673Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
     "tokens": null
   }
 ]
