@@ -24,7 +24,7 @@
       "missed": ["allergy:peanut"],
       "lines": [
         { "speaker": "cyrus", "text": "No sauce, nothing on top that I could see. Then the cook answered the rest of my question: every bowl starts with peanut oil from that tin, straight into the wok. That counts.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "WAIT. it looked so safe!! menus down, nobody order, we're going", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "WAIT. it looked so safe!! nobody order. any peanut, any form, we walk", "emotion": "SURPRISED" },
         { "speaker": "liam", "text": "it's not the stall anyway. the stall would never do this to us", "emotion": "SURPRISED" }
       ]
     },
@@ -54,5 +54,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
