@@ -2929,7 +2929,7 @@
     "step": "critique",
     "result": "pass after rework, 0 must_fix, 1 suggestion (to PR)",
     "retries": 0,
-    "tokens": null
+    "tokens": 39316
   },
   {
     "timestamp": "2026-11-16T04:15:59.133Z",
@@ -2938,6 +2938,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14886
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14810
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (all runs: Mina vegetarian clue most buried; 2 runs: Marigold fish pot vs \"point at anything\")",
     "retries": 0,
     "tokens": null
   }
