@@ -3229,6 +3229,16 @@
     "step": "chat_outcomes",
     "result": "written: 19 lines, Mina speaks up beat (real main), callbacks plate_of_fries/milkshake_incident",
     "retries": 0,
+    "tokens": 62750
+  },
+  {
+    "timestamp": "2026-11-16T06:11:48.887Z",
+    "level": "level_16",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues, new waterfront registry",
+    "retries": 0,
     "tokens": null
   }
 ]

@@ -1,0 +1,58 @@
+{
+  "level_id": "level_16",
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_tidewater",
+      "reviews": [
+        "There's a chalk tide table by the door that the owner's daughter rewrites every morning, and the regulars read it before they order, as if it changes the menu. It sort of does: whatever came in on the early boats goes on the grill with lemon and oregano, and the rest of the board is ladera, vegetables slow-braised in olive oil and tomato. Green beans, okra, gigantes baked until they're jammy, lemon potatoes. Two plates and a carafe later I still felt like I could swim across the harbour.",
+        "My girlfriend gave up meat at nineteen and has spent every Greek dinner since building a meal out of dips and starters. Here she got a main of her own: yemista, two tomatoes and a pepper stuffed with herbed rice, pine nuts and currants and roasted soft, with a heap of lemon potatoes beside them. For once her plate landed at the same moment as everyone else's.",
+        "Go on a Friday and expect to lean in to hear the person next to you. A bouzouki player works his way between the tables, and by ten someone has always started a line dance in the gap between the chairs. I went looking for my usual crumble of cheese and a yogurt dip and came up empty. The dips are a split-pea fava and a garlicky potato skordalia, the salad is tomato, cucumber, capers and plenty of oil, and the bread comes with a saucer of olive oil, never butter."
+      ]
+    },
+    {
+      "id": "waterfront_salt_marsh",
+      "reviews": [
+        "Salt Marsh is a charcoal grill first and a restaurant second, and a ginger cat sleeps on the sacks of charcoal by the kitchen door no matter how hot it gets. The board is lamb chops, pork souvlaki, chicken thighs, loukaniko sausage and a whole sea bream, all of it straight over the coals with olive oil, lemon and oregano, so it comes out lean and smoky rather than heavy. The pitta gets brushed with oil before it hits the grate, and the only dip is a sharp skordalia. You won't find a cheese plate or a yogurt bowl anywhere on the menu.",
+        "The cooks call every order back across the room, the football's on above the bar, and a crew of deckhands thumps the counter whenever their side scores. My flatmate doesn't eat meat and asked which main she could have. There wasn't one. She pieced together lemon potatoes, a bowl of horta, some gigantes and the pitta, all from the sides list, while the rest of us worked through the mixed grill."
+      ]
+    },
+    {
+      "id": "waterfront_driftwood",
+      "reviews": [
+        "The owner's father carves the driftwood that covers every wall, and if you catch his eye he'll tell you which beach each piece washed up on. The catch comes off the boat moored across the road: grilled octopus, sardines, grilled calamari, a whole bream dressed with lemon and olive oil, mussels steamed in white wine and herbs. Nothing is battered, the dip is a pale pink taramosalata whipped from roe, bread and oil, and I never saw a cheese grater or a butter dish come out of the kitchen. The room is all clatter and laughter, and the owner sings along to the radio, badly, every time he carries out a plate.",
+        "I brought my cousin, who doesn't eat meat, and the waiter pointed her to the meat-free column on the menu. Every dish in it came out of the sea: bream, octopus, sardines, mussels, a fisherman's soup. She won't eat anything that swims either, so dinner for her was bread, horta and a little plate of fava while the rest of us shared the octopus."
+      ]
+    },
+    {
+      "id": "waterfront_seawall",
+      "reviews": [
+        "The dining room is built into the old harbour wall, so one side is bare stone that's still cool to the touch at the end of a hot August day. Bread comes from a wood oven in the corner, and the moustached waiter starts a sing-along most nights around nine; by the second chorus the whole room has joined in and you have to wave to get a refill. Everything is grilled or baked, the salads are enormous, and I didn't feel weighed down after.",
+        "My sister has never eaten meat and had real choices: yemista, a gigantes bake, grilled vegetable skewers, a fat chicken souvlaki for the rest of us. Just know it's a feta-and-yogurt kitchen through and through. The yemista come baked under a crust of feta, the skewers sit on a pool of tzatziki, the beans get a thick crumble of cheese, and every plate arrives with a bowl of strained yogurt. When we asked for the stuffed tomatoes without the cheese, the waiter shrugged that it goes on before they're baked."
+      ]
+    },
+    {
+      "id": "waterfront_copper_buoy",
+      "reviews": [
+        "A real copper buoy, gone green with age, hangs by the door, and the tradition is to ring it on your way out if you cleaned your plate. Inside, a guitarist plays rebetiko from a stool by the bar, half the room claps along, and when the chorus comes round the tables stamp their feet with it.",
+        "Everything comes out of the fryer, and I do mean everything: chickpea fritters, courgette chips, eggplant slices in batter, calamari, fries showered in oregano, with taramosalata for dipping. Even the bread arrives glistening. A full platter of the fritters is the meatless main, and the batter is just flour, beer and water fried in olive oil; there's no cheese on the board and the kitchen doesn't bother with butter. Delicious, but by the end the paper under our plates had gone see-through."
+      ]
+    },
+    {
+      "id": "waterfront_cormorant",
+      "reviews": [
+        "The loudest thing in the room is the ice settling in your water glass. Tables are set far apart, the servers move like they're in a reading room, and through the open window you can hear the halyards ticking against the masts in the marina. The napkins come folded into little boats, which my dad took apart and refolded for the whole meal.",
+        "Light, lemony cooking: grilled octopus, olive-oil ladera of green beans and okra, gigantes baked with tomato and dill, nothing fried. My brother, meat-free for years, ordered the yemista as his main, stuffed with herbed rice and pine nuts. I asked for some yogurt on the side and the server murmured that the kitchen doesn't keep any dairy, then brought a little bowl of tahini sauce instead. Dessert was a quince spoon-sweet, the last of the summer's batch."
+      ]
+    },
+    {
+      "id": "waterfront_breakwater",
+      "reviews": [
+        "An Italian kitchen in a converted boathouse at the end of the breakwater. A nonna rolls orecchiette in the front window, and the open kitchen behind her runs at full tilt: pans clanging, the chef ringing a brass bell for every order up, the whole room talking over each other.",
+        "It's the light end of southern Italian: grilled fish, orecchiette with broccoli rabe and garlic, and a ciambotta, a summer vegetable stew of peppers, eggplant and potato. My sister, who hasn't touched meat in years, had the ciambotta as her main and stole half my greens. Pasta gets finished with olive oil and toasted breadcrumbs instead of grated cheese, and there's no butter in the pans, so I left full but not stuffed."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}
