@@ -3079,6 +3079,16 @@
     "step": "spec",
     "result": "written: answer night_market_juniper_yard = Liam's stall (noodles, $); two peanut traps + budget_soft/dairy/healthy near misses; all six noodles",
     "retries": 0,
+    "tokens": 65819
+  },
+  {
+    "timestamp": "2026-11-16T05:43:35.362Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 20 lines, Liam stall payoff (reveal in perfect outcome), callbacks trip_fund/satay_incident/milkshake_incident",
+    "retries": 0,
     "tokens": null
   }
 ]
