@@ -3010,5 +3010,35 @@
     "result": "rebuilt after option 1A",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5 (also read \"most of tonight's board\" as a 6th preference; Lucky Seven 1 star)",
+    "retries": 0,
+    "tokens": 14921
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5 (also read \"most of the board\" as a 6th preference; Lucky Seven 1-2 stars)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14495
   }
 ]
