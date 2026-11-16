@@ -3179,7 +3179,7 @@
     "step": "playtest_run2",
     "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15134
   },
   {
     "timestamp": "2026-11-16T05:50:11.034Z",
