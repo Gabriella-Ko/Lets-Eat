@@ -3239,6 +3239,16 @@
     "step": "venues",
     "result": "written: 7 venues, new waterfront registry",
     "retries": 0,
+    "tokens": 57166
+  },
+  {
+    "timestamp": "2026-11-16T06:11:58.756Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
     "tokens": null
   }
 ]
