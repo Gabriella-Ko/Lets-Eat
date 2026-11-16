@@ -2850,5 +2850,15 @@
     "result": "written: answer night_market_marigold_cart (curry, $), vegetarian trap + dairy/healthy/budget_soft/craving near misses; Firefly Lane returns as craving decoy",
     "retries": 0,
     "tokens": 52099
+  },
+  {
+    "timestamp": "2026-11-16T04:09:57.433Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 19 lines, promotion hint (Maya pitch picked), callbacks trip_fund + sushi_day",
+    "retries": 0,
+    "tokens": null
   }
 ]

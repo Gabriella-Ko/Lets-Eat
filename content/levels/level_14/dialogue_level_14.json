@@ -1,0 +1,26 @@
+{
+  "level_id": "level_14",
+  "script": [
+    { "speaker": "brooke", "text": "poll's closed, dinner crew! curry 3, 'surprise me' 1", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "roxy", "text": "surprise me is a real answer!! but fine. curry. i'm down", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "mina", "text": "curry sounds perfect :) maya, you went quiet right after you voted. everything okay?", "emotion": "NEUTRAL", "clue": "craving" },
+    { "speaker": "maya", "text": "better than okay. a plan i pitched got picked at work today. the whole team's running with it", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "MAYA!! that's huge. celebration curry at the fancy end of the market, let's do it", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "maya", "text": "price boards with a single dollar sign, please. a second one and i'm counting coins the whole walk home", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "roxy", "text": "ok ok. cheap AND celebratory. i can work with that", "emotion": "HAPPY", "clue": "budget" },
+    { "speaker": "brooke", "text": "so proud of you maya! ok, my news: i'm pacing my cousin through her first 10k at 7am tomorrow", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "so tonight i need fuel, not a food coma. fresh and clean, please", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "mina", "text": "a 10k! i'm making her a sign for the finish line :)", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "mina, tonight's your night too. remember sushi day? cyrus found that whole meat-free section and you ordered like a kid let loose in a candy shop", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
+    { "speaker": "mina", "text": "you were there for that! pointing at anything on the board without asking a single question... i'd love that again tonight :)", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
+    { "speaker": "brooke", "text": "then mina picks first tonight. that's the rule", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "ok unrelated, but i stole one sip of my roommate's iced latte last night and regretted it until 2am", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "brooke", "text": "roxy. a lot of curries are made with cream, yogurt or butter", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "...oh. ok, none of that in my sauce. my stomach is still mad about the latte", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "mina", "text": "it's going to be such a good night :) assistant, we're all yours", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "last one to the market buys the napkins!!", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

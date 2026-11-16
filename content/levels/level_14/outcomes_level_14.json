@@ -1,0 +1,57 @@
+{
+  "level_id": "level_14",
+  "by_venue": {
+    "night_market_marigold_cart": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "i pointed at three things on the board and didn't have to ask about any of them. sushi day, curry edition :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "so cheap the trip fund didn't even notice we celebrated. best kind of party", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "fresh, bright, and my legs feel ready for tomorrow. my cousin doesn't stand a chance", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_glass_bead": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... every pot on this board has meat in it. i asked twice, just in case", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "this is the exact opposite of sushi day. nope. everyone up, mina is not eating plain rice at my celebration", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "we're moving! mina, you lead us to the next stall. you were supposed to pick first", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_night_heron": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "the curry was SO good. then i found out the sauce is mostly cream and butter. latte night, the sequel. my stomach is filing a complaint", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "oh roxy, i'm sorry. come sit with me, we'll get you some water and take the slow way out", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_lucky_seven": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "loved the flavour, but i can feel every drop of that oil. at this rate my cousin's going to be pacing me", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "i'll hand you water at the start line tomorrow. promise", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_tall_grass": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "great curry. two dollar signs, though. i'm walking home and putting the bus fare back in the fund", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "i'll walk with you! celebration parade, coast edition", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_firefly_lane": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "brooke", "text": "firefly lane! still love it here. but the poll said curry, and i'm the one who counted the votes", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "it's just as lovely as last time :) curry can be next market night, brooke", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
