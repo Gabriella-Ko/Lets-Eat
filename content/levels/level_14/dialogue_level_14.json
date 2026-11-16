@@ -13,7 +13,7 @@
     { "speaker": "brooke", "text": "so tonight i need fuel, not a food coma. fresh and clean, please", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "mina", "text": "a 10k! i'm making her a sign for the finish line :)", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "mina, tonight's your night too. i still think about your face on sushi day, when cyrus slid that menu over with a whole page of meat-free picks. you ordered like a kid let loose in a candy shop", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
-    { "speaker": "mina", "text": "you were there for that! pointing at anything on the board without asking a single question... i'd love that again tonight :)", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
+    { "speaker": "mina", "text": "you were there for that! not one dish i had to ask about. no meat, no fish, just pick and eat... if most of tonight's board is like that, i'm happy :)", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
     { "speaker": "brooke", "text": "then mina picks first tonight. that's the rule", "emotion": "HAPPY", "clue": null },
     { "speaker": "roxy", "text": "ok unrelated, but i stole one sip of my roommate's iced latte last night and regretted it until 2am", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
     { "speaker": "brooke", "text": "roxy. a lot of curries are made with cream, yogurt or butter", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
