@@ -1,0 +1,41 @@
+{
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_hollow_oak",
+      "name": "Hollow Oak",
+      "cuisine": "burgers",
+      "price_tier": "$"
+    },
+    {
+      "id": "campus_bun_stop",
+      "name": "Bun Stop",
+      "cuisine": "burgers",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_amber_lamp",
+      "name": "Amber Lamp",
+      "cuisine": "burgers",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_velvet_tent",
+      "name": "Velvet Tent",
+      "cuisine": "burgers",
+      "price_tier": "$"
+    },
+    {
+      "id": "night_market_midnight_orchard",
+      "name": "Midnight Orchard",
+      "cuisine": "burgers",
+      "price_tier": "$$"
+    },
+    {
+      "id": "night_market_crooked_pine",
+      "name": "Crooked Pine",
+      "cuisine": "burgers",
+      "price_tier": "$$$"
+    }
+  ]
+}

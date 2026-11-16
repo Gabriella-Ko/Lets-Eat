@@ -90,6 +90,51 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["healthy"],
       "first_level": "level_12"
+    },
+    {
+      "id": "night_market_amber_lamp",
+      "name": "Amber Lamp",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_13"
+    },
+    {
+      "id": "night_market_hollow_oak",
+      "name": "Hollow Oak",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["dairy_free", "vegetarian_options", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_13"
+    },
+    {
+      "id": "night_market_velvet_tent",
+      "name": "Velvet Tent",
+      "cuisine": "burgers",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_13"
+    },
+    {
+      "id": "night_market_crooked_pine",
+      "name": "Crooked Pine",
+      "cuisine": "burgers",
+      "price_tier": "$$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_13"
+    },
+    {
+      "id": "night_market_midnight_orchard",
+      "name": "Midnight Orchard",
+      "cuisine": "burgers",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options", "vegan_options"],
+      "vibe_tags": ["quick_bite"],
+      "first_level": "level_13"
     }
   ],
   "generated_by": "map_seeder",

@@ -1,0 +1,27 @@
+{
+  "level_id": "level_13",
+  "script": [
+    { "speaker": "cyrus", "text": "Market night, round three. I've been keeping notes: so far the crew has done tacos and viet there.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "cyrus", "text": "Next on my list is burgers. There's a whole cluster of grill stalls by the fountain.", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "BURGERS. cyrus i would follow your list off a cliff", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "roxy", "text": "grill stalls?? i'm down. racing all of you there", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "maya", "text": "i'm in, but tonight gets its own line in my trip spreadsheet. it's a very small line", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "liam", "text": "how small are we talking", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "cheapest-stall small. a little over and i'll sulk the whole bus ride home. fancy prices and i'm turning around at the gate", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "mina", "text": "we'll keep it cheap, maya :) it's so nice to have five of us tonight. how's everyone's week been?", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Long. Which is why I also did some homework: at least one grill here brushes satay sauce on everything. Satay and I have history, so that stall is crossed out.", "emotion": "NEUTRAL", "clue": "allergy:peanut", "callback": "satay_incident" },
+    { "speaker": "liam", "text": "say no more. anything peanut-y stays on the far side of the fountain", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "liam", "text": "also, burger night means i'm on fries patrol", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "fries patrol?? what's that", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "liam", "text": "the plate of fries. one burger night, before you joined, i had a double stack and mina had a plate of fries because nothing on that menu worked for her. i've been on patrol ever since", "emotion": "SURPRISED", "clue": "diet:vegetarian", "callback": "plate_of_fries" },
+    { "speaker": "mina", "text": "they were really good fries! liam worries too much :)", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "patrol rules: mina gets a burger with zero meat in it, picked off the board like the rest of us", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "honestly, ordering off the board like everyone else sounds like a treat. i'll hold you to it :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "roxy", "text": "ok i'm getting the most loaded burger in the whole market. everything on it", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "maya", "text": "roxy, most loaded usually means three kinds of cheese. are you trying to film a milkshake incident sequel?", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
+    { "speaker": "roxy", "text": "...no sequel. hold the cheese, no creamy sauce, no shake. my stomach makes the rules", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "assistant, pick us a stall. i'm racing liam to the fountain!!", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

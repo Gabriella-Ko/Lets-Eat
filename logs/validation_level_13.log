@@ -1,0 +1,7 @@
+PASS level_13
+clue map (implied, 20 lines):
+  allergy:peanut     @ 8, 9
+  diet:vegetarian    @ 12, 14, 15
+  budget             @ 4, 6
+  craving            @ 1, 2, 3
+  intolerance:dairy  @ 17, 18

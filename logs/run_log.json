@@ -2620,5 +2620,225 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:07:14.527Z",
+    "level": "level_13",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer night_market_amber_lamp (burgers, $), 5 decoys incl. budget trap and returning campus_bun_stop as dairy near miss",
+    "retries": 0,
+    "tokens": 72079
+  },
+  {
+    "timestamp": "2026-11-15T23:11:09.704Z",
+    "level": "level_13",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 venues, 5 new night_market burger stalls added to registry, campus_bun_stop reused",
+    "retries": 0,
+    "tokens": 56644
+  },
+  {
+    "timestamp": "2026-11-15T23:11:59.893Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 20 lines, callbacks trip_fund/satay_incident/plate_of_fries/milkshake_incident; Bun Stop outcome framed as default order",
+    "retries": 0,
+    "tokens": 69547
+  },
+  {
+    "timestamp": "2026-11-15T23:12:09.830Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:15:28.409Z",
+    "level": "level_13",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 7 suggestions",
+    "retries": 0,
+    "tokens": 80130
+  },
+  {
+    "timestamp": "2026-11-15T23:15:28.409Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14864
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15102
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14778
+  },
+  {
+    "timestamp": "2026-11-15T23:16:26.685Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs: plate-of-fries line contradicts Bun Stop review black bean patty from campus days)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:22:24.802Z",
+    "level": "level_13",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestion: three level_12 echoes reworded (Crooked Pine, Amber Lamp peanut evidence, Velvet Tent)",
+    "retries": 1,
+    "tokens": 21982
+  },
+  {
+    "timestamp": "2026-11-15T23:23:04.306Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "critic suggestions: plate-of-fries continuity (fries patrol), Bun Stop dairy on the stall, fresh Velvet Tent fail, Hollow Oak matches reviews, echoes replaced",
+    "retries": 1,
+    "tokens": 40778
+  },
+  {
+    "timestamp": "2026-11-15T23:23:13.167Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:24:39.553Z",
+    "level": "level_13",
+    "agent_id": "critic",
+    "brief_version": "v2",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 1 suggestion (Amber Lamp peanut sentence)",
+    "retries": 0,
+    "tokens": 56706
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestion: Amber Lamp peanut sentence (one peanut-free pantry for cart and school lunches)",
+    "retries": 2,
+    "tokens": 15849
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:25:14.701Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after rework",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-15T23:26:02.812Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_rework",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14856
+  },
+  {
+    "timestamp": "2026-11-15T23:26:02.812Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_rework",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14855
+  },
+  {
+    "timestamp": "2026-11-15T23:26:02.812Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_rework",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14885
+  },
+  {
+    "timestamp": "2026-11-15T23:26:02.812Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after rework (2 runs: Bun Stop cart at north gate vs chat fountain stalls; harmless)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T03:54:23.110Z",
+    "level": "level_13",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

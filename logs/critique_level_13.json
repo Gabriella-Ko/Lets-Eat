@@ -1,0 +1,17 @@
+{
+  "level_id": "level_13",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_13/venues_level_13.json",
+      "agent": "map_seeder",
+      "where": "venue night_market_amber_lamp review 2",
+      "issue": "The new peanut evidence is firm ('nothing with a peanut in it is ever bought for the cart'), as firm as Bun Stop's 'never kept a peanut' and Velvet Tent's 'nothing containing peanuts has ever come onto the cart', so the answer stays fair. Two small problems. First, a night-market cart grill that is also wheeled in to cook weekday school lunches 'on this very grill' strains belief. Second, the sentence is tangled: 'the owner also cooks weekday lunches for his elementary school, which bans peanuts outright, on this very grill', and the owner is 'her' in review 1, so a reader has to stop and work out that 'his' means the nephew. The 'nothing ever comes onto the cart' shape now also appears three times in this level (Bun Stop, Velvet Tent, Amber Lamp).",
+      "suggested_fix": "Keep the school link but drop the shared grill and use a different shape, e.g. 'My nephew's peanut allergy is the serious kind, and what settled his mom was learning the owner is also the lunch cook at his elementary school, which bans peanuts outright. She says one peanut-free pantry for both jobs is simpler, so there's never been a peanut near this grill. A year on, he walks up and orders by himself.'"
+    }
+  ],
+  "summary": "The rework landed. All seven earlier suggestions are applied, and they now match the reviews: the Bun Stop partial puts the dairy on the stall's milk bun and garlic-butter fries, Velvet Tent's fail uses the beef-dripping fries and the corn cob from its review, Hollow Oak's fail names the exact peanut items, and the repeated level_08 and level_11 lines are gone. The plate-of-fries continuity now holds against level_03 and the bible entry: Liam frames 'fries patrol' as a standing habit since an unnamed burger night before Roxy joined, where he had a double stack and Mina had fries because nothing worked for her. That fits level_03's 'last time... not again' and doesn't clash with the Bun Stop visit. Liam's 'we're finding mina a real burger' is his own level_03 wording ('this time you get a real burger too'), not Mina's reserved level_16 'real main' request, so it doesn't take that beat. The only suggestion is to make Amber Lamp's new peanut evidence more plausible and easier to read.",
+  "generated_by": "critic"
+}

@@ -1,0 +1,52 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_13",
+  "run": 2,
+  "pick": "night_market_amber_lamp",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: burgers (group craving)",
+      "who": "cyrus, liam, roxy",
+      "source_line": "cyrus: \"Next on my list is burgers. There's a whole cluster of grill stalls by the fountain.\""
+    },
+    {
+      "constraint": "Budget: $ (cheapest tier). $$ costs a star, $$$ is a deal-breaker",
+      "who": "maya",
+      "source_line": "maya: \"cheapest-stall small. a little over and i'll sulk the whole bus ride home. fancy prices and i'm turning around at the gate\""
+    },
+    {
+      "constraint": "Peanut allergy (deal-breaker)",
+      "who": "cyrus",
+      "source_line": "cyrus: \"...at least one grill here brushes satay sauce on everything. Satay and I have history, so that stall is crossed out.\" (confirmed by liam: \"anything peanut-y stays on the far side of the fountain\")"
+    },
+    {
+      "constraint": "Vegetarian, needs a real meatless burger on the menu (strict diet, deal-breaker)",
+      "who": "mina",
+      "source_line": "liam: \"patrol rules: mina gets a burger with zero meat in it, picked off the board like the rest of us\" (backstory: \"mina had a plate of fries because nothing on that menu worked for her\")"
+    },
+    {
+      "constraint": "Dairy intolerance (costs one star, not a deal-breaker)",
+      "who": "roxy",
+      "source_line": "roxy: \"...no sequel. hold the cheese, no creamy sauce, no shake. my stomach makes the rules\""
+    }
+  ],
+  "venue_evaluation": {
+    "night_market_hollow_oak": "Out: peanuts everywhere (peanut butter, peanut sauce, peanut slaw). $, vegan patty, no cheese otherwise fine.",
+    "campus_bun_stop": "2 stars: $, peanut-free kitchen, vegan black bean patty, but butter-toasted brioche, cheese on classics, garlic-butter fries hit Roxy's dairy intolerance.",
+    "night_market_amber_lamp": "3 stars: $, kitchen has never had a peanut, black bean and mushroom burgers are meatless, oil not butter, no cheese.",
+    "night_market_velvet_tent": "Out: meat-only board (even fries in beef dripping), so Mina has nothing.",
+    "night_market_midnight_orchard": "2 stars: $$ is one tier over Maya's budget; otherwise peanut-free, meatless options, no dairy.",
+    "night_market_crooked_pine": "Out: $$$ is two tiers over budget ('fancy prices and i'm turning around at the gate')."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Solid level. Each decoy fails on exactly one constraint, so the player has to check all four (budget, peanut, vegetarian, dairy) to get the answer.",
+    "Cyrus's peanut allergy is implied through 'Satay and I have history'. A new player might read that as a dislike rather than an allergy, but Liam's 'anything peanut-y' line makes it clear enough.",
+    "Mina being vegetarian is never stated directly. It comes from 'a burger with zero meat in it' plus the plate-of-fries story, which is fair but means real inference.",
+    "Mina's line about ordering 'off the board like everyone else' could suggest Bun Stop's lettuce-wrap black bean patty counts as a weaker fit (not really a burger off the board). It doesn't change the pick, since Bun Stop already loses a star for dairy.",
+    "Roxy's dairy issue is phrased as a stomach issue ('my stomach makes the rules'), which correctly reads as an intolerance rather than an allergy.",
+    "The 'milkshake incident sequel' reference relies on earlier-level continuity. It isn't needed because Roxy spells out the restriction in the next line.",
+    "Nothing unfair or contradictory found."
+  ]
+}

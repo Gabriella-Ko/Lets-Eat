@@ -1,0 +1,19 @@
+{
+  "level_id": "level_13",
+  "chapter": 3,
+  "district": "night_market",
+  "difficulty": "implied",
+  "guests": ["maya", "roxy", "cyrus", "mina", "liam"],
+  "hard": { "budget_max": "$", "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "burgers", "vibe": [], "intolerances": ["dairy"] },
+  "solution_id": "night_market_amber_lamp",
+  "decoys": [
+    { "id": "night_market_hollow_oak", "fails_on": "allergy:peanut" },
+    { "id": "night_market_velvet_tent", "fails_on": "diet:vegetarian" },
+    { "id": "night_market_crooked_pine", "fails_on": "budget_hard" },
+    { "id": "night_market_midnight_orchard", "fails_on": "budget_soft" },
+    { "id": "campus_bun_stop", "fails_on": "intolerance:dairy" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
