@@ -1,0 +1,100 @@
+{
+  "level_id": "level_15",
+  "script": [
+    {
+      "speaker": "liam",
+      "text": "everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "which cart, she wouldn't say. just 'you'll know at the first slurp'",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "THE stall. tonight. no arguments",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "finally!! you've talked about this stall all summer. i am not missing the ending",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "noodle row?? i'm down. i'll check every cart myself if i have to",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "maya",
+      "text": "i'm in, but the trip fund has me on a coin purse tonight. coins only. no paper money leaves my wallet",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "liam",
+      "text": "how far do coins go on noodle row",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Count me in. Same routine as any new stall: I ask the cook one question before anyone orders.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "the question. ever since the satay incident i could ask it in my sleep",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "It's grown since then. Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "got it, captain. any peanut, any form, we walk",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "ok my turn. my grandma lands tomorrow and her first question is always \"are you eating your greens?\" i want to say yes and mean it",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "oh and roxy. my tipster says a lot of carts on that row finish the broth with butter or a splash of milk",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "after the milkshake incident, those carts are dead to me on your behalf",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Assistant, the row is long and Liam's tip ends there. Over to you.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
+      "text": "one slurp. that's all i need",
+      "emotion": "HUNGRY"
+    }
+  ]
+}

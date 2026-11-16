@@ -1,0 +1,48 @@
+{
+  "level_id": "level_15",
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_bramble_row",
+      "reviews": [
+        "Bramble Row is the stall everyone has been posting about this summer, and the line proves it: forty minutes on a Saturday, with a teenager in a bramble-print apron handing out numbered tickets. Worth the hype? Mostly. The hand-pulled noodles come in a clear ginger-scallion broth with blanched greens, and the cold sesame noodles are piled with shredded cucumber and herbs. Everything is poached or tossed cold, nothing greasy, and I walked off feeling clean rather than stuffed. Just know a bowl runs a few dollars more than at the noodle carts on either side.",
+        "I'm allergic to peanuts, and I normally skip anything called sesame noodles, because so many kitchens sneak peanut butter into the sauce. Before I took a ticket, the woman at the ticket table went through every sauce and oil with me: the paste is straight tahini, the crunch is fried garlic and sesame seeds, the wok oil is rice bran, and there isn't a peanut on the premises. I had both bowls. The cold noodles look creamy, but the richness is blended silken tofu, so my brother, who has been off dairy since his teens, didn't have to sit this one out."
+      ]
+    },
+    {
+      "id": "night_market_wild_thistle",
+      "reviews": [
+        "Look for the purple neon thistle that buzzes like a mosquito. The cook drops nests of noodles straight into the fryer, pulls them out shattering-crisp and smothers them in a glossy soy and garlic gravy. The pan-fried ginger-scallion noodles arrive sitting in a shiny puddle of oil, and the crispy tofu chow mein is somehow greasier. I ate every bite and had to undo a button on the way out.",
+        "My partner reacts to peanuts, and fried-noodle stalls are usually off his list because of the oil and the crushed nuts on top. He spent three summers at the dumpling stall next door and still helps unload deliveries for both carts: canola oil by the drum, flour, cabbage, garlic, sesame seeds, and never a peanut in any box. He's been eating here weekly since. The cook can't have milk herself, so there's no butter or cream anywhere near her woks."
+      ]
+    },
+    {
+      "id": "night_market_juniper_yard",
+      "reviews": [
+        "One burner, one pot, one floured board, and you hear the dough slapping against it before you see the cart. The regulars know the drill: line up, hand over a few dollars, and watch your noodles get stretched and folded to order, then dropped into a clear ginger and scallion broth with a handful of bok choy. Nothing fried, nothing heavy, and the broth tastes like it's doing you good. A man in a bike helmet was halfway through his second bowl when I left, and the cook already had a third waiting for him.",
+        "My cousin's peanut allergy has put him in the hospital twice, so at the market he only eats from stalls on the allergy board by the north gate, the ones the market office has signed off as keeping no peanuts at all. Juniper Yard has been on it as long as he's been coming, and he's here most Fridays. His girlfriend gave up anything milky after one very bad summer of ice cream, and she drank her broth down to the last drop: it's just ginger, scallion, kombu and soy, the dough is flour, water and salt, and the only thing to add is a jar of chili oil on the counter."
+      ]
+    },
+    {
+      "id": "night_market_kestrel",
+      "reviews": [
+        "A carved wooden kestrel hangs over the counter with its wings spread, and the owner's toddler gives it a new name every night (last week it was Gerald). The house bowl is Taiwanese-style milk broth noodles: a pale, gently sweet soup simmered with fresh whole milk, filled with hand-pulled noodles, napa cabbage, mushrooms, tofu and corn, with a pat of butter melting on top. No fryer, mostly vegetables, and lighter than it sounds. My housemate, who learned years ago that milk doesn't agree with her, tried a few spoonfuls of mine anyway and spent the night on the couch with a hot water bottle.",
+        "I asked about peanuts for my boyfriend, and the owner grinned: \"My wife is allergic. If a peanut came near this stall, I'd be sleeping here.\" The crunchy topping is toasted sesame and fried shallot. My boyfriend has ordered the mushroom bowl every week since."
+      ]
+    },
+    {
+      "id": "night_market_brass_kettle",
+      "reviews": [
+        "A huge brass kettle sits on a coal brazier at the front, and the owner pours free barley tea for everyone waiting. The signature is the peanut noodles: wheat noodles tossed in a thick roasted peanut sauce and buried under crushed peanuts and cucumber. The dan dan gets a peanut crumble on top, and even the side of blanched greens comes with a peanut dressing.",
+        "It's a lighter meal than it looks. The noodles are boiled, the greens are blanched, there's no fryer on the stall, and afterward I wanted a long walk rather than a nap. The sauce gets its silkiness from ground nuts and starchy noodle water, not cream, so my dad, whose stomach complains about a splash of milk in his coffee, eats here every week without a peep. There's a tofu version of everything for my vegetarian sister."
+      ]
+    },
+    {
+      "id": "night_market_sundial",
+      "reviews": [
+        "There's a brass sundial bolted to the counter, which is a good joke at a market that opens after dark; the owner says it's right twice a year. I always get the ginger-scallion noodles. Every bowl starts the same way: a spoonful of roasted peanut oil from the big tin by the burner, then ginger, garlic and scallion, then springy wheat noodles and more greens than noodle. The mushroom and tofu version is my favourite. A brief toss in the wok is all the cooking anything gets, nothing is deep-fried, and I felt bright the whole walk home.",
+        "The sauce rack is soy, black vinegar and chili, and there's no butter or milk anywhere on the stall. My teammate, who goes through lactase pills like candy, didn't reach for one all night. A grandmother beside us was teaching her grandson to use chopsticks on his first bowl, and by the end he was better at it than me."
+      ]
+    }
+  ]
+}
