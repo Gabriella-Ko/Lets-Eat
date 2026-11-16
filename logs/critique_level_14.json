@@ -4,77 +4,14 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "fairness",
-      "file": "content/levels/level_14/dialogue_level_14.json",
-      "agent": "narrative_writer",
-      "where": "script[6] (Maya: 'price boards with a single dollar sign, please...')",
-      "issue": "This is an implied level, but this line is close to Maya's stated-level wording ('one dollar sign max' in level_08, 'one-dollar-sign stalls only' in level_11). It reads as a stated clue. script[5] ('fancy end, no... the trip fund still eats first') already carries the budget in the implied style. The second half ('counting coins the whole walk home') is worth keeping, because it marks a $$ stall as a grumble rather than a dealbreaker, so Tall Grass reads as costing one star.",
-      "suggested_fix": "Replace script[6] text with: 'street-cart prices, please. one step up from that and i'm counting coins the whole walk home'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_14/dialogue_level_14.json",
-      "agent": "narrative_writer",
-      "where": "script[11] (Maya: 'remember sushi day? cyrus found that whole meat-free section...')",
-      "issue": "The callback is findable and implied, and Mina's reply turns it into a clear wish. But Maya's opener nearly copies Roxy's level_10 line ('remember sushi day? cyrus found you that whole section with zero meat in it'). Maya was actually at sushi day (level_08), so she can tell it from what she saw herself.",
-      "suggested_fix": "Replace script[11] text with: 'mina, tonight's your night too. i was there on sushi day, when you found a whole meat-free section on the menu and ordered like a kid let loose in a candy shop'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_14/outcomes_level_14.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_night_heron lines[0] (Roxy)",
-      "issue": "'the sauce is mostly cream and butter' doesn't match the Night Heron reviews: every pot starts with ghee and is finished with whisked yogurt, and cream is never mentioned. 'latte night, the sequel' also repeats the 'sequel' joke from level_13, which has 'milkshake incident: the sequel' and 'milkshake incident sequel'.",
-      "suggested_fix": "Replace with: 'the curry was SO good. then i found out every pot starts with ghee and gets a swirl of yogurt at the end. the latte was a warning and i ignored it. my stomach is filing a complaint'"
-    },
-    {
-      "severity": "suggestion",
       "check": "freshness",
       "file": "content/levels/level_14/outcomes_level_14.json",
       "agent": "narrative_writer",
-      "where": "by_venue.night_market_glass_bead lines[0] (Mina) and lines[1] (Maya)",
-      "issue": "This fail follows the same shape as level_12's Stone Well fail. Mina's 'oh... every pot on this board has meat in it. i asked twice' echoes 'oh... i read the whole board twice. there's meat or fish in every single thing', and Maya's 'everyone up' echoes level_12's 'Everyone up, we're leaving' and level_13's 'everybody up'. 'meat' also undersells a board that is mostly fish and prawn.",
-      "suggested_fix": "Mina lines[0]: 'oh... fish, prawns, chicken, and even the pumpkin one has shrimp in the paste. i'll just... be in charge of napkins?' Maya lines[1]: 'absolutely not. this is the opposite of sushi day, and mina is not watching us eat at my celebration. we're finding her a board she can point at'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_14/outcomes_level_14.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.night_market_tall_grass lines[0] (Maya)",
-      "issue": "'great curry. two dollar signs, though. i'm walking home...' has the same shape as her level_13 Midnight Orchard line, 'great burger. two dollar signs though, so i'm sulking the whole bus ride home', down to the bus home.",
-      "suggested_fix": "Replace with: 'loved it. then i spotted that second dollar sign on the price board. i'm counting coins the whole walk home, exactly like i said i would'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_14/venues_level_14.json",
-      "agent": "map_seeder",
-      "where": "venue night_market_tall_grass review 1 ('the kind of dinner you could eat before a 6 a.m. run')",
-      "issue": "This is good evidence for healthy, but it happens to mirror the chat closely (Brooke runs at 7am tomorrow). That makes the $$ decoy look tailor-made for the group and piles a third early-morning exercise image onto the level.",
-      "suggested_fix": "Replace that phrase with: 'the kind of dinner you could happily eat every night of the week'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_14/venues_level_14.json",
-      "agent": "map_seeder",
-      "where": "venue night_market_night_heron review 1 and night_market_marigold_cart review 1",
-      "issue": "Two stalls in this level end their healthy evidence with the same image: Night Heron's 'ready for another lap' and Marigold's 'energy for two more laps of the market'. Level_12 used the same image too ('another lap of the aisles'). The repeat is what makes the answer's healthy line read like a template.",
-      "suggested_fix": "Night Heron: change 'and I left feeling clear-headed and ready for another lap.' to 'and I left clear-headed instead of sleepy.' Marigold: change 'and I had energy for two more laps of the market afterward.' to 'and I walked the whole market afterward without once wanting to sit down.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_14/venues_level_14.json",
-      "agent": "map_seeder",
-      "where": "venue night_market_lucky_seven review 2 and night_market_glass_bead review 2",
-      "issue": "All six stalls show their dairy status the same way: a companion whose stomach and milk don't get along, and at four of them coconut milk. This repeats a template across the level (map-seeder brief: no shared template, vary wording for the same fact). It's fair, because every stall uses it, but it reads mechanically. Glass Bead's dairy status doesn't decide its score (it fails on vegetarian), and Lucky Seven's can be shown by what the reviewer saw.",
-      "suggested_fix": "Lucky Seven review 2: replace 'Her husband, whose stomach turns on milk, worked through all of it with her and was fine. The roti dough is made with oil, and the curries get their richness from coconut milk and all that frying.' with 'The cook works from a stack of coconut milk cans under the counter, and I never spotted a butter dish or a milk carton anywhere near the wok; even the roti dough is made with oil.' Glass Bead review 2: replace 'My uncle is the opposite story: dairy and he fell out years ago, coconut milk is the only richness on this board, and he has had the fish curry every week since spring without a single bad night.' with 'I've had the tamarind fish curry every week since spring; its only richness comes from coconut milk, cracked fresh at the back of the stall each evening.'"
+      "where": "by_venue.night_market_tall_grass lines[1] (Roxy: 'celebration parade, coast edition')",
+      "issue": "'edition' now closes two outcome lines in this level (Mina's perfect line 'sushi day, curry edition' and this one). 'coast edition' is also hard to read: Tall Grass has nothing to do with the coast, so the joke only works as an oblique nod to Maya's trip. Mina's use is the stronger one, so this is the one to change.",
+      "suggested_fix": "Replace Roxy's line with: 'i'll walk with you! a celebration parade only needs two people and some napkins'"
     }
   ],
-  "summary": "A warm, fair level. The poll gives the curry craving a fresh start, and every scored need is findable in the implied style. Maya's promotion hint lands as a passing work win ('a pat on the back isn't a paycheck') that keeps her at $ without revealing the promotion. Roxy's latte aside follows clue rule 6, and Brooke ties it to cream, yogurt and butter. The sushi-day callback carries Mina's need without her stating it. Brooke's 10k pacing is an exercise reason again (level_09 had climbing), but it's about supporting her cousin, Mina's sign makes it social, and it isn't in the last three levels, so it stands. Every review evidences its venue's deciding attributes and matches the registry. The eight suggestions are wording echoes of levels 10 to 13, one outcome line that doesn't match its review, and a few repeated review images.",
+  "summary": "All eight first-round fixes landed cleanly. script[6] now carries the budget as an implied clue ('street-cart prices'), and Maya's sushi-day callback matches the bible (Cyrus found the section), is told by someone who was there (Maya was a level_08 guest) and no longer copies level_10. The Night Heron (ghee, yogurt-finished gravies), Glass Bead (shrimp paste, chicken stock) and Tall Grass outcome lines all match their reviews. The review rewrites vary the healthy and dairy evidence and still prove every deciding attribute. I left Brooke's short 'we're moving!' unflagged because it's her voice, not a copied line. The only thing left is a small wording suggestion.",
   "generated_by": "critic"
 }
