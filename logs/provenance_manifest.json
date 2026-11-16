@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "beeadfc57d831b4d5c6aaa3ce925a079ebce53d5",
+  "head": "0d030b76ba36db03457106fccae46c28f20a51eb",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1689,6 +1689,114 @@
       ]
     },
     {
+      "file": "content/levels/level_15/dialogue_level_15.json",
+      "level": "level_15",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T01:03:17-05:00",
+      "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
+          "timestamp": "2026-11-16T01:03:17-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_15: hand edit Brooke's setup lines and Roxy's Sundial line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d5a5cc9205a5b5d762ca04dd6482f9e0abd036fa",
+          "timestamp": "2026-11-16T00:48:10-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "7660329c75d2b6f537990626d0c6322eea156e34",
+          "timestamp": "2026-11-16T00:43:35-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: chat and outcomes (Liam's stall payoff)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_15/outcomes_level_15.json",
+      "level": "level_15",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T01:03:17-05:00",
+      "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
+          "timestamp": "2026-11-16T01:03:17-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_15: hand edit Brooke's setup lines and Roxy's Sundial line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d5a5cc9205a5b5d762ca04dd6482f9e0abd036fa",
+          "timestamp": "2026-11-16T00:48:10-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "7660329c75d2b6f537990626d0c6322eea156e34",
+          "timestamp": "2026-11-16T00:43:35-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: chat and outcomes (Liam's stall payoff)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_15/spec_level_15.json",
+      "level": "level_15",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T00:31:22-05:00",
+      "commit": "8c67b254983759df72cff7dfdb837d5b1583284d",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "8c67b254983759df72cff7dfdb837d5b1583284d",
+          "timestamp": "2026-11-16T00:31:22-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_15: spec (Juniper Yard is Liam's stall, noodles, two peanut traps)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_15/venues_level_15.json",
+      "level": "level_15",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T00:44:11-05:00",
+      "commit": "dffd418c0d250944e45ef64b90a1fd6117f914b9",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "dffd418c0d250944e45ef64b90a1fd6117f914b9",
+          "timestamp": "2026-11-16T00:44:11-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_15: venues and 6 new Night Market noodle stalls",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1797,11 +1905,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-15T23:10:03-05:00",
-      "commit": "2fdac42549c7e634c6680a36dd0a82338ecc7c0a",
+      "timestamp": "2026-11-16T00:44:11-05:00",
+      "commit": "dffd418c0d250944e45ef64b90a1fd6117f914b9",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "dffd418c0d250944e45ef64b90a1fd6117f914b9",
+          "timestamp": "2026-11-16T00:44:11-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_15: venues and 6 new Night Market noodle stalls",
+          "pre_pipeline": false
+        },
         {
           "commit": "2fdac42549c7e634c6680a36dd0a82338ecc7c0a",
           "timestamp": "2026-11-15T23:10:03-05:00",
@@ -2213,6 +2328,33 @@
           "timestamp": "2026-11-15T23:13:29-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_14: pass, 8 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_15.json",
+      "level": "level_15",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-16T00:49:20-05:00",
+      "commit": "437c5b307fab9fdda25dcbed69f7a5b1649206a2",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "437c5b307fab9fdda25dcbed69f7a5b1649206a2",
+          "timestamp": "2026-11-16T00:49:20-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_15: re-review after rework, pass, 2 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c559bd26596cd43a0e886a9aebbbefcd62f1d512",
+          "timestamp": "2026-11-16T00:47:10-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_15: pass, 4 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -3410,6 +3552,66 @@
           "timestamp": "2026-11-15T23:16:50-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_14: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_15_run1.json",
+      "level": "level_15",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T00:50:11-05:00",
+      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+          "timestamp": "2026-11-16T00:50:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_15_run2.json",
+      "level": "level_15",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T00:50:11-05:00",
+      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+          "timestamp": "2026-11-16T00:50:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_15_run3.json",
+      "level": "level_15",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T00:50:11-05:00",
+      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+          "timestamp": "2026-11-16T00:50:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
