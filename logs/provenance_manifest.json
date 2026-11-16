@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "e6bf9807736b3d7906fbdf533018895bbbd2d678",
+  "head": "beeadfc57d831b4d5c6aaa3ce925a079ebce53d5",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1574,6 +1574,121 @@
       ]
     },
     {
+      "file": "content/levels/level_14/dialogue_level_14.json",
+      "level": "level_14",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T00:22:47-05:00",
+      "commit": "67a1bd417843793a51606d665f6ebfc697af0672",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "67a1bd417843793a51606d665f6ebfc697af0672",
+          "timestamp": "2026-11-16T00:22:47-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_14: hand edit Mina's sushi-day reply ('plenty like that')",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "69ed9631d8362187b4fdf93674a6138d58360f74",
+          "timestamp": "2026-11-15T23:27:24-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: Mina's sushi-day reply (option 1A)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "481b230ac5870b183c4d8f1c623f3ac204706489",
+          "timestamp": "2026-11-15T23:15:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "01d2797054c410edd110328c4e27a35c1fd63090",
+          "timestamp": "2026-11-15T23:09:57-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: chat and outcomes (Maya promotion hint)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_14/outcomes_level_14.json",
+      "level": "level_14",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v7",
+      "timestamp": "2026-11-15T23:15:05-05:00",
+      "commit": "481b230ac5870b183c4d8f1c623f3ac204706489",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "481b230ac5870b183c4d8f1c623f3ac204706489",
+          "timestamp": "2026-11-15T23:15:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "01d2797054c410edd110328c4e27a35c1fd63090",
+          "timestamp": "2026-11-15T23:09:57-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: chat and outcomes (Maya promotion hint)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_14/spec_level_14.json",
+      "level": "level_14",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-15T23:06:39-05:00",
+      "commit": "13970a548d4cef1fa8d1f7b2f6ba95b67957c167",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "13970a548d4cef1fa8d1f7b2f6ba95b67957c167",
+          "timestamp": "2026-11-15T23:06:39-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_14: spec (Marigold Cart, curry, vegetarian + budget)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_14/venues_level_14.json",
+      "level": "level_14",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-15T23:14:14-05:00",
+      "commit": "c3f1248b4133428b99291b22a63b708347610745",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c3f1248b4133428b99291b22a63b708347610745",
+          "timestamp": "2026-11-15T23:14:14-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_14: apply critic suggestions (run line, lap wording, dairy-free template)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2fdac42549c7e634c6680a36dd0a82338ecc7c0a",
+          "timestamp": "2026-11-15T23:10:03-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_14: venues and 5 new Night Market curry stalls",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1682,11 +1797,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-15T18:11:09-05:00",
-      "commit": "cb5b45313e59c456ea030745090b8fca25ef0923",
+      "timestamp": "2026-11-15T23:10:03-05:00",
+      "commit": "2fdac42549c7e634c6680a36dd0a82338ecc7c0a",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2fdac42549c7e634c6680a36dd0a82338ecc7c0a",
+          "timestamp": "2026-11-15T23:10:03-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_14: venues and 5 new Night Market curry stalls",
+          "pre_pipeline": false
+        },
         {
           "commit": "cb5b45313e59c456ea030745090b8fca25ef0923",
           "timestamp": "2026-11-15T18:11:09-05:00",
@@ -2057,6 +2179,40 @@
           "timestamp": "2026-11-15T18:15:28-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_13: pass, 7 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_14.json",
+      "level": "level_14",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-15T23:28:20-05:00",
+      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+          "timestamp": "2026-11-15T23:28:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after option 1A, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "343bdde157b17f26467bc1ea27ff02ca67b81d8c",
+          "timestamp": "2026-11-15T23:15:59-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_14: re-review after rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "40715c7199ac3d6b0c7c445d4e7d367e5e682e4f",
+          "timestamp": "2026-11-15T23:13:29-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_14: pass, 8 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -3173,6 +3329,87 @@
           "timestamp": "2026-11-15T18:16:26-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_13: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_14_run1.json",
+      "level": "level_14",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T23:28:20-05:00",
+      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+          "timestamp": "2026-11-15T23:28:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after option 1A, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e361b8b42d27baaf2d2778550fc4833e716af13c",
+          "timestamp": "2026-11-15T23:16:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_14_run2.json",
+      "level": "level_14",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T23:28:20-05:00",
+      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+          "timestamp": "2026-11-15T23:28:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after option 1A, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e361b8b42d27baaf2d2778550fc4833e716af13c",
+          "timestamp": "2026-11-15T23:16:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_14_run3.json",
+      "level": "level_14",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T23:28:20-05:00",
+      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+          "timestamp": "2026-11-15T23:28:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after option 1A, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e361b8b42d27baaf2d2778550fc4833e716af13c",
+          "timestamp": "2026-11-15T23:16:50-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
