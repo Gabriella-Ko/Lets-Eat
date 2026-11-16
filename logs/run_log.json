@@ -2989,6 +2989,26 @@
     "step": "chat_rework",
     "result": "Gabriella chose option 1A: Mina script[12] makes her diet findable and fits a mostly meat-free board",
     "retries": 2,
+    "tokens": 14681
+  },
+  {
+    "timestamp": "2026-11-16T04:27:30.957Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after option 1A)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:27:30.957Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after option 1A",
+    "retries": 0,
     "tokens": null
   }
 ]
