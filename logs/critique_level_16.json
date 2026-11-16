@@ -1,0 +1,81 @@
+{
+  "level_id": "level_16",
+  "verdict": "must_fix",
+  "findings": [
+    {
+      "severity": "must_fix",
+      "check": "fairness",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[9] (Mina: 'not fish either, sorry :) a proper main where nothing on the plate ever had a face') and script[10] (Liam: 'nothing with a face, and a whole main, not a pile of sides pretending to be dinner. got it')",
+      "issue": "The beat's opening lands well: script[5] is the bible's own line, and script[6] plus 'not fish either' already make the need clear and implied. But 'nothing on the plate ever had a face' is the standard plain-English definition of vegetarian, so Mina ends up announcing her diet in all but the word. Liam then repeats it right away, so in an implied chapter 4 level the hard constraint reads as stated twice.",
+      "rule": "Bible, Story beats: Mina speaks up ('in the level's clue style ... never by announcing her diet'); Clue rule 5 and Campaign structure (chapter 4 clue style: implied and buried)",
+      "suggested_fix": "script[9]: 'not fish either, sorry :) just a proper main of my own, not something i build out of the starters' (NEUTRAL, clue diet:vegetarian). script[10]: 'a whole main of your own, not a pile of sides pretending to be dinner. got it' (NEUTRAL, clue diet:vegetarian). In outcomes, waterfront_driftwood lines[2] (Liam) also quotes the removed phrase. Replace it with: 'she said not fish either. it was right there in the chat. let's go' (SURPRISED)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "continuity",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[0] ('last weekend of summer') and script[11] ('it's the last summer weekend'); outcomes waterfront_tidewater lines[1] ('best way to say goodbye to summer')",
+      "issue": "Chapter 4 runs five levels, and level_20 is Maya's send-off before her end-of-summer coast trip (level_08: 'coast trip, end of summer'). If level_16 is the last weekend of summer, the four levels after it have no summer left, and the send-off lands in autumn.",
+      "suggested_fix": "script[0]: 'summer's almost over and this crew has never once eaten by the water. tonight we fix that!' script[11]: 'ok my turn. summer's nearly done, so i want somewhere loud. a packed room, people laughing over each other, plates flying past'. Tidewater lines[1]: 'a loud table, a light plate and mina asking first. best way to toast the end of summer'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "continuity",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[6] (Mina: 'i've had enough side salads and plates of fries for one summer')",
+      "issue": "The plate of fries comes from burger night in the spring semester (level_03, chapter 1), not from this summer, so 'for one summer' slightly misdates the callback.",
+      "suggested_fix": "script[6]: 'i've had enough side salads and plates of fries to last me a lifetime' (keep clue diet:vegetarian and callback plate_of_fries)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "voice",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[15]-script[16] (Roxy: 'ok logistics: i'm taking the water taxi over and back...' / '...none of that in mine')",
+      "issue": "Roxy flags her dairy need in advance, with a 'logistics' framing that sounds more like Cyrus. Her Cast entry says she's impulsive and often forgets to mention it, and clue rule 6 lets her raise it only offhand, late in the chat. The water-taxi device itself is fresh and worth keeping.",
+      "suggested_fix": "script[15]: 'oh wait, i'm taking the water taxi back. bobbing boat, ten whole minutes' (NEUTRAL, clue null). script[16]: '...so maybe no yogurt dips or crumbly cheese in mine. just remembered why' (SURPRISED, clue intolerance:dairy)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[17] (Brooke: 'roxy plus a bobbing boat plus a repeat of the milkshake incident? absolutely not. zero dairy for you')",
+      "issue": "'a repeat of the milkshake incident' is the same joke shape as Maya's level_13 'milkshake incident sequel'. 'zero dairy for you' also names the constraint outright, so the last implied clue in the chat ends up stated, which makes the level easier.",
+      "suggested_fix": "script[17]: 'roxy, a bobbing boat and the milkshake incident in one evening? i'm sitting at the far end of that taxi' (SURPRISED, keep clue intolerance:dairy and callback milkshake_incident)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_16/venues_level_16.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_seawall review 2, waterfront_cormorant review 2, waterfront_breakwater review 2",
+      "issue": "Six of seven venues give their vegetarian evidence through the same template, 'my [relative/friend] who doesn't eat meat ordered X', and both Seawall and Breakwater use 'my sister'. The three traps (Tidewater's foil Salt Marsh, Driftwood) need the anecdote, so vary the non-trap venues instead.",
+      "suggested_fix": "Seawall review 2, opening: 'The menu gives meat-free mains their own heading, and it's a real list: yemista, a gigantes bake, grilled vegetable skewers, next to a fat chicken souvlaki for the rest of us.' (rest unchanged). Cormorant review 2: replace 'My brother, meat-free for years, ordered the yemista as his main' with 'Half the mains on the card are meatless, and the yemista, stuffed with herbed rice and pine nuts, is the one the regulars order'. Breakwater review 2: replace 'My sister, who hasn't touched meat in years, had the ciambotta as her main and stole half my greens' with 'The ciambotta comes as a full main with no meat in it, and the couple next to us both ordered it and then stole each other's bread'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_16/venues_level_16.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_seawall review 1 (moustached waiter's sing-along)",
+      "issue": "Four venues show 'lively' with music: Tidewater's bouzouki and line dance, Copper Buoy's rebetiko and stamping, Driftwood's owner singing to the radio, and Seawall's sing-along. That's close to a shared template for the vibe.",
+      "suggested_fix": "Replace the sing-along sentence with: 'Long shared tables run the length of the room, so you end up toasting strangers' birthdays by nine, and you have to wave to get a refill over the noise.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_16/venues_level_16.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_tidewater review 3 ('I went looking for my usual crumble of cheese and a yogurt dip and came up empty')",
+      "issue": "The answer's dairy-free evidence is believable (ladera, fava, skordalia, olive oil instead of butter) but softer than Cormorant's. Seawall's review shows yemista baked under feta, and Tidewater's review 2 names yemista, so a careful player could wonder whether Tidewater's version has cheese too.",
+      "suggested_fix": "Change the sentence to: 'I went looking for my usual crumble of cheese and a yogurt dip and came up empty: no feta on anything, not even baked onto the yemista.'"
+    }
+  ],
+  "summary": "A strong chapter 4 opener. All seven venues' reviews carry their deciding attributes. Salt Marsh's 'there wasn't one [main]' and Driftwood's all-seafood 'meat-free column' make both vegetarian traps findable from 'real main' and 'not fish either'. Cormorant is plainly quiet against Brooke's 'somewhere loud', the other six read lively, and every outcome matches its venue's reviews (meat on every Salt Marsh main, Driftwood's seafood mains, Seawall's yogurt and feta, Copper Buoy's buzz and oil, Breakwater's orecchiette). The Mina beat lands as a real change from levels 08-14, where a friend always raised her need. The one must-fix: 'nothing on the plate ever had a face', echoed straight back by Liam, turns her implied ask into a plain statement of her diet. Difficulty comes mostly from 7 venues with two near-identical vegetarian traps. Because the clues are close to stated (Greek, loud, face, zero dairy), the level isn't much harder than 12-15 yet; the must-fix and the Brooke dairy suggestion help with that.",
+  "generated_by": "critic"
+}
