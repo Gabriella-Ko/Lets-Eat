@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "a3d1c8823cfb4e8375d00eda5ccc5bba37b99134",
+  "head": "e6bf9807736b3d7906fbdf533018895bbbd2d678",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1466,6 +1466,114 @@
       ]
     },
     {
+      "file": "content/levels/level_13/dialogue_level_13.json",
+      "level": "level_13",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v7",
+      "timestamp": "2026-11-15T18:23:04-05:00",
+      "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
+          "timestamp": "2026-11-15T18:23:04-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: plate-of-fries continuity, outcome fixes from critic",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "69ff5fb4abf2de4d72af376e3d7c0181b7b86840",
+          "timestamp": "2026-11-15T18:12:00-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_13/outcomes_level_13.json",
+      "level": "level_13",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v7",
+      "timestamp": "2026-11-15T18:23:04-05:00",
+      "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
+          "timestamp": "2026-11-15T18:23:04-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: plate-of-fries continuity, outcome fixes from critic",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "69ff5fb4abf2de4d72af376e3d7c0181b7b86840",
+          "timestamp": "2026-11-15T18:12:00-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_13/spec_level_13.json",
+      "level": "level_13",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-15T18:07:14-05:00",
+      "commit": "546f80828eb3c31dcef2a30312e6d0d309e9e30e",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "546f80828eb3c31dcef2a30312e6d0d309e9e30e",
+          "timestamp": "2026-11-15T18:07:14-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_13: spec (Amber Lamp, burgers, budget + peanut + vegetarian)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_13/venues_level_13.json",
+      "level": "level_13",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-15T18:25:14-05:00",
+      "commit": "366375009add49069595d51da0a758711938a487",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "366375009add49069595d51da0a758711938a487",
+          "timestamp": "2026-11-15T18:25:14-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_13: clearer Amber Lamp peanut evidence",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "97eee267adde4f4e0cb83a343173310fa8b506a0",
+          "timestamp": "2026-11-15T18:22:24-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_13: reword three reviews that echoed level_12",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "cb5b45313e59c456ea030745090b8fca25ef0923",
+          "timestamp": "2026-11-15T18:11:09-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_13: venues and 5 new Night Market burger stalls",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1574,11 +1682,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-13T18:17:05-05:00",
-      "commit": "90df37a60d5a69a8747428173e6ae7672685409b",
+      "timestamp": "2026-11-15T18:11:09-05:00",
+      "commit": "cb5b45313e59c456ea030745090b8fca25ef0923",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "cb5b45313e59c456ea030745090b8fca25ef0923",
+          "timestamp": "2026-11-15T18:11:09-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_13: venues and 5 new Night Market burger stalls",
+          "pre_pipeline": false
+        },
         {
           "commit": "90df37a60d5a69a8747428173e6ae7672685409b",
           "timestamp": "2026-11-13T18:17:05-05:00",
@@ -1915,6 +2030,33 @@
           "timestamp": "2026-11-13T18:20:12-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_12: must_fix 1 (vegetarian clue points at the answer), 6 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_13.json",
+      "level": "level_13",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T18:24:39-05:00",
+      "commit": "aca8589e6ec8ea01b47632281c5715846bae8bc5",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aca8589e6ec8ea01b47632281c5715846bae8bc5",
+          "timestamp": "2026-11-15T18:24:39-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_13: re-review after rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3a230445f70b97cb0501db5101b666d758b7efb4",
+          "timestamp": "2026-11-15T18:15:28-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_13: pass, 7 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -2950,6 +3092,87 @@
           "timestamp": "2026-11-13T18:23:15-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_12: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_13_run1.json",
+      "level": "level_13",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T18:26:02-05:00",
+      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+          "timestamp": "2026-11-15T18:26:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2dc1023692f3726ce6a956df8349ff991fdc05be",
+          "timestamp": "2026-11-15T18:16:26-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_13_run2.json",
+      "level": "level_13",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T18:26:02-05:00",
+      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+          "timestamp": "2026-11-15T18:26:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2dc1023692f3726ce6a956df8349ff991fdc05be",
+          "timestamp": "2026-11-15T18:16:26-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_13_run3.json",
+      "level": "level_13",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-15T18:26:02-05:00",
+      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+          "timestamp": "2026-11-15T18:26:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2dc1023692f3726ce6a956df8349ff991fdc05be",
+          "timestamp": "2026-11-15T18:16:26-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
