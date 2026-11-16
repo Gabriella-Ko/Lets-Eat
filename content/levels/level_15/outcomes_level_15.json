@@ -23,8 +23,8 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "No sauce, nothing on top that I could see. Then the cook answered the rest of my question. Peanut was in the wok. That counts.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "WAIT. it looked so safe!! chopsticks down, cyrus, we're going", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "No sauce, nothing on top that I could see. Then the cook answered the rest of my question: every bowl starts with peanut oil from that tin, straight into the wok. That counts.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "WAIT. it looked so safe!! menus down, nobody order, we're going", "emotion": "SURPRISED" },
         { "speaker": "liam", "text": "it's not the stall anyway. the stall would never do this to us", "emotion": "SURPRISED" }
       ]
     },
@@ -48,7 +48,7 @@
       "result": "partial",
       "missed": ["vibe:healthy"],
       "lines": [
-        { "speaker": "brooke", "text": "tasty, but every bowl here is glossy with oil. a week of cake, and now this. not the green i asked for", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "tasty, but every bowl here is glossy with oil. grandma's going to ask about my greens tomorrow and i'm going to have to confess", "emotion": "ANNOYED" },
         { "speaker": "liam", "text": "not my stall either. the one in my head doesn't drip. brooke, you pick the next cart on the hunt", "emotion": "HAPPY" }
       ]
     }
