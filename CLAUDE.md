@@ -46,7 +46,8 @@ logs/                           run_log.json, validation_, critique_, playtest_,
 4. Run the Validator. Any failure goes back to the agent that wrote the failing file (the log names it).
 5. Run `critic` once the Validator passes. It writes `logs/critique_level_XX.json`.
    - Each `must_fix` finding goes back to the agent that wrote that file (the finding names it), counting toward that agent's 3 retries. After fixes, re-run the Validator, then the critic.
-   - `suggestion` findings are not sent back; list them in the PR body for Gabriella to decide.
+   - **First critique only:** also send its `suggestion` findings for `narrative_writer` and `map_seeder` back to those agents in the same rework round (one message per agent, must-fixes and suggestions together; it counts as one retry). Then re-run the Validator and the critic. `puzzle_architect` suggestions are not sent automatically, because they would rebuild the level; list them in the PR body (Gabriella's decision, 2026-11-15).
+   - After that one round, later `suggestion` findings are not sent back; list them in the PR body for Gabriella to decide.
 6. Run `node scripts/prepare_playtest.js level_XX`. It copies ONLY `dialogue_level_XX.json`, `venues_level_XX.json` and the matching registry entries into `content/playtest_input/level_XX/`. Never the spec or outcomes. From level_03 on, strip the `clue` field from every dialogue line in the copy, so the Playtester has to find the clues itself (Gabriella's decision, 2026-11-05). In the registry copy, keep only `id`, `name`, `cuisine` and `price_tier`: venue cards never show dietary or vibe tags, so the Playtester sees exactly what a player sees (bible, Constraint vocabulary; decision 2026-11-08).
 7. Run `blind-playtester` 3 times, each as a fresh delegation, writing `playtest_level_XX_run1.json` … `run3.json`. Give each run the exact file names in its input folder (it cannot list folders).
 8. Judge the playtests:
