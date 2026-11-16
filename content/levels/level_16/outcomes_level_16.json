@@ -6,7 +6,7 @@
       "missed": [],
       "lines": [
         { "speaker": "mina", "text": "i asked, and i ordered a real main. straight off the mains list, no sides, no asking the waiter twice. i might cry a little :)", "emotion": "HAPPY" },
-        { "speaker": "brooke", "text": "a loud table, a light plate and mina ordering first. best way to say goodbye to summer", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "a loud table, a light plate and mina asking first. best way to toast the end of summer", "emotion": "HAPPY" },
         { "speaker": "roxy", "text": "no yogurt, no cheese, calm stomach. that water taxi ride home is going to be smooth sailing!!", "emotion": "HAPPY" }
       ]
     },
@@ -25,7 +25,7 @@
       "lines": [
         { "speaker": "mina", "text": "the waiter keeps pointing me to the meat-free mains... and every one of them is fish or seafood", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "i'm the one who ASKED about fish!! and she said no!! we're out", "emotion": "ANGRY" },
-        { "speaker": "liam", "text": "nothing with a face. she said it once and that should've been enough. let's go", "emotion": "SURPRISED" }
+        { "speaker": "liam", "text": "she said not fish either. it was right there in the chat. let's go", "emotion": "SURPRISED" }
       ]
     },
     "waterfront_seawall": {
