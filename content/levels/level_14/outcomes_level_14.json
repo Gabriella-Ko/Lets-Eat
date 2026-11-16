@@ -1,0 +1,57 @@
+{
+  "level_id": "level_14",
+  "by_venue": {
+    "night_market_marigold_cart": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "i pointed at three things on the board and didn't have to ask about any of them. sushi day, curry edition :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "so cheap the trip fund didn't even notice we celebrated. best kind of party", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "fresh, bright, and my legs feel ready for tomorrow. my cousin doesn't stand a chance", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_glass_bead": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "the pumpkin curry was my best hope... but the paste is pounded with dried shrimp. even the vegetable side is cooked in chicken stock", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "absolutely not. this is the opposite of sushi day, and mina is not watching us eat at my celebration. we're finding her a board she can point at", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "we're moving! mina, you lead us to the next stall. you were supposed to pick first", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_night_heron": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "the curry was SO good. then the cook mentioned every pot starts with ghee and the sauces get finished with yogurt. the latte was a warning and i ignored it. my stomach is filing a complaint", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "oh roxy, i'm sorry. come sit with me, we'll get you some water and take the slow way out", "emotion": "SURPRISED" }
+      ]
+    },
+    "night_market_lucky_seven": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "loved the flavour, but i can feel every drop of that oil. at this rate my cousin's going to be pacing me", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "i'll hand you water at the start line tomorrow. promise", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_tall_grass": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "loved every bite, right up until i spotted that second dollar sign on the price board. counting coins the whole walk home, exactly like i warned you", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "i'll walk with you! celebration parade, coast edition", "emotion": "HAPPY" }
+      ]
+    },
+    "night_market_firefly_lane": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "brooke", "text": "firefly lane! still love it here. but the poll said curry, and i'm the one who counted the votes", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "it's just as lovely as last time :) curry can be next market night, brooke", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

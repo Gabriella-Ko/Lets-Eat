@@ -1,0 +1,44 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_14",
+  "run": 3,
+  "pick": "night_market_marigold_cart",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: curry (poll result)",
+      "who": "group",
+      "line": "brooke: \"poll's closed, dinner crew! curry 3, 'surprise me' 1\""
+    },
+    {
+      "constraint": "Budget: $ (street-cart prices); $$ would cost a star",
+      "who": "maya",
+      "line": "maya: \"street-cart prices, please. one step up from that and i'm counting coins the whole walk home\""
+    },
+    {
+      "constraint": "Light / fresh, not fried or heavy",
+      "who": "brooke",
+      "line": "brooke: \"so tonight i need fuel, not a food coma. fresh and clean, please\""
+    },
+    {
+      "constraint": "Vegetarian (no meat, no fish), wants a board mostly meat-free",
+      "who": "mina",
+      "line": "mina: \"no meat, no fish, just pick and eat... if most of tonight's board is like that, i'm happy :)\" (set up by maya's sushi-day line)"
+    },
+    {
+      "constraint": "Dairy intolerance (no cream, yogurt or butter)",
+      "who": "roxy",
+      "line": "roxy: \"...oh. ok, none of that in my sauce. my stomach is still mad about the latte\" (with brooke's line about cream, yogurt or butter)"
+    }
+  ],
+  "venue_analysis": {
+    "night_market_marigold_cart": "Curry, $, no fryer and fresh sides, 3 of 4 pots meat-free with a separate ladle, coconut milk base with no dairy. Meets every constraint: 3 stars.",
+    "night_market_night_heron": "Curry, $, lean, over half meat-free, but ghee and yogurt are in every pot and can't be left out. Dairy intolerance costs a star: 2 stars.",
+    "night_market_lucky_seven": "Curry, $, meat-free half, dairy-free, but everything is fried and greasy, so it misses Brooke's fresh/light ask: 2 stars.",
+    "night_market_firefly_lane": "Light, meat-free, dairy-free and $, but it's Vietnamese, not curry: 2 stars.",
+    "night_market_tall_grass": "Curry, light, meat-free options, coconut milk, but $$ is one tier over Maya's budget: 2 stars.",
+    "night_market_glass_bead": "Curry, $, light, but nothing is meat-free or fish-free (shrimp paste, chicken stock). Deal-breaker for Mina."
+  },
+  "difficulty": 3,
+  "notes": "Fair, well-built puzzle. Every decoy fails exactly one constraint, so each clue matters. Maya's budget line is clear: 'one step up' tells you $$ costs something. Roxy's dairy intolerance is found by pairing the latte joke with Brooke's cream/yogurt/butter reply. That needs a little inference but it's fair. Mina's diet is the softest clue: she never says 'I'm vegetarian'. You have to infer it from the sushi-day memory ('no meat, no fish'), and her wording ('if most of tonight's board is like that, i'm happy') reads a bit like a preference rather than a strict diet. It doesn't change the pick, since only Glass Bead fails it and Glass Bead fails it completely. Night Heron's dairy is spelled out in a review, which is good because 'charred, lean' would otherwise make it look like a match. Not unfair, nothing contradictory."
+}

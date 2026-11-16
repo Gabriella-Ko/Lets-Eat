@@ -1,0 +1,19 @@
+{
+  "level_id": "level_14",
+  "chapter": 3,
+  "district": "night_market",
+  "difficulty": "implied",
+  "guests": ["brooke", "mina", "roxy", "maya"],
+  "hard": { "budget_max": "$", "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "curry", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "night_market_marigold_cart",
+  "decoys": [
+    { "id": "night_market_glass_bead", "fails_on": "diet:vegetarian" },
+    { "id": "night_market_night_heron", "fails_on": "intolerance:dairy" },
+    { "id": "night_market_lucky_seven", "fails_on": "vibe:healthy" },
+    { "id": "night_market_tall_grass", "fails_on": "budget_soft" },
+    { "id": "night_market_firefly_lane", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

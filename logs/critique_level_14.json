@@ -1,0 +1,17 @@
+{
+  "level_id": "level_14",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_14/outcomes_level_14.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.night_market_tall_grass lines[1] (Roxy: 'celebration parade, coast edition')",
+      "issue": "Two outcome lines in this level now end in 'edition': Mina's perfect line 'sushi day, curry edition' and this one. 'coast edition' is also hard to read: Tall Grass has nothing to do with the coast, so the joke only works as a sideways nod to Maya's trip. Mina's use is the stronger one, so this is the one to change.",
+      "suggested_fix": "Replace Roxy's line with: 'i'll walk with you! a celebration parade only needs two people and some napkins'"
+    }
+  ],
+  "summary": "The new script[12] works. It stays implied for chapter 3: Mina describes the sushi-day menu ('no meat, no fish, just pick and eat') and states a soft, conditional wish, but never names her diet. 'no fish' usefully covers the fish-heavy Glass Bead trap. It doesn't pre-empt the level_16 'Mina speaks up' beat, because Maya raises the callback first and Mina only answers, which is clue rule 6 as written. The line also sets up the outcomes well: 'not one dish i had to ask about' pays off in her perfect line ('i pointed at three things... didn't have to ask'), and that matches Marigold Cart's review (three of four pots meat-free, separate ladle), Maya's 'a board she can point at' and the scrapbook text. 'most of tonight's board' can be checked against the reviews and doesn't wrongly filter the answer. Its echo of level_10's 'without asking about any of it' is the sushi_day callback's own wording, not a copied line. The Roxy 'coast edition' suggestion still applies and is the only open item.",
+  "generated_by": "critic"
+}

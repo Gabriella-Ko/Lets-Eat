@@ -2840,5 +2840,235 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:06:39.087Z",
+    "level": "level_14",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer night_market_marigold_cart (curry, $), vegetarian trap + dairy/healthy/budget_soft/craving near misses; Firefly Lane returns as craving decoy",
+    "retries": 0,
+    "tokens": 52099
+  },
+  {
+    "timestamp": "2026-11-16T04:09:57.433Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 19 lines, promotion hint (Maya pitch picked), callbacks trip_fund + sushi_day",
+    "retries": 0,
+    "tokens": 64391
+  },
+  {
+    "timestamp": "2026-11-16T04:10:02.878Z",
+    "level": "level_14",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 venues, 5 new night_market curry stalls added to registry, Firefly Lane reused",
+    "retries": 0,
+    "tokens": 52116
+  },
+  {
+    "timestamp": "2026-11-16T04:10:12.290Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:13:29.212Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 8 suggestions (5 writer, 3 seeder) sent for one rework round",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:14:14.699Z",
+    "level": "level_14",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "first-critique suggestions 6-8: Tall Grass run line, lap wording, dairy-free template varied",
+    "retries": 1,
+    "tokens": 18690
+  },
+  {
+    "timestamp": "2026-11-16T04:15:04.986Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "first-critique suggestions 1-5 applied (budget wording, sushi-day eyewitness, Night Heron matches reviews, fresh Glass Bead fail, Tall Grass line)",
+    "retries": 1,
+    "tokens": 44109
+  },
+  {
+    "timestamp": "2026-11-16T04:15:13.228Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:15:59.133Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 1 suggestion (to PR)",
+    "retries": 0,
+    "tokens": 39316
+  },
+  {
+    "timestamp": "2026-11-16T04:15:59.133Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14886
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14944
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14810
+  },
+  {
+    "timestamp": "2026-11-16T04:16:50.183Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (all runs: Mina vegetarian clue most buried; 2 runs: Marigold fish pot vs \"point at anything\")",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:27:24.705Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "Gabriella chose option 1A: Mina script[12] makes her diet findable and fits a mostly meat-free board",
+    "retries": 2,
+    "tokens": 14681
+  },
+  {
+    "timestamp": "2026-11-16T04:27:30.957Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after option 1A)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:27:30.957Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after option 1A",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5 (also read \"most of tonight's board\" as a 6th preference; Lucky Seven 1 star)",
+    "retries": 0,
+    "tokens": 14921
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5 (also read \"most of the board\" as a 6th preference; Lucky Seven 1-2 stars)",
+    "retries": 0,
+    "tokens": 15087
+  },
+  {
+    "timestamp": "2026-11-16T04:28:20.536Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_1A",
+    "result": "correct (marigold_cart, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14495
+  },
+  {
+    "timestamp": "2026-11-16T04:28:36.165Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after option 1A, 0 must_fix, 1 suggestion (Roxy coast edition)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T04:28:36.165Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after option 1A (2 runs read \"most of tonight's board\" as an extra preference; no pick changed)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T05:26:15.828Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

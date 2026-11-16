@@ -1,0 +1,56 @@
+{
+  "level_id": "level_14",
+  "run": 1,
+  "generated_by": "blind_playtester",
+  "pick": "night_market_marigold_cart",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: curry (group poll result)",
+      "who": "brooke / group",
+      "source_line": "poll's closed, dinner crew! curry 3, 'surprise me' 1"
+    },
+    {
+      "constraint": "Budget: cheapest tier ($). One tier over costs a star",
+      "who": "maya",
+      "source_line": "street-cart prices, please. one step up from that and i'm counting coins the whole walk home"
+    },
+    {
+      "constraint": "Light, fresh, clean food. Nothing fried or heavy",
+      "who": "brooke",
+      "source_line": "so tonight i need fuel, not a food coma. fresh and clean, please"
+    },
+    {
+      "constraint": "Vegetarian, strict: no meat and no fish (deal-breaker)",
+      "who": "mina",
+      "source_line": "no meat, no fish, just pick and eat..."
+    },
+    {
+      "constraint": "Most of the menu should be meat-free, so she gets a real choice (preference)",
+      "who": "mina",
+      "source_line": "if most of tonight's board is like that, i'm happy :)"
+    },
+    {
+      "constraint": "Dairy intolerance: no cream, yogurt, butter or ghee in the sauce (costs a star, not a deal-breaker)",
+      "who": "roxy",
+      "source_line": "...oh. ok, none of that in my sauce. my stomach is still mad about the latte (with brooke's line: a lot of curries are made with cream, yogurt or butter)"
+    }
+  ],
+  "venue_assessment": {
+    "night_market_night_heron": "Curry, $, lean and not fried, over half meat-free. But ghee and yogurt are in every pot and can't be left out, so Roxy's dairy intolerance is missed. About 2 stars.",
+    "night_market_marigold_cart": "Curry, $, nothing fried, fresh herbs and pickle. 3 of 4 pots vegetarian with their own ladle. Coconut milk and coconut oil, no dairy. Meets every constraint. 3 stars.",
+    "night_market_lucky_seven": "Curry, $, dairy-free (coconut milk, oil roti). But everything is deep-fried and greasy, which misses Brooke. Only half the board is meat-free, not most, which misses Mina's preference. About 1 star.",
+    "night_market_firefly_lane": "Light, vegetarian-friendly and dairy-free, but it's Vietnamese, not curry. Misses the group's craving. About 2 stars.",
+    "night_market_tall_grass": "Curry, light, vegetarian with its own paste, coconut milk only. But it's $$, one tier over Maya's budget. About 2 stars.",
+    "night_market_glass_bead": "Curry, $, light, but no vegetarian dishes at all (even the pumpkin curry uses dried shrimp paste and the vegetables use chicken stock). Breaks Mina's strict diet. 0 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Each decoy is ruled out by a different constraint (dairy, frying, cuisine, price, strict diet). That's a clean design, and you have to read every review closely.",
+    "Roxy's dairy intolerance is hinted, not stated: a latte story, then Brooke's warning about cream, yogurt and butter. Fair, because Brooke spells out the link.",
+    "Mina's diet is only stated through a story about sushi day ('no meat, no fish'). It's clear enough, but players could read it as a preference rather than a strict diet. Either way, Glass Bead is ruled out.",
+    "Lucky Seven's 'half of the board' versus Marigold's '3 of 4' and Night Heron's 'over half' makes the 'most of the board' preference a fine-grained call. Lucky Seven fails on frying anyway, so the pick doesn't depend on it.",
+    "Marigold Cart serves a fish curry. A strict vegetarian could worry about cross-contact, but the review covers it: the vegetarian pots get their own ladle. Fair.",
+    "Nothing looked contradictory. Marigold is the only venue that clears every constraint."
+  ]
+}
