@@ -3279,6 +3279,36 @@
     "step": "chat_rework",
     "result": "must-fix (Mina no longer states diet) + 4 suggestions applied",
     "retries": 1,
+    "tokens": 31802
+  },
+  {
+    "timestamp": "2026-11-16T06:16:07.390Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:11.706Z",
+    "level": "level_16",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, must-fix resolved, 1 suggestion (to PR)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:11.706Z",
+    "level": "level_16",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
     "tokens": null
   }
 ]
