@@ -1,0 +1,49 @@
+{
+  "level_id": "level_14",
+  "district": "night_market",
+  "venues": [
+    {
+      "id": "night_market_night_heron",
+      "reviews": [
+        "A heron is painted across the shutter, standing on one leg, and a retired tailor turns up every night at ten for the same bowl and a chat about the weather. The cooking is wholesome and lean: vegetables charred in a clay oven, a thin chickpea curry, lentil dal, whole-wheat chapati toasted on a dry griddle, a crunchy cucumber and onion salad. There isn't a fryer on the stall, and I left feeling clear-headed and ready for another lap.",
+        "My brother gave up meat years ago and actually had to choose for once: saag paneer, the dal, a roasted cauliflower curry, the chickpeas. Over half the board is meat-free.",
+        "Lovely food, but my roommate paid for it. Milk wrecks her stomach, and every pot here starts with a spoonful of ghee; the dal is tempered in it, and the gravies, the chickpea curry included, are finished with whisked yogurt. She asked for a bowl without, and the cook explained apologetically that it's cooked into the base of everything and can't be left out. She risked a small dal anyway and spent the bus ride home doubled over."
+      ]
+    },
+    {
+      "id": "night_market_marigold_cart",
+      "reviews": [
+        "Strings of fresh marigolds hang along the roof of this little cart, and the owner's dad sits on an upturned bucket beside it, shelling peas for tomorrow. Four steel pots get ladled over brown rice: chickpea and spinach curry, a golden red lentil dal, pumpkin curry with curry leaves, and a fish curry for anyone who wants it. Nothing here sees a fryer, the sides are a crisp cucumber pickle and a heap of fresh herbs, and I had energy for two more laps of the market afterward. Two bowls came to less than a movie ticket.",
+        "My girlfriend hasn't eaten meat since middle school, so night markets usually mean a corn cob for her. Here three of the four pots were hers, and the owner serves them with their own ladle, kept well away from the fish. Milk is her other problem, which usually rules curry out altogether. She watched every pot start the same way, coconut oil, mustard seeds and curry leaves, with coconut milk for the richness and a squeeze of lime to finish, then ate a whole bowl and half of mine. Not a peep from her stomach that night or the next morning."
+      ]
+    },
+    {
+      "id": "night_market_lucky_seven",
+      "reviews": [
+        "Seven waving lucky-cat figurines line the shelf above the wok, and the owner swaps out a battery whenever one stops. Everything comes out of hot oil: potato curry puffs, a pumpkin curry with a slick of red chili oil floating on top, golden fried tofu in a yellow chickpea curry, and roti fried crisp in a puddle of oil on the griddle. Gloriously greasy. By the time I found the exit my jeans had opinions.",
+        "My cousin doesn't eat meat, and the meatless side of the board is half of it: the curry puffs, the fried tofu, the chickpea curry and a crispy okra one. Her husband, whose stomach turns on milk, worked through all of it with her and was fine. The roti dough is made with oil, and the curries get their richness from coconut milk and all that frying."
+      ]
+    },
+    {
+      "id": "night_market_firefly_lane",
+      "reviews": [
+        "Same jar lights, same herb boxes, and now a chalkboard where regulars leave doodles for the owner's son. This time I took my aunt, who has never eaten meat and whose stomach falls apart around milk, so she normally interrogates every vendor. Here she just pointed: rice paper rolls with mango, mint and tofu, a turmeric and dill vermicelli with tofu in place of the fish, a mushroom broth with greens. The dips are lime, chili and soy, everything comes heaped with fresh herbs, and nothing is heavy. She finished all of it, had a perfectly calm evening afterward, and has already picked our next Friday."
+      ]
+    },
+    {
+      "id": "night_market_tall_grass",
+      "reviews": [
+        "Planters of lemongrass taller than I am crowd the front of the stall, and the owner snips a stalk straight into your bowl. A bowl costs a few dollars more than at the curry carts down the aisle, and you can taste where it goes: green curry with tofu and Thai eggplant, a chickpea and tomato curry, red rice, piles of basil and cucumber. Everything is simmered or steamed, the kind of dinner you could eat before a 6 a.m. run. My flatmate hasn't touched meat in ten years and usually skips green curry because the paste tends to hide shrimp; here the tofu version gets its own paste, and she read the label on the jar to be sure. Milk and her stomach don't get along either, and she cleaned her bowl without regret: it's coconut milk all the way down."
+      ]
+    },
+    {
+      "id": "night_market_glass_bead",
+      "reviews": [
+        "You order through a curtain of glass beads that clatters shut behind you like rain on a tin roof. The short board comes from the sea or the coop: a sour tamarind fish curry, pumpkin and prawn curry, green curry with fish balls, and chicken in a thin lemongrass broth. Everything is poached rather than fried and comes with steamed jasmine rice and a fistful of herbs. I walked away feeling bright, not heavy.",
+        "I brought a friend who eats neither meat nor fish, and we left with one bowl between us. Even the pumpkin curry is built on a paste pounded with dried shrimp, and the vegetable side is cooked in chicken stock. She bought mango slices at the next stall instead. My uncle is the opposite story: dairy and he fell out years ago, coconut milk is the only richness on this board, and he has had the fish curry every week since spring without a single bad night."
+      ]
+    }
+  ],
+  "generated_by": "map_seeder",
+  "edited_by": null
+}

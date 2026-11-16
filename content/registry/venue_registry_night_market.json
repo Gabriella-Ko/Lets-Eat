@@ -135,6 +135,51 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options", "vegan_options"],
       "vibe_tags": ["quick_bite"],
       "first_level": "level_13"
+    },
+    {
+      "id": "night_market_marigold_cart",
+      "name": "Marigold Cart",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_14"
+    },
+    {
+      "id": "night_market_glass_bead",
+      "name": "Glass Bead",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_14"
+    },
+    {
+      "id": "night_market_night_heron",
+      "name": "Night Heron",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_14"
+    },
+    {
+      "id": "night_market_lucky_seven",
+      "name": "Lucky Seven",
+      "cuisine": "curry",
+      "price_tier": "$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": [],
+      "first_level": "level_14"
+    },
+    {
+      "id": "night_market_tall_grass",
+      "name": "Tall Grass",
+      "cuisine": "curry",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_14"
     }
   ],
   "generated_by": "map_seeder",

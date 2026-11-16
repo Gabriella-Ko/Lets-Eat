@@ -2859,6 +2859,16 @@
     "step": "chat_outcomes",
     "result": "written: 19 lines, promotion hint (Maya pitch picked), callbacks trip_fund + sushi_day",
     "retries": 0,
-    "tokens": null
+    "tokens": 64391
+  },
+  {
+    "timestamp": "2026-11-16T04:10:02.878Z",
+    "level": "level_14",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 6 venues, 5 new night_market curry stalls added to registry, Firefly Lane reused",
+    "retries": 0,
+    "tokens": 52116
   }
 ]
