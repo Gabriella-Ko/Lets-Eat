@@ -39,7 +39,7 @@
       "result": "partial",
       "missed": ["vibe:outdoor_seating"],
       "lines": [
-        { "speaker": "liam", "text": "great granita. eaten under a ceiling, on the last hot night of summer. the one thing i said i wouldn't do", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "great granita. stuck indoors on the last hot night of summer. the one thing i said i wouldn't do", "emotion": "ANNOYED" },
         { "speaker": "brooke", "text": "then we finish them on a walk down the boardwalk. the sunset isn't over yet!", "emotion": "HAPPY" }
       ]
     },
@@ -61,5 +61,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
