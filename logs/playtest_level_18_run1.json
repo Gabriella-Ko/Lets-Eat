@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_18",
+  "run": 1,
+  "pick": "waterfront_spindrift",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (made by a professional)",
+      "who": "cyrus",
+      "source_line": "Eleven attempts. Every one unrolled itself on the way to the plate. I would now like to eat some made by a professional."
+    },
+    {
+      "constraint": "Strict diet: vegetarian, needs a whole menu section with no fish or meat (deal-breaker)",
+      "who": "mina",
+      "source_line": "Mina, I've already ruled places out for you. Same standard as sushi day: a whole part of the menu with no fish and no meat in it, so you can point at anything."
+    },
+    {
+      "constraint": "Allergy: peanut (deal-breaker), for someone in the group",
+      "who": "group (satay incident)",
+      "source_line": "good. the satay incident stays a one-off. that story doesn't get a sequel, whatever sauce it comes in"
+    },
+    {
+      "constraint": "Budget: $$ ($$$ is one tier over and costs a star, not a deal-breaker)",
+      "who": "maya",
+      "source_line": "my turn. the trip fund finished its job, so i'm officially a two-dollar-sign person now / three signs won't sink me anymore. but i will bring it up at every dinner..."
+    },
+    {
+      "constraint": "Preference: calm, hushed room",
+      "who": "mina, brooke",
+      "source_line": "could we find somewhere calm and hushed, where nobody has to shout across the table?"
+    },
+    {
+      "constraint": "Preference: simple and light, nothing deep-fried",
+      "who": "brooke",
+      "source_line": "and in return, my one ask for the food: simple and light. nothing that's been battered and dunked in hot oil"
+    }
+  ],
+  "elimination": {
+    "waterfront_spindrift": "Fits everything: sushi, $$, hushed counter, full fish-and-meat-free page (kelp/mushroom miso), no fryer, peanut-safe (toasted rice crunch, soy/ponzu). 3 stars.",
+    "waterfront_starboard": "Deal-breaker: veg page dressed in white miso with roasted peanuts, spinach in crushed peanuts.",
+    "waterfront_gull_point": "Deal-breaker: nothing vegetarian (eel sauce on veg nigiri, salmon in cucumber roll).",
+    "waterfront_mooring_post": "Safe but $$$, one over budget: 2 stars.",
+    "waterfront_ropewalk": "Safe but loud (bells, shouting, loud playlist): misses calm, 2 stars.",
+    "waterfront_halyard": "Safe but everything is tempura/fried: misses light, 2 stars.",
+    "waterfront_cormorant": "Safe, quiet, light, but Greek, not sushi: misses craving, 2 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "The peanut allergy is only signalled via the 'satay incident' callback plus Cyrus binning a peanut dressing; a first-time player without memory of earlier levels might not know whose allergy it is, though the intent is clear enough. Starboard is a good trap for players who skim past the second half of its review.",
+    "Maya's budget lines are well calibrated: '$$ person' plus 'three signs won't sink me' reads clearly as $$$ = one-star penalty, not a deal-breaker.",
+    "Each decoy fails exactly one constraint, which makes the puzzle clean. Spindrift's reviews map almost one-to-one onto the constraints (hush, veg page, no fryer, peanut families), so once constraints are found the answer is fairly obvious.",
+    "Nothing unfair or contradictory found."
+  ]
+}

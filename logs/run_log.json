@@ -3669,7 +3669,7 @@
     "step": "critique",
     "result": "pass after rework, 0 must_fix, 0 suggestions",
     "retries": 0,
-    "tokens": null
+    "tokens": 44431
   },
   {
     "timestamp": "2026-11-17T04:56:47.362Z",
@@ -3678,6 +3678,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15644
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15624
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (all runs: chat never says whose peanut allergy it is; harmless)",
     "retries": 0,
     "tokens": null
   }

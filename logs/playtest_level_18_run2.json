@@ -1,0 +1,50 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_18",
+  "run": 2,
+  "pick": "waterfront_spindrift",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi, made by a professional (Cyrus)",
+      "type": "craving",
+      "source_line": "cyrus: \"On Sunday I bought a bamboo mat, a bag of short-grain rice and a stack of seaweed sheets, and tried to roll my own.\" / \"I would now like to eat some made by a professional.\""
+    },
+    {
+      "constraint": "Strict diet: vegetarian, no fish and no meat; needs a whole section of the menu she can order from (Mina)",
+      "type": "diet",
+      "source_line": "cyrus: \"Same standard as sushi day: a whole part of the menu with no fish and no meat in it, so you can point at anything.\" / mina: \"a whole page of rolls i can actually have\""
+    },
+    {
+      "constraint": "Allergy: peanut (group, from the 'satay incident'); no peanut sauces or dressings",
+      "type": "allergy",
+      "source_line": "cyrus: \"I read the label anyway: peanut, third ingredient. It was in the bin before the rice finished cooking.\" / brooke: \"the satay incident stays a one-off. that story doesn't get a sequel, whatever sauce it comes in\""
+    },
+    {
+      "constraint": "Budget: $$ ($$$ is one tier over, so it costs a star rather than ruling a place out)",
+      "type": "budget",
+      "source_line": "maya: \"i'm officially a two-dollar-sign person now\" / \"three signs won't sink me anymore. but i will bring it up at every dinner\""
+    },
+    {
+      "constraint": "Preference: calm, hushed room, no crowd noise (Mina, backed by Brooke)",
+      "type": "vibe",
+      "source_line": "mina: \"could we find somewhere calm and hushed, where nobody has to shout across the table?\" / brooke: \"a calm room tonight, no crowd noise\""
+    },
+    {
+      "constraint": "Preference: simple and light, nothing deep-fried or battered (Brooke)",
+      "type": "preference",
+      "source_line": "brooke: \"simple and light. nothing that's been battered and dunked in hot oil\""
+    }
+  ],
+  "elimination": {
+    "waterfront_spindrift": "Fits everything: sushi, $$, whole vegetarian page with a kelp and mushroom miso, no peanuts (the crunch is toasted rice), hushed counter, no fryer.",
+    "waterfront_starboard": "Ruled out: peanut-miso house dressing on most of the vegetarian page, and spinach tossed in crushed peanuts.",
+    "waterfront_gull_point": "Ruled out: nothing vegetarian. The veg nigiri get eel sauce and the cucumber roll has cured salmon in it.",
+    "waterfront_mooring_post": "Safe and quiet with a vegetable omakase, but $$$ is one tier over budget: 2 stars.",
+    "waterfront_ropewalk": "Safe, but loud (bells, shouting chefs, loud music): misses the calm preference, so 2 stars.",
+    "waterfront_halyard": "Safe and quiet, but everything is tempura or deep-fried: misses the light-food preference, so 2 stars.",
+    "waterfront_cormorant": "Safe, quiet and light, but it's Greek, not sushi: misses the craving, so 2 stars."
+  },
+  "difficulty": 3,
+  "notes": "Fair and solvable. Each decoy fails exactly one thing, and each failure is written clearly in the reviews. Starboard's peanut detail is in the second half of its second review, after it has looked perfect, which makes it a good trap that a careful player still catches. Mooring Post gives its price as both '$$$' on the card and 'a clear step up' in the review, which matches. One small ambiguity: the chat never says who has the peanut allergy. Brooke's 'satay incident' line suggests it's hers, but that doesn't change the pick. Mina's vegetarianism is also only implied (Cyrus 'ruled places out for you', 'rolls i can actually have'), never stated outright. It reads as strict, but a newer player might treat it as a preference. Nothing contradictory."
+}
