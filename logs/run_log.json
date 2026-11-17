@@ -3379,6 +3379,16 @@
     "step": "venues",
     "result": "written: 7 venues added to waterfront registry; flag: dairy-free venues lack vegan_options",
     "retries": 0,
+    "tokens": 59992
+  },
+  {
+    "timestamp": "2026-11-17T04:22:20.561Z",
+    "level": "level_17",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 22 lines, Maya promotion reveal + $$ restated, callbacks trip_fund/satay_incident/milkshake_incident",
+    "retries": 0,
     "tokens": null
   }
 ]
