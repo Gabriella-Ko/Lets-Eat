@@ -63,6 +63,69 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["lively", "healthy"],
       "first_level": "level_16"
+    },
+    {
+      "id": "waterfront_sea_glass",
+      "name": "Sea Glass",
+      "cuisine": "ice_cream",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "healthy"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_lantern_pier",
+      "name": "Lantern Pier",
+      "cuisine": "ice_cream",
+      "price_tier": "$$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "healthy"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_pelican_steps",
+      "name": "Pelican Steps",
+      "cuisine": "ice_cream",
+      "price_tier": "$$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "healthy"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_sandpiper",
+      "name": "Sandpiper",
+      "cuisine": "ice_cream",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "healthy"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_kittiwake",
+      "name": "Kittiwake",
+      "cuisine": "ice_cream",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["healthy"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_low_tide",
+      "name": "Low Tide",
+      "cuisine": "ice_cream",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating"],
+      "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_anchor_lane",
+      "name": "Anchor Lane",
+      "cuisine": "italian",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "healthy"],
+      "first_level": "level_17"
     }
   ],
   "generated_by": "map_seeder",

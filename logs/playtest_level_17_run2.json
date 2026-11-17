@@ -1,0 +1,58 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_17",
+  "run": 2,
+  "pick": "waterfront_sea_glass",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Budget: $$ (one tier over costs a star, two over is a deal-breaker)",
+      "who": "maya",
+      "line": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off"
+    },
+    {
+      "constraint": "Peanut allergy, including cross-contact via shared spoons, toppings and machines (deal-breaker)",
+      "who": "cyrus",
+      "line": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.",
+      "supporting_line": "nobody is reliving the satay incident on my funded night. absolutely not"
+    },
+    {
+      "constraint": "Dairy intolerance: nothing milky, even if the board calls it sorbet (costs one star)",
+      "who": "roxy",
+      "line": "wait. just checked the tub in my freezer. sherbet has MILK in it??",
+      "supporting_line": "tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it"
+    },
+    {
+      "constraint": "Craving: ice cream / scoops",
+      "who": "liam",
+      "line": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since"
+    },
+    {
+      "constraint": "Preference: outdoor seating by the sea",
+      "who": "liam",
+      "line": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling"
+    },
+    {
+      "constraint": "Preference: fruit-forward, light dessert, not stacked/heavy",
+      "who": "brooke",
+      "line": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert"
+    }
+  ],
+  "venue_assessment": {
+    "waterfront_sea_glass": "$$, never handles peanuts (toppings included), no cow's milk (oat/coconut), fruit sorbets barely sweetened, harbour terrace. Meets everything: 3 stars.",
+    "waterfront_lantern_pier": "Peanut-butter swirl through the shared machine and crushed peanuts on the topping tray. Deal-breaker for Cyrus: 0 stars.",
+    "waterfront_pelican_steps": "Meets every constraint but is $$$, one tier over: 2 stars.",
+    "waterfront_sandpiper": "'Sorbets' are actually sherbets with whole milk; misses Roxy's dairy intolerance: 2 stars.",
+    "waterfront_kittiwake": "Indoor stools only, nowhere to sit outside; misses Liam's outdoor preference: 2 stars.",
+    "waterfront_low_tide": "Doughnut sundaes and syrup-soaked waffles; misses Brooke's fruit-forward preference: 2 stars.",
+    "waterfront_anchor_lane": "Italian trattoria, not ice cream; misses Liam's craving: 2 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Clean single-solution puzzle: each decoy fails exactly one constraint, and only Sea Glass passes all six.",
+    "The sherbet trap is fair: Roxy finds out herself in the chat and Maya says 'whatever the board calls it', and Sandpiper's review spells out the whole milk under the till.",
+    "Roxy's dairy issue reads as an intolerance ('tiny milkshake incidents ... called it weather'), so I scored it as costing one star, not as a deal-breaker. Sandpiper's review describes an allergy-like reaction for a third party, which could make some players unsure whether Roxy's is a deal-breaker. That does not change the pick.",
+    "Cyrus never says the word 'allergy'. It is implied by 'satay incident' and the cross-contact detail. It is fair but takes some inference; Lantern Pier's soy base may tempt players who only track dairy.",
+    "Anchor Lane's lemon sorbetto might make a player wonder if it meets the ice cream craving; its cuisine card says italian, so I counted the craving as missed."
+  ]
+}

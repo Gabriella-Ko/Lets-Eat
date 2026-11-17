@@ -1,0 +1,8 @@
+PASS level_17
+clue map (buried, 20 lines):
+  allergy:peanut        @ 12, 13
+  budget                @ 5, 7
+  craving               @ 9, 11
+  vibe:outdoor_seating  @ 10
+  vibe:healthy          @ 15
+  intolerance:dairy     @ 16, 17, 18

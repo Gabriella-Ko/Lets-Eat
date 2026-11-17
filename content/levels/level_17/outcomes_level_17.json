@@ -1,0 +1,65 @@
+{
+  "level_id": "level_17",
+  "by_venue": {
+    "waterfront_sea_glass": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "maya", "text": "two dollar signs, a sunset and a promotion. not one sigh out of me. the gulls can stay", "emotion": "HAPPY" },
+        { "speaker": "liam", "text": "sitting out over the water with a scoop nobody dropped. this one's for that kid", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "fruit, ice, zero milk, happy stomach. sherbet who??", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_lantern_pier": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Crushed peanuts on the topping tray, and a peanut-butter swirl churned in the same machine as every other flavour. It's everything I described earlier. I'm not ordering.", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "my first funded night out and we walk cyrus into a peanut minefield?? i'm literally leaving this chat, and i'm taking all of you with me", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "toppings were MY idea. i'm so sorry cyrus. we're going, right now", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_pelican_steps": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "gorgeous. three-dollar-sign gorgeous. i'm sighing at this bill and look, the gulls are leaving. exactly as promised", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "funded, not rich. we heard you, maya! two signs next time, i'll hold everyone to it", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_sandpiper": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "i ordered the sorbet like a responsible adult. turns out it's sherbet with a fancy label. my stomach was not fooled", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "I should have read their small print for you. Sit down, Roxy. Water's on me.", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_kittiwake": {
+      "result": "partial",
+      "missed": ["vibe:outdoor_seating"],
+      "lines": [
+        { "speaker": "liam", "text": "great granita. stuck indoors on the last hot night of summer. the one thing i said i wouldn't do", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "then we finish them on a walk down the boardwalk. the sunset isn't over yet!", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_low_tide": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "a fried doughnut, three scoops stuffed inside, hot fudge and brownie on top. it's the housewarming all over again", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll help you finish it. purely as a favour", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_anchor_lane": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "lovely little pasta place. but i've been thinking about that kid's scoop all day, and this is not that", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "dinner at two signs still counts as a celebration. we're finding liam a scoop on the walk home", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

@@ -1,0 +1,17 @@
+{
+  "level_id": "level_17",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_17/dialogue_level_17.json",
+      "agent": "narrative_writer",
+      "where": "script[17]-[18] (Maya: 'roxy. sherbet has milk in it...', Roxy: 'WAIT. MILK?? ok...')",
+      "issue": "The three-line dairy block was the critic's own first-round wording, and it reads well. But its shape echoes level_14 [15]-[16]: Roxy mentions something, a friend teaches her that a food hides dairy ('a lot of curries are made with cream, yogurt or butter'), and Roxy realises ('...oh. ok, none of that'). Level_15 [16] also had a friend pass on a hidden-dairy fact. Roxy's 'safe' sherbet misconception at [16] is fresh, so this is mild. It is not a giveaway: 'sherbet has milk in it' is a general food fact that clue rule 6 needs a friend to supply. The player still has to find which venue's board says 'sorbet' while serving milk, and only Sandpiper's review shows that.",
+      "suggested_fix": "Optional. Let Roxy catch it herself, with Maya supplying the callback. [17] roxy: 'wait. just checked the tub in my freezer. sherbet has MILK in it??' (SURPRISED, clue intolerance:dairy). [18] maya: 'tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it' (ANNOYED, clue intolerance:dairy, callback milkshake_incident). The chat stays at 20 lines."
+    }
+  ],
+  "summary": "Both must-fixes are resolved. Sea Glass review 2 now proves it is dairy-free through a cousin who ate three sorbets and two creamies without trouble, which is unambiguous even after the Sandpiper lesson. Brooke's 'tastes mostly of fruit, not a dessert stacked on top of a dessert' is new wording that every review can confirm or rule out (Low Tide's doughnut sundae and syrup waffle against the fruit-forward cups elsewhere). All six suggestions landed cleanly: [5] ties to level_14's pitched plan, Brooke's 'pat on the back AND a paycheck' pays off Maya's level_14 line, and the Lantern Pier, Low Tide and Kittiwake outcomes now match their reviews. Anchor Lane's peanut evidence is now experiential. Staff assurances: only Low Tide quotes staff; Pelican Steps reports a written booking reply. That meets the brief's 'at most one review per level quotes a staff promise', the two have different shapes, and Pelican Steps fails on budget anyway, so its peanut status only needs to be safe, not subtle. Not a problem. Difficulty: a fair, mid-weight buried opener for chapter 4. Every need comes out of other talk mid-conversation, and each of the six decoys fails for one readable reason. It sits on the easy side of 'buried' for two reasons. Several reviews state dairy facts plainly ('no cow's milk in the place', 'nothing on the board contains milk'), though none of those decides its venue's score. And the substantive dairy clue ([17]-[18]) arrives late, behind [16]'s tagged setup (the Validator's check 12 passes). The only suggestion is optional: the friend-teaches-Roxy device echoes level_14.",
+  "generated_by": "critic"
+}

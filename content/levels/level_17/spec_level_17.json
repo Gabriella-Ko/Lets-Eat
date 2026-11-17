@@ -1,0 +1,20 @@
+{
+  "level_id": "level_17",
+  "chapter": 4,
+  "district": "waterfront",
+  "difficulty": "buried",
+  "guests": ["maya", "cyrus", "roxy", "liam", "brooke"],
+  "hard": { "budget_max": "$$", "allergies": ["peanut"], "diets": [] },
+  "soft": { "craving": "ice_cream", "vibe": ["outdoor_seating", "healthy"], "intolerances": ["dairy"] },
+  "solution_id": "waterfront_sea_glass",
+  "decoys": [
+    { "id": "waterfront_lantern_pier", "fails_on": "allergy:peanut" },
+    { "id": "waterfront_pelican_steps", "fails_on": "budget_soft" },
+    { "id": "waterfront_sandpiper", "fails_on": "intolerance:dairy" },
+    { "id": "waterfront_kittiwake", "fails_on": "vibe:outdoor_seating" },
+    { "id": "waterfront_low_tide", "fails_on": "vibe:healthy" },
+    { "id": "waterfront_anchor_lane", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
