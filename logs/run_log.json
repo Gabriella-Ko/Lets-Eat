@@ -3649,6 +3649,36 @@
     "step": "chat_rework",
     "result": "first-critique suggestions 1-4 applied; chat 17 lines",
     "retries": 1,
+    "tokens": 31620
+  },
+  {
+    "timestamp": "2026-11-17T04:55:47.475Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:56:47.362Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 0 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:56:47.362Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
     "tokens": null
   }
 ]

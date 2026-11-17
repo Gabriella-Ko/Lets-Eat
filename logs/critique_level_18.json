@@ -1,62 +1,7 @@
 {
   "level_id": "level_18",
   "verdict": "pass",
-  "findings": [
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_18/dialogue_level_18.json",
-      "agent": "narrative_writer",
-      "where": "script[11]-[12] and outcomes waterfront_spindrift lines[2], waterfront_mooring_post lines[0]-[1]",
-      "issue": "Maya restates her budget with the same device as level_17. Level_17: 'a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off', paid off at Pelican Steps with 'exactly as promised'. Level_18: 'a three-sign place won't ruin me. but i will read the bill out loud', paid off at Mooring Post with 'as promised'. The clue still reads as one star, but it is a bill-theatrics threat plus 'as promised' payoff in back-to-back levels, and levels 19 and 20 must restate the budget again.",
-      "suggested_fix": "script[11] maya: 'three signs won't sink me anymore. but i will bring it up at every dinner from now until i'm on that coast' (ANNOYED, clue budget). script[12] brooke: 'a whole summer of hearing about one bill. honestly, tempting' (HAPPY, clue null). Outcomes: waterfront_spindrift lines[2] maya: 'two dollar signs. nothing to bring up at future dinners. you're all very lucky' (HAPPY). waterfront_mooring_post lines[0] maya: 'three dollar signs. it was delicious, and i will be mentioning it at every dinner until the coast. starting now' (ANNOYED); lines[1] brooke: 'worth it. dessert's on me, so at least that part stays off the list' (HAPPY)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_18/dialogue_level_18.json",
-      "agent": "narrative_writer",
-      "where": "script[15]-[16] (Brooke: 'i just drove six hours back from my sister's, fuelled entirely by gas-station snacks' / 'so tonight my dinner has to be the opposite of a gas station...') and outcomes waterfront_halyard lines[0]",
-      "issue": "Brooke's healthy wish is justified by a recent junk-food overload for the third level running (level_16 'a whole summer of night-market fryers', level_17 the housewarming's fried dough and whipped cream, now gas-station snacks), with the familiar setup-then-'so tonight' two-line shape. The writer brief bans reusing what justifies a vibe from the last 3 levels. Brooke is health-conscious by nature, so she needs no backstory, and her 'and in return' trade for conceding the quiet room already gives the line a reason.",
-      "suggested_fix": "Delete script[15]. Replace script[16] with brooke: 'and in return, my one ask for the food: simple and light. nothing that's been battered and dunked in hot oil' (NEUTRAL, clue vibe:healthy). The chat drops to 17 lines. waterfront_halyard lines[0] brooke: 'every roll here comes battered and fried. i gave up my noisy room tonight and still got the fryer' (ANNOYED)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "fairness",
-      "file": "content/levels/level_18/dialogue_level_18.json",
-      "agent": "narrative_writer",
-      "where": "script[9] (Brooke: 'then nothing peanut goes anywhere near cyrus tonight. dressing, sauce, sprinkles, none of it...')",
-      "issue": "Cyrus's binned peanut dressing [8] already carries the allergy as an implied clue. Brooke then spells the rule out ('nothing peanut goes anywhere near cyrus'), which makes the peanut need effectively stated in an implied level. It also adds to the level playing at the same difficulty as 16-17 rather than a step harder. Precedent (level_15 'any peanut, any form, we walk') means this is not a rule break.",
-      "suggested_fix": "script[9] brooke: 'good. the satay incident stays a one-off. that story is never getting a sequel, not tonight, not in any sauce' (NEUTRAL, clue allergy:peanut, callback satay_incident)."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_18/outcomes_level_18.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.waterfront_starboard lines[1] (Maya: 'he dodged one peanut at home and we walked him into a whole menu of them?? i'm literally leaving this chat')",
-      "issue": "Same speaker, same fail and same shape as level_17's Lantern Pier line ('my first funded night out and we walk cyrus into a peanut minefield?? i'm literally leaving this chat'). The catchphrase is her voice, but the 'we walked him into a [peanut thing]??' setup is copied from the previous level.",
-      "suggested_fix": "lines[1] maya: 'cyrus literally warned us about peanut dressing an hour ago and this menu is drenched in it?? i'm literally leaving this chat' (SURPRISED). If 'literally' twice feels heavy: 'cyrus warned us about peanut dressing an hour ago and this menu is drenched in it?? i'm literally leaving this chat'."
-    },
-    {
-      "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_18/venues_level_18.json",
-      "agent": "map_seeder",
-      "where": "venue waterfront_ropewalk review 2",
-      "issue": "The server's shouted promise 'Not one in the building, not in the sauces, not on the belt!' copies the triple 'not in X, not in Y, not on Z' shape of level_17's Low Tide quote ('Not in the fryer, not in the fudge, not on the counter. Never have been.'). The brief asks for varied wording across levels.",
-      "suggested_fix": "Review 2: 'When I asked about peanuts for my brother, the server had to shout over the bells, so half the belt heard her answer: the kitchen has never kept a peanut, and the only sauces are soy and a ginger dressing. Everything that comes round is raw, pickled or steamed, and he got through a dozen plates. We walked out feeling light, with our ears still ringing.'"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_18/venues_level_18.json",
-      "agent": "map_seeder",
-      "where": "venue waterfront_spindrift review 2 and venue waterfront_mooring_post review 2",
-      "issue": "The chat sets the vegetarian standard as 'a whole part of the menu with no fish and no meat' / 'a whole page of rolls'. Starboard has 'one full page', Halyard 'the side of the menu', Ropewalk the green plates, but the answer's 'garden set' can read as a single set meal, so a careful player may briefly doubt it beside Starboard. Separately, Spindrift's 'The crunch on the rolls is toasted rice' and Mooring Post's 'The only crunch all night was toasted sesame' repeat one phrasing in the same level (also used in level_17's Sea Glass and Pelican Steps).",
-      "suggested_fix": "Spindrift review 2: replace 'Spindrift's garden set changed that:' with 'Spindrift gives fish- and meat-free pieces their own page of the menu, and it changed that:'. Mooring Post review 2: replace 'The only crunch all night was toasted sesame.' with 'Whatever was scattered on top, it was toasted sesame every time.'"
-    }
-  ],
-  "summary": "A warm, well-built level. Cyrus's eleven failed home rolls make a funny implied sushi craving that a careful player will find without the word ever appearing. Sushi day continuity is right: Cyrus and Mina were there in level_08, Brooke wasn't, and she heard it retold in level_10. Mina's request for a hushed room to hear Maya's news is in her voice, and Brooke's concession fits her. Every review evidences its deciding attribute: Ropewalk's bells, shouting chefs and loud playlist read as a clear one-star quiet miss, Mooring Post's 'clear step up in price' matches $$$, and Spindrift's peanut-allergy support group dinner is as firm as any decoy's evidence. The outcomes match the reviews (Starboard's peanut dressing on the vegetable page and crushed peanuts on the spinach, Gull Point's eel sauce and cured salmon, Halyard's fryer, Cormorant's quiet Greek), and Cormorant stays consistent with level_16, down to the napkin boats. Difficulty is about level with 16-17, not harder: peanut, quiet, budget and healthy are close to stated, and the challenge is telling five near-identical sushi counters apart from their reviews. The suggestions refresh devices repeated from level_17 (Maya's bill-theatrics restatement, Brooke's junk-food backstory, Maya's fail line, Ropewalk's triple-'not' quote), soften one over-explicit peanut line, and firm up Spindrift's vegetable-menu wording.",
+  "findings": [],
+  "summary": "Re-review after the rework round: all six suggestions landed cleanly and introduced no new problems. Maya's restatement ('three signs won't sink me anymore. but i will bring it up at every dinner...') still reads as a $$ max with a one-star overshoot. It no longer copies level_17's bill-theatrics device, and its Spindrift and Mooring Post payoffs match it. 'months' gives the trip no date. Brooke's healthy line is now one clear wish with no junk-food backstory, in new words, and Halyard's 'battered and fried' reaction matches its tempura-and-panko reviews. Brooke's satay-incident callback keeps the peanut clue implied, alongside Cyrus's binned dressing. Maya's Starboard fail now rests on Cyrus's earlier warning and matches the review's peanut-miso dressing on most of the vegetable page plus the crushed-peanut spinach. Ropewalk's new quote keeps clear peanut-free evidence without the triple-'not' shape. Spindrift's 'a whole page of the menu' now matches Cyrus's and Mina's standard exactly, so the answer no longer looks weaker than Starboard on the vegetarian need, and Mooring Post no longer repeats Spindrift's crunch phrasing. On the writer's question: the craving clues in the opening 20% and the healthy line in the last 15% are not a fairness problem. The mid-conversation placement rule (narrative-writer brief v7, Validator check 12) applies only to buried levels, and this spec is implied. Both clues are clear and easy to find where they sit. On difficulty: the peanut clue is now properly implied and the craving never names sushi, but quiet, healthy, vegetarian and budget remain close to stated. So the level plays about as hard as levels 16-17, not a step up. The real challenge is telling five similar sushi counters apart from their reviews, which is fair. If Gabriella wants a steeper ramp, it should come from level_19's buried placement rather than more rework here.",
   "generated_by": "critic"
 }
