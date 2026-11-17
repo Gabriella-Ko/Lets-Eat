@@ -1,0 +1,69 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_17",
+  "run": 3,
+  "pick": "waterfront_sea_glass",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Location by the water (waterfront)",
+      "type": "preference",
+      "source_speaker": "brooke",
+      "source_line": "last hot night of the summer, apparently! crew, we're doing something by the water tonight"
+    },
+    {
+      "constraint": "Budget $$ (one tier over costs a star; $$$$ would be a deal-breaker)",
+      "type": "budget",
+      "source_speaker": "maya",
+      "source_line": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off"
+    },
+    {
+      "constraint": "Craving ice cream (a scoop / cone)",
+      "type": "craving",
+      "source_speaker": "liam",
+      "source_line": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since"
+    },
+    {
+      "constraint": "Outdoor seating (not under a ceiling)",
+      "type": "preference",
+      "source_speaker": "liam",
+      "source_line": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling"
+    },
+    {
+      "constraint": "Peanut allergy, including cross-contact (deal-breaker)",
+      "type": "allergy",
+      "source_speaker": "cyrus",
+      "source_line": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours."
+    },
+    {
+      "constraint": "Light and fruit-forward, not dessert stacked on dessert",
+      "type": "preference",
+      "source_speaker": "brooke",
+      "source_line": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert"
+    },
+    {
+      "constraint": "Dairy (milk) intolerance, sherbet counts as milky (costs a star, not a deal-breaker)",
+      "type": "intolerance",
+      "source_speaker": "roxy",
+      "source_line": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it"
+    }
+  ],
+  "venue_evaluation": {
+    "waterfront_sea_glass": "$$, ice cream, terrace on the harbour wall, barely-sweet fruit sorbets with fresh berries, no cow's milk anywhere (oat/coconut), on the allergist's peanut-free list including toppings. Meets everything: 3 stars.",
+    "waterfront_lantern_pier": "Peanut-butter swirl through the shared machine and crushed peanuts on the topping tray. Peanut cross-contact, so it is a deal-breaker.",
+    "waterfront_pelican_steps": "Fits everything, but it is $$$. One tier over: 2 stars.",
+    "waterfront_sandpiper": "Peanut-free and fruity, but the 'sorbets' contain whole milk (sherbet). Dairy miss: 2 stars.",
+    "waterfront_kittiwake": "Peanut-free, dairy-free, fruity granita, but seating is indoor stools only. Outdoor miss: 2 stars.",
+    "waterfront_low_tide": "Dairy-free and peanut-free, outdoor, but a doughnut sundae with fudge and brownie, and fruit on waffles with syrup. Misses the fruit preference: 2 stars.",
+    "waterfront_anchor_lane": "Italian trattoria, not an ice cream place (only a lemon sorbetto). Misses the ice cream craving: 2 stars."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Fair puzzle: every decoy fails exactly one constraint, and each failure is stated plainly in its reviews.",
+    "The sherbet trap (Sandpiper) is well set up: Maya's line plus Roxy's 'whatever the board calls it' clearly cues the reader to check the recipe card review.",
+    "Roxy's milk issue reads as an intolerance ('tiny milkshake incidents'), not an allergy. A player could treat it as a deal-breaker, but that doesn't change the pick, since Sea Glass is milk-free either way.",
+    "Liam's outdoor preference is a little implicit ('not spending it under a ceiling'), but it is the only thing that rules out Kittiwake, and the review says plainly that there's nowhere to sit outside. Fair, but it is the easiest one to miss.",
+    "Anchor Lane as the non-ice-cream decoy is fairly obvious. Its lemon sorbetto could make a player wonder if it counts toward the ice cream craving, but the cuisine on its card settles it.",
+    "Maya's budget line is clear about $$ being the limit and $$$ being a one-star penalty, not a deal-breaker."
+  ]
+}

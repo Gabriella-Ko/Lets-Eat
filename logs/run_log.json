@@ -3449,7 +3449,7 @@
     "step": "critique",
     "result": "pass after rework, must-fixes resolved, 1 suggestion (to PR)",
     "retries": 0,
-    "tokens": null
+    "tokens": 57303
   },
   {
     "timestamp": "2026-11-17T04:29:31.689Z",
@@ -3458,6 +3458,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:30:24.695Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:30:24.695Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 4/5",
+    "retries": 0,
+    "tokens": 16214
+  },
+  {
+    "timestamp": "2026-11-17T04:30:24.695Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16239
+  },
+  {
+    "timestamp": "2026-11-17T04:30:24.695Z",
+    "level": "level_17",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (difficulty 3,4,3; Roxy allergy vs intolerance unclear, harmless)",
     "retries": 0,
     "tokens": null
   }

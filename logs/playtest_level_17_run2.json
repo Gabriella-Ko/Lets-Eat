@@ -1,0 +1,67 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_17",
+  "run": 2,
+  "pick": "waterfront_sea_glass",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Budget $$ (one tier over at $$$ costs a star)",
+      "who": "maya",
+      "line": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off"
+    },
+    {
+      "constraint": "Peanut allergy, including cross-contact from shared spoons, scoops and machines (deal-breaker)",
+      "who": "cyrus",
+      "line": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours."
+    },
+    {
+      "constraint": "Peanut allergy confirmed as serious",
+      "who": "maya",
+      "line": "nobody is reliving the satay incident on my funded night. absolutely not"
+    },
+    {
+      "constraint": "No milk, including milk-based sherbet (read as an intolerance; costs a star either way, and a deal-breaker if it is meant as an allergy)",
+      "who": "roxy",
+      "line": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it (set up by maya: 'sherbet has milk in it. you've been having tiny milkshake incidents all summer')"
+    },
+    {
+      "constraint": "Craving ice cream / a scoop",
+      "who": "liam",
+      "line": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since"
+    },
+    {
+      "constraint": "Outdoor seating in the sea air",
+      "who": "liam",
+      "line": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling"
+    },
+    {
+      "constraint": "Fruit-forward, light, not a stacked dessert",
+      "who": "brooke",
+      "line": "tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert"
+    },
+    {
+      "constraint": "By the water (all venues are on the waterfront, so this does not separate them)",
+      "who": "brooke",
+      "line": "crew, we're doing something by the water tonight"
+    }
+  ],
+  "venue_elimination": {
+    "waterfront_sea_glass": "Pick. $$, harbour-wall terrace, fruit sorbets barely sweetened, oat/coconut creamies with no cow's milk, on the allergist's never-handles-peanuts list including toppings.",
+    "waterfront_lantern_pier": "Out: peanut-butter swirl goes through the same machine and crushed peanuts on the topping tray. Fails Cyrus.",
+    "waterfront_pelican_steps": "$$$, one tier over Maya's budget. Otherwise fits (outdoor steps, fruit, no peanut, no milk). Max 2 stars.",
+    "waterfront_sandpiper": "'Sorbets' are actually sherbets made with whole milk. Fails Roxy.",
+    "waterfront_kittiwake": "Only five indoor stools, nowhere to sit outside. Fails Liam's outdoor preference. Max 2 stars.",
+    "waterfront_low_tide": "Everything is stacked (doughnut sundae, fudge, fruit on waffles in syrup). Fails Brooke. Max 2 stars.",
+    "waterfront_anchor_lane": "Italian trattoria, not an ice cream place. Misses Liam's craving for a scoop, although safe, light and outdoors. Max 2 stars."
+  },
+  "difficulty": 4,
+  "notes": [
+    "Good layered puzzle: every decoy fails exactly one constraint, and each failure is hidden in review prose rather than on the card.",
+    "Sandpiper's sherbet trap is well set up by Maya and Roxy's exchange; fair, but it rewards careful reading of the second half of the first review.",
+    "Roxy's milk issue is worded as 'tiny milkshake incidents', which reads as an intolerance, not an allergy. That is fine for picking, but a player cannot tell whether Sandpiper is a deal-breaker or only a star off.",
+    "Maya's budget line is clear but jokey; 'two dollar signs' could be missed if skimmed.",
+    "Anchor Lane's lemon sorbetto could make some players think it counts as ice cream; the craving is for a scoop/cone, so I treated it as a miss.",
+    "Sea Glass was the only venue meeting every constraint; nothing felt unfair or contradictory."
+  ]
+}
