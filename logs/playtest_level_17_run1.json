@@ -1,71 +1,44 @@
 {
+  "generated_by": "blind_playtester",
   "level_id": "level_17",
   "run": 1,
-  "generated_by": "blind_playtester",
   "pick": "waterfront_sea_glass",
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Somewhere by the water",
-      "who": "brooke",
-      "type": "location / preference",
-      "source_line": "last hot night of the summer, apparently! crew, we're doing something by the water tonight"
+      "constraint": "Budget $$ (Maya). $$$ costs a star; $$$$ would be a deal-breaker.",
+      "source_line": "maya: \"funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off\""
     },
     {
-      "constraint": "Budget $$ (one tier over, $$$, costs a star; two over is a deal-breaker)",
-      "who": "maya",
-      "type": "budget",
-      "source_line": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off"
+      "constraint": "Peanut allergy (Cyrus), including cross-contact from shared toppings, spoons and machines. Deal-breaker.",
+      "source_line": "cyrus: \"'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.\" (confirmed by maya: \"nobody is reliving the satay incident...\")"
     },
     {
-      "constraint": "Craving ice cream (a scoop or cone)",
-      "who": "liam",
-      "type": "craving",
-      "source_line": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since"
+      "constraint": "Dairy (milk) intolerance (Roxy). Sherbet counts as milky. Costs a star; not a deal-breaker.",
+      "source_line": "roxy: \"wait. just checked the tub in my freezer. sherbet has MILK in it??\" + maya: \"tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it\""
     },
     {
-      "constraint": "Outdoor seating (not under a ceiling)",
-      "who": "liam",
-      "type": "preference / vibe",
-      "source_line": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling"
+      "constraint": "Craving ice cream / a scoop (Liam).",
+      "source_line": "liam: \"a kid dropped his whole scoop off his cone outside my building today... i've wanted one of my own ever since\""
     },
     {
-      "constraint": "Peanut allergy, including cross-contact through shared topping spoons and shared machines (deal-breaker)",
-      "who": "cyrus",
-      "type": "allergy",
-      "source_line": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.",
-      "supporting_line": "nobody is reliving the satay incident on my funded night. absolutely not"
+      "constraint": "Wants to eat outdoors in the sea air (Liam), plus by the water (Brooke).",
+      "source_line": "liam: \"that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling\"; brooke: \"we're doing something by the water tonight\""
     },
     {
-      "constraint": "Wants something light and fruit-forward, not a stacked or heavy dessert",
-      "who": "brooke",
-      "type": "preference",
-      "source_line": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert"
-    },
-    {
-      "constraint": "No milk, and sherbet counts as milk. Read as an intolerance (it costs a star, it does not rule a venue out)",
-      "who": "roxy",
-      "type": "intolerance (dairy)",
-      "source_line": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it",
-      "supporting_line": "roxy. sherbet has milk in it. you've been having tiny milkshake incidents all summer and calling it weather"
+      "constraint": "Wants something that tastes mostly of fruit, not a stacked dessert (Brooke).",
+      "source_line": "brooke: \"tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert\""
     }
   ],
   "venue_assessment": {
-    "waterfront_sea_glass": "$$, ice cream, terrace on the harbour wall, fruit sorbets that are barely sweetened, everything made on oat or coconut milk, peanut-free including toppings (on an allergist's list). Meets every constraint: 3 stars.",
-    "waterfront_lantern_pier": "Peanut-butter swirl goes through the same machine, and crushed peanuts sit on the topping tray. Fails Cyrus's allergy: ruled out.",
-    "waterfront_pelican_steps": "Meets everything except price. $$$ is one tier over Maya's budget: 2 stars.",
-    "waterfront_sandpiper": "The sorbets are really sherbets made with whole milk. Misses Roxy's no-milk need: 2 stars.",
-    "waterfront_kittiwake": "Seating is only inside on stools, with nowhere to sit outdoors. Misses Liam's outdoor wish: 2 stars. Also arguably granita rather than a scoop.",
-    "waterfront_low_tide": "Doughnut sundae with fudge and brownie, and even the fruit comes on a waffle with syrup. Misses Brooke's fruit-forward wish: 2 stars.",
-    "waterfront_anchor_lane": "An Italian trattoria rather than an ice cream place. Misses Liam's craving: 2 stars."
+    "waterfront_sea_glass": "$$, harbour terrace outdoors, barely sweetened fruit sorbets, creamies on oat/coconut (no cow's milk), on an allergist's never-handles-peanuts list including toppings. Meets everything: 3 stars.",
+    "waterfront_lantern_pier": "Peanut-butter swirl run through the same machine plus crushed peanuts on the topping tray. Peanut cross-contact: deal-breaker.",
+    "waterfront_pelican_steps": "$$$, one over budget (-1). Otherwise outdoor, fruity, peanut-free, milk-free: 2 stars.",
+    "waterfront_sandpiper": "'Sorbets' are really sherbets made with whole milk. Roxy's intolerance (-1): 2 stars.",
+    "waterfront_kittiwake": "Indoor stools only, nowhere to sit outside. Misses Liam's outdoor wish (-1): 2 stars.",
+    "waterfront_low_tide": "Doughnut sundae, fruit soaked in syrup on waffles. Dessert on dessert, misses Brooke (-1): 2 stars.",
+    "waterfront_anchor_lane": "Italian trattoria. Only dessert is a lemon sorbetto, so it is a weak fit for Liam's scoop craving and the group's ice cream plan. Safe but not the answer."
   },
   "difficulty": 3,
-  "notes": [
-    "This level is fair and well built. Each decoy fails exactly one constraint, so I had to read every venue carefully, and only one venue meets everything.",
-    "The Sandpiper sherbet trap pays off well. The chat explicitly says sherbet has milk, and the review explains that the board calls the fruit cups sorbets but they are made with whole milk.",
-    "Lantern Pier is the cross-contact trap. It is dairy-free and fruity, so it is tempting, but Cyrus's line about shared spoons and machines matches the peanut-butter swirl being churned in the same machine.",
-    "Small ambiguity: it is not fully clear whether Roxy has an intolerance or an allergy. 'Tiny milkshake incidents ... calling it weather' reads as an intolerance, so I scored it as minus one star. Either way the pick does not change.",
-    "Small ambiguity: is Kittiwake's granita an 'ice cream' for Liam's craving? Its lack of outdoor seating makes this question moot.",
-    "Sea Glass's dairy-free proof depends on the second review (oat and coconut bases, the soft-serve machine runs on a mix of the two). The proof is clear, but readers who skim the first review may miss it."
-  ]
+  "notes": "Fair and well built. Every decoy fails on exactly one thing: shared peanut machine, $$$, hidden milk in a sherbet, no outdoor seating, dessert stacking. The best trap is Sandpiper's 'sorbets are really sherbets', and it is set up well by Roxy's freezer discovery and Maya's 'whatever the board calls it'. Kittiwake's lack of outdoor seating is the easiest one to miss, because Liam's 'not under a ceiling' line could pass as flavour text. Small ambiguity: Roxy's dairy issue reads as an intolerance ('tiny milkshake incidents'), not an allergy. That does not change the pick, but if the design treats it as an allergy, Sandpiper becomes a deal-breaker rather than costing a star. Anchor Lane is an off-theme distractor whose only scoop is a sorbetto, so how much it is worth is a bit unclear."
 }

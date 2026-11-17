@@ -3509,7 +3509,7 @@
     "step": "chat_rework",
     "result": "Gabriella-approved critic suggestion: Roxy discovers sherbet milk herself, Maya adds callback",
     "retries": 2,
-    "tokens": null
+    "tokens": 17323
   },
   {
     "timestamp": "2026-11-17T04:32:49.518Z",
@@ -3528,6 +3528,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "rebuilt after dairy-block change",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:33:38.656Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_dairy_change",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:33:38.656Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_dairy_change",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16197
+  },
+  {
+    "timestamp": "2026-11-17T04:33:38.656Z",
+    "level": "level_17",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_dairy_change",
+    "result": "correct (sea_glass, 3 stars), all 6 scored constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16230
+  },
+  {
+    "timestamp": "2026-11-17T04:33:38.656Z",
+    "level": "level_17",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after dairy change (sherbet trap called fair; Kittiwake outdoor clue easiest to miss)",
     "retries": 0,
     "tokens": null
   }
