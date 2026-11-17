@@ -1,0 +1,47 @@
+{
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_sea_glass",
+      "name": "Sea Glass",
+      "cuisine": "ice_cream",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_lantern_pier",
+      "name": "Lantern Pier",
+      "cuisine": "ice_cream",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_pelican_steps",
+      "name": "Pelican Steps",
+      "cuisine": "ice_cream",
+      "price_tier": "$$$"
+    },
+    {
+      "id": "waterfront_sandpiper",
+      "name": "Sandpiper",
+      "cuisine": "ice_cream",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_kittiwake",
+      "name": "Kittiwake",
+      "cuisine": "ice_cream",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_low_tide",
+      "name": "Low Tide",
+      "cuisine": "ice_cream",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_anchor_lane",
+      "name": "Anchor Lane",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    }
+  ]
+}

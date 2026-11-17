@@ -1,0 +1,105 @@
+{
+  "level_id": "level_17",
+  "script": [
+    {
+      "speaker": "liam",
+      "text": "it is SO hot. i'm melting and i'm hungry, which are my two least favourite things at once",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "last hot night of the summer, apparently! crew, we're doing something by the water tonight",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "i'm down. already by the water, the breeze is the only thing keeping me alive",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Seven works for me. Maya, you've been typing for ten minutes.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "sorry!! i had to check something three times before i said it out loud",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "maya",
+      "text": "remember that plan i pitched? it got me promoted. with a raise. did the math, trip is funded.",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "MAYA!! so the sky's the limit tonight??",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "maya",
+      "text": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off",
+      "emotion": "ANNOYED"
+    },
+    {
+      "speaker": "brooke",
+      "text": "a pat on the back AND a paycheck!! ok, this is officially a celebration. by the water. ideas?",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "liam",
+      "text": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "liam",
+      "text": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "celebration scoops!! i'm getting a giant one with every topping they've got",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "nobody is reliving the satay incident on my funded night. absolutely not",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "brooke",
+      "text": "speaking of toppings. my neighbour's housewarming yesterday ended with fried dough, three sauces and a mountain of whipped cream",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "don't worry about me btw, i've got a system. i always order the sherbet. it's the safe one",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "roxy. sherbet has milk in it. you've been having tiny milkshake incidents all summer and calling it weather",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "roxy",
+      "text": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "liam",
+      "text": "assistant, the sun's dropping and i still can't stop thinking about that kid's cone. help",
+      "emotion": "HUNGRY"
+    }
+  ]
+}
