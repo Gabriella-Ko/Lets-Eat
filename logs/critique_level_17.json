@@ -1,82 +1,17 @@
 {
   "level_id": "level_17",
-  "verdict": "must_fix",
+  "verdict": "pass",
   "findings": [
     {
-      "severity": "must_fix",
-      "check": "reviews",
-      "file": "content/levels/level_17/venues_level_17.json",
-      "agent": "map_seeder",
-      "where": "venue waterfront_sea_glass review 2",
-      "issue": "Sea Glass is the answer, yet it is the only dairy-free venue without a clear no-milk statement. Lantern Pier says 'no cow's milk in the place', Pelican Steps 'you won't find a carton of milk', Low Tide 'no milk or butter anywhere', and Kittiwake 'nothing on the board contains milk'. Sea Glass only shows that the creamies use oat milk and coconut, plus 'crates of oat milk... where most parlours keep the milk churns'. Its fruit sorbets are never ruled milk-free, and this level's Sandpiper trap teaches the player exactly that a board saying 'sorbet' can hide milk. So a careful player has good reason to doubt the answer's dairy status. Gabriella also asked for this evidence to be clear.",
-      "rule": "Critic brief check 2 (every deciding attribute evident from reviews alone); map-seeder brief: 'The evidence must still be unambiguous to a careful reader'",
-      "suggested_fix": "In review 2, replace the final sentence 'A gull has learned to wait on the railing for dropped cones.' with: 'My cousin can't have cow's milk, and she worked her way through both halves of the board, sorbets and creamies, with a perfectly happy stomach all the way home. On Fridays the owner chalks the tide times up next to the flavours.'"
-    },
-    {
-      "severity": "must_fix",
-      "check": "fairness",
+      "severity": "suggestion",
+      "check": "freshness",
       "file": "content/levels/level_17/dialogue_level_17.json",
       "agent": "narrative_writer",
-      "where": "script[15] (Brooke: 'tonight i want light and fresh, not a dessert stacked on top of a dessert')",
-      "issue": "'light and fresh' copies Brooke's stated-level wording from level_11 ('light and fresh, please'), and level_05 has 'fresh and light'. In the first buried level, the healthy clue therefore lands in the plainest phrasing she has ever used. The housewarming setup on [14] is a good, fresh device. Only the wish wording needs to change.",
-      "rule": "Narrative-writer brief, Reserved and pinned details: 'In implied and buried levels, don't reuse a character's earlier stated-level wording for their need'; bible clue rule 5 (clue style)",
-      "suggested_fix": "script[15]: 'i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert' (NEUTRAL, clue vibe:healthy). Every review can confirm or rule this out: the fruit-forward cups at Sea Glass, Pelican Steps, Sandpiper, Lantern Pier and Kittiwake versus Low Tide's doughnut sundae and syrup-soaked waffle."
-    },
-    {
-      "severity": "suggestion",
-      "check": "fairness",
-      "file": "content/levels/level_17/dialogue_level_17.json",
-      "agent": "narrative_writer",
-      "where": "script[16]-[20] (Roxy's sherbet system, Cyrus's sherbet/sorbet lesson, Roxy, Maya, Roxy)",
-      "issue": "One soft need gets five lines, while outdoor seating and healthy get one line each, so the dairy block draws attention to itself. Cyrus's [17] food-science explanation also pre-teaches the Sandpiper trap, which that venue's review already spells out ('fruit, sugar and whole milk... Strictly speaking, they're sherbets'). For a buried level, this is more hand-holding than the puzzle needs. Roxy's sherbet misconception plus the milkshake callback is enough, and it follows clue rule 6.",
-      "suggested_fix": "Replace script[16]-[20] with three lines: [16] keep Roxy as written. [17] maya: 'roxy. sherbet has milk in it. you've been having tiny milkshake incidents all summer and calling it weather' (SURPRISED, clue intolerance:dairy, callback milkshake_incident). [18] roxy: 'WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it' (SURPRISED, clue intolerance:dairy). Delete Cyrus's [17] lesson and the old [18]/[20]. The chat becomes 20 lines, and [16] still sits mid-conversation for Validator check 12. In outcomes, Cyrus's Sandpiper line ('I should have read their small print for you') still works unchanged."
-    },
-    {
-      "severity": "suggestion",
-      "check": "continuity",
-      "file": "content/levels/level_17/dialogue_level_17.json",
-      "agent": "narrative_writer",
-      "where": "script[5] (Maya: 'the promotion came with a raise...') and script[8] (Brooke: 'so proud of you!!...')",
-      "issue": "The reveal works and the $$ restatement on [7] is very good ('funded, not rich' plus 'i'll still come, but i'll sigh' reads as a one-star miss, not a deal-breaker). But 'the promotion' is new to the chat: level_14 only mentioned a pitched plan getting picked, so the payoff doesn't visibly connect to the hint. Brooke's [8] 'so proud of you!!' also repeats her level_14 reaction to the same storyline nearly word for word ('so proud of you maya!').",
-      "suggested_fix": "script[5]: 'remember that plan i pitched? it got me promoted. with a raise. did the math, trip is funded.' (HAPPY, clue budget, callback trip_fund). script[8]: 'a pat on the back AND a paycheck!! ok, this is officially a celebration. by the water. ideas?' (HAPPY, clue null). Brooke was in level_14 when Maya said 'a pat on the back isn't a paycheck'."
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_17/outcomes_level_17.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.waterfront_lantern_pier lines[0] (Cyrus)",
-      "issue": "'one scoop going from tub to tub' isn't what the review describes. Lantern Pier's risk is a peanut-butter swirl churned 'in the same machine as everything else', plus crushed peanuts on the 'topping tray' (not a bar).",
-      "suggested_fix": "lines[0]: 'Crushed peanuts on the topping tray, and a peanut-butter swirl churned in the same machine as every other flavour. It's everything I described earlier. I'm not ordering.' (ANGRY)"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_17/outcomes_level_17.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.waterfront_low_tide lines[0] (Brooke)",
-      "issue": "'cream piled on top' doesn't match Low Tide's review: the trailer has no milk or cream, and the sundae is coconut soft serve stuffed inside a doughnut under hot fudge and brownie. 'cream' also reads as dairy at a venue the reviews say is milk-free.",
-      "suggested_fix": "lines[0]: 'a fried doughnut, three scoops stuffed inside, hot fudge and brownie on top. it's the housewarming all over again' (ANNOYED)"
-    },
-    {
-      "severity": "suggestion",
-      "check": "outcomes",
-      "file": "content/levels/level_17/outcomes_level_17.json",
-      "agent": "narrative_writer",
-      "where": "by_venue.waterfront_kittiwake lines[0] (Liam)",
-      "issue": "Kittiwake serves shaved granita, not scoops, so 'great scoop' doesn't match its review.",
-      "suggested_fix": "lines[0]: 'great granita. eaten under a ceiling, on the last hot night of summer. the one thing i said i wouldn't do' (ANNOYED)"
-    },
-    {
-      "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_17/venues_level_17.json",
-      "agent": "map_seeder",
-      "where": "venue waterfront_anchor_lane review 2",
-      "issue": "Three reviews rest on a staff assurance: Low Tide quotes the owner, Pelican Steps reports a booking-form reply, and Anchor Lane reports a kitchen note. The brief allows at most one staff promise per level, and the form reply and kitchen note share a shape.",
-      "suggested_fix": "Replace the first two sentences of Anchor Lane review 2 with: 'My girlfriend carries an allergy pen and has eaten here every Sunday since spring without a single scare; the fryer only ever sees olive oil, and there isn't a peanut on the premises.' Keep the rest of the review (sorbetto, cherries, cat) as written."
+      "where": "script[17]-[18] (Maya: 'roxy. sherbet has milk in it...', Roxy: 'WAIT. MILK?? ok...')",
+      "issue": "The three-line dairy block was the critic's own first-round wording, and it reads well. But its shape echoes level_14 [15]-[16]: Roxy mentions something, a friend teaches her that a food hides dairy ('a lot of curries are made with cream, yogurt or butter'), and Roxy realises ('...oh. ok, none of that'). Level_15 [16] also had a friend pass on a hidden-dairy fact. Roxy's 'safe' sherbet misconception at [16] is fresh, so this is mild. It is not a giveaway: 'sherbet has milk in it' is a general food fact that clue rule 6 needs a friend to supply. The player still has to find which venue's board says 'sorbet' while serving milk, and only Sandpiper's review shows that.",
+      "suggested_fix": "Optional. Let Roxy catch it herself, with Maya supplying the callback. [17] roxy: 'wait. just checked the tub in my freezer. sherbet has MILK in it??' (SURPRISED, clue intolerance:dairy). [18] maya: 'tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it' (ANNOYED, clue intolerance:dairy, callback milkshake_incident). The chat stays at 20 lines."
     }
   ],
-  "summary": "A strong buried opener for chapter 4. The craving (Liam's dropped-cone story), outdoor seating ('not spending it under a ceiling', which fits Liam's love of patios in the cast table), healthy (the housewarming) and peanut (Roxy's 'every topping' prompting Cyrus) all come out of other talk mid-conversation. The promotion beat delivers the $$ restatement in Maya's voice and makes Pelican Steps a clear one-star sigh. The two must-fixes: Sea Glass is the only dairy-free venue without an unambiguous no-milk line, at the exact point where the Sandpiper trap teaches distrust of 'sorbet' labels; and Brooke's healthy wish reuses her stated-level 'light and fresh'. The dairy block is heavier than a buried level needs. Note also that the seeder's missing vegan_options tags don't matter: no guest in the campaign is vegan and players never see tags.",
+  "summary": "Both must-fixes are resolved. Sea Glass review 2 now proves it is dairy-free through a cousin who ate three sorbets and two creamies without trouble, which is unambiguous even after the Sandpiper lesson. Brooke's 'tastes mostly of fruit, not a dessert stacked on top of a dessert' is new wording that every review can confirm or rule out (Low Tide's doughnut sundae and syrup waffle against the fruit-forward cups elsewhere). All six suggestions landed cleanly: [5] ties to level_14's pitched plan, Brooke's 'pat on the back AND a paycheck' pays off Maya's level_14 line, and the Lantern Pier, Low Tide and Kittiwake outcomes now match their reviews. Anchor Lane's peanut evidence is now experiential. Staff assurances: only Low Tide quotes staff; Pelican Steps reports a written booking reply. That meets the brief's 'at most one review per level quotes a staff promise', the two have different shapes, and Pelican Steps fails on budget anyway, so its peanut status only needs to be safe, not subtle. Not a problem. Difficulty: a fair, mid-weight buried opener for chapter 4. Every need comes out of other talk mid-conversation, and each of the six decoys fails for one readable reason. It sits on the easy side of 'buried' for two reasons. Several reviews state dairy facts plainly ('no cow's milk in the place', 'nothing on the board contains milk'), though none of those decides its venue's score. And the substantive dairy clue ([17]-[18]) arrives late, behind [16]'s tagged setup (the Validator's check 12 passes). The only suggestion is optional: the friend-teaches-Roxy device echoes level_14.",
   "generated_by": "critic"
 }
