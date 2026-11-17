@@ -87,14 +87,14 @@
       "emotion": "NEUTRAL"
     },
     {
-      "speaker": "maya",
-      "text": "roxy. sherbet has milk in it. you've been having tiny milkshake incidents all summer and calling it weather",
+      "speaker": "roxy",
+      "text": "wait. just checked the tub in my freezer. sherbet has MILK in it??",
       "emotion": "SURPRISED"
     },
     {
-      "speaker": "roxy",
-      "text": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it",
-      "emotion": "SURPRISED"
+      "speaker": "maya",
+      "text": "tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it",
+      "emotion": "ANNOYED"
     },
     {
       "speaker": "liam",
