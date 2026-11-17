@@ -11,7 +11,7 @@
     { "speaker": "maya", "text": "funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh at the bill so loudly the gulls fly off", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "brooke", "text": "a pat on the back AND a paycheck!! ok, this is officially a celebration. by the water. ideas?", "emotion": "HAPPY", "clue": null },
     { "speaker": "liam", "text": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since", "emotion": "HUNGRY", "clue": "craving" },
-    { "speaker": "liam", "text": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, i'm not spending it under a ceiling", "emotion": "HAPPY", "clue": "vibe:outdoor_seating" },
+    { "speaker": "liam", "text": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, we should enjoy the breeze while we still can", "emotion": "HAPPY", "clue": "vibe:outdoor_seating" },
     { "speaker": "roxy", "text": "celebration scoops!! i'm getting a giant one with every topping they've got", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "cyrus", "text": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
     { "speaker": "maya", "text": "nobody is reliving the satay incident on my funded night. absolutely not", "emotion": "SURPRISED", "clue": "allergy:peanut", "callback": "satay_incident" },
@@ -23,5 +23,5 @@
     { "speaker": "liam", "text": "assistant, the sun's dropping and i still can't stop thinking about that kid's cone. help", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
