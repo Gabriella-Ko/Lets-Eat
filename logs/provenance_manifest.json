@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "0d030b76ba36db03457106fccae46c28f20a51eb",
+  "head": "a085445dd6ad1bcdc55fb1319c26f87dee38a5f8",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1797,6 +1797,121 @@
       ]
     },
     {
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "level": "level_16",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T23:12:26-05:00",
+      "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
+          "timestamp": "2026-11-16T23:12:26-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_16: hand edit Liam's closing line and Tidewater's loudness review",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "98cbe1db10c0477dc62887a382e9c8b63a289b4b",
+          "timestamp": "2026-11-16T01:15:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_16: must-fix, Mina's follow-up no longer states her diet; apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3334d0dc5d31b78b2c0cddaa5f8df911ff7c45de",
+          "timestamp": "2026-11-16T01:11:11-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_16: chat and outcomes (Mina speaks up)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_16/outcomes_level_16.json",
+      "level": "level_16",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T01:15:58-05:00",
+      "commit": "98cbe1db10c0477dc62887a382e9c8b63a289b4b",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "98cbe1db10c0477dc62887a382e9c8b63a289b4b",
+          "timestamp": "2026-11-16T01:15:58-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_16: must-fix, Mina's follow-up no longer states her diet; apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3334d0dc5d31b78b2c0cddaa5f8df911ff7c45de",
+          "timestamp": "2026-11-16T01:11:11-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_16: chat and outcomes (Mina speaks up)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_16/spec_level_16.json",
+      "level": "level_16",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T01:07:53-05:00",
+      "commit": "14d1848172243ec63ba276a02444374853bfe6e6",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "14d1848172243ec63ba276a02444374853bfe6e6",
+          "timestamp": "2026-11-16T01:07:53-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_16: spec (Tidewater, greek, two vegetarian traps, lively vs quiet)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_16/venues_level_16.json",
+      "level": "level_16",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T23:12:26-05:00",
+      "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
+          "timestamp": "2026-11-16T23:12:26-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_16: hand edit Liam's closing line and Tidewater's loudness review",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c2155a1b33e0b0a6ae84c3d3be1f529c4939aa9a",
+          "timestamp": "2026-11-16T01:15:36-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_16: apply critic suggestions (evidence variety, Tidewater no feta)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "cfc46ad24816dbd62e2462ddfea2ecec47b0ee0c",
+          "timestamp": "2026-11-16T01:11:49-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_16: venues and new Waterfront registry",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -1943,6 +2058,26 @@
           "timestamp": "2026-11-12T10:45:18-05:00",
           "agent_tag": "map_seeder",
           "subject": "[map_seeder] level_11: venues and new night_market registry (6 stalls)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/registry/venue_registry_waterfront.json",
+      "level": null,
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T01:11:49-05:00",
+      "commit": "cfc46ad24816dbd62e2462ddfea2ecec47b0ee0c",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "cfc46ad24816dbd62e2462ddfea2ecec47b0ee0c",
+          "timestamp": "2026-11-16T01:11:49-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_16: venues and new Waterfront registry",
           "pre_pipeline": false
         }
       ]
@@ -2355,6 +2490,33 @@
           "timestamp": "2026-11-16T00:47:10-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_15: pass, 4 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_16.json",
+      "level": "level_16",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-16T01:17:11-05:00",
+      "commit": "f58d5718e3e58efa65c844fe9eb9ec7248923405",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "f58d5718e3e58efa65c844fe9eb9ec7248923405",
+          "timestamp": "2026-11-16T01:17:11-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_16: re-review after rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b5dfcc6e98ae3576dbeedb411e666003b6865773",
+          "timestamp": "2026-11-16T01:14:51-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_16: must_fix 1, 7 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -3612,6 +3774,66 @@
           "timestamp": "2026-11-16T00:50:11-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_15: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_16_run1.json",
+      "level": "level_16",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T01:17:58-05:00",
+      "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+          "timestamp": "2026-11-16T01:17:58-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_16: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_16_run2.json",
+      "level": "level_16",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T01:17:58-05:00",
+      "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+          "timestamp": "2026-11-16T01:17:58-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_16: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_16_run3.json",
+      "level": "level_16",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T01:17:58-05:00",
+      "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7442d3787cd732a9c63cd9bea44dd9d1536009cc",
+          "timestamp": "2026-11-16T01:17:58-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_16: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]

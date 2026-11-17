@@ -1,0 +1,17 @@
+{
+  "level_id": "level_16",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_16/dialogue_level_16.json",
+      "agent": "narrative_writer",
+      "where": "script[18] (Liam: 'assistant, the boardwalk is long and i am running on harbour water. please')",
+      "issue": "The closing hand-off to the assistant has the same shape as level_15's closer ('Assistant, the row is long and Liam's tip ends there.'), so two levels in a row end on 'the [place] is long'. It's mild, but it's the line players read last.",
+      "suggested_fix": "script[18]: 'assistant, i've been dripping on this boardwalk for an hour. feed me please' (HUNGRY, clue null)."
+    }
+  ],
+  "summary": "The must-fix is resolved. Mina's diet now comes through only by implication: 'a real main' [5], the plate-of-fries callback [6], 'not fish either' and 'not something i build out of the starters' [9]. Each vegetarian trap maps cleanly onto one of those lines: Salt Marsh's 'There wasn't one' plus a sides-only meal answers [9], and Driftwood's all-seafood meat-free column answers 'not fish either'. The Mina speaks up beat lands without her announcing her diet. All 7 applied suggestions landed and created no new contradictions. The 'summer's almost over' framing matches Brooke [12] and the Cormorant and Tidewater outcomes. Roxy's dairy now comes out offhand and late, in her voice. Brooke's taxi line is fresh. Tidewater review 3 now rules out feta on the yemista. Seawall shows lively through shared tables and noise. Driftwood shows it through the open quay. The vegetarian evidence now varies from venue to venue, and only the three venues that need it use the 'relative who doesn't eat meat' story. Every outcome still matches its reviews. Difficulty: moderate and fair for a chapter 4 opener. The vegetarian clue is now truly implied, and the two near-identical vegetarian traps among seven Greek-heavy venues are the real test. Craving ('GREEK') and lively ('somewhere loud') stay close to stated, so overall the level sits a little below its 'implied' label. That's reasonable for the first Waterfront level, but later chapter 4 levels should lean harder on implied and buried clues.",
+  "generated_by": "critic"
+}

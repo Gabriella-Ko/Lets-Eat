@@ -3210,5 +3210,155 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:07:53.344Z",
+    "level": "level_16",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer waterfront_tidewater (greek, $$), two vegetarian traps + dairy/healthy/lively/craving near misses; 7 new waterfront venues",
+    "retries": 0,
+    "tokens": 39191
+  },
+  {
+    "timestamp": "2026-11-16T06:11:10.958Z",
+    "level": "level_16",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 19 lines, Mina speaks up beat (real main), callbacks plate_of_fries/milkshake_incident",
+    "retries": 0,
+    "tokens": 62750
+  },
+  {
+    "timestamp": "2026-11-16T06:11:48.887Z",
+    "level": "level_16",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues, new waterfront registry",
+    "retries": 0,
+    "tokens": 57166
+  },
+  {
+    "timestamp": "2026-11-16T06:11:58.756Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:14:51.618Z",
+    "level": "level_16",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "must_fix 1 (Mina states diet: had a face) + 7 suggestions (4 writer, 3 seeder), all sent in one rework round",
+    "retries": 0,
+    "tokens": 65360
+  },
+  {
+    "timestamp": "2026-11-16T06:15:36.474Z",
+    "level": "level_16",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "first-critique suggestions: vegetarian evidence devices varied, lively shown beyond music, Tidewater yemista no feta",
+    "retries": 1,
+    "tokens": 20860
+  },
+  {
+    "timestamp": "2026-11-16T06:15:58.713Z",
+    "level": "level_16",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "must-fix (Mina no longer states diet) + 4 suggestions applied",
+    "retries": 1,
+    "tokens": 31802
+  },
+  {
+    "timestamp": "2026-11-16T06:16:07.390Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:11.706Z",
+    "level": "level_16",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, must-fix resolved, 1 suggestion (to PR)",
+    "retries": 0,
+    "tokens": 47444
+  },
+  {
+    "timestamp": "2026-11-16T06:17:11.706Z",
+    "level": "level_16",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15189
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15333
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (tidewater, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15413
+  },
+  {
+    "timestamp": "2026-11-16T06:17:58.795Z",
+    "level": "level_16",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs: Tidewater loud only \"on a Friday\"; Mina diet implied but found by all)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:13:41.083Z",
+    "level": "level_16",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

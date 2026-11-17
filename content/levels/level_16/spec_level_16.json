@@ -1,0 +1,20 @@
+{
+  "level_id": "level_16",
+  "chapter": 4,
+  "district": "waterfront",
+  "difficulty": "implied",
+  "guests": ["liam", "roxy", "mina", "brooke"],
+  "hard": { "budget_max": null, "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "greek", "vibe": ["lively", "healthy"], "intolerances": ["dairy"] },
+  "solution_id": "waterfront_tidewater",
+  "decoys": [
+    { "id": "waterfront_salt_marsh", "fails_on": "diet:vegetarian" },
+    { "id": "waterfront_driftwood", "fails_on": "diet:vegetarian" },
+    { "id": "waterfront_seawall", "fails_on": "intolerance:dairy" },
+    { "id": "waterfront_copper_buoy", "fails_on": "vibe:healthy" },
+    { "id": "waterfront_cormorant", "fails_on": "vibe:lively" },
+    { "id": "waterfront_breakwater", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

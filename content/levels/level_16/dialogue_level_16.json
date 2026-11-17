@@ -1,0 +1,26 @@
+{
+  "level_id": "level_16",
+  "script": [
+    { "speaker": "brooke", "text": "summer's almost over and this crew has never once eaten by the water. tonight we fix that!", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "also i beat liam paddleboarding this morning, so winner picks. GREEK. the whole boardwalk smells like lemon and charcoal", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "liam", "text": "i fell in twice and swallowed half the harbour. greek sounds perfect. i'm starving", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "mina", "text": "greek by the water sounds lovely :) liam, are you okay after all that swimming?", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "liam", "text": "my pride's a little soggy. the rest of me is just hungry", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "okay, can i ask for something? could we go somewhere i can order a real main this time?", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "i've had enough side salads and plates of fries to last me a lifetime", "emotion": "NEUTRAL", "clue": "diet:vegetarian", "callback": "plate_of_fries" },
+    { "speaker": "brooke", "text": "MINA. yes. you asking for something might be my favourite thing that's happened all summer", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "yes!! ooh, the harbour places do amazing grilled fish. would that work for you?", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "not fish either, sorry :) just a proper main of my own, not something i build out of the starters", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "liam", "text": "a whole main of your own, not a pile of sides pretending to be dinner. got it", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "brooke", "text": "ok my turn. our first dinner on the water deserves a crowd, so i want somewhere loud. a packed room, people laughing over each other, plates flying past", "emotion": "HAPPY", "clue": "vibe:lively" },
+    { "speaker": "brooke", "text": "a hushed little dining room tonight would feel like summer ended early", "emotion": "ANNOYED", "clue": "vibe:lively" },
+    { "speaker": "mina", "text": "a loud, happy table sounds perfect, brooke :)", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "and after a whole summer of night-market fryers, i want a light plate. the kind you finish feeling better than when you sat down", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "roxy", "text": "oh wait, i'm taking the water taxi back. bobbing boat, ten whole minutes", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "roxy", "text": "...so maybe no yogurt dips or crumbly cheese in mine. just remembered why", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "brooke", "text": "roxy, a bobbing boat and the milkshake incident in one evening? i'm sitting at the far end of that taxi", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
+    { "speaker": "liam", "text": "i've been dripping on this boardwalk for an hour. feed me please, assistant", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}

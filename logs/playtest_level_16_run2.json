@@ -1,0 +1,50 @@
+{
+  "level_id": "level_16",
+  "run": 2,
+  "generated_by": "blind_playtester",
+  "pick": "waterfront_tidewater",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: Greek (winner's pick, the group agrees)",
+      "who": "roxy",
+      "line": "also i beat liam paddleboarding this morning, so winner picks. GREEK. the whole boardwalk smells like lemon and charcoal"
+    },
+    {
+      "constraint": "Strict diet: vegetarian (no meat, no fish) and she needs a real meat-free main, not a meal built from sides",
+      "who": "mina",
+      "line": "could we go somewhere i can order a real main this time? / i've had enough side salads and plates of fries to last me a lifetime / not fish either, sorry :) just a proper main of my own, not something i build out of the starters"
+    },
+    {
+      "constraint": "Vibe: loud, lively, packed room",
+      "who": "brooke",
+      "line": "i want somewhere loud. a packed room, people laughing over each other, plates flying past / a hushed little dining room tonight would feel like summer ended early"
+    },
+    {
+      "constraint": "Light food, nothing fried",
+      "who": "brooke",
+      "line": "after a whole summer of night-market fryers, i want a light plate. the kind you finish feeling better than when you sat down"
+    },
+    {
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker): no yogurt or cheese",
+      "who": "roxy",
+      "line": "...so maybe no yogurt dips or crumbly cheese in mine. just remembered why (backed by Brooke's 'the milkshake incident')"
+    },
+    {
+      "constraint": "Budget: none stated; all venues are $$, so price does not separate them",
+      "who": "none",
+      "line": "n/a"
+    }
+  ],
+  "elimination": {
+    "waterfront_salt_marsh": "No meat-free main; the flatmate built a meal from sides. Fails Mina's strict diet.",
+    "waterfront_driftwood": "The meat-free column is all seafood; nothing for a no-fish eater. Fails Mina's strict diet.",
+    "waterfront_seawall": "Safe for Mina and loud, but feta and yogurt are on everything and can't be left off. Dairy costs 1 star, so 2 stars.",
+    "waterfront_copper_buoy": "Loud, dairy-free and has a meatless main, but everything is fried. Misses 'light', so 2 stars.",
+    "waterfront_cormorant": "Light, dairy-free and has a vegetarian yemista main, but very quiet. Misses 'loud', so 2 stars.",
+    "waterfront_breakwater": "Loud, light, dairy-free and has a vegetarian main, but it is Italian. Misses Greek, so 2 stars.",
+    "waterfront_tidewater": "Greek; yemista is a real vegetarian main; loud (bouzouki, line dancing, lean in to hear); light (grilled food and olive-oil ladera); no feta, no yogurt, olive oil instead of butter. Meets everything."
+  },
+  "difficulty": 3,
+  "notes": "The puzzle is fair and has a clean answer. Each wrong venue misses exactly one thing, which makes a nice 'near miss' grid. Mina's diet is never named outright. A player has to put together 'a real main of my own' and 'not fish either'. The reviews' 'doesn't eat meat' wording makes it clear, and that inference is the main challenge. Roxy's dairy clue is soft but readable because of the boat and the 'milkshake incident'. Seawall and Cormorant both offer a vegetarian yemista, so a player has to check the dairy and the vibe on each. Only one small quibble: the Tidewater line 'Two plates and a carafe later I still felt like I could swim across the harbour' signals 'light' in a roundabout way, but the ladera and grill details back it up. Nothing contradictory found. Budget is never mentioned, and every venue is $$."
+}

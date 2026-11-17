@@ -1,0 +1,47 @@
+{
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_tidewater",
+      "name": "Tidewater",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_salt_marsh",
+      "name": "Salt Marsh",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_driftwood",
+      "name": "Driftwood",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_seawall",
+      "name": "Seawall",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_copper_buoy",
+      "name": "Copper Buoy",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_cormorant",
+      "name": "Cormorant",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_breakwater",
+      "name": "Breakwater",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    }
+  ]
+}
