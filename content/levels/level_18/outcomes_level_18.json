@@ -7,7 +7,7 @@
       "lines": [
         { "speaker": "cyrus", "text": "Every roll held its shape all the way to my mouth. None of them were mine. Ideal.", "emotion": "HAPPY" },
         { "speaker": "mina", "text": "a whole page i could order from, and a room quiet enough to hear maya's news twice :)", "emotion": "HAPPY" },
-        { "speaker": "maya", "text": "two dollar signs. nothing to bring up at future dinners. you're all very lucky", "emotion": "HAPPY" }
+        { "speaker": "maya", "text": "two dollar signs. i ordered whatever i wanted and ate it at a completely normal, happy speed", "emotion": "HAPPY" }
       ]
     },
     "waterfront_starboard": {
@@ -15,7 +15,7 @@
       "missed": ["allergy:peanut"],
       "lines": [
         { "speaker": "cyrus", "text": "Peanut pounded into the dressing, peanut on the spinach. I'm not staying.", "emotion": "ANGRY" },
-        { "speaker": "maya", "text": "brooke promised us no satay sequel an hour ago and half this menu comes with peanut spooned on top?? i'm literally leaving this chat", "emotion": "SURPRISED" },
+        { "speaker": "maya", "text": "mina was reading every sauce for him and they hid the peanuts in the DRESSING?? i'm literally leaving this chat", "emotion": "SURPRISED" },
         { "speaker": "brooke", "text": "everyone up. cyrus walks out first and we follow him", "emotion": "SURPRISED" }
       ]
     },
@@ -32,8 +32,8 @@
       "result": "partial",
       "missed": ["budget"],
       "lines": [
-        { "speaker": "maya", "text": "three dollar signs. it was delicious, and i will be mentioning it at every dinner until the coast. starting now", "emotion": "ANNOYED" },
-        { "speaker": "brooke", "text": "worth every piece. next coffee's on me, so at least that part stays off the list", "emotion": "HAPPY" }
+        { "speaker": "maya", "text": "three dollar signs. it was delicious, and i chewed every single piece very slowly and very sadly to get my money's worth", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "worth every piece. next coffee's on me, maya, so you can cheer up at full speed", "emotion": "HAPPY" }
       ]
     },
     "waterfront_ropewalk": {
@@ -48,7 +48,7 @@
       "result": "partial",
       "missed": ["vibe:healthy"],
       "lines": [
-        { "speaker": "brooke", "text": "every roll here comes battered and fried. i gave up my noisy room tonight and still got the fryer", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "every roll here came battered and fried. tomorrow's fun run is turning into a fun walk", "emotion": "ANNOYED" },
         { "speaker": "cyrus", "text": "For the record, they still held together better than mine.", "emotion": "HAPPY" }
       ]
     },
