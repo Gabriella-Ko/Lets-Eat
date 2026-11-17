@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "a085445dd6ad1bcdc55fb1319c26f87dee38a5f8",
+  "head": "a4de0577d6b200a295b3417701a79cb5c53fce35",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1912,6 +1912,128 @@
       ]
     },
     {
+      "file": "content/levels/level_17/dialogue_level_17.json",
+      "level": "level_17",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T23:39:37-05:00",
+      "commit": "194a9acc407b3fb9e8fd05083e2451abfc3134bc",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "194a9acc407b3fb9e8fd05083e2451abfc3134bc",
+          "timestamp": "2026-11-16T23:39:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_17: hand edit Liam's outdoor seating line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "eef9bdbc014d8c9bb0a4a407b4378689e82012d1",
+          "timestamp": "2026-11-16T23:32:49-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: Roxy discovers the sherbet milk herself",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d04f5d90a9680e2e983adc1f97e03a00b6e1b104",
+          "timestamp": "2026-11-16T23:27:27-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: must-fix, Brooke's healthy wording; apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b315d5da8e0e0c364a38153ffd952398100da6c8",
+          "timestamp": "2026-11-16T23:22:20-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: chat and outcomes (Maya's promotion reveal)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_17/outcomes_level_17.json",
+      "level": "level_17",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v7",
+      "timestamp": "2026-11-16T23:42:03-05:00",
+      "commit": "a35b9aab328b1722900ed0f3888bd6e0a2a8e3d6",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a35b9aab328b1722900ed0f3888bd6e0a2a8e3d6",
+          "timestamp": "2026-11-16T23:42:03-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_17: hand edit Liam's Kittiwake outcome line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d04f5d90a9680e2e983adc1f97e03a00b6e1b104",
+          "timestamp": "2026-11-16T23:27:27-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: must-fix, Brooke's healthy wording; apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b315d5da8e0e0c364a38153ffd952398100da6c8",
+          "timestamp": "2026-11-16T23:22:20-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: chat and outcomes (Maya's promotion reveal)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_17/spec_level_17.json",
+      "level": "level_17",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T23:17:36-05:00",
+      "commit": "95173dc7fa594a53691282e05c3cd4575ef3b127",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "95173dc7fa594a53691282e05c3cd4575ef3b127",
+          "timestamp": "2026-11-16T23:17:36-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_17: spec (Sea Glass, ice cream, $$ budget reveal)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_17/venues_level_17.json",
+      "level": "level_17",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T23:27:14-05:00",
+      "commit": "d8df2d4e82232418840357e912d21e6c8ef5b9c4",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "d8df2d4e82232418840357e912d21e6c8ef5b9c4",
+          "timestamp": "2026-11-16T23:27:14-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_17: must-fix, Sea Glass dairy-free evidence; Anchor Lane peanut evidence",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2ac9d5aaf5f35d6064f7d53dff36e6b2aefe34b9",
+          "timestamp": "2026-11-16T23:21:56-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_17: venues and 7 new Waterfront venues",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -2068,11 +2190,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-16T01:11:49-05:00",
-      "commit": "cfc46ad24816dbd62e2462ddfea2ecec47b0ee0c",
+      "timestamp": "2026-11-16T23:21:56-05:00",
+      "commit": "2ac9d5aaf5f35d6064f7d53dff36e6b2aefe34b9",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2ac9d5aaf5f35d6064f7d53dff36e6b2aefe34b9",
+          "timestamp": "2026-11-16T23:21:56-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_17: venues and 7 new Waterfront venues",
+          "pre_pipeline": false
+        },
         {
           "commit": "cfc46ad24816dbd62e2462ddfea2ecec47b0ee0c",
           "timestamp": "2026-11-16T01:11:49-05:00",
@@ -2517,6 +2646,33 @@
           "timestamp": "2026-11-16T01:14:51-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_16: must_fix 1, 7 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_17.json",
+      "level": "level_17",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-16T23:29:31-05:00",
+      "commit": "ef6bfee74151d395bd9031f76c3c1e17f91b418e",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "ef6bfee74151d395bd9031f76c3c1e17f91b418e",
+          "timestamp": "2026-11-16T23:29:31-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_17: re-review after rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "be2847047081d40140ef6b48a6026573708b6a16",
+          "timestamp": "2026-11-16T23:26:29-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_17: must_fix 2, 6 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -3834,6 +3990,87 @@
           "timestamp": "2026-11-16T01:17:58-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_16: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_17_run1.json",
+      "level": "level_17",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T23:33:38-05:00",
+      "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+          "timestamp": "2026-11-16T23:33:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs after dairy change, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b0ac7aee5b2a7bfe916789ef1999afb490e23fe6",
+          "timestamp": "2026-11-16T23:30:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_17_run2.json",
+      "level": "level_17",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T23:33:38-05:00",
+      "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+          "timestamp": "2026-11-16T23:33:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs after dairy change, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b0ac7aee5b2a7bfe916789ef1999afb490e23fe6",
+          "timestamp": "2026-11-16T23:30:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_17_run3.json",
+      "level": "level_17",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-16T23:33:38-05:00",
+      "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "aac32fc7c17a46bfa0c8d420842eac503a92931d",
+          "timestamp": "2026-11-16T23:33:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs after dairy change, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b0ac7aee5b2a7bfe916789ef1999afb490e23fe6",
+          "timestamp": "2026-11-16T23:30:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_17: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
