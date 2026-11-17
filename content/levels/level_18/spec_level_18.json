@@ -1,0 +1,20 @@
+{
+  "level_id": "level_18",
+  "chapter": 4,
+  "district": "waterfront",
+  "difficulty": "implied",
+  "guests": ["mina", "cyrus", "maya", "brooke"],
+  "hard": { "budget_max": "$$", "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "sushi", "vibe": ["quiet", "healthy"], "intolerances": [] },
+  "solution_id": "waterfront_spindrift",
+  "decoys": [
+    { "id": "waterfront_starboard", "fails_on": "allergy:peanut" },
+    { "id": "waterfront_gull_point", "fails_on": "diet:vegetarian" },
+    { "id": "waterfront_mooring_post", "fails_on": "budget_soft" },
+    { "id": "waterfront_ropewalk", "fails_on": "vibe:quiet" },
+    { "id": "waterfront_halyard", "fails_on": "vibe:healthy" },
+    { "id": "waterfront_cormorant", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}
