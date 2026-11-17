@@ -3369,6 +3369,16 @@
     "step": "spec",
     "result": "written: answer waterfront_sea_glass (ice_cream, $$, dairy_free), peanut trap + budget($$$)/dairy/outdoor/healthy/craving near misses; 7 new waterfront venues",
     "retries": 0,
+    "tokens": 47840
+  },
+  {
+    "timestamp": "2026-11-17T04:21:56.112Z",
+    "level": "level_17",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues added to waterfront registry; flag: dairy-free venues lack vegan_options",
+    "retries": 0,
     "tokens": null
   }
 ]
