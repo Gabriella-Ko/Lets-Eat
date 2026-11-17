@@ -1,0 +1,25 @@
+{
+  "level_id": "level_18",
+  "script": [
+    { "speaker": "brooke", "text": "small table tonight, dinner crew: just the four of us by the water. where are we eating?", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "I have a proposal. On Sunday I bought a bamboo mat, a bag of short-grain rice and a stack of seaweed sheets, and tried to roll my own.", "emotion": "NEUTRAL", "clue": "craving" },
+    { "speaker": "cyrus", "text": "Eleven attempts. Every one unrolled itself on the way to the plate. I would now like to eat some made by a professional.", "emotion": "HUNGRY", "clue": "craving" },
+    { "speaker": "maya", "text": "cyrus. you followed the instructions and LOST? i need photos immediately", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "mina", "text": "i was there for attempt seven :) it tasted lovely, it just came apart in the soy dish. i think he was very brave", "emotion": "HAPPY", "clue": null },
+    { "speaker": "cyrus", "text": "Mina, I've already ruled places out for you. Same standard as sushi day: a whole part of the menu with no fish and no meat in it, so you can point at anything.", "emotion": "NEUTRAL", "clue": "diet:vegetarian", "callback": "sushi_day" },
+    { "speaker": "mina", "text": "you planned for me before i'd even opened a menu :) a whole page of rolls i can actually have, like that day... that would make my week", "emotion": "HAPPY", "clue": "diet:vegetarian", "callback": "sushi_day" },
+    { "speaker": "brooke", "text": "the legendary sushi day. i've heard about it so often i'm counting it as my own memory", "emotion": "HAPPY", "clue": null, "callback": "sushi_day" },
+    { "speaker": "cyrus", "text": "One more lesson from Sunday. The kit came with a little sesame dressing. I read the label anyway: peanut, third ingredient. It was in the bin before the rice finished cooking.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "brooke", "text": "then nothing peanut goes anywhere near cyrus tonight. dressing, sauce, sprinkles, none of it. the satay incident is one story that never gets a sequel", "emotion": "NEUTRAL", "clue": "allergy:peanut", "callback": "satay_incident" },
+    { "speaker": "maya", "text": "my turn. the trip fund finished its job, so i'm officially a two-dollar-sign person now", "emotion": "HAPPY", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "maya", "text": "a three-sign place won't ruin me. but i will read the bill out loud to the whole table, line by line, with feeling", "emotion": "ANNOYED", "clue": "budget" },
+    { "speaker": "brooke", "text": "a dramatic reading of the bill. honestly i'd almost pay to see it", "emotion": "HAPPY", "clue": null },
+    { "speaker": "mina", "text": "maya, i missed the big news the other night and i want to hear all of it properly. could we find somewhere calm and hushed, where nobody has to shout across the table?", "emotion": "NEUTRAL", "clue": "vibe:quiet" },
+    { "speaker": "brooke", "text": "you all know i'm usually the one dragging us into the loud, packed spots. but yes. a calm room tonight, no crowd noise. let's actually talk", "emotion": "HAPPY", "clue": "vibe:quiet" },
+    { "speaker": "brooke", "text": "and in return: i just drove six hours back from my sister's, fuelled entirely by gas-station snacks", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "brooke", "text": "so tonight my dinner has to be the opposite of a gas station. simple, light, and nothing that's been battered and dunked in hot oil", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "cyrus", "text": "Noted, all of it. Assistant, I've done enough rolling for one week. Your turn.", "emotion": "NEUTRAL", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}

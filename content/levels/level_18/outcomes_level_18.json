@@ -1,0 +1,66 @@
+{
+  "level_id": "level_18",
+  "by_venue": {
+    "waterfront_spindrift": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "cyrus", "text": "Every roll held its shape all the way to my mouth. None of them were mine. Ideal.", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "a whole page i could order from, and a room quiet enough to hear maya's news twice :)", "emotion": "HAPPY" },
+        { "speaker": "maya", "text": "two dollar signs. no dramatic reading tonight. the table will have to entertain itself", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_starboard": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Peanut in the sauces, peanut on the rolls. I threw that dressing in the bin on Sunday for exactly this reason. I'm not staying.", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "he dodged one peanut at home and we walked him into a whole menu of them?? i'm literally leaving this chat", "emotion": "SURPRISED" },
+        { "speaker": "brooke", "text": "everyone up. cyrus walks out first and we follow him", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_gull_point": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "i've read the menu twice... there's fish or meat in every single roll", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "I set a standard for Mina and then didn't hold to it. Mina, I'm sorry. We're leaving.", "emotion": "ANGRY" },
+        { "speaker": "brooke", "text": "nope. mina is not eating plain rice while we all tuck in. coats on", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_mooring_post": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "three dollar signs. as promised: 'item one, a roll that cost more than my shoes'... okay, it was delicious. i'm still reading the rest", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "best show we've had at a dinner all summer. dessert's on me to make up for it", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_ropewalk": {
+      "result": "partial",
+      "missed": ["vibe:quiet"],
+      "lines": [
+        { "speaker": "mina", "text": "the rolls are lovely, but it's so loud in here that maya's told me about her job three times and i've caught about half", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "even i think this room is too much tonight. let's take the rest of the story out to the boardwalk", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_halyard": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "every roll here comes battered and fried. i drove six hours on gas-station snacks for THIS", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "For the record, they still held together better than mine.", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_cormorant": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "cyrus", "text": "Calm, lovely, and Greek. After eleven attempts this week, I was hoping someone would hand me a properly rolled one.", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "the quiet was perfect though, i heard every word of maya's news :) we'll find cyrus his rolls next time", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
