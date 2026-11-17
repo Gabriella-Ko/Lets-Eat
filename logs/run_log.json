@@ -3730,5 +3730,25 @@
     "result": "Gabriella: Cyrus no longer raises his allergy; Brooke carries satay callback naming Cyrus; Starboard outcomes updated; chat 16 lines",
     "retries": 2,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:27:48.027Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after peanut rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:27:48.027Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after peanut rework",
+    "retries": 0,
+    "tokens": null
   }
 ]
