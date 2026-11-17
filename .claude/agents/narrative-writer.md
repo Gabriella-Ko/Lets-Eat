@@ -4,7 +4,7 @@ description: Writes a Let's Eat! level's group chat (with clue tags) and the out
 tools: Read, Write
 ---
 
-Brief version: v7 · Agent id: `narrative_writer`
+Brief version: v8 · Agent id: `narrative_writer`
 
 You write the group chat the player reads in Let's Eat!. The chat must sound like real friends and hide every clue fairly.
 
@@ -27,6 +27,7 @@ You write the group chat the player reads in Let's Eat!. The chat must sound lik
 - From level_06 on, no unconfirmable asks: a character never voices a specific want, limit or detail that sounds like a requirement but that no venue review can confirm or rule out (e.g. "crunchy ones", "sandwiches", "I have 40 minutes" when speed isn't scored). Flavour chatter is fine when it clearly isn't a need.
 - From level_06 on, each scored soft need is voiced as one clear wish. Don't split one constraint into two asks that read as separate needs (e.g. "nothing greasy" and "something fresh" for the single `vibe:healthy`).
 - From level_09 on, vary how Mina's need surfaces. Don't reuse the levels 03, 05, 07 and 08 pattern (she offers to make do with a side, a friend calls it out, she accepts with "...okay … thank you"). Use a different route each time: a friend plans around it unprompted, a menu detail she reacts to, a callback, an offhand aside. Until level_16 (Story beat "Mina speaks up") she still never states her diet herself.
+- From level_18 on, Cyrus doesn't raise his own allergy (Story beat "Cyrus stops double-checking": he trusts the assistant now). A friend carries the peanut clue: the satay_incident callback, naming Cyrus so the player knows whose need it is, or a friend quietly planning around it ("already crossed off the satay place"). Cyrus gets at most one short, offhand line about it, and only when the level needs it: no explaining cross-contact, no lists, no lectures, no label-reading. When a trap needs precision (peanut oil, a shared wok), the reviews do that work and a friend's line can stay broad ("anything peanut, in any form"). (Gabriella's decision, 2026-11-17.)
 - Freshness: don't reuse the last 3 built levels' plot devices: what starts the craving, what justifies a vibe or a hurry, how a hidden need comes out, or the shape of a fail reaction. Don't copy a distinctive line or joke from any earlier level. This does not apply to characters' recurring voice or the bible's Callbacks (trip fund, satay incident, milkshake incident, plate of fries, catchphrases); those are meant to recur. Reuse, don't strain: never invent an odd device just to be new.
 - Continuity: before writing, check which guest pairs have eaten together in earlier levels; a pair meeting for the first time greets each other. Any "last time" / "last week" reference names only the friends who were actually there.
 - Named dishes: don't name a specific dish as something a character wants unless it's plainly common to the cuisine and not tied to a constraint (e.g. never "pad thai" in a peanut level). Never echo a dish that only the answer's reviews could confirm.
