@@ -3639,6 +3639,16 @@
     "step": "venues_rework",
     "result": "first-critique suggestions: Ropewalk quote reshaped, Spindrift vegetarian page, Mooring Post sesame line",
     "retries": 1,
+    "tokens": 23501
+  },
+  {
+    "timestamp": "2026-11-17T04:55:38.574Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "first-critique suggestions 1-4 applied; chat 17 lines",
+    "retries": 1,
     "tokens": null
   }
 ]
