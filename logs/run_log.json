@@ -3419,6 +3419,16 @@
     "step": "venues_rework",
     "result": "must-fix: Sea Glass no-milk evidence covers sorbets; Anchor Lane peanut evidence now customer experience",
     "retries": 1,
+    "tokens": 20726
+  },
+  {
+    "timestamp": "2026-11-17T04:27:27.692Z",
+    "level": "level_17",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "must-fix (Brooke wording) + 5 suggestions applied; chat 20 lines",
+    "retries": 1,
     "tokens": null
   }
 ]

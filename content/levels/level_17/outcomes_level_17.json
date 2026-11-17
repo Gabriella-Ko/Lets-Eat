@@ -14,7 +14,7 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "Crushed peanuts on the topping bar, and one scoop going from tub to tub. It's everything I described earlier, in a single glass case. I'm not ordering.", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "Crushed peanuts on the topping tray, and a peanut-butter swirl churned in the same machine as every other flavour. It's everything I described earlier. I'm not ordering.", "emotion": "ANGRY" },
         { "speaker": "maya", "text": "my first funded night out and we walk cyrus into a peanut minefield?? i'm literally leaving this chat, and i'm taking all of you with me", "emotion": "SURPRISED" },
         { "speaker": "roxy", "text": "toppings were MY idea. i'm so sorry cyrus. we're going, right now", "emotion": "SURPRISED" }
       ]
@@ -39,7 +39,7 @@
       "result": "partial",
       "missed": ["vibe:outdoor_seating"],
       "lines": [
-        { "speaker": "liam", "text": "great scoop. eaten under a ceiling, on the last hot night of summer. the one thing i said i wouldn't do", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "great granita. eaten under a ceiling, on the last hot night of summer. the one thing i said i wouldn't do", "emotion": "ANNOYED" },
         { "speaker": "brooke", "text": "then we finish them on a walk down the boardwalk. the sunset isn't over yet!", "emotion": "HAPPY" }
       ]
     },
@@ -47,7 +47,7 @@
       "result": "partial",
       "missed": ["vibe:healthy"],
       "lines": [
-        { "speaker": "brooke", "text": "fried dough, a river of sauce, cream piled on top. it's the housewarming all over again", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "a fried doughnut, three scoops stuffed inside, hot fudge and brownie on top. it's the housewarming all over again", "emotion": "ANNOYED" },
         { "speaker": "liam", "text": "i'll help you finish it. purely as a favour", "emotion": "HAPPY" }
       ]
     },
