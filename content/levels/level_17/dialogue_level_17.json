@@ -18,8 +18,8 @@
     { "speaker": "brooke", "text": "speaking of toppings. my neighbour's housewarming yesterday ended with fried dough, three sauces and a mountain of whipped cream", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "roxy", "text": "don't worry about me btw, i've got a system. i always order the sherbet. it's the safe one", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
-    { "speaker": "maya", "text": "roxy. sherbet has milk in it. you've been having tiny milkshake incidents all summer and calling it weather", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
-    { "speaker": "roxy", "text": "WAIT. MILK?? ok. nothing milky for me tonight, whatever the board calls it", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "roxy", "text": "wait. just checked the tub in my freezer. sherbet has MILK in it??", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
+    { "speaker": "maya", "text": "tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it", "emotion": "ANNOYED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
     { "speaker": "liam", "text": "assistant, the sun's dropping and i still can't stop thinking about that kid's cone. help", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
