@@ -14,8 +14,8 @@
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "Peanut in the sauces, peanut on the rolls. I threw that dressing in the bin on Sunday for exactly this reason. I'm not staying.", "emotion": "ANGRY" },
-        { "speaker": "maya", "text": "cyrus warned us about peanut dressing an hour ago and half this menu comes with it spooned on top?? i'm literally leaving this chat", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "Peanut pounded into the dressing, peanut on the spinach. I'm not staying.", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "brooke promised us no satay sequel an hour ago and half this menu comes with peanut spooned on top?? i'm literally leaving this chat", "emotion": "SURPRISED" },
         { "speaker": "brooke", "text": "everyone up. cyrus walks out first and we follow him", "emotion": "SURPRISED" }
       ]
     },

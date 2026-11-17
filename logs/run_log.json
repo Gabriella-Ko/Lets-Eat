@@ -3720,5 +3720,15 @@
     "result": "pass 3/3 (all runs: chat never says whose peanut allergy it is; harmless)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:27:47.680Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v8",
+    "step": "chat_rework",
+    "result": "Gabriella: Cyrus no longer raises his allergy; Brooke carries satay callback naming Cyrus; Starboard outcomes updated; chat 16 lines",
+    "retries": 2,
+    "tokens": null
   }
 ]
