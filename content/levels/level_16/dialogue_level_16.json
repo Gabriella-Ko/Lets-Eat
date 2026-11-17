@@ -19,8 +19,8 @@
     { "speaker": "roxy", "text": "oh wait, i'm taking the water taxi back. bobbing boat, ten whole minutes", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "roxy", "text": "...so maybe no yogurt dips or crumbly cheese in mine. just remembered why", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
     { "speaker": "brooke", "text": "roxy, a bobbing boat and the milkshake incident in one evening? i'm sitting at the far end of that taxi", "emotion": "SURPRISED", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
-    { "speaker": "liam", "text": "assistant, the boardwalk is long and i am running on harbour water. please", "emotion": "HUNGRY", "clue": null }
+    { "speaker": "liam", "text": "i've been dripping on this boardwalk for an hour. feed me please, assistant", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
