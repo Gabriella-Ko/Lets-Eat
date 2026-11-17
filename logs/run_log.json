@@ -3809,6 +3809,26 @@
     "step": "chat_rework",
     "result": "Gabriella: declutter to v9 (16 lines, 6 clue, 2 callbacks, 10 non-clue); 4 outcome lines updated. Retries exhausted.",
     "retries": 3,
+    "tokens": 52022
+  },
+  {
+    "timestamp": "2026-11-17T05:43:35.620Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:46:06.871Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after declutter, 0 must_fix, 3 suggestions (hand-edit; writer retries exhausted)",
+    "retries": 0,
     "tokens": null
   }
 ]

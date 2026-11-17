@@ -1,8 +1,8 @@
 PASS level_18
 clue map (implied, 16 lines):
-  allergy:peanut   @ 8
-  diet:vegetarian  @ 5, 6
-  budget           @ 9, 10
-  craving          @ 1, 2
-  vibe:quiet       @ 12, 13
-  vibe:healthy     @ 14
+  allergy:peanut   @ 12
+  diet:vegetarian  @ 6
+  budget           @ 10
+  craving          @ 2
+  vibe:quiet       @ 8
+  vibe:healthy     @ 13
