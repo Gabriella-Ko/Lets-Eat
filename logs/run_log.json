@@ -3409,6 +3409,16 @@
     "step": "critique",
     "result": "must_fix 2 (Sea Glass dairy-free evidence; Brooke stated-level wording) + 6 suggestions, all sent in one rework round",
     "retries": 0,
+    "tokens": 75141
+  },
+  {
+    "timestamp": "2026-11-17T04:27:14.233Z",
+    "level": "level_17",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "must-fix: Sea Glass no-milk evidence covers sorbets; Anchor Lane peanut evidence now customer experience",
+    "retries": 1,
     "tokens": null
   }
 ]
