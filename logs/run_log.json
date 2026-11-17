@@ -3769,7 +3769,7 @@
     "step": "playtest_run2_after_peanut_rework",
     "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15675
   },
   {
     "timestamp": "2026-11-17T05:28:35.606Z",
@@ -3788,6 +3788,16 @@
     "brief_version": "v1",
     "step": "judge_playtests",
     "result": "pass 3/3 after peanut rework (all runs identify Cyrus; peanut via satay callback is weakest clue but found)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:28:53.967Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after peanut rework, 0 must_fix, 0 suggestions",
     "retries": 0,
     "tokens": null
   }
