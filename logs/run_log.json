@@ -3599,6 +3599,16 @@
     "step": "chat_outcomes",
     "result": "written: 18 lines, Maya $$ restated, callbacks sushi_day/satay_incident/trip_fund",
     "retries": 0,
+    "tokens": 65646
+  },
+  {
+    "timestamp": "2026-11-17T04:50:51.571Z",
+    "level": "level_18",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues, 6 new sushi venues added to waterfront registry, Cormorant reused",
+    "retries": 0,
     "tokens": null
   }
 ]
