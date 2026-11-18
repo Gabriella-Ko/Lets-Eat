@@ -6,11 +6,11 @@
     "icons":  { "gen": [64, 64],  "out": [128, 128], "framing": "Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people." }
   },
   "jobs": [
-    { "key": "badge_satay_incident", "group": "badges", "subject": "A plate of grilled satay skewers with a single peanut set apart beside it, like a warning, accents in slate blue #4a6573" },
+    { "key": "badge_satay_incident", "group": "badges", "subject": "A plate of grilled satay skewers with a small ramekin of peanut sauce set on the side, accents in slate blue #4a6573" },
     { "key": "badge_trip_fund", "group": "badges", "subject": "A glass coin jar stuffed with coins and folded bills, a small seashell resting on the lid as a hint of the coast, accents in purple #7a4bb0" },
-    { "key": "badge_plate_of_fries", "group": "badges", "subject": "A humble plate of golden fries in front of a tall double-stack burger, the fries in the spotlight, accents in deep orange #b8641a" },
-    { "key": "badge_milkshake_incident", "group": "badges", "subject": "An oversized milkshake in a tall glass with whipped cream, a cherry and a striped straw, comically huge, accents in brick red #a3472c" },
-    { "key": "badge_sushi_day", "group": "badges", "subject": "A wooden sushi board of meat-free sushi: cucumber rolls, avocado rolls and sweet tofu pockets, with a little garnish, accents in deep orange #b8641a" },
+    { "key": "badge_plate_of_fries", "group": "badges", "subject": "A big plate of golden fries filling the centre of the circle as the clear main subject, a small double-stack burger far in the background, no drinks, no cups, no glasses, accents in deep orange #b8641a" },
+    { "key": "badge_milkshake_incident", "group": "badges", "subject": "An oversized milkshake in a tall glass with whipped cream, a cherry and a striped straw, comically huge, placed inside a round circular badge frame and filling the circle, accents in brick red #a3472c" },
+    { "key": "badge_sushi_day", "group": "badges", "subject": "A wooden sushi board of only vegetarian sushi: cucumber rolls, avocado rolls and egg-free tofu pockets, no fish, no salmon, no meat, no egg, all green and white and golden tofu, accents in deep orange #b8641a" },
 
     { "key": "icon_noodles", "group": "icons", "subject": "A bowl of steaming ramen noodles with chopsticks resting on the rim" },
     { "key": "icon_sushi", "group": "icons", "subject": "A single salmon nigiri sushi piece" },
@@ -20,10 +20,10 @@
     { "key": "icon_curry", "group": "icons", "subject": "A bowl of golden curry with a mound of white rice" },
     { "key": "icon_cafe", "group": "icons", "subject": "A cup of coffee with latte art and a wisp of steam" },
     { "key": "icon_dim_sum", "group": "icons", "subject": "A round bamboo steamer with three dumplings inside" },
-    { "key": "icon_greek", "group": "icons", "subject": "A gyro pita wrap with meat, tomato and white tzatziki sauce" },
+    { "key": "icon_greek", "group": "icons", "subject": "A chicken souvlaki plate: grilled chicken skewer pieces on a round plate with a folded pita, tomato and a dollop of white tzatziki" },
     { "key": "icon_viet", "group": "icons", "subject": "A banh mi baguette sandwich with pickled carrot, cucumber and fresh herbs" },
     { "key": "icon_thai", "group": "icons", "subject": "A bowl of tom yum soup with shrimp, a red chilli and a lime wedge" },
-    { "key": "icon_italian", "group": "icons", "subject": "A bowl of spaghetti with red tomato sauce and a basil leaf" },
+    { "key": "icon_italian", "group": "icons", "subject": "A plate of spaghetti with red tomato sauce and meatballs on top" },
     { "key": "icon_ice_cream", "group": "icons", "subject": "An ice cream cone with two scoops" }
   ]
 }
