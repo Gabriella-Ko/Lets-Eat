@@ -3859,7 +3859,7 @@
     "step": "playtest_run1_after_hand_edits",
     "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15872
   },
   {
     "timestamp": "2026-11-18T20:33:22.992Z",
