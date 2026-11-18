@@ -3900,5 +3900,15 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:03:25.781Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_rework",
+    "result": "Gabriella: reopen level_13 to v9/v8 per clutter audit; 18 lines, 5 clue, 2 callbacks, 13 non-clue; 7 outcome lines updated",
+    "retries": 2,
+    "tokens": null
   }
 ]
