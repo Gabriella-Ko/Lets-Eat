@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draft Art Picker</title>
+<style>
+:root { --bg:#2e2624; --bar:#3f3533; --label:#d9b8a8; --panel:#f3e4d0; --panel2:#e6d0b8; --ink:#3f3533; --soft:#7d6a60; --accent:#d9822b; --good:#6f8f5a; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--panel); font:15px/1.4 "Trebuchet MS",system-ui,sans-serif; }
+header { position:sticky; top:0; z-index:2; background:var(--bar); padding:12px 16px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
+h1 { margin:0; font-size:20px; color:var(--label); letter-spacing:.04em; }
+.stat { color:var(--label); }
+.stat b { color:var(--panel); }
+progress { width:160px; height:10px; accent-color:var(--accent); }
+header button { background:var(--accent); color:#fff; border:0; border-radius:6px; padding:7px 12px; font:inherit; cursor:pointer; }
+header label { color:var(--label); cursor:pointer; }
+main { padding:16px; max-width:1200px; margin:0 auto; }
+h2 { color:var(--label); font-size:16px; letter-spacing:.06em; text-transform:uppercase; margin:20px 0 10px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
+.job { background:var(--panel); color:var(--ink); border-radius:10px; padding:12px; }
+.job.picked { outline:3px solid var(--good); }
+.job h3 { margin:0 0 2px; font-size:15px; }
+.job p { margin:0 0 10px; font-size:12px; color:var(--soft); }
+.vars { display:flex; gap:10px; flex-wrap:wrap; }
+.var { flex:1 1 120px; display:flex; flex-direction:column; align-items:center; gap:6px; border:2px solid transparent; border-radius:8px; padding:6px; cursor:pointer; background:none; font:inherit; color:inherit; }
+.var:hover { border-color:var(--panel2); }
+.var.sel { border-color:var(--good); background:#e9efe0; }
+.var .art { width:100%; aspect-ratio:1; display:grid; place-items:center; border-radius:6px;
+  background:repeating-conic-gradient(#f3e4d0 0 25%, #e6d0b8 0 50%) 0 0/16px 16px; }
+.var img { max-width:100%; max-height:100%; image-rendering:pixelated; }
+.var .pending { color:var(--soft); font-size:12px; }
+.var span { font-size:12px; }
+.bg-dark .var .art { background:var(--bg); }
+@media (max-width:520px) { .grid { grid-template-columns:1fr; } }
+</style></head><body>
+<header>
+  <h1>DRAFT ART</h1>
+  <span class="stat"><b id="done">0</b> / <b id="total">0</b> drawn</span>
+  <progress id="bar" value="0" max="1"></progress>
+  <span class="stat"><b id="picks">0</b> picked</span>
+  <label><input type="checkbox" id="dark"> dark background</label>
+  <button id="copy">Copy my picks</button>
+  <span class="stat" id="copied"></span>
+</header>
+<main id="main"></main>
+<script>
+const JOBS = {"badges": [{"key": "badge_satay_incident", "subject": "A plate of grilled satay skewers with a single peanut set apart beside it, like a warning, accents in slate blue #4a6573", "variants": 2}, {"key": "badge_trip_fund", "subject": "A glass coin jar stuffed with coins and folded bills, a small seashell resting on the lid as a hint of the coast, accents in purple #7a4bb0", "variants": 2}, {"key": "badge_plate_of_fries", "subject": "A humble plate of golden fries in front of a tall double-stack burger, the fries in the spotlight, accents in deep orange #b8641a", "variants": 2}, {"key": "badge_milkshake_incident", "subject": "An oversized milkshake in a tall glass with whipped cream, a cherry and a striped straw, comically huge, accents in brick red #a3472c", "variants": 2}, {"key": "badge_sushi_day", "subject": "A wooden sushi board of meat-free sushi: cucumber rolls, avocado rolls and sweet tofu pockets, with a little garnish, accents in deep orange #b8641a", "variants": 2}], "icons": [{"key": "icon_noodles", "subject": "A bowl of steaming ramen noodles with chopsticks resting on the rim", "variants": 2}, {"key": "icon_sushi", "subject": "A single salmon nigiri sushi piece", "variants": 2}, {"key": "icon_pizza", "subject": "A single slice of pepperoni pizza with melted cheese", "variants": 2}, {"key": "icon_burgers", "subject": "A cheeseburger with lettuce, tomato and a sesame bun", "variants": 2}, {"key": "icon_tacos", "subject": "A single taco in a folded corn tortilla with meat, salsa and lettuce", "variants": 2}, {"key": "icon_curry", "subject": "A bowl of golden curry with a mound of white rice", "variants": 2}, {"key": "icon_cafe", "subject": "A cup of coffee with latte art and a wisp of steam", "variants": 2}, {"key": "icon_dim_sum", "subject": "A round bamboo steamer with three dumplings inside", "variants": 2}, {"key": "icon_greek", "subject": "A gyro pita wrap with meat, tomato and white tzatziki sauce", "variants": 2}, {"key": "icon_viet", "subject": "A banh mi baguette sandwich with pickled carrot, cucumber and fresh herbs", "variants": 2}, {"key": "icon_thai", "subject": "A bowl of tom yum soup with shrimp, a red chilli and a lime wedge", "variants": 2}, {"key": "icon_italian", "subject": "A bowl of spaghetti with red tomato sauce and a basil leaf", "variants": 2}, {"key": "icon_ice_cream", "subject": "An ice cream cone with two scoops", "variants": 2}]};
+const KEY = "lets-eat-draft-picks";
+let picks = {};
+try { picks = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {} };
+const stamp = Date.now();
+const main = document.getElementById("main");
+let total = 0, done = 0;
+for (const [group, jobs] of Object.entries(JOBS)) {
+  const h = document.createElement("h2"); h.textContent = group; main.append(h);
+  const grid = document.createElement("div"); grid.className = "grid"; main.append(grid);
+  for (const job of jobs) {
+    const card = document.createElement("div"); card.className = "job";
+    card.innerHTML = `<h3></h3><p></p><div class="vars"></div>`;
+    card.querySelector("h3").textContent = job.key;
+    card.querySelector("p").textContent = job.subject;
+    const vars = card.querySelector(".vars");
+    const refresh = () => {
+      card.classList.toggle("picked", !!picks[job.key]);
+      vars.querySelectorAll(".var").forEach((b) => b.classList.toggle("sel", picks[job.key] === b.dataset.v));
+      document.getElementById("picks").textContent = Object.keys(picks).length;
+    };
+    for (let v = 1; v <= job.variants; v++) {
+      total++;
+      const b = document.createElement("button"); b.className = "var"; b.dataset.v = `v${v}`;
+      b.innerHTML = `<div class="art"><span class="pending">not drawn yet</span></div><span>v${v}</span>`;
+      const img = new Image();
+      img.onload = () => { b.querySelector(".art").replaceChildren(img); done++; update(); };
+      img.src = `${group}/${job.key}_v${v}.png?t=${stamp}`;
+      img.alt = `${job.key} v${v}`;
+      b.onclick = () => { if (picks[job.key] === b.dataset.v) delete picks[job.key]; else picks[job.key] = b.dataset.v; save(); refresh(); };
+      vars.append(b);
+    }
+    grid.append(card); refresh();
+  }
+}
+function update() {
+  document.getElementById("done").textContent = done;
+  document.getElementById("total").textContent = total;
+  const bar = document.getElementById("bar"); bar.max = total; bar.value = done;
+}
+update();
+document.getElementById("dark").onchange = (e) => document.body.classList.toggle("bg-dark", e.target.checked);
+document.getElementById("copy").onclick = async () => {
+  const text = "Draft picks: " + JSON.stringify(picks);
+  try { await navigator.clipboard.writeText(text); document.getElementById("copied").textContent = "copied, paste it to Claude"; }
+  catch (e) { prompt("Copy this and paste it to Claude:", text); }
+};
+// Fill in new drafts while a run is going.
+if (done < total) setTimeout(() => location.reload(), 30000);
+</script></body></html>
