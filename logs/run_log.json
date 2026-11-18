@@ -4000,5 +4000,16 @@
     "result": "pass 3/3 after declutter (bike talk a mild red herring; Cyrus peanut subtle but found)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:16:01.016Z",
+    "level": "level_13",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter rework (clutter audit, brief v9)",
+    "retries": 0,
+    "tokens": null
   }
 ]
