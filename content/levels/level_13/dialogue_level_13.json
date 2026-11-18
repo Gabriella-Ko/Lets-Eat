@@ -11,15 +11,15 @@
     { "speaker": "roxy", "text": "got a new bike on monday and rode it straight into a hedge. the hedge is fine", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "roxy!! a hedge?? please tell me you're okay", "emotion": "SURPRISED", "clue": null },
     { "speaker": "roxy", "text": "scraped knee, zero regrets. i'm riding it to the market tonight", "emotion": "HAPPY", "clue": null },
-    { "speaker": "cyrus", "text": "Thank you for the scouting, Roxy. My week: I alphabetised my spice rack, then sorted it by cuisine, then put it back.", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "cyrus", "text": "Thank you for the scouting, Roxy. My week: I alphabetized my spice rack, then sorted it by cuisine, then put it back.", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "maya", "text": "cyrus that is the most cyrus sentence ever typed", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "my week: the laundromat ate six of my quarters and i lost an argument with a machine", "emotion": "ANNOYED", "clue": null },
     { "speaker": "maya", "text": "so my wallet's in mourning. cheapest-stall prices tonight. a little over and i sulk the whole bus ride home. fancy prices and i'm turning around at the gate", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "liam", "text": "burger night means i'm on fries patrol. roxy, one burger night before you joined, mina got a plate of fries while i had a double stack. so tonight she gets a burger with zero meat in it", "emotion": "NEUTRAL", "clue": "diet:vegetarian", "callback": "plate_of_fries" },
-    { "speaker": "mina", "text": "they were really good fries! but if you're patrolling, patrol roxy too. these grills love buttered buns and melted cheese, and remember the milkshake incident :)", "emotion": "HAPPY", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
+    { "speaker": "mina", "text": "they were really good fries! but if you're patrolling, patrol roxy too. these grills love buttered buns and melted cheese ;)", "emotion": "HAPPY", "clue": "intolerance:dairy", "callback": "milkshake_incident" },
     { "speaker": "roxy", "text": "i get my own PATROL?? honestly kind of honoured", "emotion": "SURPRISED", "clue": null },
     { "speaker": "roxy", "text": "assistant, pick us a stall. i'm on the bike, liam's on foot, may the best one win!!", "emotion": "HUNGRY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
