@@ -116,6 +116,7 @@ Six emotion tags exist, and every character needs one portrait per tag. Any unkn
 | Portrait size | 128×128 px PNG, transparent background | Locked |
 | Style | Cozy pixel art, soft outlines, warm palette | Locked |
 | Palette | Exact colours TBD | Open |
+| Badge art | One circular badge per callback, `badge_<id>.png`, 320×320 px PNG, transparent background | Locked |
 
 With 6 characters × 6 tags, the full portrait set is 36 images, plus 13 cuisine icons.
 
@@ -211,7 +212,7 @@ In `stated` levels a callback may sit next to a plain statement. In `implied` an
 | Locked pages | Shown as "???" with no friend, title or hint, so the scrapbook never spoils an upcoming level. | Locked |
 | Where | A Scrapbook button on the level menu. A small "new page" note on the Outcome screen when a level unlocked one. | Locked |
 | Page text | Only the text in the table above. It may restate what the chat says, never add a new fact or constraint. | Locked |
-| Art | One picture per callback, `scrap_<id>.png`, cozy pixel art in the portrait style. Size TBD (suggest 320×240). Until art exists, the game shows a placeholder naming the file. | Open |
+| Art | One picture per callback, `scrap_<id>.png`, cozy pixel art in the portrait style. Size 320×320. Until art exists, the game shows a placeholder naming the file. | Open |
 | New callbacks | Added to the table first (id, title, page), like any other callback. | Locked |
 
 **Dialogue schema addition:** one optional field per line:
@@ -361,7 +362,7 @@ A level's venues file lists only ids and that level's reviews; every other venue
 
 ## Crew roster
 
-Nine crew members, run by one Orchestrator. These ids are the only values allowed in `generated_by`, and human edits use `human:<name>` in `edited_by`. (Locked)
+Ten crew members, run by one Orchestrator. These ids are the only values allowed in `generated_by`, and human edits use `human:<name>` in `edited_by`. (Locked)
 
 | Agent | id | Type | Writes | Started at stage |
 | --- | --- | --- | --- | --- |
@@ -372,11 +373,14 @@ Nine crew members, run by one Orchestrator. These ids are the only values allowe
 | Validator | `validator` | Script | `validation_level_##.log` | 1 |
 | Blind Playtester | `blind_playtester` | LLM | `playtest_level_##.json` | 2 |
 | Art Asset Agent | `art_asset` | LLM + image script | `asset_manifest.json`, processed PNGs | 3 |
+| Art Generator | `art_generator` | LLM + PixelLab script | `pixellab_jobs.json`, draft PNGs in `assets/drafts/pixellab/` | 3 |
 | Integration | `integration` | Script | `integration_audit.log` | 4 |
 | Provenance | `provenance` | Git hooks + script | `provenance_manifest.json` | 4 |
 |Critic | `critic` | LLM | critique_level_##.json |2| 
 | You | `human:gabby` | Human | The bible, approvals, manual fixes | — |
 
 Each agent's full instructions live in its brief file, not here: `.claude/agents/<name>.md`, and `CLAUDE.md` for the Orchestrator. Briefs carry a version number starting at v1; bump it whenever a brief's rules change. The running order and failure routes are explained in the How the Orchestration Works doc.
+
+**Art Generator.** Writes the image prompts for draft art (one circular 320×320 Scrapbook badge per callback, one 128×128 icon per cuisine) in the game's style and palette. A script sends them to PixelLab and saves two versions of each to `assets/drafts/pixellab/`. Drafts are not game art: Gabriella picks, then the Art Asset Agent processes the picks. When PixelLab credits or Claude tokens run out, the run pauses and resumes where it stopped; it never pushes through.
 
 The Phaser game code (scenes, UI, scoring logic) is outside this crew: you build it directly with Claude Code. The crew only produces content files, and Integration's boot test is where the two meet.
