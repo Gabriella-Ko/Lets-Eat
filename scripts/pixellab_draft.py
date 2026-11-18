@@ -8,7 +8,11 @@ Usage (from the repo root):
   python scripts/pixellab_draft.py --dry-run            # list what would be generated, no API calls
   python scripts/pixellab_draft.py --only badges        # one group (or a key: --only icon_sushi)
   python scripts/pixellab_draft.py --wait               # out of credits: wait and retry until they come back
-  python scripts/pixellab_draft.py --sheet              # rebuild the contact sheets only
+  python scripts/pixellab_draft.py --sheet              # rebuild the contact sheets and the gallery only
+
+Every run also writes assets/drafts/pixellab/index.html: a picker page showing each job's variants
+(it reloads every 30 s until all are drawn). Click a variant to pick it, then "Copy my picks".
+Free tier: PixelLab draws at most 200x200, so keep `gen` at or under that and let `out` enlarge it.
 
 Needs: PIXELLAB_API_KEY in the environment, Python 3 with Pillow.
 
@@ -50,6 +54,7 @@ OUT = ROOT / "assets" / "drafts" / "pixellab"
 LOG = ROOT / "logs" / "pixellab_drafts.json"
 API = "https://api.pixellab.ai/v1"
 TRANSPARENT_MAX_AREA = 40_000
+MAX_GEN = 200  # free tier: images up to 200x200 (the paid API allows 400)
 PAUSED = 3
 
 
@@ -137,8 +142,8 @@ def load_jobs():
         (gw, gh), (ow, oh) = g["gen"], g["out"]
         if ow % gw or oh % gh or ow // gw != oh // gh:
             sys.exit(f"group {name}: out {ow}x{oh} is not a whole multiple of gen {gw}x{gh}")
-        if max(gw, gh) > 400 or min(gw, gh) < 16:
-            sys.exit(f"group {name}: gen size must be 16-400 px per side")
+        if max(gw, gh) > MAX_GEN or min(gw, gh) < 16:
+            sys.exit(f"group {name}: gen size must be 16-{MAX_GEN} px per side (PixelLab free tier); enlarge with `out` instead")
     jobs = []
     for j in spec["jobs"]:
         g = groups[j["group"]]
@@ -204,6 +209,118 @@ def contact_sheets():
         print(f"sheet {out.relative_to(ROOT)}")
 
 
+GALLERY_HTML = """<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Draft Art Picker</title>
+<style>
+:root { --bg:#2e2624; --bar:#3f3533; --label:#d9b8a8; --panel:#f3e4d0; --panel2:#e6d0b8; --ink:#3f3533; --soft:#7d6a60; --accent:#d9822b; --good:#6f8f5a; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--panel); font:15px/1.4 "Trebuchet MS",system-ui,sans-serif; }
+header { position:sticky; top:0; z-index:2; background:var(--bar); padding:12px 16px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
+h1 { margin:0; font-size:20px; color:var(--label); letter-spacing:.04em; }
+.stat { color:var(--label); }
+.stat b { color:var(--panel); }
+progress { width:160px; height:10px; accent-color:var(--accent); }
+header button { background:var(--accent); color:#fff; border:0; border-radius:6px; padding:7px 12px; font:inherit; cursor:pointer; }
+header label { color:var(--label); cursor:pointer; }
+main { padding:16px; max-width:1200px; margin:0 auto; }
+h2 { color:var(--label); font-size:16px; letter-spacing:.06em; text-transform:uppercase; margin:20px 0 10px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px; }
+.job { background:var(--panel); color:var(--ink); border-radius:10px; padding:12px; }
+.job.picked { outline:3px solid var(--good); }
+.job h3 { margin:0 0 2px; font-size:15px; }
+.job p { margin:0 0 10px; font-size:12px; color:var(--soft); }
+.vars { display:flex; gap:10px; flex-wrap:wrap; }
+.var { flex:1 1 120px; display:flex; flex-direction:column; align-items:center; gap:6px; border:2px solid transparent; border-radius:8px; padding:6px; cursor:pointer; background:none; font:inherit; color:inherit; }
+.var:hover { border-color:var(--panel2); }
+.var.sel { border-color:var(--good); background:#e9efe0; }
+.var .art { width:100%; aspect-ratio:1; display:grid; place-items:center; border-radius:6px;
+  background:repeating-conic-gradient(#f3e4d0 0 25%, #e6d0b8 0 50%) 0 0/16px 16px; }
+.var img { max-width:100%; max-height:100%; image-rendering:pixelated; }
+.var .pending { color:var(--soft); font-size:12px; }
+.var span { font-size:12px; }
+.bg-dark .var .art { background:var(--bg); }
+@media (max-width:520px) { .grid { grid-template-columns:1fr; } }
+</style></head><body>
+<header>
+  <h1>DRAFT ART</h1>
+  <span class="stat"><b id="done">0</b> / <b id="total">0</b> drawn</span>
+  <progress id="bar" value="0" max="1"></progress>
+  <span class="stat"><b id="picks">0</b> picked</span>
+  <label><input type="checkbox" id="dark"> dark background</label>
+  <button id="copy">Copy my picks</button>
+  <span class="stat" id="copied"></span>
+</header>
+<main id="main"></main>
+<script>
+const JOBS = __JOBS__;
+const KEY = "lets-eat-draft-picks";
+let picks = {};
+try { picks = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(picks)); } catch (e) {} };
+const stamp = Date.now();
+const main = document.getElementById("main");
+let total = 0, done = 0;
+for (const [group, jobs] of Object.entries(JOBS)) {
+  const h = document.createElement("h2"); h.textContent = group; main.append(h);
+  const grid = document.createElement("div"); grid.className = "grid"; main.append(grid);
+  for (const job of jobs) {
+    const card = document.createElement("div"); card.className = "job";
+    card.innerHTML = `<h3></h3><p></p><div class="vars"></div>`;
+    card.querySelector("h3").textContent = job.key;
+    card.querySelector("p").textContent = job.subject;
+    const vars = card.querySelector(".vars");
+    const refresh = () => {
+      card.classList.toggle("picked", !!picks[job.key]);
+      vars.querySelectorAll(".var").forEach((b) => b.classList.toggle("sel", picks[job.key] === b.dataset.v));
+      document.getElementById("picks").textContent = Object.keys(picks).length;
+    };
+    for (let v = 1; v <= job.variants; v++) {
+      total++;
+      const b = document.createElement("button"); b.className = "var"; b.dataset.v = `v${v}`;
+      b.innerHTML = `<div class="art"><span class="pending">not drawn yet</span></div><span>v${v}</span>`;
+      const img = new Image();
+      img.onload = () => { b.querySelector(".art").replaceChildren(img); done++; update(); };
+      img.src = `${group}/${job.key}_v${v}.png?t=${stamp}`;
+      img.alt = `${job.key} v${v}`;
+      b.onclick = () => { if (picks[job.key] === b.dataset.v) delete picks[job.key]; else picks[job.key] = b.dataset.v; save(); refresh(); };
+      vars.append(b);
+    }
+    grid.append(card); refresh();
+  }
+}
+function update() {
+  document.getElementById("done").textContent = done;
+  document.getElementById("total").textContent = total;
+  const bar = document.getElementById("bar"); bar.max = total; bar.value = done;
+}
+update();
+document.getElementById("dark").onchange = (e) => document.body.classList.toggle("bg-dark", e.target.checked);
+document.getElementById("copy").onclick = async () => {
+  const text = "Draft picks: " + JSON.stringify(picks);
+  try { await navigator.clipboard.writeText(text); document.getElementById("copied").textContent = "copied, paste it to Claude"; }
+  catch (e) { prompt("Copy this and paste it to Claude:", text); }
+};
+// Fill in new drafts while a run is going.
+if (done < total) setTimeout(() => location.reload(), 30000);
+</script></body></html>
+"""
+
+
+def build_gallery():
+    """assets/drafts/pixellab/index.html: every job and variant, filled in as images land, with picks."""
+    spec = json.loads(JOBS.read_text("utf-8"))
+    groups = {}
+    for j in spec["jobs"]:
+        g = spec["groups"][j["group"]]
+        variants = j.get("variants", g.get("variants", spec.get("defaults", {}).get("variants", 1)))
+        groups.setdefault(j["group"], []).append({"key": j["key"], "subject": j["subject"], "variants": variants})
+    OUT.mkdir(parents=True, exist_ok=True)
+    page = OUT / "index.html"
+    page.write_text(GALLERY_HTML.replace("__JOBS__", json.dumps(groups)), "utf-8")
+    print(f"gallery {page.relative_to(ROOT)}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -213,6 +330,7 @@ def main():
     ap.add_argument("--sheet", action="store_true", help="only rebuild the contact sheets")
     args = ap.parse_args()
 
+    build_gallery()
     if args.sheet:
         contact_sheets()
         return 0
