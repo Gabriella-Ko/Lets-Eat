@@ -3900,5 +3900,116 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:03:25.781Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_rework",
+    "result": "Gabriella: reopen level_13 to v9/v8 per clutter audit; 18 lines, 5 clue, 2 callbacks, 13 non-clue; 7 outcome lines updated",
+    "retries": 2,
+    "tokens": 61350
+  },
+  {
+    "timestamp": "2026-11-18T21:03:35.532Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:05:38.681Z",
+    "level": "level_13",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "must_fix 1 (plate-of-fries continuity vs level_03) + 1 suggestion (Roxy bike), sent together",
+    "retries": 0,
+    "tokens": 69122
+  },
+  {
+    "timestamp": "2026-11-18T21:06:02.892Z",
+    "level": "level_13",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "must-fix: fries line keeps before-you-joined framing; Roxy new bike. Retries exhausted.",
+    "retries": 3,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:06:03.229Z",
+    "level": "level_13",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:06:03.229Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16191
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15935
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16134
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after declutter (bike talk a mild red herring; Cyrus peanut subtle but found)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:16:01.016Z",
+    "level": "level_13",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter rework (clutter audit, brief v9)",
+    "retries": 0,
+    "tokens": null
   }
 ]

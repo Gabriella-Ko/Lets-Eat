@@ -6,16 +6,16 @@
       "missed": [],
       "lines": [
         { "speaker": "mina", "text": "i pointed at the board and ordered, just like everyone else. liam, you can stop worrying about the fries now :)", "emotion": "HAPPY" },
-        { "speaker": "maya", "text": "the spreadsheet line survived with change to spare. cyrus, your list is undefeated", "emotion": "HAPPY" },
-        { "speaker": "roxy", "text": "loaded burger, zero cheese, quiet stomach. best market night yet!!", "emotion": "HAPPY" }
+        { "speaker": "maya", "text": "six quarters down this week and i still got change back tonight. cyrus, your list is undefeated", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "zero cheese, quiet stomach, patrol approved. best market night yet!!", "emotion": "HAPPY" }
       ]
     },
     "night_market_hollow_oak": {
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "Everyone, stop. Peanut butter on one burger, peanut sauce and crushed peanuts on another, peanuts tossed through the slaw. This is the stall from my notes.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "burgers on the counter, hands up!! nobody hand cyrus anything", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "Everyone, stop. Peanut butter on one burger, peanut sauce and crushed peanuts on another, peanuts tossed through the slaw.", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "wait. this is the one i crossed off!! burgers down, nobody hand cyrus anything", "emotion": "SURPRISED" },
         { "speaker": "liam", "text": "mine's going back on the tray untouched. cyrus, you lead, we follow", "emotion": "SURPRISED" }
       ]
     },
@@ -34,7 +34,7 @@
       "lines": [
         { "speaker": "maya", "text": "one burger here costs the same as three by the fountain?? i said i'd turn around at the gate, and i'm turning around. wallets away, all of you. this is a trip fund emergency", "emotion": "ANGRY" },
         { "speaker": "liam", "text": "she's confiscating our wallets. i'm scared and i respect it", "emotion": "SURPRISED" },
-        { "speaker": "cyrus", "text": "For the record, the notes said cheap. Following Maya.", "emotion": "SURPRISED" }
+        { "speaker": "cyrus", "text": "For the record, Maya said cheapest-stall. Following Maya.", "emotion": "SURPRISED" }
       ]
     },
     "night_market_midnight_orchard": {
@@ -49,8 +49,8 @@
       "result": "partial",
       "missed": ["intolerance:dairy"],
       "lines": [
-        { "speaker": "roxy", "text": "held the cheese like i promised! didn't matter. the bun is a milk bun toasted in butter and the fries come tossed in garlic butter. milkshake incident: the sequel. my stomach is NOT happy", "emotion": "ANNOYED" },
-        { "speaker": "liam", "text": "our old campus burger spot!! i forgot they put butter in basically everything. that's on the stall, not you, roxy. i'm so sorry", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "the patrol caught the cheese! didn't matter. the bun is a milk bun toasted in butter and the fries come tossed in garlic butter. milkshake incident: the sequel. my stomach is NOT happy", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "our old campus burger spot!! i forgot they butter basically everything. some patrol i am. sorry, roxy", "emotion": "SURPRISED" }
       ]
     }
   },

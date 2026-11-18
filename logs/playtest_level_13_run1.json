@@ -6,51 +6,47 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "who": "group",
-      "constraint": "cuisine: burgers (grill stalls by the fountain)",
-      "type": "craving",
-      "source_line": "cyrus: \"Next on my list is burgers. There's a whole cluster of grill stalls by the fountain.\""
+      "constraint": "Craving: burgers",
+      "who": "cyrus (whole group agrees)",
+      "source_line": "cyrus: \"Next on the list is burgers. There's a whole cluster of grill stalls by the fountain.\""
     },
     {
-      "who": "maya",
-      "constraint": "budget $ (cheapest tier); one tier over costs a star, two tiers over is a deal-breaker",
-      "type": "budget",
-      "source_line": "maya: \"cheapest-stall small. a little over and i'll sulk the whole bus ride home. fancy prices and i'm turning around at the gate\""
-    },
-    {
+      "constraint": "Peanut allergy (deal-breaker)",
       "who": "cyrus",
-      "constraint": "peanut allergy (deal-breaker)",
-      "type": "allergy",
-      "source_line": "cyrus: \"...at least one grill here brushes satay sauce on everything. Satay and I have history, so that stall is crossed out.\" (confirmed by liam: \"anything peanut-y stays on the far side of the fountain\")"
+      "source_line": "roxy: \"cyrus, one grill there puts peanut sauce or crushed peanuts on basically everything. already crossed it off for you\""
     },
     {
+      "constraint": "Budget: cheapest tier ($). $$ costs a star, $$$ is a deal-breaker",
+      "who": "maya",
+      "source_line": "maya: \"so my wallet's in mourning. cheapest-stall prices tonight. a little over and i sulk the whole bus ride home. fancy prices and i'm turning around at the gate\""
+    },
+    {
+      "constraint": "Vegetarian, needs a real meatless burger, not just fries (deal-breaker)",
       "who": "mina",
-      "constraint": "vegetarian, needs a meatless burger as a regular menu item (deal-breaker)",
-      "type": "strict diet",
-      "source_line": "liam: \"patrol rules: mina gets a burger with zero meat in it, picked off the board like the rest of us\" (backstory: \"mina had a plate of fries because nothing on that menu worked for her\")"
+      "source_line": "liam: \"...mina got a plate of fries while i had a double stack. so tonight she gets a burger with zero meat in it\""
     },
     {
+      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
       "who": "roxy",
-      "constraint": "dairy intolerance (costs a star, not a deal-breaker)",
-      "type": "intolerance",
-      "source_line": "roxy: \"...no sequel. hold the cheese, no creamy sauce, no shake. my stomach makes the rules\""
+      "source_line": "mina: \"...patrol roxy too. these grills love buttered buns and melted cheese, and remember the milkshake incident :)\""
     }
   ],
-  "venue_elimination": {
-    "night_market_hollow_oak": "Out: peanuts in nearly everything (peanut butter, satay sauce, peanut slaw). Cyrus's allergy.",
-    "campus_bun_stop": "Safe (peanut-free, black bean patty on board, $) but butter brioche, melted cheese, garlic-butter fries: dairy costs Roxy a star. Also at the north gate rather than by the fountain. 2 stars at best.",
-    "night_market_amber_lamp": "Pick: $, burgers, never seen a peanut, black bean and mushroom burgers on the board, oil not butter, no cheese. Meets everything.",
-    "night_market_velvet_tent": "Out: board is all meat, no option for Mina.",
-    "night_market_midnight_orchard": "Safe on peanut, veg and dairy, but $$ (one tier over): loses a star.",
-    "night_market_crooked_pine": "Out: $$$, two tiers over budget."
+  "venue_assessment": {
+    "night_market_hollow_oak": "Out: peanuts on everything (Cyrus's allergy). Roxy's own scouting crossed it off.",
+    "campus_bun_stop": "$, peanut-free, black bean patty for Mina, but butter-toasted brioche, cheese and garlic-butter fries miss Roxy's dairy: 2 stars.",
+    "night_market_amber_lamp": "$, never seen a peanut, black bean and mushroom burgers that are meatless, no butter, no cheese: 3 stars.",
+    "night_market_velvet_tent": "Out: all-meat board, beef-dripping fries, so nothing for Mina.",
+    "night_market_midnight_orchard": "Safe and dairy-free with meatless patties, but $$ ('a couple of dollars more'): 2 stars.",
+    "night_market_crooked_pine": "Safe on every diet, but $$$ ('one burger costs what three would elsewhere'): Maya's deal-breaker."
   },
   "difficulty": 3,
   "notes": [
-    "Cyrus's peanut allergy is phrased indirectly ('Satay and I have history'); liam's follow-up line makes it clear enough. Fair.",
-    "Mina's vegetarianism is never stated outright; it is inferred from 'zero meat' and the plate-of-fries story. Fair, and 'picked off the board' nicely rules out special-order workarounds.",
-    "Roxy's dairy intolerance is implied by 'hold the cheese, no creamy sauce, no shake' plus the milkshake-incident callback. Fair.",
-    "Bun Stop is a good near-miss decoy: the reviews pack in a vegan patty and a peanut-free kitchen, so a player who forgets about Roxy will pick it. Its id begins with 'campus_' and it sits at the north gate rather than by the fountain. That could read as an odd location, but it has no effect on the answer.",
-    "Midnight Orchard and Crooked Pine are clean price decoys. With cards showing the price tier, the budget filter is quick.",
-    "Nothing contradictory found. Only one venue meets every constraint."
+    "Cyrus's peanut allergy is never stated outright. It only comes through Roxy saying she 'crossed it off for you'. That's fair, but a player who skims could take it as Roxy's own dislike or think it's about the whole group. Either way the same stall is out, so the answer doesn't change.",
+    "Mina's diet comes through Liam's story. 'Zero meat' reads as vegetarian. Every stall that has a meatless option also has a fully plant-based one, so whether she is vegetarian or vegan doesn't change the pick.",
+    "Roxy's dairy intolerance is buried in a joke ('the milkshake incident'), but the 'buttered buns and melted cheese' wording right next to it points the player there clearly. It's a good, fair clue.",
+    "Bun Stop is a decent red herring: right price, peanut-safe, has a vegan patty, and it sits by the bike racks, which suits Roxy's bike. Only the dairy clue knocks it down to 2 stars.",
+    "Roxy's line about the bike and Liam being on foot ('may the best one win') reads as flavour. I didn't treat location as a constraint. If it was meant as one, it's too vague.",
+    "The small talk (trumpet, hedge, spice rack, laundromat) doesn't get in the way, and Maya's laundromat line leads naturally into her budget.",
+    "Nothing unfair or contradictory found. Amber Lamp is the only stall with no missed constraint."
   ]
 }

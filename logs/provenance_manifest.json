@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "1ee53f00b178a904093748940de392cdf5d34350",
+  "head": "5f9972ebd275b8cbb590fdd39ae5c6bbb636974f",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1469,13 +1469,41 @@
       "file": "content/levels/level_13/dialogue_level_13.json",
       "level": "level_13",
       "author_id": "narrative_writer",
-      "edited_by": null,
-      "brief_version": "v7",
-      "timestamp": "2026-11-15T18:23:04-05:00",
-      "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
-      "last_commit_by": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T16:15:37-05:00",
+      "commit": "5878dfe9aa7b7cacefd438630d80f63b51c83e5c",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "5878dfe9aa7b7cacefd438630d80f63b51c83e5c",
+          "timestamp": "2026-11-18T16:15:37-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_13: drop stale milkshake_incident tag from Mina's dairy line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "08cf51d1dcfa3719bd7a275e0f89923c273af999",
+          "timestamp": "2026-11-18T16:14:07-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_13: hand edit Cyrus's spelling and Mina's dairy line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f60b3372bb5f4fe230325c255ac244ed7febe38a",
+          "timestamp": "2026-11-18T16:06:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: must-fix, plate-of-fries continuity; Roxy's new bike",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4a0700692694d9504cf528f9a916c3cfdb5b85d7",
+          "timestamp": "2026-11-18T16:03:25-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: declutter chat to brief v9 (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
           "timestamp": "2026-11-15T18:23:04-05:00",
@@ -1497,12 +1525,19 @@
       "level": "level_13",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v7",
-      "timestamp": "2026-11-15T18:23:04-05:00",
-      "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T16:03:25-05:00",
+      "commit": "4a0700692694d9504cf528f9a916c3cfdb5b85d7",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "4a0700692694d9504cf528f9a916c3cfdb5b85d7",
+          "timestamp": "2026-11-18T16:03:25-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_13: declutter chat to brief v9 (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "83d97520ebde282fcb0383279de8bcc15682ef0f",
           "timestamp": "2026-11-15T18:23:04-05:00",
@@ -2690,12 +2725,19 @@
       "level": "level_13",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
-      "timestamp": "2026-11-15T18:24:39-05:00",
-      "commit": "aca8589e6ec8ea01b47632281c5715846bae8bc5",
+      "brief_version": "v3",
+      "timestamp": "2026-11-18T16:05:38-05:00",
+      "commit": "5bab5f11be1ed6e0bd5e7814fb610b10cf4ff346",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "5bab5f11be1ed6e0bd5e7814fb610b10cf4ff346",
+          "timestamp": "2026-11-18T16:05:38-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_13: re-review after declutter, must_fix 1, 1 suggestion",
+          "pre_pipeline": false
+        },
         {
           "commit": "aca8589e6ec8ea01b47632281c5715846bae8bc5",
           "timestamp": "2026-11-15T18:24:39-05:00",
@@ -3909,11 +3951,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T18:26:02-05:00",
-      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "timestamp": "2026-11-18T16:06:56-05:00",
+      "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
+          "timestamp": "2026-11-18T16:06:56-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
           "timestamp": "2026-11-15T18:26:02-05:00",
@@ -3936,11 +3985,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T18:26:02-05:00",
-      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "timestamp": "2026-11-18T16:06:56-05:00",
+      "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
+          "timestamp": "2026-11-18T16:06:56-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
           "timestamp": "2026-11-15T18:26:02-05:00",
@@ -3963,11 +4019,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T18:26:02-05:00",
-      "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
+      "timestamp": "2026-11-18T16:06:56-05:00",
+      "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "0063a49605f9be5bb0d90322d18bb25088d20d3e",
+          "timestamp": "2026-11-18T16:06:56-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_13: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "aeb3325bc49a0b021d98d958fe2b6a1c7bf17aa1",
           "timestamp": "2026-11-15T18:26:02-05:00",
