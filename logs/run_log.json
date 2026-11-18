@@ -3969,7 +3969,7 @@
     "step": "playtest_run1_after_declutter",
     "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 16191
   },
   {
     "timestamp": "2026-11-18T21:06:55.893Z",
