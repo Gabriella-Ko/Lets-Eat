@@ -3850,5 +3850,45 @@
     "result": "rebuilt after hand edits",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15675
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15741
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after declutter + hand edits (comfort zone read as $$$ = one star; peanut via satay 2.0 hardest but found)",
+    "retries": 0,
+    "tokens": null
   }
 ]

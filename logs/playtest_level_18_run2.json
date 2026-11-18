@@ -6,50 +6,39 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi (Cyrus wants rolls made by a professional)",
-      "who": "cyrus",
-      "source_line": "Eleven attempts. Every one unrolled itself on the way to the plate. I would now like to eat some made by a professional."
+      "constraint": "Craving: sushi (Cyrus)",
+      "source_line": "Tonight I would like to eat some rolled by a professional."
     },
     {
-      "constraint": "Strict diet: vegetarian, no fish and no meat; needs a whole section of the menu she can eat (Mina)",
-      "who": "mina",
-      "source_line": "Mina, I've already ruled places out for you. Same standard as sushi day: a whole part of the menu with no fish and no meat in it, so you can point at anything."
+      "constraint": "Strict diet: vegetarian, with a full section of the menu with no fish or meat, not one token roll (Mina)",
+      "source_line": "Tonight I'd like the sushi day standard for you: a whole part of the menu with no fish and no meat, not one token roll."
     },
     {
-      "constraint": "Allergy: peanuts, including hidden in sauces or dressings (Cyrus)",
-      "who": "cyrus",
-      "source_line": "and cyrus, the satay incident stays a one-off. that story doesn't get a sequel, whatever sauce or dressing it turns up in"
+      "constraint": "Preference: quiet, calm venue (Mina, for Maya's news)",
+      "source_line": "somewhere calm and hushed so you only have to tell it once"
     },
     {
-      "constraint": "Budget: $$ (one tier over, $$$, costs a star)",
-      "who": "maya",
-      "source_line": "my turn. the trip fund finished its job, so i'm officially a two-dollar-sign person now"
+      "constraint": "Budget: $$ (Maya)",
+      "source_line": "two dollar signs is my comfort zone now."
     },
     {
-      "constraint": "Preference: calm, hushed room",
-      "who": "mina (seconded by brooke)",
-      "source_line": "could we find somewhere calm and hushed, where nobody has to shout across the table?"
+      "constraint": "Allergy: peanuts (Cyrus)",
+      "source_line": "cyrus, while maya tells it, i'll be reading the sauces for you so that we don't have the satay incident 2.0"
     },
     {
-      "constraint": "Preference: simple and light food, nothing deep-fried",
-      "who": "brooke",
-      "source_line": "and in return, my one ask for the food: simple and light. nothing that's been battered and dunked in hot oil"
+      "constraint": "Preference: healthy/light, nothing fried (Brooke)",
+      "source_line": "tonight i want food that keeps me sharp, not sleepy. nothing out of a fryer"
     }
   ],
-  "elimination": {
-    "waterfront_starboard": "Deal-breaker: vegetarian page dressed in peanut-miso dressing; spinach in crushed peanuts.",
-    "waterfront_gull_point": "Deal-breaker: nothing vegetarian (eel sauce on veg nigiri, salmon in cucumber roll).",
-    "waterfront_mooring_post": "$$$, one tier over budget: costs a star (otherwise fits: quiet, veg omakase, sesame not peanut, not fried). 2 stars.",
-    "waterfront_ropewalk": "Loud (bells, shouting chefs, loud playlist): misses calm preference. 2 stars.",
-    "waterfront_halyard": "Everything tempura/deep-fried: misses light/no-fried preference. 2 stars.",
-    "waterfront_cormorant": "Greek, not sushi: misses Cyrus's craving. 2 stars.",
-    "waterfront_spindrift": "Sushi, $$, hushed, full fish- and meat-free page with kelp miso, no fryer, peanut-safe (toasted rice crunch, soy/ponzu). Meets everything: 3 stars."
+  "venue_elimination": {
+    "waterfront_spindrift": "Sushi, $$, hushed, full fish- and meat-free page, no fryer, peanut-safe. Meets everything.",
+    "waterfront_starboard": "Deal-breaker: peanuts in the house dressing over the veg page and in the spinach (Cyrus's allergy).",
+    "waterfront_gull_point": "Deal-breaker: nothing vegetarian (eel sauce, salmon in the cucumber roll).",
+    "waterfront_mooring_post": "$$$, one tier over budget (-1 star); otherwise fits.",
+    "waterfront_ropewalk": "Loud (bells, shouting, loud playlist), so it misses the quiet preference (-1 star).",
+    "waterfront_halyard": "Everything is fried (tempura, panko), so it misses Brooke's no-fryer wish (-1 star).",
+    "waterfront_cormorant": "Greek, not sushi, so it misses Cyrus's craving (-1 star)."
   },
   "difficulty": 3,
-  "notes": [
-    "Cyrus's peanut allergy is never stated by him directly; it rests on Brooke's 'satay incident' line. Satay = peanut sauce is a fair inference, and every venue review talks about peanuts, which reinforces it, but a player unfamiliar with satay could miss it. The Starboard trap (peanut dressing on the veg page) depends on catching this clue.",
-    "Maya's 'three signs won't sink me anymore' slightly blurs the budget: it reads as '$$$ is a one-star penalty, not a deal-breaker', which matches the rules, but some players may read it as her budget now being $$$. The 'two-dollar-sign person' line makes $$ clear enough.",
-    "Each decoy fails on exactly one constraint, which makes the puzzle clean and the unique answer solid. Spindrift's reviews hit every constraint fairly explicitly, so once all six constraints are found the answer is unambiguous.",
-    "Nothing unfair or contradictory found."
-  ]
+  "notes": "Fair and solvable. The peanut allergy is the most indirect clue: it is never stated outright, only implied by 'satay incident 2.0' and Mina 'reading the sauces' for Cyrus. A player who misses it could take Starboard, though its hushed room and veg page make it a good trap. Every decoy fails exactly one need, which makes a clean elimination grid. Spindrift's reviews hit all six needs very directly (the third review spells out peanut safety), so once the constraints are found the answer is obvious. Nothing contradictory."
 }
