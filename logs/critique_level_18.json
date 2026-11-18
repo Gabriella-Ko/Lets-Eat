@@ -1,0 +1,35 @@
+{
+  "level_id": "level_18",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_18/dialogue_level_18.json",
+      "agent": "narrative_writer",
+      "where": "script[13] (Brooke: 'and i've got the harbour fun run at eight tomorrow. tonight i want light, clean food, nothing that's been through a fryer') and script[14] (Maya: 'a fun run. at eight. on purpose...')",
+      "issue": "This is the fourth time an exercise event gives Brooke her healthy reason (level_09 climbing, level_12 originally, level_14 'pacing my cousin through her first 10k at 7am tomorrow'). It is nearly the same plot device as level_14: a run early tomorrow morning, so eat clean tonight. 'light, clean food' also echoes level_14's 'fresh and clean, please' and level_16's 'i want a light plate'. Level_14 falls outside the writer's last-3-levels window, so no rule is broken, but a returning player will notice the repeat. Maya's joke in script[14] depends on the fun run, so it has to change with it.",
+      "suggested_fix": "script[13] Brooke: 'i'm leading the team meeting at eight tomorrow, so tonight i want food that keeps me sharp, not sleepy. nothing out of a fryer' (same clue tag vibe:healthy; dropping the opening 'and' also stops it reading as the next turn after Mina's line). script[14] Maya: 'an eight o'clock meeting and you sound EXCITED. brooke, blink twice if you need help'. Pairs with the outcomes finding for Halyard below. Spindrift's 'feeling lighter... no fryer' and Halyard's 'I needed a nap' still evidence both sides."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_18/outcomes_level_18.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.waterfront_halyard lines[0] (Brooke: 'every roll here came battered and fried. tomorrow's fun run is turning into a fun walk')",
+      "issue": "This line only works with the fun-run reason. If script[13] changes, it has to change too, or it contradicts the chat.",
+      "suggested_fix": "Apply only together with the script[13] fix. Brooke: 'every roll here came battered and fried. at eight tomorrow my team gets the sleepy version of me' (keep emotion ANNOYED; Cyrus's follow-up line stays as is)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_18/dialogue_level_18.json",
+      "agent": "narrative_writer",
+      "where": "script[10] (Maya: 'but promoted, not loaded. two dollar signs is my number now. one sign over and i'll still come, i'll just order the cheapest thing...')",
+      "issue": "The budget restatement is the required story beat, but this line copies the outline of Maya's level_17 line[7] almost exactly: 'funded, not rich. my sky is two dollar signs now. a three-sign place and i'll still come, but i'll sigh...'. Same 'X, not Y' opener, same 'two dollar signs', same 'i'll still come, but' turn, one level apart.",
+      "suggested_fix": "script[10] Maya: 'and before anyone gets ideas: the raise went to the trip. two dollar signs is my comfort zone. a third sign and i'm ordering the cheapest thing on the menu and eating it very slowly and very sadly' (same clue tag budget; it still reads as a soft miss, and the Mooring Post and Spindrift outcome lines still match)."
+    }
+  ],
+  "summary": "The rewrite meets v9 and v8 and is much less cluttered. There are six needs in six clue lines, exactly two callbacks (sushi_day [6], satay_incident [12]) with no lines dwelling on them, ten of sixteen lines of real banter (Cyrus's eleven failed rolls, Maya's promotion news for Mina, who missed level_17, and the supply closet), and no round-robin. Cyrus never raises his own allergy. Mina carries it through the callback and names Cyrus. 'no peanut anywhere, not even in a dressing' says the word peanut, but by v8 it is still implied: the brief's own example is 'anything peanut, in any form', level_09 and level_15 precedent agree, and the allergy and whose it is come only through the callback. 'dressing' was already in the version that passed 3/3, and it points at a trap, not the answer, so there is no finding. Every need is findable without naming the answer. The sushi craving is implied through the mat, rice and seaweed and 'rolled by a professional'. The traps are fair: Gull Point fails on eel sauce and cured salmon against 'no fish and no meat'; Starboard has peanut dressing and peanut spinach; Ropewalk has bells and shouting; Mooring Post is 'a clear step up in price' and $$$, a soft miss by Maya's 'still come'; Halyard is all tempura with 'needed a nap'; Cormorant is quiet, healthy and Greek. Outcomes match the chat and reviews. The remaining notes are freshness only: Brooke's exercise reason and 'light, clean' wording echo level_14, and Maya's budget line copies the outline of her level_17 line. Each has a ready replacement line for Gabriella to hand-apply.",
+  "generated_by": "critic"
+}

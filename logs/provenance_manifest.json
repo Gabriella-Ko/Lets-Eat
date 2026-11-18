@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "a4de0577d6b200a295b3417701a79cb5c53fce35",
+  "head": "1ee53f00b178a904093748940de392cdf5d34350",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -2034,6 +2034,149 @@
       ]
     },
     {
+      "file": "content/levels/level_18/dialogue_level_18.json",
+      "level": "level_18",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T15:32:38-05:00",
+      "commit": "906382c2a851eda5b1726cccb34b2b49b5421184",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "906382c2a851eda5b1726cccb34b2b49b5421184",
+          "timestamp": "2026-11-18T15:32:38-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_18: hand edit Brooke's healthy reason, Maya's budget line, Mina's peanut line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d330c8926bc198106dd95275e05724ce352bfc20",
+          "timestamp": "2026-11-17T00:43:23-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: declutter chat to brief v9",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "500ceafdc88bc29e6e575446fd99a5af7be55098",
+          "timestamp": "2026-11-17T00:27:47-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: friends carry Cyrus's peanut clue (brief v8)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f9c8c627d66448deb6d9718ae76f9c2d48c84040",
+          "timestamp": "2026-11-16T23:55:38-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1728831cd030dd6883b6a4bfb1ac6ad64e361340",
+          "timestamp": "2026-11-16T23:49:44-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_18/outcomes_level_18.json",
+      "level": "level_18",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T15:32:38-05:00",
+      "commit": "906382c2a851eda5b1726cccb34b2b49b5421184",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "906382c2a851eda5b1726cccb34b2b49b5421184",
+          "timestamp": "2026-11-18T15:32:38-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_18: hand edit Brooke's healthy reason, Maya's budget line, Mina's peanut line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d330c8926bc198106dd95275e05724ce352bfc20",
+          "timestamp": "2026-11-17T00:43:23-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: declutter chat to brief v9",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "500ceafdc88bc29e6e575446fd99a5af7be55098",
+          "timestamp": "2026-11-17T00:27:47-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: friends carry Cyrus's peanut clue (brief v8)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f9c8c627d66448deb6d9718ae76f9c2d48c84040",
+          "timestamp": "2026-11-16T23:55:38-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1728831cd030dd6883b6a4bfb1ac6ad64e361340",
+          "timestamp": "2026-11-16T23:49:44-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_18: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_18/spec_level_18.json",
+      "level": "level_18",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T23:46:25-05:00",
+      "commit": "44a64959f07c640095b29638d478a3bfb26086fc",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "44a64959f07c640095b29638d478a3bfb26086fc",
+          "timestamp": "2026-11-16T23:46:25-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_18: spec (Spindrift, sushi, quiet vs lively, Cormorant returns)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_18/venues_level_18.json",
+      "level": "level_18",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-16T23:55:04-05:00",
+      "commit": "7bc1c397cb8c19197872c17e369247baef4bb241",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7bc1c397cb8c19197872c17e369247baef4bb241",
+          "timestamp": "2026-11-16T23:55:04-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_18: apply critic suggestions (Ropewalk quote, Spindrift menu page)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "6301e84a7ca4f848ac8d6de3f9813078debae4e7",
+          "timestamp": "2026-11-16T23:50:51-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_18: venues and 6 new Waterfront sushi venues",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -2190,11 +2333,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-16T23:21:56-05:00",
-      "commit": "2ac9d5aaf5f35d6064f7d53dff36e6b2aefe34b9",
+      "timestamp": "2026-11-16T23:50:51-05:00",
+      "commit": "6301e84a7ca4f848ac8d6de3f9813078debae4e7",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "6301e84a7ca4f848ac8d6de3f9813078debae4e7",
+          "timestamp": "2026-11-16T23:50:51-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_18: venues and 6 new Waterfront sushi venues",
+          "pre_pipeline": false
+        },
         {
           "commit": "2ac9d5aaf5f35d6064f7d53dff36e6b2aefe34b9",
           "timestamp": "2026-11-16T23:21:56-05:00",
@@ -2673,6 +2823,47 @@
           "timestamp": "2026-11-16T23:26:29-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_17: must_fix 2, 6 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_18.json",
+      "level": "level_18",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-17T00:46:07-05:00",
+      "commit": "a94fcfe213da813d833c4c8bd1885309048e6db3",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a94fcfe213da813d833c4c8bd1885309048e6db3",
+          "timestamp": "2026-11-17T00:46:07-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_18: re-review after declutter, pass, 3 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "57c3551632cf1adee22514e575d03bf9cf49def8",
+          "timestamp": "2026-11-17T00:28:54-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_18: quick re-review after peanut rework, pass",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f5e8e635f840bca27f57cfc65c61aa2a93ff2432",
+          "timestamp": "2026-11-16T23:56:47-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_18: re-review after rework, pass, no suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3edf716c1278b02eaf559cb2b8df9384e79c1bca",
+          "timestamp": "2026-11-16T23:54:19-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_18: pass, 6 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -4071,6 +4262,108 @@
           "timestamp": "2026-11-16T23:30:24-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_17: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_18_run1.json",
+      "level": "level_18",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-18T15:33:23-05:00",
+      "commit": "a2b839de58d262056755f0f10a38f98885542580",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a2b839de58d262056755f0f10a38f98885542580",
+          "timestamp": "2026-11-18T15:33:23-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after declutter and hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "0b365960e2bbe81072585deca0d1b91912d36078",
+          "timestamp": "2026-11-17T00:28:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after peanut rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3993125aa4bd95a9a8f039a73f35f51ddb1c97ff",
+          "timestamp": "2026-11-16T23:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_18_run2.json",
+      "level": "level_18",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-18T15:33:23-05:00",
+      "commit": "a2b839de58d262056755f0f10a38f98885542580",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a2b839de58d262056755f0f10a38f98885542580",
+          "timestamp": "2026-11-18T15:33:23-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after declutter and hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "0b365960e2bbe81072585deca0d1b91912d36078",
+          "timestamp": "2026-11-17T00:28:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after peanut rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3993125aa4bd95a9a8f039a73f35f51ddb1c97ff",
+          "timestamp": "2026-11-16T23:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_18_run3.json",
+      "level": "level_18",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-18T15:33:23-05:00",
+      "commit": "a2b839de58d262056755f0f10a38f98885542580",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "a2b839de58d262056755f0f10a38f98885542580",
+          "timestamp": "2026-11-18T15:33:23-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after declutter and hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "0b365960e2bbe81072585deca0d1b91912d36078",
+          "timestamp": "2026-11-17T00:28:35-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs after peanut rework, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3993125aa4bd95a9a8f039a73f35f51ddb1c97ff",
+          "timestamp": "2026-11-16T23:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_18: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]

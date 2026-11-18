@@ -3580,5 +3580,325 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:46:25.713Z",
+    "level": "level_18",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer waterfront_spindrift (sushi, $$, quiet+healthy); peanut + veg traps, budget/lively/healthy near misses, Cormorant reused as craving decoy",
+    "retries": 0,
+    "tokens": 49902
+  },
+  {
+    "timestamp": "2026-11-17T04:49:44.540Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_outcomes",
+    "result": "written: 18 lines, Maya $$ restated, callbacks sushi_day/satay_incident/trip_fund",
+    "retries": 0,
+    "tokens": 65646
+  },
+  {
+    "timestamp": "2026-11-17T04:50:51.571Z",
+    "level": "level_18",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues, 6 new sushi venues added to waterfront registry, Cormorant reused",
+    "retries": 0,
+    "tokens": 71155
+  },
+  {
+    "timestamp": "2026-11-17T04:51:02.141Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:54:19.492Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 6 suggestions (4 writer, 2 seeder) sent for one rework round",
+    "retries": 0,
+    "tokens": 76854
+  },
+  {
+    "timestamp": "2026-11-17T04:55:04.479Z",
+    "level": "level_18",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "first-critique suggestions: Ropewalk quote reshaped, Spindrift vegetarian page, Mooring Post sesame line",
+    "retries": 1,
+    "tokens": 23501
+  },
+  {
+    "timestamp": "2026-11-17T04:55:38.574Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v7",
+    "step": "chat_rework",
+    "result": "first-critique suggestions 1-4 applied; chat 17 lines",
+    "retries": 1,
+    "tokens": 31620
+  },
+  {
+    "timestamp": "2026-11-17T04:55:47.475Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:56:47.362Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 0 suggestions",
+    "retries": 0,
+    "tokens": 44431
+  },
+  {
+    "timestamp": "2026-11-17T04:56:47.362Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15644
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15846
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15624
+  },
+  {
+    "timestamp": "2026-11-17T04:57:38.607Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (all runs: chat never says whose peanut allergy it is; harmless)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:27:47.680Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v8",
+    "step": "chat_rework",
+    "result": "Gabriella: Cyrus no longer raises his allergy; Brooke carries satay callback naming Cyrus; Starboard outcomes updated; chat 16 lines",
+    "retries": 2,
+    "tokens": 38282
+  },
+  {
+    "timestamp": "2026-11-17T05:27:48.027Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after peanut rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:27:48.027Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after peanut rework",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:28:35.606Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_peanut_rework",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15285
+  },
+  {
+    "timestamp": "2026-11-17T05:28:35.606Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_peanut_rework",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15675
+  },
+  {
+    "timestamp": "2026-11-17T05:28:35.606Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_peanut_rework",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15558
+  },
+  {
+    "timestamp": "2026-11-17T05:28:35.606Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after peanut rework (all runs identify Cyrus; peanut via satay callback is weakest clue but found)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:28:53.967Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after peanut rework, 0 must_fix, 0 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:43:23.507Z",
+    "level": "level_18",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "Gabriella: declutter to v9 (16 lines, 6 clue, 2 callbacks, 10 non-clue); 4 outcome lines updated. Retries exhausted.",
+    "retries": 3,
+    "tokens": 52022
+  },
+  {
+    "timestamp": "2026-11-17T05:43:35.620Z",
+    "level": "level_18",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-17T05:46:06.871Z",
+    "level": "level_18",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after declutter, 0 must_fix, 3 suggestions (hand-edit; writer retries exhausted)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:32:38.342Z",
+    "level": "level_18",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "Brooke healthy reason (team meeting), Maya budget line, Mina peanut line, numerals, Halyard outcome",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:32:38.342Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after hand edits",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15872
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15675
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_hand_edits",
+    "result": "correct (spindrift, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15741
+  },
+  {
+    "timestamp": "2026-11-18T20:33:22.992Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after declutter + hand edits (comfort zone read as $$$ = one star; peanut via satay 2.0 hardest but found)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:40:04.257Z",
+    "level": "level_18",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

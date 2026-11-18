@@ -1,0 +1,85 @@
+{
+  "level_id": "level_18",
+  "script": [
+    {
+      "speaker": "brooke",
+      "text": "small table tonight: just the four of us by the water. where are we eating?",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "A confession first. On Sunday I bought a bamboo mat, a bag of short-grain rice and a stack of seaweed sheets.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Eleven attempts. Every one unrolled itself on the way to the plate. Tonight I would like to eat some rolled by a professional.",
+      "emotion": "HUNGRY"
+    },
+    {
+      "speaker": "maya",
+      "text": "cyrus. you followed the instructions and LOST? photos. now.",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "mina",
+      "text": "i was there for attempt 7 :) it tasted lovely, it just came apart in the soy dish. i think he was very brave",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "11 is dedication. i'd have ordered in after 2",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Mina, attempt seven was yours, so no fish in it. Tonight I'd like the sushi day standard for you: a whole part of the menu with no fish and no meat, not one token roll.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "11 rolls fall apart and he's still planning everyone's dinner. never change, cyrus",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "maya, i'm the only one here who missed your big news. i want all of it tonight, somewhere calm and hushed so you only have to tell it once",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "mina!! short version: my plan got picked, i got promoted, and i cried a little in the supply closet. long version tonight",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "maya",
+      "text": "and before anyone gets ideas: the raise went to the trip. two dollar signs is my comfort zone now.",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "the supply closet part is new. i need that version",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "cyrus, while maya tells it, i'll be reading the sauces for you so that we don't have the satay incident 2.0",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "brooke",
+      "text": "i'm leading the team meeting at 8 tomorrow, so tonight i want food that keeps me sharp, not sleepy. nothing out of a fryer",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "maya",
+      "text": "an 8:00 meeting and you sound EXCITED. brooke, blink twice if you need help",
+      "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Assistant, I've done enough rolling for one week. Your turn.",
+      "emotion": "NEUTRAL"
+    }
+  ]
+}

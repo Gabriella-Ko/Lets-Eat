@@ -1,0 +1,47 @@
+{
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_spindrift",
+      "name": "Spindrift",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_starboard",
+      "name": "Starboard",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_gull_point",
+      "name": "Gull Point",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_mooring_post",
+      "name": "Mooring Post",
+      "cuisine": "sushi",
+      "price_tier": "$$$"
+    },
+    {
+      "id": "waterfront_ropewalk",
+      "name": "Ropewalk",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_halyard",
+      "name": "Halyard",
+      "cuisine": "sushi",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_cormorant",
+      "name": "Cormorant",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    }
+  ]
+}

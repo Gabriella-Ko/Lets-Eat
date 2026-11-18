@@ -126,6 +126,60 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["outdoor_seating", "healthy"],
       "first_level": "level_17"
+    },
+    {
+      "id": "waterfront_spindrift",
+      "name": "Spindrift",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["quiet", "healthy"],
+      "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_starboard",
+      "name": "Starboard",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["quiet", "healthy"],
+      "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_gull_point",
+      "name": "Gull Point",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["quiet", "healthy"],
+      "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_mooring_post",
+      "name": "Mooring Post",
+      "cuisine": "sushi",
+      "price_tier": "$$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["quiet", "healthy"],
+      "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_ropewalk",
+      "name": "Ropewalk",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_halyard",
+      "name": "Halyard",
+      "cuisine": "sushi",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["quiet"],
+      "first_level": "level_18"
     }
   ],
   "generated_by": "map_seeder",

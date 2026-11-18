@@ -1,0 +1,50 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_18",
+  "run": 1,
+  "pick": "waterfront_spindrift",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "who": "cyrus",
+      "constraint": "craving: sushi rolled by a professional",
+      "chat_line": "Eleven attempts. Every one unrolled itself on the way to the plate. Tonight I would like to eat some rolled by a professional."
+    },
+    {
+      "who": "mina",
+      "constraint": "strict diet: vegetarian (no fish, no meat), with a real section of the menu, not a token roll",
+      "chat_line": "Mina, attempt seven was yours, so no fish in it. Tonight I'd like the sushi day standard for you: a whole part of the menu with no fish and no meat, not one token roll."
+    },
+    {
+      "who": "mina",
+      "constraint": "vibe: calm and hushed",
+      "chat_line": "i want all of it tonight, somewhere calm and hushed so you only have to tell it once"
+    },
+    {
+      "who": "maya",
+      "constraint": "budget: $$",
+      "chat_line": "two dollar signs is my comfort zone now."
+    },
+    {
+      "who": "cyrus",
+      "constraint": "allergy: peanuts (inferred from the satay incident and Mina reading sauces for him)",
+      "chat_line": "cyrus, while maya tells it, i'll be reading the sauces for you so that we don't have the satay incident 2.0"
+    },
+    {
+      "who": "brooke",
+      "constraint": "preference: light/healthy food, nothing fried",
+      "chat_line": "tonight i want food that keeps me sharp, not sleepy. nothing out of a fryer"
+    }
+  ],
+  "elimination": {
+    "waterfront_starboard": "peanut miso dressing on most of the vegetarian page and peanut spinach: deal-breaker for Cyrus",
+    "waterfront_gull_point": "nothing fish- and meat-free (eel sauce, salmon in cucumber roll): deal-breaker for Mina",
+    "waterfront_mooring_post": "$$$, one tier over budget: costs a star; otherwise fits",
+    "waterfront_ropewalk": "loud (bells, shouting, loud playlist): misses hushed",
+    "waterfront_halyard": "everything fried: misses Brooke's no-fryer need",
+    "waterfront_cormorant": "Greek, not sushi: misses Cyrus's craving",
+    "waterfront_spindrift": "sushi, hushed, full veg page, no fryer, peanut-free, $$: meets all"
+  },
+  "difficulty": 3,
+  "notes": "Fair, solvable puzzle. Each decoy fails exactly one need, which makes it a clean elimination. The peanut allergy is the most indirect clue ('satay incident 2.0' plus Mina reading sauces); a player has to infer peanuts from satay. That seems fair at this stage of the campaign, but a less experienced player might miss it and fall for Starboard, since that peanut detail sits late in its second review. Spindrift's second review packs veg page, no fryer and lightness into one paragraph, which makes the answer fairly visible once you get to it. Mooring Post being one tier over is a good near-miss (2 stars). No contradictions found."
+}

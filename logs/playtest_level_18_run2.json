@@ -1,0 +1,44 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_18",
+  "run": 2,
+  "pick": "waterfront_spindrift",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: sushi (Cyrus)",
+      "source_line": "Tonight I would like to eat some rolled by a professional."
+    },
+    {
+      "constraint": "Strict diet: vegetarian, with a full section of the menu with no fish or meat, not one token roll (Mina)",
+      "source_line": "Tonight I'd like the sushi day standard for you: a whole part of the menu with no fish and no meat, not one token roll."
+    },
+    {
+      "constraint": "Preference: quiet, calm venue (Mina, for Maya's news)",
+      "source_line": "somewhere calm and hushed so you only have to tell it once"
+    },
+    {
+      "constraint": "Budget: $$ (Maya)",
+      "source_line": "two dollar signs is my comfort zone now."
+    },
+    {
+      "constraint": "Allergy: peanuts (Cyrus)",
+      "source_line": "cyrus, while maya tells it, i'll be reading the sauces for you so that we don't have the satay incident 2.0"
+    },
+    {
+      "constraint": "Preference: healthy/light, nothing fried (Brooke)",
+      "source_line": "tonight i want food that keeps me sharp, not sleepy. nothing out of a fryer"
+    }
+  ],
+  "venue_elimination": {
+    "waterfront_spindrift": "Sushi, $$, hushed, full fish- and meat-free page, no fryer, peanut-safe. Meets everything.",
+    "waterfront_starboard": "Deal-breaker: peanuts in the house dressing over the veg page and in the spinach (Cyrus's allergy).",
+    "waterfront_gull_point": "Deal-breaker: nothing vegetarian (eel sauce, salmon in the cucumber roll).",
+    "waterfront_mooring_post": "$$$, one tier over budget (-1 star); otherwise fits.",
+    "waterfront_ropewalk": "Loud (bells, shouting, loud playlist), so it misses the quiet preference (-1 star).",
+    "waterfront_halyard": "Everything is fried (tempura, panko), so it misses Brooke's no-fryer wish (-1 star).",
+    "waterfront_cormorant": "Greek, not sushi, so it misses Cyrus's craving (-1 star)."
+  },
+  "difficulty": 3,
+  "notes": "Fair and solvable. The peanut allergy is the most indirect clue: it is never stated outright, only implied by 'satay incident 2.0' and Mina 'reading the sauces' for Cyrus. A player who misses it could take Starboard, though its hushed room and veg page make it a good trap. Every decoy fails exactly one need, which makes a clean elimination grid. Spindrift's reviews hit all six needs very directly (the third review spells out peanut safety), so once the constraints are found the answer is obvious. Nothing contradictory."
+}
