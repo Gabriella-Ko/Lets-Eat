@@ -3960,5 +3960,45 @@
     "result": "rebuilt after declutter",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15935
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_declutter",
+    "result": "correct (amber_lamp, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16134
+  },
+  {
+    "timestamp": "2026-11-18T21:06:55.893Z",
+    "level": "level_13",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after declutter (bike talk a mild red herring; Cyrus peanut subtle but found)",
+    "retries": 0,
+    "tokens": null
   }
 ]
