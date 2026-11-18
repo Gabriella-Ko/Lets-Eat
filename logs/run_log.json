@@ -3830,5 +3830,25 @@
     "result": "pass after declutter, 0 must_fix, 3 suggestions (hand-edit; writer retries exhausted)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:32:38.342Z",
+    "level": "level_18",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "Brooke healthy reason (team meeting), Maya budget line, Mina peanut line, numerals, Halyard outcome",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-18T20:32:38.342Z",
+    "level": "level_18",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after hand edits",
+    "retries": 0,
+    "tokens": null
   }
 ]

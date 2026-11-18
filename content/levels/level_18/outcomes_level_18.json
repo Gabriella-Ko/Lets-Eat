@@ -48,7 +48,7 @@
       "result": "partial",
       "missed": ["vibe:healthy"],
       "lines": [
-        { "speaker": "brooke", "text": "every roll here came battered and fried. tomorrow's fun run is turning into a fun walk", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "every roll here came battered and fried. tomorrow's 8:00 will be a challenge", "emotion": "ANNOYED" },
         { "speaker": "cyrus", "text": "For the record, they still held together better than mine.", "emotion": "HAPPY" }
       ]
     },
@@ -62,5 +62,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
