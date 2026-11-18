@@ -1,17 +1,27 @@
 {
   "level_id": "level_13",
-  "verdict": "pass",
+  "verdict": "must_fix",
   "findings": [
     {
+      "severity": "must_fix",
+      "check": "continuity",
+      "file": "content/levels/level_13/dialogue_level_13.json",
+      "agent": "narrative_writer",
+      "where": "script[14]",
+      "issue": "The rework dropped the 'before you joined' framing that made the fries story fit level_03. 'last time mina got a plate of fries while i had a double stack. this time she gets a burger' nearly copies Liam's level_03 lines ('last time you ate a plate of fries while i had a double stack... this time you get a real burger too'). In level_03 the patrol worked and Mina got a veggie patty, so the most recent burger night with them was not the fries night. A returning player reads this as if level_03 never happened. (The clutter audit's own merge wording used 'last time', so the problem started there.)",
+      "rule": "Critic brief check 7 (Continuity: no contradictions with earlier levels); narrative-writer brief, Continuity ('last time' references must match earlier levels)",
+      "suggested_fix": "Replace script[14] text with: \"burger night means i'm on fries patrol. roxy, one burger night before you joined, mina got a plate of fries while i had a double stack. so tonight she gets a burger with zero meat in it\". Keep clue diet:vegetarian, callback plate_of_fries and emotion NEUTRAL. No outcome line needs to change."
+    },
+    {
       "severity": "suggestion",
-      "check": "reviews",
-      "file": "content/levels/level_13/venues_level_13.json",
-      "agent": "map_seeder",
-      "where": "venue night_market_amber_lamp review 2",
-      "issue": "The new peanut evidence is firm ('nothing with a peanut in it is ever bought for the cart'), as firm as Bun Stop's 'never kept a peanut' and Velvet Tent's 'nothing containing peanuts has ever come onto the cart', so the answer stays fair. Two small problems. First, a night-market cart grill that is also wheeled in to cook weekday school lunches 'on this very grill' strains belief. Second, the sentence is tangled: 'the owner also cooks weekday lunches for his elementary school, which bans peanuts outright, on this very grill', and the owner is 'her' in review 1, so a reader has to stop and work out that 'his' means the nephew. The 'nothing ever comes onto the cart' shape now also appears three times in this level (Bun Stop, Velvet Tent, Amber Lamp).",
-      "suggested_fix": "Keep the school link but drop the shared grill and use a different shape, e.g. 'My nephew's peanut allergy is the serious kind, and what settled his mom was learning the owner is also the lunch cook at his elementary school, which bans peanuts outright. She says one peanut-free pantry for both jobs is simpler, so there's never been a peanut near this grill. A year on, he walks up and orders by himself.'"
+      "check": "continuity",
+      "file": "content/levels/level_13/dialogue_level_13.json",
+      "agent": "narrative_writer",
+      "where": "script[7]",
+      "issue": "Roxy 'bought a bike on monday', but in level_11 she found the Night Market by biking home a different way, so she already had a bike. It's a small wobble, but a returning player may catch it.",
+      "suggested_fix": "Replace script[7] text with: \"got a new bike on monday and rode it straight into a hedge. the hedge is fine\". The rest of the line stays as it is."
     }
   ],
-  "summary": "The rework landed. All seven earlier suggestions are applied, and they now match the reviews: the Bun Stop partial puts the dairy on the stall's milk bun and garlic-butter fries, Velvet Tent's fail uses the beef-dripping fries and the corn cob from its review, Hollow Oak's fail names the exact peanut items, and the repeated level_08 and level_11 lines are gone. The plate-of-fries continuity now holds against level_03 and the bible entry: Liam frames 'fries patrol' as a standing habit since an unnamed burger night before Roxy joined, where he had a double stack and Mina had fries because nothing worked for her. That fits level_03's 'last time... not again' and doesn't clash with the Bun Stop visit. Liam's 'we're finding mina a real burger' is his own level_03 wording ('this time you get a real burger too'), not Mina's reserved level_16 'real main' request, so it doesn't take that beat. The only suggestion is to make Amber Lamp's new peanut evidence more plausible and easier to read.",
+  "summary": "The rework fixes what the audit found. The middle of the chat is now real conversation: Mina's 'how's everyone's week' gets four answers (trumpet neighbour, hedge, spice rack, laundromat quarters), Maya's budget comes out of her week in one line that covers both price traps, and the six-line fries cluster and both agreement echoes are gone. Every need is findable in the implied style, and every trap is backed by its review: Roxy names Hollow Oak's peanut sauce and crushed peanuts; 'zero meat in it' covers Velvet Tent; 'a little over... fancy prices' covers Midnight Orchard and Crooked Pine; Mina's 'buttered buns and melted cheese' covers Bun Stop; Amber Lamp's reviews give peanut-free, meatless and butter- and cheese-free evidence. Mina carrying Roxy's dairy clue fits clue rule 6 (a friend hints it), and it's in voice: she turns the attention away from herself. There's no work-win hint, which stays in level_14, and the outcomes match the new chat and the reviews (Roxy's 'this is the one i crossed off', 'the patrol caught the cheese'). One must-fix: the fries callback lost its 'before you joined' framing and now contradicts level_03. It's a one-line fix.",
   "generated_by": "critic"
 }
