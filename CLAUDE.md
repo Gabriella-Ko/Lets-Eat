@@ -19,6 +19,7 @@ Read `docs/game_bible.md`. It is the single source of truth. If a request confli
 | Quality review | `critic` subagent | Delegate, once per level after the Validator passes |
 | Playtest | `blind-playtester` subagent | Delegate, 3 separate runs |
 | Assets | `art-asset` subagent | Delegate (Stage 3) |
+| Draft art (PixelLab) | `art-generator` subagent + script | Delegate the prompts, then run `python scripts/pixellab_draft.py` in the background (see below) |
 | Cross-level check | Integration script | `node scripts/integrate.js` (spec: `docs/specs/integration.md`) |
 | Lineage | Provenance script + git | `node scripts/provenance.js` (spec: `docs/specs/provenance.md`) |
 
@@ -56,6 +57,11 @@ logs/                           run_log.json, validation_, critique_, playtest_,
    - 0–1/3 → back to `narrative-writer` if a clue is missing or buried too deep; back to `puzzle-architect` if the puzzle itself is unsound.
 9. Push `level/XX` and open a PR into `master` (`gh pr create --base master --title "level_XX: <one-line summary>"`) whose body is the one-line summary per check, including the critic's verdict and any suggestions. Present the level to Gabriella with that summary and the PR link. Wait for approval.
 10. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. If the merge says "not mergeable" right after a push, check `gh pr view <n> --json mergeable`: `UNKNOWN` means GitHub is still checking, so retry; `CONFLICTING` means stop and report. Finally update local `master` (`git checkout master && git pull`).
+
+## Draft art (PixelLab)
+- `art-generator` writes `assets/drafts/pixellab_jobs.json`; you run `python scripts/pixellab_draft.py` as a background task and do not poll it. It needs `PIXELLAB_API_KEY` in the environment; never print or store the key.
+- **When credits or tokens run out, pause; never push through.** The script exits with code 3 and `logs/pixellab_drafts.json` says `paused_out_of_credits`. Tell Gabriella how many images are done, then stop. To wait for the reset, run it with `--wait` in the background: it retries every 30 min and carries on by itself. If your own session runs out of tokens, nothing is lost: images on disk are never regenerated, so re-running the same command resumes.
+- Drafts stay in `assets/drafts/` until Gabriella picks. Commit them on `master` as `[art_generator] drafts: ...`. Only then does `art-asset` process the picks into game art.
 
 ## Rules
 - Max 3 retries per agent per level. After that, stop and flag the level for Gabriella.
