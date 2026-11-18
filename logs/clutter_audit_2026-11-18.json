@@ -1,0 +1,112 @@
+{
+  "audit": "chat clutter / naggy needs",
+  "date": "2026-11-18",
+  "scope": ["level_08", "level_10", "level_13", "level_14", "level_15"],
+  "reference": "level_18 (16 lines, 6 clue lines, 2 callbacks, one line per need, no agreement echoes)",
+  "basis": "narrative-writer v9 'Keep the chat from clutter' and v8 Cyrus rule (both apply from level_18 on, so none of these levels breaks a brief rule; this is a judgement on player feel). Bible: Clue rules, Story beats ('Cyrus stops double-checking'), Callbacks.",
+  "index_note": "Line indices are 0-based script[] positions in dialogue_level_XX.json.",
+  "levels": [
+    {
+      "level_id": "level_08",
+      "difficulty": "stated",
+      "verdict": "light touch",
+      "lines": 19,
+      "clue_lines": 12,
+      "callback_lines": 2,
+      "half_not_needs": false,
+      "round_robin": "Mild: script[8]-[17] goes Cyrus peanut, Maya on Mina's behalf, Roxy dairy in sequence. For a stated level this reads as normal planning, not nagging.",
+      "cyrus_lecture": "script[8] explains where peanuts hide in sushi. Acceptable here: through level_08 the bible beat has Cyrus state it plainly.",
+      "player_read": "Direct, but that's the stated style. The sushi-section exchange (script[10]-[13]) is the origin of the sushi_day callback and carries real warmth for Mina, so it earns its length. Only two lines read as pure echo.",
+      "cut": [
+        { "index": 9, "speaker": "roxy", "text": "plate guard, reporting for duty!! zero peanuts", "why": "Agreement line restating the peanut need Cyrus just gave." },
+        { "index": 17, "speaker": "cyrus", "text": "Noted. Some rolls have cream cheese in them, so that's worth checking too.", "why": "Restates Roxy's dairy need after the milkshake exchange; Hinoki Table's review already says 'Cream cheese in nearly every roll'." }
+      ],
+      "keep_note": "Keep script[10]-[13]: they are the in-world origin of sushi_day (bible page: 'Cyrus found a whole section with zero meat'), which level_10 and later call back to.",
+      "loses_if_trimmed": "Nothing scored. Peanut stays on script[8], dairy on script[14] and script[16]. Roxy loses one bit of 'new friend' energy (plate guard); her voice still comes through in script[2], [4] and [16]. Lowest priority of the five."
+    },
+    {
+      "level_id": "level_10",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 16,
+      "clue_lines": 10,
+      "callback_lines": 5,
+      "half_not_needs": false,
+      "round_robin": "No. Needs come up in conversation (Brooke's cake week, Roxy's sushi-day memory, Mina catching Roxy's coffee).",
+      "cyrus_lecture": "No lecture. script[8] is one short in-voice line with the callback, which fits the post-level_09 implied style.",
+      "player_read": "The goose opening is strong and the dairy hint (Mina catching Roxy) is a nice rule-6 moment. The clutter is callback stacking: five callback lines, with satay and sushi day each getting a follow-up that only repeats.",
+      "cut": [
+        { "index": 9, "speaker": "roxy", "text": "brooke told me that story on the climbing wall. nothing satay-adjacent near cyrus, got it", "why": "Agreement line that restates the peanut need right after Cyrus's own satay callback." },
+        { "index": 12, "speaker": "cyrus", "text": "Then sushi day is today's standard.", "why": "Third sushi_day line. Mina's script[11] already lands the need." }
+      ],
+      "keep_note": "Keep script[10] and script[11]: level_10 is sushi_day's 'First appears' level, so at least one line must carry it, and script[11] matches the Scrapbook page ('best lunch of her summer').",
+      "loses_if_trimmed": "Nothing scored. Peanut stays on script[8], vegetarian on script[10]-[11]. Callback lines drop from 5 to 3. Roxy's climbing-wall aside (learning the story from Brooke) is lost; it's a pleasant continuity touch, but nothing later depends on it."
+    },
+    {
+      "level_id": "level_13",
+      "difficulty": "implied",
+      "verdict": "rework",
+      "lines": 20,
+      "clue_lines": 12,
+      "callback_lines": 4,
+      "half_not_needs": false,
+      "round_robin": "Yes, structurally. After the craving, script[4]-[18] works through one need block per friend: budget (4-7), peanut (8-9), vegetarian (10-15), dairy (16-18), with only script[16] as a breather. Mina's 'how's everyone's week been?' (script[7]) is answered by Cyrus's peanut homework instead of anyone's week.",
+      "cyrus_lecture": "Mild. script[8] has Cyrus raise his own allergy and explain his stall research ('Satay and I have history, so that stall is crossed out'). It's in voice and implied, but it is the self-explaining pattern v8 retires. A v9 rework could give it to a friend ('already crossed off the satay grill'), as level_18 does.",
+      "player_read": "The most naggy of the five. The fries-patrol bit is funny, but it runs six lines (10-15): a setup, a question, the story, Mina's reply, Liam's rules, and Mina agreeing to them. Two more agreement lines echo needs (script[9], script[15]). Cutting lines alone still leaves almost nothing between the craving and the sign-off that isn't a need, so this wants a rewrite, not a trim.",
+      "cut": [
+        { "index": 9, "speaker": "liam", "text": "say no more. anything peanut-y stays on the far side of the fountain", "why": "Agreement line restating the peanut need." },
+        { "index": 15, "speaker": "mina", "text": "honestly, ordering off the board like everyone else sounds like a treat. i'll hold you to it :)", "why": "Agreement line restating the vegetarian need right after Liam's patrol rules." }
+      ],
+      "merge": [
+        { "indices": [10, 11, 12], "texts": ["also, burger night means i'm on fries patrol", "fries patrol?? what's that", "the plate of fries. one burger night, before you joined, i had a double stack and mina had a plate of fries because nothing on that menu worked for her. i've been on patrol ever since"], "into": "One Liam line carrying plate_of_fries, e.g. \"burger night means i'm on fries patrol. roxy, last time mina got a plate of fries while i had a double stack. never again\". Keep script[14] (the 'zero meat in it' patrol rule), which states the Velvet Tent trap." }
+      ],
+      "add": "Use the freed lines for real non-need talk, e.g. answering Mina's 'how's everyone's week' with one or two lines of banter (not Maya's work win: that hint belongs to level_14). Optionally move the peanut clue to a friend per the v8 pattern.",
+      "loses_if_trimmed": "Nothing scored if script[6] stays whole: Maya's 'a little over ... fancy prices and i'm turning around' is a genuine two-halves line, covering both Midnight Orchard (budget_soft) and Crooked Pine (budget_hard). Peanut survives on script[8] (or a friend's line), vegetarian on the merged fries line plus script[14], dairy on script[17]-[18] (Bun Stop's cheese). The fries-patrol joke survives in one line; what goes is the Roxy question and answer and Mina's 'they were really good fries' (keep script[13] if there's room; it's lovely Mina voice)."
+    },
+    {
+      "level_id": "level_14",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 19,
+      "clue_lines": 12,
+      "callback_lines": 3,
+      "half_not_needs": "close (~45%)",
+      "round_robin": "No. Needs come out of news: Maya's work win (story beat) carries the budget, Brooke's 10k carries healthy, Roxy's latte confession carries dairy.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "The tags overstate the clutter: script[1]-[2] are tagged craving but read as banter, and the promotion hint, the 10k, Mina's sign and 'mina picks first' give the chat a real social life. Two lines are pure echo.",
+      "cut": [
+        { "index": 7, "speaker": "roxy", "text": "ok ok. cheap AND celebratory. i can work with that", "why": "Agreement line restating Maya's budget, which script[5]-[6] already gave." },
+        { "index": 16, "speaker": "roxy", "text": "...oh. ok, none of that in my sauce. my stomach is still mad about the latte", "why": "Third dairy line. Roxy's latte confession (script[14]) and Brooke's curry warning (script[15]) already carry it." }
+      ],
+      "optional": "script[11] (Maya's sushi_day line) is long; trimming it to one sentence would help, but it's the vegetarian clue, so keep the 'whole page of meat-free picks' detail.",
+      "loses_if_trimmed": "Nothing scored. The budget_soft trap (Tall Grass) is covered by script[6]'s 'one step up from that'. Dairy keeps script[14]-[15], and Night Heron's ghee and yogurt are in its review. Roxy's 'can work with that' beat goes, but she has plenty of lines."
+    },
+    {
+      "level_id": "level_15",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 19,
+      "clue_lines": 12,
+      "callback_lines": 4,
+      "half_not_needs": false,
+      "round_robin": "Mild: after the stall payoff, budget (5-7), peanut (8-11), healthy (12-13) and dairy (14-16) run in turn. Each is anchored in something real (coin purse, 'the question', grandma, the tipster), so it reads as conversation rather than announcements.",
+      "cyrus_lecture": "Yes: script[10] is exactly the pattern v8 retires, with Cyrus listing wok oil, crunchy toppings and shared woks. It's also the line that reads most naggy across all five levels. Sundial's peanut oil, the precision trap, is fully evidenced in its review ('a spoonful of roasted peanut oil from the big tin'), so a broad friend line is enough.",
+      "player_read": "Good premise and banter (the slurp tip, coins only, grandma's greens). The clutter is concentrated: a Cyrus lecture plus an echo on peanut, and a two-callback dairy pair where Liam dwells on the milkshake.",
+      "cut": [
+        { "index": 10, "speaker": "cyrus", "text": "It's grown since then. Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking.", "why": "Cyrus lecturing on his own allergy. Roxy's script[11] ('any peanut, any form, we walk') already gives the broad version v8 recommends." },
+        { "index": 15, "speaker": "liam", "text": "after the milkshake incident, those carts are dead to me on your behalf", "why": "A follow-up that dwells on the callback after script[14] has already raised the dairy trap." }
+      ],
+      "edits_needed_with_cuts": [
+        { "index": 11, "from": "got it, captain. any peanut, any form, we walk", "to": "same here. any peanut, any form, we walk", "why": "'captain' answered Cyrus's lecture; after the cut it follows Liam." },
+        { "index": 14, "from": "oh and roxy. my tipster says a lot of carts on that row finish the broth with butter or a splash of milk", "to": "oh and roxy, milkshake incident rules: my tipster says a lot of carts on that row finish the broth with butter or a splash of milk", "why": "Keeps the milkshake_incident callback that script[16] reacts to ('you remembered the milkshake??'). Tag callback milkshake_incident." }
+      ],
+      "loses_if_trimmed": "Nothing scored. Peanut keeps script[9] (satay callback) and script[11] (broad 'any form'), and Brass Kettle and Sundial are both decided by their reviews. Dairy keeps script[14] and script[16], and Kestrel's milk broth is explicit in its review. Callback lines drop from 4 to 3. The loss is the detail of Cyrus's routine; script[8] ('I ask the cook one question') still shows his careful side in one line."
+    }
+  ],
+  "overall": {
+    "recommendation": "Don't run a full v9 rework across the five. Only level_13 merits one: its middle is a sequence of need blocks with a six-line callback cluster, and trimming alone can't put banter back. level_08, level_10, level_14 and level_15 are fine with two-line hand edits (level_15 needs two small wording changes so the remaining lines still connect). level_15's Cyrus lecture (script[10]) is the most naggy single line in the set and is the best-value cut. level_08 is lowest priority: it's a stated level and reads as intended.",
+    "after_edits": "Each edit changes an approved level's dialogue, so re-run the Validator (check 12 doesn't apply; these are implied/stated) and the critic. For level_13 (rework) also run a blind playtest round, since clue lines move. No clue line that a trap depends on is removed in any proposal above.",
+    "rule_status": "No level breaks a current brief rule: the clutter and Cyrus rules apply from level_18 on. These are feel improvements, Gabriella's call."
+  },
+  "generated_by": "critic"
+}
