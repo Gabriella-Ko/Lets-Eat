@@ -1,0 +1,75 @@
+{
+  "audit": "v9 declutter review (one clue line per need, max 2 callbacks, at least half the chat not about needs)",
+  "date": "2026-11-18",
+  "follows": ["logs/clutter_audit_2026-11-18.json", "logs/clutter_audit_2026-11-18_followup.json"],
+  "scope": ["level_08", "level_10", "level_14"],
+  "basis": "critic brief v3; narrative-writer v9 'Keep the chat from clutter' and v8 Cyrus rule (formally from level_18 on, applied here by Gabriella's request); bible Clue rules (incl. rule 6), Story beats, Callbacks, Cast. Neighbours read for freshness: level_07, level_09, level_11, level_13, level_15.",
+  "index_note": "Line indices are 0-based script[] positions in dialogue_level_XX.json.",
+  "levels": [
+    {
+      "level_id": "level_08",
+      "difficulty": "stated",
+      "verdict": "pass",
+      "counts": { "lines": 18, "clue_lines": 5, "callback_lines": 2, "non_need_lines": 11 },
+      "read": "Natural and much less naggy. The greetings and Roxy's three-new-things banter (pickle soda, salsa class, bridge podcast) give the middle real social life and set up the perfect reaction ('new thing number four').",
+      "needs_and_traps": "All five needs are stated plainly, as the style requires. Craving script[2]. Peanut script[3]: 'nothing with peanuts on it' rules out Kumo Bar (crushed peanuts, peanut sauce in its review). Budget script[8] ('one dollar sign max') covers Cedar Line, which its card shows at $$ and its review calls 'a clear step up in price'. Vegetarian script[12] ('no fish or meat') covers Silver Reed (fish in every roll). Dairy script[14] ('nothing creamy ... dairy and i don't get along') covers Hinoki Table (cream cheese).",
+      "milkshake_retag": "Keep script[16] as clue null. Script[14] already states the need plainly, and [16] is Roxy's reply to Mina's question, so it reads as banter, not a second ask. Tagging it would make two dairy clue lines, which v9 avoids. The callback tag stays, which the bible allows with a null clue.",
+      "continuity": "Correct. First meals: Maya with Roxy ('hi roxy, i'm maya') and Mina with Roxy ('i don't think we've had lunch together yet'), both true since Roxy has only been out with Brooke and Cyrus (level_06). Cyrus met Roxy in level_06, so he doesn't greet her. Cyrus states his own allergy, which the 'Cyrus stops double-checking' beat allows through level_08. Script[12] is the sushi_day origin and matches the Scrapbook page (Cyrus finds a meat-free section); it's untagged, which is correct before level_10.",
+      "outcomes": "Match the trimmed chat. Kumo Bar's 'cyrus warned us about this exact thing' points to script[3]. Koi Counter's 'new thing number four' pays off the new banter.",
+      "findings": []
+    },
+    {
+      "level_id": "level_10",
+      "difficulty": "implied",
+      "verdict": "pass",
+      "counts": { "lines": 15, "clue_lines": 5, "callback_lines": 2, "non_need_lines": 10 },
+      "read": "The best of the three. The goose opens and closes the chat ('do it for the goose'), and the needs come out of real moments: Brooke's cake week, Cyrus planning for Mina, Roxy offering to guard Cyrus's plate, Mina turning that back on Roxy. No echoes, no round-robin.",
+      "needs_and_traps": "Every need is findable in the implied style. Craving script[1]. Healthy script[6] ('wholesome, actually-good-for-you') covers Marble Steps ('gloriously heavy', fried). Vegetarian script[8] (Cyrus plans a zero-meat section, sushi_day) covers Wren House. Peanut script[9] (satay incident, naming Cyrus) covers Slate Window (satay dressing, peanut granola). Dairy script[10] (Mina: 'milk, butter or cheese') covers Paper Kite.",
+      "continuity": "Correct. Brooke and Mina's 'first lunch together since campus' holds: neither level_06, 07, 08 nor 09 has both. sushi_day first appears here, on Cyrus, who was at level_08, and the outcome lines on Roxy and Cyrus are both by people who were there. Roxy wasn't at the satay incident, but 'no satay incident sequel' only shows she knows the story, which is fine. The peanut clue is carried by a friend, which fits the post-level_09 beat. Mina's need comes out through a friend planning around it unprompted, a route the v9 brief allows from level_09.",
+      "outcomes": "Match. Slate Window's 'so much for reading every board' answers script[9]; Paper Kite and Marble Steps reactions match their reviews.",
+      "findings": []
+    },
+    {
+      "level_id": "level_14",
+      "difficulty": "implied",
+      "verdict": "must_fix",
+      "counts": { "lines": 15, "clue_lines": 5, "callback_lines": 2, "non_need_lines": 10 },
+      "read": "Much lighter: the poll, the promotion hint, the 10k and the 'menace' exchange carry the chat. But moving the sushi_day line from Maya to Mina has Mina asking for her own diet.",
+      "needs_and_traps": "Budget script[5] ('fancy end, no ... street-cart prices') is enough for Tall Grass: the card shows $$ against Maya's $, and the review says a bowl costs 'a few dollars more than at the curry carts down the aisle'. Healthy script[7] covers Lucky Seven (fried, oily). Dairy script[11] rests on the latte alone; a latte is plainly milk, and Night Heron's review names milk, ghee and yogurt outright, so it's fair for an implied level. Craving script[0] covers Firefly Lane.",
+      "continuity": "Who met whom is correct. Maya was at level_08, so 'you were there for sushi day' is accurate. Maya's work win keeps her budget at $ ('a pat on the back isn't a paycheck'), so the promotion hint beat is intact. The problem is the Mina line below.",
+      "outcomes": "Match. Night Heron's 'the latte was a warning' points to script[11], Tall Grass to script[5], Glass Bead to the vegetarian need.",
+      "findings": [
+        {
+          "severity": "must_fix",
+          "check": "voice",
+          "file": "content/levels/level_14/dialogue_level_14.json",
+          "agent": "narrative_writer",
+          "where": "script[10] (and script[9])",
+          "issue": "Mina now voices her own diet and asks for it: 'no meat, no fish, just pick and eat... if tonight's board has plenty like that, i'm happy'. That is the 'Mina speaks up' beat, reserved for level_16. Before the rework Maya carried the sushi_day clue; the rewrite moved it to Mina.",
+          "rule": "Bible Clue rule 6 and Story beats ('Mina speaks up', level_16); narrative-writer v9: 'Until level_16 ... she still never states her diet herself.'",
+          "suggested_fix": "Give the clue back to Maya's first-pick line, and give Mina a reaction that isn't a need. script[9] → { \"speaker\": \"maya\", \"text\": \"mina, you're picking first tonight. sushi day rules: a whole board you can point at, no meat, no fish, nothing to ask about. you look after everyone, so tonight we look after you\", \"emotion\": \"HAPPY\", \"clue\": \"diet:vegetarian\", \"callback\": \"sushi_day\" }. script[10] → { \"speaker\": \"mina\", \"text\": \"first pick?? okay, i'm taking this very seriously :)\", \"emotion\": \"HAPPY\", \"clue\": null } (no callback field). Counts stay at 5 clue lines and 2 callbacks. Avoid the '...okay ... thank you' acceptance (v9 Mina rule) and level_08's 'now i'm actually excited'."
+        },
+        {
+          "severity": "suggestion",
+          "check": "freshness",
+          "file": "content/levels/level_14/dialogue_level_14.json",
+          "agent": "narrative_writer",
+          "where": "script[5] and outcomes night_market_tall_grass line 1",
+          "issue": "Maya's money joke is about coins three levels running: the laundromat ate her quarters (level_13), 'counting coins the whole walk home' (level_14), and the coin purse, coins only (level_15).",
+          "suggested_fix": "script[5] → \"celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first. street-cart prices, or i'm toasting my big win with a free sample\". Tall Grass outcome line 1 → \"loved every bite, right up until i spotted that second dollar sign on the price board. the trip fund did not approve this celebration\"."
+        },
+        {
+          "severity": "suggestion",
+          "check": "freshness",
+          "file": "content/levels/level_14/outcomes_level_14.json",
+          "agent": "narrative_writer",
+          "where": "night_market_glass_bead line 2",
+          "issue": "'this is the opposite of sushi day' copies level_10's Wren House fail line ('this is the exact OPPOSITE of sushi day'), and the perfect reaction already uses sushi day.",
+          "suggested_fix": "\"absolutely not. mina is not watching us eat at my celebration. we're finding her a board she can point at\""
+        }
+      ]
+    }
+  ],
+  "overall": "The v9 pass worked. All three chats are shorter, have no echo lines, keep at least half the chat off needs, and still cover every scored need and trap through chat plus reviews. level_08 and level_10 pass as they stand. level_14 has one must-fix: the rework moved the sushi_day clue onto Mina, so she states her own diet two levels before the 'Mina speaks up' beat. Returning the clue to Maya's first-pick line fixes it without changing the counts. Since clue lines move in level_14, re-run the Validator, then the critic, and a blind playtest round.",
+  "generated_by": "critic"
+}

@@ -15,7 +15,7 @@
       "missed": ["allergy:peanut"],
       "lines": [
         { "speaker": "cyrus", "text": "There are peanuts all over this menu. I can't eat here.", "emotion": "ANGRY" },
-        { "speaker": "roxy", "text": "abort!! i promised zero peanuts. plate guard is demoting herself", "emotion": "SURPRISED" },
+        { "speaker": "roxy", "text": "abort!! cyrus warned us about this exact thing. so sorry cyrus", "emotion": "SURPRISED" },
         { "speaker": "maya", "text": "i'm literally leaving this restaurant. cyrus, walk with me, i'll find you a rice ball. a cheap one", "emotion": "SURPRISED" }
       ]
     },
@@ -40,7 +40,7 @@
       "missed": ["budget"],
       "lines": [
         { "speaker": "maya", "text": "delicious. also two dollar signs. the trip fund felt that one", "emotion": "ANNOYED" },
-        { "speaker": "roxy", "text": "worth it though?? ...sorry maya. soup tomorrow, i'll join you", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "worth it though?? ...sorry maya. that was a whole beach day, wasn't it", "emotion": "SURPRISED" }
       ]
     }
   },

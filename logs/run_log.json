@@ -4011,5 +4011,749 @@
     "note": "declutter rework (clutter audit, brief v9)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:31:51.516Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "clutter audit: cut 2 lines (Roxy budget echo, third dairy line); 17 lines. Retries exhausted.",
+    "retries": 3,
+    "tokens": 16575
+  },
+  {
+    "timestamp": "2026-11-19T04:31:59.119Z",
+    "level": "level_10",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "clutter audit: cut 2 lines (Roxy satay echo, third sushi_day line); Wren House fail lines reworded; 14 lines. Retries exhausted.",
+    "retries": 3,
+    "tokens": 17609
+  },
+  {
+    "timestamp": "2026-11-19T04:32:08.514Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "clutter audit: cut Cyrus wok lecture and Liam milkshake follow-up; Roxy peanut line reworded; milkshake callback folded into dairy line; 17 lines",
+    "retries": 2,
+    "tokens": 25558
+  },
+  {
+    "timestamp": "2026-11-19T04:32:08.793Z",
+    "level": "level_08",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "clutter audit: cut Roxy plate-guard echo and Cyrus cream-cheese follow-up; Kumo Bar Roxy fail line updated; 17 lines. Retries exhausted.",
+    "retries": 3,
+    "tokens": 22737
+  },
+  {
+    "timestamp": "2026-11-19T04:32:19.312Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:32:19.312Z",
+    "level": "level_10",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:32:19.312Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:32:19.312Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:33:37.450Z",
+    "level": "level_08",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (light-touch cuts; see clutter_audit_2026-11-18_followup.json)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:33:37.450Z",
+    "level": "level_10",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (light-touch cuts; see clutter_audit_2026-11-18_followup.json)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:33:37.450Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (light-touch cuts; see clutter_audit_2026-11-18_followup.json)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:33:37.450Z",
+    "level": "level_15",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (light-touch cuts; see clutter_audit_2026-11-18_followup.json)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:33:37.450Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after light-touch declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16043
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15710
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15778
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after light-touch declutter (1 run: whose peanut allergy slightly blurred since Roxy states it)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:37:51.669Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:37:51.669Z",
+    "level": "level_10",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:37:51.669Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:03.348Z",
+    "level": "level_08",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 18 lines, 5 clue, 2 callbacks, 13 non-clue; Cedar Line Roxy outcome updated",
+    "retries": 1,
+    "tokens": 49154
+  },
+  {
+    "timestamp": "2026-11-19T04:40:11.301Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 15 lines, 5 clue, 2 callbacks, 10 non-clue; promotion hint and Mina line kept",
+    "retries": 1,
+    "tokens": 48634
+  },
+  {
+    "timestamp": "2026-11-19T04:40:52.917Z",
+    "level": "level_10",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 15 lines, 5 clue, 2 callbacks, 10 non-clue; 3 outcome lines updated",
+    "retries": 1,
+    "tokens": 56992
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_10",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:41:36.236Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:34.811Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 15 lines, 5 clue, 2 callbacks (satay, milkshake), 10 non-clue; trip_fund dropped; 4 outcome lines updated",
+    "retries": 1,
+    "tokens": 47550
+  },
+  {
+    "timestamp": "2026-11-19T04:43:35.146Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_08",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_10",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "must_fix 1 (Mina states her own diet before level_16) + 2 suggestions",
+    "retries": 0,
+    "tokens": 74213
+  },
+  {
+    "timestamp": "2026-11-19T04:46:16.925Z",
+    "level": "level_15",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (v9 declutter), 0 must_fix, 2 suggestions sent to writer",
+    "retries": 0,
+    "tokens": 79010
+  },
+  {
+    "timestamp": "2026-11-19T04:46:46.691Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "critic suggestions: Liam peanut line shorter, tipster now the girl upstairs",
+    "retries": 2,
+    "tokens": 21957
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_10",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:18.423Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "must-fix: Maya carries Mina vegetarian clue (sushi_day); free-sample budget joke; Glass Bead and Tall Grass outcomes updated",
+    "retries": 2,
+    "tokens": 23080
+  },
+  {
+    "timestamp": "2026-11-19T04:47:18.776Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:18.776Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13801
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13683
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13914
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15208
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14979
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14799
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16048
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15964
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15636
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 4/5",
+    "retries": 0,
+    "tokens": 15688
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15482
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15274
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter (all runs: \"a whole board you can point at\" vs Marigold fish pot causes hesitation)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "numerals in banter lines",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "Maya sushi-day line softened to \"plenty you can point at\"",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_10",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:20.239Z",
+    "level": "level_08",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "Koi Counter review 2 rewritten (no checklist sentence; wasabi counter detail)",
+    "retries": 1,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:20.743Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:20.743Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after Koi Counter review rewrite",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13742
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13849
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13639
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after Koi Counter review rewrite (still direct, no longer one checklist sentence)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:24:15.503Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter (clutter audit, brief v9), PR #25",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:24:15.503Z",
+    "level": "level_10",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter (clutter audit, brief v9), PR #25",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:24:15.503Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter (clutter audit, brief v9), PR #25",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:24:15.503Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "note": "declutter (clutter audit, brief v9), PR #25",
+    "retries": 0,
+    "tokens": null
   }
 ]

@@ -1,0 +1,41 @@
+{
+  "audit": "v9 declutter review of approved level_15 (max 2 callbacks, one clue line per need, at least half the chat not about needs, v8 Cyrus rule)",
+  "date": "2026-11-18",
+  "follows": ["logs/clutter_audit_2026-11-18.json", "logs/clutter_audit_2026-11-18_followup.json", "logs/clutter_audit_2026-11-18_v9pass.json"],
+  "scope": ["level_15"],
+  "basis": "critic brief v3; narrative-writer v9 'Keep the chat from clutter' and the v8 Cyrus rule (formally from level_18 on, applied here at Gabriella's request); bible Clue rules (incl. rule 6), Story beats (Liam's stall payoff), Callbacks, Cast. Read for continuity and freshness: level_01, 06-14. logs/critique_level_15.json was left untouched.",
+  "index_note": "Line indices are 0-based script[] positions in dialogue_level_15.json.",
+  "level_id": "level_15",
+  "difficulty": "implied",
+  "verdict": "pass",
+  "counts": { "lines": 15, "clue_lines": 5, "callback_lines": 2, "non_need_lines": 10 },
+  "read": "It reads naturally and is far less cluttered. Before the trim it had 19 lines, 12 clue lines and 4 callbacks. Each need now comes from something real: Cyrus's sketch of the row leads into the peanut line, Brooke's grandma leads into healthy and gets a reply from Maya, and the tipster carries dairy and sets up Roxy's best line ('how does your tipster know every broth on the row and not which cart is THE cart'). There are no agreement echoes and no round-robin, and Cyrus no longer explains his own allergy.",
+  "story_beat": "Intact. script[0] opens on the stall and is the craving clue. script[2] is the bible's quoted line 'THE stall. tonight. no arguments'. Brooke's 'you've talked about this stall all summer' marks the payoff. The 'first slurp' tip in script[1] pays off in the Juniper Yard reaction ('first slurp. WAIT. this is it'), and every decoy reaction has Liam saying it's not the stall. The beat runs a little over 1-2 lines (script[0]-[3]), but that was already accepted in the approved version, and in the chapter finale it counts as the banter v9 asks for.",
+  "needs_and_traps": "Every need can be found in the implied style, and every trap is covered. Craving: script[0] (noodle stall, noodle row); all six venues are noodles. Budget: script[5] ('coin purse is the whole budget... break a bill') rules out Bramble Row, which shows $$ on its card and is 'a few dollars more' in its review. Peanut: script[7] ('peanut anywhere, in the wok oil or on top', satay incident, addressed to Cyrus). That covers Brass Kettle (peanut sauce, crushed peanuts) and Sundial ('a spoonful of roasted peanut oil'). Healthy: script[9] ('actually green... not a fried dumpling') rules out Wild Thistle (fryer, 'shiny puddle of oil'), and every healthy venue's review mentions greens. Dairy: script[11] (milkshake plus 'butter or a splash of milk') rules out Kestrel (whole-milk broth, butter on top). Juniper Yard's reviews confirm all five needs.",
+  "cyrus": "Correct. Cyrus never raises his allergy. His two lines are planning (the sketched row) and the hand-off. A friend who names him carries the clue, as the level_09 beat and the v8 pattern require. Sundial's precision is handled by its review.",
+  "continuity": "Correct. Satay: Liam was the friend at level_01 (where the callback first appears) and named it himself there ('right right. the satay incident. never again') and again in level_09, so he is the best-placed friend to carry it. Milkshake: Liam was not there. Brooke raised it in level_06 (Roxy, Brooke, Cyrus), and Roxy named it in level_08 (Maya and Mina present, no Liam). Liam knows it only as a story. But 'remember the milkshake?' asks Roxy to remember her own incident and doesn't claim he saw it, and he has seen her dairy trouble first-hand (level_11's tacos, level_13's patrol). That matches how Roxy carries the satay story in level_10 without having been there. No change needed.",
+  "liam_three_clues": "Not a problem. Craving has to be Liam's because it is the story beat. Peanut sits with him because he was at the satay incident. Dairy comes from his tipster, the same intel device that drives the level. Brooke (healthy) and Maya (budget) carry the other two needs, and the other three friends get the jokes (Roxy's tipster jab, Maya's grandma reply, Cyrus's sketch). It's Liam's finale, so having him carry the most fits. Moving dairy to Brooke or Maya would mean inventing a reason for them to know the broths.",
+  "outcomes": "Match the new chat and the reviews. Juniper Yard: Maya's coin purse matches script[5], and Roxy's 'no butter, no milk' matches the review. Brass Kettle: Cyrus's 'peanut in the sauce, peanuts crushed over the top' matches the review. 'I didn't even need to ask' still works without the cut 'one question' line. Sundial: Cyrus's peanut-oil tin matches the review, and Roxy's 'liam said the wok oil counts too' points to script[7]. Bramble Row's 'break a bill... dramatic' answers script[5]. Kestrel's 'my tipster warned me' answers script[11]. Wild Thistle's 'glossy with oil' and grandma's greens answer script[8]-[9].",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_15/dialogue_level_15.json",
+      "agent": "narrative_writer",
+      "where": "script[7]",
+      "issue": "'no sequel to the satay incident' copies Roxy's level_10 line ('no satay incident sequel today!!'). The callback itself is meant to recur, but the 'sequel' joke is a distinctive phrase. At 25 words the line also runs long for Liam's short, food-first voice.",
+      "suggested_fix": "{ \"speaker\": \"liam\", \"text\": \"cyrus, while you're sketching, cross off any cart with peanut in it. wok oil, sprinkled on top, all of it. one satay incident was plenty\", \"emotion\": \"NEUTRAL\", \"clue\": \"allergy:peanut\", \"callback\": \"satay_incident\" }. This keeps 'wok oil' for the Sundial reaction ('liam said the wok oil counts too') and 'on top' for Brass Kettle."
+    },
+    {
+      "severity": "suggestion",
+      "check": "fairness",
+      "file": "content/levels/level_15/dialogue_level_15.json",
+      "agent": "narrative_writer",
+      "where": "script[0]",
+      "issue": "Liam's tipster is 'my cousin's roommate', and Juniper Yard's second review, the answer's, opens with 'My cousin's peanut allergy'. A careful player could read that as a planted link to Liam's tipster and pick the answer from the word 'cousin' rather than from the needs. Brooke's cousin also carried level_14's healthy clue.",
+      "suggested_fix": "script[0] → \"everyone drop everything. the noodle stall, the one nobody could find all summer: the girl upstairs works the market and she swears it's on the noodle row\". script[1] ('she wouldn't say') still works without changes."
+    }
+  ],
+  "summary": "The v9 pass worked. The chat is down to 15 lines, with 5 clue lines, 2 callbacks and two thirds of the chat off needs. Liam's stall payoff is intact and still lands in the perfect reaction, and every need and trap is covered by chat plus reviews. Cyrus doesn't raise his allergy, and continuity holds: Liam was at the satay incident and knows the milkshake one as a story, which the line doesn't contradict. Two optional suggestions: drop the 'satay sequel' phrase copied from level_10, and change the 'cousin' tipster, which accidentally echoes the answer's review. Neither moves a clue, so a playtest re-run is optional.",
+  "generated_by": "critic"
+}
