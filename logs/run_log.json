@@ -4855,5 +4855,45 @@
     "result": "pass after rework, 0 must_fix, 0 suggestions",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17255
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17214
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs read Mina's need as a preference; 2 runs: Sampan vegetarian evidence weakest, hedged \"on our visit\")",
+    "retries": 0,
+    "tokens": null
   }
 ]
