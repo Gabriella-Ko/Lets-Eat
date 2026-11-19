@@ -4220,6 +4220,16 @@
     "step": "declutter_v9",
     "result": "v9 trim: 18 lines, 5 clue, 2 callbacks, 13 non-clue; Cedar Line Roxy outcome updated",
     "retries": 1,
-    "tokens": null
+    "tokens": 49154
+  },
+  {
+    "timestamp": "2026-11-19T04:40:11.301Z",
+    "level": "level_14",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 15 lines, 5 clue, 2 callbacks, 10 non-clue; promotion hint and Mina line kept",
+    "retries": 1,
+    "tokens": 48634
   }
 ]
