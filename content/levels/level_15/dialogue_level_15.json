@@ -1,14 +1,14 @@
 {
   "level_id": "level_15",
   "script": [
-    { "speaker": "liam", "text": "everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "liam", "text": "everyone drop everything. the noodle stall, the one nobody could find all summer: the girl upstairs works the market and she swears it's on the noodle row", "emotion": "HAPPY", "clue": "craving" },
     { "speaker": "liam", "text": "which cart, she wouldn't say. just 'you'll know at the first slurp'", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "liam", "text": "THE stall. tonight. no arguments", "emotion": "HUNGRY", "clue": null },
     { "speaker": "brooke", "text": "finally!! you've talked about this stall all summer. i am not missing the ending", "emotion": "HAPPY", "clue": null },
     { "speaker": "roxy", "text": "i'm down. i'll check every cart myself if i have to", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "i'm in, but my coin purse is the whole budget tonight. if a price board makes me break a bill, i will be very dramatic about it", "emotion": "ANNOYED", "clue": "budget" },
     { "speaker": "cyrus", "text": "Count me in. I've already sketched the row: fourteen carts, two exits, one bench that actually gets a breeze.", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "liam", "text": "cyrus, while you're sketching, mark any cart with peanut anywhere, in the wok oil or on top, as a no. no sequel to the satay incident", "emotion": "NEUTRAL", "clue": "allergy:peanut", "callback": "satay_incident" },
+    { "speaker": "liam", "text": "cyrus, while you're sketching, cross off any cart with peanut in it. wok oil, sprinkled on top, all of it. one satay incident was plenty", "emotion": "NEUTRAL", "clue": "allergy:peanut", "callback": "satay_incident" },
     { "speaker": "brooke", "text": "my grandma lands tomorrow and her first question is always \"are you eating your greens?\" i want to say yes and mean it", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "maya", "text": "your grandma asks about greens. mine asks if i'm \"still eating noodles standing up\". we are not the same", "emotion": "NEUTRAL", "clue": null },
