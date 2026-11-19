@@ -6,45 +6,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi (cold food, too hot out)",
-      "who": "roxy",
+      "constraint": "Craving: sushi",
+      "type": "craving",
+      "speaker": "roxy",
       "line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Allergy: peanuts (deal-breaker)",
-      "who": "cyrus",
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "speaker": "cyrus",
       "line": "Sushi works for me. Usual rule: I'm allergic to peanuts, so nothing with peanuts on it, please."
     },
     {
-      "constraint": "Budget: $ max (one dollar sign)",
-      "who": "maya",
+      "constraint": "Budget: $ max",
+      "type": "budget",
+      "speaker": "maya",
       "line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
-      "constraint": "Strict diet: vegetarian, needs a real meat-free section (deal-breaker)",
-      "who": "mina",
+      "constraint": "Vegetarian (strict diet, deal-breaker)",
+      "type": "diet",
+      "speaker": "cyrus (about mina)",
       "line": "Not whatever. You're vegetarian, Mina, and the better sushi places have a whole section with no fish or meat. Let's find one of those."
     },
     {
-      "constraint": "Intolerance: dairy (costs one star, not a deal-breaker)",
-      "who": "roxy",
+      "constraint": "Dairy intolerance (costs a star)",
+      "type": "intolerance",
+      "speaker": "roxy",
       "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
-  "venue_elimination": {
-    "downtown_kumo_bar": "Peanuts on half the rolls and peanut dipping sauce with every set; fails Cyrus's allergy.",
-    "downtown_silver_reed": "Fish in every roll, even the garden roll and the miso; fails Mina's vegetarian diet.",
-    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce; safe but costs a star for Roxy's dairy intolerance (2 stars max).",
-    "downtown_cedar_line": "$$, one tier over Maya's $ budget; costs a star (2 stars max).",
-    "downtown_koi_counter": "$, sushi, meat-free section, no peanuts, no dairy at all. Meets every constraint."
+  "elimination": {
+    "downtown_kumo_bar": "Peanuts on half the rolls plus peanut sauce: deal-breaker for Cyrus.",
+    "downtown_silver_reed": "Fish in every roll, even the garden roll; fish-stock miso: deal-breaker for vegetarian Mina.",
+    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce: dairy intolerance, -1 star (safe but 2 stars).",
+    "downtown_cedar_line": "$$, one tier over the $ budget: -1 star (safe but 2 stars).",
+    "downtown_koi_counter": "$, sushi, meat-free section, no peanuts, no dairy: meets everything."
   },
   "difficulty": 2,
-  "notes": [
-    "Clean one-feature-per-decoy design: each decoy fails exactly one constraint, and Koi Counter's reviews cover all of them explicitly. Fair, perhaps slightly easy once the four constraints are spotted.",
-    "Mina's vegetarian need is the most hidden clue: she says she'll be happy with 'whatever', and Cyrus has to state it for her. Good misdirection, and it is still stated clearly enough.",
-    "Hinoki Table and Cedar Line are the two soft traps (2 stars each), which gives a nice gradient instead of only deal-breakers.",
-    "Small-talk lines (roxy's three new things, the trip fund, the milkshake incident) add flavour without hiding clues unfairly. The milkshake joke supports the dairy clue.",
-    "Koi Counter's second review says 'still no milk', and 'still' reads a little oddly, as if it follows an earlier review. Minor wording only.",
-    "Nothing contradictory found."
-  ]
+  "notes": "Fair and clean. Every constraint is stated plainly in the chat and each decoy fails on exactly one point, so the puzzle reads well. Mina's vegetarian diet is hidden a little because she says 'whatever' and Cyrus reveals it for her, which is a nice touch. Hinoki and Cedar Line are soft fails (2 stars), so a careless player still gets a non-zero result. Koi Counter's second review reads slightly like a checklist (peanut, milk/cream, cream cheese all ticked off in a row), which makes the answer a bit obvious once you open it. Small point: the registry says Cedar Line is $$ and its review only says 'a clear step up', which agrees, so no contradiction."
 }

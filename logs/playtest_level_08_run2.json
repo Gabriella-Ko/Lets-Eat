@@ -6,7 +6,7 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi (cold food, too hot out)",
+      "constraint": "Craving: sushi (and something cold, not warm)",
       "who": "roxy",
       "line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
     },
@@ -26,24 +26,23 @@
       "line": "Not whatever. You're vegetarian, Mina, and the better sushi places have a whole section with no fish or meat. Let's find one of those."
     },
     {
-      "constraint": "Intolerance: dairy (costs a star, not a deal-breaker)",
+      "constraint": "Intolerance: dairy (costs a star)",
       "who": "roxy",
       "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
   "elimination": {
-    "downtown_kumo_bar": "Peanuts on half the rolls and peanut dipping sauce: fails Cyrus's allergy.",
+    "downtown_kumo_bar": "Peanuts on half the rolls plus peanut sauce with every set: fails Cyrus's allergy.",
     "downtown_silver_reed": "Fish in every roll, fish-stock miso: fails Mina's vegetarian diet.",
-    "downtown_hinoki_table": "Cream cheese everywhere including veggie rolls and house sauce: Roxy's dairy intolerance, -1 star (safe but 2 stars).",
-    "downtown_cedar_line": "$$, one tier over Maya's $ budget: -1 star (safe but 2 stars).",
-    "downtown_koi_counter": "$, sushi, peanut-free kitchen, full meat-free section, no dairy anywhere: meets every constraint."
+    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce: costs a star for Roxy's dairy intolerance (2 stars max).",
+    "downtown_cedar_line": "$$, one tier over Maya's $ budget: costs a star (2 stars max).",
+    "downtown_koi_counter": "$, sushi, no peanuts in the kitchen, full meat-free section, no milk or cream: meets every constraint."
   },
   "difficulty": 2,
   "notes": [
-    "Clean puzzle; every constraint is stated in a single line and each decoy fails on exactly one constraint, which is good design.",
-    "Mina's 'i'll be happy with whatever' is a nice misdirection, corrected immediately by Cyrus, so it's fair.",
-    "Koi Counter's second review covers peanut, dairy, and the review mentions 'allergic coworker and lactose-intolerant intern' in one sentence, which makes the answer feel a bit spelled-out. Its first review likewise hits vegetarian + price. The winner's reviews read like a checklist of the group's constraints; slightly too obvious.",
-    "Cedar Line's price is shown both on the card ($$) and in a review, which is consistent.",
-    "No contradictions found."
+    "Clean, fair puzzle: each decoy fails exactly one constraint, and each constraint is stated plainly in the chat.",
+    "Mina's vegetarian diet is the one clue a careless player could miss, because she says 'i'll be happy with whatever' and Cyrus states her diet for her. That is a nice touch and is still fair.",
+    "Koi Counter review 2 runs through peanut-free, dairy-free and the sauces in a row, which makes the answer a bit obvious once you read it, though it does not read like a checklist.",
+    "Small-talk lines (pickle soda, trip fund, milkshake incident) are good filler and don't add any false constraints. 'Too hot for anything warm' could be read as a separate cold-food preference, but every option is sushi, so it never decides anything."
   ]
 }

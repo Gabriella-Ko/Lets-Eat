@@ -6,43 +6,38 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi",
-      "type": "craving",
-      "source_speaker": "roxy",
+      "constraint": "Craving: sushi (cuisine)",
+      "who": "roxy",
       "source_line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Peanut allergy (deal-breaker)",
-      "type": "allergy",
-      "source_speaker": "cyrus",
+      "constraint": "Allergy: peanuts (deal-breaker)",
+      "who": "cyrus",
       "source_line": "Sushi works for me. Usual rule: I'm allergic to peanuts, so nothing with peanuts on it, please."
     },
     {
-      "constraint": "Budget: $ max",
-      "type": "budget",
-      "source_speaker": "maya",
+      "constraint": "Budget: $ max (one dollar sign)",
+      "who": "maya",
       "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
-      "constraint": "Vegetarian (strict diet, deal-breaker); needs a real meat-free section",
-      "type": "diet",
-      "source_speaker": "cyrus (about mina)",
+      "constraint": "Strict diet: vegetarian (deal-breaker)",
+      "who": "mina",
       "source_line": "Not whatever. You're vegetarian, Mina, and the better sushi places have a whole section with no fish or meat. Let's find one of those."
     },
     {
-      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
-      "type": "intolerance",
-      "source_speaker": "roxy",
+      "constraint": "Intolerance: dairy (costs a star)",
+      "who": "roxy",
       "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
-  "elimination": {
-    "downtown_kumo_bar": "Peanuts on half the rolls and peanut dipping sauce with every set: fails Cyrus's allergy.",
-    "downtown_silver_reed": "Fish in every roll, even the garden roll; miso uses fish stock: fails Mina's vegetarian diet.",
-    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce: hits Roxy's dairy intolerance (-1 star).",
-    "downtown_cedar_line": "$$, one tier over Maya's $ budget (-1 star).",
-    "downtown_koi_counter": "$, sushi, peanut-free kitchen, whole meat-free section, no milk/cream/cream cheese including sauces: meets everything."
+  "venue_elimination": {
+    "downtown_kumo_bar": "Peanuts on half the rolls and a peanut sauce with every set: fails Cyrus's allergy.",
+    "downtown_silver_reed": "Fish or seafood in every roll, fish-stock miso: fails Mina's vegetarian diet.",
+    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce: fails Roxy's dairy intolerance (would cost a star, not a deal-breaker).",
+    "downtown_cedar_line": "$$, one tier over Maya's $ budget: costs a star.",
+    "downtown_koi_counter": "$, sushi, meat-free section, no peanuts in the kitchen, no milk or cream: meets every constraint."
   },
   "difficulty": 2,
-  "notes": "Fair and solvable. Each decoy fails exactly one constraint, and every constraint is stated clearly in the chat. The vegetarian constraint is the most hidden: Mina says 'whatever', and Cyrus states it on her behalf, which is a nice touch. The small-talk lines (Roxy's new things, Maya's coast trip, the milkshake incident) are light filler and don't mislead. Hinoki and Cedar are 'safe' 2-star traps rather than 0-star ones, so a careless player still scores, which fits the soft-constraint rules. Koi Counter's second review covers allergy and dairy at once and reads a bit like a checklist, which makes the answer slightly obvious once you read the reviews. No contradictions found."
+  "notes": "Clean, fair puzzle. Each decoy fails exactly one constraint, so the solver has to read every review. Mina's vegetarian constraint is stated by Cyrus on her behalf after she says 'whatever', which is a nice touch and still clear. The 'way too hot out for anything warm' line could read as a second preference (cold food), but sushi is the only cuisine on offer so it does not change the answer. Koi Counter review 2 answers peanut, dairy and cream-cheese concerns very directly in one passage; it reads slightly like a checklist, but is no longer a single checklist sentence. Nothing unfair or contradictory found."
 }

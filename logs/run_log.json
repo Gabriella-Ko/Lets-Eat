@@ -4671,5 +4671,45 @@
     "result": "rebuilt after Koi Counter review rewrite",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13742
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_koi_review",
+    "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13639
+  },
+  {
+    "timestamp": "2026-11-19T21:22:59.082Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after Koi Counter review rewrite (still direct, no longer one checklist sentence)",
+    "retries": 0,
+    "tokens": null
   }
 ]
