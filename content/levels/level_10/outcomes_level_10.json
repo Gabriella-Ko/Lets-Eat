@@ -7,16 +7,16 @@
       "lines": [
         { "speaker": "roxy", "text": "real coffee, happy stomach, and the goose has been avenged. new favorite!!", "emotion": "HAPPY" },
         { "speaker": "mina", "text": "i couldn't decide, there was so much i could order. sushi day all over again :)", "emotion": "HAPPY" },
-        { "speaker": "cyrus", "text": "The pen never left my bag. Well chosen.", "emotion": "HAPPY" }
+        { "speaker": "cyrus", "text": "A whole section for Mina, nothing satay for me. Well chosen.", "emotion": "HAPPY" }
       ]
     },
     "downtown_slate_window": {
       "result": "fail",
       "missed": ["allergy:peanut"],
       "lines": [
-        { "speaker": "cyrus", "text": "Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the sidewalk, keeping my pen company.", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "Satay on the bowls, peanuts in the granola, and I can smell both from here. I'll be out on the sidewalk, breathing air that hasn't been roasted.", "emotion": "ANGRY" },
         { "speaker": "brooke", "text": "i just read the whole slate wall. satay dressing on every grain bowl, peanuts in the granola. this is a disaster", "emotion": "SURPRISED" },
-        { "speaker": "roxy", "text": "it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "so much for reading every board. it's ALL satay-adjacent. grab your coffees, we're leaving", "emotion": "SURPRISED" }
       ]
     },
     "downtown_wren_house": {
