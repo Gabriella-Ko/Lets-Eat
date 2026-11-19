@@ -5,7 +5,7 @@
       "result": "perfect",
       "missed": [],
       "lines": [
-        { "speaker": "mina", "text": "a whole row of vegetable baskets, and i tried every one. best way to spend a painting :)", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "a whole trolley of vegetable baskets, and i tried every one. best way to spend a painting :)", "emotion": "HAPPY" },
         { "speaker": "liam", "text": "real sky, baskets for days, nobody counting boxes. i'm never going back in that stockroom", "emotion": "HAPPY" },
         { "speaker": "roxy", "text": "sign held up all lunch. so did the treaty. day thirteen!!", "emotion": "HAPPY" }
       ]
@@ -23,7 +23,7 @@
       "result": "partial",
       "missed": ["intolerance:dairy"],
       "lines": [
-        { "speaker": "roxy", "text": "half the baskets were milky or creamy inside. the treaty is broken and my stomach has declared war", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "milk in the buns, butter in the tarts, milk in the pudding, milk in the TEA. the treaty is broken and my stomach has declared war", "emotion": "ANNOYED" },
         { "speaker": "brooke", "text": "twelve days is still a record, roxy. we start the count again tomorrow", "emotion": "HAPPY" }
       ]
     },

@@ -13,7 +13,7 @@
     { "speaker": "maya", "text": "mina, how much did she pay. tell me it was a lot", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "mina", "text": "enough for new paints and a frame for the next one :) maya, how's the packing? is the giant hat coming?", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "the hat has its own bag. and don't ask me the date, saying it out loud makes me panic-pack", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "maya", "text": "trip fund's retired, by the way. everything's paid. so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts", "emotion": "HAPPY", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "maya", "text": "trip fund's retired, by the way. mission complete. so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts", "emotion": "HAPPY", "clue": "budget", "callback": "trip_fund" },
     { "speaker": "liam", "text": "i don't have a yacht but i do have a very big appetite. does that count", "emotion": "HUNGRY", "clue": null },
     { "speaker": "roxy", "text": "same!! i'm down for every basket on the table. well, except anything milky or creamy. my stomach and i signed a peace treaty, twelve days strong", "emotion": "HAPPY", "clue": "intolerance:dairy" },
     { "speaker": "brooke", "text": "roxy kept a rule for twelve whole days?? this summer is full of miracles", "emotion": "SURPRISED", "clue": null },

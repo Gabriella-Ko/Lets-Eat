@@ -4814,6 +4814,16 @@
     "step": "venues_rework",
     "result": "critic suggestions: Sampan open air; Lighthouse Row plain clause cut",
     "retries": 1,
-    "tokens": null
+    "tokens": 20376
+  },
+  {
+    "timestamp": "2026-11-19T21:37:14.009Z",
+    "level": "level_19",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "critic suggestions: Maya mission complete; Sampan and East Jetty outcomes match reviews",
+    "retries": 1,
+    "tokens": 21354
   }
 ]
