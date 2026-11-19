@@ -4690,7 +4690,7 @@
     "step": "playtest_run2_after_koi_review",
     "result": "correct (koi_counter, 3 stars), all 5 constraints found; difficulty 2/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 13849
   },
   {
     "timestamp": "2026-11-19T21:22:59.082Z",
