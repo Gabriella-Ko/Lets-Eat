@@ -4421,5 +4421,125 @@
     "result": "rebuilt after v9 declutter",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13801
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13683
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (koi_counter, 3 stars), all constraints found; difficulty 2/5",
+    "retries": 0,
+    "tokens": 13914
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15208
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14979
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (linden_corner, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 14799
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_10",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15964
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15636
+  },
+  {
+    "timestamp": "2026-11-19T04:47:48.102Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter",
+    "retries": 0,
+    "tokens": null
   }
 ]

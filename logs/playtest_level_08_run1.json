@@ -6,43 +6,45 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: sushi",
-      "type": "craving",
-      "source_speaker": "roxy",
-      "source_line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
+      "constraint": "Craving: sushi (cold food, too hot out)",
+      "who": "roxy",
+      "line": "hi maya! SUSHI. way too hot out for anything warm. let's do it!!"
     },
     {
-      "constraint": "Budget: $ max",
-      "type": "budget",
-      "source_speaker": "maya",
-      "source_line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
+      "constraint": "Allergy: peanuts (deal-breaker)",
+      "who": "cyrus",
+      "line": "Sushi works for me. Usual rule: I'm allergic to peanuts, so nothing with peanuts on it, please."
     },
     {
-      "constraint": "Peanut allergy (deal-breaker)",
-      "type": "allergy",
-      "source_speaker": "cyrus",
-      "source_line": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check."
+      "constraint": "Budget: $ max (one dollar sign)",
+      "who": "maya",
+      "line": "sushi yes. fancy sushi no. one dollar sign max, the trip fund is non-negotiable"
     },
     {
-      "constraint": "Vegetarian with real veggie options, ideally a whole meat-free section (strict diet)",
-      "type": "diet",
-      "source_speaker": "maya / cyrus",
-      "source_line": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu"
+      "constraint": "Strict diet: vegetarian, needs a real meat-free section (deal-breaker)",
+      "who": "mina",
+      "line": "Not whatever. You're vegetarian, Mina, and the better sushi places have a whole section with no fish or meat. Let's find one of those."
     },
     {
-      "constraint": "Dairy intolerance (costs a star, not a deal-breaker)",
-      "type": "intolerance",
-      "source_speaker": "roxy",
-      "source_line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
+      "constraint": "Intolerance: dairy (costs one star, not a deal-breaker)",
+      "who": "roxy",
+      "line": "ok i'm so ready. oh, small thing, nothing creamy in mine pls. dairy and i don't get along"
     }
   ],
-  "venue_analysis": {
-    "downtown_koi_counter": "$, sushi, peanut-free kitchen, whole meat-free section, no dairy at all. Meets everything: 3 stars.",
-    "downtown_kumo_bar": "$, veggie and dairy-free, but crushed peanuts and peanut sauce everywhere. Deal-breaker.",
-    "downtown_silver_reed": "$, peanut-free and dairy-free, but fish in every roll and fish stock in the soup, so nothing for the vegetarian. Deal-breaker.",
-    "downtown_hinoki_table": "$, peanut-free, vegetarian rolls, but cream cheese in nearly everything. Safe, but the dairy intolerance costs a star: 2 stars.",
-    "downtown_cedar_line": "Meets every diet need but is $$, one tier over budget: 2 stars."
+  "venue_elimination": {
+    "downtown_kumo_bar": "Peanuts on half the rolls and peanut dipping sauce with every set; fails Cyrus's allergy.",
+    "downtown_silver_reed": "Fish in every roll, even the garden roll and the miso; fails Mina's vegetarian diet.",
+    "downtown_hinoki_table": "Cream cheese in nearly every roll and the house sauce; safe but costs a star for Roxy's dairy intolerance (2 stars max).",
+    "downtown_cedar_line": "$$, one tier over Maya's $ budget; costs a star (2 stars max).",
+    "downtown_koi_counter": "$, sushi, meat-free section, no peanuts, no dairy at all. Meets every constraint."
   },
   "difficulty": 2,
-  "notes": "Fair and clear. Each decoy fails exactly one constraint (peanuts, vegetarian, dairy, price), so you have to read every review, but the answer is clear once you do. Cyrus's cream cheese line puts a helpful spotlight on the Hinoki Table trap. Cedar Line's price shows on the card ($$) and is also hinted at in its review, which is consistent. No contradictions found. One small point: the vegetarian clue is spoken by Maya on Mina's behalf, not by Mina herself, but Mina's reactions confirm it."
+  "notes": [
+    "Clean one-feature-per-decoy design: each decoy fails exactly one constraint, and Koi Counter's reviews cover all of them explicitly. Fair, perhaps slightly easy once the four constraints are spotted.",
+    "Mina's vegetarian need is the most hidden clue: she says she'll be happy with 'whatever', and Cyrus has to state it for her. Good misdirection, and it is still stated clearly enough.",
+    "Hinoki Table and Cedar Line are the two soft traps (2 stars each), which gives a nice gradient instead of only deal-breakers.",
+    "Small-talk lines (roxy's three new things, the trip fund, the milkshake incident) add flavour without hiding clues unfairly. The milkshake joke supports the dairy clue.",
+    "Koi Counter's second review says 'still no milk', and 'still' reads a little oddly, as if it follows an earlier review. Minor wording only.",
+    "Nothing contradictory found."
+  ]
 }
