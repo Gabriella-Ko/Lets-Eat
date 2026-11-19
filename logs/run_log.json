@@ -4764,6 +4764,16 @@
     "step": "spec",
     "result": "written: answer waterfront_sampan (dim_sum, $$, outdoor+lively+healthy); veg trap + dairy/$$$/outdoor/lively-vs-quiet/healthy near misses; 7 new venues, all dim sum",
     "retries": 0,
+    "tokens": 46514
+  },
+  {
+    "timestamp": "2026-11-19T21:32:59.564Z",
+    "level": "level_19",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 new dim sum venues added to waterfront registry",
+    "retries": 0,
     "tokens": null
   }
 ]
