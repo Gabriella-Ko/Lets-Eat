@@ -1,4 +1,4 @@
-"""Build the draft-art dashboard: assets/drafts/index.html (open it in a browser).
+"""Build the Art Artifacts dashboard: assets/drafts/index.html (open it in a browser).
 
 One page for every draft:
   - Badges and icons from PixelLab (assets/drafts/pixellab_jobs.json, images in assets/drafts/pixellab/).
@@ -47,7 +47,7 @@ def outcome_rows():
         return []
     spec = json.loads(OUTCOME_PROMPTS.read_text("utf-8"))
     rows = []
-    for level, items in spec["levels"].items():
+    for level, items in sorted(spec["levels"].items()):
         for it in items:
             stem = Path(it["file"]).stem
             n = int(it.get("drafts", 3))
@@ -64,7 +64,7 @@ def outcome_rows():
 
 PAGE = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Draft Art Dashboard</title>
+<title>Art Artifacts</title>
 <style>
 :root { --bg:#2e2624; --bar:#3f3533; --label:#d9b8a8; --panel:#f3e4d0; --panel2:#e6d0b8; --ink:#3f3533; --soft:#7d6a60; --accent:#d9822b; --good:#6f8f5a; --bad:#c0452f; --gold:#f2c14e; --blue:#5d7985; }
 * { box-sizing:border-box; }
@@ -114,10 +114,14 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 .refs a { display:block; width:78px; text-align:center; font-size:10.5px; color:var(--soft); text-decoration:none; word-break:break-all; }
 .refs img { width:78px; height:52px; object-fit:cover; border-radius:4px; display:block; }
 .empty { color:var(--label); padding:20px 0; }
+.current { margin-bottom:8px; }
+.clabel { font-size:12px; color:var(--soft); margin-bottom:3px; }
+.cimg { aspect-ratio:3/2; border-radius:6px; overflow:hidden; border:2px dashed var(--soft); }
+.cimg img { width:100%; height:100%; object-fit:cover; display:block; }
 @media (max-width:760px) { .ocard { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } }
 </style></head><body>
 <header>
-  <h1>DRAFT ART</h1>
+  <h1>ART ARTIFACTS</h1>
   <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button></div>
   <span class="stat" id="stat"></span>
   <progress id="bar" value="0" max="1"></progress>
@@ -253,6 +257,11 @@ for (const [level, rows] of Object.entries(byLevel)) {
     }
     const bases = Array.from({ length: r.drafts }, (_, i) => `gemini/${r.level}/${r.stem}_v${i + 1}`);
     $(".slots", card).append(draftRow(card, `${r.level}:${r.venue}`, bases, EXTS, "wide", "outcomes"));
+    // The approved image already in assets/art (level 1 today), shown for comparison; hidden if there is none.
+    const cur = document.createElement("div"); cur.className = "current hidden";
+    cur.innerHTML = `<div class="clabel">in the game now</div><div class="cimg"></div>`;
+    loadInto($(".cimg", cur), `../art/${r.stem}`, [".jpg", ".png"], (ok) => ok && cur.classList.remove("hidden"));
+    $(".slots", card).prepend(cur);
     ol.append(card); ocards.push(card);
   }
 }

@@ -10,7 +10,7 @@ You turn the bible and the level files into image prompts. Everything you make i
 
 Two jobs, each with its own tool:
 - **PixelLab** (Scrapbook badges, cuisine icons): a script does the API calls, `scripts/pixellab_draft.py`.
-- **Nano Banana 2** (outcome illustrations): there is no free API for it, so Gabriella generates each image by hand in the free Gemini app from your prompts. `scripts/art_dashboard.py` puts your prompts on the draft-art dashboard (`assets/drafts/index.html`) next to the PixelLab drafts.
+- **Nano Banana 2** (outcome illustrations): there is no free API for it, so Gabriella generates each image by hand in the free Gemini app from your prompts. `scripts/art_dashboard.py` puts your prompts on the Art Artifacts dashboard (`assets/drafts/index.html`) next to the PixelLab drafts.
 
 ## Always read first
 - `docs/game_bible.md`: Art rules (style, palette), Cast, Constraint vocabulary (cuisines), Districts and chapter table (seasons), Callbacks and Scrapbook, Scoring (result types and reactions).
@@ -108,7 +108,7 @@ After **each** level, write `logs/gemini_prompts_progress.json`:
 - When the last level you were given is done, set `"state": "done"` if it was level_18 (the last level), else `"paused"`.
 
 ### Then
-Run `python scripts/art_dashboard.py` (it adds your prompts to the draft-art dashboard, `assets/drafts/index.html`, Outcomes tab) and report: levels done, outcomes and drafts planned, `next_level`, and anything you could not turn into a prompt.
+Run `python scripts/art_dashboard.py` (it adds your prompts to the Art Artifacts dashboard, `assets/drafts/index.html`, Outcomes tab) and report: levels done, outcomes and drafts planned, `next_level`, and anything you could not turn into a prompt.
 
 ---
 

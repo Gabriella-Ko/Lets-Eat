@@ -59,7 +59,7 @@ logs/                           run_log.json, validation_, critique_, playtest_,
 10. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. If the merge says "not mergeable" right after a push, check `gh pr view <n> --json mergeable`: `UNKNOWN` means GitHub is still checking, so retry; `CONFLICTING` means stop and report. Finally update local `master` (`git checkout master && git pull`).
 
 ## Draft art (PixelLab, Nano Banana 2)
-All drafts show on one dashboard, `assets/drafts/index.html` (`python scripts/art_dashboard.py` rebuilds it): Badges & icons, and Outcomes. Gabriella picks there and pastes her picks back.
+All drafts show on one dashboard, Art Artifacts (`assets/drafts/index.html`) (`python scripts/art_dashboard.py` rebuilds it): Badges & icons, and Outcomes. Gabriella picks there and pastes her picks back.
 
 **Outcome illustrations (Nano Banana 2, by hand).** Gemini's API has no free tier for image output, so Gabriella makes these in the free Gemini app (her decision, 2026-11-18).
 - Delegate `art-generator` a few levels at a time, in order, starting from `next_level` in `logs/gemini_prompts_progress.json`. It writes `assets/drafts/gemini_outcome_prompts.json` (3–4 drafts per outcome) and logs the time and level after each level. Commit each delegation as `[art_generator] drafts: outcome prompts level_XX–YY`, then rebuild the dashboard.

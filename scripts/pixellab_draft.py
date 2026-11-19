@@ -10,7 +10,7 @@ Usage (from the repo root):
   python scripts/pixellab_draft.py --wait               # out of credits: wait and retry until they come back
   python scripts/pixellab_draft.py --sheet              # rebuild the contact sheets and the dashboard only
 
-Every run also rebuilds the draft-art dashboard, assets/drafts/index.html (scripts/art_dashboard.py):
+Every run also rebuilds the Art Artifacts dashboard, assets/drafts/index.html (scripts/art_dashboard.py):
 click a variant to pick it, then "Copy my picks".
 Free tier: PixelLab draws at most 200x200, so keep `gen` at or under that and let `out` enlarge it.
 
@@ -210,7 +210,7 @@ def contact_sheets():
 
 
 def build_gallery():
-    """Rebuild the shared draft-art dashboard, assets/drafts/index.html (scripts/art_dashboard.py)."""
+    """Rebuild the shared Art Artifacts dashboard, assets/drafts/index.html (scripts/art_dashboard.py)."""
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     import art_dashboard
     art_dashboard.build()
