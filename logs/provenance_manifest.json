@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "5f9972ebd275b8cbb590fdd39ae5c6bbb636974f",
+  "head": "0fe8fa454c6b45556103d1efaca91468e2c1abfc",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -790,12 +790,33 @@
       "level": "level_08",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:26-05:00",
-      "commit": "e6c91b92e749ba4eb6b8e0613d00ed41f21f552f",
-      "last_commit_by": "narrative_writer",
+      "brief_version": "v9",
+      "timestamp": "2026-11-19T16:21:26-05:00",
+      "commit": "eb968387d055b5c8ae175b5028299f920832cd62",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "eb968387d055b5c8ae175b5028299f920832cd62",
+          "timestamp": "2026-11-19T16:21:26-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 08, 14: hand edits; declutter dialogue approved for 08, 10, 14, 15",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "c6244dbfa83b359455485041eef83e75be379983",
+          "timestamp": "2026-11-18T23:40:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: v9 declutter (one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4ba8668965800ab6c97c3a6f4a4fe40bc3389806",
+          "timestamp": "2026-11-18T23:32:08-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "e6c91b92e749ba4eb6b8e0613d00ed41f21f552f",
           "timestamp": "2026-11-12T01:07:26-05:00",
@@ -845,12 +866,26 @@
       "level": "level_08",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-10T23:12:20-05:00",
-      "commit": "fa7525e8b04095528ac6da33b8b5d951675c8c05",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:40:03-05:00",
+      "commit": "c6244dbfa83b359455485041eef83e75be379983",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "c6244dbfa83b359455485041eef83e75be379983",
+          "timestamp": "2026-11-18T23:40:03-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: v9 declutter (one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "4ba8668965800ab6c97c3a6f4a4fe40bc3389806",
+          "timestamp": "2026-11-18T23:32:08-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_08: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "fa7525e8b04095528ac6da33b8b5d951675c8c05",
           "timestamp": "2026-11-10T23:12:20-05:00",
@@ -906,12 +941,19 @@
       "level": "level_08",
       "author_id": "map_seeder",
       "edited_by": "human:gabby",
-      "brief_version": "v5",
-      "timestamp": "2026-11-10T23:36:09-05:00",
-      "commit": "3767745be551524f45ef8e95773d7d883429436f",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-19T16:22:20-05:00",
+      "commit": "b2a069439b37e79fd98a03276b9744abe9713bc8",
+      "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "b2a069439b37e79fd98a03276b9744abe9713bc8",
+          "timestamp": "2026-11-19T16:22:20-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_08: rewrite Koi Counter review 2 (no checklist sentence)",
+          "pre_pipeline": false
+        },
         {
           "commit": "3767745be551524f45ef8e95773d7d883429436f",
           "timestamp": "2026-11-10T23:36:09-05:00",
@@ -1069,12 +1111,26 @@
       "level": "level_10",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:26-05:00",
-      "commit": "2257bd591db538fbb76824edaf5dcb4f820b4560",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:40:53-05:00",
+      "commit": "235f706fe630fb104faeef5c4943e81764c5c3d7",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "235f706fe630fb104faeef5c4943e81764c5c3d7",
+          "timestamp": "2026-11-18T23:40:53-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: v9 declutter (one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "55f3ddb4f694f3a102133e8edf176a7e3757a199",
+          "timestamp": "2026-11-18T23:31:59-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "2257bd591db538fbb76824edaf5dcb4f820b4560",
           "timestamp": "2026-11-12T01:07:26-05:00",
@@ -1117,12 +1173,26 @@
       "level": "level_10",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-11T22:24:03-05:00",
-      "commit": "c47d83fb87bcefa9723697f4a4bcdc655c6ccee0",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:40:53-05:00",
+      "commit": "235f706fe630fb104faeef5c4943e81764c5c3d7",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "235f706fe630fb104faeef5c4943e81764c5c3d7",
+          "timestamp": "2026-11-18T23:40:53-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: v9 declutter (one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "55f3ddb4f694f3a102133e8edf176a7e3757a199",
+          "timestamp": "2026-11-18T23:31:59-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_10: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "c47d83fb87bcefa9723697f4a4bcdc655c6ccee0",
           "timestamp": "2026-11-11T22:24:03-05:00",
@@ -1613,12 +1683,40 @@
       "level": "level_14",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T00:22:47-05:00",
-      "commit": "67a1bd417843793a51606d665f6ebfc697af0672",
+      "brief_version": "v9",
+      "timestamp": "2026-11-19T16:21:26-05:00",
+      "commit": "eb968387d055b5c8ae175b5028299f920832cd62",
       "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "eb968387d055b5c8ae175b5028299f920832cd62",
+          "timestamp": "2026-11-19T16:21:26-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] levels 08, 14: hand edits; declutter dialogue approved for 08, 10, 14, 15",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e728e050f5c9d82e29199703c8f5b82f72abec90",
+          "timestamp": "2026-11-18T23:47:18-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: must-fix, Maya carries Mina's vegetarian clue; v9-pass suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fe4a811f55a503c2103d05464584ccd478019272",
+          "timestamp": "2026-11-18T23:40:11-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: v9 declutter (one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "be4442fbc0e7ecf7f287a0d3bf2b7a8626259f26",
+          "timestamp": "2026-11-18T23:31:51-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "67a1bd417843793a51606d665f6ebfc697af0672",
           "timestamp": "2026-11-16T00:22:47-05:00",
@@ -1654,12 +1752,19 @@
       "level": "level_14",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v7",
-      "timestamp": "2026-11-15T23:15:05-05:00",
-      "commit": "481b230ac5870b183c4d8f1c623f3ac204706489",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:47:18-05:00",
+      "commit": "e728e050f5c9d82e29199703c8f5b82f72abec90",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e728e050f5c9d82e29199703c8f5b82f72abec90",
+          "timestamp": "2026-11-18T23:47:18-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_14: must-fix, Maya carries Mina's vegetarian clue; v9-pass suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "481b230ac5870b183c4d8f1c623f3ac204706489",
           "timestamp": "2026-11-15T23:15:05-05:00",
@@ -1728,12 +1833,33 @@
       "level": "level_15",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T01:03:17-05:00",
-      "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:46:46-05:00",
+      "commit": "a96c02bfb579b34f6d9b3468cb13ffd5dbb085da",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "a96c02bfb579b34f6d9b3468cb13ffd5dbb085da",
+          "timestamp": "2026-11-18T23:46:46-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: apply v9-pass critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "7dd9ac45e36b9f678bba36e138b707446e306047",
+          "timestamp": "2026-11-18T23:43:34-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: v9 declutter (2 callbacks, one clue line per need)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "797b76ea615f4aa503e02d71e2896ea30a0bb8df",
+          "timestamp": "2026-11-18T23:32:08-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: light-touch declutter (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
           "timestamp": "2026-11-16T01:03:17-05:00",
@@ -1762,12 +1888,19 @@
       "level": "level_15",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T01:03:17-05:00",
-      "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-18T23:43:34-05:00",
+      "commit": "7dd9ac45e36b9f678bba36e138b707446e306047",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "7dd9ac45e36b9f678bba36e138b707446e306047",
+          "timestamp": "2026-11-18T23:43:34-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_15: v9 declutter (2 callbacks, one clue line per need)",
+          "pre_pipeline": false
+        },
         {
           "commit": "a5ee805dc4d2b5e23b67e9b554a09d952d313d52",
           "timestamp": "2026-11-16T01:03:17-05:00",
@@ -2562,7 +2695,7 @@
       "level": "level_08",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
+      "brief_version": "v3",
       "timestamp": "2026-11-10T23:32:32-05:00",
       "commit": "cd0238121630de3e3a5fc0a826106873d4930508",
       "last_commit_by": "critic",
@@ -2630,7 +2763,7 @@
       "level": "level_10",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
+      "brief_version": "v3",
       "timestamp": "2026-11-11T22:27:02-05:00",
       "commit": "5ed8a817f87481372365d6319abc462ff78e87b4",
       "last_commit_by": "critic",
@@ -3483,11 +3616,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-10T23:32:32-05:00",
-      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "timestamp": "2026-11-19T16:22:59-05:00",
+      "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
+          "timestamp": "2026-11-19T16:22:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs after Koi Counter review rewrite, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
           "timestamp": "2026-11-10T23:32:32-05:00",
@@ -3524,11 +3671,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-10T23:32:32-05:00",
-      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "timestamp": "2026-11-19T16:22:59-05:00",
+      "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
+          "timestamp": "2026-11-19T16:22:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs after Koi Counter review rewrite, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
           "timestamp": "2026-11-10T23:32:32-05:00",
@@ -3565,11 +3726,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-10T23:32:32-05:00",
-      "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
+      "timestamp": "2026-11-19T16:22:59-05:00",
+      "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "55b32c1e35e782c352fd0707bd2398b6bde3d021",
+          "timestamp": "2026-11-19T16:22:59-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_08: 3 runs after Koi Counter review rewrite, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "9afb33d9d8600c7b1438a04e2f463f8bb1ba9da8",
           "timestamp": "2026-11-10T23:32:32-05:00",
@@ -3687,11 +3862,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-11T22:27:02-05:00",
-      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
           "timestamp": "2026-11-11T22:27:02-05:00",
@@ -3721,11 +3903,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-11T22:27:02-05:00",
-      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
           "timestamp": "2026-11-11T22:27:02-05:00",
@@ -3755,11 +3944,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-11T22:27:02-05:00",
-      "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "99677ddcef84bed3a0fa652a609fb96c34ccab9b",
           "timestamp": "2026-11-11T22:27:02-05:00",
@@ -4053,11 +4249,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T23:28:20-05:00",
-      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "timestamp": "2026-11-18T23:48:11-05:00",
+      "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
+          "timestamp": "2026-11-18T23:48:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after v9 declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
           "timestamp": "2026-11-15T23:28:20-05:00",
@@ -4080,11 +4283,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T23:28:20-05:00",
-      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "timestamp": "2026-11-18T23:48:11-05:00",
+      "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
+          "timestamp": "2026-11-18T23:48:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after v9 declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
           "timestamp": "2026-11-15T23:28:20-05:00",
@@ -4107,11 +4317,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T23:28:20-05:00",
-      "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
+      "timestamp": "2026-11-18T23:48:11-05:00",
+      "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "ddff2867afccf0c15a86e8430e4014d78ee3c821",
+          "timestamp": "2026-11-18T23:48:11-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_14: 3 runs after v9 declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "a3688cb843ca05289b1d52c5a70d719ba9de1f57",
           "timestamp": "2026-11-15T23:28:20-05:00",
@@ -4134,11 +4351,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-16T00:50:11-05:00",
-      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fede19de2872c4dc5853b71d5321eb9792bf974c",
+          "timestamp": "2026-11-18T23:34:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs after light-touch declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
           "timestamp": "2026-11-16T00:50:11-05:00",
@@ -4154,11 +4385,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-16T00:50:11-05:00",
-      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fede19de2872c4dc5853b71d5321eb9792bf974c",
+          "timestamp": "2026-11-18T23:34:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs after light-touch declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
           "timestamp": "2026-11-16T00:50:11-05:00",
@@ -4174,11 +4419,25 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-16T00:50:11-05:00",
-      "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
+      "timestamp": "2026-11-18T23:47:48-05:00",
+      "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e3d6bfbbeee074ca1685b14dd73189559c35fd03",
+          "timestamp": "2026-11-18T23:47:48-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] levels 08, 10, 15: 3 runs each after v9 declutter, all 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fede19de2872c4dc5853b71d5321eb9792bf974c",
+          "timestamp": "2026-11-18T23:34:20-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_15: 3 runs after light-touch declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "dbd5f86e5a16c087187b4f08831713d610f91eaa",
           "timestamp": "2026-11-16T00:50:11-05:00",
