@@ -114,6 +114,12 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 .refs a { display:block; width:78px; text-align:center; font-size:10.5px; color:var(--soft); text-decoration:none; word-break:break-all; }
 .refs img { width:78px; height:52px; object-fit:cover; border-radius:4px; display:block; }
 .empty { color:var(--label); padding:20px 0; }
+.lvlhead { cursor:pointer; user-select:none; padding:6px 8px; margin-left:-8px; border-radius:6px; }
+.lvlhead:hover { background:var(--bar); }
+.lvlhead .arrow { display:inline-block; width:14px; transition:transform .15s; }
+.lvlhead.closed .arrow { transform:rotate(-90deg); }
+.lvlhead .lcount { color:var(--label); }
+.lvlhead.complete .lcount { color:var(--good); }
 .current { margin-bottom:8px; }
 .clabel { font-size:12px; color:var(--soft); margin-bottom:3px; }
 .cimg { aspect-ratio:3/2; border-radius:6px; overflow:hidden; border:2px dashed var(--soft); }
@@ -128,6 +134,7 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
   <span class="stat"><b id="picks">0</b> picked</span>
   <label class="only-pl"><input type="checkbox" id="dark"> dark background</label>
   <label class="only-oc"><input type="checkbox" id="hide"> hide finished</label>
+  <button id="collapse" class="ghost only-oc">Collapse / expand all</button>
   <button id="reload" class="ghost">Reload</button>
   <button id="copy">Copy my picks</button>
   <span class="stat" id="toast"></span>
@@ -214,13 +221,25 @@ const ol = $("#olist");
 const ocards = [];
 if (!DATA.outcomes.length) ol.innerHTML = `<p class="empty">No outcome prompts yet: the art generator agent writes them.</p>`;
 const byLevel = {};
+const levelBodies = {};
+let collapsed = new Set();
+try { collapsed = new Set(JSON.parse(localStorage.getItem(KEY + ":collapsed") || "[]")); } catch (e) {}
+function setCollapsed(level, on) {
+  if (on) collapsed.add(level); else collapsed.delete(level);
+  try { localStorage.setItem(KEY + ":collapsed", JSON.stringify([...collapsed])); } catch (e) {}
+  const lb = levelBodies[level];
+  if (lb) { lb.body.classList.toggle("hidden", on); lb.h.classList.toggle("closed", on); }
+}
 for (const r of DATA.outcomes) (byLevel[r.level] ||= []).push(r);
 for (const [level, rows] of Object.entries(byLevel)) {
-  const h = document.createElement("h2");
-  h.innerHTML = `<span></span><small></small>`;
-  $("span", h).textContent = level.replace("_", " ");
-  $("small", h).textContent = `${rows.length} outcomes · ${rows[0].guests.join(", ")}`;
-  ol.append(h);
+  const h = document.createElement("h2"); h.className = "lvlhead"; h.dataset.level = level;
+  h.innerHTML = `<span class="arrow">▾</span><span class="lname"></span><small class="lmeta"></small><small class="lcount"></small>`;
+  $(".lname", h).textContent = level.replace("_", " ");
+  $(".lmeta", h).textContent = `${rows.length} outcomes · ${rows[0].guests.join(", ")}`;
+  const body = document.createElement("div"); body.className = "lvlbody";
+  h.onclick = () => setCollapsed(level, !collapsed.has(level));
+  ol.append(h, body);
+  levelBodies[level] = { h, body };
   for (const r of rows) {
     const card = document.createElement("div"); card.className = "card ocard"; card.id = `${r.level}-${r.venue}`;
     card.dataset.need = r.drafts;
@@ -262,7 +281,8 @@ for (const [level, rows] of Object.entries(byLevel)) {
     cur.innerHTML = `<div class="clabel">in the game now</div><div class="cimg"></div>`;
     loadInto($(".cimg", cur), `../art/${r.stem}`, [".jpg", ".png"], (ok) => ok && cur.classList.remove("hidden"));
     $(".slots", card).prepend(cur);
-    ol.append(card); ocards.push(card);
+    card.dataset.level = r.level;
+    body.append(card); ocards.push(card);
   }
 }
 
@@ -276,6 +296,12 @@ function settle() {
   ocards.forEach((c) => c.classList.remove("next"));
   const next = ocards.find((c) => (+c.dataset.saved || 0) < +c.dataset.need);
   if (next) next.classList.add("next");
+  for (const [level, lb] of Object.entries(levelBodies)) {
+    const cs = ocards.filter((c) => c.dataset.level === level);
+    const got = cs.reduce((n, c) => n + (+c.dataset.saved || 0), 0), need = cs.reduce((n, c) => n + +c.dataset.need, 0);
+    $(".lcount", lb.h).textContent = `${got} / ${need} saved` + (next && next.dataset.level === level ? " · next up here" : "");
+    lb.h.classList.toggle("complete", got >= need);
+  }
   const hide = $("#hide").checked;
   ocards.forEach((c) => c.classList.toggle("hidden", hide && (+c.dataset.saved || 0) >= +c.dataset.need));
 }
@@ -293,6 +319,8 @@ document.querySelectorAll(".tabs button").forEach((b) => (b.onclick = () => show
 $("#dark").onchange = (e) => document.body.classList.toggle("dark", e.target.checked);
 $("#hide").onchange = settle;
 $("#reload").onclick = () => location.reload();
+$("#collapse").onclick = () => { const all = Object.keys(levelBodies); const close = all.some((l) => !collapsed.has(l)); all.forEach((l) => setCollapsed(l, close)); };
+Object.keys(levelBodies).forEach((l) => setCollapsed(l, collapsed.has(l)));
 $("#copy").onclick = () => copy("Draft picks: " + JSON.stringify(picks), "picks (paste them to Claude)");
 show(tab);
 </script></body></html>
