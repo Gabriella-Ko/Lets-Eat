@@ -4141,5 +4141,45 @@
     "result": "rebuilt after light-touch declutter",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15710
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_declutter",
+    "result": "correct (juniper_yard, 3 stars), all 5 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15778
+  },
+  {
+    "timestamp": "2026-11-19T04:34:20.577Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after light-touch declutter (1 run: whose peanut allergy slightly blurred since Roxy states it)",
+    "retries": 0,
+    "tokens": null
   }
 ]

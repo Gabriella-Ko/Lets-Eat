@@ -6,46 +6,34 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Cuisine: noodles (a stall on noodle row)",
-      "owner": "liam",
-      "source_line": "everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row"
+      "constraint": "Cuisine: noodles (the noodle stall on the noodle row)",
+      "source": "liam: \"the noodle stall, the one nobody could find all summer: ... she swears it's on the noodle row\""
     },
     {
-      "constraint": "Budget: cheapest tier ($); coins only, no breaking a bill",
-      "owner": "maya",
-      "source_line": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it"
+      "constraint": "Budget: cheapest tier ($), coins only",
+      "source": "maya: \"coins only. no paper money leaves my wallet\" / \"exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it\""
     },
     {
-      "constraint": "Peanut allergy (deal-breaker), any form: sauce, wok oil, toppings, shared wok",
-      "owner": "cyrus",
-      "source_line": "It's grown since then. Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking."
+      "constraint": "Peanut allergy (deal-breaker): no peanut in any form, including in the wok/oil",
+      "source": "cyrus: \"I ask the cook one question before anyone orders.\" / liam: \"ever since the satay incident\" / roxy: \"any peanut, any form, in the wok or on top, we walk\""
     },
     {
-      "constraint": "Preference: green / vegetable-forward bowl, light, not fried or greasy",
-      "owner": "brooke",
-      "source_line": "so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging"
+      "constraint": "Preference: green, light, not fried or greasy",
+      "source": "brooke: \"a bowl that's actually green and doesn't leave me feeling like a fried dumpling\""
     },
     {
-      "constraint": "No dairy: no butter, milk or cream (read as intolerance from 'the milkshake incident'; avoided either way)",
-      "owner": "roxy",
-      "source_line": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine"
+      "constraint": "Dairy intolerance (Roxy): no butter, milk or cream in the broth",
+      "source": "roxy: \"...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine\""
     }
   ],
-  "elimination": {
-    "night_market_bramble_row": "Safe on peanut and dairy, green and light, but $$ ('a few dollars more' than neighbouring carts): one tier over Maya's coins-only budget, costs a star.",
-    "night_market_wild_thistle": "$, peanut-free, dairy-free, but deep-fried and greasy: misses Brooke's green/light preference.",
-    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, broth is ginger/scallion/kombu/soy with no dairy, bok choy, nothing fried. Meets everything.",
-    "night_market_kestrel": "$, peanut-free, light and veg-heavy, but milk broth with butter: fails Roxy.",
-    "night_market_brass_kettle": "Peanut sauce, crushed peanuts, peanut dressing: deal-breaker for Cyrus.",
-    "night_market_sundial": "Every bowl starts with roasted peanut oil: deal-breaker for Cyrus (exactly the 'oil in the wok' case he named)."
+  "venue_assessment": {
+    "night_market_bramble_row": "$$ (one tier over budget, -1 star); peanut-free, light with greens, dairy-free (tofu creaminess). 2 stars.",
+    "night_market_wild_thistle": "$, peanut-free, dairy-free, but deep-fried and greasy (misses Brooke's light/green preference). 2 stars.",
+    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, clear ginger-scallion broth with bok choy, nothing fried, no dairy. 3 stars.",
+    "night_market_kestrel": "$, peanut-free, light and veggie, but milk broth with butter (dairy intolerance, -1 star). 2 stars.",
+    "night_market_brass_kettle": "Peanut sauce and crushed peanuts on everything. Deal-breaker.",
+    "night_market_sundial": "Every bowl starts with roasted peanut oil. Deal-breaker (the 'in the wok' clue)."
   },
   "difficulty": 3,
-  "notes": [
-    "Fair puzzle: each decoy fails exactly one constraint, and Sundial's peanut oil is well foreshadowed by Cyrus naming 'the oil in the wok'.",
-    "Sundial's peanut oil is placed mid-review after a charming opening and a dairy-free second review; good trap, still findable on a careful read.",
-    "Bramble Row's price is only on the card ($$) and hinted by 'a few dollars more' in the review; Maya's 'coins only' line needs the player to map it to the cheapest tier, which works.",
-    "Roxy's dairy constraint is unclear on severity (allergy vs intolerance); it didn't change the pick because only Kestrel uses dairy and it is wrong on that alone either way.",
-    "Small nit: Juniper Yard has chili oil on the counter. The allergy-board sign-off covers it, but a cautious player might stop over it for a moment.",
-    "Liam's 'you'll know at the first slurp' is flavour text only and doesn't act as a constraint."
-  ]
+  "notes": "Fair, solvable puzzle. Three things hold it together: Sundial's peanut oil is hidden in a cheerful review (well set up by Roxy's 'in the wok' line), Bramble Row is perfect apart from its $$ price (Maya's coin-purse lines point clearly to $), and Kestrel looks light and green but uses a milk broth. The peanut allergy is never named outright. It is inferred from Cyrus's 'one question' plus Liam's 'satay incident' and Roxy's checklist line, but it is clear enough together. Roxy's dairy line reads as an intolerance (the 'milkshake incident'), not an allergy, so I scored it as -1 star; either way it does not change the pick. Liam's 'you'll know at the first slurp' tip is pure flavour and does not narrow anything down, which is fine. Wild Thistle's reviews say both 'ginger-scallion' and 'pan-fried in oil'. That is a decent decoy, but the greasiness is stated plainly. Nothing contradictory found."
 }

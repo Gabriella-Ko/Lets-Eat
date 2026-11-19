@@ -6,51 +6,43 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "who": "liam",
-      "constraint": "Noodles (the noodle row stall)",
+      "constraint": "Noodle stall on the noodle row (cuisine: noodles); Liam wants THE elusive stall nobody could find",
       "type": "craving",
-      "source_line": "the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row"
+      "who": "liam",
+      "line": "everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row"
     },
     {
-      "who": "maya",
-      "constraint": "Budget: cheapest tier ($), coins only",
+      "constraint": "Budget: $ only (coins only, cheapest bowls)",
       "type": "budget",
-      "source_line": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it"
+      "who": "maya",
+      "line": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it"
     },
     {
-      "who": "cyrus",
-      "constraint": "Peanut allergy, including peanut oil, peanut toppings and shared woks (deal-breaker)",
+      "constraint": "Peanut allergy (deal-breaker): no peanut in any form, including oil",
       "type": "allergy",
-      "source_line": "Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking."
+      "who": "cyrus (Roxy also enforcing)",
+      "line": "adding it to my cart checklist then. any peanut, any form, in the wok or on top, we walk"
     },
     {
-      "who": "brooke",
-      "constraint": "Green / vegetable-forward, light, not fried or greasy",
+      "constraint": "Light, green, not fried/greasy bowl",
       "type": "preference",
-      "source_line": "so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging"
+      "who": "brooke",
+      "line": "a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging"
     },
     {
-      "who": "roxy",
-      "constraint": "No dairy: no butter, no milk, nothing creamy (read as an intolerance, given the 'milkshake incident')",
+      "constraint": "Dairy intolerance: no butter, no milk, nothing creamy",
       "type": "intolerance",
-      "source_line": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine"
+      "who": "roxy",
+      "line": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine"
     }
   ],
   "elimination": {
-    "night_market_brass_kettle": "Peanut sauce, peanut crumble, peanut dressing: deal-breaker for Cyrus.",
-    "night_market_sundial": "Every bowl starts with roasted peanut oil: deal-breaker for Cyrus (the 'oil in the wok' clue).",
-    "night_market_kestrel": "Milk broth with butter on top: misses Roxy's no-dairy need (2 stars at best).",
-    "night_market_wild_thistle": "Deep-fried, greasy noodles: misses Brooke's green and not-fried preference (2 stars).",
-    "night_market_bramble_row": "Fits everyone except price: $$ is one tier over Maya's coins-only budget (2 stars).",
-    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, broth is ginger, scallion, kombu and soy (no dairy), bok choy, nothing fried. Fits everyone."
+    "night_market_bramble_row": "$$ (one tier over Maya's coins-only budget, -1 star). Also 'the stall everyone has been posting about this summer' contradicts 'the one nobody could find'.",
+    "night_market_wild_thistle": "Deep-fried and greasy, fails Brooke's light/green preference.",
+    "night_market_kestrel": "Milk broth with butter, fails Roxy's dairy intolerance.",
+    "night_market_brass_kettle": "Peanut sauce and crushed peanuts everywhere, deal-breaker for the peanut allergy.",
+    "night_market_sundial": "Every bowl starts with roasted peanut oil, deal-breaker ('any form, in the wok')."
   },
   "difficulty": 3,
-  "notes": [
-    "Fair, well-built puzzle. Each decoy fails on exactly one constraint, and the two peanut traps are graded: Brass Kettle is obvious, while Sundial hides the peanut in the cooking oil, which Cyrus's 'the oil in the wok' line sets up nicely.",
-    "Bramble Row is the strongest decoy (it reads like 'THE stall' from Liam's hype), but '$$' on the card plus 'a few dollars more than the carts on either side' lines up with Maya's coins-only line. Good, consistent signal.",
-    "Maya's budget is given only as a metaphor ('coins only', 'cheapest bowls'). I read it as $, which works because five of the six cards are $. A player who misses the metaphor could still pick Bramble Row and get 2 stars.",
-    "Roxy's dairy constraint is unclear: 'the milkshake incident' and 'dead to me' could mean an intolerance or a strict avoidance. It does not change the answer, but whether Kestrel scores 2 stars or 0 depends on it.",
-    "Wild Thistle's peanut-safety evidence is a bit roundabout (a reviewer's partner who unloads deliveries) compared with Juniper Yard's official allergy board. That seems intentional, and it is not needed to solve the level because Wild Thistle already fails on 'fried'.",
-    "Liam's 'you'll know at the first slurp' tip does not help pick a stall. It is flavour text, which is fine, but some players may hunt for a hidden clue in it."
-  ]
+  "notes": "Fair and solvable. Juniper Yard is the only $ stall that is peanut-free (market allergy board), dairy-free (broth is ginger, scallion, kombu, soy), and light with bok choy. The craving clue is soft: it took some reading to see that Bramble Row's 'everyone has been posting about it' is a decoy against 'nobody could find', while Juniper Yard's 'you hear the dough before you see the cart' and the repeat-bowl regular hint at a hidden stall and 'you'll know at the first slurp'. Sundial is a nice trap: peanut oil sits mid-sentence in a review that otherwise reads like a perfect match, and Roxy's 'in the wok' line covers it. Wild Thistle's peanut-free claim is second-hand from a delivery helper, but it fails on fried anyway. No contradictions found. Brooke's 'like a fried dumpling' phrasing is a clear enough no-fried signal."
 }
