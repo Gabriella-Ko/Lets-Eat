@@ -24,8 +24,8 @@
       "missed": ["diet:vegetarian"],
       "lines": [
         { "speaker": "mina", "text": "oh... every single thing here has meat in it. even the soup is on bone broth", "emotion": "SURPRISED" },
-        { "speaker": "roxy", "text": "sushi day was the STANDARD. this is the opposite of sushi day", "emotion": "ANGRY" },
-        { "speaker": "cyrus", "text": "I set that standard myself. I'm recording this as a personal failure.", "emotion": "ANGRY" }
+        { "speaker": "roxy", "text": "this is the exact OPPOSITE of sushi day", "emotion": "ANGRY" },
+        { "speaker": "cyrus", "text": "On sushi day I found her a whole section. Today, nothing. I'm recording this as a personal failure.", "emotion": "ANGRY" }
       ]
     },
     "downtown_paper_kite": {
