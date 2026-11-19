@@ -4240,7 +4240,7 @@
     "step": "declutter_v9",
     "result": "v9 trim: 15 lines, 5 clue, 2 callbacks, 10 non-clue; 3 outcome lines updated",
     "retries": 1,
-    "tokens": null
+    "tokens": 56992
   },
   {
     "timestamp": "2026-11-19T04:40:53.422Z",
@@ -4269,6 +4269,16 @@
     "brief_version": "v3",
     "step": "validate",
     "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:41:36.236Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
     "retries": 0,
     "tokens": null
   }
