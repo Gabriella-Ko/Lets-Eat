@@ -15,7 +15,7 @@
       "missed": ["diet:vegetarian"],
       "lines": [
         { "speaker": "mina", "text": "the pumpkin curry was my best hope... but the paste is pounded with dried shrimp. even the vegetable side is cooked in chicken stock", "emotion": "SURPRISED" },
-        { "speaker": "maya", "text": "absolutely not. this is the opposite of sushi day, and mina is not watching us eat at my celebration. we're finding her a board she can point at", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "absolutely not. mina is not watching us eat at my celebration. we're finding her a board she can point at", "emotion": "ANGRY" },
         { "speaker": "brooke", "text": "we're moving! mina, you lead us to the next stall. you were supposed to pick first", "emotion": "SURPRISED" }
       ]
     },
@@ -39,8 +39,8 @@
       "result": "partial",
       "missed": ["budget"],
       "lines": [
-        { "speaker": "maya", "text": "loved every bite, right up until i spotted that second dollar sign on the price board. counting coins the whole walk home, exactly like i warned you", "emotion": "ANNOYED" },
-        { "speaker": "roxy", "text": "i'll walk with you! celebration parade, coast edition", "emotion": "HAPPY" }
+        { "speaker": "maya", "text": "loved every bite, right up until i spotted that second dollar sign on the price board. the trip fund did not approve this celebration", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "tell the trip fund it was my idea! celebration parade, coast edition", "emotion": "HAPPY" }
       ]
     },
     "night_market_firefly_lane": {
