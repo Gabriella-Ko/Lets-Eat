@@ -4281,5 +4281,15 @@
     "result": "narrative_writer retry count reset to 0 for a v9 declutter pass (Gabriella, 2026-11-18)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:34.811Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_v9",
+    "result": "v9 trim: 15 lines, 5 clue, 2 callbacks (satay, milkshake), 10 non-clue; trip_fund dropped; 4 outcome lines updated",
+    "retries": 1,
+    "tokens": null
   }
 ]
