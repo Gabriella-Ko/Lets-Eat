@@ -37,11 +37,6 @@
       "emotion": "ANNOYED"
     },
     {
-      "speaker": "roxy",
-      "text": "ok ok. cheap AND celebratory. i can work with that",
-      "emotion": "HAPPY"
-    },
-    {
       "speaker": "brooke",
       "text": "so proud of you maya! ok, my news: i'm pacing my cousin through her first 10k at 7am tomorrow",
       "emotion": "HAPPY"
@@ -80,11 +75,6 @@
       "speaker": "brooke",
       "text": "roxy. a lot of curries are made with cream, yogurt or butter",
       "emotion": "SURPRISED"
-    },
-    {
-      "speaker": "roxy",
-      "text": "...oh. ok, none of that in my sauce. my stomach is still mad about the latte",
-      "emotion": "NEUTRAL"
     },
     {
       "speaker": "mina",

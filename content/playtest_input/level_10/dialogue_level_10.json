@@ -48,11 +48,6 @@
     },
     {
       "speaker": "roxy",
-      "text": "brooke told me that story on the climbing wall. nothing satay-adjacent near cyrus, got it",
-      "emotion": "SURPRISED"
-    },
-    {
-      "speaker": "roxy",
       "text": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it",
       "emotion": "HAPPY"
     },
@@ -60,11 +55,6 @@
       "speaker": "mina",
       "text": "you remember that?? i got to order whatever looked good without asking about any of it. best lunch of my summer :)",
       "emotion": "HAPPY"
-    },
-    {
-      "speaker": "cyrus",
-      "text": "Then sushi day is today's standard.",
-      "emotion": "NEUTRAL"
     },
     {
       "speaker": "mina",

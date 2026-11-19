@@ -52,13 +52,8 @@
       "emotion": "NEUTRAL"
     },
     {
-      "speaker": "cyrus",
-      "text": "It's grown since then. Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking.",
-      "emotion": "NEUTRAL"
-    },
-    {
       "speaker": "roxy",
-      "text": "got it, captain. any peanut, any form, we walk",
+      "text": "adding it to my cart checklist then. any peanut, any form, in the wok or on top, we walk",
       "emotion": "HAPPY"
     },
     {
@@ -73,13 +68,8 @@
     },
     {
       "speaker": "liam",
-      "text": "oh and roxy. my tipster says a lot of carts on that row finish the broth with butter or a splash of milk",
+      "text": "oh and roxy, milkshake incident rules: my tipster says a lot of carts on that row finish the broth with butter or a splash of milk",
       "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "liam",
-      "text": "after the milkshake incident, those carts are dead to me on your behalf",
-      "emotion": "HAPPY"
     },
     {
       "speaker": "roxy",
