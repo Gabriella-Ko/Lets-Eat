@@ -4290,7 +4290,7 @@
     "step": "declutter_v9",
     "result": "v9 trim: 15 lines, 5 clue, 2 callbacks (satay, milkshake), 10 non-clue; trip_fund dropped; 4 outcome lines updated",
     "retries": 1,
-    "tokens": null
+    "tokens": 47550
   },
   {
     "timestamp": "2026-11-19T04:43:35.146Z",
@@ -4301,5 +4301,35 @@
     "result": "pass (after v9 declutter)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_08",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_10",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "pass (v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:43:47.469Z",
+    "level": "level_14",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "declutter_check",
+    "result": "must_fix 1 (Mina states her own diet before level_16) + 2 suggestions",
+    "retries": 0,
+    "tokens": 74213
   }
 ]
