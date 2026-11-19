@@ -4864,7 +4864,7 @@
     "step": "playtest_run1",
     "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 17267
   },
   {
     "timestamp": "2026-11-19T21:38:02.223Z",
