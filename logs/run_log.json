@@ -4541,5 +4541,45 @@
     "result": "pass 3/3 after v9 declutter",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 4/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15482
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_v9_declutter",
+    "result": "correct (marigold_cart, 3 stars), all constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15274
+  },
+  {
+    "timestamp": "2026-11-19T04:48:11.728Z",
+    "level": "level_14",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after v9 declutter (all runs: \"a whole board you can point at\" vs Marigold fish pot causes hesitation)",
+    "retries": 0,
+    "tokens": null
   }
 ]
