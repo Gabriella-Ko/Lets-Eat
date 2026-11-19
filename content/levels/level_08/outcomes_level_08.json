@@ -40,7 +40,7 @@
       "missed": ["budget"],
       "lines": [
         { "speaker": "maya", "text": "delicious. also two dollar signs. the trip fund felt that one", "emotion": "ANNOYED" },
-        { "speaker": "roxy", "text": "worth it though?? ...sorry maya. soup tomorrow, i'll join you", "emotion": "SURPRISED" }
+        { "speaker": "roxy", "text": "worth it though?? ...sorry maya. that was a whole beach day, wasn't it", "emotion": "SURPRISED" }
       ]
     }
   },
