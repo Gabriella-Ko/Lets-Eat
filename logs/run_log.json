@@ -4241,5 +4241,35 @@
     "result": "v9 trim: 15 lines, 5 clue, 2 callbacks, 10 non-clue; 3 outcome lines updated",
     "retries": 1,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_08",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_10",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:40:53.422Z",
+    "level": "level_14",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after v9 declutter)",
+    "retries": 0,
+    "tokens": null
   }
 ]
