@@ -3,7 +3,7 @@
   "script": [
     {
       "speaker": "liam",
-      "text": "everyone drop everything. the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row",
+      "text": "everyone drop everything. the noodle stall, the one nobody could find all summer: the girl upstairs works the market and she swears it's on the noodle row",
       "emotion": "HAPPY"
     },
     {
@@ -23,38 +23,23 @@
     },
     {
       "speaker": "roxy",
-      "text": "noodle row?? i'm down. i'll check every cart myself if i have to",
+      "text": "i'm down. i'll check every cart myself if i have to",
       "emotion": "HAPPY"
     },
     {
       "speaker": "maya",
-      "text": "i'm in, but the trip fund has me on a coin purse tonight. coins only. no paper money leaves my wallet",
-      "emotion": "ANNOYED"
-    },
-    {
-      "speaker": "liam",
-      "text": "how far do coins go on noodle row",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "maya",
-      "text": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it",
+      "text": "i'm in, but my coin purse is the whole budget tonight. if a price board makes me break a bill, i will be very dramatic about it",
       "emotion": "ANNOYED"
     },
     {
       "speaker": "cyrus",
-      "text": "Count me in. Same routine as any new stall: I ask the cook one question before anyone orders.",
+      "text": "Count me in. I've already sketched the row: fourteen carts, two exits, one bench that actually gets a breeze.",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "liam",
-      "text": "the question. ever since the satay incident i could ask it in my sleep",
+      "text": "cyrus, while you're sketching, cross off any cart with peanut in it. wok oil, sprinkled on top, all of it. one satay incident was plenty",
       "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "roxy",
-      "text": "adding it to my cart checklist then. any peanut, any form, in the wok or on top, we walk",
-      "emotion": "HAPPY"
     },
     {
       "speaker": "brooke",
@@ -67,14 +52,19 @@
       "emotion": "NEUTRAL"
     },
     {
+      "speaker": "maya",
+      "text": "your grandma asks about greens. mine asks if i'm \"still eating noodles standing up\". we are not the same",
+      "emotion": "NEUTRAL"
+    },
+    {
       "speaker": "liam",
-      "text": "oh and roxy, milkshake incident rules: my tipster says a lot of carts on that row finish the broth with butter or a splash of milk",
+      "text": "oh and roxy, remember the milkshake? my tipster says a lot of carts on that row finish the broth with butter or a splash of milk",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "roxy",
-      "text": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine",
-      "emotion": "NEUTRAL"
+      "text": "how does your tipster know every broth on the row and not which cart is THE cart",
+      "emotion": "SURPRISED"
     },
     {
       "speaker": "cyrus",

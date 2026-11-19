@@ -17,13 +17,28 @@
       "emotion": "HUNGRY"
     },
     {
+      "speaker": "cyrus",
+      "text": "Sushi works for me. Usual rule: I'm allergic to peanuts, so nothing with peanuts on it, please.",
+      "emotion": "NEUTRAL"
+    },
+    {
       "speaker": "mina",
-      "text": "sushi sounds perfect :) hi roxy, i don't think we've had lunch together yet! how's downtown treating you?",
+      "text": "hi roxy, i don't think we've had lunch together yet! how's downtown treating you?",
       "emotion": "HAPPY"
     },
     {
       "speaker": "roxy",
       "text": "loving it. tried three new things this week. sushi makes four",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "ooh, what were the other three?",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "roxy",
+      "text": "a pickle-flavoured soda, a salsa class and a podcast about bridges. the soda was a mistake",
       "emotion": "HAPPY"
     },
     {
@@ -38,32 +53,22 @@
     },
     {
       "speaker": "maya",
-      "text": "coast trip, end of summer. i've brought soup from home three days in a row. that's how serious this is",
-      "emotion": "ANNOYED"
+      "text": "coast trip. sand, sun, zero spreadsheets. i can already hear the waves",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "mina",
+      "text": "that sounds so lovely, maya. and i'll be happy with whatever we find :)",
+      "emotion": "HAPPY"
     },
     {
       "speaker": "cyrus",
-      "text": "Sushi works for me. One rule, for anyone new: I'm allergic to peanuts. Some rolls come with peanut sauce or crushed peanuts on top, so please check.",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "maya",
-      "text": "and mina's vegetarian, so we need a place with real veggie rolls. not one lonely cucumber roll at the bottom of the menu",
+      "text": "Not whatever. You're vegetarian, Mina, and the better sushi places have a whole section with no fish or meat. Let's find one of those.",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "mina",
-      "text": "wait, there are sushi places with more than one?",
-      "emotion": "SURPRISED"
-    },
-    {
-      "speaker": "cyrus",
-      "text": "There are. The better ones have a whole section with no fish or meat at all. Worth finding one.",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "mina",
-      "text": "a whole section?? okay, now i'm actually excited",
+      "text": "wait, a whole section?? okay, now i'm actually excited",
       "emotion": "HAPPY"
     },
     {

@@ -4350,6 +4350,46 @@
     "step": "chat_rework",
     "result": "critic suggestions: Liam peanut line shorter, tipster now the girl upstairs",
     "retries": 2,
+    "tokens": 21957
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_15",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_08",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_10",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T04:46:53.213Z",
+    "level": "level_15",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after v9 declutter",
+    "retries": 0,
     "tokens": null
   }
 ]

@@ -12,13 +12,8 @@
       "emotion": "HUNGRY"
     },
     {
-      "speaker": "brooke",
-      "text": "cafe lunch, i'm in!",
-      "emotion": "HAPPY"
-    },
-    {
       "speaker": "mina",
-      "text": "a cafe sounds lovely :) roxy, are you okay? that sounds like a rough morning",
+      "text": "roxy, are you okay?? that sounds like a rough morning",
       "emotion": "NEUTRAL"
     },
     {
@@ -33,38 +28,48 @@
     },
     {
       "speaker": "mina",
-      "text": "me too! summer has been so busy. i'm really glad it's all of you today",
+      "text": "me too! summer has been so busy. brooke, how's the new office treating you?",
       "emotion": "HAPPY"
     },
     {
       "speaker": "brooke",
-      "text": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind",
+      "text": "a whole week of birthday cake, that's how. so today's lunch has to be the wholesome, actually-good-for-you kind",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "cyrus",
-      "text": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay.",
+      "text": "A whole week of cake. I'm impressed, and a little concerned.",
       "emotion": "NEUTRAL"
     },
     {
+      "speaker": "cyrus",
+      "text": "Mina, I'll do what I did on sushi day: find you a whole section with zero meat in it.",
+      "emotion": "HAPPY"
+    },
+    {
       "speaker": "roxy",
-      "text": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it",
+      "text": "ooh and i'll read every board for you, cyrus. no satay incident sequel today!!",
       "emotion": "HAPPY"
     },
     {
       "speaker": "mina",
-      "text": "you remember that?? i got to order whatever looked good without asking about any of it. best lunch of my summer :)",
-      "emotion": "HAPPY"
-    },
-    {
-      "speaker": "mina",
-      "text": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them?",
+      "text": "roxy, that's sweet :) read them for yourself too, though: half a cafe menu is milk, butter or cheese, and your stomach still isn't speaking to any of them",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "roxy",
-      "text": "...still not speaking. i would've remembered around the second bite. thank you mina",
+      "text": "...ok, fair. mina, you just saved my whole afternoon",
       "emotion": "SURPRISED"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "Roxy, before we go: I'd like the full goose report.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "roxy",
+      "text": "it went out with a bang and a puff of steam. the whole floor clapped",
+      "emotion": "HAPPY"
     },
     {
       "speaker": "roxy",
