@@ -4581,5 +4581,65 @@
     "result": "pass 3/3 after v9 declutter (all runs: \"a whole board you can point at\" vs Marigold fish pot causes hesitation)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "numerals in banter lines",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "Maya sushi-day line softened to \"plenty you can point at\"",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_08",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_10",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_14",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:21:26.026Z",
+    "level": "level_15",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "dialogue_approval",
+    "result": "declutter dialogue approved",
+    "retries": 0,
+    "tokens": null
   }
 ]
