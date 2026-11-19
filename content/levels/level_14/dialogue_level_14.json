@@ -8,7 +8,6 @@
     { "speaker": "roxy", "text": "MAYA!! that's huge. celebration curry at the fancy end of the market, let's do it", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first", "emotion": "ANNOYED", "clue": "budget", "callback": "trip_fund" },
     { "speaker": "maya", "text": "street-cart prices, please. one step up from that and i'm counting coins the whole walk home", "emotion": "ANNOYED", "clue": "budget" },
-    { "speaker": "roxy", "text": "ok ok. cheap AND celebratory. i can work with that", "emotion": "HAPPY", "clue": "budget" },
     { "speaker": "brooke", "text": "so proud of you maya! ok, my news: i'm pacing my cousin through her first 10k at 7am tomorrow", "emotion": "HAPPY", "clue": null },
     { "speaker": "brooke", "text": "so tonight i need fuel, not a food coma. fresh and clean, please", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "mina", "text": "a 10k! i'm making her a sign for the finish line :)", "emotion": "HAPPY", "clue": null },
@@ -17,7 +16,6 @@
     { "speaker": "brooke", "text": "then mina picks first tonight. that's the rule", "emotion": "HAPPY", "clue": null },
     { "speaker": "roxy", "text": "ok unrelated, but i stole one sip of my roommate's iced latte last night and regretted it until 2am", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
     { "speaker": "brooke", "text": "roxy. a lot of curries are made with cream, yogurt or butter", "emotion": "SURPRISED", "clue": "intolerance:dairy" },
-    { "speaker": "roxy", "text": "...oh. ok, none of that in my sauce. my stomach is still mad about the latte", "emotion": "NEUTRAL", "clue": "intolerance:dairy" },
     { "speaker": "mina", "text": "it's going to be such a good night :) assistant, we're all yours", "emotion": "HAPPY", "clue": null },
     { "speaker": "roxy", "text": "last one to the market buys the napkins!!", "emotion": "HUNGRY", "clue": null }
   ],
