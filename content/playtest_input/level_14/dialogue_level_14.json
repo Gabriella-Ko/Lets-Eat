@@ -8,12 +8,12 @@
     },
     {
       "speaker": "roxy",
-      "text": "surprise me is a real answer!! but fine. curry. i'm down",
+      "text": "surprise me is a real answer!! but fine, democracy wins. i'm down",
       "emotion": "HUNGRY"
     },
     {
       "speaker": "mina",
-      "text": "curry sounds perfect :) maya, you went quiet right after you voted. everything okay?",
+      "text": "yay :) maya, you went quiet right after you voted. everything okay?",
       "emotion": "NEUTRAL"
     },
     {
@@ -28,12 +28,7 @@
     },
     {
       "speaker": "maya",
-      "text": "celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first",
-      "emotion": "ANNOYED"
-    },
-    {
-      "speaker": "maya",
-      "text": "street-cart prices, please. one step up from that and i'm counting coins the whole walk home",
+      "text": "celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first. street-cart prices, or i'm toasting my big win with a free sample",
       "emotion": "ANNOYED"
     },
     {
@@ -53,27 +48,22 @@
     },
     {
       "speaker": "maya",
-      "text": "mina, tonight's your night too. i still think about your face on sushi day, when cyrus slid that menu over with a whole page of meat-free picks. you ordered like a kid let loose in a candy shop",
+      "text": "mina, you're picking first tonight. sushi day rules: a whole board you can point at, no meat, no fish, nothing to ask about. you look after everyone, so tonight we look after you",
       "emotion": "HAPPY"
     },
     {
       "speaker": "mina",
-      "text": "you were there for that! not one dish i had to ask about. no meat, no fish, just pick and eat... if tonight's board has plenty like that, i'm happy :)",
-      "emotion": "HAPPY"
-    },
-    {
-      "speaker": "brooke",
-      "text": "then mina picks first tonight. that's the rule",
-      "emotion": "HAPPY"
+      "text": "first pick?? okay, i'm taking this very seriously :)",
+      "emotion": "SURPRISED"
     },
     {
       "speaker": "roxy",
-      "text": "ok unrelated, but i stole one sip of my roommate's iced latte last night and regretted it until 2am",
+      "text": "ok unrelated, but i stole one sip of my roommate's iced latte last night and my stomach held a grudge until 2am",
       "emotion": "SURPRISED"
     },
     {
       "speaker": "brooke",
-      "text": "roxy. a lot of curries are made with cream, yogurt or butter",
+      "text": "roxy, you're a menace. a lovable one, but a menace",
       "emotion": "SURPRISED"
     },
     {
