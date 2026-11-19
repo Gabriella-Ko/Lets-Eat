@@ -4510,7 +4510,7 @@
     "step": "playtest_run1_after_v9_declutter",
     "result": "correct (juniper_yard, 3 stars), all constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 16048
   },
   {
     "timestamp": "2026-11-19T04:47:48.102Z",
