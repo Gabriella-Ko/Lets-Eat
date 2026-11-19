@@ -1,0 +1,31 @@
+{
+  "level_id": "level_19",
+  "script": [
+    { "speaker": "brooke", "text": "cold's officially gone and i'm back!! also i have news, and it's not mine", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "MINA SOLD A PAINTING. at the boardwalk art fair. to a total stranger!!", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "mina", "text": "it was the little one of the harbour at dusk :) a lady stood in front of it for ages, and then she just... bought it", "emotion": "HAPPY", "clue": null },
+    { "speaker": "roxy", "text": "MINA!! hanging on a stranger's wall forever. iconic", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "liam", "text": "so proud of you. also starving. both feelings very strong right now", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "brooke", "text": "so obviously we're celebrating today. poll's closed: little bamboo baskets of dumplings, by a landslide", "emotion": "HAPPY", "clue": "craving" },
+    { "speaker": "liam", "text": "i voted four times. no regrets", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "that's fraud, liam. ...i voted twice", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "mina", "text": "i walked past a dumpling place on my way home from the fair and peeked at the menu. every single one had pork or prawns tucked inside. somewhere with a whole row of vegetable ones would make my day", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "maya", "text": "mina, how much did she pay. tell me it was a lot", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "mina", "text": "enough for new paints and a frame for the next one :) maya, how's the packing? is the giant hat coming?", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "the hat has its own bag. and don't ask me the date, saying it out loud makes me panic-pack", "emotion": "NEUTRAL", "clue": null },
+    { "speaker": "maya", "text": "trip fund's retired, by the way. everything's paid. so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts", "emotion": "HAPPY", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "liam", "text": "i don't have a yacht but i do have a very big appetite. does that count", "emotion": "HUNGRY", "clue": null },
+    { "speaker": "roxy", "text": "same!! i'm down for every basket on the table. well, except anything milky or creamy. my stomach and i signed a peace treaty, twelve days strong", "emotion": "HAPPY", "clue": "intolerance:dairy" },
+    { "speaker": "brooke", "text": "roxy kept a rule for twelve whole days?? this summer is full of miracles", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "brooke", "text": "speaking of stomachs, mine's still a bit delicate after the cold, so today i want gentle food. steamed and light, nothing that sits in me like a brick", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
+    { "speaker": "roxy", "text": "glad you're back though. your voice notes this week were pure frog", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "you were stuck in bed, i was stuck counting boxes in a stockroom with no windows. table outside today, under actual sky. please", "emotion": "NEUTRAL", "clue": "vibe:outdoor_seating" },
+    { "speaker": "maya", "text": "that explains the basement-mushroom glow in every photo you sent this week", "emotion": "HAPPY", "clue": null },
+    { "speaker": "brooke", "text": "ok, back to our artist. we are not toasting her in a whisper. i want bustle and clatter, somewhere busy enough that our cheering blends right in", "emotion": "HAPPY", "clue": "vibe:lively" },
+    { "speaker": "mina", "text": "please nobody cheer. i'll go pink", "emotion": "SURPRISED", "clue": null },
+    { "speaker": "roxy", "text": "too late. i'm making a sign", "emotion": "HAPPY", "clue": null },
+    { "speaker": "liam", "text": "assistant, roxy's on the sign and i'm on the appetite. you're on everything else", "emotion": "HUNGRY", "clue": null }
+  ],
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
