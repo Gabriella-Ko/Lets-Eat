@@ -1,0 +1,53 @@
+{
+  "level_id": "level_19",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_19/venues_level_19.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_sampan review 1 ('every table sits out on a floating pontoon under canvas awnings')",
+      "issue": "Liam's outdoor wish is 'table outside today, under actual sky', but the answer's review puts every table 'under canvas awnings', while the Heron Wharf decoy is the venue described as 'open to the sky'. Heron Wharf still fails clearly on healthy, so the answer stays unique. But a careful, literal reader could hesitate over whether Sampan really meets Liam's 'actual sky', and the perfect outcome's 'real sky' sits awkwardly against the awnings.",
+      "suggested_fix": "In Sampan review 1, replace 'every table sits out on a floating pontoon under canvas awnings, rocking gently whenever a ferry goes past.' with 'every table sits out on a floating pontoon in the open air, rocking gently whenever a ferry goes past.' Change nothing else."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_19/venues_level_19.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_lighthouse_row review 1 ('Don't hope for a table outside, because there isn't one; the door opens onto a lane...')",
+      "issue": "This is the penultimate level, meant to be the hardest, and the seeder brief asks buried levels to hint through experience. This clause states the deciding fact outright, which makes Lighthouse Row's trap the easiest of the five near misses. The cellar, 'no windows at all' and the bike-wide lane already show unambiguously that there's no outdoor seating.",
+      "suggested_fix": "In Lighthouse Row review 1, replace 'Don't hope for a table outside, because there isn't one; the door opens onto a lane barely wide enough for a bike, so on a sunny day you trade the harbour for lamplight.' with 'The only door opens onto a lane barely wide enough for a bike, so on a sunny day you trade the harbour for lamplight.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_19/outcomes_level_19.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.waterfront_sampan lines[0] (Mina: 'a whole row of vegetable baskets, and i tried every one...')",
+      "issue": "Sampan's reviews show its vegetarian options as the last trolley in the line, the one with no meat or seafood. The 'whole row' wording matches East Jetty's review instead ('One full row of the menu'), so the perfect reaction describes the venue a little differently from its reviews.",
+      "suggested_fix": "Mina: 'a whole trolley of vegetable baskets, and i tried every one. best way to spend a painting :)' (keep emotion HAPPY)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_19/outcomes_level_19.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.waterfront_east_jetty lines[0] (Roxy: 'half the baskets were milky or creamy inside...')",
+      "issue": "East Jetty's dairy is in the milk dough of every bun, the butter pastry of the egg tarts, the evaporated-milk mango pudding and the milky tea. It isn't in creamy fillings, so 'milky or creamy inside' doesn't match the review.",
+      "suggested_fix": "Roxy: 'milk in the buns, butter in the tarts, milk in the pudding, milk in the TEA. the treaty is broken and my stomach has declared war' (keep emotion ANNOYED; Brooke's follow-up stays as is)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "continuity",
+      "file": "content/levels/level_19/dialogue_level_19.json",
+      "agent": "narrative_writer",
+      "where": "script[12] (Maya: 'trip fund's retired, by the way. everything's paid. so i've moved up...')",
+      "issue": "'everything's paid' sits very close to level_20's pinned send-off line ('trip's paid for, tonight's on the fun budget'). That would take the edge off the finale's line one level early. The rest of the line, the shelf metaphor, is fresh against levels 17 and 18.",
+      "suggested_fix": "script[12] Maya: 'trip fund's retired, by the way. mission complete. so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts' (same emotion HAPPY, clue budget, callback trip_fund)."
+    }
+  ],
+  "summary": "A strong penultimate level. Each of the seven needs has one clue line, and every one sits inside real talk: the poll ([5]), Mina's peek at a menu ([8]), Maya's shelves ([12]), Roxy's treaty ([14]), Brooke's cold ([16]), Liam's stockroom ([18]) and the cheering ([20]). Mina's art-fair sale is a warm, fresh centre, and the 17 non-clue lines carry it. There is one callback, no recap line and no round-robin. Voices hold. Mina reacting to a menu is one of the brief's listed routes and follows level_16's beat without her announcing her diet. Maya's shelf metaphor restates $$ freshly against levels 17 and 18. The cold, the stockroom and the poll are new devices. Every decoy is evidenced by its reviews alone: Harbour Moon's pork-or-shrimp motto, East Jetty's milk dough and tarts, Wavecrest's $$$ card plus 'a good notch more', Lighthouse Row's windowless cellar, Capstan's hushed murmur and Heron Wharf's fryers. The outcomes match the reviews ('zero windows', 'pork or prawns', 'brick', the yacht joke). The vegetarian review lines are fairly plain menu facts, but only Harbour Moon's decides a score, so that's acceptable. The suggestions are small polish: Sampan's awnings against 'actual sky', one over-plain Lighthouse Row clause, two outcome wordings and a phrase too close to level_20's pinned line.",
+  "generated_by": "critic"
+}
