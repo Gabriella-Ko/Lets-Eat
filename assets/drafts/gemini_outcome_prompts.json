@@ -723,6 +723,902 @@
           "Wider shot showing the quick burger counter and the lunch-rush street outside."
         ]
       }
+    ],
+    "level_08": [
+      {
+        "venue": "downtown_koi_counter",
+        "venue_name": "Koi Counter",
+        "result": "perfect",
+        "guests": [
+          "cyrus",
+          "mina",
+          "roxy",
+          "maya"
+        ],
+        "file": "level_08_result_koi_counter.png",
+        "refs": [
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Cyrus, Mina, Roxy and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Koi Counter, a simple, cheap sushi counter with a whole meat-free section of rolls. On the table: cucumber, avocado, pickled radish and mushroom rolls for Mina, plenty of other sushi for the rest. No peanuts, nothing creamy. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A perfect pick. Roxy is thrilled with her latest new food adventure; Mina has a whole spread of veggie rolls to choose from; and it's cheap, so Maya's trip fund is safe. Expressions: All HAPPY. Roxy ecstatic, chopsticks raised in triumph; Mina smiling warmly over her veggie rolls; Maya beaming, relieved; Cyrus smiling, relaxed. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Mina choosing from her plate of veggie rolls, Roxy cheering beside her.",
+          "Wider shot showing the simple sushi counter and the summer street outside."
+        ]
+      },
+      {
+        "venue": "downtown_kumo_bar",
+        "venue_name": "Kumo Bar",
+        "result": "fail",
+        "guests": [
+          "cyrus",
+          "mina",
+          "roxy",
+          "maya"
+        ],
+        "file": "level_08_result_kumo_bar.png",
+        "refs": [
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Cyrus, Mina, Roxy and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Kumo Bar, a cheap sushi spot. On the table: sushi rolls topped with crushed peanuts and a little dish of peanut dipping sauce beside every set. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A failed pick: an allergy scare. There are peanuts all over the menu. Cyrus pushes his plate away untouched; Roxy, who promised zero peanuts, springs up in alarm; Maya is already on her feet, leading Cyrus out. Expressions: Cyrus ANGRY, frowning at the peanut-topped rolls. Roxy SURPRISED, hands up, aghast. Maya SURPRISED, standing, a hand on Cyrus's shoulder, steering him toward the door. Mina worried, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus and the peanut-topped rolls, Roxy's hands flying up beside him.",
+          "Wider shot showing the sushi spot, the four friends rising from their table.",
+          "The moment after: Maya walking Cyrus out, Roxy and Mina following, the peanut rolls left behind."
+        ]
+      },
+      {
+        "venue": "downtown_silver_reed",
+        "venue_name": "Silver Reed",
+        "result": "fail",
+        "guests": [
+          "cyrus",
+          "mina",
+          "roxy",
+          "maya"
+        ],
+        "file": "level_08_result_silver_reed.png",
+        "refs": [
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Cyrus, Mina, Roxy and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Silver Reed, a quick, cheap sushi spot. On the table: fish and seafood rolls, sashimi and bowls of miso soup; in front of Mina, only a cup of tea. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A failed pick. There's fish in every roll, and Mina, a vegetarian, quietly settles for tea. Maya won't let that stand and is getting up to leave. Expressions: Mina SURPRISED, holding only a cup of tea, trying to smile. Maya ANGRY, rising, grabbing her bag. Cyrus and Roxy putting down their chopsticks, following Maya's lead. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina holding her cup of tea beside the fish rolls.",
+          "Wider shot showing the sushi spot, Maya on her feet and the others rising.",
+          "The moment after: Maya leading the walk-out with Mina beside her, Cyrus and Roxy following, the fish rolls left behind."
+        ]
+      },
+      {
+        "venue": "downtown_hinoki_table",
+        "venue_name": "Hinoki Table",
+        "result": "partial",
+        "guests": [
+          "cyrus",
+          "mina",
+          "roxy",
+          "maya"
+        ],
+        "file": "level_08_result_hinoki_table.png",
+        "refs": [
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Cyrus, Mina, Roxy and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Hinoki Table, a fast, cheap sushi spot. On the table: rolls packed with cream cheese, a creamy white house sauce drizzled over everything, and tofu, avocado and pickled carrot rolls for Mina. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. The sushi is delicious, but there's dairy in nearly every roll and Roxy's stomach says no. Mina offers her some water; the rest of the table is happy. Expressions: Roxy ANNOYED, one hand on her stomach, wincing. Mina SURPRISED, concerned, sliding her glass of water to Roxy. Cyrus and Maya HAPPY, enjoying their sushi. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Roxy clutching her stomach, Mina's glass of water arriving.",
+          "Wider shot showing the busy sushi spot at lunchtime."
+        ]
+      },
+      {
+        "venue": "downtown_cedar_line",
+        "venue_name": "Cedar Line",
+        "result": "partial",
+        "guests": [
+          "cyrus",
+          "mina",
+          "roxy",
+          "maya"
+        ],
+        "file": "level_08_result_cedar_line.png",
+        "refs": [
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Cyrus, Mina, Roxy and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Cedar Line, a pricier sushi restaurant, a clear step up from the cheap downtown counters. On the table: gorgeous lunch sets with plenty of vegetable rolls. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. The food is delicious but too expensive for Maya, who is saving for her trip. Roxy loved it, then catches herself and turns to Maya apologetically. Expressions: Maya ANNOYED, peeking sadly into a thin, nearly empty wallet. Roxy SURPRISED, mid-bite, turning to Maya with an apologetic look. Mina and Cyrus neutral, eating contentedly. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Maya and her nearly empty wallet, Roxy apologetic beside her.",
+          "Wider shot showing the elegant sushi restaurant."
+        ]
+      }
+    ],
+    "level_09": [
+      {
+        "venue": "downtown_orchid_row",
+        "venue_name": "Orchid Row",
+        "result": "perfect",
+        "guests": [
+          "brooke",
+          "liam",
+          "cyrus",
+          "maya"
+        ],
+        "file": "level_09_result_orchid_row.png",
+        "refs": [
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Brooke, Liam, Cyrus and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Orchid Row, a cheap, busy Thai restaurant, their table under hanging orchids, a noon line out the door. On the table: steamed fish with lime and chili, stir-fried morning glory, a clear lemongrass soup and pad see ew with Chinese broccoli. No peanuts anywhere. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A perfect pick. Liam's dream of Thai food comes true; it's light and fresh for Brooke, who is climbing tonight; and there's not a peanut in sight for Cyrus. Expressions: All HAPPY. Liam overjoyed, a little teary, holding up a forkful of noodles; Brooke beaming; Cyrus smiling, calm and satisfied; Maya happy, digging in. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam, emotional over his plate, Brooke laughing beside him.",
+          "Wider shot showing the hanging orchids and the lunchtime line at the door."
+        ]
+      },
+      {
+        "venue": "downtown_monsoon_alley",
+        "venue_name": "Monsoon Alley",
+        "result": "fail",
+        "guests": [
+          "brooke",
+          "liam",
+          "cyrus",
+          "maya"
+        ],
+        "file": "level_09_result_monsoon_alley.png",
+        "refs": [
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Brooke, Liam, Cyrus and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Monsoon Alley, a cheap Thai restaurant. On the table: grilled satay skewers with a thick peanut dip, noodles and salads showered with crushed peanuts. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A failed pick: an allergy scare, the satay incident all over again. Cyrus pushes his plate away untouched; Liam jumps up in alarm; Brooke, who meant to double-check, is getting Cyrus out. Expressions: Cyrus ANGRY, frowning at the satay skewers and peanut dip. Liam SURPRISED, springing up, arms waving. Brooke SURPRISED, rising and guiding Cyrus away from the table. Maya alarmed, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus facing the satay skewers and peanut dip.",
+          "Wider shot showing the restaurant, the four friends rising from their table.",
+          "The moment after: Brooke leading Cyrus out, Liam and Maya following, the satay left behind."
+        ]
+      },
+      {
+        "venue": "downtown_teak_door",
+        "venue_name": "Teak Door",
+        "result": "partial",
+        "guests": [
+          "brooke",
+          "liam",
+          "cyrus",
+          "maya"
+        ],
+        "file": "level_09_result_teak_door.png",
+        "refs": [
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Brooke, Liam, Cyrus and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Teak Door, a cheap Thai restaurant at the end of an alley behind a carved wooden door. On the table: crispy pork belly, battered wings, an oily pad see ew and spring rolls leaving grease spots on the paper. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. Tasty, but everything is deep-fried, and Brooke is climbing tonight. Liam happily claims her spring rolls. Expressions: Brooke ANNOYED, looking at the greasy plates, pushing hers away. Liam SURPRISED, caught reaching for her spring rolls, with a sheepish grin. Cyrus and Maya neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Brooke and the greasy plate, Liam's hand sneaking toward her spring rolls.",
+          "Wider shot showing the alley restaurant and its carved wooden door."
+        ]
+      },
+      {
+        "venue": "downtown_river_bell",
+        "venue_name": "River Bell",
+        "result": "partial",
+        "guests": [
+          "brooke",
+          "liam",
+          "cyrus",
+          "maya"
+        ],
+        "file": "level_09_result_river_bell.png",
+        "refs": [
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Brooke, Liam, Cyrus and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: River Bell, a pricier Thai restaurant with a back room overlooking the river. On the table: herb salad, steamed sea bass, a pad see ew heavy on greens, a tom yum so clear you can see the bottom of the bowl, and iced teas. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. The food is lovely, but too expensive for Maya, who is saving for her trip. Cyrus offers to cover her iced tea. Expressions: Maya ANNOYED, peeking sadly into a thin, nearly empty wallet. Cyrus SURPRISED, sliding an iced tea over to Maya. Brooke and Liam neutral, enjoying the food. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Maya and her nearly empty wallet, Cyrus's iced tea arriving.",
+          "Wider shot showing the back room and the river view."
+        ]
+      },
+      {
+        "venue": "downtown_koi_counter",
+        "venue_name": "Koi Counter",
+        "result": "partial",
+        "guests": [
+          "brooke",
+          "liam",
+          "cyrus",
+          "maya"
+        ],
+        "file": "level_09_result_koi_counter.png",
+        "refs": [
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/maya_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Brooke, Liam, Cyrus and Maya, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Koi Counter, a simple, cheap sushi counter with eight stools and a chef slicing fish; the four friends sit side by side at the counter. In front of them: cucumber rolls, salmon nigiri, cups of miso soup, soy, pickled ginger and wasabi. No Thai food. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. The sushi is good, but Liam dreamed about Thai food last night and can't stop thinking about it. Maya, fine with the cheap lunch, turns to him. Expressions: Liam ANNOYED, chin on his hand, daydreaming, poking at his sushi. Maya SURPRISED, turning toward Liam. Brooke and Cyrus neutral, content. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam daydreaming over his sushi, Maya turning to him.",
+          "Wider shot showing the small counter and the chef at work."
+        ]
+      }
+    ],
+    "level_10": [
+      {
+        "venue": "downtown_linden_corner",
+        "venue_name": "Linden Corner",
+        "result": "perfect",
+        "guests": [
+          "roxy",
+          "mina",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_10_result_linden_corner.png",
+        "refs": [
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Roxy, Mina, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Linden Corner, a cheap, bright downtown cafe with a window counter and a linden tree outside dropping blossoms on the sidewalk. On the table: a squash grain bowl, lentil soup, a roasted vegetable and hummus sandwich, falafel wraps, oat lattes and banana bread. No peanuts, nothing creamy. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A perfect pick. Real coffee and a happy stomach for Roxy; so much on the board for Mina that she couldn't decide; nothing for Cyrus to worry about; fresh, light food for Brooke. Expressions: All HAPPY. Roxy ecstatic, holding up her oat latte; Mina smiling, surrounded by choices; Cyrus calm and pleased; Brooke beaming. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Roxy raising her latte and Mina with her full plate.",
+          "Wider shot showing the window counter and the linden tree outside."
+        ]
+      },
+      {
+        "venue": "downtown_slate_window",
+        "venue_name": "Slate Window",
+        "result": "fail",
+        "guests": [
+          "roxy",
+          "mina",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_10_result_slate_window.png",
+        "refs": [
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Roxy, Mina, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Slate Window, a cheap cafe with a dark slate wall behind the counter covered in chalk doodles of bowls and coffee cups (pictures only, no writing). On the table: grain bowls coated in thick satay dressing, peanut granola and oat-milk coffees. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A failed pick: an allergy scare. Satay dressing on every grain bowl, peanuts in the granola. Cyrus is heading out to wait on the sidewalk; Brooke stares at the bowls in dismay; Roxy grabs the coffees to leave. Expressions: Cyrus ANGRY, standing, turning toward the door. Brooke SURPRISED, a hand on her head, looking at the satay bowls. Roxy SURPRISED, scooping up the coffee cups to go. Mina worried, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on the satay-coated grain bowls, Cyrus stepping back from them.",
+          "Wider shot showing the cafe and its slate wall of chalk doodles, the friends rising.",
+          "The moment after: Cyrus out on the sunny sidewalk, Roxy, Brooke and Mina hurrying out to him with their coffees."
+        ]
+      },
+      {
+        "venue": "downtown_wren_house",
+        "venue_name": "Wren House",
+        "result": "fail",
+        "guests": [
+          "roxy",
+          "mina",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_10_result_wren_house.png",
+        "refs": [
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Roxy, Mina, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Wren House, a cheap, plain cafe with a little radio by the register. On the table: chicken and barley soup, turkey bowls with roasted vegetables and smoked trout on rye; nothing in front of Mina. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A failed pick. Every single thing has meat or fish in it, even the soup, and Mina, a vegetarian, can't eat anything. Roxy and Cyrus are furious and getting up. Expressions: Mina SURPRISED, empty-handed in front of the meat dishes, trying to smile. Roxy ANGRY, arms flung up. Cyrus ANGRY, stern, rising from his chair. Brooke dismayed, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina, empty-handed among the meat dishes.",
+          "Wider shot showing the plain cafe, Roxy and Cyrus on their feet.",
+          "The moment after: Roxy and Cyrus leading the walk-out, Brooke and Mina following, the meat dishes left behind."
+        ]
+      },
+      {
+        "venue": "downtown_paper_kite",
+        "venue_name": "Paper Kite",
+        "result": "partial",
+        "guests": [
+          "roxy",
+          "mina",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_10_result_paper_kite.png",
+        "refs": [
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Roxy, Mina, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Paper Kite, a cheap, light cafe with handmade paper kites hanging from every beam. On the table: a grain bowl with crumbled feta and yogurt dressing, a mushroom melt oozing cheddar, a cream-topped soup and milky coffees. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. The food is fresh and good, but cheese, butter and milk are everywhere and Roxy's stomach is complaining. Brooke turns to her, sympathetic. Expressions: Roxy ANNOYED, one hand on her stomach, wincing. Brooke SURPRISED, turning to Roxy in sympathy. Mina and Cyrus neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Roxy wincing over her milky coffee, Brooke beside her.",
+          "Wider shot showing the cafe and the paper kites swaying from the beams."
+        ]
+      },
+      {
+        "venue": "downtown_marble_steps",
+        "venue_name": "Marble Steps",
+        "result": "partial",
+        "guests": [
+          "roxy",
+          "mina",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_10_result_marble_steps.png",
+        "refs": [
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Roxy, Mina, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Marble Steps, a cheap cafe at the top of a short flight of marble steps, a ginger cat asleep on the top step. On the table: oil-fried hash browns, battered tofu, chickpea fritters, churros rolled in cinnamon sugar and a sticky date loaf. The scene is Downtown, during the summer internships: a weekday lunch break, bright summer midday light and office buildings outside. What happens: A mixed table. Tasty but so heavy, and Brooke is ready for a nap. Roxy feels like a sleepy bear, but her stomach is fine for once. Expressions: Brooke ANNOYED, slumped and heavy-eyed, pushing away a plate of fritters. Roxy HAPPY, leaning back contentedly, patting her full stomach. Mina and Cyrus neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Brooke slumping and Roxy content beside her.",
+          "Wider shot showing the cafe, the marble steps and the sleeping ginger cat."
+        ]
+      }
+    ],
+    "level_11": [
+      {
+        "venue": "night_market_blue_awning",
+        "venue_name": "Blue Awning",
+        "result": "perfect",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_blue_awning.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Blue Awning, a cheap taco stall under a faded blue awning, a line curling past a lemonade cart. On the table: corn tortilla tacos (grilled fish with cabbage slaw and pineapple salsa, charred corn and black bean) and a smoky avocado salsa. No cheese, no cream. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A perfect pick. Maya held out three days for tacos and they cost next to nothing; zero dairy for Roxy; fresh and light for Brooke, on Roxy's newly found market. Expressions: All HAPPY. Maya triumphant, holding up a taco; Roxy ecstatic, cheering her new favourite stall; Brooke beaming, relaxed; Liam happy, mid-bite. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Maya raising her taco, Roxy cheering beside her.",
+          "Wider shot showing the blue awning, the line of customers and the glowing market."
+        ]
+      },
+      {
+        "venue": "night_market_willow_gate",
+        "venue_name": "Willow Gate",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_willow_gate.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Willow Gate, a very expensive taco stall under an old willow hung with paper lanterns. On the table: two small, beautifully plated tacos (grilled fish with mango and pickled red onion, squash blossom on blue corn). The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick. The prices are sky-high, and Maya, saving for her trip, storms off toward the bus. Liam calls after her; Brooke grabs napkins and rallies everyone to follow. Expressions: Maya ANGRY, walking away from the table, bag over her shoulder. Liam SURPRISED, half-standing, reaching after her. Brooke SURPRISED, jaw dropped, rising with a handful of napkins. Roxy alarmed, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Liam reaching after Maya as she walks away.",
+          "Wider shot showing the willow and its paper lanterns, Maya leaving through the market crowd.",
+          "The moment after: Brooke, Liam and Roxy hurrying after Maya, the two tiny tacos left on the table."
+        ]
+      },
+      {
+        "venue": "night_market_tin_star",
+        "venue_name": "Tin Star",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_tin_star.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Tin Star, a slightly pricier taco stall with a dented tin star hanging over the grill. On the table: al pastor tacos with grilled pineapple, mushroom tacos with salsa verde, lime and cilantro. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Really good tacos, but a bit too pricey for Maya's trip fund. Liam splits his last taco with her. Expressions: Maya ANNOYED, peeking sadly into a thin, nearly empty wallet. Liam HAPPY, tearing his last taco in half for her. Roxy and Brooke neutral, enjoying their tacos. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Maya and her wallet, Liam's half taco arriving.",
+          "Wider shot showing the stall, the tin star and the grill."
+        ]
+      },
+      {
+        "venue": "night_market_little_comet",
+        "venue_name": "Little Comet",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_little_comet.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Little Comet, a cheap taco stall with a chalkboard painted with a bright comet (a picture only, no writing). On the table: grilled fish tacos and veggie tacos, every one buried in crumbled cheese and a swirl of crema. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Amazing tacos, but cheese and crema on every one, and Roxy's stomach is upset. Liam has scraped his off in solidarity. Expressions: Roxy ANNOYED, one hand on her stomach, wincing. Liam SURPRISED, apologetic, a little pile of scraped-off cheese on his plate. Maya and Brooke neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Roxy wincing, Liam's scraped-off cheese beside her.",
+          "Wider shot showing the stall and its painted comet."
+        ]
+      },
+      {
+        "venue": "night_market_moonlit_corner",
+        "venue_name": "Moonlit Corner",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_moonlit_corner.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Moonlit Corner, a cheap taco stall where everything meets the fryer. On the table: crispy potato tacos, battered fish tacos and fried folded tacos soaking grease spots through paper plates, with a heavy spoon of chili oil. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Tasty but so heavy, and Brooke wanted a light night. Maya, happy with the price, offers to walk it off with her. Expressions: Brooke ANNOYED, slumped, one hand on her stomach. Maya HAPPY, cheerful, tugging Brooke up for a walk. Liam and Roxy neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Brooke slumping, Maya tugging her arm.",
+          "Wider shot showing the stall, its fryer and the market aisles."
+        ]
+      },
+      {
+        "venue": "night_market_plum_bridge",
+        "venue_name": "Plum Bridge",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke"
+        ],
+        "file": "level_11_result_plum_bridge.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Maya, Liam, Roxy and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Plum Bridge, a cheap dim sum stall with stacks of bamboo steamers and a grandmother folding dumplings at the front table. On the table: bamboo steamers of shrimp har gow, mushroom and chive dumplings, fluffy steamed buns and gai lan with garlic. No tacos. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. The dim sum is delicious, but Maya held out for tacos for three days. Liam loved the dumplings and promises tacos tomorrow. Expressions: Maya ANNOYED, arms crossed, glaring at a dumpling. Liam HAPPY, grinning, holding up a dumpling. Roxy and Brooke neutral, content. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Maya glaring at her dumpling, Liam grinning beside her.",
+          "Wider shot showing the steamer stacks and the grandmother folding dumplings."
+        ]
+      }
+    ],
+    "level_12": [
+      {
+        "venue": "night_market_firefly_lane",
+        "venue_name": "Firefly Lane",
+        "result": "perfect",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_firefly_lane.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Firefly Lane, a cheap Vietnamese cart strung with little jar lights, herb boxes beside it. On the table: mushroom pho in a clear vegetable broth, tofu summer rolls with a soy-lime dip, a lemongrass tofu banh mi and vermicelli bowls topped with fried shallots. No peanuts anywhere. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A perfect pick. So many choices for Mina that she keeps changing her mind; nothing for Cyrus to check twice; light and fresh for Brooke on a hot night. Expressions: All HAPPY. Mina delighted, torn between dishes; Cyrus relaxed, eating without looking up; Brooke beaming; Liam happy, digging in. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Mina choosing between dishes, Cyrus calmly eating beside her.",
+          "Wider shot showing the cart and its glowing jar lights."
+        ]
+      },
+      {
+        "venue": "downtown_banyan_kitchen",
+        "venue_name": "Banyan Kitchen",
+        "result": "fail",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_banyan_kitchen.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Banyan Kitchen's night cart, a cheap Vietnamese cart with a banyan leaf painted on its side. On the table: summer rolls, a tub of warm peanut dipping sauce, papaya salad and vermicelli bowls under handfuls of crushed peanuts. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick: an allergy scare. Peanuts on everything. Cyrus steps away from the counter; Brooke, who warned everyone, holds out a hand so he doesn't touch a thing; Mina takes his arm to walk him away. Expressions: Cyrus ANGRY, stepping back from the table. Brooke SURPRISED, hand raised over the peanut dishes. Mina SURPRISED, gently taking Cyrus's arm. Liam alarmed, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus and the tub of peanut sauce, Brooke's hand stopping him.",
+          "Wider shot showing the cart with its painted banyan leaf, the friends rising from their table.",
+          "The moment after: Mina walking Cyrus away down the market aisle, Brooke and Liam following."
+        ]
+      },
+      {
+        "venue": "night_market_stone_well",
+        "venue_name": "Stone Well",
+        "result": "fail",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_stone_well.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Stone Well, a cheap Vietnamese cart. On the table: beef pho heaped with basil and sprouts, broken rice with a grilled pork chop and shrimp and pork summer rolls; nothing in front of Mina. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick. There's meat or fish in every single thing, and Mina, a vegetarian, has nothing she can eat. Liam is crestfallen; Cyrus stands up and leads everyone out. Expressions: Mina SURPRISED, empty-handed, trying to smile. Liam SURPRISED, staring at the plates. Cyrus ANGRY, rising, waving everyone up. Brooke following Cyrus's lead. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina, empty-handed among the meat dishes.",
+          "Wider shot showing the cart, Cyrus on his feet.",
+          "The moment after: Cyrus leading the walk-out, Mina, Liam and Brooke following, the dishes left behind."
+        ]
+      },
+      {
+        "venue": "night_market_twelve_bells",
+        "venue_name": "Twelve Bells",
+        "result": "partial",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_twelve_bells.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Twelve Bells, a cheap Vietnamese stall with a string of twelve little brass bells over the counter. On the table: crackling imperial rolls (taro and mushroom for Mina), banh xeo crepes fried until the edges shatter, golden fried tofu and a pork belly banh mi dripping through its paper. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Delicious, but everything is fried, and on a hot night Brooke feels heavy. Liam happily takes the crispy extras and promises her something icy. Expressions: Brooke ANNOYED, fanning herself, pushing away a greasy plate. Liam HAPPY, crunching an imperial roll. Mina and Cyrus neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Brooke fanning herself, Liam crunching beside her.",
+          "Wider shot showing the stall and its string of brass bells."
+        ]
+      },
+      {
+        "venue": "night_market_plum_bridge",
+        "venue_name": "Plum Bridge",
+        "result": "partial",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_plum_bridge.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Plum Bridge, a cheap dim sum stall, a grandmother folding dumplings at the front table and a wobbly tower of stacked steamer lids. On the table: steamed rice noodle rolls with mushrooms, tofu skin rolls, chive dumplings and shrimp har gow. No Vietnamese food. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Liam loves a steamer basket, but he's craving Vietnamese and can smell the Viet stalls from here. Mina is happy and suggests the long way out, past the Viet stalls. Expressions: Liam ANNOYED, nose turned toward the distant stalls, chopsticks idle. Mina HAPPY, smiling over her dumplings. Cyrus and Brooke neutral, content. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam sniffing the air, Mina smiling beside him.",
+          "Wider shot showing the steamer stacks and the wobbly tower of lids."
+        ]
+      },
+      {
+        "venue": "night_market_red_thread",
+        "venue_name": "Red Thread",
+        "result": "partial",
+        "guests": [
+          "mina",
+          "cyrus",
+          "liam",
+          "brooke"
+        ],
+        "file": "level_12_result_red_thread.png",
+        "refs": [
+          "assets/art/mina_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 4 friends, Mina, Cyrus, Liam and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Red Thread, a cheap sushi stall where the chef ties a loop of red thread around every takeout box. On the table: salmon and yellowtail nigiri, and avocado and cucumber rolls, sweet tofu pockets and shiitake nigiri for Mina. No Vietnamese food. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. Liam loved it, but he's still thinking about the Viet stalls. Cyrus promises to scout them for next time. Expressions: Liam ANNOYED, glancing wistfully over his shoulder. Cyrus HAPPY, a friendly hand on Liam's shoulder. Mina and Brooke neutral, content. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam glancing over his shoulder, Cyrus reassuring him.",
+          "Wider shot showing the sushi stall and its red-thread takeout boxes."
+        ]
+      }
+    ],
+    "level_13": [
+      {
+        "venue": "night_market_amber_lamp",
+        "venue_name": "Amber Lamp",
+        "result": "perfect",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_amber_lamp.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Amber Lamp, a cheap, quick burger stall with a big amber glass lamp swinging over the grill. On the table: black bean burgers with pickled red onion and chipotle tomato relish, a grilled mushroom stack, beef smash burgers and fries. No cheese, no peanuts. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A perfect pick. Mina ordered straight off the board just like everyone else; it's cheap enough that Maya gets change back; zero cheese and a quiet stomach for Roxy. Expressions: All HAPPY. Mina smiling, holding her own black bean burger; Maya delighted, counting her change; Roxy cheering; Cyrus pleased; Liam happy, munching fries. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina with her black bean burger, Liam grinning beside her.",
+          "Wider shot showing the stall, the swinging amber lamp and the grill.",
+          "The moment just before: the five friends unwrapping their burgers together."
+        ]
+      },
+      {
+        "venue": "night_market_hollow_oak",
+        "venue_name": "Hollow Oak",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_hollow_oak.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Hollow Oak, a cheap, quick burger stall whose counter is built into a hollowed-out oak trunk. On the table: a burger dripping peanut butter and chili jam, a mushroom burger under peanut sauce and crushed roasted peanuts, and slaw tossed with peanuts. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick: an allergy scare. Peanuts everywhere. Cyrus stops everyone; Roxy, who had crossed this stall off, puts her burger down; Liam puts his back on the tray untouched, ready to follow Cyrus out. Expressions: Cyrus ANGRY, standing, hand raised. Roxy SURPRISED, burger lowered. Liam SURPRISED, setting his burger back on the tray. Maya and Mina alarmed, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus, hand raised over the peanut-covered burgers.",
+          "Wider shot showing the hollow oak counter, the five friends rising from their table.",
+          "The moment after: Cyrus leading the way out, the others following, the burgers left on the tray."
+        ]
+      },
+      {
+        "venue": "night_market_velvet_tent",
+        "venue_name": "Velvet Tent",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_velvet_tent.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Velvet Tent, a cheap, quick burger stall with plum-colored velvet drapes and a record player. On the table: double beef smash burgers, lamb burgers, fried chicken burgers, fries cooked in beef dripping and beans with bacon; nothing in front of Mina. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick. Everything is meat, even the fries, and Mina, a vegetarian, has nothing to eat. Liam is up in outrage, rallying everyone to find her a real burger; Maya is already packing up. Expressions: Mina SURPRISED, empty-handed, glancing toward a corn cob stall nearby. Liam ANGRY, on his feet, waving everyone up. Maya SURPRISED, gathering her things. Roxy and Cyrus getting up to follow. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina, empty-handed among the meat burgers.",
+          "Wider shot showing the velvet-draped stall, Liam on his feet.",
+          "The moment after: Liam leading the walk-out with Mina, Maya, Roxy and Cyrus following, the burgers left behind."
+        ]
+      },
+      {
+        "venue": "night_market_crooked_pine",
+        "venue_name": "Crooked Pine",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_crooked_pine.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Crooked Pine, a very expensive burger stall under a crooked pine at the market's edge. On the table: burgers in little cedar boxes (dry-aged beef on a charcoal bun, a smoked king oyster mushroom patty, a beet and black bean burger) and hand-cut fries. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A failed pick. One burger costs as much as three elsewhere, and Maya, saving for her trip, declares a trip fund emergency: she collects everyone's wallets and turns around. Liam hands his over, half scared, half impressed; Cyrus follows her. Expressions: Maya ANGRY, standing, an armful of the friends' wallets, turning to leave. Liam SURPRISED, handing over his wallet. Cyrus SURPRISED, rising to follow Maya. Roxy and Mina following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Maya gathering the wallets, Liam handing his over.",
+          "Wider shot showing the crooked pine and the stall at the market's edge.",
+          "The moment after: Maya marching away with the wallets, the other four trailing after her."
+        ]
+      },
+      {
+        "venue": "night_market_midnight_orchard",
+        "venue_name": "Midnight Orchard",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_midnight_orchard.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Midnight Orchard, a slightly pricier burger stall with fairy lights wound through potted apple trees around the grill. On the table: smoked mushroom burgers with apple slaw, burgers with sticky cider-glazed onions and fries. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. A great burger, but a bit pricey for Maya's trip fund, so she's sulking. Liam promises to sit with her on the bus home. Expressions: Maya ANNOYED, sulking, peeking into a thin, nearly empty wallet. Liam HAPPY, nudging her shoulder with a grin. Roxy, Cyrus and Mina neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Maya sulking over her wallet, Liam nudging her.",
+          "Wider shot showing the potted apple trees and fairy lights around the grill.",
+          "The moment after: the friends heading for the bus, Liam walking beside a sulking Maya."
+        ]
+      },
+      {
+        "venue": "campus_bun_stop",
+        "venue_name": "Bun Stop",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "roxy",
+          "cyrus",
+          "mina",
+          "liam"
+        ],
+        "file": "level_13_result_bun_stop.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Roxy, Cyrus, Mina and Liam, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Bun Stop, the campus burger counter's night cart by the bike racks at the market's north gate, its side covered in colourful stickers of simple shapes (no writing). On the table: burgers on milk brioche buns toasted in butter, fries tossed in garlic butter and a black bean lettuce wrap; Roxy's burger has no cheese, but the bun is buttered. The scene is the Night Market, in the late summer nights: a warm evening after dark, string lights over the open-air stalls, the friends at a folding table beside the stall, a busy market aisle glowing behind them. What happens: A mixed table. They caught the cheese, but the milk bun and the buttered fries upset Roxy's stomach anyway. Liam, who forgot their old campus spot butters everything, apologises. Expressions: Roxy ANNOYED, one hand on her stomach, wincing. Liam SURPRISED, sheepish and apologetic. Maya, Cyrus and Mina neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Roxy wincing over her bun, Liam apologetic beside her.",
+          "Wider shot showing the sticker-covered cart by the bike racks at the market gate.",
+          "The moment just before: Roxy biting into her cheeseless burger, Liam watching proudly."
+        ]
+      }
     ]
   }
 }
