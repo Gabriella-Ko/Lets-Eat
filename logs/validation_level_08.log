@@ -1,7 +1,7 @@
 PASS level_08
-clue map (stated, 19 lines):
-  allergy:peanut     @ 8, 9
-  diet:vegetarian    @ 10, 12, 13
+clue map (stated, 17 lines):
+  allergy:peanut     @ 8
+  diet:vegetarian    @ 9, 11, 12
   budget             @ 5, 7
   craving            @ 2, 3
-  intolerance:dairy  @ 14, 16, 17
+  intolerance:dairy  @ 13, 15

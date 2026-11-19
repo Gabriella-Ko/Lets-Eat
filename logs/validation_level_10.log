@@ -1,7 +1,7 @@
 PASS level_10
-clue map (implied, 16 lines):
-  allergy:peanut     @ 8, 9
-  diet:vegetarian    @ 10, 11, 12
+clue map (implied, 14 lines):
+  allergy:peanut     @ 8
+  diet:vegetarian    @ 9, 10
   craving            @ 1, 2
   vibe:healthy       @ 7
-  intolerance:dairy  @ 13, 14
+  intolerance:dairy  @ 11, 12
