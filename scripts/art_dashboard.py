@@ -26,6 +26,8 @@ OUTCOME_PROMPTS = DRAFTS / "gemini_outcome_prompts.json"
 GEMINI_DIR = DRAFTS / "gemini"
 PROGRESS = ROOT / "logs" / "gemini_prompts_progress.json"
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
+# Also accept a doubled extension (file.png.jpg) in case a save dialog adds one to a typed name.
+EXTS = EXTS + tuple(a + b for a in EXTS for b in EXTS if a != b)
 
 
 def pixellab_groups():
@@ -134,7 +136,7 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
       <ol>
         <li>Open a <b>new chat</b> in Gemini. Attach the card's reference images (click one to open it full size).</li>
         <li>Click <b>copy prompt</b> for that draft (v1, v2…), paste and send. Ask for fixes in the same chat if needed.</li>
-        <li>Download it into <span class="code">assets/drafts/gemini/&lt;level&gt;/</span> and name it with <b>copy name</b>. PNG, JPG or WEBP.</li>
+        <li>Download it into <span class="code">assets/drafts/gemini/&lt;level&gt;/</span> and name it with <b>copy name</b> (no extension: the save dialog adds .png or .jpg).</li>
         <li>Click <b>Reload</b>. The draft appears; the gold card is the next one to do.</li>
       </ol>
     </div>
@@ -143,7 +145,8 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 </main>
 <script>
 const DATA = __DATA__;
-const EXTS = [".png", ".jpg", ".jpeg", ".webp"];
+const BASE_EXTS = [".png", ".jpg", ".jpeg", ".webp"];
+const EXTS = [...BASE_EXTS, ...BASE_EXTS.flatMap((a) => BASE_EXTS.filter((b) => b !== a).map((b) => a + b))];
 const KEY = "lets-eat-draft-picks";
 let picks = {};
 try { picks = JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) {}
@@ -231,7 +234,7 @@ for (const [level, rows] of Object.entries(byLevel)) {
     $(".prompt", card).textContent = r.prompt;
     const dl = $(".dlist", card);
     r.variations.forEach((extra, i) => {
-      const name = `${r.stem}_v${i + 1}.png`;
+      const name = `${r.stem}_v${i + 1}`;
       const d = document.createElement("div");
       d.innerHTML = `<b>v${i + 1}</b><button class="cp">copy prompt</button><button class="ghost cn">copy name</button><span class="code"></span><span class="ex" style="color:var(--soft)"></span>`;
       $(".code", d).textContent = name;
