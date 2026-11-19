@@ -4030,6 +4030,16 @@
     "step": "declutter_light",
     "result": "clutter audit: cut 2 lines (Roxy satay echo, third sushi_day line); Wren House fail lines reworded; 14 lines. Retries exhausted.",
     "retries": 3,
-    "tokens": null
+    "tokens": 17609
+  },
+  {
+    "timestamp": "2026-11-19T04:32:08.514Z",
+    "level": "level_15",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "clutter audit: cut Cyrus wok lecture and Liam milkshake follow-up; Roxy peanut line reworded; milkshake callback folded into dairy line; 17 lines",
+    "retries": 2,
+    "tokens": 25558
   }
 ]
