@@ -1,0 +1,47 @@
+{
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_sampan",
+      "name": "Sampan",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_harbour_moon",
+      "name": "Harbour Moon",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_east_jetty",
+      "name": "East Jetty",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_wavecrest",
+      "name": "Wavecrest",
+      "cuisine": "dim_sum",
+      "price_tier": "$$$"
+    },
+    {
+      "id": "waterfront_lighthouse_row",
+      "name": "Lighthouse Row",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_capstan",
+      "name": "Capstan",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_heron_wharf",
+      "name": "Heron Wharf",
+      "cuisine": "dim_sum",
+      "price_tier": "$$"
+    }
+  ]
+}
