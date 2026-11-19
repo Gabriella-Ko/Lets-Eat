@@ -1,5 +1,96 @@
 {
   "levels": {
+    "level_01": [
+      {
+        "venue": "campus_noodle_nook",
+        "venue_name": "Noodle Nook",
+        "result": "perfect",
+        "guests": [
+          "liam",
+          "cyrus"
+        ],
+        "file": "level_01_result_noodle_nook.png",
+        "refs": [
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet, and do not copy that image's setting, food or signs. At the table: exactly 2 friends, Liam and Cyrus, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Noodle Nook, a cheap campus noodle spot with a sunny outdoor patio. On the table: huge steaming bowls of noodles in broth. They sit outside on the patio as the afternoon sun pours across it. The scene is in the Campus Quarter, during the spring semester: an afternoon between classes, soft spring daylight and fresh green leaves. What happens: A perfect pick. Liam got his patio and his noodles, and Cyrus has checked that the whole kitchen is peanut-free. Expressions: Both HAPPY. Liam beaming, slurping noodles in the sunshine; Cyrus smiling, approving and relaxed, chopsticks raised over his bowl. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam slurping noodles in the sun, Cyrus smiling approvingly beside him.",
+          "Wider shot showing the sunny patio, its tables and the noodle shop behind them."
+        ]
+      },
+      {
+        "venue": "campus_noodle_cellar",
+        "venue_name": "The Noodle Cellar",
+        "result": "partial",
+        "guests": [
+          "liam",
+          "cyrus"
+        ],
+        "file": "level_01_result_noodle_cellar.png",
+        "refs": [
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet, and do not copy that image's setting, food or signs. At the table: exactly 2 friends, Liam and Cyrus, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: The Noodle Cellar, a cosy basement noodle bar with no windows: brick walls, warm string lights, wooden tables. On the table: big bowls of noodles in rich broth. The scene is in the Campus Quarter, during the spring semester: an afternoon between classes, soft spring daylight and fresh green leaves. What happens: A mixed table. The noodles are excellent, but it's a sunny day and Liam wanted to eat outside; he is stuck in a windowless basement. Expressions: Liam ANNOYED, chin on hand, gazing longingly up the basement stairs toward a faint patch of daylight, his noodles half eaten. Cyrus NEUTRAL and calm, enjoying his broth, amused by Liam's sulking. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam staring wistfully toward the daylight at the top of the stairs, Cyrus eating calmly beside him.",
+          "Wider shot showing the windowless brick basement and its string lights."
+        ]
+      },
+      {
+        "venue": "campus_pizza_corner",
+        "venue_name": "Pizza Corner",
+        "result": "partial",
+        "guests": [
+          "liam",
+          "cyrus"
+        ],
+        "file": "level_01_result_pizza_corner.png",
+        "refs": [
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet, and do not copy that image's setting, food or signs. At the table: exactly 2 friends, Liam and Cyrus, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Pizza Corner, a cheap campus pizza place with picnic tables out front. On the table: giant pizza slices, each as big as a head, on paper plates. No noodles anywhere. They sit at a picnic table outside in the sun. The scene is in the Campus Quarter, during the spring semester: an afternoon between classes, soft spring daylight and fresh green leaves. What happens: A mixed table. Liam wanted noodles and got pizza. Cyrus finds the patio pleasant, at least. Expressions: Liam ANNOYED, holding up a huge droopy slice and glaring at it in disbelief. Cyrus NEUTRAL and calm, enjoying the sunshine with his own slice. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 3,
+        "variations": [
+          "",
+          "Camera closer on Liam glaring at his giant slice of pizza, Cyrus unbothered beside him.",
+          "Wider shot showing the picnic tables out front of the pizza place in the spring sun."
+        ]
+      },
+      {
+        "venue": "campus_satay_spot",
+        "venue_name": "Satay Spot",
+        "result": "fail",
+        "guests": [
+          "liam",
+          "cyrus"
+        ],
+        "file": "level_01_result_satay_spot.png",
+        "refs": [
+          "assets/art/liam_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet, and do not copy that image's setting, food or signs. At the table: exactly 2 friends, Liam and Cyrus, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Satay Spot, a cheap campus noodle place with outdoor tables under strings of lights. On the table: noodle bowls smothered in thick peanut satay sauce, with satay skewers and a dish of peanut sauce; peanut sauce on every dish. The scene is in the Campus Quarter, during the spring semester: an afternoon between classes, soft spring daylight and fresh green leaves. What happens: A failed pick: an allergy scare. Cyrus is allergic to peanuts and every dish here comes with peanut sauce; he is red in the face and leaving. Expressions: Cyrus ANGRY, red-faced, standing up from the table and pushing his plate away, about to walk out. Liam SURPRISED, wide-eyed and alarmed, a forkful of noodles frozen in mid-air. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus, red-faced, pushing the peanut-sauce bowl away, Liam startled beside him.",
+          "Wider shot showing the outdoor tables under the string lights, Cyrus already rising to leave.",
+          "The moment after: Cyrus walking away from the table, Liam scrambling up to follow, the peanut-sauce dishes left behind."
+        ]
+      }
+    ],
     "level_02": [
       {
         "venue": "campus_taco_town",
