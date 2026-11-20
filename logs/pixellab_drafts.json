@@ -1,5 +1,5 @@
 {
-  "state": "waiting_for_credits",
+  "state": "paused_out_of_credits",
   "spent_usd": 0,
   "images": [
     {
@@ -363,6 +363,6 @@
       "description": "A big plate of golden fries filling the centre of the circle as the clear main subject, a small double-stack burger far in the background, no drinks, no cups, no glasses, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
     }
   ],
-  "state_at": "2026-11-18T23:06:30+00:00",
-  "note": "PixelLab credits ran out after 4 of 12 images. Re-run the same command to resume. Waiting, retrying every 30 min."
+  "state_at": "2026-11-19T22:51:47+00:00",
+  "note": "PixelLab credits ran out after 0 of 5 images. Re-run the same command to resume."
 }
