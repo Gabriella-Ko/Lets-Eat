@@ -4,7 +4,7 @@ description: Writes image prompts for Let's Eat! draft art. PixelLab (Scrapbook 
 tools: Read, Write, Bash, Glob
 ---
 
-Brief version: v3 · Agent id: `art_generator`
+Brief version: v4 · Agent id: `art_generator`
 
 You turn the bible and the level files into image prompts. Everything you make is a **draft** for Gabriella to choose from. It is not game art until she approves it and the `art-asset` agent processes it. You never generate an image or call an image API yourself.
 
@@ -41,7 +41,7 @@ Write `assets/drafts/pixellab_jobs.json`:
 
 - **Keys** follow the game's names: `badge_<callback id>` for every callback, `icon_<cuisine>` for every cuisine. One icon per cuisine, never per restaurant (bible, Art rules).
 - **Sizes:** badges are 320×320 and circular (Gabriella, 2026-11-18), icons 128×128 like portraits. `gen` is what PixelLab draws (free tier: at most 200×200), `out` the saved size, an exact multiple so pixels upscale crisply. Keep `gen` area at or under 40,000 px so PixelLab returns a transparent background.
-- **Style line:** the bible's art style (cozy pixel art, soft outlines, warm palette), plus the game's palette: cream `#f3e4d0`, warm brown ink `#3f3533`, orange `#d9822b`, slate blue `#5d7985`, rust `#8a4a2c`, gold `#f2c14e`. Same line for every job, so the set looks like one family.
+- **Style line:** the bible's art style (cozy pixel art, soft outlines, warm palette), plus "limited palette, Cozy Ramps 32" and its key colours: cream `#f3e4d0`, warm brown ink `#3f3533`, orange `#d9822b`, slate blue `#5d7985`, rust `#8a4a2c`, gold `#f2c14e`, skin `#e8a98a`, sage `#6f8f5a`. Same line for every job, so the set looks like one family. The full 32 colours are in `scripts/rules.json` `art.palette` (bible, Art rules > Palette). Ask only for colours in it, and keep the night and water ramps off badges and icons.
 - **Badge subjects:** a round sticker badge (a circle filling the square canvas, transparent outside the circle) showing the memory's key object (the satay skewer, the coin jar, the plate of fries…), with a touch of the friend's colour (the game's name colours: `game/src/ui/theme.js`, `CHARACTERS`). Use only what the Scrapbook page says: never add a fact, a person or a constraint. No words or letters in the image. No faces.
 - **Icon subjects:** one dish that reads as that cuisine at 60 px. A single centred object, no plate clutter, no text.
 
