@@ -7,49 +7,48 @@
   "constraints_found": [
     {
       "who": "roxy",
-      "constraint": "Cafe lunch with real coffee (cuisine craving)",
-      "line": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5!!"
+      "constraint": "Cafe lunch with real coffee and actual food (craving)",
+      "source_line": "cafe lunch. today. i need a real coffee and actual food or i'm not making it to 5!!"
     },
     {
       "who": "brooke",
       "constraint": "Wholesome, light, good-for-you food (preference)",
-      "line": "one request from me: it's been a whole week of office birthday cake, so lunch has to be the wholesome, actually-good-for-you kind"
-    },
-    {
-      "who": "cyrus",
-      "constraint": "Peanut allergy (deal-breaker)",
-      "line": "I'm in. My emergency pen is in my bag, and I'd like it to stay there. Once was enough with the satay."
+      "source_line": "a whole week of birthday cake, that's how. so today's lunch has to be the wholesome, actually-good-for-you kind"
     },
     {
       "who": "mina",
-      "constraint": "Vegetarian, needs a properly meat-free section she can order from freely (strict diet, deal-breaker)",
-      "line": "ooh and mina, remember sushi day? cyrus found you that whole section with zero meat in it / Then sushi day is today's standard."
+      "constraint": "Vegetarian, no meat (strict diet, deal-breaker)",
+      "source_line": "Mina, I'll do what I did on sushi day: find you a whole section with zero meat in it."
+    },
+    {
+      "who": "cyrus",
+      "constraint": "Peanut allergy (deal-breaker), implied by the satay incident",
+      "source_line": "ooh and i'll read every board for you, cyrus. no satay incident sequel today!!"
     },
     {
       "who": "roxy",
-      "constraint": "Dairy intolerance (costs one star)",
-      "line": "oh, and roxy, before you order that coffee: half a cafe menu is milk, butter or cheese. is your stomach still not speaking to them? / ...still not speaking."
+      "constraint": "Dairy intolerance (costs one star, not a deal-breaker)",
+      "source_line": "read them for yourself too, though: half a cafe menu is milk, butter or cheese, and your stomach still isn't speaking to any of them"
     },
     {
       "who": "group",
-      "constraint": "Budget: no explicit tier stated; all venues are $, so price is not a factor",
-      "line": "none"
+      "constraint": "Budget: no explicit tier stated; all five venues are $ cafes, so price does not separate them",
+      "source_line": null
     }
   ],
-  "venue_analysis": {
-    "downtown_linden_corner": "Cafe, $. Large meat-free board, peanut-safe (allergic deskmate eats the whole menu), oat milk by default and olive oil / white beans instead of dairy, fresh and light. Meets everything: 3 stars.",
-    "downtown_slate_window": "Satay dressing on every bowl and peanut granola roasted in-house. Peanut deal-breaker for Cyrus: 0 stars.",
-    "downtown_wren_house": "Everything has meat or fish. Vegetarian deal-breaker for Mina: 0 stars.",
-    "downtown_paper_kite": "Peanut-free, vegetarian half, light, but cheese, cream, butter and whole milk everywhere. Dairy intolerance: 2 stars.",
-    "downtown_marble_steps": "Peanut-safe, dairy-safe, bacon-free vegetarian options, but gloriously heavy fried food. Misses Brooke's wholesome request: 2 stars."
+  "venue_assessment": {
+    "downtown_linden_corner": "Cafe, $. Large meat-free board, fresh and light, peanut-allergic regular eats the whole menu safely, oat milk by default, olive oil instead of butter, bean-thickened soup. Meets everything: 3 stars.",
+    "downtown_slate_window": "Every grain bowl has satay dressing and peanuts are roasted in-house. Peanut allergy deal-breaker for Cyrus: 0 stars.",
+    "downtown_wren_house": "Every dish has meat or fish. Mina's vegetarian diet is a deal-breaker: 0 stars.",
+    "downtown_paper_kite": "Peanut-safe, half the board is vegetarian, light. Heavy on cheese, cream and whole milk, so Roxy's dairy intolerance costs a star: 2 stars.",
+    "downtown_marble_steps": "Peanut-safe, dairy-safe, meatless breakfast plate. Food is deep-fried and heavy, so Brooke's wholesome preference is missed: 2 stars."
   },
   "difficulty": 3,
   "notes": [
-    "Every decoy fails exactly one constraint, which makes the puzzle clean and fair: a full read of each card is required.",
-    "Cyrus's peanut allergy is indirect (emergency pen + satay) and Roxy confirms it, so it is findable without the clue field. Good.",
-    "Mina's vegetarianism is never stated outright; it is inferred from 'zero meat' sushi day. Fair, but the softest clue in the chat. Linden Corner's review says the reviewer 'went meat-free' and works through the board rather than stating the board is fully meatless; it reads as a broad meat-free menu, which matches the 'whole section' standard.",
-    "Roxy's dairy clue is the clearest (Mina names milk, butter, cheese directly).",
-    "No budget is stated; all five venues are $ so this is not an issue.",
-    "Slate Window's peanut trap is fairly obvious (satay in the very first review) given Cyrus's satay line."
+    "Solvable and fair. Each wrong option fails exactly one person, which makes a good elimination puzzle.",
+    "Two key constraints only come through other speakers: Mina's vegetarianism comes from Cyrus ('zero meat'), and Cyrus's peanut allergy comes from Roxy ('satay incident'). The satay-to-peanut link needs some outside knowledge. A player who doesn't know satay is peanut-based could miss it, though Slate Window's reviews mention peanuts outright, which helps.",
+    "Linden Corner's peanut safety rests on a story about a deskmate. It is convincing, but it is a story, not a direct statement that the place is nut-free.",
+    "Paper Kite and Marble Steps both come out at 2 stars, each failing one soft constraint. That is a fair pair of near-miss traps.",
+    "No budget is given in the chat. That is harmless here, since every venue is $."
   ]
 }

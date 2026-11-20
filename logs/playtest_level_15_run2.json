@@ -6,51 +6,51 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "who": "liam",
-      "constraint": "Noodles (the noodle row stall)",
+      "constraint": "Cuisine: noodles (the noodle stall on the noodle row)",
       "type": "craving",
-      "source_line": "the noodle stall, the one nobody could find all summer: my cousin's roommate works the market and she swears it's on the noodle row"
+      "who": "liam",
+      "line": "everyone drop everything. the noodle stall, the one nobody could find all summer: the girl upstairs works the market and she swears it's on the noodle row"
     },
     {
-      "who": "maya",
-      "constraint": "Budget: cheapest tier ($), coins only",
+      "constraint": "Budget: cheapest tier ($); Maya's coin purse is the whole budget, so no breaking a bill",
       "type": "budget",
-      "source_line": "exactly as far as the cheapest bowls. if the price board makes me break a bill, i will be very dramatic about it"
+      "who": "maya",
+      "line": "i'm in, but my coin purse is the whole budget tonight. if a price board makes me break a bill, i will be very dramatic about it"
     },
     {
-      "who": "cyrus",
-      "constraint": "Peanut allergy, including peanut oil, peanut toppings and shared woks (deal-breaker)",
+      "constraint": "Peanut allergy (no peanut in wok oil, toppings, anything): deal-breaker",
       "type": "allergy",
-      "source_line": "Not just the sauce: the oil in the wok, the crunchy bits on top, a wok shared with a peanut dish. Peanut anywhere in the bowl's story, and we keep walking."
+      "who": "liam",
+      "line": "cyrus, while you're sketching, cross off any cart with peanut in it. wok oil, sprinkled on top, all of it. one satay incident was plenty"
     },
     {
-      "who": "brooke",
-      "constraint": "Green / vegetable-forward, light, not fried or greasy",
+      "constraint": "Light, green meal: vegetables, nothing fried or greasy",
       "type": "preference",
-      "source_line": "so tonight, a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging"
+      "who": "brooke",
+      "line": "a bowl that's actually green and doesn't leave me feeling like a fried dumpling. my body is begging (with the setup line about her grandma asking 'are you eating your greens?')"
     },
     {
-      "who": "roxy",
-      "constraint": "No dairy: no butter, no milk, nothing creamy (read as an intolerance, given the 'milkshake incident')",
+      "constraint": "Dairy intolerance (no butter or milk in the broth): costs a star, not a deal-breaker",
       "type": "intolerance",
-      "source_line": "...you remembered the milkshake?? ok yeah. no butter, no milk, nothing creamy in mine"
+      "who": "roxy",
+      "line": "oh and roxy, remember the milkshake? my tipster says a lot of carts on that row finish the broth with butter or a splash of milk"
     }
   ],
-  "elimination": {
-    "night_market_brass_kettle": "Peanut sauce, peanut crumble, peanut dressing: deal-breaker for Cyrus.",
-    "night_market_sundial": "Every bowl starts with roasted peanut oil: deal-breaker for Cyrus (the 'oil in the wok' clue).",
-    "night_market_kestrel": "Milk broth with butter on top: misses Roxy's no-dairy need (2 stars at best).",
-    "night_market_wild_thistle": "Deep-fried, greasy noodles: misses Brooke's green and not-fried preference (2 stars).",
-    "night_market_bramble_row": "Fits everyone except price: $$ is one tier over Maya's coins-only budget (2 stars).",
-    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, broth is ginger, scallion, kombu and soy (no dairy), bok choy, nothing fried. Fits everyone."
+  "venue_reasoning": {
+    "night_market_bramble_row": "Peanut-free, dairy-free, light and green, but $$ is one tier over budget: 2 stars.",
+    "night_market_wild_thistle": "$, peanut-free, dairy-free, but deep-fried and greasy, so it misses Brooke's light green bowl: 2 stars.",
+    "night_market_juniper_yard": "$, on the market's peanut-free allergy board, broth is ginger/scallion/kombu/soy with no dairy, clear broth with bok choy, nothing fried: 3 stars.",
+    "night_market_kestrel": "$, peanut-free, light and vegetable-heavy, but milk broth with butter on top hits Roxy's dairy intolerance: 2 stars.",
+    "night_market_brass_kettle": "Peanut sauce, crushed peanuts, peanut dressing: deal-breaker.",
+    "night_market_sundial": "Every bowl starts with roasted peanut oil: deal-breaker (exactly the 'wok oil' Liam warned about)."
   },
   "difficulty": 3,
   "notes": [
-    "Fair, well-built puzzle. Each decoy fails on exactly one constraint, and the two peanut traps are graded: Brass Kettle is obvious, while Sundial hides the peanut in the cooking oil, which Cyrus's 'the oil in the wok' line sets up nicely.",
-    "Bramble Row is the strongest decoy (it reads like 'THE stall' from Liam's hype), but '$$' on the card plus 'a few dollars more than the carts on either side' lines up with Maya's coins-only line. Good, consistent signal.",
-    "Maya's budget is given only as a metaphor ('coins only', 'cheapest bowls'). I read it as $, which works because five of the six cards are $. A player who misses the metaphor could still pick Bramble Row and get 2 stars.",
-    "Roxy's dairy constraint is unclear: 'the milkshake incident' and 'dead to me' could mean an intolerance or a strict avoidance. It does not change the answer, but whether Kestrel scores 2 stars or 0 depends on it.",
-    "Wild Thistle's peanut-safety evidence is a bit roundabout (a reviewer's partner who unloads deliveries) compared with Juniper Yard's official allergy board. That seems intentional, and it is not needed to solve the level because Wild Thistle already fails on 'fried'.",
-    "Liam's 'you'll know at the first slurp' tip does not help pick a stall. It is flavour text, which is fine, but some players may hunt for a hidden clue in it."
+    "Single clean 3-star answer; every other non-peanut venue misses exactly one constraint, which is a nice 'near-miss' structure.",
+    "Sundial is a good trap: reads as light, green and dairy-free, and the peanut oil is mentioned once in passing. Liam's 'wok oil' line sets it up fairly.",
+    "Roxy's dairy constraint is only implied ('remember the milkshake?') and Roxy never confirms it herself; it reads as an intolerance rather than an allergy, which matches Kestrel's review (housemate on the couch, not hospital). Fair, but a player could wonder whether it is an allergy (deal-breaker) or intolerance. Either way Kestrel is not the pick.",
+    "Budget is implied rather than stated as a tier ('break a bill'); with all but one venue at $, Bramble Row's $$ plus the review's 'a few dollars more' makes it readable.",
+    "Bramble Row is framed as 'the stall everyone has been posting about this summer', a nice red herring against Liam's 'THE stall' hype. Liam's 'you'll know at the first slurp' does not point to a specific venue, which is fine.",
+    "Maya's grandma line and Cyrus's sketch details are flavour only; no hidden constraint found in them."
   ]
 }

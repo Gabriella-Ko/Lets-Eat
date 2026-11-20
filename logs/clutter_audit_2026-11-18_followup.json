@@ -1,0 +1,48 @@
+{
+  "audit": "follow-up: light-touch declutter cuts",
+  "date": "2026-11-18",
+  "follows": "logs/clutter_audit_2026-11-18.json",
+  "scope": ["level_08", "level_10", "level_14", "level_15"],
+  "method": "Read the current dialogue, outcomes and venues files for each level against the audit's cut list. No shell was available, so git diff was not run; the before-state comes from the audit's quoted texts and indices.",
+  "levels": [
+    {
+      "level_id": "level_08",
+      "verdict": "pass",
+      "flow": "Clean. Maya's 'and mina's vegetarian' now follows Cyrus's peanut line directly, which reads naturally. Roxy's 'ok i'm so ready. oh, small thing' picks up Mina's 'now i'm actually excited'. The milkshake exchange now closes on Maya's sign-off without Cyrus restating it.",
+      "needs_and_traps": "Every need is still covered. Peanut is on script[8], with 'peanut sauce or crushed peanuts on top' matching Kumo Bar's review. Vegetarian is on script[9]-[12] (Silver Reed). Dairy is on script[13]-[15]: 'nothing creamy ... dairy and i don't get along' is plain enough in a stated level to rule out Hinoki Table's cream cheese. Budget is on script[5]-[7] (Cedar Line).",
+      "outcomes": "Match. The new Kumo Bar Roxy line ('cyrus warned us about this exact thing') points back to script[8] and no longer relies on the cut 'plate guard' line. Hinoki Table's 'dairy in these rolls' still matches its review.",
+      "less_naggy": "Yes. Both pure echo lines are gone and the sushi-section origin of sushi_day is untouched.",
+      "hand_edits": []
+    },
+    {
+      "level_id": "level_10",
+      "verdict": "pass",
+      "flow": "Clean. Cyrus's satay line follows Brooke's request with 'I'm in', and Roxy's 'ooh and mina, remember sushi day?' now opens the vegetarian beat straight after it. Mina's reply ends the sushi_day thread, and her dairy catch on Roxy follows naturally.",
+      "needs_and_traps": "Every need is still covered. Peanut is implied on script[8] (emergency pen, satay) and Slate Window's review evidences it. Vegetarian is on script[9]-[10] (Wren House). Dairy is on script[11]-[12] (Paper Kite) and healthy on script[7] (Marble Steps).",
+      "outcomes": "Match. The reworded Wren House lines ('exact OPPOSITE of sushi day'; Cyrus 'On sushi day I found her a whole section ... personal failure') are consistent with level_08 script[11] and with Wren House's review. Roxy's Slate Window line 'it's ALL satay-adjacent' reuses a phrase from the cut line, but it works on its own as a reaction to Cyrus's satay callback. No change needed.",
+      "less_naggy": "Yes. Callback lines drop from 5 to 3, and the chat now reads as goose, reunion, then needs, without double echoes.",
+      "hand_edits": []
+    },
+    {
+      "level_id": "level_14",
+      "verdict": "pass",
+      "flow": "Clean. Brooke's 'so proud of you maya! ok, my news' now follows Maya's budget lines directly, which is a better hand-off than Roxy's echo was. The dairy thread now ends on Brooke's warning, and Mina's 'it's going to be such a good night' wraps up the whole chat. Roxy doesn't acknowledge Brooke's warning, but her latte confession plus Brooke's reply already lands the clue, and that fits clue rule 6: Roxy doesn't state her own need.",
+      "needs_and_traps": "Every need is still covered. Budget is on script[5]-[6], and 'one step up from that' still covers the Tall Grass trap. Healthy is on script[8] (Lucky Seven). Vegetarian is on script[10]-[11] (Glass Bead). Dairy is on script[13]-[14] (Night Heron's ghee and yogurt, which its review evidences). The craving is on script[0] (Firefly Lane).",
+      "outcomes": "Match. Night Heron's 'the latte was a warning and i ignored it' still refers to a line that stayed in (script[13]).",
+      "less_naggy": "Yes. Dairy is down to two lines and the budget isn't repeated.",
+      "hand_edits": []
+    },
+    {
+      "level_id": "level_15",
+      "verdict": "pass",
+      "flow": "Clean. Cyrus says 'I ask the cook one question', Liam replies 'the question ... satay incident', and Roxy's 'adding it to my cart checklist then' answers Liam. It also ties back to her own script[4] ('i'll check every cart myself'), so nothing replies to the cut lecture. Liam's 'milkshake incident rules' sets up Roxy's '...you remembered the milkshake??'.",
+      "needs_and_traps": "Every need is still covered. Peanut: the satay callback plus Roxy's 'any peanut, any form, in the wok or on top' covers both Brass Kettle (sauce and topping) and the Sundial precision trap (peanut oil in the wok, evidenced in its review). Folding 'in the wok' into Roxy's broad line keeps the trap fair without the lecture. Dairy is on script[13]-[14] (Kestrel's milk broth and butter). Healthy is on script[11]-[12] (Wild Thistle) and budget on script[5]-[7] (Bramble Row).",
+      "outcomes": "Match. Cyrus's Sundial line ('the cook answered the rest of my question') fits the one-question routine kept on script[8]. Roxy's Sundial line repeats her chat line as a natural callback. Kestrel's 'my tipster warned me' matches script[13].",
+      "less_naggy": "Yes, noticeably. This was the most naggy level in the set and the Cyrus lecture is gone. Peanut now reads as three short conversational lines.",
+      "optional_note": "'milkshake incident rules:' is a slightly odd phrase, but it's in Liam's voice and does its job. Leave it unless Gabriella dislikes it.",
+      "hand_edits": []
+    }
+  ],
+  "overall": "All four cuts landed cleanly. No line answers a removed line, no scored need or trap lost its clue or review evidence, and the outcomes match the trimmed chats. No hand edits are needed. Level_15 gains the most, level_08 the least, as the audit predicted.",
+  "generated_by": "critic"
+}

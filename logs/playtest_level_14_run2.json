@@ -6,56 +6,44 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: curry (group poll result)",
+      "constraint": "Cuisine craving: curry (group poll)",
       "who": "group",
       "type": "craving",
-      "source_line": "brooke: \"poll's closed, dinner crew! curry 3, 'surprise me' 1\""
+      "line": "brooke: \"poll's closed, dinner crew! curry 3, 'surprise me' 1\""
     },
     {
-      "constraint": "Budget: $ (street-cart prices); $$ is one tier over",
+      "constraint": "Budget: $ (street-cart prices, not the fancy end)",
       "who": "maya",
       "type": "budget",
-      "source_line": "maya: \"street-cart prices, please. one step up from that and i'm counting coins the whole walk home\""
+      "line": "maya: \"celebrate, yes. fancy end, no. a pat on the back isn't a paycheck, and the trip fund still eats first. street-cart prices, or i'm toasting my big win with a free sample\""
     },
     {
-      "constraint": "Preference: fresh, clean, light food, nothing heavy or fried",
+      "constraint": "Light, fresh, not heavy or fried food (running a 10k at 7am)",
       "who": "brooke",
       "type": "preference",
-      "source_line": "brooke: \"so tonight i need fuel, not a food coma. fresh and clean, please\""
+      "line": "brooke: \"so tonight i need fuel, not a food coma. fresh and clean, please\""
     },
     {
-      "constraint": "Strict diet: vegetarian (no meat, no fish)",
+      "constraint": "Vegetarian (no meat, no fish) with plenty of clearly safe options",
       "who": "mina",
-      "type": "diet",
-      "source_line": "mina: \"not one dish i had to ask about. no meat, no fish, just pick and eat...\""
+      "type": "strict diet",
+      "line": "maya: \"mina, you're picking first tonight. sushi day rules: a whole board you can point at, no meat, no fish, nothing to ask about...\""
     },
     {
-      "constraint": "Preference: most of the board meat-free (wide vegetarian choice)",
-      "who": "mina",
-      "type": "preference",
-      "source_line": "mina: \"...if most of tonight's board is like that, i'm happy :)\""
-    },
-    {
-      "constraint": "Intolerance: dairy (no cream, yogurt or butter in the sauce)",
+      "constraint": "Dairy intolerance",
       "who": "roxy",
       "type": "intolerance",
-      "source_line": "roxy: \"...oh. ok, none of that in my sauce. my stomach is still mad about the latte\" (after brooke: \"a lot of curries are made with cream, yogurt or butter\")"
+      "line": "roxy: \"ok unrelated, but i stole one sip of my roommate's iced latte last night and my stomach held a grudge until 2am\""
     }
   ],
-  "venue_assessment": {
-    "night_market_night_heron": "Curry, $, lean and no fryer, over half meat-free, but ghee and yogurt are in every base: dairy intolerance costs a star. 2 stars.",
-    "night_market_marigold_cart": "Curry, $, no fryer and fresh sides, 3 of 4 pots vegetarian with a separate ladle, coconut oil and coconut milk with no dairy. Meets everything. 3 stars.",
-    "night_market_lucky_seven": "Curry, $, dairy-free, but everything is deep-fried and greasy (misses Brooke), and only half the board is meat-free (arguably misses Mina's 'most'). 1-2 stars.",
-    "night_market_firefly_lane": "Fresh, vegetarian-friendly, dairy-free and $, but it is Vietnamese, not curry: misses the group craving. 2 stars.",
-    "night_market_tall_grass": "Curry, fresh, vegetarian and dairy-free, but $$ is one tier over Maya's budget. 2 stars.",
-    "night_market_glass_bead": "Every dish has meat, fish or shrimp paste, even the vegetable side uses chicken stock: deal-breaker for Mina. 0 stars."
+  "venue_analysis": {
+    "night_market_night_heron": "Curry, $, light, many veg dishes, but ghee and yogurt in everything: dairy intolerance costs 1 star -> 2 stars.",
+    "night_market_marigold_cart": "Curry, $, no fryer and light, 3 of 4 pots vegetarian with their own ladle, coconut milk and oil only (no dairy). Meets everything -> 3 stars.",
+    "night_market_lucky_seven": "Curry, $, veg and dairy-free, but everything is deep-fried and greasy: misses Brooke -> 2 stars.",
+    "night_market_firefly_lane": "Veg, dairy-free, fresh, $, but Vietnamese, not curry: misses craving -> 2 stars.",
+    "night_market_tall_grass": "Curry, veg, dairy-free, light, but $$ (one tier over) -> 2 stars.",
+    "night_market_glass_bead": "No vegetarian option at all (even pumpkin curry has dried shrimp paste, veg side in chicken stock): deal-breaker for Mina."
   },
   "difficulty": 3,
-  "notes": [
-    "Every decoy fails exactly one constraint, so the puzzle is fair and the solution is unique once all constraints are found.",
-    "Roxy's dairy intolerance is indirect (iced latte story plus Brooke spelling out cream/yogurt/butter); it is findable and the Night Heron review makes ghee and yogurt very explicit, so it is fair.",
-    "Mina's vegetarian diet is stated through a memory rather than directly ('no meat, no fish'); still clear. Her 'most of the board' preference is a soft secondary constraint that mostly matters for Lucky Seven, which already fails on Brooke's fresh-and-clean preference, so it does not decide anything on its own.",
-    "Maya's budget phrasing 'one step up from that and i'm counting coins' could be read as one tier over being painful but not a deal-breaker, which matches the one-star penalty for Tall Grass.",
-    "Marigold Cart's fish curry pot could worry a player at first, but the review says the vegetarian pots use their own ladle, kept away from the fish."
-  ]
+  "notes": "Fair puzzle with a clear unique answer; each decoy fails exactly one constraint, which is well designed. Clues are mostly indirect but readable: Roxy's dairy intolerance is hidden in an 'unrelated' latte anecdote and is the easiest to miss, which would lead to Night Heron. Mina's vegetarian clue is carried by Maya via a 'sushi day rules' callback; the 'no meat, no fish' wording makes it clear enough even without knowing the earlier level. Small ambiguity: Marigold Cart also serves a fish curry, so 'nothing to ask about' could make a player hesitate, but the review addresses this explicitly (separate ladle, kept away from the fish). Price tier for Tall Grass is visible on the card, so the budget trap is fair."
 }

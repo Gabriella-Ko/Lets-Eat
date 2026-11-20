@@ -6,39 +6,34 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Cuisine: curry (poll result)",
-      "who": "group",
-      "line": "brooke: \"poll's closed, dinner crew! curry 3, 'surprise me' 1\""
+      "constraint": "Cuisine: curry (group poll result)",
+      "source_line": "brooke: \"poll's closed, dinner crew! curry 3, 'surprise me' 1\""
     },
     {
-      "constraint": "Budget: $ (street-cart prices); $$ would cost a star",
-      "who": "maya",
-      "line": "maya: \"street-cart prices, please. one step up from that and i'm counting coins the whole walk home\""
+      "constraint": "Budget: $ (street-cart prices, not the fancy end)",
+      "source_line": "maya: \"celebrate, yes. fancy end, no. ... street-cart prices, or i'm toasting my big win with a free sample\""
     },
     {
-      "constraint": "Light / fresh, not fried or heavy",
-      "who": "brooke",
-      "line": "brooke: \"so tonight i need fuel, not a food coma. fresh and clean, please\""
+      "constraint": "Preference: fresh, light, not fried or heavy (Brooke)",
+      "source_line": "brooke: \"so tonight i need fuel, not a food coma. fresh and clean, please\""
     },
     {
-      "constraint": "Vegetarian (no meat, no fish), wants a board mostly meat-free",
-      "who": "mina",
-      "line": "mina: \"no meat, no fish, just pick and eat... if most of tonight's board is like that, i'm happy :)\" (set up by maya's sushi-day line)"
+      "constraint": "Strict diet: Mina is vegetarian (no meat, no fish), needs plenty of clearly safe choices",
+      "source_line": "maya: \"mina, you're picking first tonight. sushi day rules: a whole board you can point at, no meat, no fish, nothing to ask about...\""
     },
     {
-      "constraint": "Dairy intolerance (no cream, yogurt or butter)",
-      "who": "roxy",
-      "line": "roxy: \"...oh. ok, none of that in my sauce. my stomach is still mad about the latte\" (with brooke's line about cream, yogurt or butter)"
+      "constraint": "Intolerance: Roxy is dairy-intolerant",
+      "source_line": "roxy: \"i stole one sip of my roommate's iced latte last night and my stomach held a grudge until 2am\""
     }
   ],
-  "venue_analysis": {
-    "night_market_marigold_cart": "Curry, $, no fryer and fresh sides, 3 of 4 pots meat-free with a separate ladle, coconut milk base with no dairy. Meets every constraint: 3 stars.",
-    "night_market_night_heron": "Curry, $, lean, over half meat-free, but ghee and yogurt are in every pot and can't be left out. Dairy intolerance costs a star: 2 stars.",
-    "night_market_lucky_seven": "Curry, $, meat-free half, dairy-free, but everything is fried and greasy, so it misses Brooke's fresh/light ask: 2 stars.",
-    "night_market_firefly_lane": "Light, meat-free, dairy-free and $, but it's Vietnamese, not curry: 2 stars.",
-    "night_market_tall_grass": "Curry, light, meat-free options, coconut milk, but $$ is one tier over Maya's budget: 2 stars.",
-    "night_market_glass_bead": "Curry, $, light, but nothing is meat-free or fish-free (shrimp paste, chicken stock). Deal-breaker for Mina."
+  "venue_reasoning": {
+    "night_market_night_heron": "Curry, $, lean and unfried, plenty vegetarian, but ghee and yogurt in everything: dairy intolerance, 2 stars.",
+    "night_market_marigold_cart": "Curry, $, no fryer, three of four pots vegetarian with a separate ladle, coconut oil and coconut milk with no dairy: 3 stars.",
+    "night_market_lucky_seven": "Curry, $, vegetarian and dairy-free, but everything is fried and greasy, so it misses Brooke's fresh preference: 2 stars.",
+    "night_market_firefly_lane": "Fresh, vegetarian, dairy-free and $, but it's Vietnamese, not curry: 2 stars.",
+    "night_market_tall_grass": "Curry, fresh, vegetarian, dairy-free, but $$ is one tier over the budget: 2 stars.",
+    "night_market_glass_bead": "No vegetarian option at all (shrimp paste, chicken stock): deal-breaker, 0 stars."
   },
   "difficulty": 3,
-  "notes": "Fair, well-built puzzle. Every decoy fails exactly one constraint, so each clue matters. Maya's budget line is clear: 'one step up' tells you $$ costs something. Roxy's dairy intolerance is found by pairing the latte joke with Brooke's cream/yogurt/butter reply. That needs a little inference but it's fair. Mina's diet is the softest clue: she never says 'I'm vegetarian'. You have to infer it from the sushi-day memory ('no meat, no fish'), and her wording ('if most of tonight's board is like that, i'm happy') reads a bit like a preference rather than a strict diet. It doesn't change the pick, since only Glass Bead fails it and Glass Bead fails it completely. Night Heron's dairy is spelled out in a review, which is good because 'charred, lean' would otherwise make it look like a match. Not unfair, nothing contradictory."
+  "notes": "Fair puzzle with a good spread of near-miss decoys, each failing exactly one constraint. Mina's vegetarian clue reaches the player only through Maya's 'sushi day rules' line, which refers to an in-joke the player hasn't seen. 'No meat, no fish' makes it readable, though. Roxy's dairy clue is a light, joke-style hint (iced latte), which suits a late level. One small point: Marigold also serves a fish curry, so the phrase 'nothing to ask about' briefly made me wonder whether a mixed board counts. The review saying the vegetarian pots get their own ladle settles it. Night Heron's dairy is spelled out very plainly. No contradictions found."
 }
