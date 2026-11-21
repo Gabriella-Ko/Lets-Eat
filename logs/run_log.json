@@ -5015,7 +5015,7 @@
     "step": "playtest_run1",
     "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 17484
   },
   {
     "timestamp": "2026-11-21T03:33:24.357Z",
