@@ -5196,5 +5196,15 @@
     "result": "pass after review trim, 0 must_fix, 2 suggestions (napkin outcome lines; Pier Nine crunch echo) to PR",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:07:08.745Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "Quayside and Breakwater Maya outcomes no longer reference the cut napkin promise. Retries exhausted.",
+    "retries": 3,
+    "tokens": null
   }
 ]
