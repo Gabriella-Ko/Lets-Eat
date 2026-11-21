@@ -4986,5 +4986,25 @@
     "result": "first-critique suggestions: Pier Nine departure board, Bluewater rewritten (no quote), Quayside new scene, Keel Street/Marina Arch dairy varied, Tidewater consistent",
     "retries": 1,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:32:34.217Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:32:34.217Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
   }
 ]
