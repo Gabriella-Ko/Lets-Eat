@@ -5155,7 +5155,7 @@
     "step": "playtest_run1_after_review_trim",
     "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 17126
   },
   {
     "timestamp": "2026-11-21T04:02:29.132Z",
