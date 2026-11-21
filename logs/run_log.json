@@ -5055,6 +5055,6 @@
     "step": "critique",
     "result": "pass after rework, 0 must_fix, 1 suggestion (relative-with-need device on 4-5 venues; to PR)",
     "retries": 0,
-    "tokens": null
+    "tokens": 47975
   }
 ]
