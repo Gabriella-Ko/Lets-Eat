@@ -1,0 +1,61 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_19",
+  "run": 1,
+  "pick": "waterfront_sampan",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Cuisine: dim sum / dumplings",
+      "who": "brooke (group poll)",
+      "line": "poll's closed: little bamboo baskets of dumplings, by a landslide"
+    },
+    {
+      "constraint": "Vegetarian options: a good range of meat-free, seafood-free dumplings (read as a preference, not a strict diet)",
+      "who": "mina",
+      "line": "every single one had pork or prawns tucked inside. somewhere with a whole row of vegetable ones would make my day"
+    },
+    {
+      "constraint": "Budget: middle tier ($$); $$$ is out",
+      "who": "maya",
+      "line": "so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts"
+    },
+    {
+      "constraint": "Dairy intolerance (no milk or cream)",
+      "who": "roxy",
+      "line": "except anything milky or creamy. my stomach and i signed a peace treaty, twelve days strong"
+    },
+    {
+      "constraint": "Light, steamed food (nothing fried or heavy)",
+      "who": "brooke",
+      "line": "today i want gentle food. steamed and light, nothing that sits in me like a brick"
+    },
+    {
+      "constraint": "Outdoor seating",
+      "who": "liam",
+      "line": "table outside today, under actual sky. please"
+    },
+    {
+      "constraint": "Lively, noisy atmosphere",
+      "who": "brooke",
+      "line": "i want bustle and clatter, somewhere busy enough that our cheering blends right in"
+    }
+  ],
+  "elimination": {
+    "waterfront_harbour_moon": "No vegetarian options at all (even the veg buns have dried shrimp).",
+    "waterfront_east_jetty": "Milk dough buns, butter pastry, evaporated-milk pudding: fails Roxy's dairy.",
+    "waterfront_wavecrest": "$$$, one tier over the middle-shelf budget.",
+    "waterfront_lighthouse_row": "Windowless cellar: fails Liam's outdoor table.",
+    "waterfront_capstan": "Quiet, murmuring tea garden: fails Brooke's bustle.",
+    "waterfront_heron_wharf": "Fried end of dim sum: fails Brooke's steamed and light.",
+    "waterfront_sampan": "Open-air pontoon, loud trolley calling, mostly steamed and light, full vegetarian trolley, no dairy anywhere, $$. Meets everything."
+  },
+  "difficulty": 3,
+  "notes": [
+    "Fair and solvable: seven constraints, each decoy fails exactly one, and the dialogue gives every one a clear line.",
+    "The budget clue ('middle shelf', 'top shelf is for people with yachts') is metaphorical but readable. With Wavecrest the only $$$ venue, it is easy once you check the cards.",
+    "Sampan's vegetarian evidence hedges a little ('on our visit not one basket on it held meat or seafood'), and the first review lists pork siu mai and har gow. A careful player could wonder if the veg range is reliable. It is still clearly enough, but it is softer than Lighthouse Row's or Capstan's explicit meatless sections.",
+    "Mina's line says 'would make my day', so I read vegetarian as a preference rather than a strict diet. The pick is the same either way.",
+    "Distractor lines (the hat, the voice notes, the basement glow) do not hide any constraints. No contradictions found."
+  ]
+}

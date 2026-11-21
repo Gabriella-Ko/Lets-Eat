@@ -1,0 +1,20 @@
+{
+  "level_id": "level_19",
+  "chapter": 4,
+  "district": "waterfront",
+  "difficulty": "buried",
+  "guests": ["maya", "liam", "roxy", "brooke", "mina"],
+  "hard": { "budget_max": "$$", "allergies": [], "diets": ["vegetarian"] },
+  "soft": { "craving": "dim_sum", "vibe": ["outdoor_seating", "lively", "healthy"], "intolerances": ["dairy"] },
+  "solution_id": "waterfront_sampan",
+  "decoys": [
+    { "id": "waterfront_harbour_moon", "fails_on": "diet:vegetarian" },
+    { "id": "waterfront_east_jetty", "fails_on": "intolerance:dairy" },
+    { "id": "waterfront_wavecrest", "fails_on": "budget_soft" },
+    { "id": "waterfront_lighthouse_row", "fails_on": "vibe:outdoor_seating" },
+    { "id": "waterfront_capstan", "fails_on": "vibe:lively" },
+    { "id": "waterfront_heron_wharf", "fails_on": "vibe:healthy" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

@@ -180,6 +180,69 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["quiet"],
       "first_level": "level_18"
+    },
+    {
+      "id": "waterfront_sampan",
+      "name": "Sampan",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "lively", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_harbour_moon",
+      "name": "Harbour Moon",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["outdoor_seating", "lively", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_east_jetty",
+      "name": "East Jetty",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "lively", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_wavecrest",
+      "name": "Wavecrest",
+      "cuisine": "dim_sum",
+      "price_tier": "$$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "lively", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_lighthouse_row",
+      "name": "Lighthouse Row",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_capstan",
+      "name": "Capstan",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "quiet", "healthy"],
+      "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_heron_wharf",
+      "name": "Heron Wharf",
+      "cuisine": "dim_sum",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["outdoor_seating", "lively"],
+      "first_level": "level_19"
     }
   ],
   "generated_by": "map_seeder",

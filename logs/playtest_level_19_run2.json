@@ -1,0 +1,55 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_19",
+  "run": 2,
+  "pick": "waterfront_sampan",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: dim sum / steamed dumplings",
+      "who": "brooke (group poll)",
+      "line": "poll's closed: little bamboo baskets of dumplings, by a landslide"
+    },
+    {
+      "constraint": "Preference: plenty of vegetarian (no meat, no seafood) dumplings",
+      "who": "mina",
+      "line": "every single one had pork or prawns tucked inside. somewhere with a whole row of vegetable ones would make my day"
+    },
+    {
+      "constraint": "Budget: middle shelf, $$",
+      "who": "maya",
+      "line": "so i've moved up from the bottom-shelf places to the middle shelf. the top shelf is still for people with yachts"
+    },
+    {
+      "constraint": "Intolerance: dairy (one star, not a deal-breaker)",
+      "who": "roxy",
+      "line": "except anything milky or creamy. my stomach and i signed a peace treaty, twelve days strong"
+    },
+    {
+      "constraint": "Preference: steamed, light food, nothing fried or heavy",
+      "who": "brooke",
+      "line": "today i want gentle food. steamed and light, nothing that sits in me like a brick"
+    },
+    {
+      "constraint": "Preference: outdoor seating",
+      "who": "liam",
+      "line": "table outside today, under actual sky. please"
+    },
+    {
+      "constraint": "Preference: lively, busy, noisy atmosphere",
+      "who": "brooke",
+      "line": "i want bustle and clatter, somewhere busy enough that our cheering blends right in"
+    }
+  ],
+  "elimination": {
+    "waterfront_harbour_moon": "No vegetarian options at all (misses Mina).",
+    "waterfront_east_jetty": "Milk dough buns, butter pastry, evaporated milk pudding, milky tea (dairy; misses Roxy).",
+    "waterfront_wavecrest": "$$$, one tier over budget.",
+    "waterfront_lighthouse_row": "Windowless cellar, no outdoor seating (misses Liam).",
+    "waterfront_capstan": "Quiet, murmuring tea garden (misses Brooke's bustle).",
+    "waterfront_heron_wharf": "Fried dim sum (misses Brooke's steamed and light).",
+    "waterfront_sampan": "Open-air pontoon, loud trolley calling, mostly steamed and light, a full meatless trolley, no dairy anywhere, $$. Meets every constraint."
+  },
+  "difficulty": 3,
+  "notes": "Fair, well-built level: seven constraints, and each decoy fails on exactly one. Each clue is readable but sits inside banter. The dairy clue for Roxy ('milky or creamy', 'peace treaty') relies on callbacks to earlier levels, but you can still work it out on its own. Maya's budget line ('middle shelf', 'top shelf is for people with yachts') is a nice metaphor and maps cleanly to $$. Wavecrest's 'a good notch more' review matches its $$$ card. For Mina I read 'would make my day' as a preference rather than a strict diet, so no venue is ruled out on it. If it were a strict diet, Harbour Moon would be a deal-breaker instead of a one-star miss, but the pick doesn't change. Sampan's 'pork siu mai' and 'har gow' could briefly worry a player about Mina, but the second review clearly gives a full meatless trolley. Nothing contradictory found."
+}

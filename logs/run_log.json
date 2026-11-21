@@ -4757,6 +4757,146 @@
     "tokens": null
   },
   {
+    "timestamp": "2026-11-19T21:28:41.215Z",
+    "level": "level_19",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer waterfront_sampan (dim_sum, $$, outdoor+lively+healthy); veg trap + dairy/$$$/outdoor/lively-vs-quiet/healthy near misses; 7 new venues, all dim sum",
+    "retries": 0,
+    "tokens": 46514
+  },
+  {
+    "timestamp": "2026-11-19T21:32:59.564Z",
+    "level": "level_19",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 new dim sum venues added to waterfront registry",
+    "retries": 0,
+    "tokens": 65144
+  },
+  {
+    "timestamp": "2026-11-19T21:33:52.627Z",
+    "level": "level_19",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_outcomes",
+    "result": "written: 24 lines, 7 clue (one per need), 1 callback (trip_fund), 17 non-clue; Maya $$ restated (middle shelf)",
+    "retries": 0,
+    "tokens": 76726
+  },
+  {
+    "timestamp": "2026-11-19T21:34:04.092Z",
+    "level": "level_19",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:36:31.343Z",
+    "level": "level_19",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 5 suggestions (3 writer, 2 seeder) sent for one rework round",
+    "retries": 0,
+    "tokens": 68259
+  },
+  {
+    "timestamp": "2026-11-19T21:37:06.291Z",
+    "level": "level_19",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "critic suggestions: Sampan open air; Lighthouse Row plain clause cut",
+    "retries": 1,
+    "tokens": 20376
+  },
+  {
+    "timestamp": "2026-11-19T21:37:14.009Z",
+    "level": "level_19",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "critic suggestions: Maya mission complete; Sampan and East Jetty outcomes match reviews",
+    "retries": 1,
+    "tokens": 21354
+  },
+  {
+    "timestamp": "2026-11-19T21:37:14.465Z",
+    "level": "level_19",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:37:14.465Z",
+    "level": "level_19",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:37:46.420Z",
+    "level": "level_19",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 0 suggestions",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17267
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17255
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (sampan, 3 stars), all 7 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17214
+  },
+  {
+    "timestamp": "2026-11-19T21:38:02.223Z",
+    "level": "level_19",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (2 runs read Mina's need as a preference; 2 runs: Sampan vegetarian evidence weakest, hedged \"on our visit\")",
+    "retries": 0,
+    "tokens": null
+  },
+  {
     "timestamp": "2026-11-20T05:22:00.273Z",
     "level": null,
     "agent_id": "human:gabby",
@@ -4764,6 +4904,16 @@
     "step": "palette_lock",
     "result": "approved",
     "note": "Palette locked: Cozy Ramps 32 (picked on the palette dashboard). Bible Art rules, rules.json art.palette, art-generator brief v4",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:15:37.724Z",
+    "level": "level_19",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
     "retries": 0,
     "tokens": null
   }

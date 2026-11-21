@@ -1,0 +1,65 @@
+{
+  "level_id": "level_19",
+  "by_venue": {
+    "waterfront_sampan": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "mina", "text": "a whole trolley of vegetable baskets, and i tried every one. best way to spend a painting :)", "emotion": "HAPPY" },
+        { "speaker": "liam", "text": "real sky, baskets for days, nobody counting boxes. i'm never going back in that stockroom", "emotion": "HAPPY" },
+        { "speaker": "roxy", "text": "sign held up all lunch. so did the treaty. day thirteen!!", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_harbour_moon": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "mina", "text": "oh... it's the menu i peeked at on my walk home. pork or prawns in every single basket", "emotion": "SURPRISED" },
+        { "speaker": "liam", "text": "on her own celebration day?? i'm paying for the tea and we're going somewhere else", "emotion": "ANGRY" },
+        { "speaker": "roxy", "text": "folding up the sign. mina, i'm so sorry", "emotion": "SURPRISED" }
+      ]
+    },
+    "waterfront_east_jetty": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "milk in the buns, butter in the tarts, milk in the pudding, milk in the TEA. the treaty is broken and my stomach has declared war", "emotion": "ANNOYED" },
+        { "speaker": "brooke", "text": "twelve days is still a record, roxy. we start the count again tomorrow", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_wavecrest": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "top shelf. i kept looking around for the yachts, and then the bill came and said i own one now", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "it's painting money, maya. let me cover your tea :)", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_lighthouse_row": {
+      "result": "partial",
+      "missed": ["vibe:outdoor_seating"],
+      "lines": [
+        { "speaker": "liam", "text": "great dumplings. zero windows. it's the stockroom all over again, just with soy sauce", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "last basket goes out on the steps. sky's right there, liam", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_capstan": {
+      "result": "partial",
+      "missed": ["vibe:lively"],
+      "lines": [
+        { "speaker": "brooke", "text": "lovely food, but it's so hushed in here that roxy's sign got a frown from the next table", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "honestly, i didn't mind the quiet :) but next time we find brooke her clatter", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_heron_wharf": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "everything came out heavy and shining with oil. my poor post-cold stomach feels like it swallowed a brick", "emotion": "ANNOYED" },
+        { "speaker": "maya", "text": "i'm walking you home the long way, brooke. sea air fixes everything", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
