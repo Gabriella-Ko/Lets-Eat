@@ -7,49 +7,50 @@
   "constraints_found": [
     {
       "who": "liam",
-      "constraint": "Craving Vietnamese food (group agrees)",
+      "constraint": "craving: Vietnamese",
       "type": "craving",
-      "source_line": "liam: \"viet. tonight. please\""
+      "source_line": "viet. tonight. please"
     },
     {
       "who": "cyrus",
-      "constraint": "Peanut allergy (deal-breaker). Any stall that keeps a peanut tub, even in the back, is out",
+      "constraint": "peanut allergy (deal-breaker)",
       "type": "allergy",
-      "source_line": "cyrus: \"Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.\""
+      "source_line": "cyrus, heads up: a lot of those viet stalls had a big tub of crushed peanuts on the counter. we're skipping every one of those for you"
     },
     {
       "who": "mina",
-      "constraint": "Vegetarian (needs meat-free / tofu options). Read as a strict diet, implied rather than stated",
+      "constraint": "vegetarian / no meat or fish (strict diet, inferred)",
       "type": "diet",
-      "source_line": "cyrus: \"Good. Then wherever we land needs plenty of options for Mina.\" (supported by liam: \"mina, half that row does tofu versions of everything\" and mina: \"tofu everything?? that sounds like my kind of row :)\")"
+      "source_line": "tofu everything?? i could order off the whole board for once :)"
     },
     {
       "who": "brooke",
-      "constraint": "Wants light food, nothing heavy or deep-fried",
+      "constraint": "wants light food, nothing heavy or fried",
       "type": "preference",
-      "source_line": "brooke: \"it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket\" (confirmed by liam/brooke on fryers being 'way out')"
+      "source_line": "also: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket (reinforced by liam: 'so the stalls with the giant bubbling fryers are out for you')"
     },
     {
       "who": "group",
-      "constraint": "Budget: no explicit tier stated. All six venues are $, so price never decides anything",
+      "constraint": "budget: not stated; every venue is $, so it cannot decide anything",
       "type": "budget",
       "source_line": "none"
     }
   ],
   "elimination": {
-    "downtown_banyan_kitchen": "Peanut sauce on every order, crushed peanuts, peanuts roasted on site. Fails Cyrus's allergy.",
-    "night_market_stone_well": "Peanut-free, viet and light, but the meat-free options fail: shrimp/pork filling made in one batch, and fish sauce or dried shrimp in everything. Fails Mina.",
-    "night_market_twelve_bells": "Viet, peanut-safe, has meat-free versions, but everything is fried. Misses Brooke's light preference (-1 star).",
-    "night_market_plum_bridge": "Safe for nuts, vegetarian-friendly and steamed, but it's dim sum, not viet. Misses Liam's craving (-1 star).",
-    "night_market_red_thread": "Sushi. Peanut-free, has veg options and is light, but not viet (-1 star).",
-    "night_market_firefly_lane": "Viet, no peanuts anywhere on the cart (allergic reviewer checked every jar), vegetable broth pho plus tofu rolls and banh mi, clean and light. Meets every constraint."
+    "downtown_banyan_kitchen": "peanuts on everything, fails Cyrus's allergy",
+    "night_market_stone_well": "no meat-free options (shared filling, fish sauce and dried shrimp in everything), fails Mina",
+    "night_market_twelve_bells": "everything deep-fried or oily, misses Brooke's wish for something light (would cost 1 star)",
+    "night_market_plum_bridge": "safe and light, but dim sum, so it misses Liam's Viet craving (would cost 1 star)",
+    "night_market_red_thread": "safe and light, but sushi, so it misses Liam's Viet craving (would cost 1 star)",
+    "night_market_firefly_lane": "Viet, no peanuts anywhere on the cart, vegetable broth and tofu dishes with a soy-lime dip (no fish sauce), light and fresh. Meets every constraint"
   },
   "difficulty": 3,
   "notes": [
-    "Mina's vegetarianism is never stated directly. You have to infer it from the tofu exchange and Cyrus's 'plenty of options for Mina'. I treated it as a strict diet. That holds together, but a player could read it as a mild preference. Stone Well is the trap here, and it only works if the player treats Mina's need as real.",
-    "Firefly Lane's vermicelli bowls come with 'fried shallots', and its review says the shallot jar sits 'where other carts keep their peanut tub'. Both are deliberate red herrings. They are fair because the review says outright that there are no peanuts and no fryer, and the food is called fresh and light.",
-    "Twelve Bells is a well-built decoy. It is safe for the allergy and has meat-free food, but it fails Brooke's no-fryer line.",
-    "Banyan Kitchen's id says 'downtown' while it sits in the night market. The review explains this (it's the night cart of a downtown lunch counter), so it doesn't affect the puzzle.",
-    "No budget is given and every venue is $, so price plays no part."
+    "Mina's vegetarian diet is never stated outright. It has to be inferred from 'i could order off the whole board for once', which comes after Liam mentions the tofu versions. Most players will get it, but it is the softest clue in the chat. Stone Well's second review fits it well, since it mentions a friend 'who doesn't eat meat'.",
+    "Cyrus's allergy is also implied rather than named ('we're skipping every one of those for you'), but the reviews make it clear enough.",
+    "Brooke's preference is clear, and Liam's fryer line confirms it.",
+    "The decoys work well: each one fails exactly one constraint, and Plum Bridge and Red Thread are tempting safe picks that only miss the cuisine.",
+    "Banyan Kitchen's id starts with 'downtown_' even though it is listed in the night_market registry, and its review says it is a night cart of a downtown lunch counter. This is consistent in the fiction, but the id looks odd. I did not use it to make the pick.",
+    "Nothing unfair or contradictory found."
   ]
 }

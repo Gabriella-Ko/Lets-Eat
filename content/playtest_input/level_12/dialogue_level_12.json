@@ -18,6 +18,16 @@
     },
     {
       "speaker": "liam",
+      "text": "cyrus. there are no street names. it's smoke and fairy lights. you follow your nose",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "cyrus",
+      "text": "My nose doesn't come with a legend. The map stays.",
+      "emotion": "NEUTRAL"
+    },
+    {
+      "speaker": "liam",
       "text": "ok so. last time we walked past a whole row of viet stalls on the way to the tacos and i've thought about it every day since",
       "emotion": "HUNGRY"
     },
@@ -28,38 +38,28 @@
     },
     {
       "speaker": "brooke",
-      "text": "the viet row! it smelled incredible. i'm in",
+      "text": "i'm in. and mina, cyrus: you're coming in the front way with me. the first look is the best part",
       "emotion": "HAPPY"
     },
     {
       "speaker": "mina",
-      "text": "viet sounds lovely :) cyrus, does that work for you?",
+      "text": "is it as pretty at night as everyone says? i'm a little nervous i'll stop at every stall and never pick one",
       "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "cyrus",
-      "text": "It should. Brooke, Liam, you two have seen the stalls. Anything I should know before we go?",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "brooke",
-      "text": "honestly? a lot of the viet stalls had a big tub of crushed peanuts on the counter. they were spooning it onto everything",
-      "emotion": "SURPRISED"
     },
     {
       "speaker": "liam",
-      "text": "true. basically sprinkle stations",
+      "text": "that's exactly how you do it. i've stopped at every stall and i still haven't found my noodle stall",
+      "emotion": "HAPPY"
+    },
+    {
+      "speaker": "brooke",
+      "text": "cyrus, heads up: a lot of those viet stalls had a big tub of crushed peanuts on the counter. we're skipping every one of those for you",
       "emotion": "NEUTRAL"
     },
     {
       "speaker": "cyrus",
-      "text": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.",
+      "text": "Appreciated. The map is getting a legend after all.",
       "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "mina",
-      "text": "we'll find one :) i'd rather we all eat somewhere you can actually relax",
-      "emotion": "HAPPY"
     },
     {
       "speaker": "liam",
@@ -68,27 +68,17 @@
     },
     {
       "speaker": "mina",
-      "text": "tofu everything?? that sounds like my kind of row :)",
+      "text": "tofu everything?? i could order off the whole menu for once :)",
       "emotion": "HAPPY"
-    },
-    {
-      "speaker": "cyrus",
-      "text": "Good. Then wherever we land needs plenty of options for Mina.",
-      "emotion": "NEUTRAL"
     },
     {
       "speaker": "mina",
-      "text": "only if it's easy! i don't want the whole night planned around me",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "brooke",
-      "text": "mina, it's a market with fifty stalls. we can plan around anyone we like",
+      "text": "cyrus, save me a corner of that map. i want to doodle the stalls i like",
       "emotion": "HAPPY"
     },
     {
       "speaker": "brooke",
-      "text": "speaking of which: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket",
+      "text": "also: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket",
       "emotion": "NEUTRAL"
     },
     {
@@ -97,13 +87,8 @@
       "emotion": "SURPRISED"
     },
     {
-      "speaker": "brooke",
-      "text": "way out. i don't even want to stand next to one in this heat",
-      "emotion": "HAPPY"
-    },
-    {
       "speaker": "cyrus",
-      "text": "I've circled the viet row on the map. Assistant, the rest is yours.",
+      "text": "I've circled the viet row. Mina, the margins are yours. Assistant, the rest is up to you.",
       "emotion": "NEUTRAL"
     },
     {

@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "2a383eb7bda6585ed7de3b41d120339edce06310",
+  "head": "6c1c679d3e374af6a0db0b6075d85ec634751596",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -1390,12 +1390,33 @@
       "level": "level_12",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-15T17:38:27-05:00",
-      "commit": "0292210a5b9fc1afa01aa82e349247d931c400c1",
-      "last_commit_by": "narrative_writer",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:11:04-05:00",
+      "commit": "288010add1689934b4380ebeff2bbf545cc1172f",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "288010add1689934b4380ebeff2bbf545cc1172f",
+          "timestamp": "2026-11-21T12:11:04-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_12: Mina's tofu line says menu instead of board",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "92361be614f7a0915f5f3bec2cac0819e7aa7819",
+          "timestamp": "2026-11-21T10:23:32-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: apply critic suggestions after declutter",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "9fa0e707be924a976671fe0b138fbfda66386396",
+          "timestamp": "2026-11-21T10:21:08-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: declutter chat to brief v9 (clutter audit)",
+          "pre_pipeline": false
+        },
         {
           "commit": "0292210a5b9fc1afa01aa82e349247d931c400c1",
           "timestamp": "2026-11-15T17:38:27-05:00",
@@ -1438,12 +1459,19 @@
       "level": "level_12",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-15T17:59:37-05:00",
-      "commit": "a84a697dc83e1926b10f382686421e79e32cd09d",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T10:23:32-05:00",
+      "commit": "92361be614f7a0915f5f3bec2cac0819e7aa7819",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "92361be614f7a0915f5f3bec2cac0819e7aa7819",
+          "timestamp": "2026-11-21T10:23:32-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_12: apply critic suggestions after declutter",
+          "pre_pipeline": false
+        },
         {
           "commit": "a84a697dc83e1926b10f382686421e79e32cd09d",
           "timestamp": "2026-11-15T17:59:37-05:00",
@@ -3075,12 +3103,19 @@
       "level": "level_12",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
-      "timestamp": "2026-11-15T17:39:23-05:00",
-      "commit": "eb285f4693ab8221c88f68ccdb217814dd52ee1c",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T10:22:57-05:00",
+      "commit": "ba2350d5c09d46a8c3945e1f7b477965e024487a",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "ba2350d5c09d46a8c3945e1f7b477965e024487a",
+          "timestamp": "2026-11-21T10:22:57-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_12: review after declutter, pass, 2 suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "eb285f4693ab8221c88f68ccdb217814dd52ee1c",
           "timestamp": "2026-11-15T17:39:23-05:00",
@@ -4364,11 +4399,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T17:40:11-05:00",
-      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "timestamp": "2026-11-21T10:24:15-05:00",
+      "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
+          "timestamp": "2026-11-21T10:24:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
           "timestamp": "2026-11-15T17:40:11-05:00",
@@ -4398,11 +4440,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T17:40:11-05:00",
-      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "timestamp": "2026-11-21T10:24:15-05:00",
+      "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
+          "timestamp": "2026-11-21T10:24:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
           "timestamp": "2026-11-15T17:40:11-05:00",
@@ -4432,11 +4481,18 @@
       "author_id": "blind_playtester",
       "edited_by": null,
       "brief_version": "v2",
-      "timestamp": "2026-11-15T17:40:11-05:00",
-      "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
+      "timestamp": "2026-11-21T10:24:15-05:00",
+      "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
       "last_commit_by": "blind_playtester",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "5abe0c9de015ea319c69f814940b5e98d6d7868c",
+          "timestamp": "2026-11-21T10:24:15-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_12: 3 runs after declutter, 3/3 correct",
+          "pre_pipeline": false
+        },
         {
           "commit": "db377bf8f51ef14541b42fb5ba31ed9b3ba7d840",
           "timestamp": "2026-11-15T17:40:11-05:00",

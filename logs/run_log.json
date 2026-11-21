@@ -5236,5 +5236,145 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:19:26.725Z",
+    "level": "level_12",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter rework (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:21:08.587Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_rework",
+    "result": "clutter audit rework: 22 -> 19 lines, 6 clue, 0 callbacks, 13 non-clue; Cyrus no longer explains his allergy",
+    "retries": 1,
+    "tokens": 50615
+  },
+  {
+    "timestamp": "2026-11-21T15:21:19.416Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:21:19.416Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after declutter",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:22:57.287Z",
+    "level": "level_12",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after declutter, 0 must_fix, 2 suggestions sent for one rework round",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:23:32.009Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "critic suggestions: Mina order-off-the-whole-board line; Cyrus Stone Well outcome",
+    "retries": 2,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:23:32.341Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:23:32.341Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:24:15.697Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_declutter",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15752
+  },
+  {
+    "timestamp": "2026-11-21T15:24:15.697Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_declutter",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15727
+  },
+  {
+    "timestamp": "2026-11-21T15:24:15.697Z",
+    "level": "level_12",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_declutter",
+    "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 15841
+  },
+  {
+    "timestamp": "2026-11-21T15:24:15.697Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after declutter (all runs: Mina vegetarian clue softest but found)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:11:57.337Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "validate_after_hand_edit",
+    "result": "pass; playtest input rebuilt after human:gabby edit to Mina line (board -> menu); Banyan id edit reverted at Gabriella request",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:12:22.871Z",
+    "level": "level_12",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]
