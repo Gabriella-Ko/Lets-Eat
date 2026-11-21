@@ -5255,6 +5255,26 @@
     "step": "declutter_rework",
     "result": "clutter audit rework: 22 -> 19 lines, 6 clue, 0 callbacks, 13 non-clue; Cyrus no longer explains his allergy",
     "retries": 1,
+    "tokens": 50615
+  },
+  {
+    "timestamp": "2026-11-21T15:21:19.416Z",
+    "level": "level_12",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:21:19.416Z",
+    "level": "level_12",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after declutter",
+    "retries": 0,
     "tokens": null
   }
 ]
