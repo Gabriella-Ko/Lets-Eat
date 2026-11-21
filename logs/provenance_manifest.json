@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "0fe8fa454c6b45556103d1efaca91468e2c1abfc",
+  "head": "0ca14f154723f39531f81db9aa93f68202d6a95e",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -2345,6 +2345,114 @@
       ]
     },
     {
+      "file": "content/levels/level_19/dialogue_level_19.json",
+      "level": "level_19",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v9",
+      "timestamp": "2026-11-19T16:37:14-05:00",
+      "commit": "6aca4537baee8d90c1919d62aa15bc286d64bb11",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "6aca4537baee8d90c1919d62aa15bc286d64bb11",
+          "timestamp": "2026-11-19T16:37:14-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_19: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fa6d8930b9466e89469a8024f3071da2811ed134",
+          "timestamp": "2026-11-19T16:33:52-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_19: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_19/outcomes_level_19.json",
+      "level": "level_19",
+      "author_id": "narrative_writer",
+      "edited_by": null,
+      "brief_version": "v9",
+      "timestamp": "2026-11-19T16:37:14-05:00",
+      "commit": "6aca4537baee8d90c1919d62aa15bc286d64bb11",
+      "last_commit_by": "narrative_writer",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "6aca4537baee8d90c1919d62aa15bc286d64bb11",
+          "timestamp": "2026-11-19T16:37:14-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_19: apply critic suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "fa6d8930b9466e89469a8024f3071da2811ed134",
+          "timestamp": "2026-11-19T16:33:52-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_19: chat and outcomes",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_19/spec_level_19.json",
+      "level": "level_19",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-19T16:28:41-05:00",
+      "commit": "81cb7e26903c18e18a1e70199bc14ac32536504b",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "81cb7e26903c18e18a1e70199bc14ac32536504b",
+          "timestamp": "2026-11-19T16:28:41-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_19: spec (Sampan, dim sum, all seven venues dim sum)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_19/venues_level_19.json",
+      "level": "level_19",
+      "author_id": "map_seeder",
+      "edited_by": "human:gabby",
+      "brief_version": "v6",
+      "timestamp": "2026-11-20T22:14:03-05:00",
+      "commit": "c488e8d41b8cf1cffddd4d03c95a9ac625f47b02",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c488e8d41b8cf1cffddd4d03c95a9ac625f47b02",
+          "timestamp": "2026-11-20T22:14:03-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_19: hand edit Sampan review 1",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "ad45562520def487654c92eb92bc6baba246f2ce",
+          "timestamp": "2026-11-19T16:37:06-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_19: apply critic suggestions (Sampan open air, Lighthouse Row)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f879d4308dc2c76f02ccde440e865cbc7e907ef5",
+          "timestamp": "2026-11-19T16:32:59-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_19: venues and 7 new Waterfront dim sum venues",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -2501,11 +2609,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-16T23:50:51-05:00",
-      "commit": "6301e84a7ca4f848ac8d6de3f9813078debae4e7",
+      "timestamp": "2026-11-19T16:32:59-05:00",
+      "commit": "f879d4308dc2c76f02ccde440e865cbc7e907ef5",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "f879d4308dc2c76f02ccde440e865cbc7e907ef5",
+          "timestamp": "2026-11-19T16:32:59-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_19: venues and 7 new Waterfront dim sum venues",
+          "pre_pipeline": false
+        },
         {
           "commit": "6301e84a7ca4f848ac8d6de3f9813078debae4e7",
           "timestamp": "2026-11-16T23:50:51-05:00",
@@ -3039,6 +3154,33 @@
           "timestamp": "2026-11-16T23:54:19-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_18: pass, 6 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_19.json",
+      "level": "level_19",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-19T16:37:46-05:00",
+      "commit": "7850e190caf8f152f3cd7547ee94316b369acfc4",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7850e190caf8f152f3cd7547ee94316b369acfc4",
+          "timestamp": "2026-11-19T16:37:46-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_19: re-review after rework, pass, no suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "3434d8ad9a69668df66e186d28175f32f9d1be4d",
+          "timestamp": "2026-11-19T16:36:31-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_19: pass, 5 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -4686,6 +4828,66 @@
           "timestamp": "2026-11-16T23:57:38-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_18: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_19_run1.json",
+      "level": "level_19",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-19T16:38:02-05:00",
+      "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+          "timestamp": "2026-11-19T16:38:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_19: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_19_run2.json",
+      "level": "level_19",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-19T16:38:02-05:00",
+      "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+          "timestamp": "2026-11-19T16:38:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_19: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_19_run3.json",
+      "level": "level_19",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-19T16:38:02-05:00",
+      "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "7d346d5e3d663eaacb331202f7fd449eac59f69f",
+          "timestamp": "2026-11-19T16:38:02-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_19: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]
