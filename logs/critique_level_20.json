@@ -1,0 +1,98 @@
+{
+  "level_id": "level_20",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/dialogue_level_20.json",
+      "agent": "narrative_writer",
+      "where": "script[9] (Liam: 'mina putting in requests. i'm so proud i could cry. or that's the hunger')",
+      "issue": "This is the clutter line that most needs to go. It is a reaction to a need, and it replays level_16's beat, where Brooke cheered Mina for asking ('MINA. yes. you asking for something might be my favourite thing that's happened all summer'). Mina's echo works better if nobody points it out: she just asks first, and her painting line follows naturally.",
+      "suggested_fix": "Delete script[9]. Nothing else depends on it: Mina's painting line (now script[9]) follows her request directly, and no outcome line refers to it."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/dialogue_level_20.json",
+      "agent": "narrative_writer",
+      "where": "script[8] (Mina: 'i'll ask for myself again, like at the greek place :) somewhere with a proper choice of dishes that have no meat or fish in them, please')",
+      "issue": "The echo lands in the right spot: it is Mina's first line, she raises her own need, and she never names her diet. But 'i'll ask for myself again' narrates the beat instead of showing it. 'a proper choice' also repeats level_16's 'just a proper main of my own' and sits close to the reserved 'real main'. The bible asks for one short line.",
+      "suggested_fix": "script[8] Mina: 'can i ask for something again? somewhere with a few dishes to choose from that have no meat or fish in them :)' (keep NEUTRAL and clue diet:vegetarian). 'can i ask for something' softly echoes her level_16 opener without reusing 'real main' or 'proper'. Breakwater review 1 ('one of four mains on the card with no meat or fish') still confirms it, Marina Arch review 2 still rules it out, and the perfect line 'a whole choice of dishes, and i picked mine all by myself' and the Marina Arch fail line 'i asked this time' still match."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/dialogue_level_20.json",
+      "agent": "narrative_writer",
+      "where": "script[12] (Brooke: 'i'm on peanut patrol tonight...') and script[14] (Roxy: 'cyrus off duty?? then who's going to stop me ordering chaos')",
+      "issue": "Level_13 ran this chain: Liam's 'fries patrol', then Mina's 'patrol roxy too', then Roxy's 'i get my own PATROL??'. Here Brooke's 'peanut patrol' leads to Cyrus going off duty, then Roxy's 'who's going to stop me', then Cyrus covering her dairy: the same joke, a friend on patrol whose watch extends to Roxy. Script[14] is also the second clutter line. Cyrus carrying Roxy's dairy at [15] is fine under v8, which only stops him raising his own allergy (level_18 set the precedent), and it follows clue rule 6. Keep [13], Cyrus's one short off-duty line, which is the payoff of his arc.",
+      "suggested_fix": "script[12] Brooke: 'cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty' (keep NEUTRAL, clue allergy:peanut, callback satay_incident). Delete script[14]. script[15] Cyrus: 'Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over.' (keep NEUTRAL, clue intolerance:dairy). Roxy's '...how do you KNOW that' still answers it, and the Keel Street fail lines ('the ONE job i gave myself', 'Consider me back on duty') still fit."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/dialogue_level_20.json",
+      "agent": "narrative_writer",
+      "where": "script[6] (Liam: '...so tonight we send her off twirling pasta, all six of us')",
+      "issue": "'all six of us' appears three times, at [0], [6] and [20]. Brooke's opener and closer are where it belongs. In Liam's craving line it is filler, and the line already runs long for Liam's short, food-first voice.",
+      "suggested_fix": "script[6] Liam: 'it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta' (keep HUNGRY, clue craving)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_20/outcomes_level_20.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.waterfront_breakwater lines[2] (Brooke)",
+      "issue": "The finale's perfect reaction pays off the pasta, the healthy plates, dairy, budget and Mina, but not Cyrus's night off. That is the one character arc the chat sets up in this level, and the Keel Street fail already pays it off ('back on duty').",
+      "suggested_fix": "Brooke: 'six forks twirling, fresh plates all round, nobody doubled over, and cyrus off duty all night. organiser, signing off' (HAPPY)."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_pier_nine review 2 (last sentence: the primary-school lunches)",
+      "issue": "This is level_13 Amber Lamp's device: the kitchen also cooks lunch for a school that bans peanuts, so peanuts never come through the door.",
+      "suggested_fix": "Replace the last sentence of review 2 with: 'One slat on the brass departure board never gets flipped; it was painted the week they opened and reads no peanuts on this pier. My brother-in-law, who reacts to a crumb of one, took it at its word years ago and has worked through every special since without a single bad night.' The rest of review 2 (the dairy evidence) stays as it is."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_bluewater review 2; venue waterfront_breakwater review 3 (last sentence)",
+      "issue": "Bluewater's 'Not in the oil, not in the batter, not on the shelf' uses the 'not X, not Y, not Z' shape flagged in levels 17–18. It also repeats a device two chapter 4 levels running: the fried healthy decoy's cook is quoted on the batter recipe (level_19 Heron Wharf: 'Rice flour, water, oil... No butter, no milk, never', with level_16 Copper Buoy's batter recipe before that). The answer's own review uses the same shape ('not a jar or a bag, not so much as a bottle of peanut oil'), and so does Pier Nine ('no peanut oil, no peanut butter, not a bag'), so three peanut proofs in one level read alike.",
+      "suggested_fix": "Bluewater review 2: 'My daughter has a peanut allergy, and Bluewater is the one fry shop on the harbour where she gets to choose for herself. We've come every Friday for two years and she has never had so much as an itch. The pizza fritta comes with tomato and basil and no cheese, the zucchini flowers are stuffed with herbs and breadcrumbs rather than ricotta, and the dockers dunk their zeppole in black coffee, because there's no milk jug behind the counter.' Breakwater review 3, last sentence: 'The chef has simply never bought any, and her kitchen has never had one in it.'"
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_quayside review 1",
+      "issue": "This copies level_19's $$$ decoy Wavecrest beat for beat: 'the harbour's special-occasion room' / 'where the harbour goes for anniversaries', a named sommelier (Teo / Ines), anniversaries and toasts, and 'anything but hushed' / 'Your money doesn't buy hush'. The two levels are back to back, and the trap type is the same.",
+      "suggested_fix": "Quayside review 1: 'Quayside takes the top floor of the old customs house and prices itself like it knows it has the best view on the front, a clear notch above the trattorias down on the quay. A chandelier of old glass fishing floats hangs over the centre table. The room runs on big parties: on our night a retirement do filled one side, a christening lunch was still going on the other, and a long table sang happy birthday twice.' This keeps the price and lively evidence, and the outcome line about the refolded napkin still fits."
+    },
+    {
+      "severity": "suggestion",
+      "check": "reviews",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_tidewater review 2 ('the tin of oil they fry the loukoumades in')",
+      "issue": "Review 1 says 'Everything comes off the grill or out of the oven', but review 2 has a fryer for loukoumades. Tidewater is healthy in the registry and fails only on craving, so this decides nothing, but a careful player comparing Brooke's 'not one more heavy thing' will notice the contradiction.",
+      "suggested_fix": "In review 2, replace 'the tin of oil they fry the loukoumades in' with 'the bottle of olive oil they finish every plate with'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_keel_street review 1; venue waterfront_marina_arch review 1",
+      "issue": "The same dairy checklist appears three times: Breakwater's 'a wedge of cheese, a pat of butter or a drop of cream', Keel Street's 'butter, cream or a grater of cheese' and Marina Arch's 'not a knob of butter or a spoon of cream'. The brief rules out repeated checklists. Separately, orecchiette with broccoli rabe (Breakwater's level_16 signature) is cloned into three decoys. Pier Nine's cream version and Marina Arch's anchovy version are useful minimal pairs, but at Keel Street the dish only makes the decoys read as copies.",
+      "suggested_fix": "Keel Street review 1: drop 'orecchiette with broccoli rabe, ' from the dish list, and replace 'The kitchen cooks with olive oil and lemon zest where others reach for butter, cream or a grater of cheese, and I walked out feeling lighter than I walked in.' with 'My brother, whose stomach has never forgiven milk, cleared his plate and the bread basket and asked for more of the olive oil, and I walked out feeling lighter than I walked in.' Marina Arch review 1: replace 'and not a knob of butter or a spoon of cream goes into anything.' with 'the pans are oiled, never buttered, and dessert is a bitter-orange sorbetto.'"
+    }
+  ],
+  "summary": "A warm, fair finale. All six needs sit mid-conversation in buried style and every trap has clear review evidence: Keel Street's peanut busiate, Marina Arch's 'couldn't find a main without meat or fish', Pier Nine's cheese and cream, Quayside's 'clear notch above', Bluewater's fryer and Tidewater's Greek board after Roxy's 'greek place' nudge. Breakwater shows four meat-free mains, no dairy, no fryer and no peanuts. The story beat holds: Brooke's [0] and [20] are the framing, Liam's pasta and Maya's 'fun budget' line deliver clues through it (nice vs fancy reads as $$ with $$$ a soft miss), and the rest is banter; Mina's [8] is a soft first-line ask that never names her diet. The chat is not over the clutter line, but cutting Liam's [9] and Roxy's [14] would leave 20 lines with only Cyrus's off-duty line and Roxy's reaction leaning on needs. The other notes are freshness echoes (level_13's patrol chain, level_19's $$$ and fried-decoy templates, level_13's school-kitchen device, repeated dairy and peanut checklists) plus one Tidewater review that contradicts itself.",
+  "generated_by": "critic"
+}
