@@ -5215,6 +5215,16 @@
     "step": "venues_rework",
     "result": "Pier Nine crunch echo reworded. Retries exhausted.",
     "retries": 3,
+    "tokens": 18031
+  },
+  {
+    "timestamp": "2026-11-21T04:07:31.083Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
     "tokens": null
   }
 ]
