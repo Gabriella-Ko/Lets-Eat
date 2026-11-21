@@ -5236,5 +5236,15 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:19:26.725Z",
+    "level": "level_12",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 declutter rework (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
   }
 ]
