@@ -6,44 +6,58 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Craving: Italian / pasta (not Greek)",
-      "who": "liam",
-      "line": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta"
+      "constraint": "Peanut allergy (deal-breaker): nothing peanut, in any form",
+      "type": "allergy",
+      "source_speaker": "brooke",
+      "source_line": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty"
     },
     {
-      "constraint": "Budget: $$ (nice, not fancy fancy)",
-      "who": "maya",
-      "line": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy fancy."
+      "constraint": "Vegetarian: several mains with no meat or fish (strict diet for Mina)",
+      "type": "diet",
+      "source_speaker": "mina",
+      "source_line": "can i ask for something again? somewhere with a few dishes to choose from with just veggies or tofu, no meat or fish :)"
     },
     {
-      "constraint": "Strict diet: vegetarian, needs several meat- and fish-free dishes",
-      "who": "mina",
-      "line": "can i ask for something again? somewhere with a few dishes to choose from with just veggies or tofu, no meat or fish :)"
+      "constraint": "Dairy intolerance (costs a star): avoid places built on cheese and cream",
+      "type": "intolerance",
+      "source_speaker": "cyrus",
+      "source_line": "Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over."
     },
     {
-      "constraint": "Allergy: peanuts in any form",
-      "who": "brooke (on behalf of the table)",
-      "line": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty"
+      "constraint": "Budget: mid-range ($$), not fancy ($$$ is one tier over)",
+      "type": "budget",
+      "source_speaker": "maya",
+      "source_line": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy fancy."
     },
     {
-      "constraint": "Intolerance: dairy (cheese, cream)",
-      "who": "roxy",
-      "line": "Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over."
+      "constraint": "Craving: Italian / pasta (not the Greek place, not fried fish)",
+      "type": "craving",
+      "source_speaker": "liam",
+      "source_line": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta"
     },
     {
-      "constraint": "Preference: fresh, bright, light food (not heavy/fried)",
-      "who": "brooke",
-      "line": "confession: i planned this whole night eating crackers over my laptop. tonight i want a plate that's fresh and bright, not one more heavy thing"
+      "constraint": "Preference: light, fresh food, not heavy or fried",
+      "type": "preference",
+      "source_speaker": "brooke",
+      "source_line": "confession: i planned this whole night eating crackers over my laptop. tonight i want a plate that's fresh and bright, not one more heavy thing"
     }
   ],
   "elimination": {
-    "waterfront_tidewater": "Greek; misses Liam's pasta craving (the paddleboard-night red herring). Otherwise fits.",
-    "waterfront_keel_street": "Peanuts in the pesto, caponata and salad; deal-breaker.",
-    "waterfront_marina_arch": "No meat-free main; deal-breaker for Mina.",
-    "waterfront_pier_nine": "Dairy-heavy kitchen; costs a star for Roxy.",
-    "waterfront_quayside": "$$$, one tier over budget; costs a star.",
-    "waterfront_bluewater": "Everything fried; misses Brooke's fresh-and-light preference."
+    "waterfront_tidewater": "Greek, misses the pasta craving (Liam explicitly turns down the Greek place). Otherwise safe: 2 stars.",
+    "waterfront_keel_street": "Peanut pesto, crushed peanuts on caponata and salad. Deal-breaker.",
+    "waterfront_marina_arch": "No main without meat or fish. Deal-breaker for vegetarian.",
+    "waterfront_pier_nine": "Cheese and butter in everything. Dairy intolerance costs a star: 2 stars.",
+    "waterfront_quayside": "$$$, one tier over the 'nice, not fancy fancy' budget: 2 stars.",
+    "waterfront_bluewater": "Everything fried and heavy (slept through alarm). Misses Brooke's light preference: 2 stars.",
+    "waterfront_breakwater": "Italian, $$, four meat-free mains, no dairy at all, never stocked peanuts, nothing fried, light. Meets every constraint."
   },
   "difficulty": 3,
-  "notes": "Fair and solvable. Each decoy fails on exactly one constraint, so all six have to be found. The dairy clue is spoken by Cyrus about Roxy, which is a nice indirect touch. The peanut allergy holder is a little ambiguous (Brooke is policing it, the satay incident hints at someone else), but it does not matter for the pick. Quayside's price is told twice: the review says 'a clear notch above the trattorias' and the card says $$$. That makes it consistent but easy to spot. Tidewater as the Greek red herring is clearly countered by Liam's pasta line. Nothing unfair found."
+  "notes": [
+    "Every decoy fails exactly one constraint, which makes the puzzle clean and fair; all six constraints have to be found to rule out every decoy.",
+    "Budget line is soft-worded ('does nice, not fancy fancy') but Quayside's review ('a clear notch above the trattorias') plus the $$$ card make it readable.",
+    "Brooke's peanut line is worded as a table rule rather than her own allergy; it still reads clearly as a deal-breaker. Cyrus's line for Roxy's dairy intolerance is indirect but the 'doubled over' cue is clear.",
+    "Mina's 'can i ask for something again?' slightly softens the vegetarian line into a request; a player could read it as a preference rather than a strict diet. The pick is the same either way.",
+    "Liam's pasta line and Roxy's Greek suggestion together point at Italian; Tidewater is a good near-miss decoy.",
+    "Nothing unfair or contradictory found."
+  ]
 }

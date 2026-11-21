@@ -5125,7 +5125,7 @@
     "step": "venues_rework",
     "result": "Gabriella: relative-with-need device trimmed (Pier Nine regulars, Keel Street olive-oil desserts, Tidewater friend cut)",
     "retries": 2,
-    "tokens": null
+    "tokens": 23321
   },
   {
     "timestamp": "2026-11-21T04:01:43.433Z",
@@ -5144,6 +5144,46 @@
     "brief_version": "v1",
     "step": "prepare_playtest",
     "result": "rebuilt after review trim",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16907
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17220
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after review trim",
     "retries": 0,
     "tokens": null
   }
