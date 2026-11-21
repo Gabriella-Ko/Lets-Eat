@@ -1,0 +1,85 @@
+{
+  "audit": "chat clutter / naggy needs",
+  "date": "2026-11-21",
+  "scope": ["level_16", "level_17"],
+  "method": "Same as logs/clutter_audit_2026-11-18.json: each chat read as a player would, against narrative-writer v9 'Keep the chat from clutter' and the v8 Cyrus rule, with level_19 and level_20 as the v9 references. Each proposed cut was checked against the spec's traps, the venues' reviews, the outcomes lines that point back to the chat, and the bible Story beats.",
+  "reference": "level_19 (24 lines, 6 clue lines, 1 callback) and level_20 (20 lines, 6 clue lines, 2 callbacks): one line per need, each need inside a story moment, with banter between the needs.",
+  "basis": "v9 clutter rules and the v8 Cyrus rule apply from level_18 on, so neither level breaks a current brief rule. This is a judgement on player feel and is Gabriella's call. Bible: Clue rules 5-6, Story beats ('Mina speaks up', 'Maya's promotion'), Callbacks.",
+  "index_note": "Line indices are 0-based script[] positions in dialogue_level_XX.json.",
+  "levels": [
+    {
+      "level_id": "level_16",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 19,
+      "clue_lines": 11,
+      "callback_lines": 2,
+      "half_not_needs": false,
+      "round_robin": "Yes, in one stretch. script[11] opens with 'ok my turn', which is the exact pattern v9 retires, and Brooke then posts three need lines in a row (lively, lively, healthy) with only Mina's echo in between. The rest of the chat brings needs up inside the conversation: the paddleboard win sets the craving, Mina speaks up, and the water taxi leads into the dairy line.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "The first half is good. The paddleboard banter and Mina's speak-up beat (script[5], [6], [9]) are warm, and the fish exchange (script[8]-[9]) is earned, because Driftwood's meat-free column is all seafood. The water-taxi dairy reveal is fun. The clutter sits in script[10]-[14]: Liam repeats Mina's need back to her, then Brooke takes her turn and lists two wishes in three lines while Mina agrees. That stretch reads like a sign-up sheet. Three small edits fix it, so it doesn't need a rework.",
+      "cut": [
+        { "index": 10, "speaker": "liam", "text": "a whole main of your own, not a pile of sides pretending to be dinner. got it", "why": "Agreement line restating the vegetarian need right after Mina's script[9]." },
+        { "index": 13, "speaker": "mina", "text": "a loud, happy table sounds perfect, brooke :)", "why": "Agreement line restating lively. It's also what makes Brooke's run read as a turn-by-turn list." }
+      ],
+      "merge": [
+        {
+          "indices": [11, 12],
+          "texts": [
+            "ok my turn. our first dinner on the water deserves a crowd, so i want somewhere loud. a packed room, people laughing over each other, plates flying past",
+            "a hushed little dining room tonight would feel like summer ended early"
+          ],
+          "into": "One Brooke line without the 'my turn' opener, keeping 'summer ended early', which Cormorant's outcome points back to: \"our first dinner on the water deserves a crowd. a packed room, people laughing over each other, plates flying past. a hushed little dining room would feel like summer ended early\" (clue vibe:lively, emotion HAPPY)."
+        }
+      ],
+      "add": "Put one banter line where script[13] was, so Brooke's two wishes don't arrive back to back. For example: { \"speaker\": \"liam\", \"text\": \"i'll be the one still dripping harbour water on the chairs\", \"emotion\": \"HAPPY\", \"clue\": null }. Optionally start script[14] with 'also,' instead of 'and', so it no longer reads as the next item on Brooke's list.",
+      "keep_note": "Keep script[5] (the bible's quoted 'Mina speaks up' line), script[6] (plate_of_fries) and script[8]-[9]. Together they cover both vegetarian traps: Salt Marsh, where only the sides are meat-free ('not something i build out of the starters'), and Driftwood, where every meat-free main is seafood ('not fish either'). Driftwood's outcome quotes 'she said not fish either'. Keep script[14]'s 'night-market fryers' for Copper Buoy's outcome. Keep script[15]-[17]: the milkshake line is Brooke's joke reacting to the water-taxi news, a single callback, not a restatement.",
+      "loses_if_trimmed": "Nothing scored. Craving stays on script[1]-[2], vegetarian on script[5], [6] and [9], lively on the merged Brooke line, healthy on script[14], and dairy on script[16]-[17]. The level goes from 19 lines to 18 and from 11 clue lines to 9, and the non-need share rises to about half. Brooke's 'summer ended early' and 'fryers' survive for the outcomes. The story beat is untouched."
+    },
+    {
+      "level_id": "level_17",
+      "difficulty": "buried",
+      "verdict": "light touch",
+      "lines": 20,
+      "clue_lines": 11,
+      "callback_lines": 3,
+      "half_not_needs": "close (45% untagged)",
+      "round_robin": "No. Each need rides on a moment: the promotion carries the budget, the kid's dropped scoop carries the craving and the terrace, Roxy's 'every topping' leads into peanut, Brooke's housewarming carries healthy, and the sherbet twist carries dairy.",
+      "cyrus_lecture": "Yes, script[12]. Cyrus explains cross-contact, from the topping tray and the shared spoon to the peanut-butter tub. It's the pattern v8 retires, and it's the one line in this chat that reads as naggy. Lantern Pier's trap doesn't need it, because its review already spells out the peanut-butter swirl churned in the shared machine and the crushed peanuts on the topping tray. Any clear peanut clue rules the venue out.",
+      "player_read": "The best-paced of the pre-v9 levels audited so far. The first nine lines are pure social: the heat, Cyrus prodding Maya, and the promotion reveal with Maya's 'funded, not rich' cap. Tag counts overstate the clutter. script[5] and [7] are the story beat and its required $$ restatement, and the three dairy lines (script[16]-[18]) are one comic beat (setup, twist, punchline) that also makes the Sandpiper 'sorbet that's really sherbet' trap fair. The only line that nags is Cyrus's three-sentence lecture.",
+      "cut": [],
+      "trim": [
+        {
+          "index": 12,
+          "speaker": "cyrus",
+          "from": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.",
+          "to": "'Every topping' is how my worst evenings start. The crushed peanuts always end up right next to the sprinkles.",
+          "why": "Keeps Cyrus's dry voice, the topping-tray link to Lantern Pier, and the hook for Roxy's 'toppings were MY idea' outcome line. Drops the spoon and tub explanation. Maya's satay_incident line (script[13]) follows straight after, so a first-time player still reads it as Cyrus's allergy."
+        }
+      ],
+      "edits_needed_with_cuts": [
+        {
+          "file": "content/levels/level_17/outcomes_level_17.json",
+          "where": "waterfront_lantern_pier lines[0] (cyrus)",
+          "from": "Crushed peanuts on the topping tray, and a peanut-butter swirl churned in the same machine as every other flavour. It's everything I described earlier. I'm not ordering.",
+          "to": "Crushed peanuts on the topping tray, and a peanut-butter swirl churned in the same machine as every other flavour. I'm not ordering.",
+          "why": "After the trim, the chat no longer describes the shared machine, so 'everything I described earlier' would point to nothing."
+        }
+      ],
+      "considered_not_cut": [
+        { "index": 18, "speaker": "maya", "text": "tiny milkshake incidents all summer and you called it weather. nothing milky for you tonight, whatever the board calls it", "why_kept": "It's the rule-6 friend hint and the only line that says outright that milk is the problem. 'whatever the board calls it' is also what makes Sandpiper's mislabelled sherbet fair. It is a third dairy line, but it's the punchline, not an echo." },
+        { "index": 16, "speaker": "roxy", "text": "don't worry about me btw, i've got a system. i always order the sherbet. it's the safe one", "why_kept": "This is the only dairy clue mid-conversation. script[17] and [18] fall in the closing 15% (indices 17-19), so cutting [16] would fail the buried placement check." },
+        { "index": 13, "speaker": "maya", "text": "nobody is reliving the satay incident on my funded night. absolutely not", "why_kept": "This is a friend carrying the peanut clue, in the v8 pattern, and it's in Maya's voice. Cutting it would get callbacks down to the v9 cap of 2, but the cap doesn't apply here, and once Cyrus's line is trimmed, this is the better of the two peanut lines." }
+      ],
+      "keep_note": "Keep script[4]-[7] whole: the promotion reveal ('did the math, trip is funded') and the $$ restatement ('my sky is two dollar signs now ... a three-sign place and i'll still come') are bible beats, and [7] also covers Pelican Steps (budget_soft). Keep script[9]-[10] (kid's scoop: craving and outdoor) and script[14]-[15] (housewarming: healthy).",
+      "buried_check": "Not affected. Every scored need still has a mid-conversation clue in script[4]-[16]: budget [5] and [7], craving [9], outdoor [10], peanut [12]-[13], healthy [15], dairy [16].",
+      "loses_if_trimmed": "Nothing scored. The level stays at 20 lines with the same clue map. What goes is the spoon and tub detail of Cyrus's routine, which the Lantern Pier review already covers."
+    }
+  ],
+  "overall": {
+    "recommendation": "Neither level needs a rework. Both are light touches that can be hand edits. level_16 benefits more: drop 'ok my turn', merge Brooke's two lively lines, cut the two agreement echoes and put one banter line between Brooke's wishes. That removes the only round-robin stretch, and the Mina speak-up beat and both vegetarian traps stay intact. level_17 needs only Cyrus's lecture trimmed, plus a matching half-sentence cut in his Lantern Pier outcome. Its tag count looks high, but most of it is the required promotion beat and one three-line sherbet joke.",
+    "after_edits": "Re-run the Validator (check 12 applies to level_17; the clue map is unchanged) and the critic for both levels. No blind playtest is needed: no clue line a trap depends on moves or is removed.",
+    "rule_status": "No current brief rule is broken: the clutter and Cyrus rules apply from level_18 on."
+  },
+  "generated_by": "critic"
+}

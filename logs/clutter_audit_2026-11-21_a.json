@@ -1,0 +1,194 @@
+{
+  "audit": "chat clutter / naggy needs",
+  "date": "2026-11-21",
+  "scope": ["level_01", "level_02", "level_03", "level_04", "level_05", "level_06", "level_07", "level_09", "level_11", "level_12"],
+  "reference": "level_19 (24 lines, 7 clue lines, 1 callback, one line per need, needs sit inside news and banter; well over half the chat is not about needs)",
+  "basis": "narrative-writer v9 'Keep the chat from clutter' and v8 Cyrus rule (both apply from level_18 on, so none of these levels breaks a brief rule; this is a judgement on player feel). Bible: Clue rules, Story beats ('Cyrus stops double-checking' at level_09: through level_08 Cyrus may state his own allergy), Callbacks (first-appearance levels must keep their line). Same method and format as logs/clutter_audit_2026-11-18.json.",
+  "index_note": "Line indices are 0-based script[] positions in dialogue_level_XX.json.",
+  "levels": [
+    {
+      "level_id": "level_01",
+      "difficulty": "stated",
+      "verdict": "leave",
+      "lines": 8,
+      "clue_lines": 4,
+      "callback_lines": 1,
+      "half_not_needs": "n/a (tutorial)",
+      "round_robin": "No.",
+      "cyrus_lecture": "No. script[4] is one plain line, as the beat allows before level_09.",
+      "player_read": "Gold-standard tutorial (written by Gabriella). The one extra peanut line, script[5], is the satay_incident origin and must stay. The bullet summary in script[6] is a tutorial device the brief keeps for levels 01-02.",
+      "cut": []
+    },
+    {
+      "level_id": "level_02",
+      "difficulty": "stated",
+      "verdict": "leave",
+      "lines": 14,
+      "clue_lines": 5,
+      "callback_lines": 1,
+      "half_not_needs": true,
+      "round_robin": "No.",
+      "cyrus_lecture": "No. script[3] is one plain line.",
+      "player_read": "Reads as banter: the counter story, 'i love being a bullet point'. The two Liam taco lines and Maya's 'i will personally fight any peanut' (script[4]) are voice, not nagging. Keep script[7] (trip_fund first appearance).",
+      "cut": []
+    },
+    {
+      "level_id": "level_03",
+      "difficulty": "implied",
+      "verdict": "leave",
+      "lines": 14,
+      "clue_lines": 7,
+      "callback_lines": 1,
+      "half_not_needs": "close",
+      "round_robin": "No. It's a two-person chat that moves from exam to burger to time to Mina.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "The tag count overstates the clutter: script[4] ('a burger actually sounds really nice') is tagged craving but reads as a reply. The vegetarian beat (script[8]-[12]) is the plate_of_fries origin (script[9]) and the campaign's first implied clue, so its length earns its place. If Gabriella wants one trim: script[6] echoes Mina's time limit, and script[7] ('never apologize for speed') reads even better straight after Mina's 'sorry'. That's optional; I wouldn't do it.",
+      "cut": [],
+      "optional": [
+        { "index": 6, "speaker": "liam", "text": "so we grab it fast and go. no long sit-down thing. got it", "why": "Echoes script[5]. quick_bite stays on script[5] ('can't stay long')." }
+      ]
+    },
+    {
+      "level_id": "level_04",
+      "difficulty": "stated",
+      "verdict": "light touch",
+      "lines": 16,
+      "clue_lines": 8,
+      "callback_lines": 1,
+      "half_not_needs": true,
+      "round_robin": "Mild: craving, healthy, budget and peanut come in turn, but Brooke's intro and the trip question break it up.",
+      "cyrus_lecture": "script[10] lists peanut forms. Fine here: through level_08 Cyrus states it plainly, and the list is his voice.",
+      "player_read": "A warm debut for Brooke. The clutter is three peanut lines in a row (script[10]-[12]) and Brooke's healthy need split over two bubbles (script[5]-[6]).",
+      "cut": [
+        { "index": 11, "speaker": "brooke", "text": "got it. peanut-free, always. i'll check menus with you", "why": "Agreement line restating Cyrus's need. Side benefit: Brooke repeats 'peanut-free, always' word for word in level_06 script[8], so this cut also ends that copy. No outcome refers to it." }
+      ],
+      "merge": [
+        { "indices": [5, 6], "texts": ["one thing though: nothing greasy or oily for me", "something fresh! salads, grain bowls, that kind of thing"], "into": "One Brooke line, e.g. \"one thing though: nothing greasy or oily for me. something fresh, like salads or grain bowls\". Tag clue vibe:healthy. Keep 'nothing greasy': it's Brooke's stated-level wording, and Griddle House's outcome ('swimming in oil') points to it." }
+      ],
+      "keep_note": "Keep script[12] (Maya: 'cafes sneak peanut butter into EVERYTHING'). It's the Nutty Mug trap hint, and Maya's fail line ('i literally WARNED about the peanut butter') points back to it. After the cut, it follows Cyrus directly and reads naturally.",
+      "loses_if_trimmed": "Nothing scored. Peanut stays on script[10] and script[12], healthy on the merged line, budget on script[7] (trip_fund), craving on script[3]-[4]. 16 lines become 14."
+    },
+    {
+      "level_id": "level_05",
+      "difficulty": "stated",
+      "verdict": "light touch",
+      "lines": 18,
+      "clue_lines": 7,
+      "callback_lines": 1,
+      "half_not_needs": true,
+      "round_robin": "No.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "Mina's debut, and the 'don't worry about me' beat establishes her character. But it runs twice: she offers to pick the pepperoni off (script[9]), two friends object (script[10]-[11]), then she offers a salad (script[12]) and two friends object again (script[13]-[14]). The second round is the naggy part. Low priority: it's chapter 1 and stated.",
+      "cut": [
+        { "index": 12, "speaker": "mina", "text": "oh, i didn't mean to make it complicated. i can just get a salad or something", "why": "Second 'make do' offer. It repeats script[9]." },
+        { "index": 14, "speaker": "maya", "text": "exactly. and if we have to, we'll all get veggie pizza. no one is going hungry today", "why": "Third friend line restating the vegetarian need after script[10]-[11]." }
+      ],
+      "edits_needed_with_cuts": [
+        { "index": 13, "from": "no way! we want you to eat pizza too. it's lunch crew, not lunch solo", "to": "mina, we want you to eat pizza too. it's lunch crew, not lunch solo", "why": "'no way!' answered the cut salad offer. Keep 'lunch crew, not lunch solo': Maya's script[16] ('that's what lunch crew is for!') picks it up." }
+      ],
+      "loses_if_trimmed": "Nothing scored. Vegetarian stays on script[10] (Brooke, plain), script[11] ('real veggie pizza', which Maya's Slice Society fail line quotes) and script[15] (Mina's acceptance). No outcome refers to the salad or 'all get veggie pizza'. 18 lines become 16."
+    },
+    {
+      "level_id": "level_06",
+      "difficulty": "stated",
+      "verdict": "leave",
+      "lines": 16,
+      "clue_lines": 7,
+      "callback_lines": 1,
+      "half_not_needs": true,
+      "round_robin": "Mild, but natural: Cyrus's line is explicitly 'Roxy, since you're new', so briefing a newcomer is the reason.",
+      "cyrus_lecture": "No. script[7] is one plain line, allowed before level_09.",
+      "player_read": "Reads as a welcome chat. script[9] ('noted!! zero peanuts. i'll guard your plate') looks like an echo, but Roxy's Banyan Kitchen fail line ('i said i'd guard your plate and i FAILED') depends on it, so it stays. The dairy block (script[10]-[14]) is the milkshake_incident origin (script[11]) and must stay. script[8] (Brooke, 'peanut-free, always') stops being a cross-level copy once level_04 script[11] is cut.",
+      "cut": []
+    },
+    {
+      "level_id": "level_07",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 18,
+      "clue_lines": 10,
+      "callback_lines": 4,
+      "half_not_needs": false,
+      "round_robin": "No. Needs come from Maya's internship (curry smell, head count, iced tea), and Mina's check-ins give the chat a social life.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "Warm and funny (the printer, the noodle-stall setup). The clutter is the vegetarian block, script[11]-[16]: six lines with two plate_of_fries callback lines, including the Q&A pattern the level_13 audit flagged (Maya asks 'plate of fries??', Liam retells the story). Merging the Q&A into Liam's first line fixes it.",
+      "cut": [
+        { "index": 12, "speaker": "maya", "text": "wait, plate of fries??", "why": "Sets up a retelling of the callback. The merged script[11] below makes it unnecessary." }
+      ],
+      "merge": [
+        { "indices": [11, 13], "texts": ["fine. but this time mina gets a full meal like the rest of us. no plate of fries", "burger day in spring. i had a double stack. she had fries, because nothing else on the menu worked for her"], "into": "One Liam line, e.g. \"fine. but this time mina gets a full meal like the rest of us. burger day she had a plate of fries while i had a double stack, because nothing else worked for her. never again\". Tag clue diet:vegetarian, callback plate_of_fries. Keep 'nothing else worked for her': in an implied level it's what tells a first-time player why." }
+      ],
+      "keep_note": "Keep script[9] (Liam's noodle-stall line, the level_07 setup of the bible beat 'The stall Liam won't stop talking about'). Keep script[14] (Maya's pepperoni line): Maya's Copper Pot fail line ('first the pepperoni, now THIS') points to it, and it now reads as Maya reacting to Liam's story. Keep script[15]-[16]: Mina's 'you two are never letting either of those go' still has two stories to refer to. Keep script[6]-[8] (trip fund, Mina's check-in): it's conversation, and Mina asking about the trip is her voice.",
+      "loses_if_trimmed": "Nothing scored. Vegetarian stays on the merged line, script[14] and script[16]. Liam's Copper Pot line ('not the plate of fries all over again') still has its setup. Callback lines drop from 4 to 3. 18 lines become 16."
+    },
+    {
+      "level_id": "level_09",
+      "difficulty": "implied",
+      "verdict": "light touch",
+      "lines": 17,
+      "clue_lines": 7,
+      "callback_lines": 4,
+      "half_not_needs": true,
+      "round_robin": "No.",
+      "cyrus_lecture": "No. This is the 'Cyrus stops double-checking' level and the beat lands well: script[6]-[9] (Liam's satay callback, 'the assistant knows the drill', 'no bullet points??', 'trust the process').",
+      "player_read": "Good level. The one naggy spot is the budget: script[11]-[13] are three trip_fund lines in a row (Maya raises it, Brooke asks, Maya answers), a callback stack like the one cut from level_10.",
+      "cut": [
+        { "index": 12, "speaker": "brooke", "text": "the trip fund! how's it looking?", "why": "Prompt line that only exists to make Maya repeat the need." }
+      ],
+      "merge": [
+        { "indices": [11, 13], "texts": ["also, gentle reminder: the coast trip is coming up fast and the fund is not where it should be", "tight. if lunch costs more than a few bucks, the trip fund cries. and then i cry"], "into": "One Maya line, e.g. \"also, gentle reminder: the trip fund is not where it should be. if lunch costs more than a few bucks, it cries. and then i cry\". Tag clue budget, callback trip_fund. Keep 'more than a few bucks' (the River Bell budget_soft trap needs it) and 'and then i cry' (Maya's River Bell partial line, 'the trip fund is crying, and so am i', echoes it)." }
+      ],
+      "keep_note": "Keep script[10] (Brooke: 'i'll still double check for you. no satay, no dipping sauce, nothing crushed on top...'). It's a friend carrying the peanut clue, as the beat asks, and Brooke's Monsoon Alley fail line ('i said i'd double check and i didn't') points to it. Keep script[14] (Liam: 'cheap thai is the best thai anyway'), which now follows the merged Maya line naturally.",
+      "loses_if_trimmed": "Nothing scored. Budget stays on the merged line. Callback lines drop from 4 to 2 (satay_incident on script[6], trip_fund on the merged line). 17 lines become 15."
+    },
+    {
+      "level_id": "level_11",
+      "difficulty": "stated",
+      "verdict": "light touch",
+      "lines": 22,
+      "clue_lines": 9,
+      "callback_lines": 2,
+      "half_not_needs": true,
+      "round_robin": "No. The Night Market beat (script[0]-[1]), Roxy meeting Liam (script[4]-[5]) and the noodle-stall mention (script[9]-[11]) give it plenty of non-need talk.",
+      "cyrus_lecture": "n/a (Cyrus not a guest).",
+      "player_read": "Lively opener for chapter 3. The dairy reveal is a good rule-6 moment (Liam's cheese pile in script[16] makes Roxy remember in script[17]), but it's followed by two lines that restate it: Roxy spells it out (script[18]) and Liam agrees (script[19]).",
+      "cut": [
+        { "index": 18, "speaker": "roxy", "text": "so no cheese, no crema, no milk anything for me. good thing liam said it out loud", "why": "Restates script[17]. 'dairy and i broke up' is plain enough for a stated level, and Liam's script[16] already names cheese and crema (Little Comet's trap)." },
+        { "index": 19, "speaker": "liam", "text": "ok, cheese is off. dairy-free tacos for the table. i'm not making you watch", "why": "Agreement line restating the dairy need." }
+      ],
+      "optional": [
+        { "indices": [13, 14], "texts": ["how close are you?", "close enough that one fancy taco would set me back. cheap, or i'm sitting on the curb watching you all eat"], "why": "Third budget line after script[6] (trip_fund craving) and script[12] ('one-dollar-sign stalls only'), which covers both Willow Gate and Tin Star; Brooke's script[15] ('cheap tacos, done!') follows script[12] cleanly. Optional: the curb joke is good Maya voice." }
+      ],
+      "loses_if_trimmed": "Nothing scored. Dairy stays on script[16] (setup) and script[17]. Liam's Little Comet line ('i scraped mine off in solidarity') still works, because his cheese pile stays. Brooke's 'look at us, planning. roxy, lead the way' (script[20]) now follows Roxy's realisation directly. 22 lines become 20."
+    },
+    {
+      "level_id": "level_12",
+      "difficulty": "implied",
+      "verdict": "rework",
+      "lines": 22,
+      "clue_lines": 10,
+      "callback_lines": 0,
+      "half_not_needs": false,
+      "round_robin": "Yes, structurally, like level_13. After the craving (script[3]-[5]) the chat works through one block per friend: Mina asks Cyrus if it works and Cyrus asks what he should know, peanut (script[6]-[11]); then Liam turns to Mina, vegetarian (script[12]-[16]); then Brooke, healthy (script[17]-[19]). Apart from the three opening lines and the two sign-offs, almost every line is need talk.",
+      "cyrus_lecture": "Mild. script[10] is Cyrus explaining his own caution ('on the counter or tucked away in the back ... The far end of the counter isn't far enough'). No trap needs that precision: Banyan Kitchen's review is peanuts everywhere.",
+      "player_read": "Charming lines (the printed map, 'sprinkle stations', 'a breeze, not a blanket'), but it reads like a checklist meeting. Each need gets an agreement echo (script[9], script[14], script[19]), and the chat has no story beat or news to carry the needs. Trimming alone still leaves the middle as back-to-back need blocks, so it needs a light rewrite, not just cuts.",
+      "cut": [
+        { "index": 9, "speaker": "liam", "text": "true. basically sprinkle stations", "why": "Agreement line restating Brooke's peanut warning." },
+        { "index": 14, "speaker": "cyrus", "text": "Good. Then wherever we land needs plenty of options for Mina.", "why": "Agreement line restating the vegetarian need right after Mina's reply." },
+        { "index": 19, "speaker": "brooke", "text": "way out. i don't even want to stand next to one in this heat", "why": "Agreement line restating healthy after Liam's fryer line." }
+      ],
+      "edits_needed_with_cuts": [
+        { "index": 10, "from": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.", "to": "Noted. Any stall with that tub, I'll admire from across the aisle.", "why": "Drops the self-explaining part. Keeps Cyrus as the one the tub matters to, which the implied clue needs, and his dry voice." }
+      ],
+      "add": "Use the freed lines for non-need talk, ideally between the need blocks so they stop running in sequence. The opening already offers material: Mina and Cyrus are both visiting the market for the first time, and Cyrus has printed a map. E.g. Liam or Brooke teasing the map, Mina asking what the market looks like at night, or Liam briefly mentioning the noodle stall in passing (allowed in chapter 3 levels with Liam). Don't add a new need or an unconfirmable ask. Also consider cutting script[15]-[16] (Mina: 'only if it's easy! i don't want the whole night planned around me', and Brooke's reply): it's close to the old make-do pattern the brief retires from level_09. If cut, change script[17]'s 'speaking of which:' to 'also:'.",
+      "keep_note": "Keep script[8] (Brooke's peanut tub, the clue; her Banyan fail line 'i literally warned us about the peanuts' refers to it), script[12]-[13] (Liam's tofu row and Mina's reply; Liam's Stone Well line 'i promised mina tofu everything' refers to it), script[17]-[18] (healthy, and the fryer detail that rules out Twelve Bells).",
+      "loses_if_trimmed": "Nothing scored. Peanut stays on script[8] plus the trimmed script[10], vegetarian on script[12]-[13], healthy on script[17]-[18]. Cyrus's Stone Well line ('We had one plan for Mina tonight') still works without script[14], and his Firefly Lane line ('No tub on the counter') still matches script[8]. Because clue lines move, rerun the Validator, the critic and a blind playtest round."
+    }
+  ],
+  "overall": {
+    "recommendation": "No campaign-wide rework. Only level_12 merits one: like level_13, it's a sequence of one-need-per-friend blocks with almost no non-need talk, so it needs a light rewrite that adds 2-3 lines of banter between the blocks. level_04, level_05, level_07, level_09 and level_11 are fine with one- or two-line hand edits (cuts plus a merge or a small wording fix so the neighbouring lines still connect). Best value among those: level_09 (a three-line trip_fund stack in the chapter 2 beat level) and level_07 (the plate-of-fries Q&A). level_05 is the lowest priority. Leave level_01, level_02, level_03 and level_06: 01-02 are the tutorial, 03 is a natural two-person chat that carries the plate_of_fries origin, and level_06's apparent echo ('i'll guard your plate') is needed for its Banyan Kitchen fail line.",
+    "after_edits": "Each edit changes an approved level's dialogue, so rerun the Validator and the critic per level. For level_12 (rework) also run a blind playtest round. None of the proposals removes a callback's first-appearance line (satay_incident level_01 script[5], trip_fund level_02 script[7], plate_of_fries level_03 script[9], milkshake_incident level_06 script[11]), the noodle-stall setup (level_07 script[9]), the Cyrus beat (level_09 script[6]-[9]) or the Night Market beat (level_11 script[0]-[1]). I checked every outcome line that refers to a chat line, and the lines they refer to stay.",
+    "rule_status": "No level breaks a current brief rule: the clutter and Cyrus rules apply from level_18 on. These are feel improvements and Gabriella's call."
+  },
+  "generated_by": "critic"
+}
