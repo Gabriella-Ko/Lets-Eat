@@ -28,13 +28,8 @@
     },
     {
       "speaker": "brooke",
-      "text": "one thing though: nothing greasy or oily for me",
+      "text": "one thing though: nothing greasy or oily for me. something fresh, like salads or grain bowls",
       "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "brooke",
-      "text": "something fresh! salads, grain bowls, that kind of thing",
-      "emotion": "HAPPY"
     },
     {
       "speaker": "maya",
@@ -54,11 +49,6 @@
     {
       "speaker": "cyrus",
       "text": "Brooke, I mentioned this in lab, but for the record: I'm allergic to peanuts. No peanut butter, no peanut sauce, nothing sprinkled with peanuts.",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "brooke",
-      "text": "got it. peanut-free, always. i'll check menus with you",
       "emotion": "NEUTRAL"
     },
     {
