@@ -1,7 +1,7 @@
 PASS level_16
-clue map (implied, 19 lines):
-  diet:vegetarian    @ 5, 6, 9, 10
+clue map (implied, 17 lines):
+  diet:vegetarian    @ 5, 6, 9
   craving            @ 1, 2
-  vibe:lively        @ 11, 12
-  vibe:healthy       @ 14
-  intolerance:dairy  @ 16, 17
+  vibe:lively        @ 10
+  vibe:healthy       @ 12
+  intolerance:dairy  @ 14, 15

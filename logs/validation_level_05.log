@@ -1,6 +1,6 @@
 PASS level_05
-clue map (stated, 18 lines):
-  diet:vegetarian  @ 10, 11, 15
+clue map (stated, 16 lines):
+  diet:vegetarian  @ 10, 11, 13
   budget           @ 6
   craving          @ 3, 4
   vibe:healthy     @ 5
