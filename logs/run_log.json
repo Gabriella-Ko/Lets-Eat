@@ -4965,6 +4965,16 @@
     "step": "critique",
     "result": "pass, 0 must_fix, 10 suggestions (5 writer, 5 seeder) sent for one rework round",
     "retries": 0,
+    "tokens": 100654
+  },
+  {
+    "timestamp": "2026-11-21T03:32:08.915Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "first-critique suggestions: cut 2 reaction lines, no patrol echo, new Mina echo line, Cyrus off-duty payoff; 20 lines, 6 clue, 2 callbacks",
+    "retries": 1,
     "tokens": null
   }
 ]
