@@ -41,7 +41,7 @@
       "missed": ["budget"],
       "lines": [
         { "speaker": "maya", "text": "this is fancy fancy. a man refolded my napkin twice. the fun budget is filing a complaint", "emotion": "ANNOYED" },
-        { "speaker": "liam", "text": "i'll cover your dessert, maya. a send-off shouldn't come with homework", "emotion": "HAPPY" }
+        { "speaker": "liam", "text": "i'll cover your dessert, maya. a send-off shouldn't come with more worries", "emotion": "HAPPY" }
       ]
     },
     "waterfront_bluewater": {
@@ -62,5 +62,5 @@
     }
   },
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
