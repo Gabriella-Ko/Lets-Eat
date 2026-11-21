@@ -2531,6 +2531,430 @@
           "Wider shot showing the hushed room, the far-apart tables and the marina masts through the window."
         ]
       }
+    ],
+    "level_19": [
+      {
+        "venue": "waterfront_sampan",
+        "venue_name": "Sampan",
+        "result": "perfect",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_sampan.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Sampan, a slightly pricier, lively dim sum place with no indoors: a tin-roofed kitchen shed at the top of the gangway and every table out in the open air on a floating pontoon, trolley aunties pushing their carts down the planks and a gull patrolling the rail for dropped dumplings. On the table: a stack of bamboo steamers, Mina's own baskets from the all-vegetable trolley (mushroom and bamboo-shoot dumplings, chive and water chestnut dumplings, tofu skin rolls and lotus-leaf rice packed with chestnuts and shiitake) in front of her, plus slippery rice rolls with a splash of soy, gai lan with garlic oil, har gow, a teapot and a saucer of chilled coconut and pandan pudding. No milk anywhere. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime by the harbour, bright sunlight over the water, boats moored along the quay behind the friends. What happens: A perfect pick. The crew is celebrating Mina selling her first painting: a whole trolley of vegetable baskets and she tried every one; Liam out under the real sky after a week in a windowless stockroom; Roxy's stomach treaty with dairy still holding, day thirteen. Roxy holds up a hand-made cardboard sign decorated with drawn paintbrushes and stars (pictures only, no writing) for Mina. Expressions: All HAPPY. Mina beaming, a little pink-cheeked, chopsticks over her vegetable baskets; Liam grinning up at the open sky, a dumpling in his chopsticks; Roxy cheering, holding the sign high; Maya and Brooke laughing and raising their teacups. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina, pink-cheeked over her vegetable baskets, Roxy's sign held up behind her.",
+          "Wider shot showing the floating pontoon, the trolley aunties on the planks, the tin-roofed shed at the top of the gangway and the gull on the rail.",
+          "The moment just before: a trolley auntie lifting a steamer lid in front of Mina, the friends leaning in."
+        ]
+      },
+      {
+        "venue": "waterfront_harbour_moon",
+        "venue_name": "Harbour Moon",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_harbour_moon.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Harbour Moon, a slightly pricier, noisy dim sum shopfront with a tiny kitchen, the tables folded out straight onto the cobbles of the quay, fishing boats knocking against the wall behind and men from the fish stalls next door yelling across to their mates. On the table: bamboo steamers of har gow with pink prawns showing through the thin wrappers, pork and chive dumplings, rice rolls wrapped around shrimp, buns studded with dried shrimp, lotus-leaf rice with chicken and sausage, gai lan glazed in dark oyster sauce and a pot of black tea; in front of Mina only a bowl of plain rice and a cup of tea. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime by the harbour, bright sunlight over the water, boats moored along the quay behind the friends. What happens: A failed pick. It's the same dumpling place Mina peeked at on her walk home: pork or prawns in every single basket, on her own celebration day. Liam pays for the tea and gets everyone up to go somewhere else; Roxy folds up her sign. Expressions: Mina SURPRISED, looking down at her bowl of plain rice among the meat and prawn baskets. Liam ANGRY, on his feet, putting money down on the table for the tea. Roxy SURPRISED, apologetic, folding up a hand-made cardboard sign decorated with drawn paintbrushes and stars (pictures only, no writing). Maya and Brooke rising, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina and her bowl of plain rice among the prawn and pork baskets.",
+          "Wider shot showing the folding tables on the cobbles, the narrow shopfront and the fishing boats against the quay wall, Liam on his feet.",
+          "The moment after: Liam leading the friends away along the quay, Mina beside him, Roxy carrying the folded sign, the baskets left behind."
+        ]
+      },
+      {
+        "venue": "waterfront_east_jetty",
+        "venue_name": "East Jetty",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_east_jetty.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: East Jetty, a slightly pricier, lively dim sum place under red umbrellas at the far end of the ferry pier, every table out on the boards, a queue running back down the gangway and a table of regulars slapping down mahjong tiles nearby. On the table: bamboo steamers of chive dumplings, rice rolls, gai lan with ginger, soft white buns of cabbage and shiitake steamed from a sweet milk dough, egg tarts in flaky butter pastry, mango pudding and cups of milky tea. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime by the harbour, bright sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. Milk in the buns, butter in the tarts, milk in the pudding and in the tea: Roxy's twelve-day peace treaty with dairy is broken and her stomach has declared war. Brooke says twelve days is still a record and they start the count again tomorrow. Expressions: Roxy ANNOYED, one hand on her stomach, pushing away a cup of milky tea. Brooke HAPPY, consoling her, holding up her fingers as if starting a new count. Maya, Liam and Mina neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Roxy clutching her stomach over the egg tarts and milky tea, Brooke counting on her fingers.",
+          "Wider shot showing the red umbrellas on the ferry pier, the queue down the gangway and the mahjong table.",
+          "The moment just before: Roxy happily biting into a soft white bun, a cup of milky tea in her other hand."
+        ]
+      },
+      {
+        "venue": "waterfront_wavecrest",
+        "venue_name": "Wavecrest",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_wavecrest.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Wavecrest, an expensive, lively dim sum terrace hanging out over the water on stilts, every table taken, a family at the next table raising their glasses in rounds of toasts and a few sleek yachts moored beyond the rail. On the table: small, precise bamboo baskets of scallop and chive dumplings, green spinach crystal dumplings filled with morels and bamboo pith, tofu skin rolled around shiitake and carrot, black sesame rolls, osmanthus jelly, coconut tapioca, a pot of oolong tea and a closed bill folder. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime by the harbour, bright sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. Top shelf: Maya kept looking around for the yachts, then the bill came, one tier over her new two-dollar-sign budget. Mina, with her painting money, offers to cover Maya's tea. Expressions: Maya ANNOYED, staring in horror at the open bill folder, the yachts behind her. Mina HAPPY, smiling, gently reaching for the bill. Liam, Roxy and Brooke neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Maya's face over the bill folder, Mina reaching across to take it.",
+          "Wider shot showing the terrace on stilts over the water, the toasting family and the yachts beyond.",
+          "The moment just before: the bill folder being set down in front of Maya, the others still eating."
+        ]
+      },
+      {
+        "venue": "waterfront_lighthouse_row",
+        "venue_name": "Lighthouse Row",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_lighthouse_row.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Lighthouse Row, a slightly pricier, loud dim sum place in the cellar of the old lighthouse keepers' cottages: one long brick vault with no windows at all, lit by lamplight, staff weaving through with steamers held over their heads, birthday tables and a toddler racing laps between the chairs. On the table: bamboo steamers of mushroom dumplings and tofu skin rolls, bowls of winter melon soup, steamed and lightly sauced dishes, coconut sago and a steamed brown-sugar sponge. The scene is the Waterfront, at the end of summer, at lunchtime, but down here there is no sky and no harbour: only warm lamplight on the brick vault, and a stone stair up to the single door with bright daylight beyond it. What happens: A mixed table. Great dumplings, zero windows: for Liam it's the stockroom all over again, just with soy sauce. Roxy declares the last basket goes out on the steps, with the sky right there. Expressions: Liam ANNOYED, slumped, gazing up at the windowless brick ceiling. Roxy HAPPY, grabbing a bamboo basket, pointing up the stone steps to the daylight. Maya, Brooke and Mina neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Liam staring glumly at the brick ceiling, Roxy holding up the last basket.",
+          "Wider shot showing the long windowless brick vault, the lamps, the staff with steamers overhead and the toddler running between the chairs.",
+          "The moment after: the five friends sitting on the stone steps outside in the sunshine, sharing the last bamboo basket."
+        ]
+      },
+      {
+        "venue": "waterfront_capstan",
+        "venue_name": "Capstan",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_capstan.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Capstan, a slightly pricier, very quiet dim sum tea house on a walled garden terrace off the harbour road, stone tables under plane trees, a small fountain in one corner with a sparrow splashing in it and the other diners talking in a murmur. On the table: bamboo baskets arriving one at a time (mushroom and bamboo-shoot dumplings, chive and water chestnut dumplings, tofu skin rolls, lotus-leaf rice with chestnut and shiitake), a teapot, chilled coconut and pandan pudding, osmanthus jelly and small blank paper order slips. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime, dappled light through the plane trees, the harbour just beyond the garden wall. What happens: A mixed table. Lovely food, but it's so hushed that Roxy's sign got a frown from the next table, not the bustle and clatter Brooke wanted. Mina honestly didn't mind the quiet and promises to find Brooke her clatter next time. Expressions: Brooke ANNOYED, sitting stiffly, glancing at the silent terrace. Mina HAPPY, smiling peacefully, a hand on Brooke's arm. Roxy holding up a hand-made cardboard sign decorated with drawn paintbrushes and stars (pictures only, no writing), a diner at the next table frowning over (small, out of focus). Maya and Liam neutral, eating quietly. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Brooke sitting stiffly, Mina's hand on her arm.",
+          "Wider shot showing the walled garden, the stone tables under the plane trees, the fountain and the frowning diner at the next table.",
+          "The moment just before: Roxy proudly raising her sign, the whole hushed terrace turning to look."
+        ]
+      },
+      {
+        "venue": "waterfront_heron_wharf",
+        "venue_name": "Heron Wharf",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "roxy",
+          "brooke",
+          "mina"
+        ],
+        "file": "level_19_result_heron_wharf.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 5 friends, Maya, Liam, Roxy, Brooke and Mina, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Heron Wharf, a slightly pricier, noisy dim sum place on an old fish-loading dock, the tables running along it open to the sky, a grey heron working the edge for scraps and the sailing-school crowd still in their life jackets cheering and drumming their chopsticks. On the table: everything golden and shining with oil: taro puffs, spring rolls of cabbage, glass noodles and mushroom, fried turnip cake, crispy rice rolls, sesame balls, fried tofu skin rolls and pan-fried dumplings with blistered bottoms, plus a stack of hot towels. The scene is the Waterfront, at the end of summer: a warm, sunny lunchtime by the harbour, bright sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. Everything came out heavy and shining with oil, and Brooke's stomach, still delicate after her cold, feels like it swallowed a brick. Maya is walking her home the long way, because sea air fixes everything. Expressions: Brooke ANNOYED, one hand on her stomach, holding up a glossy taro puff. Maya HAPPY, an arm around Brooke, pointing out along the harbour. Liam, Roxy and Mina neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Brooke and her glossy fried plate, Maya's arm around her.",
+          "Wider shot showing the old fish-loading dock, the grey heron at the edge and the cheering sailing-school crowd in life jackets.",
+          "The moment after: Maya and Brooke walking arm in arm along the harbour front, the others following."
+        ]
+      }
+    ],
+    "level_20": [
+      {
+        "venue": "waterfront_breakwater",
+        "venue_name": "Breakwater",
+        "result": "perfect",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_breakwater.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_noodle_nook.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Breakwater, a slightly pricier, lively Italian kitchen in a converted boathouse at the end of the breakwater, a nonna rolling orecchiette in the front window and a busy open kitchen behind her, a brass bell over the pass and a rowing crew's oars propped in the corner by their long table. On the table: one long table for six, plates of orecchiette with broccoli rabe, garlic and chilli topped with crisp fried breadcrumbs, Mina's own bowl of ciambotta (peppers, eggplant and potato stewed down with tomato), grilled fish, bread with a saucer of green olive oil and glasses of lemon granita. No cheese. A tiny painting of the boardwalk (no writing) propped by Maya's plate. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A perfect pick. Maya's send-off dinner before her coast trip, the only night with all six friends at one table: nice but not fancy, so the fun budget survives; a whole choice of dishes and Mina picked hers all by herself; six forks twirling pasta, fresh plates all round, nobody doubled over, and Cyrus off peanut duty all night. Expressions: All HAPPY. Maya beaming, a little teary, raising her glass; Mina smiling over her own ciambotta; Brooke raising a glass in a toast, the proud organiser; Liam twirling a big forkful of orecchiette; Cyrus relaxed, leaning back, off duty; Roxy cheering. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Maya raising her glass, the tiny boardwalk painting by her plate, Mina beside her.",
+          "Wider shot showing the boathouse, the nonna in the window, the brass bell over the pass and the harbour at sunset beyond.",
+          "The moment just before: all six friends clinking glasses over the table."
+        ]
+      },
+      {
+        "venue": "waterfront_keel_street",
+        "venue_name": "Keel Street",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_keel_street.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Keel Street, a slightly pricier, lively Sicilian restaurant on the ground floor of an old sail-mender's loft, tables so long that strangers pass bread down them, and a bowl of crushed peanuts on the pass for the cooks to pinch from. On the table: busiate twirled in a basil, tomato and garlic pesto pounded with roasted peanuts, caponata and an orange and fennel salad both scattered with crushed peanuts, grilled swordfish and pasta with chickpeas. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A failed pick: an allergy scare. Brooke promised to keep anything peanut off the table, her one job, and there's peanut all over the menu. Cyrus is back on duty and leads everyone out; even starving Liam walks out. Expressions: Brooke SURPRISED, hands to her face, apologising to Cyrus. Cyrus ANGRY, standing, stepping away from the peanut-strewn plates. Liam ANGRY, on his feet, leaving his plate behind. Maya, Mina and Roxy alarmed, rising to follow. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Cyrus turning away from the peanut-scattered caponata, Brooke apologising beside him.",
+          "Wider shot showing the long tables in the sail-mender's loft and the bowl of peanuts on the pass, the friends rising.",
+          "The moment after: Cyrus leading the six friends out onto the quay, Liam and Brooke behind him, the pasta left behind."
+        ]
+      },
+      {
+        "venue": "waterfront_marina_arch",
+        "venue_name": "Marina Arch",
+        "result": "fail",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_marina_arch.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_satay_spot.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Marina Arch, a slightly pricier, loud Venetian restaurant built into the stone gateway of the old harbour, swifts shrieking past the windows at dusk. On the table: grilled sardines, bigoli in anchovy sauce, cuttlefish in its black ink, orecchiette melted down with anchovies and caponata with tuna flaked over the top; in front of Mina only bread and a small green salad, and a closed menu. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A failed pick. Meat or fish in every dish, and Mina, a vegetarian who asked this time, has been reading the same menu for ten minutes. Roxy notices first; Mina asks to go; Maya relocates the send-off. Expressions: Roxy SURPRISED, turning to look at Mina. Mina ANGRY, closing the menu and pushing back her chair. Maya ANGRY, on her feet, pulling on her coat, waving everyone up. Liam, Cyrus and Brooke reaching for their coats, following the mood. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Mina closing the menu over her bread and salad, Roxy turning to her.",
+          "Wider shot showing the stone archway room, the swifts at the windows and the friends rising with their coats.",
+          "The moment after: Maya leading the six friends out under the stone arch, Mina beside her, the fish dishes left behind."
+        ]
+      },
+      {
+        "venue": "waterfront_pier_nine",
+        "venue_name": "Pier Nine",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_pier_nine.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Pier Nine, a slightly pricier, lively Italian restaurant in the old ferry ticket office, a big brass flip departure board on the wall (blank slats, no writing) and waiters flipping it to a cheer. On the table: eggplant parmigiana, ricotta gnudi in tomato, a ciambotta baked under a lid of melted mozzarella, orecchiette in cream, parmesan snowed over every pasta, grilled fish, greens with butter, panna cotta and a ricotta tart. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. Roxy behaved, but cheese was snowed over everything and cream in whatever was left, and her stomach is sitting out the toast to Maya. Cyrus points out she made it to dessert, which is progress. Expressions: Roxy ANNOYED, one hand on her stomach, her glass lowered while the others toast. Cyrus HAPPY, a small dry smile, raising his glass in her direction. Maya, Liam, Mina and Brooke neutral, raising glasses in a toast to Maya. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Roxy clutching her stomach over the cheesy plates, Cyrus raising his glass to her.",
+          "Wider shot showing the old ticket office and the brass departure board, waiters flipping the slats.",
+          "The moment just before: Roxy bravely lifting a spoonful of panna cotta, the others mid-toast."
+        ]
+      },
+      {
+        "venue": "waterfront_quayside",
+        "venue_name": "Quayside",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_quayside.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Quayside, an expensive, lively Italian restaurant on the top floor of the old customs house, the best view on the front through tall windows, a chandelier of old glass fishing floats over the centre table and big parties filling the room. On the table: raw bream with blood orange, grilled octopus, pasta with chickpeas, glossy caponata, olive oil and orange cake with lemon sorbetto, and a crisply folded napkin at every place. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. This is fancy fancy, one tier over Maya's two-dollar-sign fun budget: a waiter has refolded her napkin twice. Liam offers to cover her dessert, because a send-off shouldn't come with more worries. Expressions: Maya ANNOYED, stiff and wide-eyed as a waiter leans in to refold her napkin. Liam HAPPY, grinning, sliding his dessert plate toward her. Mina, Roxy, Cyrus and Brooke neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Maya and the waiter refolding her napkin, Liam sliding his dessert over.",
+          "Wider shot showing the customs house room, the chandelier of glass fishing floats, the big parties and the harbour view.",
+          "The moment just before: Maya catching sight of the waiter reaching for her napkin a second time."
+        ]
+      },
+      {
+        "venue": "waterfront_bluewater",
+        "venue_name": "Bluewater",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_bluewater.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Bluewater, a slightly pricier, lively Italian fry shop with tablecloths, a jukebox in the corner, blue neon glowing in the window (shapes only, no writing) and a line of night-shift dockers at the counter. On the table: fritto misto, battered zucchini flowers, chickpea panelle, potato fritters, a fried vegetable platter, a pizza fritta puffed and blistered with tomato and basil, and sugared zeppole, everything fried and golden. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. After a week of crackers Brooke wanted something fresh and bright, and everything came out fried and golden, even the vegetables. Mina promises her the fruit stall on the boardwalk tomorrow, her treat. Expressions: Brooke ANNOYED, holding up a fried zucchini flower with a sigh. Mina HAPPY, smiling, an arm around Brooke. Maya, Liam, Roxy and Cyrus neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Brooke sighing at her fried zucchini flower, Mina comforting her.",
+          "Wider shot showing the fry shop, the jukebox, the blue neon window and the dockers in line.",
+          "The moment just before: the heaped golden fried platter landing on the table, Brooke's face falling."
+        ]
+      },
+      {
+        "venue": "waterfront_tidewater",
+        "venue_name": "Tidewater",
+        "result": "partial",
+        "guests": [
+          "maya",
+          "liam",
+          "mina",
+          "roxy",
+          "cyrus",
+          "brooke"
+        ],
+        "file": "level_20_result_tidewater.png",
+        "refs": [
+          "assets/art/maya_sheet.jpg",
+          "assets/art/liam_sheet.jpg",
+          "assets/art/mina_sheet.jpg",
+          "assets/art/roxy_sheet.jpg",
+          "assets/art/cyrus_sheet.jpg",
+          "assets/art/brooke_sheet.jpg",
+          "assets/art/level_01_result_pizza_corner.jpg"
+        ],
+        "prompt": "Cozy pixel art illustration, landscape 3:2. Match the style of the attached level 1 result image: painterly pixel art, soft outlines, warm palette, warm light, and the same camera distance (the friends around one table, seen from the waist up, food in the foreground). Use that image for style and framing only; take each friend's face, hair and outfit from this prompt and their attached character sheet. At the table: exactly 6 friends, Maya, Liam, Mina, Roxy, Cyrus and Brooke, each matching the attached character sheet exactly (hair, outfit, accessories) so they look the same in every level. Maya: long wavy dark navy hair with violet-purple streaks, two space buns on top of her head, warm tan skin, rosy cheeks; Liam: short blond hair under a dark charcoal knit beanie, dark olive-brown button shirt; Mina: long wavy dark brown hair with an orange ribbon bow on one side, small drop earrings, rosy cheeks; Roxy: long, wild, wavy ash-blonde hair, a woven rust-brown headband across her forehead with small coloured beads and beaded strands, warm brown skin; Cyrus: wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves and a silver wristwatch; Brooke: chin-length bob, black at the roots fading to golden blonde ends, side-swept bangs, warm tan skin. No other friends. Staff or other diners may appear in the background only, small and out of focus. Where: Tidewater, a slightly pricier, bustling Greek taverna, a bouzouki player weaving between the tables, a chalkboard by the door covered in drawn waves (pictures only, no writing) and regulars slapping down backgammon pieces between courses. On the table: grilled bream, a tray of briam (courgette, potato and tomato roasted soft in olive oil), stuffed peppers, bread with bean and garlic spreads, a tomato and cucumber salad with capers and a plate of baklava. No pasta. The scene is the Waterfront, at the end of summer: a warm evening by the harbour, golden low sunlight over the water, boats moored along the quay behind the friends. What happens: A mixed table. Liam loves this place, but he has been twirling an imaginary fork all day and there's no pasta here. Roxy admits it's on her for saying Greek and promises Liam pasta at Maya's welcome-home dinner. Expressions: Liam ANNOYED, twirling an empty fork in the air over his plate of bream. Roxy HAPPY, a sheepish grin, one hand raised like a promise. Maya, Mina, Cyrus and Brooke neutral, eating. No text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+        "drafts": 4,
+        "variations": [
+          "",
+          "Camera closer on Liam twirling his empty fork, Roxy raising her hand in a promise.",
+          "Wider shot showing the bustling taverna, the bouzouki player between the tables, the backgammon players and the harbour beyond.",
+          "The moment after: Roxy and Liam shaking on the promise across the table, the others laughing."
+        ]
+      }
     ]
   }
 }
