@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "6c1c679d3e374af6a0db0b6075d85ec634751596",
+  "head": "1cf76ad7f7f9e58c808fa9333b9d81dbc36a84c0",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -372,12 +372,19 @@
       "level": "level_04",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:25-05:00",
-      "commit": "1437b4b75fd78fc002cbd6091ec2b5995d9fe2bc",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:16:28-05:00",
+      "commit": "bb00140ab027a4e4d1540ea68f459115441dcac7",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "bb00140ab027a4e4d1540ea68f459115441dcac7",
+          "timestamp": "2026-11-21T12:16:28-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_04: light-touch declutter, cut agreement line and merge Brooke's healthy wish (16 to 14)",
+          "pre_pipeline": false
+        },
         {
           "commit": "1437b4b75fd78fc002cbd6091ec2b5995d9fe2bc",
           "timestamp": "2026-11-12T01:07:25-05:00",
@@ -406,7 +413,7 @@
       "level": "level_04",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v6",
+      "brief_version": "v9",
       "timestamp": "2026-11-05T23:55:30-05:00",
       "commit": "9d6509073937dd2375ff2fdab8779b6787f86065",
       "last_commit_by": "narrative_writer",
@@ -466,12 +473,26 @@
       "level": "level_05",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:25-05:00",
-      "commit": "e6aee2b3a8a6ee7fb98c21f33e41ca197b9caa35",
-      "last_commit_by": "narrative_writer",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:35:39-05:00",
+      "commit": "fbda3e5aedeade2e92e158d97af8c7af0159d7bf",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "fbda3e5aedeade2e92e158d97af8c7af0159d7bf",
+          "timestamp": "2026-11-21T12:35:39-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_05: Maya's riot line emotion to ANNOYED",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "903cee4b265ff9a1412307c718700108a44e82c7",
+          "timestamp": "2026-11-21T12:16:34-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_05: light-touch declutter, drop the second make-do round (18 to 16)",
+          "pre_pipeline": false
+        },
         {
           "commit": "e6aee2b3a8a6ee7fb98c21f33e41ca197b9caa35",
           "timestamp": "2026-11-12T01:07:25-05:00",
@@ -500,7 +521,7 @@
       "level": "level_05",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v6",
+      "brief_version": "v9",
       "timestamp": "2026-11-06T00:01:03-05:00",
       "commit": "38356196943ec8f15104189d617aa108960d6c58",
       "last_commit_by": "narrative_writer",
@@ -654,12 +675,26 @@
       "level": "level_07",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:26-05:00",
-      "commit": "4e3d7ade1c7c7c004825867b91bcbec072250382",
-      "last_commit_by": "narrative_writer",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:35:39-05:00",
+      "commit": "032105258657561abae657c57d5ccecbb57bec20",
+      "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "032105258657561abae657c57d5ccecbb57bec20",
+          "timestamp": "2026-11-21T12:35:39-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_07: plate of fries at 'that one burger place', not burger day",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "1b77ff3f000de0e8839bcd687469976511e7c4af",
+          "timestamp": "2026-11-21T12:16:29-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_07: light-touch declutter, merge Liam's plate-of-fries story (18 to 16)",
+          "pre_pipeline": false
+        },
         {
           "commit": "4e3d7ade1c7c7c004825867b91bcbec072250382",
           "timestamp": "2026-11-12T01:07:26-05:00",
@@ -695,7 +730,7 @@
       "level": "level_07",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v6",
+      "brief_version": "v9",
       "timestamp": "2026-11-10T22:31:09-05:00",
       "commit": "5d5f8af04a1921a65a9586da95f7f2372b46c6b5",
       "last_commit_by": "narrative_writer",
@@ -996,12 +1031,19 @@
       "level": "level_09",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v6",
-      "timestamp": "2026-11-12T01:07:26-05:00",
-      "commit": "dcdd7e8f2818a99ea0308b5549dd1bd51f417324",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:16:20-05:00",
+      "commit": "9e0909f836160bbf1fcb58d9bb5be196c285ed18",
       "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "9e0909f836160bbf1fcb58d9bb5be196c285ed18",
+          "timestamp": "2026-11-21T12:16:20-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_09: light-touch declutter, merge Maya's trip-fund lines (17 to 15)",
+          "pre_pipeline": false
+        },
         {
           "commit": "dcdd7e8f2818a99ea0308b5549dd1bd51f417324",
           "timestamp": "2026-11-12T01:07:26-05:00",
@@ -1030,7 +1072,7 @@
       "level": "level_09",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v6",
+      "brief_version": "v9",
       "timestamp": "2026-11-11T00:05:30-05:00",
       "commit": "4fbeed042e9c8146fb4aec701c7473f13a97250a",
       "last_commit_by": "narrative_writer",
@@ -1296,12 +1338,19 @@
       "level": "level_11",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-13T18:05:32-05:00",
-      "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:16:28-05:00",
+      "commit": "239085ab8a8d325f427c5c312e0a71e5b8bdd920",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "239085ab8a8d325f427c5c312e0a71e5b8bdd920",
+          "timestamp": "2026-11-21T12:16:28-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_11: light-touch declutter, cut two dairy restatements (22 to 20)",
+          "pre_pipeline": false
+        },
         {
           "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
           "timestamp": "2026-11-13T18:05:32-05:00",
@@ -1323,7 +1372,7 @@
       "level": "level_11",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
+      "brief_version": "v9",
       "timestamp": "2026-11-13T18:05:32-05:00",
       "commit": "161a14d3fd03c74dd57bbab7848f609b7c97d542",
       "last_commit_by": "human:gabby",
@@ -1997,12 +2046,26 @@
       "level": "level_16",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T23:12:26-05:00",
-      "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:35:39-05:00",
+      "commit": "c40d8d89fab0eff835d19549ebaffd04faa035e4",
       "last_commit_by": "human:gabby",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "c40d8d89fab0eff835d19549ebaffd04faa035e4",
+          "timestamp": "2026-11-21T12:35:39-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_16: Liam's banter line about Roxy telling the room he fell in twice",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "cfa4c8c19a434f5e2fb181d2d5bfe61d6cce14cb",
+          "timestamp": "2026-11-21T12:16:40-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_16: light-touch declutter, drop 'my turn' run and agreement lines (19 to 17)",
+          "pre_pipeline": false
+        },
         {
           "commit": "ac03440f29e828773927dffe0d96afd7ffb1da79",
           "timestamp": "2026-11-16T23:12:26-05:00",
@@ -2031,7 +2094,7 @@
       "level": "level_16",
       "author_id": "narrative_writer",
       "edited_by": null,
-      "brief_version": "v7",
+      "brief_version": "v9",
       "timestamp": "2026-11-16T01:15:58-05:00",
       "commit": "98cbe1db10c0477dc62887a382e9c8b63a289b4b",
       "last_commit_by": "narrative_writer",
@@ -2112,12 +2175,19 @@
       "level": "level_17",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T23:39:37-05:00",
-      "commit": "194a9acc407b3fb9e8fd05083e2451abfc3134bc",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:16:34-05:00",
+      "commit": "a103fb5efd500c8f3172e22c987ef8b92cc17893",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "a103fb5efd500c8f3172e22c987ef8b92cc17893",
+          "timestamp": "2026-11-21T12:16:34-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: light-touch declutter, trim Cyrus's topping lecture and matching outcome line",
+          "pre_pipeline": false
+        },
         {
           "commit": "194a9acc407b3fb9e8fd05083e2451abfc3134bc",
           "timestamp": "2026-11-16T23:39:37-05:00",
@@ -2153,12 +2223,19 @@
       "level": "level_17",
       "author_id": "narrative_writer",
       "edited_by": "human:gabby",
-      "brief_version": "v7",
-      "timestamp": "2026-11-16T23:42:03-05:00",
-      "commit": "a35b9aab328b1722900ed0f3888bd6e0a2a8e3d6",
-      "last_commit_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T12:16:34-05:00",
+      "commit": "a103fb5efd500c8f3172e22c987ef8b92cc17893",
+      "last_commit_by": "narrative_writer",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "a103fb5efd500c8f3172e22c987ef8b92cc17893",
+          "timestamp": "2026-11-21T12:16:34-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_17: light-touch declutter, trim Cyrus's topping lecture and matching outcome line",
+          "pre_pipeline": false
+        },
         {
           "commit": "a35b9aab328b1722900ed0f3888bd6e0a2a8e3d6",
           "timestamp": "2026-11-16T23:42:03-05:00",
@@ -2880,12 +2957,19 @@
       "level": "level_04",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v1",
-      "timestamp": "2026-11-08T16:43:17-05:00",
-      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T12:17:44-05:00",
+      "commit": "2d4215679584cda3a0367daf731aecfb686b1bb7",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2d4215679584cda3a0367daf731aecfb686b1bb7",
+          "timestamp": "2026-11-21T12:17:44-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_04: re-review after declutter, pass, 0 suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
           "timestamp": "2026-11-08T16:43:17-05:00",
@@ -2900,12 +2984,19 @@
       "level": "level_05",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v1",
-      "timestamp": "2026-11-08T16:43:17-05:00",
-      "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T12:17:45-05:00",
+      "commit": "b681d721a8105ea5dbd99ced3f6111fb2857e072",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "b681d721a8105ea5dbd99ced3f6111fb2857e072",
+          "timestamp": "2026-11-21T12:17:45-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_05: re-review after declutter, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
         {
           "commit": "5b4a3dab3a0982ab033ad0e4065d1ff8e4d45715",
           "timestamp": "2026-11-08T16:43:17-05:00",
@@ -2940,12 +3031,19 @@
       "level": "level_07",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
-      "timestamp": "2026-11-10T13:33:30-05:00",
-      "commit": "7bef28c8cf17f0b73e82157c6187ca9fbb16c142",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T12:17:45-05:00",
+      "commit": "0bbb51253bbcbc78a023a2cabba813519e260495",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "0bbb51253bbcbc78a023a2cabba813519e260495",
+          "timestamp": "2026-11-21T12:17:45-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_07: re-review after declutter, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
         {
           "commit": "7bef28c8cf17f0b73e82157c6187ca9fbb16c142",
           "timestamp": "2026-11-10T13:33:30-05:00",
@@ -3022,12 +3120,19 @@
       "level": "level_09",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
-      "timestamp": "2026-11-11T00:07:53-05:00",
-      "commit": "b0e5016e171703edf146e1b4269ec8074222de98",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T12:17:45-05:00",
+      "commit": "2c23fce6841c310cb5de7f4953aa8e05f62324ec",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "2c23fce6841c310cb5de7f4953aa8e05f62324ec",
+          "timestamp": "2026-11-21T12:17:45-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_09: re-review after declutter, pass, 0 suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "b0e5016e171703edf146e1b4269ec8074222de98",
           "timestamp": "2026-11-11T00:07:53-05:00",
@@ -3083,12 +3188,19 @@
       "level": "level_11",
       "author_id": "critic",
       "edited_by": null,
-      "brief_version": "v2",
-      "timestamp": "2026-11-12T10:48:17-05:00",
-      "commit": "9f7585fffef2fa0105aa4c7d17a53dc7bcc8a66d",
+      "brief_version": "v3",
+      "timestamp": "2026-11-21T12:17:51-05:00",
+      "commit": "b5543099344777fad5b491291894967d8a23509e",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "b5543099344777fad5b491291894967d8a23509e",
+          "timestamp": "2026-11-21T12:17:51-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_11: re-review after declutter, pass, 0 suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "9f7585fffef2fa0105aa4c7d17a53dc7bcc8a66d",
           "timestamp": "2026-11-12T10:48:17-05:00",
@@ -3247,11 +3359,18 @@
       "author_id": "critic",
       "edited_by": null,
       "brief_version": "v3",
-      "timestamp": "2026-11-16T01:17:11-05:00",
-      "commit": "f58d5718e3e58efa65c844fe9eb9ec7248923405",
+      "timestamp": "2026-11-21T12:17:52-05:00",
+      "commit": "e1eb7e4282cefd6dfd49c2826896fee019b54e77",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "e1eb7e4282cefd6dfd49c2826896fee019b54e77",
+          "timestamp": "2026-11-21T12:17:52-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_16: re-review after declutter, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
         {
           "commit": "f58d5718e3e58efa65c844fe9eb9ec7248923405",
           "timestamp": "2026-11-16T01:17:11-05:00",
@@ -3274,11 +3393,18 @@
       "author_id": "critic",
       "edited_by": null,
       "brief_version": "v3",
-      "timestamp": "2026-11-16T23:29:31-05:00",
-      "commit": "ef6bfee74151d395bd9031f76c3c1e17f91b418e",
+      "timestamp": "2026-11-21T12:17:37-05:00",
+      "commit": "8841941f748e876b267a7f01cc0664ece373942c",
       "last_commit_by": "critic",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "8841941f748e876b267a7f01cc0664ece373942c",
+          "timestamp": "2026-11-21T12:17:37-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_17: re-review after declutter, pass, 0 suggestions",
+          "pre_pipeline": false
+        },
         {
           "commit": "ef6bfee74151d395bd9031f76c3c1e17f91b418e",
           "timestamp": "2026-11-16T23:29:31-05:00",
