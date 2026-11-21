@@ -5376,5 +5376,25 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:15:27.705Z",
+    "level": "level_07",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 light-touch declutter (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:15:27.706Z",
+    "level": "level_17",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 light-touch declutter (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
   }
 ]
