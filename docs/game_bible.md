@@ -115,10 +115,26 @@ Six emotion tags exist, and every character needs one portrait per tag. Any unkn
 | Venue icon | One per cuisine, not per restaurant: `icon_<cuisine>.png` | Locked |
 | Portrait size | 128×128 px PNG, transparent background | Locked |
 | Style | Cozy pixel art, soft outlines, warm palette | Locked |
-| Palette | Exact colours TBD | Open |
+| Palette | Cozy Ramps 32: the 32 colours below, and no others, in all new game art (Gabriella, 2026-11-20) | Locked |
 | Badge art | One circular badge per callback, `badge_<id>.png`, 320×320 px PNG, transparent background | Locked |
 
 With 6 characters × 6 tags, the full portrait set is 36 images, plus 13 cuisine icons.
+
+**Palette: Cozy Ramps 32** (Locked, 2026-11-20). Each row is a shading ramp, dark to light. The first seven rows are the warm base and keep every colour the game UI already uses. The night and water rows are sampled from the chat backgrounds and are for night and waterside scenes, not for skin or food.
+
+| Ramp | Colours |
+| --- | --- |
+| Ink | `#2e2624` `#3f3533` `#5a4a45` `#7d6a60` |
+| Paper | `#d9b8a8` `#e6d0b8` `#f3e4d0` `#fdf0dc` |
+| Skin | `#c97f63` `#e8a98a` `#f4c9a8` |
+| Orange and gold | `#b8641a` `#d9822b` `#f2c14e` `#f6d78b` |
+| Rust and red | `#5c2a1a` `#8a4a2c` `#c0452f` |
+| Blue | `#3b5260` `#5d7985` `#9fb6bf` |
+| Green | `#46603a` `#6f8f5a` `#a9c08a` |
+| Night | `#110e1d` `#26111d` `#4e3838` `#ae684a` |
+| Water | `#223644` `#385e73` `#6d8b99` `#7bbbcf` |
+
+Art made before 2026-11-20 (portrait sheets, chat backgrounds, city map, result images) is not held to the palette.
 
 ## Writing voice and clue rules
 

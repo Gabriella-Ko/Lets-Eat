@@ -1,6 +1,6 @@
 {
   "_about": "Rules from docs/game_bible.md, kept as config for scripts/validate.js. Only Gabriella edits the bible; update this file to match whenever the bible changes. Keys starting with _ are comments.",
-  "bible_date": "2026-11-12",
+  "bible_date": "2026-11-20",
 
   "characters": {
     "maya":   { "permanent": { "budget_max": "$", "budget_max_by_chapter": { "4": "$$" } } },
@@ -99,5 +99,22 @@
     }
   },
 
-  "outcome_results": { "3": "perfect", "2": "partial", "1": "partial", "0": "fail" }
+  "outcome_results": { "3": "perfect", "2": "partial", "1": "partial", "0": "fail" },
+
+  "art": {
+    "_palette_note": "Cozy Ramps 32, locked 2026-11-20 (bible, Art rules > Palette). Each ramp runs dark to light. night and water are for night and waterside scenes only, never skin or food. Art made before 2026-11-20 is not held to it.",
+    "palette_name": "Cozy Ramps 32",
+    "palette_locked": "2026-11-20",
+    "palette": {
+      "ink":    ["#2e2624", "#3f3533", "#5a4a45", "#7d6a60"],
+      "paper":  ["#d9b8a8", "#e6d0b8", "#f3e4d0", "#fdf0dc"],
+      "skin":   ["#c97f63", "#e8a98a", "#f4c9a8"],
+      "orange_gold": ["#b8641a", "#d9822b", "#f2c14e", "#f6d78b"],
+      "rust_red": ["#5c2a1a", "#8a4a2c", "#c0452f"],
+      "blue":   ["#3b5260", "#5d7985", "#9fb6bf"],
+      "green":  ["#46603a", "#6f8f5a", "#a9c08a"],
+      "night":  ["#110e1d", "#26111d", "#4e3838", "#ae684a"],
+      "water":  ["#223644", "#385e73", "#6d8b99", "#7bbbcf"]
+    }
+  }
 }

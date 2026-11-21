@@ -1,0 +1,368 @@
+{
+  "state": "paused_out_of_credits",
+  "spent_usd": 0,
+  "images": [
+    {
+      "at": "2026-11-18T22:22:14+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_satay_incident_v1.png",
+      "key": "badge_satay_incident",
+      "variant": 1,
+      "seed": 614870709,
+      "usd": null,
+      "description": "A plate of grilled satay skewers with a single peanut set apart beside it, like a warning, accents in slate blue #4a6573. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:22:31+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_satay_incident_v2.png",
+      "key": "badge_satay_incident",
+      "variant": 2,
+      "seed": 1929796691,
+      "usd": null,
+      "description": "A plate of grilled satay skewers with a single peanut set apart beside it, like a warning, accents in slate blue #4a6573. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:22:48+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_trip_fund_v1.png",
+      "key": "badge_trip_fund",
+      "variant": 1,
+      "seed": 748599636,
+      "usd": null,
+      "description": "A glass coin jar stuffed with coins and folded bills, a small seashell resting on the lid as a hint of the coast, accents in purple #7a4bb0. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:23:03+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_trip_fund_v2.png",
+      "key": "badge_trip_fund",
+      "variant": 2,
+      "seed": 1461390291,
+      "usd": null,
+      "description": "A glass coin jar stuffed with coins and folded bills, a small seashell resting on the lid as a hint of the coast, accents in purple #7a4bb0. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:23:19+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_plate_of_fries_v1.png",
+      "key": "badge_plate_of_fries",
+      "variant": 1,
+      "seed": 739498266,
+      "usd": null,
+      "description": "A humble plate of golden fries in front of a tall double-stack burger, the fries in the spotlight, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:23:35+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_plate_of_fries_v2.png",
+      "key": "badge_plate_of_fries",
+      "variant": 2,
+      "seed": 1880768187,
+      "usd": null,
+      "description": "A humble plate of golden fries in front of a tall double-stack burger, the fries in the spotlight, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:23:47+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_milkshake_incident_v1.png",
+      "key": "badge_milkshake_incident",
+      "variant": 1,
+      "seed": 998432743,
+      "usd": null,
+      "description": "An oversized milkshake in a tall glass with whipped cream, a cherry and a striped straw, comically huge, accents in brick red #a3472c. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:24:03+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_milkshake_incident_v2.png",
+      "key": "badge_milkshake_incident",
+      "variant": 2,
+      "seed": 984627935,
+      "usd": null,
+      "description": "An oversized milkshake in a tall glass with whipped cream, a cherry and a striped straw, comically huge, accents in brick red #a3472c. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:24:35+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_sushi_day_v1.png",
+      "key": "badge_sushi_day",
+      "variant": 1,
+      "seed": 769767363,
+      "usd": null,
+      "description": "A wooden sushi board of meat-free sushi: cucumber rolls, avocado rolls and sweet tofu pockets, with a little garnish, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:25:37+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_sushi_day_v2.png",
+      "key": "badge_sushi_day",
+      "variant": 2,
+      "seed": 508485446,
+      "usd": null,
+      "description": "A wooden sushi board of meat-free sushi: cucumber rolls, avocado rolls and sweet tofu pockets, with a little garnish, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:25:52+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_noodles_v1.png",
+      "key": "icon_noodles",
+      "variant": 1,
+      "seed": 654970065,
+      "usd": null,
+      "description": "A bowl of steaming ramen noodles with chopsticks resting on the rim. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:26:11+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_noodles_v2.png",
+      "key": "icon_noodles",
+      "variant": 2,
+      "seed": 670857452,
+      "usd": null,
+      "description": "A bowl of steaming ramen noodles with chopsticks resting on the rim. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:26:24+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_sushi_v1.png",
+      "key": "icon_sushi",
+      "variant": 1,
+      "seed": 513326343,
+      "usd": null,
+      "description": "A single salmon nigiri sushi piece. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:26:41+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_sushi_v2.png",
+      "key": "icon_sushi",
+      "variant": 2,
+      "seed": 25713861,
+      "usd": null,
+      "description": "A single salmon nigiri sushi piece. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:27:02+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_pizza_v1.png",
+      "key": "icon_pizza",
+      "variant": 1,
+      "seed": 194822722,
+      "usd": null,
+      "description": "A single slice of pepperoni pizza with melted cheese. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:27:20+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_pizza_v2.png",
+      "key": "icon_pizza",
+      "variant": 2,
+      "seed": 154654382,
+      "usd": null,
+      "description": "A single slice of pepperoni pizza with melted cheese. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:27:38+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_burgers_v1.png",
+      "key": "icon_burgers",
+      "variant": 1,
+      "seed": 1025767090,
+      "usd": null,
+      "description": "A cheeseburger with lettuce, tomato and a sesame bun. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:27:57+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_burgers_v2.png",
+      "key": "icon_burgers",
+      "variant": 2,
+      "seed": 1261951954,
+      "usd": null,
+      "description": "A cheeseburger with lettuce, tomato and a sesame bun. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:28:18+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_tacos_v1.png",
+      "key": "icon_tacos",
+      "variant": 1,
+      "seed": 325960845,
+      "usd": null,
+      "description": "A single taco in a folded corn tortilla with meat, salsa and lettuce. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:28:39+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_tacos_v2.png",
+      "key": "icon_tacos",
+      "variant": 2,
+      "seed": 1965140074,
+      "usd": null,
+      "description": "A single taco in a folded corn tortilla with meat, salsa and lettuce. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:29:08+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_curry_v1.png",
+      "key": "icon_curry",
+      "variant": 1,
+      "seed": 1753692118,
+      "usd": null,
+      "description": "A bowl of golden curry with a mound of white rice. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:29:22+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_curry_v2.png",
+      "key": "icon_curry",
+      "variant": 2,
+      "seed": 1277530294,
+      "usd": null,
+      "description": "A bowl of golden curry with a mound of white rice. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:29:39+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_cafe_v1.png",
+      "key": "icon_cafe",
+      "variant": 1,
+      "seed": 1100210089,
+      "usd": null,
+      "description": "A cup of coffee with latte art and a wisp of steam. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:29:57+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_cafe_v2.png",
+      "key": "icon_cafe",
+      "variant": 2,
+      "seed": 627491670,
+      "usd": null,
+      "description": "A cup of coffee with latte art and a wisp of steam. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:30:15+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_dim_sum_v1.png",
+      "key": "icon_dim_sum",
+      "variant": 1,
+      "seed": 1586015864,
+      "usd": null,
+      "description": "A round bamboo steamer with three dumplings inside. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:30:37+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_dim_sum_v2.png",
+      "key": "icon_dim_sum",
+      "variant": 2,
+      "seed": 811638212,
+      "usd": null,
+      "description": "A round bamboo steamer with three dumplings inside. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:30:47+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_greek_v1.png",
+      "key": "icon_greek",
+      "variant": 1,
+      "seed": 333131004,
+      "usd": null,
+      "description": "A gyro pita wrap with meat, tomato and white tzatziki sauce. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:31:06+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_greek_v2.png",
+      "key": "icon_greek",
+      "variant": 2,
+      "seed": 1845534257,
+      "usd": null,
+      "description": "A gyro pita wrap with meat, tomato and white tzatziki sauce. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:31:40+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_viet_v1.png",
+      "key": "icon_viet",
+      "variant": 1,
+      "seed": 132395186,
+      "usd": null,
+      "description": "A banh mi baguette sandwich with pickled carrot, cucumber and fresh herbs. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:31:55+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_viet_v2.png",
+      "key": "icon_viet",
+      "variant": 2,
+      "seed": 1878369691,
+      "usd": null,
+      "description": "A banh mi baguette sandwich with pickled carrot, cucumber and fresh herbs. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:32:08+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_thai_v1.png",
+      "key": "icon_thai",
+      "variant": 1,
+      "seed": 193728288,
+      "usd": null,
+      "description": "A bowl of tom yum soup with shrimp, a red chilli and a lime wedge. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:32:20+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_thai_v2.png",
+      "key": "icon_thai",
+      "variant": 2,
+      "seed": 332015942,
+      "usd": null,
+      "description": "A bowl of tom yum soup with shrimp, a red chilli and a lime wedge. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:32:36+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_italian_v1.png",
+      "key": "icon_italian",
+      "variant": 1,
+      "seed": 746140374,
+      "usd": null,
+      "description": "A bowl of spaghetti with red tomato sauce and a basil leaf. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:32:51+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_italian_v2.png",
+      "key": "icon_italian",
+      "variant": 2,
+      "seed": 640361889,
+      "usd": null,
+      "description": "A bowl of spaghetti with red tomato sauce and a basil leaf. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:33:10+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_ice_cream_v1.png",
+      "key": "icon_ice_cream",
+      "variant": 1,
+      "seed": 1070343825,
+      "usd": null,
+      "description": "An ice cream cone with two scoops. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T22:33:24+00:00",
+      "file": "assets/drafts/pixellab/icons/icon_ice_cream_v2.png",
+      "key": "icon_ice_cream",
+      "variant": 2,
+      "seed": 1601317752,
+      "usd": null,
+      "description": "An ice cream cone with two scoops. Single centred food icon in three-quarter view, readable at small size, transparent background, no plate clutter, no text, no people. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T23:05:17+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_satay_incident_v1.png",
+      "key": "badge_satay_incident",
+      "variant": 1,
+      "seed": 614870709,
+      "usd": null,
+      "description": "A plate of grilled satay skewers with a small ramekin of peanut sauce set on the side, accents in slate blue #4a6573. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T23:05:41+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_satay_incident_v2.png",
+      "key": "badge_satay_incident",
+      "variant": 2,
+      "seed": 1929796691,
+      "usd": null,
+      "description": "A plate of grilled satay skewers with a small ramekin of peanut sauce set on the side, accents in slate blue #4a6573. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T23:06:06+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_plate_of_fries_v1.png",
+      "key": "badge_plate_of_fries",
+      "variant": 1,
+      "seed": 739498266,
+      "usd": null,
+      "description": "A big plate of golden fries filling the centre of the circle as the clear main subject, a small double-stack burger far in the background, no drinks, no cups, no glasses, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    },
+    {
+      "at": "2026-11-18T23:06:30+00:00",
+      "file": "assets/drafts/pixellab/badges/badge_plate_of_fries_v2.png",
+      "key": "badge_plate_of_fries",
+      "variant": 2,
+      "seed": 1880768187,
+      "usd": null,
+      "description": "A big plate of golden fries filling the centre of the circle as the clear main subject, a small double-stack burger far in the background, no drinks, no cups, no glasses, accents in deep orange #b8641a. Round circular sticker badge, the circle filling the canvas edge to edge, thick cream rim around the circle, the object centred inside it, transparent outside the circle, no text, no letters, no people, no faces. cozy pixel art, soft outlines, warm palette of cream #f3e4d0, warm brown ink #3f3533, orange #d9822b, slate blue #5d7985, rust #8a4a2c and gold #f2c14e"
+    }
+  ],
+  "state_at": "2026-11-19T22:51:47+00:00",
+  "note": "PixelLab credits ran out after 0 of 5 images. Re-run the same command to resume."
+}

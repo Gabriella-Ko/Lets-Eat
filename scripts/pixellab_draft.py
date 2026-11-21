@@ -8,7 +8,11 @@ Usage (from the repo root):
   python scripts/pixellab_draft.py --dry-run            # list what would be generated, no API calls
   python scripts/pixellab_draft.py --only badges        # one group (or a key: --only icon_sushi)
   python scripts/pixellab_draft.py --wait               # out of credits: wait and retry until they come back
-  python scripts/pixellab_draft.py --sheet              # rebuild the contact sheets only
+  python scripts/pixellab_draft.py --sheet              # rebuild the contact sheets and the dashboard only
+
+Every run also rebuilds the Art Artifacts dashboard, assets/drafts/index.html (scripts/art_dashboard.py):
+click a variant to pick it, then "Copy my picks".
+Free tier: PixelLab draws at most 200x200, so keep `gen` at or under that and let `out` enlarge it.
 
 Needs: PIXELLAB_API_KEY in the environment, Python 3 with Pillow.
 
@@ -50,6 +54,7 @@ OUT = ROOT / "assets" / "drafts" / "pixellab"
 LOG = ROOT / "logs" / "pixellab_drafts.json"
 API = "https://api.pixellab.ai/v1"
 TRANSPARENT_MAX_AREA = 40_000
+MAX_GEN = 200  # free tier: images up to 200x200 (the paid API allows 400)
 PAUSED = 3
 
 
@@ -137,8 +142,8 @@ def load_jobs():
         (gw, gh), (ow, oh) = g["gen"], g["out"]
         if ow % gw or oh % gh or ow // gw != oh // gh:
             sys.exit(f"group {name}: out {ow}x{oh} is not a whole multiple of gen {gw}x{gh}")
-        if max(gw, gh) > 400 or min(gw, gh) < 16:
-            sys.exit(f"group {name}: gen size must be 16-400 px per side")
+        if max(gw, gh) > MAX_GEN or min(gw, gh) < 16:
+            sys.exit(f"group {name}: gen size must be 16-{MAX_GEN} px per side (PixelLab free tier); enlarge with `out` instead")
     jobs = []
     for j in spec["jobs"]:
         g = groups[j["group"]]
@@ -204,6 +209,13 @@ def contact_sheets():
         print(f"sheet {out.relative_to(ROOT)}")
 
 
+def build_gallery():
+    """Rebuild the shared Art Artifacts dashboard, assets/drafts/index.html (scripts/art_dashboard.py)."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import art_dashboard
+    art_dashboard.build()
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -213,6 +225,7 @@ def main():
     ap.add_argument("--sheet", action="store_true", help="only rebuild the contact sheets")
     args = ap.parse_args()
 
+    build_gallery()
     if args.sheet:
         contact_sheets()
         return 0

@@ -58,7 +58,14 @@ logs/                           run_log.json, validation_, critique_, playtest_,
 9. Push `level/XX` and open a PR into `master` (`gh pr create --base master --title "level_XX: <one-line summary>"`) whose body is the one-line summary per check, including the critic's verdict and any suggestions. Present the level to Gabriella with that summary and the PR link. Wait for approval.
 10. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. If the merge says "not mergeable" right after a push, check `gh pr view <n> --json mergeable`: `UNKNOWN` means GitHub is still checking, so retry; `CONFLICTING` means stop and report. Finally update local `master` (`git checkout master && git pull`).
 
-## Draft art (PixelLab)
+## Draft art (PixelLab, Nano Banana 2)
+All drafts show on one dashboard, Art Artifacts (`assets/drafts/index.html`) (`python scripts/art_dashboard.py` rebuilds it): Badges & icons, and Outcomes. Gabriella picks there and pastes her picks back.
+
+**Outcome illustrations (Nano Banana 2, by hand).** Gemini's API has no free tier for image output, so Gabriella makes these in the free Gemini app (her decision, 2026-11-18).
+- Delegate `art-generator` a few levels at a time, in order, starting from `next_level` in `logs/gemini_prompts_progress.json`. It writes `assets/drafts/gemini_outcome_prompts.json` (3–4 drafts per outcome) and logs the time and level after each level. Commit each delegation as `[art_generator] drafts: outcome prompts level_XX–YY`, then rebuild the dashboard.
+- **When your tokens or usage run low, pause; never push through.** Let the agent finish the level it is on, make sure the log says `paused` with the time and `next_level`, commit, and tell Gabriella where it stopped. Continue only when she says so.
+
+**PixelLab (badges, icons).**
 - `art-generator` writes `assets/drafts/pixellab_jobs.json`; you run `python scripts/pixellab_draft.py` as a background task and do not poll it. It needs `PIXELLAB_API_KEY` in the environment; never print or store the key.
 - **When credits or tokens run out, pause; never push through.** The script exits with code 3 and `logs/pixellab_drafts.json` says `paused_out_of_credits`. Tell Gabriella how many images are done, then stop. To wait for the reset, run it with `--wait` in the background: it retries every 30 min and carries on by itself. If your own session runs out of tokens, nothing is lost: images on disk are never regenerated, so re-running the same command resumes.
 - Drafts stay in `assets/drafts/` until Gabriella picks. Commit them on `master` as `[art_generator] drafts: ...`. Only then does `art-asset` process the picks into game art.
