@@ -5345,7 +5345,7 @@
     "step": "playtest_run3_after_declutter",
     "result": "correct (firefly_lane, 3 stars), all 4 constraints found; difficulty 3/5",
     "retries": 0,
-    "tokens": null
+    "tokens": 15841
   },
   {
     "timestamp": "2026-11-21T15:24:15.697Z",
