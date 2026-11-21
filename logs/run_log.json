@@ -5076,5 +5076,45 @@
     "result": "Mina line typo fix; Gabriella kept the result",
     "retries": 2,
     "tokens": 14721
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16950
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16654
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after hand edits (Mina read as strict vegetarian by all runs)",
+    "retries": 0,
+    "tokens": null
   }
 ]

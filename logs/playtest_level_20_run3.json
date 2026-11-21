@@ -6,52 +6,44 @@
   "expected_stars": 3,
   "constraints_found": [
     {
-      "constraint": "Peanut allergy at the table: no peanut in any form (deal-breaker)",
-      "source_speaker": "brooke",
-      "source_line": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty"
+      "constraint": "Craving: Italian / pasta (not Greek)",
+      "who": "liam",
+      "line": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta"
     },
     {
-      "constraint": "Budget: $$ (nice, not fancy); $$$ is one tier over",
-      "source_speaker": "maya",
-      "source_line": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy. somewhere fancy and i'll spend my own send-off doing sums on a napkin"
+      "constraint": "Budget: $$ (nice, not fancy fancy)",
+      "who": "maya",
+      "line": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy fancy."
     },
     {
-      "constraint": "Craving: Italian / pasta (not the Greek place)",
-      "source_speaker": "liam",
-      "source_line": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta"
+      "constraint": "Strict diet: vegetarian, needs several meat- and fish-free dishes",
+      "who": "mina",
+      "line": "can i ask for something again? somewhere with a few dishes to choose from with just veggies or tofu, no meat or fish :)"
     },
     {
-      "constraint": "Several meat- and fish-free mains to choose from",
-      "source_speaker": "mina",
-      "source_line": "can i ask for something again? somewhere with a few dishes to choose from that have no meat or fish in them :)"
+      "constraint": "Allergy: peanuts in any form",
+      "who": "brooke (on behalf of the table)",
+      "line": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty"
     },
     {
-      "constraint": "Dairy intolerance (cheese/cream makes her ill; costs a star, not a deal-breaker)",
-      "source_speaker": "cyrus",
-      "source_line": "Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over."
+      "constraint": "Intolerance: dairy (cheese, cream)",
+      "who": "roxy",
+      "line": "Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over."
     },
     {
-      "constraint": "Fresh, light food, nothing heavy (rules out fried)",
-      "source_speaker": "brooke",
-      "source_line": "confession: i planned this whole night eating crackers over my laptop. tonight i want a plate that's fresh and bright, not one more heavy thing"
+      "constraint": "Preference: fresh, bright, light food (not heavy/fried)",
+      "who": "brooke",
+      "line": "confession: i planned this whole night eating crackers over my laptop. tonight i want a plate that's fresh and bright, not one more heavy thing"
     }
   ],
-  "venue_assessment": {
-    "waterfront_breakwater": "Italian $$, four meat/fish-free mains, no fryer, no dairy at all, never any peanuts. Meets everything: 3 stars.",
-    "waterfront_tidewater": "Greek, so misses the pasta craving; otherwise safe, light, dairy-free, vegetarian options: 2 stars.",
-    "waterfront_keel_street": "Roasted peanuts in the busiate, caponata and salad, bowl on the pass: deal-breaker, 0 stars.",
-    "waterfront_marina_arch": "No meat/fish-free main anywhere (vegetable dishes hide anchovy, pancetta, ham, tuna): misses Mina, 2 stars at best.",
-    "waterfront_pier_nine": "Dairy in every pasta, butter on greens, cream and mozzarella: costs a star for Roxy, 2 stars.",
-    "waterfront_quayside": "$$$, one tier over the 'nice not fancy' budget: 2 stars.",
-    "waterfront_bluewater": "Everything fried, heavy (reviewer slept through alarm): misses Brooke's light request, 2 stars."
+  "elimination": {
+    "waterfront_tidewater": "Greek; misses Liam's pasta craving (the paddleboard-night red herring). Otherwise fits.",
+    "waterfront_keel_street": "Peanuts in the pesto, caponata and salad; deal-breaker.",
+    "waterfront_marina_arch": "No meat-free main; deal-breaker for Mina.",
+    "waterfront_pier_nine": "Dairy-heavy kitchen; costs a star for Roxy.",
+    "waterfront_quayside": "$$$, one tier over budget; costs a star.",
+    "waterfront_bluewater": "Everything fried; misses Brooke's fresh-and-light preference."
   },
   "difficulty": 3,
-  "notes": [
-    "Every decoy fails exactly one constraint, which makes it a clean elimination puzzle with a single 3-star answer. Fair.",
-    "The peanut clue is sharp: Keel Street's first review looks perfect (dairy-free, vegetarian column, light) and the peanuts only show up in the second review. Good trap that rewards reading every review.",
-    "Marina Arch is a nice trap too: the menu names the same dishes as Breakwater (orecchiette, ciambotta, caponata) but each hides meat or fish. Readers who skim dish names could pick it.",
-    "Roxy's dairy intolerance is only stated indirectly through Cyrus ('buried in cheese or swimming in cream... doubled over'). It is inferable but a little oblique; acceptable for a late level.",
-    "Liam's Italian craving is framed as 'twirling pasta' against Roxy's Greek suggestion. Tidewater is Greek and still serves no pasta on the card, so the craving miss is clear. Minor ambiguity: Mina's request could be read as a strict diet rather than a preference; it doesn't change the pick.",
-    "Brooke's 'fresh and bright, not heavy' maps to Bluewater's all-fried menu clearly."
-  ]
+  "notes": "Fair and solvable. Each decoy fails on exactly one constraint, so all six have to be found. The dairy clue is spoken by Cyrus about Roxy, which is a nice indirect touch. The peanut allergy holder is a little ambiguous (Brooke is policing it, the satay incident hints at someone else), but it does not matter for the pick. Quayside's price is told twice: the review says 'a clear notch above the trattorias' and the card says $$$. That makes it consistent but easy to spot. Tidewater as the Greek red herring is clearly countered by Liam's pasta line. Nothing unfair found."
 }
