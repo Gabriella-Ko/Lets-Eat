@@ -14,7 +14,7 @@
     { "speaker": "brooke", "text": "cyrus, heads up: a lot of those viet stalls had a big tub of crushed peanuts on the counter. we're skipping every one of those for you", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
     { "speaker": "cyrus", "text": "Appreciated. The map is getting a legend after all.", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "liam", "text": "oh, and mina, half that row does tofu versions of everything. i only noticed because i was hunting for the biggest bowl", "emotion": "HUNGRY", "clue": null },
-    { "speaker": "mina", "text": "tofu everything?? i could order off the whole board for once :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
+    { "speaker": "mina", "text": "tofu everything?? i could order off the whole menu for once :)", "emotion": "HAPPY", "clue": "diet:vegetarian" },
     { "speaker": "mina", "text": "cyrus, save me a corner of that map. i want to doodle the stalls i like", "emotion": "HAPPY", "clue": null },
     { "speaker": "brooke", "text": "also: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket", "emotion": "NEUTRAL", "clue": "vibe:healthy" },
     { "speaker": "liam", "text": "so the stalls with the giant bubbling fryers are out for you", "emotion": "SURPRISED", "clue": "vibe:healthy" },
