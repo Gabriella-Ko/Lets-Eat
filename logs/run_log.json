@@ -5356,5 +5356,15 @@
     "result": "pass 3/3 after declutter (all runs: Mina vegetarian clue softest but found)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:11:57.337Z",
+    "level": "level_12",
+    "agent": "orchestrator",
+    "brief_version": "v1",
+    "step": "validate_after_hand_edit",
+    "result": "pass; playtest input rebuilt after human:gabby edit to Mina line (board -> menu); Banyan id edit reverted at Gabriella request",
+    "retries": 0,
+    "tokens": null
   }
 ]
