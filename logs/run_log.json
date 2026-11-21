@@ -5360,10 +5360,20 @@
   {
     "timestamp": "2026-11-21T17:11:57.337Z",
     "level": "level_12",
-    "agent": "orchestrator",
+    "agent_id": "orchestrator",
     "brief_version": "v1",
     "step": "validate_after_hand_edit",
     "result": "pass; playtest input rebuilt after human:gabby edit to Mina line (board -> menu); Banyan id edit reverted at Gabriella request",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:12:22.871Z",
+    "level": "level_12",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
     "retries": 0,
     "tokens": null
   }
