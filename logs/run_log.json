@@ -4945,6 +4945,16 @@
     "step": "chat_outcomes",
     "result": "written: 22 lines, 6 clue (one per need), 2 callbacks, 16 non-clue; send-off framing, Maya $$ fun budget, Mina speaks-up echo",
     "retries": 0,
+    "tokens": 75384
+  },
+  {
+    "timestamp": "2026-11-21T03:26:19.536Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
     "tokens": null
   }
 ]
