@@ -5126,5 +5126,25 @@
     "result": "Gabriella: relative-with-need device trimmed (Pier Nine regulars, Keel Street olive-oil desserts, Tidewater friend cut)",
     "retries": 2,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.433Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.433Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after review trim",
+    "retries": 0,
+    "tokens": null
   }
 ]
