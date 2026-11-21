@@ -25,7 +25,7 @@
       "lines": [
         { "speaker": "mina", "text": "oh... i read the whole board twice. there's meat or fish in every single thing", "emotion": "SURPRISED" },
         { "speaker": "liam", "text": "i promised mina tofu everything and this board doesn't have a single cube", "emotion": "SURPRISED" },
-        { "speaker": "cyrus", "text": "We had one plan for Mina tonight, and this isn't it. Everyone up, we're leaving.", "emotion": "ANGRY" }
+        { "speaker": "cyrus", "text": "My map said viet row. It did not say meat in every dish. Mina first, we're leaving.", "emotion": "ANGRY" }
       ]
     },
     "night_market_twelve_bells": {
