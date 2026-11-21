@@ -5116,5 +5116,15 @@
     "result": "pass 3/3 after hand edits (Mina read as strict vegetarian by all runs)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.116Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "Gabriella: relative-with-need device trimmed (Pier Nine regulars, Keel Street olive-oil desserts, Tidewater friend cut)",
+    "retries": 2,
+    "tokens": null
   }
 ]
