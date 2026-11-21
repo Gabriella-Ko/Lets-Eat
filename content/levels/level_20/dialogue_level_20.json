@@ -8,8 +8,8 @@
     { "speaker": "liam", "text": "packing lists later. what are we EATING. i've been hungry since lunch", "emotion": "HUNGRY", "clue": null },
     { "speaker": "roxy", "text": "ooh, the greek place from paddleboard night?? best night of the summer", "emotion": "HAPPY", "clue": null },
     { "speaker": "liam", "text": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta", "emotion": "HUNGRY", "clue": "craving" },
-    { "speaker": "maya", "text": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy. somewhere fancy and i'll spend my own send-off doing sums on a napkin", "emotion": "NEUTRAL", "clue": "budget", "callback": "trip_fund" },
-    { "speaker": "mina", "text": "can i ask for something again? somewhere with a few dishes to choose from that have no meat or fish in them :)", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
+    { "speaker": "maya", "text": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy fancy.", "emotion": "NEUTRAL", "clue": "budget", "callback": "trip_fund" },
+    { "speaker": "mina", "text": "can i ask for something again? somewhere with a few dishes to choose from with just veggies or tofu, no meat or fish :)", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
     { "speaker": "mina", "text": "maya, i painted you a tiny one of the boardwalk to take with you. so you don't forget us :)", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "mina. i'm literally leaving this chat. to cry. in private", "emotion": "SURPRISED", "clue": null },
     { "speaker": "brooke", "text": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty", "emotion": "NEUTRAL", "clue": "allergy:peanut", "callback": "satay_incident" },
@@ -23,5 +23,5 @@
     { "speaker": "brooke", "text": "assistant, last dinner of the summer, all six of us. make it a good one", "emotion": "HAPPY", "clue": null }
   ],
   "generated_by": "narrative_writer",
-  "edited_by": null
+  "edited_by": "human:gabby"
 }
