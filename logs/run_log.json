@@ -5246,5 +5246,15 @@
     "result": "narrative_writer retry count reset to 0 for a v9 declutter rework (clutter audit 2026-11-21; Gabriella approved the plan)",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T15:21:08.587Z",
+    "level": "level_12",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_rework",
+    "result": "clutter audit rework: 22 -> 19 lines, 6 clue, 0 callbacks, 13 non-clue; Cyrus no longer explains his allergy",
+    "retries": 1,
+    "tokens": null
   }
 ]
