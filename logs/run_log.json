@@ -4975,6 +4975,16 @@
     "step": "chat_rework",
     "result": "first-critique suggestions: cut 2 reaction lines, no patrol echo, new Mina echo line, Cyrus off-duty payoff; 20 lines, 6 clue, 2 callbacks",
     "retries": 1,
+    "tokens": 28226
+  },
+  {
+    "timestamp": "2026-11-21T03:32:33.866Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "first-critique suggestions: Pier Nine departure board, Bluewater rewritten (no quote), Quayside new scene, Keel Street/Marina Arch dairy varied, Tidewater consistent",
+    "retries": 1,
     "tokens": null
   }
 ]
