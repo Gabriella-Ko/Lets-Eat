@@ -7,57 +7,50 @@
   "constraints_found": [
     {
       "who": "liam",
-      "constraint": "Craving: Vietnamese food",
-      "source_line": "viet. tonight. please",
-      "type": "craving"
+      "constraint": "Craving Vietnamese food",
+      "type": "craving",
+      "source_line": "viet. tonight. please"
     },
     {
       "who": "cyrus",
-      "constraint": "Peanut allergy (deal-breaker): no peanuts anywhere on the stall, not just off the dish",
-      "source_line": "Noted. Any stall with that tub, on the counter or tucked away in the back, I'll admire from across the aisle. The far end of the counter isn't far enough.",
-      "type": "allergy"
+      "constraint": "Peanut allergy (deal-breaker)",
+      "type": "allergy",
+      "source_line": "cyrus, heads up: a lot of those viet stalls had a big tub of crushed peanuts on the counter. we're skipping every one of those for you"
     },
     {
       "who": "mina",
-      "constraint": "Vegetarian / meat-free: needs plenty of tofu or meat-free options",
-      "source_line": "Good. Then wherever we land needs plenty of options for Mina.",
-      "supporting_lines": [
-        "oh, and mina, half that row does tofu versions of everything...",
-        "tofu everything?? that sounds like my kind of row :)"
-      ],
-      "type": "diet"
+      "constraint": "Vegetarian / no meat or fish (strict diet, deal-breaker)",
+      "type": "diet",
+      "source_line": "tofu everything?? i could order off the whole board for once :)"
     },
     {
       "who": "brooke",
-      "constraint": "Light, fresh food; nothing heavy or deep-fried",
-      "source_line": "speaking of which: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket",
-      "supporting_lines": [
-        "so the stalls with the giant bubbling fryers are out for you",
-        "way out. i don't even want to stand next to one in this heat"
-      ],
-      "type": "preference"
+      "constraint": "Wants light food, nothing heavy or deep-fried",
+      "type": "preference",
+      "source_line": "also: it's way too warm tonight for anything heavy. i want food that feels like a breeze, not a blanket"
     },
     {
       "who": "group",
-      "constraint": "Budget: never stated; all six venues are $, so price is not a factor",
-      "source_line": null,
-      "type": "budget"
+      "constraint": "Budget: none stated in chat; every venue is $, so price does not decide anything",
+      "type": "budget",
+      "source_line": null
     }
   ],
-  "elimination": {
-    "downtown_banyan_kitchen": "Peanut sauce and crushed peanuts on everything; fails Cyrus's allergy.",
-    "night_market_stone_well": "Peanut-free and light, but no meat-free options (fish sauce / dried shrimp in everything, batch filling); fails Mina.",
-    "night_market_twelve_bells": "Peanut-safe and has meat-free versions, but everything is fried; misses Brooke's light preference.",
-    "night_market_plum_bridge": "Peanut-free, light, veg options, but dim sum, not Vietnamese; misses Liam's craving.",
-    "night_market_red_thread": "Peanut-free, light, veg options, but sushi, not Vietnamese; misses Liam's craving.",
-    "night_market_firefly_lane": "Vietnamese, no peanuts on the whole cart (reviewer read every jar), tofu-based pho/rolls/banh mi, clean light food. Meets everything."
+  "venue_reasoning": {
+    "night_market_firefly_lane": "Viet, $. Reviews: no peanut anywhere on the cart (fried shallots replace the peanut tub), fully vegetarian options (mushroom pho on vegetable broth, tofu rolls, tofu banh mi), light and fresh. Meets everything: 3 stars.",
+    "downtown_banyan_kitchen": "Viet, light, tofu options, but peanuts on everything and roasted all night. Fails Cyrus's allergy: 0.",
+    "night_market_stone_well": "Viet, light, peanut-free, but fish sauce or dried shrimp in everything and the meat-free friend struck out. Fails Mina's diet: 0.",
+    "night_market_twelve_bells": "Viet, peanut-safe, meat-free versions exist, but everything is fried and heavy. Misses Brooke's preference: 2 stars.",
+    "night_market_plum_bridge": "Dim sum, peanut-safe, vegetarian options, steamed and light. Misses Liam's Viet craving: 2 stars.",
+    "night_market_red_thread": "Sushi, peanut-free, vegetarian rolls, light. Misses Liam's Viet craving: 2 stars."
   },
   "difficulty": 3,
   "notes": [
-    "Mina's diet is never stated outright as vegetarian; it is inferred from the tofu exchange and Cyrus's 'plenty of options for Mina'. A player might wonder whether it is a strict diet (deal-breaker) or a preference (one star). Either way Firefly Lane is the only full match, so the answer is not affected, but Stone Well's score would differ between those readings.",
-    "Firefly Lane's 'fried shallots from a big jar' is a decent red herring against Brooke's no-fryer line, and its jar standing 'where other carts keep their peanut tub' neatly echoes Cyrus's line. The review clarifies the food leaves you 'fresh instead of stuffed', so it reads as light. Fair.",
-    "Twelve Bells is a good near-miss: peanut-safe and veg-friendly, so it only loses on Brooke's light preference, making it a likely 2-star trap.",
-    "Plum Bridge and Red Thread are clean except for cuisine; the venue card's cuisine field gives that away quickly.",
-    "Nothing felt unfair or contradictory."
+    "Mina's vegetarian diet is implied, never stated: 'tofu everything?? i could order off the whole board for once'. Fair and readable, but it is the subtlest clue. A player who misses it could pick Stone Well (viet, light, peanut-free) and get 0. Stone Well's second review is the only thing that warns about it.",
+    "Brooke's 'light' preference is reinforced by Liam's follow-up about the fryers, so it is clear.",
+    "No budget is mentioned, but every venue is $, so that is not a problem.",
+    "One venue id starts with 'downtown_' even though it is a night market cart. The review explains it (night cart of a downtown lunch counter). Not a problem for play, and I did not use ids to decide.",
+    "The distractors are well built: each of the other Viet stalls fails exactly one constraint, and the two non-Viet stalls only miss the craving. The answer is unique and not overly obvious.",
+    "The chat has some flavour lines (map, doodling), but they do not hide the clues badly."
   ]
 }
