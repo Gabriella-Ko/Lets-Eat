@@ -5416,5 +5416,15 @@
     "result": "light-touch declutter: cut Brooke peanut agreement line, merged Brooke healthy lines; 16 to 14",
     "retries": 1,
     "tokens": 22629
+  },
+  {
+    "timestamp": "2026-11-21T17:16:28.759Z",
+    "level": "level_11",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Roxy dairy restatement and Liam agreement line; 22 to 20",
+    "retries": 1,
+    "tokens": 23129
   }
 ]
