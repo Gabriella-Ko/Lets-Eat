@@ -1,6 +1,6 @@
 {
   "generated_by": "provenance",
-  "head": "0ca14f154723f39531f81db9aa93f68202d6a95e",
+  "head": "2a383eb7bda6585ed7de3b41d120339edce06310",
   "files": [
     {
       "file": "content/campaign/campaign_outline.json",
@@ -2453,6 +2453,142 @@
       ]
     },
     {
+      "file": "content/levels/level_20/dialogue_level_20.json",
+      "level": "level_20",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-20T22:56:02-05:00",
+      "commit": "56cf6bccf20abb6ac3ea338e19b33f013f5a1a6e",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "56cf6bccf20abb6ac3ea338e19b33f013f5a1a6e",
+          "timestamp": "2026-11-20T22:56:02-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_20: hand edit Maya's budget line and Mina's vegetarian line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b42ef822b59ad191fe6a822a6ddd1a9a22855cec",
+          "timestamp": "2026-11-20T22:32:09-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_20: apply critic suggestions (2 reaction lines cut)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "95ac218d0a148b6f48e14cf2fcc4bdf78712c93a",
+          "timestamp": "2026-11-20T22:26:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_20: chat and outcomes (Maya's send-off)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_20/outcomes_level_20.json",
+      "level": "level_20",
+      "author_id": "narrative_writer",
+      "edited_by": "human:gabby",
+      "brief_version": "v9",
+      "timestamp": "2026-11-21T00:03:13-05:00",
+      "commit": "05cf20e875a45bcf306b165f88981ce7b683d229",
+      "last_commit_by": "human:gabby",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "05cf20e875a45bcf306b165f88981ce7b683d229",
+          "timestamp": "2026-11-21T00:03:13-05:00",
+          "agent_tag": "human:gabby",
+          "subject": "[human:gabby] level_20: hand edit Liam's Quayside outcome line",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "89ad28311cbc599087e277428c36e2ac43630f0c",
+          "timestamp": "2026-11-20T23:07:08-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_20: Maya's Quayside and Breakwater outcome lines",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "b42ef822b59ad191fe6a822a6ddd1a9a22855cec",
+          "timestamp": "2026-11-20T22:32:09-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_20: apply critic suggestions (2 reaction lines cut)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "95ac218d0a148b6f48e14cf2fcc4bdf78712c93a",
+          "timestamp": "2026-11-20T22:26:05-05:00",
+          "agent_tag": "narrative_writer",
+          "subject": "[narrative_writer] level_20: chat and outcomes (Maya's send-off)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_20/spec_level_20.json",
+      "level": "level_20",
+      "author_id": "puzzle_architect",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-20T22:21:56-05:00",
+      "commit": "0b7f5fbcb87500da5d29f85efddb909336743690",
+      "last_commit_by": "puzzle_architect",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "0b7f5fbcb87500da5d29f85efddb909336743690",
+          "timestamp": "2026-11-20T22:21:56-05:00",
+          "agent_tag": "puzzle_architect",
+          "subject": "[puzzle_architect] level_20: spec (Breakwater send-off, Tidewater swaps roles)",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "content/levels/level_20/venues_level_20.json",
+      "level": "level_20",
+      "author_id": "map_seeder",
+      "edited_by": null,
+      "brief_version": "v6",
+      "timestamp": "2026-11-20T23:07:22-05:00",
+      "commit": "4307bda2c7faf242e7648589c7551ae3bb21250e",
+      "last_commit_by": "map_seeder",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "4307bda2c7faf242e7648589c7551ae3bb21250e",
+          "timestamp": "2026-11-20T23:07:22-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_20: Pier Nine hazelnut wording",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "f60f39554e6d94bd935c428a37c14ce0186efe54",
+          "timestamp": "2026-11-20T23:01:43-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_20: trim relative-with-need device (Pier Nine, Keel Street, Tidewater)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "e55ac388b1ad6c749ff5b9e99652bedf80f97e62",
+          "timestamp": "2026-11-20T22:32:34-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_20: apply critic suggestions (repeats removed)",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "d6a28485dd6b9c12a673435aaa42b41719f81a04",
+          "timestamp": "2026-11-20T22:25:50-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_20: venues and 5 new Waterfront Italian venues",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
       "file": "content/registry/venue_registry_campus.json",
       "level": null,
       "author_id": "map_seeder",
@@ -2609,11 +2745,18 @@
       "author_id": "map_seeder",
       "edited_by": null,
       "brief_version": "v6",
-      "timestamp": "2026-11-19T16:32:59-05:00",
-      "commit": "f879d4308dc2c76f02ccde440e865cbc7e907ef5",
+      "timestamp": "2026-11-20T22:25:50-05:00",
+      "commit": "d6a28485dd6b9c12a673435aaa42b41719f81a04",
       "last_commit_by": "map_seeder",
       "uncommitted_changes": false,
       "history": [
+        {
+          "commit": "d6a28485dd6b9c12a673435aaa42b41719f81a04",
+          "timestamp": "2026-11-20T22:25:50-05:00",
+          "agent_tag": "map_seeder",
+          "subject": "[map_seeder] level_20: venues and 5 new Waterfront Italian venues",
+          "pre_pipeline": false
+        },
         {
           "commit": "f879d4308dc2c76f02ccde440e865cbc7e907ef5",
           "timestamp": "2026-11-19T16:32:59-05:00",
@@ -3181,6 +3324,40 @@
           "timestamp": "2026-11-19T16:36:31-05:00",
           "agent_tag": "critic",
           "subject": "[critic] level_19: pass, 5 suggestions",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/critique_level_20.json",
+      "level": "level_20",
+      "author_id": "critic",
+      "edited_by": null,
+      "brief_version": "v3",
+      "timestamp": "2026-11-20T23:02:58-05:00",
+      "commit": "9882f26a8062d76ab45e140e8f12f29ff7eda633",
+      "last_commit_by": "critic",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "9882f26a8062d76ab45e140e8f12f29ff7eda633",
+          "timestamp": "2026-11-20T23:02:58-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_20: quick re-review after review trim, pass, 2 suggestions",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "2e94fe539f525907cc0072bbc0c46badd68025c1",
+          "timestamp": "2026-11-20T22:34:18-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_20: re-review after rework, pass, 1 suggestion",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "aa80b4b302b3b186d1375cebebd78719d920dac7",
+          "timestamp": "2026-11-20T22:31:21-05:00",
+          "agent_tag": "critic",
+          "subject": "[critic] level_20: pass, 10 suggestions",
           "pre_pipeline": false
         }
       ]
@@ -4888,6 +5065,108 @@
           "timestamp": "2026-11-19T16:38:02-05:00",
           "agent_tag": "blind_playtester",
           "subject": "[blind_playtester] level_19: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_20_run1.json",
+      "level": "level_20",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-20T23:02:29-05:00",
+      "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+          "timestamp": "2026-11-20T23:02:29-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after review trim, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "a590cfb47d47024d42814e4bc21afae556671c28",
+          "timestamp": "2026-11-20T22:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88298db4fcda12d9d4f7b9c2dce9b7124054da2e",
+          "timestamp": "2026-11-20T22:33:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_20_run2.json",
+      "level": "level_20",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-20T23:02:29-05:00",
+      "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+          "timestamp": "2026-11-20T23:02:29-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after review trim, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "a590cfb47d47024d42814e4bc21afae556671c28",
+          "timestamp": "2026-11-20T22:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88298db4fcda12d9d4f7b9c2dce9b7124054da2e",
+          "timestamp": "2026-11-20T22:33:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs, 3/3 correct",
+          "pre_pipeline": false
+        }
+      ]
+    },
+    {
+      "file": "logs/playtest_level_20_run3.json",
+      "level": "level_20",
+      "author_id": "blind_playtester",
+      "edited_by": null,
+      "brief_version": "v2",
+      "timestamp": "2026-11-20T23:02:29-05:00",
+      "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+      "last_commit_by": "blind_playtester",
+      "uncommitted_changes": false,
+      "history": [
+        {
+          "commit": "c599b2a9194c68a7d4ed70b99f171ec151754e88",
+          "timestamp": "2026-11-20T23:02:29-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after review trim, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "a590cfb47d47024d42814e4bc21afae556671c28",
+          "timestamp": "2026-11-20T22:57:38-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs after hand edits, 3/3 correct",
+          "pre_pipeline": false
+        },
+        {
+          "commit": "88298db4fcda12d9d4f7b9c2dce9b7124054da2e",
+          "timestamp": "2026-11-20T22:33:24-05:00",
+          "agent_tag": "blind_playtester",
+          "subject": "[blind_playtester] level_20: 3 runs, 3/3 correct",
           "pre_pipeline": false
         }
       ]

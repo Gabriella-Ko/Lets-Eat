@@ -4916,5 +4916,325 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:21:56.665Z",
+    "level": "level_20",
+    "agent_id": "puzzle_architect",
+    "brief_version": "v6",
+    "step": "spec",
+    "result": "written: answer waterfront_breakwater (italian, $$; was level_16 craving decoy); peanut + veg traps, dairy/$$$/healthy near misses, Tidewater (level_16 answer) as craving decoy; 6 needs, one per friend",
+    "retries": 0,
+    "tokens": 58889
+  },
+  {
+    "timestamp": "2026-11-21T03:25:50.807Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues",
+    "result": "written: 7 venues (Breakwater, Tidewater reused), 5 new waterfront italian venues added to registry",
+    "retries": 0,
+    "tokens": 68858
+  },
+  {
+    "timestamp": "2026-11-21T03:26:05.328Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_outcomes",
+    "result": "written: 22 lines, 6 clue (one per need), 2 callbacks, 16 non-clue; send-off framing, Maya $$ fun budget, Mina speaks-up echo",
+    "retries": 0,
+    "tokens": 75384
+  },
+  {
+    "timestamp": "2026-11-21T03:26:19.536Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:31:21.515Z",
+    "level": "level_20",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass, 0 must_fix, 10 suggestions (5 writer, 5 seeder) sent for one rework round",
+    "retries": 0,
+    "tokens": 100654
+  },
+  {
+    "timestamp": "2026-11-21T03:32:08.915Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "first-critique suggestions: cut 2 reaction lines, no patrol echo, new Mina echo line, Cyrus off-duty payoff; 20 lines, 6 clue, 2 callbacks",
+    "retries": 1,
+    "tokens": 28226
+  },
+  {
+    "timestamp": "2026-11-21T03:32:33.866Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "first-critique suggestions: Pier Nine departure board, Bluewater rewritten (no quote), Quayside new scene, Keel Street/Marina Arch dairy varied, Tidewater consistent",
+    "retries": 1,
+    "tokens": 32678
+  },
+  {
+    "timestamp": "2026-11-21T03:32:34.217Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after rework)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:32:34.217Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "clues stripped, registry card fields only",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:33:24.357Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17484
+  },
+  {
+    "timestamp": "2026-11-21T03:33:24.357Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17053
+  },
+  {
+    "timestamp": "2026-11-21T03:33:24.357Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17323
+  },
+  {
+    "timestamp": "2026-11-21T03:33:24.357Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 (Tidewater strongest decoy; Mina need soft; 1 run unsure whose peanut allergy)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:34:18.365Z",
+    "level": "level_20",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after rework, 0 must_fix, 1 suggestion (relative-with-need device on 4-5 venues; to PR)",
+    "retries": 0,
+    "tokens": 47975
+  },
+  {
+    "timestamp": "2026-11-21T03:56:01.804Z",
+    "level": "level_20",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "hand_edit",
+    "result": "Maya budget line trimmed (napkin promise cut, intentional); Mina vegetarian line reworded",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T03:56:01.804Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "Mina line typo fix; Gabriella kept the result",
+    "retries": 2,
+    "tokens": 14721
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16950
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17245
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_hand_edits",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16654
+  },
+  {
+    "timestamp": "2026-11-21T03:57:38.282Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after hand edits (Mina read as strict vegetarian by all runs)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.116Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "Gabriella: relative-with-need device trimmed (Pier Nine regulars, Keel Street olive-oil desserts, Tidewater friend cut)",
+    "retries": 2,
+    "tokens": 23321
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.433Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:01:43.433Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "prepare_playtest",
+    "result": "rebuilt after review trim",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run1_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17126
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run2_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 16907
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "blind_playtester",
+    "brief_version": "v2",
+    "step": "playtest_run3_after_review_trim",
+    "result": "correct (breakwater, 3 stars), all 6 constraints found; difficulty 3/5",
+    "retries": 0,
+    "tokens": 17220
+  },
+  {
+    "timestamp": "2026-11-21T04:02:29.132Z",
+    "level": "level_20",
+    "agent_id": "orchestrator",
+    "brief_version": "v1",
+    "step": "judge_playtests",
+    "result": "pass 3/3 after review trim",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:02:58.703Z",
+    "level": "level_20",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after review trim, 0 must_fix, 2 suggestions (napkin outcome lines; Pier Nine crunch echo) to PR",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T04:07:08.745Z",
+    "level": "level_20",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "chat_rework",
+    "result": "Quayside and Breakwater Maya outcomes no longer reference the cut napkin promise. Retries exhausted.",
+    "retries": 3,
+    "tokens": 16045
+  },
+  {
+    "timestamp": "2026-11-21T04:07:22.703Z",
+    "level": "level_20",
+    "agent_id": "map_seeder",
+    "brief_version": "v6",
+    "step": "venues_rework",
+    "result": "Pier Nine crunch echo reworded. Retries exhausted.",
+    "retries": 3,
+    "tokens": 18031
+  },
+  {
+    "timestamp": "2026-11-21T04:07:31.083Z",
+    "level": "level_20",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T05:03:33.368Z",
+    "level": "level_20",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

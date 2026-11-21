@@ -1,0 +1,20 @@
+{
+  "level_id": "level_20",
+  "chapter": 4,
+  "district": "waterfront",
+  "difficulty": "buried",
+  "guests": ["maya", "liam", "mina", "roxy", "cyrus", "brooke"],
+  "hard": { "budget_max": "$$", "allergies": ["peanut"], "diets": ["vegetarian"] },
+  "soft": { "craving": "italian", "vibe": ["healthy"], "intolerances": ["dairy"] },
+  "solution_id": "waterfront_breakwater",
+  "decoys": [
+    { "id": "waterfront_keel_street", "fails_on": "allergy:peanut" },
+    { "id": "waterfront_marina_arch", "fails_on": "diet:vegetarian" },
+    { "id": "waterfront_pier_nine", "fails_on": "intolerance:dairy" },
+    { "id": "waterfront_quayside", "fails_on": "budget_soft" },
+    { "id": "waterfront_bluewater", "fails_on": "vibe:healthy" },
+    { "id": "waterfront_tidewater", "fails_on": "craving" }
+  ],
+  "generated_by": "puzzle_architect",
+  "edited_by": null
+}

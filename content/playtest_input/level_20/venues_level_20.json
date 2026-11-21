@@ -1,0 +1,58 @@
+{
+  "level_id": "level_20",
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_breakwater",
+      "reviews": [
+        "Breakwater still runs out of the old boathouse at the end of the harbour arm, and the brass bell over the pass still rings for every plate. On our night a rowing eight came in straight off the water, propped their oars in the corner and took the long table. I had the orecchiette with broccoli rabe, garlic and chilli; my sister had the ciambotta, peppers, eggplant and potato stewed down with tomato into a proper main. It's one of four mains on the card with no meat or fish in them. Plenty of good oil, nothing out of a fryer, and we still had legs for the walk back along the breakwater.",
+        "Ask for parmesan and you'll get a little dish of breadcrumbs fried crisp in olive oil, which is the house joke and also the house rule: there isn't a wedge of cheese, a pat of butter or a drop of cream in the building. The bread comes with a saucer of green oil, and dessert is a lemon granita that tastes like the actual lemon.",
+        "I bake bread two doors down, and Breakwater and I borrow from each other whenever someone runs short on a busy Saturday: flour, lemons, a sack of chickpeas, once a whole case of tomatoes. In five years of raiding her shelves, the one thing I could never borrow is peanuts. The chef has simply never bought any, and her kitchen has never had one in it."
+      ]
+    },
+    {
+      "id": "waterfront_tidewater",
+      "reviews": [
+        "Back at Tidewater for the end of the season. The owner's daughter has added a backgammon ladder to the chalkboard by the door, and the regulars play between courses, slapping the pieces down hard enough to be heard over the room. Our table split down the middle: three of us had the grilled bream, and the other three had the briam, a whole tray of courgette, potato and tomato roasted soft in olive oil, with a stuffed pepper on the side and not a scrap of meat or fish on either plate. Everything comes off the grill or out of the oven, and nobody needed a nap afterwards.",
+        "I carry a pen for a peanut allergy, so I'm the one at the table who asks to read the jars. The waiter just brought them out, one after another: the tahini, the honey, the walnuts for the baklava, the bottle of olive oil they finish every plate with. Not one label mentioned peanuts, and nothing on the shelves had ever held any. The baklava is brushed with olive oil, not butter, the spreads for the bread are beans and garlic, and the salad comes with capers where most tavernas pile on the cheese."
+      ]
+    },
+    {
+      "id": "waterfront_keel_street",
+      "reviews": [
+        "Keel Street fills the ground floor of an old sail-mender's loft, and the tables are so long you'll be passing bread to strangers by the second course. The cooking is Sicilian and bright: caponata, pasta with chickpeas, grilled swordfish, and a whole column of mains with neither meat nor fish, so nobody at our table was stuck with sides. Dessert gives the kitchen away as an olive-oil house through and through: the cannoli are piped with sweet almond paste instead of ricotta, the only other sweet is a blood-orange granita, and nothing on the card arrives finished with cheese. I walked out feeling lighter than I walked in.",
+        "Everyone photographs the busiate. It's the chef's spin on pesto alla trapanese: basil, tomato and garlic pounded with roasted peanuts where Trapani would use almonds. The same crushed peanuts get scattered over the caponata and the orange and fennel salad, and a bowl of them sits on the pass for the cooks to pinch from. The man at the next table had the busiate twice and asked for the recipe."
+      ]
+    },
+    {
+      "id": "waterfront_marina_arch",
+      "reviews": [
+        "Marina Arch is built into the stone gateway of the old harbour, and swifts nest up in the arch; at dusk they shriek past the windows while the room gets louder to match. The cooking is Venetian and lean: grilled sardines, bigoli in anchovy sauce, cuttlefish in its ink, all olive oil and lemon, light enough that we ordered dessert. The anchovy does the job parmesan does elsewhere, the pans are oiled, never buttered, and dessert is a bitter-orange sorbetto.",
+        "I'd heard it was a good place for a meat-free dinner. It isn't, so read the vegetable dishes closely. The orecchiette with broccoli rabe is melted down with anchovies, the ciambotta starts in pancetta fat, the bean soup is simmered on a ham hock, and the caponata arrives with tuna flaked over the top. I went through the card twice and couldn't find a main without meat or fish somewhere in it. I had bread and a green salad and watched everyone else eat.",
+        "I'm an emergency nurse, and I've seen enough peanut reactions that I don't book anywhere without asking first. The chef walked me through her dry store: rice, flour, beans, tinned anchovies, drums of olive oil. Not a peanut in the room, nothing with one on the label, and there never has been since she opened. I've sent half my ward here since."
+      ]
+    },
+    {
+      "id": "waterfront_pier_nine",
+      "reviews": [
+        "Pier Nine took over the old ferry ticket office and kept the brass departure board, which the waiters flip to announce the specials with a clatter that gets a cheer every time. The cooking is light and northern: grilled fish, steamed greens, nothing fried, portions you can walk home on. A whole side of the menu skips meat and fish, from eggplant parmigiana and ricotta gnudi in tomato to a ciambotta baked under a lid of mozzarella and orecchiette with broccoli rabe in a little cream.",
+        "Cheese is the backbone of the kitchen. The parmesan goes into every pasta in the pan before it reaches you, the greens get a knob of butter on the way out, and dessert is panna cotta or a ricotta tart. Lovely if you love dairy, and I do. One slat on the brass departure board never gets flipped: it was painted the week they opened and reads NO PEANUTS ON THIS PIER. The regulars read it like a timetable: the ricotta tart is scattered with toasted hazelnut, and the bowls along the bar hold olives and taralli, never a peanut."
+      ]
+    },
+    {
+      "id": "waterfront_quayside",
+      "reviews": [
+        "Quayside takes the top floor of the old customs house and prices itself like it knows it has the best view on the front, a clear notch above the trattorias down on the quay. A chandelier of old glass fishing floats hangs over the centre table. The room runs on big parties: on our night a retirement do filled one side, a christening lunch was still going on the other, and a long table sang happy birthday twice.",
+        "The cooking is precise and light: raw bream with blood orange, grilled octopus, pasta with chickpeas, a glossy caponata. The garden tasting menu runs five courses without a bite of meat or fish, and it's the one the regulars book. The kitchen cooks without dairy from start to finish: the creamy soup is blended white beans, and dessert is an olive oil and orange cake with lemon sorbetto.",
+        "We vetted half the harbour for my brother's rehearsal dinner, because the groom has a serious peanut allergy. Quayside was the easy yes. The chef sent over her full ingredient sheet, peanuts and peanut oil appear nowhere on it and never have, and the crunch on the plates comes from toasted pine nuts and breadcrumbs."
+      ]
+    },
+    {
+      "id": "waterfront_bluewater",
+      "reviews": [
+        "Bluewater is the harbour's fry shop with tablecloths: a jukebox in the corner, blue neon in the window, and a line of night-shift dockers at eleven. Everything goes through the fryer: fritto misto, battered zucchini flowers, chickpea panelle, potato fritters, and the pizza fritta, a whole pizza dropped in the oil until it puffs and blisters. The fried vegetable platter is a meatless main big enough for two, and dessert is sugared zeppole, fried as well. I slept through my alarm the next morning.",
+        "My daughter has a peanut allergy, and Bluewater is the one fry shop on the harbour where she gets to point at the board and order for herself. The fryers run on sunflower oil, and in two years of Friday suppers she has never had so much as an itch. The pizza fritta comes with tomato and basil and no cheese, the zucchini flowers are stuffed with herbs and breadcrumbs rather than ricotta, and the dockers dunk their zeppole in black coffee, because nobody behind the counter keeps a milk jug or a block of butter."
+      ]
+    }
+  ]
+}

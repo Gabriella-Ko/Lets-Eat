@@ -1,0 +1,47 @@
+{
+  "district": "waterfront",
+  "venues": [
+    {
+      "id": "waterfront_breakwater",
+      "name": "Breakwater",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_tidewater",
+      "name": "Tidewater",
+      "cuisine": "greek",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_keel_street",
+      "name": "Keel Street",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_marina_arch",
+      "name": "Marina Arch",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_pier_nine",
+      "name": "Pier Nine",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    },
+    {
+      "id": "waterfront_quayside",
+      "name": "Quayside",
+      "cuisine": "italian",
+      "price_tier": "$$$"
+    },
+    {
+      "id": "waterfront_bluewater",
+      "name": "Bluewater",
+      "cuisine": "italian",
+      "price_tier": "$$"
+    }
+  ]
+}

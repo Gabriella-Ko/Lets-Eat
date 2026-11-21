@@ -1,0 +1,26 @@
+{
+  "level_id": "level_20",
+  "verdict": "pass",
+  "findings": [
+    {
+      "severity": "suggestion",
+      "check": "outcomes",
+      "file": "content/levels/level_20/outcomes_level_20.json",
+      "agent": "narrative_writer",
+      "where": "by_venue.waterfront_quayside lines[0]; by_venue.waterfront_breakwater lines[0]",
+      "issue": "Gabriella's hand edit deliberately cut Maya's napkin promise from script[10], but two outcome lines still pay it off. Quayside's 'i'm doing sums on the other one, as promised' now points back to a promise nobody made, and Breakwater's 'the napkin stayed clean. no sums.' is a callback to nothing. A player who picks either venue will notice. This is the only thing the edit broke, and each fix is one line.",
+      "suggested_fix": "Quayside lines[0]: 'this is fancy fancy. a man refolded my napkin twice. the fun budget is filing a complaint' (keeps ANNOYED and echoes her chat line). Breakwater lines[0]: 'nice, not fancy fancy. the fun budget survived. best send-off anyone has ever had'."
+    },
+    {
+      "severity": "suggestion",
+      "check": "freshness",
+      "file": "content/levels/level_20/venues_level_20.json",
+      "agent": "map_seeder",
+      "where": "venue waterfront_pier_nine review 2 (last sentence)",
+      "issue": "The new Pier Nine sentence (my wording) says 'the crunch on the ricotta tart is toasted hazelnut', which nearly repeats Quayside review 3's 'the crunch on the plates comes from toasted pine nuts' in the same level. It is a small echo, but both are peanut-proof sentences that a careful player will read one after the other.",
+      "suggested_fix": "Pier Nine review 2, last sentence: 'The regulars read it like a timetable: the ricotta tart is scattered with toasted hazelnut, and the bowls along the bar hold olives and taralli, never a peanut.'"
+    }
+  ],
+  "summary": "The targeted map_seeder change landed exactly as written. Pier Nine's slat-and-regulars sentence, Keel Street's olive-oil dessert line and the trimmed Tidewater review leave every trap covered: Pier Nine is clearly peanut-safe and dairy-heavy, Keel Street is dairy-free with its peanut trap intact, and Tidewater is dairy-free without the friend sentence. The 'relative with the need' device now appears only at Bluewater and Quayside. Gabriella's two chat edits read well: Maya's 'does nice / not fancy fancy' still restates her $$ budget for the send-off beat, and Mina's 'can i ask for something again?' carries the level_16 echo beat without naming her diet. ('veggies or tofu' is fine because tofu reads as an example, not a requirement.) The only fallout is in the outcomes: two Maya lines still refer to the napkin promise that was cut. That isn't a must-fix, but it's worth fixing before approval.",
+  "generated_by": "critic"
+}

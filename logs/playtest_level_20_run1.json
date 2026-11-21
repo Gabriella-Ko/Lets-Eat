@@ -1,0 +1,56 @@
+{
+  "generated_by": "blind_playtester",
+  "level_id": "level_20",
+  "run": 1,
+  "pick": "waterfront_breakwater",
+  "expected_stars": 3,
+  "constraints_found": [
+    {
+      "constraint": "Craving: Italian / pasta (Greek place overruled)",
+      "type": "craving",
+      "speaker": "liam",
+      "line": "it was. but maya's about to live on fried fish off a pier for the whole trip. so tonight we send her off twirling pasta"
+    },
+    {
+      "constraint": "Budget: nice but not fancy, so $$ (a $$$ place is one tier over and costs a star)",
+      "type": "budget",
+      "speaker": "maya",
+      "line": "the trip's paid for, so tonight runs on the fun budget. the fun budget does nice. it does not do fancy fancy."
+    },
+    {
+      "constraint": "Vegetarian (strict diet): needs several mains with no meat or fish",
+      "type": "diet",
+      "speaker": "mina",
+      "line": "can i ask for something again? somewhere with a few dishes to choose from with just veggies or tofu, no meat or fish :)"
+    },
+    {
+      "constraint": "Peanut allergy at the table (deal-breaker): no peanuts in any form",
+      "type": "allergy",
+      "speaker": "brooke",
+      "line": "cyrus, you're off duty tonight. i'm the one keeping anything peanut, in any form, off our table. one satay incident per friendship is plenty"
+    },
+    {
+      "constraint": "Dairy intolerance (Roxy): avoid cheese/cream-heavy kitchens, costs a star",
+      "type": "intolerance",
+      "speaker": "cyrus",
+      "line": "Mostly off duty. Roxy, I've watched you order. You'll point straight at whatever comes buried in cheese or swimming in cream, and spend dessert doubled over."
+    },
+    {
+      "constraint": "Preference: light, fresh food, nothing heavy (rules out fry-everything places)",
+      "type": "preference",
+      "speaker": "brooke",
+      "line": "confession: i planned this whole night eating crackers over my laptop. tonight i want a plate that's fresh and bright, not one more heavy thing"
+    }
+  ],
+  "venue_assessment": {
+    "waterfront_breakwater": "Italian $$, four meat-free mains, no dairy at all, nothing fried, never stocked peanuts. Meets everything: 3 stars.",
+    "waterfront_tidewater": "Greek, not pasta; otherwise safe (veg, no peanuts, no dairy, light). Misses craving: 2 stars.",
+    "waterfront_keel_street": "Peanuts in the pesto, caponata and salad. Allergy deal-breaker: 0.",
+    "waterfront_marina_arch": "No main without meat or fish. Vegetarian deal-breaker: 0.",
+    "waterfront_pier_nine": "Cheese/butter/cream throughout. Dairy intolerance: 2 stars.",
+    "waterfront_quayside": "$$$, one tier over budget: 2 stars.",
+    "waterfront_bluewater": "Everything fried, heavy. Misses Brooke's light preference: 2 stars."
+  },
+  "difficulty": 3,
+  "notes": "Fair and solvable; every decoy fails exactly one constraint and the reviews state each failure clearly. The allergy holder is not named outright (Brooke references a 'satay incident' and Cyrus being normally on duty), but the constraint itself is unambiguous. Maya's 'not fancy fancy' needs a small interpretive step to map to $$, helped by Quayside's review calling itself a notch above the trattorias. Roxy's dairy issue is implied via Cyrus rather than stated by Roxy, which is a nice touch but readable. Liam's line is the only explicit cuisine cue and does override Roxy's Greek suggestion; a player might briefly weigh Tidewater because of the nostalgic mention. Nothing contradictory found."
+}

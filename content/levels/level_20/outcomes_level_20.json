@@ -1,0 +1,66 @@
+{
+  "level_id": "level_20",
+  "by_venue": {
+    "waterfront_breakwater": {
+      "result": "perfect",
+      "missed": [],
+      "lines": [
+        { "speaker": "maya", "text": "nice, not fancy fancy. the fun budget survived. best send-off anyone has ever had", "emotion": "HAPPY" },
+        { "speaker": "mina", "text": "a whole choice of dishes, and i picked mine all by myself :) maya, send us a postcard from the coast", "emotion": "HAPPY" },
+        { "speaker": "brooke", "text": "six forks twirling, fresh plates all round, nobody doubled over, and cyrus off duty all night. organiser, signing off", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_keel_street": {
+      "result": "fail",
+      "missed": ["allergy:peanut"],
+      "lines": [
+        { "speaker": "brooke", "text": "the ONE job i gave myself. cyrus, i'm so sorry, there's peanut all over this menu", "emotion": "SURPRISED" },
+        { "speaker": "cyrus", "text": "So I see. Consider me back on duty. We're leaving.", "emotion": "ANGRY" },
+        { "speaker": "liam", "text": "i'm starving and even i'm walking out. that's how bad this is", "emotion": "ANGRY" }
+      ]
+    },
+    "waterfront_marina_arch": {
+      "result": "fail",
+      "missed": ["diet:vegetarian"],
+      "lines": [
+        { "speaker": "roxy", "text": "wait. mina's been reading the same menu for ten minutes. there's nothing on it for her, is there", "emotion": "SURPRISED" },
+        { "speaker": "mina", "text": "no, there isn't. meat or fish in every dish. i asked this time, so... can we go?", "emotion": "ANGRY" },
+        { "speaker": "maya", "text": "she ASKED. the send-off is relocating. coats, everyone", "emotion": "ANGRY" }
+      ]
+    },
+    "waterfront_pier_nine": {
+      "result": "partial",
+      "missed": ["intolerance:dairy"],
+      "lines": [
+        { "speaker": "roxy", "text": "i behaved, cyrus, i swear. but there was cheese snowed over everything and cream in whatever was left. my stomach is sitting out the toast", "emotion": "ANNOYED" },
+        { "speaker": "cyrus", "text": "I said doubled over by dessert. You made it to dessert. That's progress.", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_quayside": {
+      "result": "partial",
+      "missed": ["budget"],
+      "lines": [
+        { "speaker": "maya", "text": "this is fancy fancy. a man refolded my napkin twice. the fun budget is filing a complaint", "emotion": "ANNOYED" },
+        { "speaker": "liam", "text": "i'll cover your dessert, maya. a send-off shouldn't come with more worries", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_bluewater": {
+      "result": "partial",
+      "missed": ["vibe:healthy"],
+      "lines": [
+        { "speaker": "brooke", "text": "a week of crackers and now everything comes out fried and golden, even the vegetables. so close", "emotion": "ANNOYED" },
+        { "speaker": "mina", "text": "fruit stall on the boardwalk tomorrow, brooke. my treat :)", "emotion": "HAPPY" }
+      ]
+    },
+    "waterfront_tidewater": {
+      "result": "partial",
+      "missed": ["craving"],
+      "lines": [
+        { "speaker": "liam", "text": "i love this place. i still love it. but i've been twirling an imaginary fork all day and there's no pasta here", "emotion": "ANNOYED" },
+        { "speaker": "roxy", "text": "ok that one's on me, i said greek. liam gets pasta at maya's welcome-home dinner. it's in writing now", "emotion": "HAPPY" }
+      ]
+    }
+  },
+  "generated_by": "narrative_writer",
+  "edited_by": "human:gabby"
+}
