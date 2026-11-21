@@ -243,6 +243,51 @@
       "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
       "vibe_tags": ["outdoor_seating", "lively"],
       "first_level": "level_19"
+    },
+    {
+      "id": "waterfront_keel_street",
+      "name": "Keel Street",
+      "cuisine": "italian",
+      "price_tier": "$$",
+      "dietary_tags": ["dairy_free", "vegetarian_options"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_20"
+    },
+    {
+      "id": "waterfront_marina_arch",
+      "name": "Marina Arch",
+      "cuisine": "italian",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_20"
+    },
+    {
+      "id": "waterfront_pier_nine",
+      "name": "Pier Nine",
+      "cuisine": "italian",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "vegetarian_options"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_20"
+    },
+    {
+      "id": "waterfront_quayside",
+      "name": "Quayside",
+      "cuisine": "italian",
+      "price_tier": "$$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["lively", "healthy"],
+      "first_level": "level_20"
+    },
+    {
+      "id": "waterfront_bluewater",
+      "name": "Bluewater",
+      "cuisine": "italian",
+      "price_tier": "$$",
+      "dietary_tags": ["peanut_free", "dairy_free", "vegetarian_options"],
+      "vibe_tags": ["lively"],
+      "first_level": "level_20"
     }
   ],
   "generated_by": "map_seeder",
