@@ -4,14 +4,14 @@
   "findings": [
     {
       "severity": "suggestion",
-      "check": "freshness",
-      "file": "content/levels/level_07/outcomes_level_07.json",
+      "check": "continuity",
+      "file": "content/levels/level_07/dialogue_level_07.json",
       "agent": "narrative_writer",
-      "where": "downtown_copper_pot line 3",
-      "issue": "Maya's 'we are NOT doing fries 2.0' repeats the joke Liam makes in the line just before it ('not the plate of fries all over again'), so two of the three fail lines tell the same callback. It is also milder than her usual over-the-top complaining. It works, but it is the weakest line in an otherwise good reaction.",
-      "suggested_fix": "Give Maya her own story from the chat and a bigger reaction, e.g. 'first the pepperoni, now THIS. i'm literally walking out' (keeps her exaggeration without copying level_05's 'leaving this chat and taking mina with me')."
+      "where": "script[11]",
+      "issue": "In level_03 the plate of fries is 'last time', before that level, and on level_03's own burger day Mina got a veggie patty. The old line said 'burger day in spring', which kept some distance. The merged 'burger day she had a plate of fries' now reads more like the level_03 lunch, where she didn't. Small, and the problem was already there before the merge, but a returning player could notice.",
+      "suggested_fix": "Replace 'burger day she had a plate of fries while i had a double stack' with 'that one burger place she had a plate of fries while i had a double stack', keeping the rest of the line as is."
     }
   ],
-  "summary": "The new Copper Pot fail reaction works. Mina's 'it's all lamb and chicken. the rice is nice though, honestly' is soft and makes the best of it, true to her Cast entry, and matches the review (meat pots only, plain rice offered). It no longer copies the 'i'll just have some water' line from levels 03 and 05, and 'lamb and chicken' just leaves beef out, which is no contradiction. Liam's 'everybody up' gives the dramatic exit without reusing level_05's 'taking mina with me'. Maya's line fits the result but doubles Liam's fries joke (one suggestion). The dialogue, venues and the other outcomes are unchanged and still hold: every clue is findable in the implied style, nothing gives the answer away, and the reviews carry every deciding attribute. The budget wording is closed as Gabriella decided.",
+  "summary": "The declutter landed as the audit intended. Maya's 'wait, plate of fries??' is gone, and Liam's two lines are merged into one (script[11]) that is almost word for word the audit's example. It keeps 'nothing else worked for her', so the vegetarian clue stays implied (never stated as a diet) and is still findable from script[11], script[12] and script[14]. Maya's pepperoni line now reads naturally as her reaction to Liam's story ('oh, like pizza day...'). Mina's 'you two are never letting either of those go' still has two stories to refer to. The noodle-stall setup (script[9]) is untouched. Liam's Copper Pot line, Maya's 'first the pepperoni, now THIS' and Mina's perfect line ('liam didn't have to watch me eat a side') all still match the chat. The voices are unchanged and no new problem was introduced. One optional continuity polish, which this re-review does not send back.",
   "generated_by": "critic"
 }

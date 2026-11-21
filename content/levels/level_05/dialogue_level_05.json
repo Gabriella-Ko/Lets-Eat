@@ -12,10 +12,8 @@
     { "speaker": "maya", "text": "the coast!! still saving. i have eaten so much toast", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "pizza sounds good to me too. and don't worry about me, i can always just pick the pepperoni off", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "wait, mina, you're vegetarian! you told me in class. picking it off doesn't count", "emotion": "SURPRISED", "clue": "diet:vegetarian" },
-    { "speaker": "maya", "text": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise", "emotion": "NEUTRAL", "clue": "diet:vegetarian" },
-    { "speaker": "mina", "text": "oh, i didn't mean to make it complicated. i can just get a salad or something", "emotion": "NEUTRAL", "clue": null },
-    { "speaker": "brooke", "text": "no way! we want you to eat pizza too. it's lunch crew, not lunch solo", "emotion": "HAPPY", "clue": null },
-    { "speaker": "maya", "text": "exactly. and if we have to, we'll all get veggie pizza. no one is going hungry today", "emotion": "HAPPY", "clue": null },
+    { "speaker": "maya", "text": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise", "emotion": "ANNOYED", "clue": "diet:vegetarian" },
+    { "speaker": "brooke", "text": "mina, we want you to eat pizza too. it's lunch crew, not lunch solo", "emotion": "HAPPY", "clue": null },
     { "speaker": "mina", "text": "...okay, a proper veggie pizza would actually make my day. thank you both", "emotion": "HAPPY", "clue": "diet:vegetarian" },
     { "speaker": "maya", "text": "that's what lunch crew is for!", "emotion": "HAPPY", "clue": null },
     { "speaker": "maya", "text": "assistant pls hurry, i'm about to eat this chat", "emotion": "HUNGRY", "clue": null }

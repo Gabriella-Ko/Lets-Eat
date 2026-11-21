@@ -59,21 +59,11 @@
     {
       "speaker": "maya",
       "text": "absolutely not. we are going somewhere with real veggie pizza. i will riot otherwise",
-      "emotion": "NEUTRAL"
-    },
-    {
-      "speaker": "mina",
-      "text": "oh, i didn't mean to make it complicated. i can just get a salad or something",
-      "emotion": "NEUTRAL"
+      "emotion": "ANNOYED"
     },
     {
       "speaker": "brooke",
-      "text": "no way! we want you to eat pizza too. it's lunch crew, not lunch solo",
-      "emotion": "HAPPY"
-    },
-    {
-      "speaker": "maya",
-      "text": "exactly. and if we have to, we'll all get veggie pizza. no one is going hungry today",
+      "text": "mina, we want you to eat pizza too. it's lunch crew, not lunch solo",
       "emotion": "HAPPY"
     },
     {

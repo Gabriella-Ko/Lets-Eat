@@ -5376,5 +5376,335 @@
     "result": "approved",
     "retries": 0,
     "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:15:27.705Z",
+    "level": "level_07",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 light-touch declutter (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:15:27.706Z",
+    "level": "level_17",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "retry_reset",
+    "result": "narrative_writer retry count reset to 0 for a v9 light-touch declutter (clutter audit 2026-11-21; Gabriella approved the plan)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:20.537Z",
+    "level": "level_09",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter per clutter audit 2026-11-21: cut Brooke trip-fund prompt, merged Maya budget lines; 17 to 15 lines, callbacks 4 to 2",
+    "retries": 1,
+    "tokens": 22567
+  },
+  {
+    "timestamp": "2026-11-21T17:16:28.518Z",
+    "level": "level_04",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Brooke peanut agreement line, merged Brooke healthy lines; 16 to 14",
+    "retries": 1,
+    "tokens": 22629
+  },
+  {
+    "timestamp": "2026-11-21T17:16:28.759Z",
+    "level": "level_11",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Roxy dairy restatement and Liam agreement line; 22 to 20",
+    "retries": 1,
+    "tokens": 23129
+  },
+  {
+    "timestamp": "2026-11-21T17:16:29.013Z",
+    "level": "level_07",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Maya plate-of-fries prompt, merged Liam callback lines; 18 to 16, callbacks 4 to 3",
+    "retries": 1,
+    "tokens": 23132
+  },
+  {
+    "timestamp": "2026-11-21T17:16:34.159Z",
+    "level": "level_05",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Mina's second make-do offer and Maya's restatement, reworded Brooke's line; 18 to 16",
+    "retries": 1,
+    "tokens": 24190
+  },
+  {
+    "timestamp": "2026-11-21T17:16:34.400Z",
+    "level": "level_17",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: trimmed Cyrus's cross-contact lecture, removed dangling 'everything I described earlier' from Lantern Pier outcome; 20 lines",
+    "retries": 1,
+    "tokens": 23533
+  },
+  {
+    "timestamp": "2026-11-21T17:16:40.326Z",
+    "level": "level_16",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: cut Liam and Mina agreement lines, merged Brooke lively lines without 'my turn', added Liam banter line; 19 to 17",
+    "retries": 2,
+    "tokens": 21770
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.833Z",
+    "level": "level_04",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_05",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_09",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_11",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:16:45.834Z",
+    "level": "level_17",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass (after light-touch declutter)",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:17:37.788Z",
+    "level": "level_17",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 0 suggestions",
+    "retries": 0,
+    "tokens": 29215
+  },
+  {
+    "timestamp": "2026-11-21T17:17:44.513Z",
+    "level": "level_04",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 0 suggestions",
+    "retries": 0,
+    "tokens": 26250
+  },
+  {
+    "timestamp": "2026-11-21T17:17:44.824Z",
+    "level": "level_05",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 1 suggestion (carried over: Maya 'riot' line emotion)",
+    "retries": 0,
+    "tokens": 25986
+  },
+  {
+    "timestamp": "2026-11-21T17:17:45.123Z",
+    "level": "level_09",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 0 suggestions",
+    "retries": 0,
+    "tokens": 27252
+  },
+  {
+    "timestamp": "2026-11-21T17:17:45.425Z",
+    "level": "level_07",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 1 suggestion (burger day continuity)",
+    "retries": 0,
+    "tokens": 26154
+  },
+  {
+    "timestamp": "2026-11-21T17:17:51.713Z",
+    "level": "level_11",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 0 suggestions",
+    "retries": 0,
+    "tokens": 28871
+  },
+  {
+    "timestamp": "2026-11-21T17:17:52.013Z",
+    "level": "level_16",
+    "agent_id": "critic",
+    "brief_version": "v3",
+    "step": "critique",
+    "result": "pass after light-touch declutter, 0 must-fix, 1 suggestion (Liam's new soaked joke is his fourth)",
+    "retries": 0,
+    "tokens": 26919
+  },
+  {
+    "timestamp": "2026-11-21T17:35:46.201Z",
+    "level": "level_05",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass after human:gabby hand edit (critic suggestion applied); playtest input rebuilt",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:35:46.202Z",
+    "level": "level_07",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass after human:gabby hand edit (critic suggestion applied); playtest input rebuilt",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:35:46.202Z",
+    "level": "level_16",
+    "agent_id": "validator",
+    "brief_version": "v3",
+    "step": "validate",
+    "result": "pass after human:gabby hand edit (critic suggestion applied); playtest input rebuilt",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.808Z",
+    "level": "level_04",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_05",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_07",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_09",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_11",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_16",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
+  },
+  {
+    "timestamp": "2026-11-21T17:36:12.809Z",
+    "level": "level_17",
+    "agent_id": "human:gabby",
+    "brief_version": null,
+    "step": "approval",
+    "result": "approved",
+    "retries": 0,
+    "tokens": null
   }
 ]

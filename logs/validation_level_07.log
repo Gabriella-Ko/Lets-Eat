@@ -1,6 +1,6 @@
 PASS level_07
-clue map (implied, 18 lines):
-  diet:vegetarian  @ 11, 13, 14, 16
+clue map (implied, 16 lines):
+  diet:vegetarian  @ 11, 12, 14
   budget           @ 6, 8
   craving          @ 0, 1
   vibe:quick_bite  @ 4, 5
