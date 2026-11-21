@@ -13,7 +13,7 @@
     { "speaker": "liam", "text": "a kid dropped his whole scoop off his cone outside my building today. i watched it melt into the pavement and i've wanted one of my own ever since", "emotion": "HUNGRY", "clue": "craving" },
     { "speaker": "liam", "text": "that kid had the right idea though, sitting out in the sea air with it. last hot night of summer, we should enjoy the breeze while we still can", "emotion": "HAPPY", "clue": "vibe:outdoor_seating" },
     { "speaker": "roxy", "text": "celebration scoops!! i'm getting a giant one with every topping they've got", "emotion": "HAPPY", "clue": "craving" },
-    { "speaker": "cyrus", "text": "'Every topping' is how my worst evenings start. The crushed peanuts always sit right next to the sprinkles, and the same spoon visits both. Same if the scoop goes from the peanut butter tub straight into yours.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
+    { "speaker": "cyrus", "text": "'Every topping' is how my worst evenings start. The crushed peanuts always end up right next to the sprinkles.", "emotion": "NEUTRAL", "clue": "allergy:peanut" },
     { "speaker": "maya", "text": "nobody is reliving the satay incident on my funded night. absolutely not", "emotion": "SURPRISED", "clue": "allergy:peanut", "callback": "satay_incident" },
     { "speaker": "brooke", "text": "speaking of toppings. my neighbour's housewarming yesterday ended with fried dough, three sauces and a mountain of whipped cream", "emotion": "NEUTRAL", "clue": null },
     { "speaker": "brooke", "text": "i can still feel it. tonight i want something that tastes mostly of fruit, not a dessert stacked on top of a dessert", "emotion": "NEUTRAL", "clue": "vibe:healthy" },

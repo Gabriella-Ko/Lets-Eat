@@ -5446,5 +5446,15 @@
     "result": "light-touch declutter: cut Mina's second make-do offer and Maya's restatement, reworded Brooke's line; 18 to 16",
     "retries": 1,
     "tokens": 24190
+  },
+  {
+    "timestamp": "2026-11-21T17:16:34.400Z",
+    "level": "level_17",
+    "agent_id": "narrative_writer",
+    "brief_version": "v9",
+    "step": "declutter_light",
+    "result": "light-touch declutter: trimmed Cyrus's cross-contact lecture, removed dangling 'everything I described earlier' from Lantern Pier outcome; 20 lines",
+    "retries": 1,
+    "tokens": 23533
   }
 ]
