@@ -210,13 +210,18 @@ These were the features added through conversation with Claude:
 
 # Assignment #6: Style Guide Agent
 
-The goal: an automated, self-correcting loop (Generator → Evaluator → Refiner) that enforces my game's own aesthetic and narrative rules. Most of this already existed in the content pipeline I built for Assignments 3 and 4. This section maps that pipeline onto the loop, then covers the part that's still missing: art.
+The goal: an automated, self-correcting loop (Generator → Evaluator → Refiner) that enforces my game's own aesthetic and narrative rules. Most of this already existed in the content pipeline I built for Assignments 3 and 4. This section maps that pipeline onto the loop, then covers the part that's still missing: art. 
+  
+Maybe it's the style/game type I chose. Part of me feels like I don't trust AI enough to just run over night but also since narrative and art are things that need a human touch to it, I can't fully let it run loose and do it's own thing while I grab a coffee.  
+
+## The Gap: The Art Loop
+When I originally tried to check for gaps in the self-correcting AI loop, Claude mentioned theres a gap for art loop. The art side has a generator and a refiner but **no automated evaluator: I'm the evaluator.** I tried to create an agent that would generate the post-meal outcome graphics but since I was using the free version of Nano Banana 2, Claude said I would have to paste in the prompts on my own. I asked Claude to generate prompts and an art artifact dashboard to at least help me visually manage the assets. I set up an art generator agent to connect to pixellab to generate icons/badges but this also ended up at a deadend when I hit token limit. So I ended up using the ones that were generated as samples back in Nano Banana 2. It was definitely a tedious process though and sometimes the LLMs would drift and images wouldn't make sense. Ultimately, I still wanted a say in the graphics and prefered to have non-ai art but I am just 1 person so I don't plan to send this task to the agent.
 
 ## The style guide
 
 The style guide is the game bible (`docs/game_bible.md`), and it's the single source of truth. Every agent reads it before writing anything. The rules a script can check are copied into `scripts/rules.json`:
 
-- **Narrative rules:** each character's voice and permanent needs (Cyrus's peanut allergy, Mina's vegetarianism), the clue vocabulary, how deep a clue may be buried, the districts and their venues, and the callbacks between levels.
+- **Narrative rules:** each character's voice and permanent needs (Cyrus's peanut allergy, Mina's vegetarianism), the clue vocabulary, how deep a clue may be buried, the districts and their venues, and the callbacks between levels. Sometimes the agents would drift and become repetitive and I would start to add more rules to the writer, map seeder to check for freshness. When I went back to proofreading and editing, sometimes the dialogue would sound really naggy. Then I would update the agents again to check for that as well. 
 - **Aesthetic rules:** cozy pixel art, soft outlines, a warm palette, file names and sizes. The palette was the one Open item, so I locked it on 2026-11-20: **Cozy Ramps 32**, 32 colours in 9 shading ramps, picked from five options tested against my existing art. It's now in the bible and in `rules.json` as `art.palette`.
 
 ## The self-correcting loop that already exists
@@ -255,22 +260,3 @@ What makes it strict and not just "try again":
 
 Across the campaign, the Critic caught `must_fix` problems on levels 02, 12, 13, 16 and 17: continuity errors against earlier levels, a clue that pointed at only one venue, a need stated where the bible says it should be implied, and weak dairy-free evidence for one venue. Levels 12–17 were fixed and re-checked inside the loop before I saw them. Level 02's came from an audit after approval, and I fixed it by hand.
 
-## The gap: the art loop
-
-The narrative loop runs on its own. The art side has a generator and a refiner but **no automated evaluator: I'm the evaluator.**
-
-| Step | Today | Missing |
-| --- | --- | --- |
-| Generate | The Art Generator writes prompts; `pixellab_draft.py` makes badge and icon drafts; I make outcome images in Gemini from its prompts | — |
-| Evaluate | I look at each draft on the Art Artifacts dashboard | **An art validator script:** size, transparent background, file name, circular badge shape, and palette fit (each pixel close to a Cozy Ramps 32 colour) |
-| | | **An art critic agent** that looks at each image for the rules a script can't check: cozy, soft outlines, matches the character, no text |
-| Refine | I list rejected drafts and why; the Art Generator rewrites only those prompts | **Automatic routing:** validator and critic failures go back to the Art Generator, with the same 3-retry cap |
-| Approve | I pick | Stays the same: I still pick |
-
-Until the palette was locked, the art loop couldn't be automated, because there was no exact rule to check against. That's done now. Next:
-
-1. Write the art validator spec (`docs/specs/art_validator.md`), including how close a colour has to be to count as "in the palette" and what share of pixels must pass.
-2. Build the script from the spec.
-3. Add the Art Critic agent and the route back to the Art Generator in the Orchestrator's instructions.
-
-Art made before the palette was locked (portrait sheets, chat backgrounds, city map) isn't held to it; only new art goes through the loop.
