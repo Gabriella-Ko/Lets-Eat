@@ -612,6 +612,61 @@
           "pattern": "hudPanelOpen"
         }
       ]
+    },
+    {
+      "id": "title_screen",
+      "title": "Title screen with the title_screen_v1 picture and the title over it",
+      "bible": "Title screen (Gabriella, 2026-11-22): use the title_screen_v1 image; put the Let's Eat title and catch phrase on top of it.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add a title screen shown once after Boot and before the level map (Menu). Art: the picked draft title_screen_v1.jpg (1375x768, from the art worktree's assets/drafts/gemini/title_screen/) is copied to assets/art/title_screen.jpg; tools/slice_portraits.py copies it unchanged to public/art-preview/ui/title_screen.jpg and adds it to the manifest's 'ui' group under the key 'title_screen'. New src/scenes/TitleScene.js (scene key 'Title', registered in src/main.js; BootScene starts 'Title' instead of 'Menu'): draw the picture filling the 960x640 screen without stretching (scale to cover, crop the sides evenly). Over it, near the top where the sky is, draw the title \"LET'S EAT!\" and the catch phrase 'read the chat · f‌ind the spot · feed your friends' (same fonts and colours as the Menu's old title) on a dark translucent fade or plate so they stay readable. Keep the friends' faces in the lower half clear. A 'Start' button (and Enter, Space or a click anywhere) goes to Menu. If the texture is missing, draw the title on the plain background instead. Dev shortcuts that open a scene directly (?scene=...) skip the title screen.",
+      "detect": [
+        {
+          "file": "src/scenes/TitleScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "TitleScene"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "title_screen"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "LET'S EAT"
+        },
+        {
+          "contains": "src/scenes/BootScene.js",
+          "pattern": "start\\('Title'"
+        },
+        {
+          "contains": "tools/slice_portraits.py",
+          "pattern": "title_screen"
+        }
+      ]
+    },
+    {
+      "id": "menu_no_title",
+      "title": "No title or catch phrase on the level map screen",
+      "bible": "Title screen (Gabriella, 2026-11-22): remove the title and catch phrase from the level/map screen; they live on the title screen now.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "title_screen"
+      ],
+      "spec": "The level map screen (src/scenes/MenuScene.js) shows no \"LET'S EAT!\" title and no catch phrase. Remove the drawn title and catch-phrase text (the fallback used when there is no City Map art). Note: the City Map picture (assets/art/City Map.jpg) has 'LET'S EAT / FEED YOUR FRIENDS' painted into its top centre (about x 450-950, y 15-110 of 1408x768), so removing the code text alone does not hide it. Gabriella supplies a title-free City Map; until then the code must not add the title back, and the requirement is only fully met once the map art no longer shows it.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "^(?![\\s\\S]*(LET'S EAT|feed your friends))"
+        }
+      ]
     }
   ]
 }

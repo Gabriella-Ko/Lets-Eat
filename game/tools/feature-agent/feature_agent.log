@@ -84,3 +84,5 @@
 {"at":"2026-11-13T20:20:17.649Z","round":2,"event":"verify","id":"hud_esc_closes_panel_only","outside":[],"met":true,"failing":[],"boot_test":true}
 {"at":"2026-11-13T20:20:17.820Z","round":2,"event":"commit","id":"hud_esc_closes_panel_only","ok":true}
 {"at":"2026-11-13T20:20:17.830Z","round":3,"event":"done","met":26}
+{"at":"2026-11-23T04:14:15.144Z","round":1,"event":"scan","missing":[{"id":"title_screen","score":2.25},{"id":"menu_no_title","score":0}],"next":"title_screen"}
+{"at":"2026-11-23T04:15:14.340Z","round":1,"event":"scan","missing":[{"id":"title_screen","score":2.25},{"id":"menu_no_title","score":0}],"next":"title_screen"}
