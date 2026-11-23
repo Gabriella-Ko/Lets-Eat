@@ -358,7 +358,7 @@
       "depends": [
         "core_loop_scenes"
       ],
-      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: up/down moves between unlocked pages. Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
+      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: left/right turns between unlocked pages (an open book since 2026-11-23, Gabriella). Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
       "detect": [
         {
           "contains": "src/scenes/ResultsListScene.js",
@@ -370,7 +370,7 @@
         },
         {
           "contains": "src/scenes/ScrapbookScene.js",
-          "pattern": "keydown-DOWN"
+          "pattern": "keydown-RIGHT"
         },
         {
           "contains": "src/scenes/MenuScene.js",
@@ -665,6 +665,79 @@
         {
           "contains": "src/scenes/MenuScene.js",
           "pattern": "^(?![\\s\\S]*(LET'S EAT|feed your friends))"
+        }
+      ]
+    },
+    {
+      "id": "menu_back_to_title",
+      "title": "Level map: back button, Esc and Backspace return to the title screen",
+      "bible": "Level map screen (Gabriella, 2026-11-23): add a back button players can click to go to the title page; pressing Esc or Back also returns to the title page.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "title_screen"
+      ],
+      "spec": "In src/scenes/MenuScene.js (the level/city map screen) add a '← Title' button in the top-left corner, styled like the '← Levels' back buttons on the other screens (button(..., { w: 120, h: 34, size: 15, fill: C.bar })), that starts the 'Title' scene. Move the Options and Credits buttons down so the three stack without overlapping each other or the map's district hotspots. Pressing Esc (keydown-ESC) or Backspace (keydown-BACKSPACE) on the map also starts 'Title'; ignore them while the volume panel is open (this.registry.get('hudPanelOpen')), like the other screens' Esc handlers. Keyboard play on the map (arrows, Enter, O, C, F) keeps working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "start\\('Title'"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-ESC"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_over_title_art",
+      "title": "Credits as a see-through overlay on the title screen picture",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the credits page a transparent overlay, with the title page image as the background.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "title_screen",
+        "credits_screen"
+      ],
+      "spec": "In src/scenes/CreditsScene.js draw the title screen picture (texture key 'title_screen', the same one TitleScene uses) filling the 960x640 screen without stretching (scale to cover, crop evenly), then a dark see-through layer over it so text stays readable, and make the credits panel translucent (about 80-85% opaque) so the picture shows through around and behind it. The header (title, subtitle, '← Levels' button) sits over the picture with a dark fade or shadow so it reads. Keep everything else: the slow roll, scrolling, Esc back. If the texture is missing, keep today's plain background.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "title_screen"
+        }
+      ]
+    },
+    {
+      "id": "page_animations_option",
+      "title": "Options: a toggle to turn off the page animations (Scrapbook, Friends)",
+      "bible": "Options (Gabriella, 2026-11-23): add a toggle to turn off animations on the Scrapbook and Friends pages.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [],
+      "spec": "Add a setting 'pageAnimations' to src/ui/settings.js with two options, On (default) and Off, saved like the other settings, and export a helper pageAnimations() that returns true when it is On and Reduce motion is off. Add a row to src/scenes/OptionsScene.js: title 'Page animations', about 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' Six rows must still fit above the key hint at the bottom (shrink ROW_H or the row spacing as needed) and keyboard focus must still reach every row. When pageAnimations() is false: on the Friends page (src/scenes/FriendsScene.js) switching friends changes the page at once, with no page turn; in the Scrapbook (src/scenes/ScrapbookScene.js) switching pages changes the spread at once, with no page turn, and the rosette badge simply appears, with no drop, squash, ring or sparkles. Everything else on those screens (tabs, clicks, arrow keys) works the same.",
+      "detect": [
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "export const pageAnimations|export function pageAnimations"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "pageAnimations"
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "pageAnimations\\("
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "pageAnimations\\("
         }
       ]
     }

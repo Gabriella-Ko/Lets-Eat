@@ -95,3 +95,5 @@
 {"at":"2026-11-23T04:22:03.894Z","round":2,"event":"verify","id":"menu_no_title","outside":[],"met":true,"failing":[],"boot_test":true}
 {"at":"2026-11-23T04:22:04.051Z","round":2,"event":"commit","id":"menu_no_title","ok":true}
 {"at":"2026-11-23T04:22:04.061Z","round":3,"event":"done","met":28}
+{"at":"2026-11-23T06:18:55.348Z","round":1,"event":"scan","missing":[{"id":"menu_back_to_title","score":3},{"id":"credits_over_title_art","score":2},{"id":"page_animations_option","score":1.5},{"id":"keyboard_play","score":1}],"next":"menu_back_to_title"}
+{"at":"2026-11-23T06:19:05.156Z","round":1,"event":"scan","missing":[{"id":"menu_back_to_title","score":3},{"id":"credits_over_title_art","score":2},{"id":"page_animations_option","score":1.5}],"next":"menu_back_to_title"}
