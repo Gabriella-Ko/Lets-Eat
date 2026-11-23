@@ -9,13 +9,12 @@ const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
   { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts before the next message.' },
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
-  { key: 'motion', title: 'Animations', about: 'Sliding, popping, pulsing and spinning. Off: things simply appear.' },
+  { key: 'motion', title: 'Animations', about: 'Sliding, popping, page turns and the badge sticking on. Off: things simply appear.' },
   { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
-  { key: 'pageAnimations', title: 'Page animations', about: 'Page turns in the Scrapbook and Friends page, and the badge being stuck on. Needs Animations On.' },
 ];
 const LEFT = { x: 40, y: 88, w: 540 };
 const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
-const ROW_H = 84; // six rows still clear the key hint at the bottom
+const ROW_H = 100; // five rows fill the column down to just above the key hint
 const ROW_GAP = 10; // space between row panels
 
 /**
@@ -134,7 +133,7 @@ export default class OptionsScene extends Phaser.Scene {
     panel(this, LEFT.x, y, LEFT.w, ROW_H - ROW_GAP, C.panel, 12);
     this.add.text(LEFT.x + 20, y + 12, row.title.toUpperCase(), pixel(17, C.ink, { fontStyle: 'bold' }));
     this.add.text(LEFT.x + 20, y + 38, row.about, text(13, C.inkSoft, { wordWrap: { width: LEFT.w - 40 } }));
-    // Six rows: the choice buttons sit at the right of the title line, the description underneath.
+    // The choice buttons sit at the right of the title line, the description underneath.
     const h = 26;
     const py = y + 9;
     const labels = OPTIONS[row.key].map((o) => this.add.text(0, 0, o.label, pixel(14, o.id === current ? C.panel : C.ink, { fontStyle: 'bold' })));

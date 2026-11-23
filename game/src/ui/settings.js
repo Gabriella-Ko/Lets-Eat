@@ -34,11 +34,6 @@ export const OPTIONS = {
     { id: 'on', label: 'On' },
     { id: 'off', label: 'Off' },
   ],
-  // Page turns on the Scrapbook and Friends pages and the Scrapbook badge being stuck on (Gabriella, 2026-11-23).
-  pageAnimations: [
-    { id: 'on', label: 'On' },
-    { id: 'off', label: 'Off' },
-  ],
 };
 
 const defaults = () => ({
@@ -47,7 +42,6 @@ const defaults = () => ({
   contrast: 'normal',
   motion: osReducedMotion() ? 'reduced' : 'full',
   music: 'on',
-  pageAnimations: 'on',
 });
 
 let memory = null; // fallback when storage is blocked
@@ -87,5 +81,5 @@ export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';
 export const musicOn = () => getSettings().music === 'on';
-/** Page turns and the badge sticking on (Scrapbook, Friends): only when this and Animations are both On. */
-export const pageAnimations = () => getSettings().pageAnimations === 'on' && !reduceMotion();
+/** Page turns and the badge sticking on (Scrapbook, Friends): follow the one Animations toggle (Gabriella, 2026-11-23). */
+export const pageAnimations = () => !reduceMotion();
