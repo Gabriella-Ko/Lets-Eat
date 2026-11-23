@@ -17,7 +17,7 @@ const END_HOLD_MS = 4000;
 
 /**
  * Credits (bible: Game identity > Audio): every entry of public/credits.json, loaded by BootScene
- * into the registry as 'credits'. Music: title, artist, source, license and credit line; then art.
+ * into the registry as 'credits'. Music, then sound effects: title, artist, source, license and credit line; then art.
  * The list rolls up slowly by itself (not with Reduce motion); scrolling (wheel, drag, arrows, Page Up/Down,
  * Home/End) pauses the roll for a few seconds. Back with "← Levels" or Esc.
  */
@@ -29,6 +29,7 @@ export default class CreditsScene extends Phaser.Scene {
   create() {
     const credits = this.registry.get('credits') || {};
     const music = Array.isArray(credits.music) ? credits.music : [];
+    const sfx = Array.isArray(credits.sfx) ? credits.sfx : []; // an older credits.json without 'sfx' gives none
     const art = Array.isArray(credits.art) ? credits.art : [];
 
     // The title screen picture behind everything (Gabriella, 2026-11-23), scaled to cover and cropped evenly,
@@ -45,7 +46,7 @@ export default class CreditsScene extends Phaser.Scene {
 
     button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     const title = this.add.text(W / 2, 36, 'CREDITS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    const sub = this.add.text(W / 2, 66, 'the music and art in this game', pixel(15, C.highlight)).setOrigin(0.5);
+    const sub = this.add.text(W / 2, 66, 'the music, sounds and art in this game', pixel(15, C.highlight)).setOrigin(0.5);
     if (hasArt) for (const t of [title, sub]) t.setShadow(2, 3, '#000000', 4, false, true);
 
     if (hasArt) {
@@ -84,6 +85,17 @@ export default class CreditsScene extends Phaser.Scene {
       line('Source', m.source);
       line('License', m.license);
       add(this.add.text(PAD + 12, y, m.credit_line || '', readText(14, C.ink, { ...wrap, fontStyle: 'italic' })), 16);
+    }
+
+    y += 8;
+    heading(`SOUND EFFECTS (${sfx.length})`);
+    if (!sfx.length) add(this.add.text(PAD, y, 'No sound effects yet.', readText(15, C.inkSoft, wrap)), 18);
+    for (const s of sfx) {
+      add(this.add.text(PAD, y, s.title || s.file || 'Untitled sound', readText(16, C.ink, { ...wrap, fontStyle: 'bold' })), 4);
+      line('Artist', s.artist);
+      line('Source', s.source);
+      line('License', s.license);
+      add(this.add.text(PAD + 12, y, s.credit_line || '', readText(14, C.ink, { ...wrap, fontStyle: 'italic' })), 16);
     }
 
     y += 8;

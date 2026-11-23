@@ -15,7 +15,7 @@ export default class BootScene extends Phaser.Scene {
 
   preload() {
     this.load.json('manifest', MANIFEST);
-    this.load.json('credits', 'credits.json'); // music + art credits for the credits screen
+    this.load.json('credits', 'credits.json'); // music, sound effect and art credits for the credits screen
   }
 
   create() {
@@ -50,7 +50,7 @@ export default class BootScene extends Phaser.Scene {
     this.registry.set('levels', levels);
     this.registry.set('rules', rules);
     this.registry.set('contentProblems', problems);
-    this.registry.set('credits', this.cache.json.get('credits') || { music: [], art: [] });
+    this.registry.set('credits', this.cache.json.get('credits') || { music: [], sfx: [], art: [] });
     if (isMusicEnabled() !== musicOn()) setMusicEnabled(musicOn()); // the Options "Music" setting wins
     // The Hud runs above every screen: the music volume control, and the host the music player loads through.
     this.scene.launch('Hud');
