@@ -1072,6 +1072,40 @@
           "pattern": "title: 'Font'"
         }
       ]
+    },
+    {
+      "id": "one_font_set",
+      "title": "Fonts: Jersey 10 + Lexend is the only font set; Options no longer has a Font row",
+      "bible": "Art direction > Fonts (Gabriella, 2026-11-23): one font set only, Jersey 10 (headings, buttons) + Lexend (chat, reviews). The Silkscreen + Nunito set and the Options > Font choice are dropped.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "font_sets"
+      ],
+      "spec": "Replaces the two font sets from font_sets with one. (1) src/ui/theme.js: drop FONT_SETS and the per-set lookup; headings are \"Jersey 10\" (keep its x1.3 size factor inside pixel()) and body text is \"Lexend\", each with the current fallbacks after it. Keep fitWidth(). (2) src/ui/settings.js: remove the font setting, its options and fontChoice(); a saved font value from an older save is simply ignored. (3) src/scenes/OptionsScene.js: remove the Font row; the remaining rows are spaced as they were before font_sets, keyboard focus still works, and the Preview panel shows Jersey 10 + Lexend. (4) src/main.js: import only the Jersey 10 400 and Lexend 400/700 CSS and wait only for those two families. Nothing in src/ may name Silkscreen or Nunito any more. Leave package.json alone: Gabriella uninstalls @fontsource/silkscreen and @fontsource/nunito herself. (5) Update the Palette and fonts line and the Font sets bullet in game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Jersey 10"
+        },
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Lexend"
+        },
+        {
+          "absent": "src",
+          "pattern": "Silkscreen|Nunito"
+        },
+        {
+          "absent": "src",
+          "pattern": "fontChoice"
+        },
+        {
+          "absent": "src",
+          "pattern": "title: 'Font'"
+        }
+      ]
     }
   ]
 }
