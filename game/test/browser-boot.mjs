@@ -35,7 +35,16 @@ try {
     for (const e of errors) problems.push(`${query}: ${e}`);
   };
 
-  await boot('', 'Menu');
+  await boot('', 'Title');
+  // The title screen leaves for the Menu on Enter.
+  errors.length = 0;
+  await page.keyboard.press('Enter');
+  const menuOk = await page
+    .waitForFunction(() => window.__game?.scene.isActive('Menu'), null, { timeout: 8000 })
+    .then(() => true, () => false);
+  await page.waitForTimeout(150);
+  if (!menuOk) problems.push('title: Enter did not open the Menu');
+  for (const e of errors) problems.push(`title -> menu: ${e}`);
   const firstLevel = await page.evaluate(() => window.__game.registry.get('levels')[0]?.id);
   if (firstLevel) await boot(`scene=Scrapbook&level=${firstLevel}`, 'Scrapbook');
   if (firstLevel) await boot(`scene=Options&level=${firstLevel}`, 'Options');

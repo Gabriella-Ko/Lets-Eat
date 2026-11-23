@@ -3,6 +3,7 @@ import '@fontsource/pixelify-sans/400.css';
 import '@fontsource/pixelify-sans/700.css';
 import { W, H, C } from './ui/theme.js';
 import BootScene from './scenes/BootScene.js';
+import TitleScene from './scenes/TitleScene.js';
 import MenuScene from './scenes/MenuScene.js';
 import ChatScene from './scenes/ChatScene.js';
 import ResultsListScene from './scenes/ResultsListScene.js';
@@ -23,5 +24,5 @@ window.__game = new Phaser.Game({
   height: H,
   backgroundColor: C.bg,
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-  scene: [BootScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene, CreditsScene, FriendsScene, HudScene],
+  scene: [BootScene, TitleScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene, CreditsScene, FriendsScene, HudScene],
 });

@@ -68,7 +68,7 @@ export default class BootScene extends Phaser.Scene {
         recap: q.has('recap'),
       });
     } else {
-      this.scene.start('Menu');
+      this.scene.start('Title'); // title screen once, then the city map (Menu)
     }
   }
 }

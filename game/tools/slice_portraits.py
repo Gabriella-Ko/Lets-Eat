@@ -5,7 +5,7 @@ into 128x128 PNGs in game/public/art-preview/gfx/ and writes a manifest in the A
 The official assets are the Art Asset agent's job (public/assets/); this only lets the game show real art now.
 Usage (from the repo root): python game/tools/slice_portraits.py [--contact out.png]
 """
-import json, os, re, sys
+import json, os, re, shutil, sys
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -129,6 +129,16 @@ def cut_ui_art():
             im = Image.open(os.path.join(SRC, f)).convert('RGB')
             im.save(os.path.join(OUT, 'ui', 'city_map.jpg'), quality=90)
             out['city_map'] = {'file': 'ui/city_map.jpg', 'size': list(im.size)}
+            break
+    # assets/art/title_screen.jpg (picked draft title_screen_v1) -> ui/title_screen.jpg, copied unchanged.
+    # TitleScene scales it to cover the screen and draws the title over it.
+    for f in sorted(os.listdir(SRC)):
+        if re.match(r'title[ _]screen\.(jpe?g|png)$', f, re.I):
+            os.makedirs(os.path.join(OUT, 'ui'), exist_ok=True)
+            ext = os.path.splitext(f)[1].lower().replace('jpeg', 'jpg')
+            shutil.copyfile(os.path.join(SRC, f), os.path.join(OUT, 'ui', 'title_screen' + ext))
+            with Image.open(os.path.join(SRC, f)) as im:
+                out['title_screen'] = {'file': 'ui/title_screen' + ext, 'size': list(im.size)}
             break
     return out
 
