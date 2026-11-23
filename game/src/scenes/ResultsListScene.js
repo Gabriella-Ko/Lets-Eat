@@ -92,6 +92,11 @@ export default class ResultsListScene extends Phaser.Scene {
         else this.select(card);
       });
       kb.on('keydown-R', recommend);
+      // Backspace does what "← Back to chat" does; the open volume panel takes it first.
+      kb.on('keydown-BACKSPACE', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
+      });
     }
 
     this.drawControls();
