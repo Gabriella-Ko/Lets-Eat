@@ -1,0 +1,84 @@
+{
+  "pages": [
+    {
+      "id": "satay_incident",
+      "title": "The Satay Incident",
+      "friend": "cyrus",
+      "first_level": "level_01",
+      "people": ["cyrus", "liam"],
+      "file": "scrap_satay_incident.png",
+      "refs": ["assets/art/cyrus_sheet.jpg", "assets/art/liam_sheet.jpg", "assets/art/level_01_result_noodle_nook.jpg"],
+      "prompt": "Make one square 1:1 picture in the same pixel-art look as the attached restaurant image: cozy pixel art, soft outlines, warm afternoon light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, slate blue #5d7985, sage #6f8f5a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at 320x320 pixels: one clear moment, few props, large simple shapes.\n\nWho: two friends, waist up, at a small cafe table. Cyrus, matching the attached Cyrus character sheet exactly (wavy black hair, black rectangular glasses, light grey-blue collared shirt). Liam, matching the attached Liam character sheet exactly (dark grey knit beanie, blond hair, dark olive-brown shirt). Nobody else in focus; any other diners are small and blurred in the background.\n\nWhat: a scrapbook memory called the satay incident. Front and centre on the table sits one plate of satay skewers with a small bowl of peanut sauce. Cyrus has just realised what is on the plate: eyes wide behind his glasses, both hands raised in a polite 'nope' and leaning back from it. Liam, startled, is sliding the plate away from Cyrus as fast as he can, mouth open in an 'oh no' face. It reads as a comic 'oops, never again' moment between friends, warm and funny, not scary: no one is ill, no medical items.\n\nWhere: a campus cafe patio in spring semester, leafy trees and a brick campus building softly blurred behind, gentle spring daylight.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+      "drafts": 3,
+      "variations": [
+        "",
+        "Camera closer on Cyrus's face and raised hands, with the plate of satay large in the foreground and Liam partly in frame at the side.",
+        "The moment just before: the plate of satay has just been set down between them, Liam is reaching for a skewer with a hungry grin and Cyrus is starting to notice the peanut sauce, eyebrows rising."
+      ]
+    },
+    {
+      "id": "trip_fund",
+      "title": "The Trip Fund",
+      "friend": "maya",
+      "first_level": "level_02",
+      "people": ["maya"],
+      "file": "scrap_trip_fund.png",
+      "refs": ["assets/art/maya_sheet.jpg", "assets/art/level_01_result_noodle_nook.jpg"],
+      "prompt": "Make one square 1:1 picture in the same pixel-art look as the attached restaurant image: cozy pixel art, soft outlines, warm afternoon light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, slate blue #5d7985, sage #6f8f5a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at 320x320 pixels: one clear moment, few props, large simple shapes.\n\nWho: Maya alone, waist up, at a small table, matching the attached Maya character sheet exactly (long dark navy hair with purple streaks, worn in two buns on top with long loose waves, warm brown skin). No one else in focus; any other people are small and blurred in the background.\n\nWhat: a scrapbook memory called the trip fund. Front and centre is a clear glass jar of saved coins, about half full, with a small picture of a sunny coastline (sea, sand, sky, no writing) tucked against it. Maya, proud and determined, is dropping one gold coin into the jar with a big grin, while next to the jar sits her cheap lunch: one simple paper-wrapped taco on a paper tray. The mood is funny and warm: every dollar she saves is a step closer to the coast.\n\nWhere: a cheap, busy campus eatery in spring semester, plain wooden tables, warm daylight through the window, a soft blur of students behind.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles. No price tags and no numbers on the coins.",
+      "drafts": 3,
+      "variations": [
+        "",
+        "Camera closer on the coin jar and Maya's hand dropping the coin in, her proud grin just above it, the little coast picture clearly visible.",
+        "The moment just after: the coin has landed, Maya hugs the jar to her chest with her eyes shut in a dramatic happy sigh, the paper-wrapped taco still on the table in front."
+      ]
+    },
+    {
+      "id": "plate_of_fries",
+      "title": "The Plate of Fries",
+      "friend": "mina",
+      "first_level": "level_03",
+      "people": ["mina", "liam"],
+      "file": "scrap_plate_of_fries.png",
+      "refs": ["assets/art/mina_sheet.jpg", "assets/art/liam_sheet.jpg", "assets/art/level_01_result_noodle_nook.jpg"],
+      "prompt": "Make one square 1:1 picture in the same pixel-art look as the attached restaurant image: cozy pixel art, soft outlines, warm evening light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, slate blue #5d7985, sage #6f8f5a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at 320x320 pixels: one clear moment, few props, large simple shapes.\n\nWho: two friends, waist up, side by side in a burger joint booth. Mina, matching the attached Mina character sheet exactly (long wavy dark brown hair, orange ribbon bow tied in her hair, small earrings, rosy cheeks). Liam, matching the attached Liam character sheet exactly (dark grey knit beanie, blond hair, dark olive-brown shirt). Nobody else in focus; other diners are small and blurred in the background.\n\nWhat: a scrapbook memory called the plate of fries. It is burger night. In the foreground, Liam holds a huge messy double-stack burger, two patties, but he has stopped mid-bite and is staring sideways at Mina's plate in disbelief. Mina is smiling quietly and contentedly, eating from a plain plate of golden fries, the only thing in front of her. The contrast between the giant double stack and the lonely plate of fries is the joke: funny and warm, never sad.\n\nWhere: a cosy campus burger joint in spring semester, warm lamps, wooden booth, a soft blurred counter behind.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+      "drafts": 3,
+      "variations": [
+        "",
+        "Camera closer on the two plates side by side in the foreground, the towering double-stack burger next to the small plate of fries, with Liam's shocked face and Mina's calm smile above them.",
+        "The moment just after: Liam is holding out his double-stack burger toward Mina in a dramatic offer, and Mina, laughing softly, gently waves it off while holding up a single fry."
+      ]
+    },
+    {
+      "id": "milkshake_incident",
+      "title": "The Milkshake Incident",
+      "friend": "roxy",
+      "first_level": "level_06",
+      "people": ["roxy"],
+      "file": "scrap_milkshake_incident.png",
+      "refs": ["assets/art/roxy_sheet.jpg", "assets/art/level_01_result_noodle_nook.jpg"],
+      "prompt": "Make one square 1:1 picture in the same pixel-art look as the attached restaurant image: cozy pixel art, soft outlines, warm summer light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, slate blue #5d7985, sage #6f8f5a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at 320x320 pixels: one clear moment, few props, large simple shapes.\n\nWho: Roxy alone, waist up, at a diner table, matching the attached Roxy character sheet exactly (long wavy ash-blonde hair, woven patterned headband with small coloured beads, warm tan skin). No one else in focus; any other diners are small and blurred in the background.\n\nWhat: a scrapbook memory called the milkshake incident. Front and centre stands an enormous milkshake in a tall glass, piled with whipped cream and a cherry, a striped straw, clearly the biggest one on the menu and now half drunk. Roxy, who was so excited a minute ago, has one hand on her tummy and a wobbly, queasy 'uh oh' face, cheeks a little pale, a small comic swirl above her head. It reads as a funny, cartoon 'oops, my stomach does not agree' moment, warm and silly, never gross and never a medical scene.\n\nWhere: a bright downtown diner on a summer day, sunlight through a big window, a blurred city street outside.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+      "drafts": 3,
+      "variations": [
+        "",
+        "Camera closer on Roxy's queasy face and hand on her tummy, the giant milkshake towering in the foreground at the edge of the frame.",
+        "The moment just before: the giant milkshake has just arrived, and Roxy is grinning wide with both hands clasped in excitement, straw at her lips, about to take the first big sip."
+      ]
+    },
+    {
+      "id": "sushi_day",
+      "title": "Sushi Day",
+      "friend": "mina",
+      "first_level": "level_10",
+      "people": ["mina", "cyrus"],
+      "file": "scrap_sushi_day.png",
+      "refs": ["assets/art/mina_sheet.jpg", "assets/art/cyrus_sheet.jpg", "assets/art/level_01_result_noodle_nook.jpg"],
+      "prompt": "Make one square 1:1 picture in the same pixel-art look as the attached restaurant image: cozy pixel art, soft outlines, warm midday light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, slate blue #5d7985, sage #6f8f5a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at 320x320 pixels: one clear moment, few props, large simple shapes.\n\nWho: two friends, waist up, at a sushi counter. Mina, matching the attached Mina character sheet exactly (long wavy dark brown hair, orange ribbon bow tied in her hair, small earrings, rosy cheeks). Cyrus, matching the attached Cyrus character sheet exactly (wavy black hair, black rectangular glasses, light grey-blue collared shirt). Nobody else in focus; the sushi chef and other diners are small and blurred in the background.\n\nWhat: a scrapbook memory called sushi day, the best lunch of Mina's summer. Front and centre is Mina's wooden sushi board covered with all-vegetable sushi: cucumber rolls, avocado rolls, pickled radish rolls and sweet tofu-pocket sushi, bright greens and golds, no fish and no meat on her board. Mina is beaming, chopsticks raised, happily picking whatever looks good, and Cyrus sits beside her with a calm, pleased smile, pointing at a picture-only menu panel showing rows of vegetable rolls. Warm, cheerful, a little proud.\n\nWhere: a small, bright downtown sushi bar on a summer lunch break, light wood counter, sunlight from the street window.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles. Any menu shows only pictures of food.",
+      "drafts": 3,
+      "variations": [
+        "",
+        "Camera closer on Mina's happy face and the colourful vegetable sushi board in front of her, Cyrus only partly in frame at the side, smiling.",
+        "The moment just before: Cyrus is pointing out the picture menu's vegetable section to Mina, and Mina's eyes light up in surprise and delight, her empty board waiting on the counter."
+      ]
+    }
+  ]
+}
