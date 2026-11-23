@@ -7,7 +7,7 @@ import { reduceMotion } from '../ui/settings.js';
 const ART_KEY = 'title_screen'; // same picture as TitleScene (manifest group 'ui')
 const SHADE_ALPHA = 0.35; // dark see-through layer over the picture
 const HEADER_FADE_H = 110; // extra dark fade behind the header
-const PANEL_ALPHA = 0.84; // credits panel lets the picture show through
+const PANEL_ALPHA = 0.70; // credits panel lets the picture show through
 const BOX = { x: 60, y: 96, w: W - 120, h: 500 };
 const PAD = 28;
 const ROLL_PX_PER_S = 24; // slow, readable roll
