@@ -990,6 +990,28 @@
           "pattern": "unlockCard\\.ready|ready: false"
         }
       ]
+    },
+    {
+      "id": "chat_done_enter_to_results",
+      "title": "Chat: once the whole chat is shown, Enter or → goes to 'Find a place'",
+      "bible": "Controls (Gabriella, 2026-11-23): on the chat screen, once all the dialogue is shown, Enter or the right arrow goes to 'Find a place'; update the key hint to say so.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "chat_backspace_to_levels"
+      ],
+      "spec": "In src/scenes/ChatScene.js, when this.done() is true (every line shown), pressing Enter (keydown-ENTER) or the right arrow (keydown-RIGHT) does what the 'Find a place →' button does: this.scene.start('Results', { levelId }). Before the chat is done, Enter keeps showing the next message as today, and the right arrow does nothing. Ignore both while the volume panel is open (hudPanelOpen) or the How to play / chapter intro card is open. The key hint under the chat (keyHint, now 'space: next · P: pause · A: show all · ↑ ↓: scroll') changes once the chat is done to: 'enter or →: find a place   ·   ↑ ↓: scroll' (keeping '· star: save to notebook' in star levels); update it in refreshPrompt() or wherever the chat becomes done, so it switches the moment the last line appears (including after A: show all). Optionally the 'Find a place →' button gets the C.highlight focus ring at the same moment, so it's clear Enter will press it.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "keydown-RIGHT"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "find a place"
+        }
+      ]
     }
   ]
 }
