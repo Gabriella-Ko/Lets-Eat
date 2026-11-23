@@ -50,7 +50,7 @@ export default class FriendsScene extends Phaser.Scene {
     // How many opened levels each friend was a guest in.
     for (const f of this.cards) f.together = levels.filter((l) => (l.guests || []).includes(f.id) && opened.includes(l.id)).length;
 
-    button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'FRIENDS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const met = this.cards.filter((c) => c.met).length;
     this.add.text(W / 2, 66, `what you've learned about the crew · met ${met}/${this.cards.length}`, pixel(15, C.highlight)).setOrigin(0.5);

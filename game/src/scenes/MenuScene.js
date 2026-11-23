@@ -36,7 +36,7 @@ export default class MenuScene extends Phaser.Scene {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return; // Esc closes the volume panel / intro card first
       this.scene.start('Title');
     };
-    button(this, 90, 30, '← Title', () => this.scene.start('Title'), { w: 120, h: 34, size: 15, fill: C.bar }).setDepth(5);
+    button(this, 90, 30, '← Title', () => this.scene.start('Title'), { w: 140, h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-ESC', toTitle);
     this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.

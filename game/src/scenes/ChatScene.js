@@ -65,7 +65,7 @@ export default class ChatScene extends Phaser.Scene {
     const lvl = this.level;
     recordOpened(lvl.id); // its guests now count as met on the Friends page
     this.add.text(W / 2, 36, `LEVEL ${lvl.number} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));
 
     panel(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);

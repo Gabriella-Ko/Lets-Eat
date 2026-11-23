@@ -34,7 +34,7 @@ export default class OptionsScene extends Phaser.Scene {
 
   create() {
     this.cameras.main.setBackgroundColor(C.bg);
-    button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'OPTIONS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     this.add.text(W / 2, 66, 'changes apply straight away and are saved on this device', pixel(14, C.highlight)).setOrigin(0.5);
 

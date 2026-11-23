@@ -43,7 +43,7 @@ export default class CreditsScene extends Phaser.Scene {
       shade.fillRect(0, 0, W, HEADER_FADE_H);
     }
 
-    button(this, 80, 36, '← Levels', () => this.scene.start('Menu'), { w: 120, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     const title = this.add.text(W / 2, 36, 'CREDITS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const sub = this.add.text(W / 2, 66, 'the music and art in this game', pixel(15, C.highlight)).setOrigin(0.5);
     if (hasArt) for (const t of [title, sub]) t.setShadow(2, 3, '#000000', 4, false, true);
