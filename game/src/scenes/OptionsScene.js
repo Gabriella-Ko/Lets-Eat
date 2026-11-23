@@ -2,16 +2,16 @@ import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
 import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
-import { OPTIONS, getSettings, setSetting, highContrast } from '../ui/settings.js';
+import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled } from '../ui/music.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
   { key: 'chatPace', title: 'Chat pace', about: 'How long each "typing…" bubble lasts before the next message.' },
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
-  { key: 'motion', title: 'Reduce motion', about: 'No sliding, popping, pulsing or spinning: things simply appear.' },
+  { key: 'motion', title: 'Animations', about: 'Sliding, popping, pulsing and spinning. Off: things simply appear.' },
   { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
-  { key: 'pageAnimations', title: 'Page animations', about: 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' },
+  { key: 'pageAnimations', title: 'Page animations', about: 'Page turns in the Scrapbook and Friends page, and the badge being stuck on. Needs Animations On.' },
 ];
 const LEFT = { x: 40, y: 88, w: 540 };
 const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
@@ -42,6 +42,7 @@ export default class OptionsScene extends Phaser.Scene {
     const s = getSettings();
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
+    this.previewMotion();
     this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
     button(this, W - 110, 36, 'Reset progress', () => this.confirmReset(), { w: 180, h: 34, size: 14, fill: C.bad });
@@ -178,9 +179,11 @@ export default class OptionsScene extends Phaser.Scene {
     let cy = y + 48;
     portrait(this, x + 18 + 26, cy + 30, 52, 'liam', 'HUNGRY');
     this.add.text(x + 82, cy, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
-    const body = this.add.text(x + 96, cy + 28, 'starving. anyone up for noodles?', readText(16, C.ink, { wordWrap: { width: w - 120, useAdvancedWrap: true } })).setDepth(1);
-    this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(x + 82, cy + 19, body.width + 28, body.height + 18, 10)
+    const body = this.add.text(x + 96, cy + 28, 'starving. anyone up for noodles?', readText(16, C.ink, { wordWrap: { width: w - 120, useAdvancedWrap: true } }));
+    const bubbleBg = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(x + 82, cy + 19, body.width + 28, body.height + 18, 10)
       .lineStyle(highContrast() ? 1 : 0, C.inkSoft, 1).strokeRoundedRect(x + 82, cy + 19, body.width + 28, body.height + 18, 10);
+    // bubble and its text move together, so previewMotion() can slide them in
+    this.previewBubble = this.add.container(0, 0, [bubbleBg, body]).setDepth(1);
     cy += Math.max(64, body.height + 46) + 14;
     // a review
     this.add.text(x + 18, cy, 'REVIEWS', pixel(14, C.ink, { fontStyle: 'bold' }));
@@ -191,7 +194,40 @@ export default class OptionsScene extends Phaser.Scene {
     // stars, on the dark background the result screen shows them on: filled, and empty with an outline
     const sg = this.add.graphics();
     sg.fillStyle(C.bg, 1).fillRoundedRect(x + 18, cy - 6, w - 36, 44, 10);
-    for (let i = 0; i < 3; i++) star(sg, x + 42 + i * 40, cy + 16, 15, i < 2);
+    // each star is its own graphics, drawn around (0, 0), so previewMotion() can scale it from its centre
+    this.previewStars = [0, 1, 2].map((i) => {
+      const g = this.add.graphics().setPosition(x + 42 + i * 40, cy + 16);
+      star(g, 0, 0, 15, i < 2);
+      return g;
+    });
     this.add.text(x + 42 + 3 * 40 - 4, cy + 16, '2 of 3 stars', pixel(14, C.label)).setOrigin(0, 0.5);
+  }
+
+  /**
+   * Shows what the Animations option does, in the PREVIEW panel. On: the chat bubble slides in and the
+   * three stars pop in one after another (scale 0 to 1, Back.easeOut, like the Outcome screen), again
+   * every 2.6 s. Off: everything is shown still, all at once. A change of setting restarts this screen,
+   * which stops the loop and runs this again with the new value.
+   */
+  previewMotion() {
+    const stars = this.previewStars || [];
+    const bubble = this.previewBubble;
+    if (reduceMotion()) {
+      stars.forEach((s) => s.setScale(1));
+      bubble?.setPosition(0, 0).setAlpha(1);
+      return;
+    }
+    const play = () => {
+      if (bubble) {
+        bubble.setPosition(-28, 0).setAlpha(0);
+        tween(this, { targets: bubble, x: 0, alpha: 1, duration: 380, ease: 'Quad.easeOut' });
+      }
+      stars.forEach((s, i) => {
+        s.setScale(0);
+        tween(this, { targets: s, scale: 1, duration: 320, delay: 450 + i * 220, ease: 'Back.easeOut' });
+      });
+    };
+    play();
+    this.time.addEvent({ delay: 2600, loop: true, callback: play });
   }
 }

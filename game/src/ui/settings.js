@@ -24,9 +24,10 @@ export const OPTIONS = {
     { id: 'normal', label: 'Off' },
     { id: 'high', label: 'On' },
   ],
+  // Options row "Animations" (Gabriella, 2026-11-23): On means animations play. Stored ids unchanged.
   motion: [
-    { id: 'full', label: 'Off' },
-    { id: 'reduced', label: 'On' },
+    { id: 'reduced', label: 'Off' },
+    { id: 'full', label: 'On' },
   ],
   // Applied through ui/music.js setEnabled(), which also keeps its own saved on/off.
   music: [
@@ -86,5 +87,5 @@ export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';
 export const musicOn = () => getSettings().music === 'on';
-/** Page turns and the badge sticking on (Scrapbook, Friends): only when On and Reduce motion is off. */
+/** Page turns and the badge sticking on (Scrapbook, Friends): only when this and Animations are both On. */
 export const pageAnimations = () => getSettings().pageAnimations === 'on' && !reduceMotion();
