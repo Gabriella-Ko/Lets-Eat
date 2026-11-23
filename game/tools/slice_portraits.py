@@ -5,7 +5,7 @@ into 128x128 PNGs in game/public/art-preview/gfx/ and writes a manifest in the A
 The official assets are the Art Asset agent's job (public/assets/); this only lets the game show real art now.
 Usage (from the repo root): python game/tools/slice_portraits.py [--contact out.png]
 """
-import json, os, re, sys
+import json, os, re, shutil, sys
 from PIL import Image
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
@@ -53,6 +53,9 @@ def main():
     manifest['outcomes'] = cut_outcomes()
     manifest['backgrounds'] = cut_chat_backgrounds()
     manifest['ui'] = cut_ui_art()
+    manifest['scrapbook'] = cut_scrapbook()
+    manifest['icons'] = copy_pixel_art(r'icon_[a-z_]+', 'icons', 128)
+    manifest['badges'] = copy_pixel_art(r'badge_[a-z_]+', 'badges', 320)
     with open(os.path.join(OUT, 'asset_manifest.json'), 'w') as f:
         json.dump(manifest, f, indent=2)
     if '--contact' in sys.argv and cells:
@@ -60,7 +63,7 @@ def main():
         for i, c in enumerate(cells):
             sheet.paste(c, ((i % 6) * 128, (i // 6) * 128))
         sheet.save(sys.argv[sys.argv.index('--contact') + 1])
-    print(f'wrote {len(manifest["portraits"])} portrait entries, {len(manifest["outcomes"])} outcome images, {len(manifest["backgrounds"])} chat backgrounds')
+    print(f'wrote {len(manifest["portraits"])} portrait entries, {len(manifest["outcomes"])} outcome images, {len(manifest["backgrounds"])} chat backgrounds, {len(manifest["scrapbook"])} scrapbook pictures, {len(manifest["icons"])} icons, {len(manifest["badges"])} badges')
 
 def cut_outcomes():
     """assets/art/level_XX_result_<venue name>.jpg -> outcomes/outcome_level_XX_<venue id>.jpg (680x456).
@@ -86,6 +89,24 @@ def cut_outcomes():
         im = im.crop(cover_box(im.size, 680 / 456)).resize((680, 456), Image.LANCZOS)
         im.save(os.path.join(OUT, 'outcomes', key + '.jpg'), quality=90)
         out[key] = {'file': f'outcomes/{key}.jpg'}
+    return out
+
+# Scrapbook pictures fill the taped photo on the Scrapbook's left page (352x264, 4:3); cut at twice that size.
+SCRAP_SIZE = (704, 528)
+
+def cut_scrapbook():
+    """assets/art/scrap_<callback id>.jpg|png -> scrapbook/scrap_<id>.jpg, centre-cropped to 4:3."""
+    out = {}
+    os.makedirs(os.path.join(OUT, 'scrapbook'), exist_ok=True)
+    for f in sorted(os.listdir(SRC)):
+        m = re.match(r'(scrap_[a-z_]+)\.(jpe?g|png)$', f)
+        if not m:
+            continue
+        key = m.group(1)
+        im = Image.open(os.path.join(SRC, f)).convert('RGB')
+        im = im.crop(cover_box(im.size, SCRAP_SIZE[0] / SCRAP_SIZE[1])).resize(SCRAP_SIZE, Image.LANCZOS)
+        im.save(os.path.join(OUT, 'scrapbook', key + '.jpg'), quality=90)
+        out[key] = {'file': f'scrapbook/{key}.jpg'}
     return out
 
 # Chat backgrounds keep the whole picture (no crop): the game shows them at the chat panel's width
@@ -128,6 +149,35 @@ def cut_ui_art():
             im.save(os.path.join(OUT, 'ui', 'city_map.jpg'), quality=90)
             out['city_map'] = {'file': 'ui/city_map.jpg', 'size': list(im.size)}
             break
+    # assets/art/title_screen.jpg (picked draft title_screen_v1) -> ui/title_screen.jpg, copied unchanged.
+    # TitleScene scales it to cover the screen and draws the title over it.
+    for f in sorted(os.listdir(SRC)):
+        if re.match(r'title[ _]screen\.(jpe?g|png)$', f, re.I):
+            os.makedirs(os.path.join(OUT, 'ui'), exist_ok=True)
+            ext = os.path.splitext(f)[1].lower().replace('jpeg', 'jpg')
+            shutil.copyfile(os.path.join(SRC, f), os.path.join(OUT, 'ui', 'title_screen' + ext))
+            with Image.open(os.path.join(SRC, f)) as im:
+                out['title_screen'] = {'file': 'ui/title_screen' + ext, 'size': list(im.size)}
+            break
+    return out
+
+def copy_pixel_art(pattern, folder, size):
+    """assets/art/icon_<cuisine>.png, badge_<callback id>.png (PixelLab picks) -> <folder>/<key>.png, size x size.
+    Pixel art, so any resize is nearest-neighbour and the transparent background is kept.
+    The game loads each under its key; makePlaceholderArt and badge.js fall back to placeholders for the rest."""
+    out = {}
+    if not os.path.isdir(SRC):
+        return out
+    for f in sorted(os.listdir(SRC)):
+        m = re.match(rf'({pattern})\.png$', f)
+        if not m:
+            continue
+        os.makedirs(os.path.join(OUT, folder), exist_ok=True)
+        im = Image.open(os.path.join(SRC, f)).convert('RGBA')
+        if im.size != (size, size):
+            im = im.resize((size, size), Image.NEAREST)
+        im.save(os.path.join(OUT, folder, f'{m.group(1)}.png'))
+        out[m.group(1)] = {'file': f'{folder}/{m.group(1)}.png'}
     return out
 
 

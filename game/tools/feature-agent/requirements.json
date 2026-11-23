@@ -358,7 +358,7 @@
       "depends": [
         "core_loop_scenes"
       ],
-      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: up/down moves between unlocked pages. Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
+      "spec": "Make a whole level playable without a mouse. Restaurant list: up/down moves a visible focus ring between venue cards, Enter selects, and Enter again (or R) recommends. Outcome screen: left/right moves between its buttons, Enter presses. Scrapbook: left/right turns between unlocked pages (an open book since 2026-11-23, Gabriella). Menu: arrow keys move between level cards, Enter opens. Focus rings use C.highlight and stay visible in high contrast. The Chat and Options screens already support the keyboard; keep them as they are.",
       "detect": [
         {
           "contains": "src/scenes/ResultsListScene.js",
@@ -370,7 +370,7 @@
         },
         {
           "contains": "src/scenes/ScrapbookScene.js",
-          "pattern": "keydown-DOWN"
+          "pattern": "keydown-RIGHT"
         },
         {
           "contains": "src/scenes/MenuScene.js",
@@ -610,6 +610,488 @@
         {
           "contains": "src/scenes/OptionsScene.js",
           "pattern": "hudPanelOpen"
+        }
+      ]
+    },
+    {
+      "id": "title_screen",
+      "title": "Title screen with the title_screen_v1 picture and the title over it",
+      "bible": "Title screen (Gabriella, 2026-11-22): use the title_screen_v1 image; put the Let's Eat title and catch phrase on top of it.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 2,
+      "depends": [
+        "core_loop_scenes"
+      ],
+      "spec": "Add a title screen shown once after Boot and before the level map (Menu). Art: the picked draft title_screen_v1.jpg (1375x768, from the art worktree's assets/drafts/gemini/title_screen/) is copied to assets/art/title_screen.jpg; tools/slice_portraits.py copies it unchanged to public/art-preview/ui/title_screen.jpg and adds it to the manifest's 'ui' group under the key 'title_screen'. New src/scenes/TitleScene.js (scene key 'Title', registered in src/main.js; BootScene starts 'Title' instead of 'Menu'): draw the picture filling the 960x640 screen without stretching (scale to cover, crop the sides evenly). Over it, near the top where the sky is, draw the title \"LET'S EAT!\" and the catch phrase 'read the chat · f‌ind the spot · feed your friends' (same fonts and colours as the Menu's old title) on a dark translucent fade or plate so they stay readable. Keep the friends' faces in the lower half clear. A 'Start' button (and Enter, Space or a click anywhere) goes to Menu. If the texture is missing, draw the title on the plain background instead. Dev shortcuts that open a scene directly (?scene=...) skip the title screen.",
+      "detect": [
+        {
+          "file": "src/scenes/TitleScene.js"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "TitleScene"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "title_screen"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "LET'S EAT"
+        },
+        {
+          "contains": "src/scenes/BootScene.js",
+          "pattern": "start\\('Title'"
+        },
+        {
+          "contains": "tools/slice_portraits.py",
+          "pattern": "title_screen"
+        }
+      ]
+    },
+    {
+      "id": "menu_no_title",
+      "title": "No title or catch phrase on the level map screen",
+      "bible": "Title screen (Gabriella, 2026-11-22): remove the title and catch phrase from the level/map screen; they live on the title screen now.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "title_screen"
+      ],
+      "spec": "The level map screen (src/scenes/MenuScene.js) shows no \"LET'S EAT!\" title and no catch phrase. Remove the drawn title and catch-phrase text (the fallback used when there is no City Map art). Note: the City Map picture (assets/art/City Map.jpg) has 'LET'S EAT / FEED YOUR FRIENDS' painted into its top centre (about x 450-950, y 15-110 of 1408x768), so removing the code text alone does not hide it. Gabriella supplies a title-free City Map; until then the code must not add the title back, and the requirement is only fully met once the map art no longer shows it.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "^(?![\\s\\S]*(LET'S EAT|feed your friends))"
+        }
+      ]
+    },
+    {
+      "id": "menu_back_to_title",
+      "title": "Level map: back button, Esc and Backspace return to the title screen",
+      "bible": "Level map screen (Gabriella, 2026-11-23): add a back button players can click to go to the title page; pressing Esc or Back also returns to the title page.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "title_screen"
+      ],
+      "spec": "In src/scenes/MenuScene.js (the level/city map screen) add a '← Title' button in the top-left corner, styled like the '← Levels' back buttons on the other screens (button(..., { w: 120, h: 34, size: 15, fill: C.bar })), that starts the 'Title' scene. Move the Options and Credits buttons down so the three stack without overlapping each other or the map's district hotspots. Pressing Esc (keydown-ESC) or Backspace (keydown-BACKSPACE) on the map also starts 'Title'; ignore them while the volume panel is open (this.registry.get('hudPanelOpen')), like the other screens' Esc handlers. Keyboard play on the map (arrows, Enter, O, C, F) keeps working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "start\\('Title'"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-ESC"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_over_title_art",
+      "title": "Credits as a see-through overlay on the title screen picture",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the credits page a transparent overlay, with the title page image as the background.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "title_screen",
+        "credits_screen"
+      ],
+      "spec": "In src/scenes/CreditsScene.js draw the title screen picture (texture key 'title_screen', the same one TitleScene uses) filling the 960x640 screen without stretching (scale to cover, crop evenly), then a dark see-through layer over it so text stays readable, and make the credits panel translucent (about 80-85% opaque) so the picture shows through around and behind it. The header (title, subtitle, '← Levels' button) sits over the picture with a dark fade or shadow so it reads. Keep everything else: the slow roll, scrolling, Esc back. If the texture is missing, keep today's plain background.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "title_screen"
+        }
+      ]
+    },
+    {
+      "id": "page_animations_option",
+      "title": "Options: a toggle to turn off the page animations (Scrapbook, Friends)",
+      "bible": "Options (Gabriella, 2026-11-23): add a toggle to turn off animations on the Scrapbook and Friends pages.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [],
+      "spec": "Add a setting 'pageAnimations' to src/ui/settings.js with two options, On (default) and Off, saved like the other settings, and export a helper pageAnimations() that returns true when it is On and Reduce motion is off. Add a row to src/scenes/OptionsScene.js: title 'Page animations', about 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' Six rows must still fit above the key hint at the bottom (shrink ROW_H or the row spacing as needed) and keyboard focus must still reach every row. When pageAnimations() is false: on the Friends page (src/scenes/FriendsScene.js) switching friends changes the page at once, with no page turn; in the Scrapbook (src/scenes/ScrapbookScene.js) switching pages changes the spread at once, with no page turn, and the rosette badge simply appears, with no drop, squash, ring or sparkles. Everything else on those screens (tabs, clicks, arrow keys) works the same. (2026-11-23, Gabriella: the separate Options row was later folded into the single 'Animations' toggle; see animations_one_toggle.)",
+      "detect": [
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "export const pageAnimations|export function pageAnimations"
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "pageAnimations\\("
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "pageAnimations\\("
+        }
+      ]
+    },
+    {
+      "id": "title_start_after_return",
+      "title": "Title screen: Start always works, also after coming back from the map",
+      "bible": "Title screen (Gabriella, 2026-11-23): after going back to the title from the level map ('← Title' or Backspace), the Start button stops working. Start must always go to the level map.",
+      "status": "Proposed",
+      "impact": 5,
+      "effort": 1,
+      "depends": [
+        "title_screen",
+        "menu_back_to_title"
+      ],
+      "spec": "Bug: src/scenes/TitleScene.js go() sets this.leaving = true and never clears it. Phaser reuses the scene object, so the second time the title screen is shown, go() returns straight away and Start, Enter, Space and clicks do nothing. Fix: reset this.leaving = false at the start of create(). Also add a check to test/browser-boot.mjs that boots the game, goes Title -> Menu (Enter), back to Title (Backspace), then presses Enter again and confirms the Menu scene is active.",
+      "detect": [
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "this\\.leaving = false"
+        }
+      ]
+    },
+    {
+      "id": "backspace_back_to_map",
+      "title": "Backspace returns to the level map from Options, Scrapbook and Friends",
+      "bible": "Controls (Gabriella, 2026-11-23): allow Backspace on the Options, Scrapbook and Friends screens to return to the level screen.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/OptionsScene.js, src/scenes/ScrapbookScene.js and src/scenes/FriendsScene.js, pressing Backspace (keydown-BACKSPACE) does the same as Esc there: go back to the level map ('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')), like Esc. Esc keeps working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "keydown-BACKSPACE"
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_panel_lighter",
+      "title": "Credits: the panel a little more see-through",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the white credits panel slightly more transparent.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_over_title_art"
+      ],
+      "spec": "In src/scenes/CreditsScene.js lower PANEL_ALPHA from 0.84 to 0.70, so more of the title picture shows through the credits panel. The credit text must stay easy to read: if it no longer is, darken the see-through layer over the picture slightly rather than raising the panel's alpha again.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.([5-6]\\d|7[0-5])\\b"
+        }
+      ]
+    },
+    {
+      "id": "options_animations_row",
+      "title": "Options: 'Reduce motion' becomes 'Animations', with a live preview",
+      "bible": "Options (Gabriella, 2026-11-23): reword 'Reduce motion' as 'Animations' and add a preview of the animation.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "page_animations_option"
+      ],
+      "spec": "In src/scenes/OptionsScene.js rename the 'Reduce motion' row to 'Animations', with the meaning flipped so On means animations play: in src/ui/settings.js the motion options become [{ id: 'reduced', label: 'Off' }, { id: 'full', label: 'On' }] (same stored ids, so saved settings keep working; Off/On order like the other rows). About text: 'Sliding, popping, pulsing and spinning. Off: things simply appear.' Add a method previewMotion() that animates the Options PREVIEW panel when Animations is On: the preview's three stars pop in one after another (scale 0 to 1, Back.easeOut, like the Outcome screen) and the chat bubble slides in, repeating every 2-3 seconds. When Animations is Off, the preview is shown still, all at once. Changing the setting updates the preview straight away (the screen already redraws on change). Keep the 'Page animations' row; its about text should still make sense next to the renamed row.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "title: 'Animations'"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "previewMotion"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "^(?![\\s\\S]*Reduce motion')"
+        }
+      ]
+    },
+    {
+      "id": "credits_backspace",
+      "title": "Backspace returns to the level map from Credits",
+      "bible": "Controls (Gabriella, 2026-11-23): allow Backspace on the Credits screen to return to the level screen.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "backspace_back_to_map"
+      ],
+      "spec": "In src/scenes/CreditsScene.js, pressing Backspace (keydown-BACKSPACE) does the same as Esc: go back to the level map ('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')), like Esc. Esc and the scrolling keys keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_panel_lighter_2",
+      "title": "Credits: the panel even more see-through",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the white credits panel even more transparent (after it went from 84% to 70%).",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_panel_lighter"
+      ],
+      "spec": "In src/scenes/CreditsScene.js lower PANEL_ALPHA from 0.70 to 0.55, so more of the title picture shows through. The credit text must stay easy to read: if it no longer is, darken the see-through layer over the picture (or give the text a soft light outline) rather than raising the panel's alpha again.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.(5\\d|60)\\b"
+        }
+      ]
+    },
+    {
+      "id": "animations_one_toggle",
+      "title": "Options: one 'Animations' toggle for everything, page turns included",
+      "bible": "Options (Gabriella, 2026-11-23): 'Animations' and 'Page animations' become one section: a single On/Off toggle that controls every animation, including the page turns and the badge sticking on.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "options_animations_row",
+        "page_animations_option"
+      ],
+      "spec": "Remove the 'Page animations' row from src/scenes/OptionsScene.js (ROWS), so Options has five rows again; re-space them so they fill the column above the key hint. The 'Animations' row now covers everything; about text: 'Sliding, popping, page turns and the badge sticking on. Off: things simply appear.' In src/ui/settings.js remove the pageAnimations setting (its OPTIONS entry and default) and keep the helper pageAnimations() as simply !reduceMotion(), so the Friends and Scrapbook code that calls it keeps working unchanged. A previously saved pageAnimations value is ignored. The Animations preview keeps working.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "^(?![\\s\\S]*title: 'Page animations')"
+        },
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "pageAnimations = \\(\\) => !reduceMotion\\(\\)"
+        }
+      ]
+    },
+    {
+      "id": "credits_no_text_outline",
+      "title": "Credits: no light outline around the words",
+      "bible": "Credits screen (Gabriella, 2026-11-23): remove the white outline around the words.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_panel_lighter_2"
+      ],
+      "spec": "In src/scenes/CreditsScene.js remove the soft light outline on the credit text: drop TEXT_HALO_PX and the setStroke(...) call on the panel's text objects, so the words are drawn plain. Keep PANEL_ALPHA at 0.55. If the text then gets hard to read over the picture, raise SHADE_ALPHA (the dark layer over the picture) a little, up to 0.45, instead of adding an outline back or making the panel more solid.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "^(?![\\s\\S]*(setStroke|TEXT_HALO))"
+        },
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.55\\b"
+        }
+      ]
+    },
+    {
+      "id": "back_buttons_match_menu",
+      "title": "Back buttons ('← Title', '← Levels') the same size as Options and Credits",
+      "bible": "Buttons (Gabriella, 2026-11-23): make the '← Title' and '← Levels' buttons the same dimensions as the Options and Credits buttons.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "menu_back_to_title"
+      ],
+      "spec": "The Options and Credits buttons on the level map (src/scenes/MenuScene.js) are { w: 140, h: 34, size: 15 }. Give every back button the same size: '← Title' on the map, and '← Levels' on Chat, Credits, Friends, Options and Scrapbook (src/scenes/*.js). Keep their fill, text and size 15. Since they get 20 px wider, move each one's centre x from 80 to 90 so its left edge sits 20 px from the screen edge, lined up with the map's buttons. Check nothing they sit next to (titles, Reset progress, the Chat header) now overlaps.",
+      "detect": [
+        {
+          "absent": "src/scenes",
+          "pattern": "'← (Levels|Title)'[^\\n]*w: 120"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'← Title'[^\\n]*w: 140, h: 34|current: \\{[\\s\\S]*?title: \\[\\d+, \\d+, 140\\]"
+        }
+      ]
+    },
+    {
+      "id": "friends_button_mina_orange",
+      "title": "The map's Friends button in Mina's orange",
+      "bible": "Level map (Gabriella, 2026-11-23): make the button that goes to the Friends page the same orangey shade used for Mina's card.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/MenuScene.js the 'Friends' button's fill becomes Mina's colour, CHARACTERS.mina.color (the colour of her tab and page strip on the Friends page), instead of C.bar. Import CHARACTERS from ../ui/theme.js if needed. Text stays readable (white/label text on the orange); size and position unchanged.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Friends'[^\\n]*fill: CHARACTERS\\.mina\\.color"
+        }
+      ]
+    },
+    {
+      "id": "results_backspace_to_chat",
+      "title": "Results list: Backspace goes back to the chat",
+      "bible": "Controls (Gabriella, 2026-11-23): on the results list, Backspace returns to the chat.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/ResultsListScene.js pressing Backspace (keydown-BACKSPACE) does what the '← Back to chat' button does: this.scene.start('Chat', { levelId, revealAll: true }). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')) and while any card or overlay on this screen is open (close that first, as Esc would). Arrow keys, Enter and R keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "chat_backspace_to_levels",
+      "title": "Chat: Backspace goes back to the level map",
+      "bible": "Controls (Gabriella, 2026-11-23): on the chat screen, Backspace returns to the levels.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/ChatScene.js pressing Backspace (keydown-BACKSPACE) does what the '← Levels' button does: this.scene.start('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')) and while the How to play card, the chapter intro card or any other overlay on the chat is open. Space, Enter, A, P and the scrolling keys keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "unlock_focus_after_buttons",
+      "title": "Unlock cards: the focus ring appears only once the buttons are shown",
+      "bible": "Outcome screen (Gabriella, 2026-11-23): when a new Scrapbook page is unlocked, show the highlight around the button only once 'Keep going' is visible; during the animation the button isn't visible yet but its highlight already is.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/OutcomeScene.js showNextUnlock() calls drawFocus() straight away, so the focus ring is drawn around 'Keep going' / 'Next →' about a second before the buttons fade in (delay 950 ms). Fix, for both kinds of unlock card (new Scrapbook page, new friend): add unlockCard.ready = false when the card is made; while it is false, activeButtons() returns no buttons (so no ring is drawn and Enter/arrow keys do nothing on the card); set it true in the onComplete of the buttons' fade-in tween and call drawFocus() then. With Reduce motion / Animations off the tween completes at once, so the ring shows straight away. A click on the card or Esc still moves on as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "unlockCard\\.ready|ready: false"
+        }
+      ]
+    },
+    {
+      "id": "chat_done_enter_to_results",
+      "title": "Chat: once the whole chat is shown, Enter or → goes to 'Find a place'",
+      "bible": "Controls (Gabriella, 2026-11-23): on the chat screen, once all the dialogue is shown, Enter or the right arrow goes to 'Find a place'; update the key hint to say so.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "chat_backspace_to_levels"
+      ],
+      "spec": "In src/scenes/ChatScene.js, when this.done() is true (every line shown), pressing Enter (keydown-ENTER) or the right arrow (keydown-RIGHT) does what the 'Find a place →' button does: this.scene.start('Results', { levelId }). Before the chat is done, Enter keeps showing the next message as today, and the right arrow does nothing. Ignore both while the volume panel is open (hudPanelOpen) or the How to play / chapter intro card is open. The key hint under the chat (keyHint, now 'space: next · P: pause · A: show all · ↑ ↓: scroll') changes once the chat is done to: 'enter or →: find a place   ·   ↑ ↓: scroll' (keeping '· star: save to notebook' in star levels); update it in refreshPrompt() or wherever the chat becomes done, so it switches the moment the last line appears (including after A: show all). Optionally the 'Find a place →' button gets the C.highlight focus ring at the same moment, so it's clear Enter will press it.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "keydown-RIGHT"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "find a place"
+        }
+      ]
+    },
+    {
+      "id": "options_chat_pace_preview",
+      "title": "Options: the Chat pace preview plays an example conversation",
+      "bible": "Options (Gabriella, 2026-11-23): for the Chat pace setting, the preview shows example dialogue.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 2,
+      "depends": [
+        "options_animations_row"
+      ],
+      "spec": "In src/scenes/OptionsScene.js add previewChatPace(): in the PREVIEW panel's chat area, play a short example exchange the way the chat does, at the selected pace: a typing bubble ('…') for chatPaceMs() (src/ui/settings.js), then the message, then the next. Use three lines with portraits and names like the real chat, for example Liam 'starving. anyone up for noodles?', Mina 'only if there's something veggie!', Cyrus 'and no peanuts please'. After the last line, hold about 2 s, clear and start again, looping while the screen is open. Changing Chat pace (Quick / Relaxed) restarts it at the new pace straight away (the screen already redraws on change). It replaces the single static chat message at the top of the preview; the reviews and stars below must still fit in the panel (tighten the spacing or make the bubbles smaller if needed). With Animations off the timing stays the same, but bubbles and messages simply appear with no slide or fade. Stop its timers on scene shutdown so nothing runs after leaving Options.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "previewChatPace"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "chatPaceMs"
+        }
+      ]
+    },
+    {
+      "id": "font_sets",
+      "title": "Fonts: Silkscreen + Nunito by default, Jersey 10 + Lexend as an 'Easier reading' choice in Options (superseded by one_font_set: only Jersey 10 + Lexend remain)",
+      "bible": "Art direction > Fonts (Gabriella, 2026-11-23): Default: Silkscreen (headings, buttons) + Nunito (chat, reviews). Easier reading: Jersey 10 + Lexend. Options > Font: Default or Easier reading.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 3,
+      "depends": [
+        "options_animations_row"
+      ],
+      "spec": "Needs the four font packages bundled like Pixelify Sans is today (no network at runtime): @fontsource/silkscreen, @fontsource/nunito, @fontsource/jersey-10 and @fontsource/lexend. Gabriella installs them (npm install ... in game/); if they are not in package.json, stop and say so rather than fetching fonts any other way. Then: (1) src/ui/settings.js: a new setting 'font' with options [{ id: 'default', label: 'Default' }, { id: 'easier', label: 'Easier reading' }], default 'default', saved like the others. (2) src/ui/theme.js: two font sets, default = headings \"Silkscreen\" + body \"Nunito\", easier = headings \"Jersey 10\" + body \"Lexend\" (each with the current fallbacks after it). PIXEL and FONT (or the pixel() and text() helpers) read the chosen set at draw time, like High contrast reads C, so a change applies when a screen redraws. Each heading font gets a size factor applied inside pixel() so headings keep about the same visual size as Pixelify Sans: Silkscreen x0.82, Jersey 10 x1.3 (the factors the Art Artifacts Fonts tab used); body fonts x1. (3) src/main.js: import the 400 and 700 CSS of all four packages and wait for all four families to load before the game starts (as it does for Pixelify Sans now); drop the Pixelify Sans import if nothing uses it any more. (4) src/scenes/OptionsScene.js: a row 'Font' with Default / Easier reading, about text 'Easier reading uses taller, rounder letters.' Six rows must still fit above the key hint and keep keyboard focus working; the Preview panel shows the chosen fonts. (5) Check every screen (Title, map, Chat, Results, Outcome, Scrapbook, Friends, Options, Credits) in both sets: no text spills out of its button, card or panel; shrink a size or widen a box where it does. (6) Update the 'Palette and fonts' line in game/CLAUDE.md to the new fonts.",
+      "detect": [
+        {
+          "contains": "package.json",
+          "pattern": "@fontsource/jersey-10"
+        },
+        {
+          "contains": "package.json",
+          "pattern": "@fontsource/lexend"
+        },
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Jersey 10"
+        }
+      ]
+    },
+    {
+      "id": "one_font_set",
+      "title": "Fonts: Jersey 10 + Lexend is the only font set; Options no longer has a Font row",
+      "bible": "Art direction > Fonts (Gabriella, 2026-11-23): one font set only, Jersey 10 (headings, buttons) + Lexend (chat, reviews). The Silkscreen + Nunito set and the Options > Font choice are dropped.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "font_sets"
+      ],
+      "spec": "Replaces the two font sets from font_sets with one. (1) src/ui/theme.js: drop FONT_SETS and the per-set lookup; headings are \"Jersey 10\" (keep its x1.3 size factor inside pixel()) and body text is \"Lexend\", each with the current fallbacks after it. Keep fitWidth(). (2) src/ui/settings.js: remove the font setting, its options and fontChoice(); a saved font value from an older save is simply ignored. (3) src/scenes/OptionsScene.js: remove the Font row; the remaining rows are spaced as they were before font_sets, keyboard focus still works, and the Preview panel shows Jersey 10 + Lexend. (4) src/main.js: import only the Jersey 10 400 and Lexend 400/700 CSS and wait only for those two families. Nothing in src/ may name Silkscreen or Nunito any more. Leave package.json alone: Gabriella uninstalls @fontsource/silkscreen and @fontsource/nunito herself. (5) Update the Palette and fonts line and the Font sets bullet in game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Jersey 10"
+        },
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Lexend"
+        },
+        {
+          "absent": "src",
+          "pattern": "Silkscreen|Nunito"
+        },
+        {
+          "absent": "src",
+          "pattern": "fontChoice"
+        },
+        {
+          "absent": "src",
+          "pattern": "title: 'Font'"
         }
       ]
     }

@@ -52,16 +52,34 @@ applyPalette();
 
 export const hex = (n) => '#' + n.toString(16).padStart(6, '0');
 
-export const PIXEL = '"Pixelify Sans", "Trebuchet MS", sans-serif'; // headings, labels, buttons
-export const FONT = '"Trebuchet MS", "Segoe UI", sans-serif'; // chat and reviews, for readability
+// Fonts (bible: Art direction > Fonts, Gabriella 2026-11-23): one set only.
+// Jersey 10 for headings, labels, buttons (pixel()); Lexend for chat and reviews (text(), readText()).
+const HEADING_FONT = 'Jersey 10';
+const BODY_FONT = 'Lexend';
+const HEADING_SCALE = 1.3; // Jersey 10 runs small; keeps headings about the visual size Pixelify Sans had
+/** Heading font stack. */
+export const pixelFont = () => `"${HEADING_FONT}", "Trebuchet MS", sans-serif`;
+/** Body font stack. */
+export const bodyFont = () => `"${BODY_FONT}", "Trebuchet MS", "Segoe UI", sans-serif`;
+/** Pixel size for a heading of nominal `size`, after Jersey 10's size factor. */
+export const pixelSize = (size) => Math.round(size * HEADING_SCALE);
 
 export const text = (size, color = C.ink, extra = {}) => ({
-  fontFamily: FONT,
+  fontFamily: bodyFont(),
   fontSize: `${size}px`,
   color: hex(color),
   ...extra,
 });
-export const pixel = (size, color = C.ink, extra = {}) => text(size, color, { fontFamily: PIXEL, ...extra });
+export const pixel = (size, color = C.ink, extra = {}) => text(pixelSize(size), color, { fontFamily: pixelFont(), ...extra });
+/**
+ * Shrinks a one-line text object's font until it is at most maxW wide, so a long label
+ * never spills out of its button, card or plate.
+ */
+export function fitWidth(t, maxW, min = 9) {
+  let size = parseFloat(t.style.fontSize);
+  while (t.width > maxW && size > min) t.setFontSize(--size);
+  return t;
+}
 /** Text the player reads (chat, reviews, Notebook, reactions, recap, scrapbook pages): grows with the Text size option. */
 export const readText = (size, color = C.ink, extra = {}) => text(Math.round(size * textScale()), color, extra);
 

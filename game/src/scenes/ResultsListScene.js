@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, pixel, text, readText } from '../ui/theme.js';
+import { C, W, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { notebook, pinMode, getPins } from '../ui/notebook.js';
 import { scrollArea } from '../ui/scroll.js';
@@ -92,6 +92,11 @@ export default class ResultsListScene extends Phaser.Scene {
         else this.select(card);
       });
       kb.on('keydown-R', recommend);
+      // Backspace does what "← Back to chat" does; the open volume panel takes it first.
+      kb.on('keydown-BACKSPACE', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
+      });
     }
 
     this.drawControls();
@@ -216,7 +221,7 @@ export default class ResultsListScene extends Phaser.Scene {
     // Tighter text on short cards (chapters with 6-7 venues).
     const tight = h < 64;
     layer.add(this.add.image(x + 8 + iconSize / 2, y + h / 2, `icon_${venue.cuisine}`).setDisplaySize(iconSize, iconSize));
-    layer.add(this.add.text(x + iconSize + 20, y + h / 2 - (tight ? 9 : 11), venue.name, pixel(tight ? 15 : 17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5));
+    layer.add(fitWidth(this.add.text(x + iconSize + 20, y + h / 2 - (tight ? 9 : 11), venue.name, pixel(tight ? 15 : 17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5), w - iconSize - 34));
     layer.add(this.add.text(x + iconSize + 20, y + h / 2 + (tight ? 10 : 12), `${pretty(venue.cuisine)} · ${venue.price_tier}`, text(tight ? 13 : 14, C.inkSoft)).setOrigin(0, 0.5));
     const past = this.past.get(venue.id);
     if (past) {

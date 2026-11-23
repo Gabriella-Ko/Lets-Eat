@@ -3,7 +3,7 @@
 // exists under the texture key 'city_map'; then that picture is drawn and the districts become hit areas on it.
 // Each district is labelled with its name and star total. A district whose chapter has no unlocked level is
 // greyed out and can't be clicked; clicking an open one calls opts.onSelect(chapter).
-import { C, DISTRICTS, pixel } from './theme.js';
+import { C, DISTRICTS, pixel, fitWidth } from './theme.js';
 import { panel, star } from './widgets.js';
 
 export const CITY_MAP_KEY = 'city_map';
@@ -70,7 +70,7 @@ export function cityMap(scene, opts) {
     const plate = scene.add.graphics();
     plate.fillStyle(C.bg, unlocked ? 0.82 : 0.6).fillRoundedRect(cx - 92, cy - 30, 184, 60, 10);
     const name = (DISTRICTS[district] || district).toUpperCase();
-    scene.add.text(cx, cy - 13, name, pixel(17, unlocked ? C.label : C.goldDim, { fontStyle: 'bold' })).setOrigin(0.5);
+    fitWidth(scene.add.text(cx, cy - 13, name, pixel(17, unlocked ? C.label : C.goldDim, { fontStyle: 'bold' })).setOrigin(0.5), 172);
     if (unlocked) {
       const t = totals.byChapter[d.chapter] || { earned: 0, max: 0 };
       const score = scene.add.text(cx + 10, cy + 13, `${t.earned} / ${t.max}`, pixel(15, t.perfect ? C.highlight : C.label)).setOrigin(0.5);

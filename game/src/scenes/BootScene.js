@@ -30,7 +30,8 @@ export default class BootScene extends Phaser.Scene {
     // Outcome illustrations load straight under their key (outcome_<level>_<venue>); OutcomeScene picks them up.
     // Chat backgrounds (chat_bg_chapter_XX), likewise; ChatScene picks them up by chapter.
     // Scrapbook art (scrap_<callback id>), likewise; ScrapbookScene shows a placeholder until it exists.
-    for (const group of ['outcomes', 'backgrounds', 'scrapbook', 'ui']) {
+    // Cuisine icons (icon_<cuisine>) and Scrapbook badges (badge_<callback id>), likewise; placeholders fill the rest.
+    for (const group of ['outcomes', 'backgrounds', 'scrapbook', 'ui', 'icons', 'badges']) {
       for (const [key, entry] of Object.entries(manifest?.[group] || {})) this.load.image(key, base + entry.file);
     }
     // Music isn't loaded here: src/ui/music.js fetches one track at a time, when it's about to play.
@@ -67,7 +68,7 @@ export default class BootScene extends Phaser.Scene {
         recap: q.has('recap'),
       });
     } else {
-      this.scene.start('Menu');
+      this.scene.start('Title'); // title screen once, then the city map (Menu)
     }
   }
 }

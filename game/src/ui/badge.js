@@ -1,4 +1,4 @@
-import { C, CHARACTERS, PIXEL, hex } from './theme.js';
+import { C, CHARACTERS, hex, pixelFont, pixelSize } from './theme.js';
 
 /**
  * Scrapbook badge for a callback page, centred on (x, y). Returns a container.
@@ -40,7 +40,7 @@ export function badge(scene, x, y, size, page, unlocked = true) {
   g.lineStyle(Math.max(1.5, size / 48), unlocked ? col : 0x9a8a80, 1).strokeCircle(0, 0, r * 0.47);
   const label = unlocked ? initials(page.title) : '?';
   const t = scene.add.text(0, 1, label, {
-    fontFamily: PIXEL, fontSize: `${Math.round(size * (label.length > 1 ? 0.3 : 0.42))}px`,
+    fontFamily: pixelFont(), fontSize: `${pixelSize(size * (label.length > 1 ? 0.3 : 0.42))}px`,
     color: hex(unlocked ? C.ink : 0x7d6a60), fontStyle: 'bold',
   }).setOrigin(0.5);
   c.add([g, t]);
