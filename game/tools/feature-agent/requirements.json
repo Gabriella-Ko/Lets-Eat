@@ -1012,6 +1012,28 @@
           "pattern": "find a place"
         }
       ]
+    },
+    {
+      "id": "options_chat_pace_preview",
+      "title": "Options: the Chat pace preview plays an example conversation",
+      "bible": "Options (Gabriella, 2026-11-23): for the Chat pace setting, the preview shows example dialogue.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 2,
+      "depends": [
+        "options_animations_row"
+      ],
+      "spec": "In src/scenes/OptionsScene.js add previewChatPace(): in the PREVIEW panel's chat area, play a short example exchange the way the chat does, at the selected pace: a typing bubble ('…') for chatPaceMs() (src/ui/settings.js), then the message, then the next. Use three lines with portraits and names like the real chat, for example Liam 'starving. anyone up for noodles?', Mina 'only if there's something veggie!', Cyrus 'and no peanuts please'. After the last line, hold about 2 s, clear and start again, looping while the screen is open. Changing Chat pace (Quick / Relaxed) restarts it at the new pace straight away (the screen already redraws on change). It replaces the single static chat message at the top of the preview; the reviews and stars below must still fit in the panel (tighten the spacing or make the bubbles smaller if needed). With Animations off the timing stays the same, but bubbles and messages simply appear with no slide or fade. Stop its timers on scene shutdown so nothing runs after leaving Options.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "previewChatPace"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "chatPaceMs"
+        }
+      ]
     }
   ]
 }
