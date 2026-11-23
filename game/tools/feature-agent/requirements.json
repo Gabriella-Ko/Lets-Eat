@@ -1034,6 +1034,44 @@
           "pattern": "chatPaceMs"
         }
       ]
+    },
+    {
+      "id": "font_sets",
+      "title": "Fonts: Silkscreen + Nunito by default, Jersey 10 + Lexend as an 'Easier reading' choice in Options",
+      "bible": "Art direction > Fonts (Gabriella, 2026-11-23): Default: Silkscreen (headings, buttons) + Nunito (chat, reviews). Easier reading: Jersey 10 + Lexend. Options > Font: Default or Easier reading.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 3,
+      "depends": [
+        "options_animations_row"
+      ],
+      "spec": "Needs the four font packages bundled like Pixelify Sans is today (no network at runtime): @fontsource/silkscreen, @fontsource/nunito, @fontsource/jersey-10 and @fontsource/lexend. Gabriella installs them (npm install ... in game/); if they are not in package.json, stop and say so rather than fetching fonts any other way. Then: (1) src/ui/settings.js: a new setting 'font' with options [{ id: 'default', label: 'Default' }, { id: 'easier', label: 'Easier reading' }], default 'default', saved like the others. (2) src/ui/theme.js: two font sets, default = headings \"Silkscreen\" + body \"Nunito\", easier = headings \"Jersey 10\" + body \"Lexend\" (each with the current fallbacks after it). PIXEL and FONT (or the pixel() and text() helpers) read the chosen set at draw time, like High contrast reads C, so a change applies when a screen redraws. Each heading font gets a size factor applied inside pixel() so headings keep about the same visual size as Pixelify Sans: Silkscreen x0.82, Jersey 10 x1.3 (the factors the Art Artifacts Fonts tab used); body fonts x1. (3) src/main.js: import the 400 and 700 CSS of all four packages and wait for all four families to load before the game starts (as it does for Pixelify Sans now); drop the Pixelify Sans import if nothing uses it any more. (4) src/scenes/OptionsScene.js: a row 'Font' with Default / Easier reading, about text 'Easier reading uses taller, rounder letters.' Six rows must still fit above the key hint and keep keyboard focus working; the Preview panel shows the chosen fonts. (5) Check every screen (Title, map, Chat, Results, Outcome, Scrapbook, Friends, Options, Credits) in both sets: no text spills out of its button, card or panel; shrink a size or widen a box where it does. (6) Update the 'Palette and fonts' line in game/CLAUDE.md to the new fonts.",
+      "detect": [
+        {
+          "contains": "package.json",
+          "pattern": "@fontsource/silkscreen"
+        },
+        {
+          "contains": "package.json",
+          "pattern": "@fontsource/jersey-10"
+        },
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Silkscreen"
+        },
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "Jersey 10"
+        },
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "easier"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "title: 'Font'"
+        }
+      ]
     }
   ]
 }
