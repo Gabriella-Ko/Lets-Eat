@@ -5,3 +5,8 @@ docs/feature_ideas_draft.md
 
 # Python bytecode
 __pycache__/
+
+# PixelLab scratch versions Gabriella keeps locally (_v0, _v00, _v), not drafts to pick from
+assets/drafts/pixellab/icons/*_v0.png
+assets/drafts/pixellab/icons/*_v00.png
+assets/drafts/pixellab/icons/*_v.png
