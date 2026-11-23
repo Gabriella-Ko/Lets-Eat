@@ -5,10 +5,9 @@ import { scrollArea } from '../ui/scroll.js';
 import { reduceMotion } from '../ui/settings.js';
 
 const ART_KEY = 'title_screen'; // same picture as TitleScene (manifest group 'ui')
-const SHADE_ALPHA = 0.35; // dark see-through layer over the picture
+const SHADE_ALPHA = 0.45; // dark see-through layer over the picture (calms it so the plain panel text reads)
 const HEADER_FADE_H = 110; // extra dark fade behind the header
 const PANEL_ALPHA = 0.55; // credits panel lets the picture show through
-const TEXT_HALO_PX = 3; // soft light outline on the panel text, so it reads over the picture
 const BOX = { x: 60, y: 96, w: W - 120, h: 500 };
 const PAD = 28;
 const ROLL_PX_PER_S = 24; // slow, readable roll
@@ -98,14 +97,6 @@ export default class CreditsScene extends Phaser.Scene {
       add(this.add.text(PAD + 12, y, a.credit_line || '', readText(14, C.ink, { ...wrap, fontStyle: 'italic' })), 16);
     }
     area.setContentHeight(y + 8);
-
-    // With the picture behind a see-through panel, give the credit text a soft outline in the panel's colour
-    // (read now, so High contrast applies) instead of making the panel more solid again.
-    if (hasArt) {
-      const p = Phaser.Display.Color.IntegerToColor(C.panel);
-      const halo = `rgba(${p.red},${p.green},${p.blue},0.75)`;
-      for (const obj of area.content.list) if (obj instanceof Phaser.GameObjects.Text) obj.setStroke(halo, TEXT_HALO_PX);
-    }
 
     // Credits roll up slowly by themselves, like film credits (not with Reduce motion). Scrolling yourself
     // pauses the roll for a few seconds; at the end it waits, then starts again from the top.
