@@ -1,9 +1,11 @@
 // Sound effects (bible: Sound effects, Gabriella 2026-11-23). Files live in public/sfx/ (a copy of assets/sfx/
-// made by npm run sync-assets) and are loaded by BootScene under `sfx:<file>`. Effects follow the Music volume
-// and On/Off setting (src/ui/music.js); nothing plays before the player's first click or key press. Where a
+// made by npm run sync-assets) and are loaded by BootScene under `sfx:<file>`. Effects follow the Options
+// "Sound effects" On/Off (sfxOn(), separate from Music) and the Music volume slider's level (src/ui/music.js);
+// nothing plays at volume 0 or before the player's first click or key press. Where a
 // row lists two files, one is picked at random each time. A file that failed to load is skipped silently.
 // The bible's Open rows (chat message appears, pick a venue, level unlocked on map) stay silent.
-import { getVolume, isEnabled } from './music.js';
+import { getVolume } from './music.js';
+import { sfxOn } from './settings.js';
 
 export const SFX = {
   click: ['floraphonic-multi-pop-2-188167.mp3'],
@@ -50,7 +52,7 @@ export function loadSfx(scene) {
  */
 export function play(scene, event) {
   try {
-    if (!SFX[event] || !unlocked || !isEnabled() || getVolume() <= 0) return;
+    if (!SFX[event] || !unlocked || !sfxOn() || getVolume() <= 0) return;
     host = scene?.sound ? scene : host;
     queue.push(event);
     if (flushing) return;

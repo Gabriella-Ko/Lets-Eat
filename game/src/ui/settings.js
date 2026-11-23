@@ -34,6 +34,11 @@ export const OPTIONS = {
     { id: 'on', label: 'On' },
     { id: 'off', label: 'Off' },
   ],
+  // Options row "Sound effects" (Gabriella, 2026-11-23): separate from Music; read by ui/sfx.js play().
+  sfx: [
+    { id: 'on', label: 'On' },
+    { id: 'off', label: 'Off' },
+  ],
 };
 
 const defaults = () => ({
@@ -42,6 +47,7 @@ const defaults = () => ({
   contrast: 'normal',
   motion: osReducedMotion() ? 'reduced' : 'full',
   music: 'on',
+  sfx: 'on',
 });
 
 let memory = null; // fallback when storage is blocked
@@ -81,5 +87,7 @@ export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';
 export const musicOn =() => getSettings().music === 'on';
+/** Sound effects On/Off (Options "Sound effects" row), independent of Music. */
+export const sfxOn = () => getSettings().sfx === 'on';
 /** Page turns and the badge sticking on (Scrapbook, Friends): follow the one Animations toggle (Gabriella, 2026-11-23). */
 export const pageAnimations = () => !reduceMotion();
