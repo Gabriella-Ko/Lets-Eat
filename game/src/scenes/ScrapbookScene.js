@@ -67,7 +67,9 @@ export default class ScrapbookScene extends Phaser.Scene {
       };
       kb.on('keydown-LEFT', move(-1));
       kb.on('keydown-RIGHT', move(1));
-      kb.on('keydown-ESC', () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
+      const back = () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); };
+      kb.on('keydown-ESC', back);
+      kb.on('keydown-BACKSPACE', back);
     }
 
     this.drawBook();

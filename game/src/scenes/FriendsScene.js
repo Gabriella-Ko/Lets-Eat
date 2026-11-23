@@ -72,7 +72,9 @@ export default class FriendsScene extends Phaser.Scene {
     };
     this.input.keyboard?.on('keydown-UP', step(-1));
     this.input.keyboard?.on('keydown-DOWN', step(1));
-    this.input.keyboard?.on('keydown-ESC', () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
+    const back = () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); };
+    this.input.keyboard?.on('keydown-ESC', back);
+    this.input.keyboard?.on('keydown-BACKSPACE', back);
   }
 
   /** dir: 1 forward (down), -1 back (up); from the tab order when not given. */

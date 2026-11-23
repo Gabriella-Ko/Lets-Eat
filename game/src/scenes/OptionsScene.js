@@ -56,7 +56,9 @@ export default class OptionsScene extends Phaser.Scene {
     kb.on('keydown-LEFT', when(() => this.step(-1)));
     kb.on('keydown-RIGHT', when(() => this.step(1)));
     kb.on('keydown-H', when(() => this.howToPlay()));
-    kb.on('keydown-ESC', when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); }));
+    const back = when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
+    kb.on('keydown-ESC', back);
+    kb.on('keydown-BACKSPACE', back);
   }
 
   /**
