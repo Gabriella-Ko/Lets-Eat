@@ -22,8 +22,13 @@ const RECAP_SUB = {
   fail: 'the line that would have kept everyone safe',
 };
 
-const IMG = { x: 36, y: 168, w: 340, h: 228 }; // 3:2, matching the result art (images are cut to 680x456)
-const REACT = { x: 396, y: 168, w: 528 };
+// Outcome layout (Gabriella picked draft A3, 2026-11-22): a big 3:2 picture (the result art is cut to 680x456)
+// with a narrow reaction column beside it; title and stars pulled up to make room.
+const IMG = { x: 22, y: 124, w: 600, h: 400 };
+const REACT = { x: 638, y: 124, w: 300 };
+const FONT = 13; // reaction text
+const FACE = 32; // portrait size
+const NAME = 12; // speaker name
 
 /**
  * The friends react to the pick. Stars come from the game's own scoring (logic/scoring.js);
@@ -58,42 +63,49 @@ export default class OutcomeScene extends Phaser.Scene {
     recordPick(lvl.id, this.venue.id); // for "been here before" in later levels
 
     const title = { perfect: 'PERFECT MATCH!', partial: 'CLEARED', fail: 'OH NO…' }[score.result];
-    this.add.text(W / 2, 38, title, pixel(38, score.result === 'fail' ? C.bad : C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    this.add.text(W / 2, 78, `You sent everyone to ${this.venue.name}`, pixel(17, C.highlight)).setOrigin(0.5);
+    this.add.text(W / 2, 30, title, pixel(32, score.result === 'fail' ? C.bad : C.label, { fontStyle: 'bold' })).setOrigin(0.5);
+    this.add.text(W / 2, 62, `You sent everyone to ${this.venue.name}`, pixel(15, C.highlight)).setOrigin(0.5);
+    const starY = 96;
+    const starGap = 44;
     for (let i = 0; i < 3; i++) {
-      const s = this.add.graphics({ x: W / 2 - 56 + i * 56, y: 124 });
-      star(s, 0, 0, 22, i < score.stars);
+      const s = this.add.graphics({ x: W / 2 - starGap + i * starGap, y: starY });
+      star(s, 0, 0, 17, i < score.stars);
       s.setScale(0);
       tween(this, { targets: s, scale: 1, delay: 200 + i * 180, duration: 260, ease: 'Back.easeOut' });
     }
     // The count in words too, so it never depends on telling the star colours apart.
-    this.starsLabel = this.add.text(W / 2 + 100, 124, `${score.stars} of 3 stars`, pixel(14, C.label)).setOrigin(0, 0.5);
+    this.starsLabel = this.add.text(W / 2 + starGap + 44, starY, `${score.stars} of 3 stars`, pixel(13, C.label)).setOrigin(0, 0.5);
 
     this.drawImageSlot(score.result);
     this.newPageNote(score.stars >= 1);
 
-    // Reaction lines
-    let y = REACT.y + 16;
+    // Reactions: one bubble per line in the column right of the picture.
+    const R = REACT;
+    let y = R.y + 12;
+    const indent = FACE + 28;
     outcome.lines.forEach((line, i) => {
       const ch = CHARACTERS[line.speaker] || { name: line.speaker, color: C.inkSoft };
-      const c = this.add.container(0, y);
-      c.add(portrait(this, REACT.x + 42, 30, 52, line.speaker, line.emotion));
-      c.add(this.add.text(REACT.x + 80, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold' })));
-      const body = this.add.text(REACT.x + 94, 28, line.text, readText(15, C.ink, { wordWrap: { width: REACT.w - 130, useAdvancedWrap: true } }));
-      const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(REACT.x + 80, 19, body.width + 28, body.height + 18, 10);
+      const c = this.add.container(0, y).setDepth(1);
+      c.add(portrait(this, R.x + 12 + FACE / 2, FACE / 2 + 4, FACE, line.speaker, line.emotion));
+      c.add(this.add.text(R.x + indent, 0, ch.name.toUpperCase(), pixel(NAME, ch.color, { fontStyle: 'bold' })));
+      const top = NAME + 8;
+      const body = this.add.text(R.x + indent + 12, top + 8, line.text, readText(FONT, C.ink, { wordWrap: { width: R.w - indent - 36, useAdvancedWrap: true } }));
+      const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(R.x + indent, top, body.width + 24, body.height + 16, 8);
       c.add([bubble, body]);
       c.setAlpha(0);
       tween(this, { targets: c, alpha: 1, delay: 700 + i * 500, duration: 250 });
-      y += Math.max(body.height + 46, 70);
+      y += Math.max(top + body.height + 26, FACE + 16);
     });
-    const panelH = Math.max(IMG.h, y - REACT.y + 6);
-    panel(this, REACT.x, REACT.y, REACT.w, panelH, C.panel, 10).setDepth(-1);
+    const panelH = Math.max(IMG.h, y - R.y + 6);
+    panel(this, R.x, R.y, R.w, panelH, C.panel, 10);
 
     // Hint: name each missed preference (partial) or the broken hard constraint (fail).
     let hint = '';
     if (score.result === 'partial') hint = `Missed: ${score.missed.map(describeTag).join(', ')}  (−1 star${score.missed.length > 1 ? ' each' : ''})`;
     if (score.result === 'fail') hint = `Not safe for everyone: ${score.missed.map(describeTag).join(', ')}. Reread the chat and try again.`;
-    if (hint) this.add.text(W / 2, REACT.y + panelH + 18, hint, pixel(17, C.highlight, { wordWrap: { width: W - 120 }, align: 'center' })).setOrigin(0.5, 0);
+    if (hint) {
+      this.add.text(W / 2, R.y + panelH + 18, hint, pixel(17, C.highlight, { wordWrap: { width: W - 120 }, align: 'center' })).setOrigin(0.5, 0);
+    }
 
     // Buttons
     this.score = score;
