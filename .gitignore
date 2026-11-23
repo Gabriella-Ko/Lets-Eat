@@ -5,3 +5,6 @@ docs/feature_ideas_draft.md
 
 # Python bytecode
 __pycache__/
+
+# Windows folder settings files
+desktop.ini
