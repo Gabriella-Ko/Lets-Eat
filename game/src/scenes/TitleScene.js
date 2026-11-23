@@ -18,6 +18,8 @@ export default class TitleScene extends Phaser.Scene {
   }
 
   create() {
+    // Phaser reuses this object; clear the flag so Start works again after coming back from the Menu.
+    this.leaving = false;
     const hasArt = this.textures.exists(ART_KEY) && this.textures.get(ART_KEY).key !== '__MISSING';
     if (hasArt) {
       const img = this.add.image(W / 2, H / 2, ART_KEY);

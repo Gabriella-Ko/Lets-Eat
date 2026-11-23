@@ -45,6 +45,23 @@ try {
   await page.waitForTimeout(150);
   if (!menuOk) problems.push('title: Enter did not open the Menu');
   for (const e of errors) problems.push(`title -> menu: ${e}`);
+  // Back to the title (Backspace), then Start must still work (Enter opens the Menu again).
+  const waitScene = (key) =>
+    page.waitForFunction((k) => window.__game?.scene.isActive(k), key, { timeout: 8000 }).then(() => true, () => false);
+  if (menuOk) {
+    errors.length = 0;
+    await page.keyboard.press('Backspace');
+    const backOk = await waitScene('Title');
+    await page.waitForTimeout(150);
+    if (!backOk) problems.push('menu: Backspace did not return to the Title');
+    else {
+      await page.keyboard.press('Enter');
+      const againOk = await waitScene('Menu');
+      await page.waitForTimeout(150);
+      if (!againOk) problems.push('title: Enter did not open the Menu after returning from the map');
+    }
+    for (const e of errors) problems.push(`menu -> title -> menu: ${e}`);
+  }
   const firstLevel = await page.evaluate(() => window.__game.registry.get('levels')[0]?.id);
   if (firstLevel) await boot(`scene=Scrapbook&level=${firstLevel}`, 'Scrapbook');
   if (firstLevel) await boot(`scene=Options&level=${firstLevel}`, 'Options');
