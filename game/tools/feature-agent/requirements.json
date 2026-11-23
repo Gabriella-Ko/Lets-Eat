@@ -1037,7 +1037,7 @@
     },
     {
       "id": "font_sets",
-      "title": "Fonts: Silkscreen + Nunito by default, Jersey 10 + Lexend as an 'Easier reading' choice in Options",
+      "title": "Fonts: Silkscreen + Nunito by default, Jersey 10 + Lexend as an 'Easier reading' choice in Options (superseded by one_font_set: only Jersey 10 + Lexend remain)",
       "bible": "Art direction > Fonts (Gabriella, 2026-11-23): Default: Silkscreen (headings, buttons) + Nunito (chat, reviews). Easier reading: Jersey 10 + Lexend. Options > Font: Default or Easier reading.",
       "status": "Locked",
       "impact": 4,
@@ -1049,27 +1049,15 @@
       "detect": [
         {
           "contains": "package.json",
-          "pattern": "@fontsource/silkscreen"
-        },
-        {
-          "contains": "package.json",
           "pattern": "@fontsource/jersey-10"
         },
         {
-          "contains": "src/ui/theme.js",
-          "pattern": "Silkscreen"
+          "contains": "package.json",
+          "pattern": "@fontsource/lexend"
         },
         {
           "contains": "src/ui/theme.js",
           "pattern": "Jersey 10"
-        },
-        {
-          "contains": "src/ui/settings.js",
-          "pattern": "easier"
-        },
-        {
-          "contains": "src/scenes/OptionsScene.js",
-          "pattern": "title: 'Font'"
         }
       ]
     },
