@@ -721,15 +721,11 @@
       "impact": 3,
       "effort": 2,
       "depends": [],
-      "spec": "Add a setting 'pageAnimations' to src/ui/settings.js with two options, On (default) and Off, saved like the other settings, and export a helper pageAnimations() that returns true when it is On and Reduce motion is off. Add a row to src/scenes/OptionsScene.js: title 'Page animations', about 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' Six rows must still fit above the key hint at the bottom (shrink ROW_H or the row spacing as needed) and keyboard focus must still reach every row. When pageAnimations() is false: on the Friends page (src/scenes/FriendsScene.js) switching friends changes the page at once, with no page turn; in the Scrapbook (src/scenes/ScrapbookScene.js) switching pages changes the spread at once, with no page turn, and the rosette badge simply appears, with no drop, squash, ring or sparkles. Everything else on those screens (tabs, clicks, arrow keys) works the same.",
+      "spec": "Add a setting 'pageAnimations' to src/ui/settings.js with two options, On (default) and Off, saved like the other settings, and export a helper pageAnimations() that returns true when it is On and Reduce motion is off. Add a row to src/scenes/OptionsScene.js: title 'Page animations', about 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' Six rows must still fit above the key hint at the bottom (shrink ROW_H or the row spacing as needed) and keyboard focus must still reach every row. When pageAnimations() is false: on the Friends page (src/scenes/FriendsScene.js) switching friends changes the page at once, with no page turn; in the Scrapbook (src/scenes/ScrapbookScene.js) switching pages changes the spread at once, with no page turn, and the rosette badge simply appears, with no drop, squash, ring or sparkles. Everything else on those screens (tabs, clicks, arrow keys) works the same. (2026-11-23, Gabriella: the separate Options row was later folded into the single 'Animations' toggle; see animations_one_toggle.)",
       "detect": [
         {
           "contains": "src/ui/settings.js",
           "pattern": "export const pageAnimations|export function pageAnimations"
-        },
-        {
-          "contains": "src/scenes/OptionsScene.js",
-          "pattern": "pageAnimations"
         },
         {
           "contains": "src/scenes/FriendsScene.js",
@@ -798,7 +794,7 @@
       "detect": [
         {
           "contains": "src/scenes/CreditsScene.js",
-          "pattern": "PANEL_ALPHA = 0\\.(6\\d|7[0-5])\\b"
+          "pattern": "PANEL_ALPHA = 0\\.([5-6]\\d|7[0-5])\\b"
         }
       ]
     },
@@ -825,6 +821,65 @@
         {
           "contains": "src/scenes/OptionsScene.js",
           "pattern": "^(?![\\s\\S]*Reduce motion')"
+        }
+      ]
+    },
+    {
+      "id": "credits_backspace",
+      "title": "Backspace returns to the level map from Credits",
+      "bible": "Controls (Gabriella, 2026-11-23): allow Backspace on the Credits screen to return to the level screen.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "backspace_back_to_map"
+      ],
+      "spec": "In src/scenes/CreditsScene.js, pressing Backspace (keydown-BACKSPACE) does the same as Esc: go back to the level map ('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')), like Esc. Esc and the scrolling keys keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_panel_lighter_2",
+      "title": "Credits: the panel even more see-through",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the white credits panel even more transparent (after it went from 84% to 70%).",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_panel_lighter"
+      ],
+      "spec": "In src/scenes/CreditsScene.js lower PANEL_ALPHA from 0.70 to 0.55, so more of the title picture shows through. The credit text must stay easy to read: if it no longer is, darken the see-through layer over the picture (or give the text a soft light outline) rather than raising the panel's alpha again.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.(5\\d|60)\\b"
+        }
+      ]
+    },
+    {
+      "id": "animations_one_toggle",
+      "title": "Options: one 'Animations' toggle for everything, page turns included",
+      "bible": "Options (Gabriella, 2026-11-23): 'Animations' and 'Page animations' become one section: a single On/Off toggle that controls every animation, including the page turns and the badge sticking on.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "options_animations_row",
+        "page_animations_option"
+      ],
+      "spec": "Remove the 'Page animations' row from src/scenes/OptionsScene.js (ROWS), so Options has five rows again; re-space them so they fill the column above the key hint. The 'Animations' row now covers everything; about text: 'Sliding, popping, page turns and the badge sticking on. Off: things simply appear.' In src/ui/settings.js remove the pageAnimations setting (its OPTIONS entry and default) and keep the helper pageAnimations() as simply !reduceMotion(), so the Friends and Scrapbook code that calls it keeps working unchanged. A previously saved pageAnimations value is ignored. The Animations preview keeps working.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "^(?![\\s\\S]*title: 'Page animations')"
+        },
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "pageAnimations = \\(\\) => !reduceMotion\\(\\)"
         }
       ]
     }
