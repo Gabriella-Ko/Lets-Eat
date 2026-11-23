@@ -904,6 +904,44 @@
           "pattern": "PANEL_ALPHA = 0\\.55\\b"
         }
       ]
+    },
+    {
+      "id": "back_buttons_match_menu",
+      "title": "Back buttons ('← Title', '← Levels') the same size as Options and Credits",
+      "bible": "Buttons (Gabriella, 2026-11-23): make the '← Title' and '← Levels' buttons the same dimensions as the Options and Credits buttons.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "menu_back_to_title"
+      ],
+      "spec": "The Options and Credits buttons on the level map (src/scenes/MenuScene.js) are { w: 140, h: 34, size: 15 }. Give every back button the same size: '← Title' on the map, and '← Levels' on Chat, Credits, Friends, Options and Scrapbook (src/scenes/*.js). Keep their fill, text and size 15. Since they get 20 px wider, move each one's centre x from 80 to 90 so its left edge sits 20 px from the screen edge, lined up with the map's buttons. Check nothing they sit next to (titles, Reset progress, the Chat header) now overlaps.",
+      "detect": [
+        {
+          "absent": "src/scenes",
+          "pattern": "'← (Levels|Title)'[^\\n]*w: 120"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'← Title'[^\\n]*w: 140, h: 34"
+        }
+      ]
+    },
+    {
+      "id": "friends_button_mina_orange",
+      "title": "The map's Friends button in Mina's orange",
+      "bible": "Level map (Gabriella, 2026-11-23): make the button that goes to the Friends page the same orangey shade used for Mina's card.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/MenuScene.js the 'Friends' button's fill becomes Mina's colour, CHARACTERS.mina.color (the colour of her tab and page strip on the Friends page), instead of C.bar. Import CHARACTERS from ../ui/theme.js if needed. Text stays readable (white/label text on the orange); size and position unchanged.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "'Friends'[^\\n]*fill: CHARACTERS\\.mina\\.color"
+        }
+      ]
     }
   ]
 }
