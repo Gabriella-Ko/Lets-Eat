@@ -7,7 +7,7 @@ import { showChapterIntro } from '../ui/chapterIntro.js';
 import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
 
-// Title + level select. Only unlocked levels are shown: a level opens once the previous one is
+// Level select (the city map). Only unlocked levels are shown: a level opens once the previous one is
 // cleared, and a chapter heading appears with its first open level. Add ?all to the URL to show every level (testing).
 export default class MenuScene extends Phaser.Scene {
   constructor() {
@@ -21,12 +21,8 @@ export default class MenuScene extends Phaser.Scene {
     // ?all is a testing shortcut, so it only works on the dev server, never in a built game.
     const unlockAll = import.meta.env.DEV && new URLSearchParams(window.location.search).has('all');
 
-    // The city map picture has the title painted in; without it, the title is drawn.
+    // No title or catch phrase here: they live on the Title screen (bible: Title screen).
     this.art = hasCityMapArt(this);
-    if (!this.art) {
-      this.add.text(W / 2, 58, "LET'S EAT!", pixel(64, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-      this.add.text(W / 2, 108, 'read the chat · f‌ind the spot · feed your friends', pixel(18, C.highlight)).setOrigin(0.5); // ‌ stops the font's "fi" ligature
-    }
 
     // Scrapbook (bible: Scrapbook > Where), with how many memories are collected.
     const pages = Object.keys(this.registry.get('rules').callbacks || {}).length;
