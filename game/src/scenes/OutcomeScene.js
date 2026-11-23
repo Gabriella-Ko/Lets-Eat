@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
-import { C, W, H, CHARACTERS, pixel, text, readText } from '../ui/theme.js';
+import { C, W, H, CHARACTERS, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { panel, button, star, saveStars, portrait } from '../ui/widgets.js';
 import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
@@ -63,8 +63,8 @@ export default class OutcomeScene extends Phaser.Scene {
     recordPick(lvl.id, this.venue.id); // for "been here before" in later levels
 
     const title = { perfect: 'PERFECT MATCH!', partial: 'CLEARED', fail: 'OH NO…' }[score.result];
-    this.add.text(W / 2, 30, title, pixel(32, score.result === 'fail' ? C.bad : C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    this.add.text(W / 2, 62, `You sent everyone to ${this.venue.name}`, pixel(15, C.highlight)).setOrigin(0.5);
+    fitWidth(this.add.text(W / 2, 30, title, pixel(32, score.result === 'fail' ? C.bad : C.label, { fontStyle: 'bold' })).setOrigin(0.5), W - 2 * 180);
+    fitWidth(this.add.text(W / 2, 62, `You sent everyone to ${this.venue.name}`, pixel(15, C.highlight)).setOrigin(0.5), W - 2 * 180);
     const starY = 96;
     const starGap = 44;
     for (let i = 0; i < 3; i++) {

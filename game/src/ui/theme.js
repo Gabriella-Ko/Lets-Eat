@@ -1,7 +1,7 @@
 // Palette sampled from Gabriella's portrait sheets (assets/art/*_sheet.jpg):
 // warm dark-brown label bars, dusty-rose label text, dusty blue, rust and ribbon orange.
 // The bible lists the palette as Open; once confirmed, record it there.
-import { highContrast, textScale } from './settings.js';
+import { highContrast, textScale, fontChoice } from './settings.js';
 
 export const W = 960;
 export const H = 640;
@@ -52,16 +52,37 @@ applyPalette();
 
 export const hex = (n) => '#' + n.toString(16).padStart(6, '0');
 
-export const PIXEL = '"Pixelify Sans", "Trebuchet MS", sans-serif'; // headings, labels, buttons
-export const FONT = '"Trebuchet MS", "Segoe UI", sans-serif'; // chat and reviews, for readability
+// Font sets (bible: Art direction > Fonts, Gabriella 2026-11-23), chosen in Options > Font.
+// heading: headings, labels, buttons (pixel()); body: chat and reviews (text(), readText()).
+// headingScale keeps headings about the visual size Pixelify Sans had (Silkscreen runs big, Jersey 10 small).
+export const FONT_SETS = {
+  default: { heading: 'Silkscreen', headingScale: 0.82, body: 'Nunito' },
+  easier: { heading: 'Jersey 10', headingScale: 1.3, body: 'Lexend' },
+};
+const fontSet = () => FONT_SETS[fontChoice()] || FONT_SETS.default;
+/** Heading font stack of the chosen set, read at draw time (like C after High contrast). */
+export const pixelFont = () => `"${fontSet().heading}", "Trebuchet MS", sans-serif`;
+/** Body font stack of the chosen set, read at draw time. */
+export const bodyFont = () => `"${fontSet().body}", "Trebuchet MS", "Segoe UI", sans-serif`;
+/** Pixel size for a heading of nominal `size`, after the chosen heading font's size factor. */
+export const pixelSize = (size) => Math.round(size * fontSet().headingScale);
 
 export const text = (size, color = C.ink, extra = {}) => ({
-  fontFamily: FONT,
+  fontFamily: bodyFont(),
   fontSize: `${size}px`,
   color: hex(color),
   ...extra,
 });
-export const pixel = (size, color = C.ink, extra = {}) => text(size, color, { fontFamily: PIXEL, ...extra });
+export const pixel = (size, color = C.ink, extra = {}) => text(pixelSize(size), color, { fontFamily: pixelFont(), ...extra });
+/**
+ * Shrinks a one-line text object's font until it is at most maxW wide, so a label written for one font set
+ * never spills out of its button, card or plate in the other (the four fonts differ in width).
+ */
+export function fitWidth(t, maxW, min = 9) {
+  let size = parseFloat(t.style.fontSize);
+  while (t.width > maxW && size > min) t.setFontSize(--size);
+  return t;
+}
 /** Text the player reads (chat, reviews, Notebook, reactions, recap, scrapbook pages): grows with the Text size option. */
 export const readText = (size, color = C.ink, extra = {}) => text(Math.round(size * textScale()), color, extra);
 

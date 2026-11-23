@@ -34,6 +34,11 @@ export const OPTIONS = {
     { id: 'on', label: 'On' },
     { id: 'off', label: 'Off' },
   ],
+  // Font sets (bible: Art direction > Fonts, Gabriella 2026-11-23); theme.js maps them to families.
+  font: [
+    { id: 'default', label: 'Default' },
+    { id: 'easier', label: 'Easier reading' },
+  ],
 };
 
 const defaults = () => ({
@@ -42,6 +47,7 @@ const defaults = () => ({
   contrast: 'normal',
   motion: osReducedMotion() ? 'reduced' : 'full',
   music: 'on',
+  font: 'default',
 });
 
 let memory = null; // fallback when storage is blocked
@@ -80,6 +86,8 @@ export const textScale = () => opt('textSize').scale;
 export const chatPaceMs = () => opt('chatPace').ms;
 export const highContrast = () => getSettings().contrast === 'high';
 export const reduceMotion = () => getSettings().motion === 'reduced';
-export const musicOn = () => getSettings().music === 'on';
+/** 'default' (Silkscreen + Nunito) or 'easier' (Jersey 10 + Lexend). */
+export const fontChoice = () => getSettings().font;
+export const musicOn =() => getSettings().music === 'on';
 /** Page turns and the badge sticking on (Scrapbook, Friends): follow the one Animations toggle (Gabriella, 2026-11-23). */
 export const pageAnimations = () => !reduceMotion();

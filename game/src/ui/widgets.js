@@ -1,4 +1,4 @@
-import { C, CHARACTERS, CUISINES, EMOTIONS, PIXEL, hex, pixel, portraitKey } from './theme.js';
+import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
 import { clearPages } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
@@ -15,7 +15,7 @@ export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
 export function button(scene, x, y, label, onClick, { w = 200, h = 44, fill = C.accent, size = 18 } = {}) {
   const c = scene.add.container(x, y);
   const g = scene.add.graphics();
-  const t = scene.add.text(0, 0, label.toUpperCase(), pixel(size, C.panel)).setOrigin(0.5);
+  const t = fitWidth(scene.add.text(0, 0, label.toUpperCase(), pixel(size, C.panel)).setOrigin(0.5), w - 14);
   let enabled = true;
   const draw = (hover) => {
     g.clear();
@@ -93,7 +93,7 @@ export function makePlaceholderArt(scene) {
     g.lineStyle(5, C.ink, 1).strokeRoundedRect(4, 4, 88, 88, 20);
     const label = cuisine.replace('_', ' ').split(' ').map((w) => w[0].toUpperCase()).join('') +
       (cuisine.includes('_') ? '' : cuisine[1]);
-    const t = scene.make.text({ x: 48, y: 48, text: label, style: { fontFamily: PIXEL, fontSize: '36px', color: hex(C.ink) } }, false).setOrigin(0.5);
+    const t = scene.make.text({ x: 48, y: 48, text: label, style: { fontFamily: pixelFont(), fontSize: `${pixelSize(36)}px`, color: hex(C.ink) } }, false).setOrigin(0.5);
     rt.draw(g).draw(t);
     rt.saveTexture(key);
     g.destroy();
