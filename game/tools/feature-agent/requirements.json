@@ -1094,6 +1094,68 @@
           "pattern": "title: 'Font'"
         }
       ]
+    },
+    {
+      "id": "sfx_credits",
+      "title": "Credits for the sound effect files, shown on the Credits screen",
+      "bible": "Sound effects (Gabriella, 2026-11-23): each file's license and any required credit go in the credits file, like the music. A sound file without a license file is free for public use; that is not something missing (Gabriella, 2026-11-23).",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "(1) public/credits.json: add an 'sfx' list after 'music', one entry per .mp3 in ../assets/sfx/ (repo root, not game/; ignore desktop.ini), sorted by file name, with the same fields as a music entry: file, title, artist, source 'Pixabay', license 'Pixabay Content License', url, license_file and credit_line '<title> by <artist> (Pixabay)'. Title and artist come from the file name ('<username>-<title words>-<id>', e.g. 'floraphonic-multi-pop-2-188167.mp3' -> artist 'floraphonic', title 'Multi Pop 2'). If a matching '*-license.txt' (same Pixabay id) sits beside it, take title, artist and url from it and point license_file at it; otherwise url and license_file are null. A missing license file is NOT a problem: these sounds are free for public use, so never add \"check\": true or any 'missing' note for that reason. Never rename, choose or delete sound files. (2) Credits screen (src/scenes/CreditsScene.js): a SOUND EFFECTS section after MUSIC, laid out like MUSIC (title, then artist, source, license and the credit line), scrolling with the rest. BootScene keeps loading credits.json into the registry as 'credits' (an old file without 'sfx' gives an empty list). (3) Update the Credits file bullet in game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "public/credits.json",
+          "pattern": "\\\"sfx\\\""
+        },
+        {
+          "contains": "public/credits.json",
+          "pattern": "floraphonic-multi-pop-2-188167\\.mp3"
+        },
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "SOUND EFFECTS"
+        }
+      ]
+    },
+    {
+      "id": "sound_effects",
+      "title": "Sound effects from the bible mapping: clicks, outcomes, stars, Scrapbook and Friends pages, following the Music volume and mute",
+      "bible": "Sound effects (Gabriella, 2026-11-23): files in assets/sfx/, licenses and credits in the credits file like the music; sound effects follow the Music volume and mute setting. Where a row lists two files ('A or B'), play one of them at random each time (Gabriella, 2026-11-23). Rows marked Open (Chat message appears, Pick a venue, Level unlocked on map) stay silent for now.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 3,
+      "depends": [],
+      "spec": "(1) Copy the 11 .mp3 files from ../assets/sfx/ (repo root, not game/) into public/sfx/ unchanged; never rename, choose or delete sound files, and ignore desktop.ini. (2) src/ui/sfx.js: a small player. Export play(scene, event) for these events and files (from public/sfx/): 'click' -> floraphonic-multi-pop-2-188167.mp3; 'outcome_perfect' -> freesound_community-success-1-6297.mp3; 'outcome_partial' -> one of benkirb-shine-8-268901.mp3 / benkirb-shine-7-268909.mp3 at random; 'outcome_fail' -> one of mori_sound-fx-error-piano-514787.mp3 / mori_sound-fx-loose-cartoon-521523.mp3 at random; 'star' -> one of benkirb-shine-6-268910.mp3 / benkirb-shine-11-268907.mp3 at random; 'page_unlocked' -> universfield-bright-notifications-151766.mp3; 'page_turn' -> floraphonic-newspaper-foley-15-196732.mp3; 'badge_stuck' -> vadim_makes_sound-achievement-badge-pop-sound-1-547860.mp3. Load them in BootScene (small files, about 1.3 MB in all). Volume = the Music volume setting (lets-eat-music-volume-v1); nothing plays when Music is Off or the volume is 0, and nothing plays before the player's first click or key press. A file that failed to load is skipped silently and never throws. (3) Hook the events: 'click' on every button and tab (the shared button() helper in src/ui/widgets.js, the Scrapbook and Friends tabs, and choosing a place on the Results list), including the keyboard Enter equivalents; 'outcome_perfect' / 'outcome_partial' / 'outcome_fail' once as the Outcome screen opens, by its star result (3 stars = perfect, 0 = fail, otherwise partial); 'star' once per star as each one fills in on the Outcome screen; 'page_unlocked' when a new Scrapbook page is unlocked; 'page_turn' on the Scrapbook page turn and the Friends page flip; 'badge_stuck' on the Scrapbook badge stick-on animation and when a new friend's page is unlocked. Don't play two of the same sound on top of each other for one action (e.g. a button press that also turns a page plays only page_turn). (4) Add a 'Sound effects' bullet to game/CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/ui/sfx.js"
+        },
+        {
+          "file": "public/sfx/floraphonic-multi-pop-2-188167.mp3"
+        },
+        {
+          "contains": "src/ui/sfx.js",
+          "pattern": "outcome_partial"
+        },
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "sfx"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "sfx"
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "page_turn"
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "page_turn"
+        }
+      ]
     }
   ]
 }
