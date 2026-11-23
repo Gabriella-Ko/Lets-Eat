@@ -6,6 +6,7 @@ import { scrollArea } from '../ui/scroll.js';
 import { loadVisits, recordSeen } from '../ui/visitStore.js';
 import { pastVisit } from '../logic/beenHere.js';
 import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
+import { play as playSfx } from '../ui/sfx.js';
 
 // Getters, so the colours follow the High contrast option.
 const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
@@ -82,14 +83,22 @@ export default class ResultsListScene extends Phaser.Scene {
         this.focus = (this.focus + d + this.cards.length) % this.cards.length;
         this.drawFocus();
       };
-      const recommend = () => this.selected && this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+      // Keyboard twins of the Recommend button and the card clicks, so they click like them.
+      const recommend = () => {
+        if (!this.selected) return;
+        playSfx(this, 'click');
+        this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+      };
       kb.on('keydown-UP', () => move(-1));
       kb.on('keydown-DOWN', () => move(1));
       kb.on('keydown-ENTER', () => {
         const card = this.cards[this.focus];
         if (!card) return;
         if (this.selected === card.venue) recommend();
-        else this.select(card);
+        else {
+          playSfx(this, 'click');
+          this.select(card);
+        }
       });
       kb.on('keydown-R', recommend);
       // Backspace does what "← Back to chat" does; the open volume panel takes it first.
@@ -236,7 +245,10 @@ export default class ResultsListScene extends Phaser.Scene {
     const card = { venue, draw, x, y, w, h };
     zone.on('pointerover', () => this.selected !== venue && draw('hover'));
     zone.on('pointerout', () => this.selected !== venue && draw());
-    zone.on('pointerdown', () => this.select(card));
+    zone.on('pointerdown', () => {
+      playSfx(this, 'click');
+      this.select(card);
+    });
     return card;
   }
 

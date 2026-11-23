@@ -2,3 +2,5 @@ node_modules/
 dist/
 # generated: copied from ../assets/music by the asset sync step (assets/music is the source)
 public/music/
+# generated: copied from ../assets/sfx by the same step (assets/sfx is the source)
+public/sfx/

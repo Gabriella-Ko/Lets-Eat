@@ -1,5 +1,5 @@
 {
-  "_about": "Credits shown on the game's credits screen (bible: Game identity > Audio). Music tracks are free or copyright-free lo-fi, picked and downloaded by hand by Gabriella from Bensound or Pixabay Music, never by agents. Each music entry: file, title, artist, source (Bensound | Pixabay Music), license, url, license_file, credit_line. Tracks with a Pixabay license certificate (music/*-license.txt, matched by the Pixabay ID in both file names) take title, artist (Pixabay username) and url from it; tracks without one have title and artist guessed from the file name, url and license_file null, and \"check\": true until Gabriella confirms them.",
+  "_about": "Credits shown on the game's credits screen (bible: Game identity > Audio). Music tracks are free or copyright-free lo-fi, picked and downloaded by hand by Gabriella from Bensound or Pixabay Music, never by agents. Each music entry: file, title, artist, source (Bensound | Pixabay Music), license, url, license_file, credit_line. Tracks with a Pixabay license certificate (music/*-license.txt, matched by the Pixabay ID in both file names) take title, artist (Pixabay username) and url from it; tracks without one have title and artist guessed from the file name, url and license_file null, and \"check\": true until Gabriella confirms them. Sound effects (sfx) are Gabriella's Pixabay files in assets/sfx/, one entry per file with the same fields as music; title and artist come from the file name (<username>-<title words>-<id>) unless a matching *-license.txt gives them. A sound without a license file is free for public use, so its url and license_file are simply null.",
   "music": [
     {
       "file": "music/23843807-chill-groove-1-jazz-electronicahip-hop-90bpm-251s-14342.mp3",
@@ -149,6 +149,118 @@
       "license_file": null,
       "credit_line": "Abstract Lofi by zephiramusic (Pixabay)",
       "check": true
+    }
+  ],
+  "sfx": [
+    {
+      "file": "sfx/benkirb-shine-11-268907.mp3",
+      "title": "Shine 11",
+      "artist": "benkirb",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Shine 11 by benkirb (Pixabay)"
+    },
+    {
+      "file": "sfx/benkirb-shine-6-268910.mp3",
+      "title": "Shine 6",
+      "artist": "benkirb",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Shine 6 by benkirb (Pixabay)"
+    },
+    {
+      "file": "sfx/benkirb-shine-7-268909.mp3",
+      "title": "Shine 7",
+      "artist": "benkirb",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Shine 7 by benkirb (Pixabay)"
+    },
+    {
+      "file": "sfx/benkirb-shine-8-268901.mp3",
+      "title": "Shine 8",
+      "artist": "benkirb",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Shine 8 by benkirb (Pixabay)"
+    },
+    {
+      "file": "sfx/floraphonic-multi-pop-2-188167.mp3",
+      "title": "Multi Pop 2",
+      "artist": "floraphonic",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Multi Pop 2 by floraphonic (Pixabay)"
+    },
+    {
+      "file": "sfx/floraphonic-newspaper-foley-15-196732.mp3",
+      "title": "Newspaper Foley 15",
+      "artist": "floraphonic",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Newspaper Foley 15 by floraphonic (Pixabay)"
+    },
+    {
+      "file": "sfx/freesound_community-success-1-6297.mp3",
+      "title": "Success 1",
+      "artist": "freesound_community",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Success 1 by freesound_community (Pixabay)"
+    },
+    {
+      "file": "sfx/mori_sound-fx-error-piano-514787.mp3",
+      "title": "FX Error Piano",
+      "artist": "mori_sound",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "FX Error Piano by mori_sound (Pixabay)"
+    },
+    {
+      "file": "sfx/mori_sound-fx-loose-cartoon-521523.mp3",
+      "title": "FX Loose Cartoon",
+      "artist": "mori_sound",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "FX Loose Cartoon by mori_sound (Pixabay)"
+    },
+    {
+      "file": "sfx/universfield-bright-notifications-151766.mp3",
+      "title": "Bright Notifications",
+      "artist": "universfield",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Bright Notifications by universfield (Pixabay)"
+    },
+    {
+      "file": "sfx/vadim_makes_sound-achievement-badge-pop-sound-1-547860.mp3",
+      "title": "Achievement Badge Pop Sound 1",
+      "artist": "vadim_makes_sound",
+      "source": "Pixabay",
+      "license": "Pixabay Content License",
+      "url": null,
+      "license_file": null,
+      "credit_line": "Achievement Badge Pop Sound 1 by vadim_makes_sound (Pixabay)"
     }
   ],
   "art": [

@@ -4,6 +4,7 @@ import { button, portrait, loadProgress } from '../ui/widgets.js';
 import { loadOpened } from '../ui/openedStore.js';
 import { friendCards } from '../logic/friends.js';
 import { tween } from '../ui/motion.js';
+import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
 
 // Layout (Gabriella picked draft B3, 2026-11-23): bookmark tabs down the left, one per friend, sticking out of a
@@ -82,6 +83,7 @@ export default class FriendsScene extends Phaser.Scene {
     if (i === this.sel || this.turning) return;
     dir = dir || (i > this.sel ? 1 : -1);
     this.sel = i;
+    playSfx(this, 'page_turn'); // the page flip; a tab's own click is merged into it
     this.refresh(true, dir);
   }
 
@@ -167,7 +169,10 @@ export default class FriendsScene extends Phaser.Scene {
     const name = f.met ? CHARACTERS[f.id]?.name || f.id : '???';
     root.add(this.add.text(fx + 34, y + TAB.h / 2, name, pixel(on ? 20 : 18, on ? 0xffffff : C.panel, { fontStyle: 'bold' })).setOrigin(0, 0.5));
     const hit = this.add.zone(x + len / 2, y + TAB.h / 2, len, TAB.h).setInteractive({ useHandCursor: true });
-    hit.on('pointerdown', () => this.select(i));
+    hit.on('pointerdown', () => {
+      playSfx(this, 'click');
+      this.select(i);
+    });
     root.add(hit);
   }
 

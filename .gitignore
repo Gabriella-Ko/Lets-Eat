@@ -10,3 +10,6 @@ __pycache__/
 assets/drafts/pixellab/icons/*_v0.png
 assets/drafts/pixellab/icons/*_v00.png
 assets/drafts/pixellab/icons/*_v.png
+
+# Windows folder settings files
+desktop.ini

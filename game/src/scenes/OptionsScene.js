@@ -4,6 +4,7 @@ import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled } from '../ui/music.js';
+import { play as playSfx } from '../ui/sfx.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -11,10 +12,11 @@ const ROWS = [
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
   { key: 'motion', title: 'Animations', about: 'Sliding, popping, page turns and the badge sticking on. Off: things simply appear.' },
   { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
+  { key: 'sfx', title: 'Sound effects', about: 'Clicks, page turns, stars and outcome sounds. Plays after your first click or key press.' },
 ];
 const LEFT = { x: 40, y: 88, w: 540 };
 const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
-const ROW_H = 100; // five rows fill the column down to just above the key hint
+const ROW_H = 84; // six rows fill the column down to just above the key hint
 const ROW_GAP = 10; // space between row panels
 const PREVIEW_CHAT_H = 200; // height of the preview's chat area, above the review and stars
 // The example exchange the Chat pace preview plays (Gabriella, 2026-11-23).
@@ -132,6 +134,7 @@ export default class OptionsScene extends Phaser.Scene {
   choose(key, id) {
     setSetting(key, id);
     if (key === 'music') setMusicEnabled(id === 'on');
+    if (key === 'sfx' && id === 'on') playSfx(this, 'click'); // a preview of what was just switched on
     applyPalette();
     this.scene.restart({ focus: this.focus });
   }
@@ -141,7 +144,7 @@ export default class OptionsScene extends Phaser.Scene {
     const frame = this.add.graphics();
     panel(this, LEFT.x, y, LEFT.w, ROW_H - ROW_GAP, C.panel, 12);
     this.add.text(LEFT.x + 20, y + 12, row.title.toUpperCase(), pixel(17, C.ink, { fontStyle: 'bold' }));
-    this.add.text(LEFT.x + 20, y + 38, row.about, text(13, C.inkSoft, { wordWrap: { width: LEFT.w - 40 } }));
+    this.add.text(LEFT.x + 20, y + 36, row.about, text(13, C.inkSoft, { wordWrap: { width: LEFT.w - 40 } }));
     // The choice buttons sit at the right of the title line, the description underneath.
     const h = 26;
     const py = y + 9;

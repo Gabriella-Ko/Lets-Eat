@@ -10,6 +10,7 @@ import { badge } from '../ui/badge.js';
 import { newFriends, markAnnounced } from '../ui/friendsAnnounced.js';
 import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
+import { play as playSfx } from '../ui/sfx.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -72,7 +73,10 @@ export default class OutcomeScene extends Phaser.Scene {
       star(s, 0, 0, 17, i < score.stars);
       s.setScale(0);
       tween(this, { targets: s, scale: 1, delay: 200 + i * 180, duration: 260, ease: 'Back.easeOut' });
+      // One shine per earned star as it fills in (timed the same with Animations off).
+      if (i < score.stars) this.time.delayedCall(200 + i * 180, () => playSfx(this, 'star'));
     }
+    playSfx(this, `outcome_${score.stars >= 3 ? 'perfect' : score.stars <= 0 ? 'fail' : 'partial'}`);
     // The count in words too, so it never depends on telling the star colours apart.
     this.starsLabel = this.add.text(W / 2 + starGap + 44, starY, `${score.stars} of 3 stars`, pixel(13, C.label)).setOrigin(0, 0.5);
 
@@ -140,7 +144,9 @@ export default class OutcomeScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => {
       if (this.recap && !this.unlockCard) return this.closeRecap();
       const b = this.activeButtons()[this.focusIndex()];
-      if (b) b.fn();
+      if (!b) return;
+      playSfx(this, 'click'); // the keyboard twin of pressing that button
+      b.fn();
     });
     this.drawFocus();
 
@@ -304,6 +310,8 @@ export default class OutcomeScene extends Phaser.Scene {
         seeLabel: 'See it', see: () => this.scene.start('Scrapbook', { select: id }),
       };
     }
+    // A new friend's page sticks on like a badge; a new Scrapbook page chimes. Shown here, never in the chat.
+    playSfx(this, type === 'friend' ? 'badge_stuck' : 'page_unlocked');
     const D = UNLOCK_DEPTH;
     const objs = [];
     const keep = (o) => (objs.push(o), o.setDepth(D));
