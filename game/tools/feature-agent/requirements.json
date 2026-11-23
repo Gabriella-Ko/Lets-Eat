@@ -882,6 +882,28 @@
           "pattern": "pageAnimations = \\(\\) => !reduceMotion\\(\\)"
         }
       ]
+    },
+    {
+      "id": "credits_no_text_outline",
+      "title": "Credits: no light outline around the words",
+      "bible": "Credits screen (Gabriella, 2026-11-23): remove the white outline around the words.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_panel_lighter_2"
+      ],
+      "spec": "In src/scenes/CreditsScene.js remove the soft light outline on the credit text: drop TEXT_HALO_PX and the setStroke(...) call on the panel's text objects, so the words are drawn plain. Keep PANEL_ALPHA at 0.55. If the text then gets hard to read over the picture, raise SHADE_ALPHA (the dark layer over the picture) a little, up to 0.45, instead of adding an outline back or making the panel more solid.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "^(?![\\s\\S]*(setStroke|TEXT_HALO))"
+        },
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.55\\b"
+        }
+      ]
     }
   ]
 }
