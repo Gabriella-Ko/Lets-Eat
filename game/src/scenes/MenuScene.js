@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, H, DISTRICTS, pixel, text } from '../ui/theme.js';
+import { C, W, H, DISTRICTS, CHARACTERS, pixel, text } from '../ui/theme.js';
 import { panel, star, button, loadProgress } from '../ui/widgets.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { starTotals } from '../logic/progress.js';
@@ -46,7 +46,7 @@ export default class MenuScene extends Phaser.Scene {
     button(this, 90, 114, 'Credits', () => this.scene.start('Credits'), { w: 140, h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-C', () => this.scene.start('Credits'));
     // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
-    button(this, W - 100, 112, 'Friends', () => this.scene.start('Friends'), { w: 168, h: 32, size: 15, fill: C.bar }).setDepth(5);
+    button(this, W - 100, 112, 'Friends', () => this.scene.start('Friends'), { w: 168, h: 32, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
     this.input.keyboard?.on('keydown-F', () => this.scene.start('Friends'));
 
     const open = levels.filter((lvl) => {
