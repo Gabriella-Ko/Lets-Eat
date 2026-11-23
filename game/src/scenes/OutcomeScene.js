@@ -362,16 +362,26 @@ export default class OutcomeScene extends Phaser.Scene {
     const seeIt = view.see;
     const see = keep(button(this, bx - 105, card.y + card.h - 44, view.seeLabel, seeIt, { w: 190, fill: C.blue }).setDepth(D + 2).setAlpha(0));
     const go = keep(button(this, bx + 105, card.y + card.h - 44, nextLabel, () => this.showNextUnlock(), { w: 190, fill: C.accent }).setDepth(D + 2).setAlpha(0));
-    tween(this, { targets: [see, go], alpha: 1, delay: 950, duration: 250 });
 
-    this.unlockCard = {
-      id, type, objs, focus: 1,
+    // ready: false until the buttons have faded in, so no focus ring (and no Enter/arrows) before they show.
+    const unlockCard = {
+      id, type, objs, focus: 1, ready: false,
       buttons: [
         { x: bx - 105, y: card.y + card.h - 44, w: 190, h: 44, fn: seeIt },
         { x: bx + 105, y: card.y + card.h - 44, w: 190, h: 44, fn: () => this.showNextUnlock() },
       ],
     };
+    this.unlockCard = unlockCard;
     this.drawFocus();
+    // After unlockCard is set: with Animations off this completes at once and the ring shows straight away.
+    tween(this, {
+      targets: [see, go], alpha: 1, delay: 950, duration: 250,
+      onComplete: () => {
+        if (this.unlockCard !== unlockCard) return; // card already closed
+        unlockCard.ready = true;
+        this.drawFocus();
+      },
+    });
   }
 
   closeUnlock() {
@@ -393,7 +403,7 @@ export default class OutcomeScene extends Phaser.Scene {
 
   /** The buttons the arrow keys move between: the unlock card's while it's up, else the bottom row. */
   activeButtons() {
-    if (this.unlockCard) return this.unlockCard.buttons || [];
+    if (this.unlockCard) return this.unlockCard.ready ? this.unlockCard.buttons || [] : [];
     return this.recap ? [] : this.focusBtns || [];
   }
 
