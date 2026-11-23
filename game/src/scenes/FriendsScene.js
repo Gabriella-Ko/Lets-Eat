@@ -15,6 +15,12 @@ const STEP = 34; // line spacing
 const MARGIN_X = PAGE.x + 70;
 const POL = { cx: PAGE.x + 230, cy: PAGE.y + 200, w: 248, h: 288, inset: 14, angle: -4 };
 
+// Page turn (Gabriella picked "flip", 2026-11-23): switching friends turns the page over the spiral rings: it
+// squeezes into the binding, darkening. Going back (up arrow / an earlier tab) plays it in reverse: the previous
+// page swings out of the binding on top. The rings stay put; pages turn under them.
+const TURN_MS = 340;
+const TURN_SHADE = 0.45;
+
 /** Needs as display lines: label, or ??? when not earned yet. */
 function needLines(f) {
   if (!f.met) return [];
@@ -50,7 +56,10 @@ export default class FriendsScene extends Phaser.Scene {
     this.add.text(W / 2, 624, 'needs show up here once you clear a level where they come up in the chat', pixel(13, C.label)).setOrigin(0.5);
 
     this.sel = Math.max(0, this.cards.findIndex((f) => f.met));
-    this.root = null;
+    this.tabsC = null;
+    this.pageC = null;
+    this.turning = false;
+    this.drawRings();
     this.refresh(false);
 
     // Phaser can hand the same keydown to a listener twice when keys come quickly; act once per native event.
@@ -58,17 +67,19 @@ export default class FriendsScene extends Phaser.Scene {
     const step = (d) => (e) => {
       if (e === last) return;
       last = e;
-      this.select((this.sel + d + this.cards.length) % this.cards.length);
+      this.select((this.sel + d + this.cards.length) % this.cards.length, d);
     };
     this.input.keyboard?.on('keydown-UP', step(-1));
     this.input.keyboard?.on('keydown-DOWN', step(1));
     this.input.keyboard?.on('keydown-ESC', () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
   }
 
-  select(i) {
-    if (i === this.sel) return;
+  /** dir: 1 forward (down), -1 back (up); from the tab order when not given. */
+  select(i, dir) {
+    if (i === this.sel || this.turning) return;
+    dir = dir || (i > this.sel ? 1 : -1);
     this.sel = i;
-    this.refresh(true);
+    this.refresh(true, dir);
   }
 
   colourOf(f) {
@@ -83,14 +94,57 @@ export default class FriendsScene extends Phaser.Scene {
     c.add(this.add.text(x, y, '?', pixel(Math.round(size * 0.55), C.label, { fontStyle: 'bold' })).setOrigin(0.5));
   }
 
-  refresh(animate) {
-    this.root?.destroy();
-    const root = (this.root = this.add.container(0, 0));
-    this.cards.forEach((f, i) => this.drawTab(root, f, i));
+  refresh(animate, dir = 1) {
+    this.tabsC?.destroy();
+    const tabs = (this.tabsC = this.add.container(0, 0).setDepth(0));
+    this.cards.forEach((f, i) => this.drawTab(tabs, f, i));
+
+    // The page: an outer container pinned at the page's top-left corner (so it can turn about the binding or the
+    // top edge), holding an inner one that cancels the offset so everything inside draws in screen coordinates.
     const f = this.cards[this.sel];
-    this.drawPage(root, f);
-    this.drawPolaroid(root, f, animate);
-    this.drawInfo(root, f);
+    const page = this.add.container(PAGE.x, PAGE.y).setDepth(1);
+    const inner = this.add.container(-PAGE.x, -PAGE.y);
+    page.add(inner);
+    this.drawPage(inner, f);
+    this.drawPolaroid(inner, f);
+    this.drawInfo(inner, f);
+    page.shade = this.add.graphics().fillStyle(0x000000, 1).fillRect(0, 0, PAGE.w, PAGE.h).setAlpha(0);
+    page.add(page.shade);
+
+    const old = this.pageC;
+    this.pageC = page;
+    if (!animate || !old) {
+      old?.destroy();
+      return;
+    }
+    // Forward: the old page turns away on top, uncovering the new one. Back: the new page turns in on top.
+    this.turning = true;
+    const moving = dir > 0 ? old : page;
+    (dir > 0 ? old : page).setDepth(2);
+    (dir > 0 ? page : old).setDepth(1);
+    if (dir < 0) {
+      moving.scaleX = 0;
+      moving.shade.setAlpha(TURN_SHADE);
+    }
+    tween(this, {
+      targets: moving, scaleX: dir > 0 ? 0 : 1, duration: TURN_MS,
+      ease: dir > 0 ? 'Quad.easeIn' : 'Quad.easeOut',
+      onUpdate: () => { if (moving.active) moving.shade.setAlpha(TURN_SHADE * (1 - moving.scaleX)); },
+      onComplete: () => {
+        old.destroy();
+        page.setDepth(1);
+        page.shade.setAlpha(0);
+        this.turning = false;
+      },
+    });
+  }
+
+  /** The spiral rings, over every page (pages turn under them); the punched holes are part of each page. */
+  drawRings() {
+    const g = this.add.graphics().setDepth(3);
+    for (let ry = PAGE.y + 34; ry < PAGE.y + PAGE.h - 20; ry += 42) {
+      g.lineStyle(4, 0x9a8f88, 1).beginPath().arc(PAGE.x + 14, ry, 13, Math.PI * 0.6, Math.PI * 1.45).strokePath();
+    }
   }
 
   /** A bookmark tab, behind the page. The selected one sticks out further. */
@@ -123,15 +177,12 @@ export default class FriendsScene extends Phaser.Scene {
     g.lineStyle(1, 0xb9cfe0, 0.8);
     for (let ly = RULE0; ly < PAGE.y + PAGE.h - 14; ly += STEP) g.lineBetween(PAGE.x + 12, ly, PAGE.x + PAGE.w - 12, ly);
     g.lineStyle(1.5, 0xd98a8a, 0.7).lineBetween(MARGIN_X, PAGE.y + 10, MARGIN_X, PAGE.y + PAGE.h);
-    for (let ry = PAGE.y + 34; ry < PAGE.y + PAGE.h - 20; ry += 42) {
-      g.fillStyle(C.bg, 1).fillCircle(PAGE.x + 26, ry, 7);
-      g.lineStyle(4, 0x9a8f88, 1).beginPath().arc(PAGE.x + 14, ry, 13, Math.PI * 0.6, Math.PI * 1.45).strokePath();
-    }
+    for (let ry = PAGE.y + 34; ry < PAGE.y + PAGE.h - 20; ry += 42) g.fillStyle(C.bg, 1).fillCircle(PAGE.x + 26, ry, 7); // punched holes
     root.add(g);
   }
 
-  /** The friend's polaroid, taped at two corners; drops in when the friend changes. */
-  drawPolaroid(root, f, animate) {
+  /** The friend's polaroid, taped at two corners. */
+  drawPolaroid(root, f) {
     const { w: pw, h: ph, inset } = POL;
     const photoS = pw - 2 * inset;
     const pol = this.add.container(POL.cx, POL.cy);
@@ -150,10 +201,6 @@ export default class FriendsScene extends Phaser.Scene {
     pol.add(tape);
     pol.setAngle(POL.angle);
     root.add(pol);
-    if (animate) {
-      pol.setAlpha(0).setScale(0.92).setAngle(POL.angle - 6);
-      tween(this, { targets: pol, alpha: 1, scale: 1, angle: POL.angle, duration: 240, ease: 'Back.easeOut' });
-    }
   }
 
   /** Name, needs on the ruled lines, and a "levels together" stamp, written beside the polaroid. */
