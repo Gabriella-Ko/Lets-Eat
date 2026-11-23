@@ -6,6 +6,9 @@ One page for every draft:
     (assets/drafts/gemini_outcome_prompts.json, images saved in assets/drafts/gemini/level_XX/).
   - Scrapbook pictures, one per callback, also made by hand in Gemini
     (assets/drafts/gemini_scrapbook_prompts.json, images saved in assets/drafts/gemini/scrapbook/).
+  - Screen layouts: earlier rounds of the Outcome, Friends and Scrapbook screens, and the map layout drafts
+    (assets/drafts/screens/screens.json, screenshots and GIFs beside it).
+  - Fonts: font pairings and type scales, drawn live in the page (Google Fonts).
 
 Each card shows its drafts; click one to pick it, then "Copy my picks" and paste to Claude.
 Outcome cards also carry the prompt for each draft, the file name to save it as, and the reference
@@ -29,6 +32,7 @@ GEMINI_DIR = DRAFTS / "gemini"
 SCRAPBOOK_PROMPTS = DRAFTS / "gemini_scrapbook_prompts.json"
 SCRAPBOOK_DIR = GEMINI_DIR / "scrapbook"
 PROGRESS = ROOT / "logs" / "gemini_prompts_progress.json"
+SCREENS = DRAFTS / "screens" / "screens.json"
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
 # Also accept a doubled extension (file.png.jpg) in case a save dialog adds one to a typed name.
 EXTS = EXTS + tuple(a + b for a in EXTS for b in EXTS if a != b)
@@ -87,13 +91,15 @@ def scrapbook_rows():
 PAGE = r"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Art Artifacts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&family=Silkscreen:wght@400;700&family=Press+Start+2P&family=Jersey+10&family=VT323&family=Tiny5&family=Nunito:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root { --bg:#2e2624; --bar:#3f3533; --label:#d9b8a8; --panel:#f3e4d0; --panel2:#e6d0b8; --ink:#3f3533; --soft:#7d6a60; --accent:#d9822b; --good:#6f8f5a; --bad:#c0452f; --gold:#f2c14e; --blue:#5d7985; }
 * { box-sizing:border-box; }
 body { margin:0; background:var(--bg); color:var(--panel); font:15px/1.45 "Trebuchet MS",system-ui,sans-serif; }
 header { position:sticky; top:0; z-index:3; background:var(--bar); padding:10px 16px; display:flex; flex-wrap:wrap; gap:8px 16px; align-items:center; }
 h1 { margin:0; font-size:20px; color:var(--label); letter-spacing:.04em; }
-.tabs { display:flex; gap:6px; }
+.tabs { display:flex; gap:6px; flex-wrap:wrap; }
 .tabs button { background:transparent; color:var(--label); border:2px solid var(--label); }
 .tabs button.on { background:var(--label); color:var(--bar); }
 .stat { color:var(--label); font-size:14px; } .stat b { color:var(--panel); }
@@ -150,11 +156,37 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 .sqcard .sq .var img { object-fit:cover; image-rendering:auto; }
 .page { font-style:italic; font-size:13px; color:var(--ink); background:var(--panel2); border-radius:6px; padding:6px 8px; margin:0 0 6px; }
 .slist { display:grid; gap:14px; margin-top:14px; }
+.rnote { color:var(--label); font-size:13px; margin:-4px 0 10px; }
+.scard { cursor:default; }
+.scard.pickable { cursor:pointer; }
+.scard .imgs { display:flex; flex-direction:column; gap:6px; margin-top:8px; }
+.scard .imgs a { display:block; border-radius:6px; overflow:hidden; border:1px solid var(--panel2); line-height:0; }
+.scard .imgs img { width:100%; display:block; }
+.scard .note { font-size:12.5px; color:var(--soft); margin:3px 0 0; }
+.pill.ingame { background:var(--good); }
+.sgrid { display:grid; grid-template-columns:repeat(auto-fill,minmax(340px,1fr)); gap:14px; }
+/* font previews: a slice of a game screen, sized in game pixels */
+.mock { background:#2e2624; border-radius:8px; padding:12px 14px 14px; color:#d9b8a8; overflow:hidden; }
+.mock .mrow { display:flex; align-items:center; gap:10px; }
+.mock .mbtn { font-family:var(--hf); font-size:var(--btn); background:#3f3533; color:#d9b8a8; border-radius:8px; padding:6px 12px; white-space:nowrap; }
+.mock .mbtn.go { background:#d9822b; color:#fff; }
+.mock .mtitle { font-family:var(--hf); font-size:var(--t); font-weight:700; color:#d9b8a8; flex:1; text-align:center; line-height:1.1; }
+.mock .msub { font-family:var(--hf); font-size:var(--st); color:#f6d78b; text-align:center; margin:4px 0 10px; }
+.mock .mpage { background:#fbf3e6; border-radius:8px; padding:12px 14px; color:#3f3533; }
+.mock .mname { font-family:var(--hf); font-size:var(--card); font-weight:700; color:#7a4bb0; line-height:1.1; }
+.mock .mlabel { font-family:var(--hf); font-size:var(--sec); font-weight:700; color:#7d6a60; margin:8px 0 4px; letter-spacing:.02em; }
+.mock .mbody { font-family:var(--bf); font-size:var(--body); line-height:1.35; }
+.mock .bubble { background:#fff; border-radius:10px; padding:7px 11px; display:inline-block; margin:2px 0 6px; }
+.mock .msmall { font-family:var(--bf); font-size:var(--small); color:#7d6a60; margin-top:6px; }
+.mock .mfoot { display:flex; justify-content:flex-end; margin-top:10px; }
+.fontname { font-size:12.5px; color:var(--soft); margin:2px 0 8px; }
+.scalegrid { display:grid; grid-template-columns:auto repeat(7,1fr); gap:2px 8px; font-size:12px; color:var(--soft); margin:6px 0 8px; }
+.scalegrid b { color:var(--ink); }
 @media (max-width:760px) { .ocard { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } }
 </style></head><body>
 <header>
   <h1>ART ARTIFACTS</h1>
-  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button></div>
+  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button><button data-tab="s-outcome">Outcome screen</button><button data-tab="s-friends">Friends screen</button><button data-tab="s-scrapbook">Scrapbook screen</button><button data-tab="s-map">Map layouts</button><button data-tab="fonts">Fonts</button></div>
   <span class="stat" id="stat"></span>
   <progress id="bar" value="0" max="1"></progress>
   <span class="stat"><b id="picks">0</b> picked</span>
@@ -191,6 +223,15 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
     </div>
     <div id="slist" class="slist"></div>
   </section>
+  <section id="s-outcome"><div class="how">Every round of Outcome screen drafts, oldest first. The green <b>in the game</b> card is the one that was picked. Click a picture to open it full size.</div><div class="rounds"></div></section>
+  <section id="s-friends"><div class="how">Every round of Friends page drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
+  <section id="s-scrapbook"><div class="how">Every round of Scrapbook screen drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
+  <section id="s-map"><div class="how"><b>Map (level select) layout drafts.</b> Click a card to pick it, then "Copy my picks". Each one is in the game too: add <span class="code">?menuLayout=m1</span> (or m2, m3) to the game's link.</div><div class="rounds"></div></section>
+  <section id="fonts">
+    <div class="how"><b>Fonts.</b> Pick a <b>font pairing</b> (headings and buttons / chat and reviews) and a <b>type scale</b> (how big each kind of text is), then "Copy my picks". The type scales are drawn in the pairing you picked, and the pairings in the scale you picked, so you see them together. Sizes are game pixels (the game is 960×640).</div>
+    <h2>Font pairings</h2><div id="fpairs" class="sgrid"></div>
+    <h2>Type scale <small>sizes for each kind of text, in game pixels</small></h2><div id="fscales" class="sgrid"></div>
+  </section>
 </main>
 <script>
 const DATA = __DATA__;
@@ -204,7 +245,8 @@ const $ = (s, el = document) => el.querySelector(s);
 const toast = (t) => { const e = $("#toast"); e.textContent = t; setTimeout(() => (e.textContent = ""), 1800); };
 const copy = async (text, what) => { try { await navigator.clipboard.writeText(text); toast(what + " copied"); } catch (e) { prompt("Copy:", text); } };
 const stamp = Date.now();
-const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0] };
+const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0], "s-outcome": [0, 0], "s-friends": [0, 0], "s-scrapbook": [0, 0], "s-map": [0, 0], fonts: [0, 0] };
+const TABS = Object.keys(counts);
 
 /** Prompt, per-draft copy buttons and reference thumbnails, shared by Outcomes and Scrapbook cards. */
 function fillPrompt(card, r) {
@@ -362,10 +404,108 @@ for (const r of DATA.scrapbook) {
   sl.append(card); scards.push(card);
 }
 
+// ---- Screen layouts: earlier rounds (Outcome, Friends, Scrapbook) and the map layout drafts
+const SCREENS = DATA.screens || {};
+for (const [key, sec] of [["outcome", "s-outcome"], ["friends", "s-friends"], ["scrapbook", "s-scrapbook"], ["map", "s-map"]]) {
+  const host = $(`#${sec} .rounds`);
+  const rounds = SCREENS[key] || [];
+  const pickable = key === "map";
+  if (!rounds.length) host.innerHTML = `<p class="empty">Nothing here yet.</p>`;
+  for (const r of rounds) {
+    const h = document.createElement("h2"); h.innerHTML = `<span></span><small></small>`;
+    $("span", h).textContent = r.round; $("small", h).textContent = r.date;
+    const about = document.createElement("p"); about.className = "rnote"; about.textContent = r.about;
+    const grid = document.createElement("div"); grid.className = "sgrid";
+    host.append(h, about, grid);
+    for (const it of r.items) {
+      const card = document.createElement("div"); card.className = "card scard" + (pickable ? " pickable" : "");
+      card.innerHTML = `<div class="top"><h3></h3></div><p class="note"></p><div class="imgs"></div>`;
+      $("h3", card).textContent = it.title; $(".note", card).textContent = it.note;
+      if (it.picked) { const pl = document.createElement("span"); pl.className = "pill ingame"; pl.textContent = "in the game"; $(".top", card).append(pl); }
+      for (const src of it.images) {
+        const a = document.createElement("a"); a.href = `screens/${src}`; a.target = "_blank";
+        if (pickable) a.onclick = (e) => e.stopPropagation();
+        const img = new Image(); img.src = `screens/${src}?t=${stamp}`; img.alt = it.title; img.loading = "lazy";
+        a.append(img); $(".imgs", card).append(a);
+      }
+      counts[sec][0]++; counts[sec][1]++;
+      if (pickable) {
+        const k = "map";
+        const refresh = () => { document.querySelectorAll(`#${sec} .scard`).forEach((c) => c.classList.toggle("picked", picks[k] === c.dataset.id)); $("#picks").textContent = Object.keys(picks).length; };
+        card.dataset.id = it.id;
+        card.onclick = () => { if (picks[k] === it.id) delete picks[k]; else picks[k] = it.id; save(); refresh(); };
+        grid.append(card); refresh();
+      } else grid.append(card);
+    }
+  }
+}
+
+// ---- Fonts: pairings and type scales, drawn live
+const PAIRS = [
+  { id: "current", name: "Now: Pixelify Sans + Trebuchet MS", hf: '"Pixelify Sans"', bf: '"Trebuchet MS", sans-serif', k: 1, note: "What the game uses today." },
+  { id: "pixelify-nunito", name: "Pixelify Sans + Nunito", hf: '"Pixelify Sans"', bf: '"Nunito", sans-serif', k: 1, note: "Same headings, a rounder, friendlier reading font." },
+  { id: "silkscreen-nunito", name: "Silkscreen + Nunito", hf: '"Silkscreen"', bf: '"Nunito", sans-serif', k: 0.82, note: "Crisp blocky capitals; reads as classic pixel UI." },
+  { id: "jersey-lexend", name: "Jersey 10 + Lexend", hf: '"Jersey 10"', bf: '"Lexend", sans-serif', k: 1.3, note: "Tall sporty pixel headings; Lexend is built for easy reading." },
+  { id: "vt323-quicksand", name: "VT323 + Quicksand", hf: '"VT323"', bf: '"Quicksand", sans-serif', k: 1.35, note: "Retro terminal headings, soft round body text." },
+  { id: "tiny5-atkinson", name: "Tiny5 + Atkinson Hyperlegible", hf: '"Tiny5"', bf: '"Atkinson Hyperlegible", sans-serif', k: 1.15, note: "Small-caps pixel look; Atkinson is made for low vision." },
+  { id: "pressstart-atkinson", name: "Press Start 2P + Atkinson Hyperlegible", hf: '"Press Start 2P"', bf: '"Atkinson Hyperlegible", sans-serif', k: 0.6, note: "The arcade font: very wide and bold, best kept to titles." },
+];
+// Game pixel sizes for each kind of text. "Now" is what the game draws today.
+const SCALES = [
+  { id: "current", name: "Now", note: "Today's sizes.", t: 30, st: 15, sec: 14, btn: 15, card: 24, body: 16, small: 13 },
+  { id: "bigger-headings", name: "Bigger headings", note: "Titles and names stand out more; body unchanged.", t: 36, st: 16, sec: 15, btn: 16, card: 30, body: 16, small: 13 },
+  { id: "easier-reading", name: "Easier reading", note: "Same headings, bigger chat, reviews and small print.", t: 30, st: 15, sec: 14, btn: 16, card: 24, body: 18, small: 14 },
+  { id: "compact", name: "Compact", note: "Everything a step smaller, more room on screen.", t: 26, st: 14, sec: 12, btn: 14, card: 20, body: 15, small: 12 },
+];
+const ROLES = [["t", "Screen title"], ["st", "Subtitle"], ["sec", "Section label"], ["btn", "Button"], ["card", "Name / card title"], ["body", "Chat & reviews"], ["small", "Small print"]];
+const findPair = () => PAIRS.find((x) => x.id === picks.font) || PAIRS[0];
+const findScale = () => SCALES.find((x) => x.id === picks.scale) || SCALES[0];
+function mock(pair, scale) {
+  const m = document.createElement("div"); m.className = "mock";
+  const hs = (n) => `${Math.round(n * pair.k)}px`;
+  m.style.cssText = `--hf:${pair.hf};--bf:${pair.bf};--t:${hs(scale.t)};--st:${hs(scale.st)};--sec:${hs(scale.sec)};--btn:${hs(scale.btn)};--card:${hs(scale.card)};--body:${scale.body}px;--small:${scale.small}px`;
+  m.innerHTML = `<div class="mrow"><span class="mbtn">← Levels</span><span class="mtitle">FRIENDS</span></div>
+    <div class="msub">what you've learned about the crew · met 5/6</div>
+    <div class="mpage"><div class="mname">MAYA</div><div class="mlabel">ALWAYS NEEDS</div>
+    <div class="mbody"><span class="bubble">starving. anyone up for noodles?</span><br>“Big bowls, quick service and a sunny patio. Under ten bucks.”</div>
+    <div class="msmall">3 levels together · found in level 2</div><div class="mfoot"><span class="mbtn go">Next level →</span></div></div>`;
+  return m;
+}
+function drawFonts() {
+  const fp = $("#fpairs"), fs = $("#fscales");
+  fp.replaceChildren(); fs.replaceChildren();
+  const scale = findScale(), pair = findPair();
+  for (const p of PAIRS) {
+    const card = document.createElement("div"); card.className = "card scard pickable" + (picks.font === p.id ? " picked" : "");
+    card.innerHTML = `<div class="top"><h3></h3></div><p class="fontname"></p>`;
+    $("h3", card).textContent = p.name; $(".fontname", card).textContent = p.note;
+    if (p.id === "current") { const pl = document.createElement("span"); pl.className = "pill ingame"; pl.textContent = "in the game"; $(".top", card).append(pl); }
+    card.append(mock(p, scale));
+    card.onclick = () => { if (picks.font === p.id) delete picks.font; else picks.font = p.id; save(); drawFonts(); };
+    fp.append(card);
+  }
+  for (const sc of SCALES) {
+    const card = document.createElement("div"); card.className = "card scard pickable" + (picks.scale === sc.id ? " picked" : "");
+    card.innerHTML = `<div class="top"><h3></h3></div><p class="fontname"></p><div class="scalegrid"></div>`;
+    $("h3", card).textContent = sc.name; $(".fontname", card).textContent = `${sc.note} Shown in ${pair.name.replace(/^Now: /, "")}.`;
+    if (sc.id === "current") { const pl = document.createElement("span"); pl.className = "pill ingame"; pl.textContent = "in the game"; $(".top", card).append(pl); }
+    const g = $(".scalegrid", card);
+    g.style.gridTemplateColumns = "1fr auto";
+    for (const [key, label] of ROLES) { const a = document.createElement("span"); a.textContent = label; const b = document.createElement("b"); b.textContent = `${sc[key]} px`; g.append(a, b); }
+    card.append(mock(pair, sc));
+    card.onclick = () => { if (picks.scale === sc.id) delete picks.scale; else picks.scale = sc.id; save(); drawFonts(); };
+    fs.append(card);
+  }
+  counts.fonts = [(picks.font ? 1 : 0) + (picks.scale ? 1 : 0), 2];
+  $("#picks").textContent = Object.keys(picks).length;
+  if (tab === "fonts") settle();
+}
+
 // ---- header, tabs
 let tab = "pixellab";
 try { tab = localStorage.getItem(KEY + ":tab") || (DATA.outcomes.length ? "outcomes" : "pixellab"); } catch (e) {}
 if (!counts[tab]) tab = "pixellab";
+drawFonts();
 function markNext(cards) {
   cards.forEach((c) => c.classList.remove("next"));
   const next = cards.find((c) => (+c.dataset.saved || 0) < +c.dataset.need);
@@ -374,7 +514,8 @@ function markNext(cards) {
 }
 function settle() {
   const [d, t] = counts[tab];
-  $("#stat").innerHTML = `<b>${d}</b> / <b>${t}</b> ${tab === "pixellab" ? "drawn" : "saved"}`;
+  const word = tab === "pixellab" ? "drawn" : tab === "fonts" ? "picked" : tab.startsWith("s-") ? "drafts" : "saved";
+  $("#stat").innerHTML = tab.startsWith("s-") ? `<b>${t}</b> ${word}` : `<b>${d}</b> / <b>${t}</b> ${word}`;
   $("#bar").max = t || 1; $("#bar").value = d;
   markNext(scards);
   const next = markNext(ocards);
@@ -391,11 +532,10 @@ function show(t) {
   tab = t;
   try { localStorage.setItem(KEY + ":tab", t); } catch (e) {}
   document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("on", b.dataset.tab === t));
-  $("#pixellab").classList.toggle("hidden", t !== "pixellab");
-  $("#outcomes").classList.toggle("hidden", t !== "outcomes");
-  $("#scrapbook").classList.toggle("hidden", t !== "scrapbook");
+  for (const id of TABS) $("#" + id).classList.toggle("hidden", t !== id);
   document.querySelectorAll(".only-pl").forEach((e) => e.classList.toggle("hidden", t !== "pixellab"));
-  $("label.only-oc").classList.toggle("hidden", t === "pixellab");
+  $("label.only-oc").classList.toggle("hidden", t !== "outcomes" && t !== "scrapbook");
+  $("#bar").classList.toggle("hidden", t.startsWith("s-"));
   $("#collapse").classList.toggle("hidden", t !== "outcomes");
   settle();
 }
@@ -424,6 +564,7 @@ def build():
         "pixellab": pixellab_groups(),
         "outcomes": [{k: v for k, v in r.items() if k != "saved"} for r in rows],
         "scrapbook": [{k: v for k, v in p.items() if k != "saved"} for p in pages],
+        "screens": json.loads(SCREENS.read_text("utf-8")) if SCREENS.exists() else {},
     }
     DRAFTS.mkdir(parents=True, exist_ok=True)
     if pages:

@@ -1,0 +1,482 @@
+{
+  "outcome": [
+    {
+      "round": "Before",
+      "date": "2026-11-22",
+      "about": "The Outcome screen before the redesign.",
+      "items": [
+        {
+          "id": "o-orig",
+          "title": "Original",
+          "note": "Small picture left, reactions right.",
+          "picked": false,
+          "images": [
+            "outcome/orig_perfect.jpg",
+            "outcome/orig_fail.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 1",
+      "date": "2026-11-22",
+      "about": "\"Larger image, dialogue smaller.\"",
+      "items": [
+        {
+          "id": "o-a",
+          "title": "A",
+          "note": "Big picture left, reaction column right.",
+          "picked": false,
+          "images": [
+            "outcome/a.jpg",
+            "outcome/a_fail.jpg"
+          ]
+        },
+        {
+          "id": "o-b",
+          "title": "B",
+          "note": "Picture centred, reactions side by side under it.",
+          "picked": false,
+          "images": [
+            "outcome/b.jpg",
+            "outcome/b_fail.jpg"
+          ]
+        },
+        {
+          "id": "o-c",
+          "title": "C",
+          "note": "Picture fills the screen, reactions on top.",
+          "picked": false,
+          "images": [
+            "outcome/c.jpg",
+            "outcome/c_fail.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 2",
+      "date": "2026-11-22",
+      "about": "\"Almost like B, narrower reaction columns.\"",
+      "items": [
+        {
+          "id": "o-b1",
+          "title": "B1",
+          "note": "780 px reaction strip.",
+          "picked": false,
+          "images": [
+            "outcome/b1.jpg"
+          ]
+        },
+        {
+          "id": "o-b2",
+          "title": "B2",
+          "note": "660 px reaction strip.",
+          "picked": false,
+          "images": [
+            "outcome/b2.jpg"
+          ]
+        },
+        {
+          "id": "o-b3",
+          "title": "B3",
+          "note": "Fixed 240 px columns.",
+          "picked": false,
+          "images": [
+            "outcome/b3.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 3",
+      "date": "2026-11-22",
+      "about": "\"Almost like A, narrower reaction column.\"",
+      "items": [
+        {
+          "id": "o-a1",
+          "title": "A1",
+          "note": "300 px column.",
+          "picked": false,
+          "images": [
+            "outcome/a1.jpg"
+          ]
+        },
+        {
+          "id": "o-a2",
+          "title": "A2",
+          "note": "270 px column.",
+          "picked": false,
+          "images": [
+            "outcome/a2.jpg"
+          ]
+        },
+        {
+          "id": "o-a3",
+          "title": "A3",
+          "note": "300 px column, bigger picture (600×400). In the game.",
+          "picked": true,
+          "images": [
+            "outcome/a3.jpg",
+            "outcome/a3_fail.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 4",
+      "date": "2026-11-22",
+      "about": "\"Almost like B, picture fills to the top.\"",
+      "items": [
+        {
+          "id": "o-t1",
+          "title": "T1",
+          "note": "Full width, cropped, title on a fade.",
+          "picked": false,
+          "images": [
+            "outcome/t1.jpg"
+          ]
+        },
+        {
+          "id": "o-t2",
+          "title": "T2",
+          "note": "Centred, uncropped.",
+          "picked": false,
+          "images": [
+            "outcome/t2.jpg"
+          ]
+        },
+        {
+          "id": "o-t3",
+          "title": "T3",
+          "note": "Full width, title on a plate.",
+          "picked": false,
+          "images": [
+            "outcome/t3.jpg"
+          ]
+        }
+      ]
+    }
+  ],
+  "friends": [
+    {
+      "round": "Before",
+      "date": "2026-11-23",
+      "about": "The Friends page before the redesign.",
+      "items": [
+        {
+          "id": "f-orig",
+          "title": "Original",
+          "note": "3×2 grid of cards.",
+          "picked": false,
+          "images": [
+            "friends/orig.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 1",
+      "date": "2026-11-23",
+      "about": "\"Different drafts for the friends page.\"",
+      "items": [
+        {
+          "id": "f-a",
+          "title": "A",
+          "note": "Tall cards, colour band, needs as chips.",
+          "picked": false,
+          "images": [
+            "friends/a.jpg"
+          ]
+        },
+        {
+          "id": "f-b",
+          "title": "B",
+          "note": "Roster + big profile.",
+          "picked": false,
+          "images": [
+            "friends/b.jpg"
+          ]
+        },
+        {
+          "id": "f-c",
+          "title": "C",
+          "note": "Polaroids.",
+          "picked": false,
+          "images": [
+            "friends/c.jpg"
+          ]
+        },
+        {
+          "id": "f-d",
+          "title": "D",
+          "note": "Wide rows, two columns.",
+          "picked": false,
+          "images": [
+            "friends/d.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 2",
+      "date": "2026-11-23",
+      "about": "\"List + profile, bookmark tabs, page with a taped polaroid.\"",
+      "items": [
+        {
+          "id": "f-b1",
+          "title": "B1",
+          "note": "Tabs left, polaroid left.",
+          "picked": false,
+          "images": [
+            "friends/b1.jpg"
+          ]
+        },
+        {
+          "id": "f-b2",
+          "title": "B2",
+          "note": "Tabs right, polaroid right.",
+          "picked": false,
+          "images": [
+            "friends/b2.jpg"
+          ]
+        },
+        {
+          "id": "f-b3",
+          "title": "B3",
+          "note": "Spiral notebook, checklist, stamp.",
+          "picked": false,
+          "images": [
+            "friends/b3.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 3",
+      "date": "2026-11-23",
+      "about": "\"Modify B3: polaroid left, dot bullets.\"",
+      "items": [
+        {
+          "id": "f-b3v2",
+          "title": "B3 updated",
+          "note": "In the game.",
+          "picked": true,
+          "images": [
+            "friends/b3v2.jpg",
+            "friends/b3v2_roxy.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Page turn",
+      "date": "2026-11-23",
+      "about": "\"Page turn animation on the friend page.\" ↓↓ then ↑.",
+      "items": [
+        {
+          "id": "f-flip",
+          "title": "Flip",
+          "note": "Over the spiral rings. In the game.",
+          "picked": true,
+          "images": [
+            "friends/turn_flip.gif"
+          ]
+        },
+        {
+          "id": "f-up",
+          "title": "Up",
+          "note": "Over the top, like a notepad.",
+          "picked": false,
+          "images": [
+            "friends/turn_up.gif"
+          ]
+        },
+        {
+          "id": "f-slide",
+          "title": "Slide",
+          "note": "Pulled out to the right.",
+          "picked": false,
+          "images": [
+            "friends/turn_slide.gif"
+          ]
+        }
+      ]
+    }
+  ],
+  "scrapbook": [
+    {
+      "round": "Before",
+      "date": "2026-11-23",
+      "about": "The Scrapbook before the redesign.",
+      "items": [
+        {
+          "id": "s-orig",
+          "title": "Original",
+          "note": "List left, page right.",
+          "picked": false,
+          "images": [
+            "scrapbook/orig.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 1",
+      "date": "2026-11-23",
+      "about": "\"Different drafts for the scrapbook page.\"",
+      "items": [
+        {
+          "id": "s-a",
+          "title": "A",
+          "note": "Notebook like the Friends page.",
+          "picked": false,
+          "images": [
+            "scrapbook/a.jpg"
+          ]
+        },
+        {
+          "id": "s-b",
+          "title": "B",
+          "note": "Open book, badge strip below.",
+          "picked": false,
+          "images": [
+            "scrapbook/b.jpg"
+          ]
+        },
+        {
+          "id": "s-c",
+          "title": "C",
+          "note": "Sticker sheet + kraft card.",
+          "picked": false,
+          "images": [
+            "scrapbook/c.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 2",
+      "date": "2026-11-23",
+      "about": "\"Open book, bookmark tabs on top, page turn, badge stuck on.\" → → in each.",
+      "items": [
+        {
+          "id": "s-e1",
+          "title": "E1",
+          "note": "Rosette left, photo + story right.",
+          "picked": false,
+          "images": [
+            "scrapbook/e1.gif"
+          ]
+        },
+        {
+          "id": "s-e2",
+          "title": "E2",
+          "note": "Photo left, rosette + story right. In the game.",
+          "picked": true,
+          "images": [
+            "scrapbook/e2.gif"
+          ]
+        },
+        {
+          "id": "s-e3",
+          "title": "E3",
+          "note": "Rosette + story left, photo + stamp right.",
+          "picked": false,
+          "images": [
+            "scrapbook/e3.gif"
+          ]
+        },
+        {
+          "id": "s-e4",
+          "title": "E4",
+          "note": "E2 with the pages swapped.",
+          "picked": false,
+          "images": [
+            "scrapbook/e4.gif"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Round 3",
+      "date": "2026-11-23",
+      "about": "\"Bookmarks only above the page on the right side.\"",
+      "items": [
+        {
+          "id": "s-r1",
+          "title": "R1",
+          "note": "Small badge tabs. In the game, with the cover in the open page's colour.",
+          "picked": true,
+          "images": [
+            "scrapbook/r1.jpg",
+            "scrapbook/r1_final.jpg"
+          ]
+        },
+        {
+          "id": "s-r2",
+          "title": "R2",
+          "note": "The open tab shows its title.",
+          "picked": false,
+          "images": [
+            "scrapbook/r2.jpg"
+          ]
+        },
+        {
+          "id": "s-r3",
+          "title": "R3",
+          "note": "Ribbon bookmarks.",
+          "picked": false,
+          "images": [
+            "scrapbook/r3.jpg"
+          ]
+        }
+      ]
+    }
+  ],
+  "map": [
+    {
+      "round": "Map layout drafts",
+      "date": "2026-11-23",
+      "about": "Pick one, or say what to mix. Try one in the game: add ?menuLayout=m1 (m2, m3) to the link.",
+      "items": [
+        {
+          "id": "current",
+          "title": "Now",
+          "note": "Map full width, level cards in a row under it.",
+          "picked": false,
+          "images": [
+            "map/current.jpg"
+          ]
+        },
+        {
+          "id": "m1",
+          "title": "M1",
+          "note": "Buttons across the top, smaller map with the chapter under it, level list on the right.",
+          "picked": false,
+          "images": [
+            "map/m1.jpg"
+          ]
+        },
+        {
+          "id": "m2",
+          "title": "M2",
+          "note": "Map edge to edge, level cards on a dark strip along the bottom.",
+          "picked": false,
+          "images": [
+            "map/m2.jpg"
+          ]
+        },
+        {
+          "id": "m3",
+          "title": "M3",
+          "note": "Sidebar with every button, bigger map, tall level cards with the friends' faces.",
+          "picked": false,
+          "images": [
+            "map/m3.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}
