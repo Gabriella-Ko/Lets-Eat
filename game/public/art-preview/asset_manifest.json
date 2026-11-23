@@ -510,6 +510,9 @@
     }
   },
   "scrapbook": {
+    "scrap_milkshake_incident": {
+      "file": "scrapbook/scrap_milkshake_incident.jpg"
+    },
     "scrap_plate_of_fries": {
       "file": "scrapbook/scrap_plate_of_fries.jpg"
     },
@@ -518,6 +521,9 @@
     },
     "scrap_sushi_day": {
       "file": "scrapbook/scrap_sushi_day.jpg"
+    },
+    "scrap_trip_fund": {
+      "file": "scrapbook/scrap_trip_fund.jpg"
     }
   },
   "icons": {
