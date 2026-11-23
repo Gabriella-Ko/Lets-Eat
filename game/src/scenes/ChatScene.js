@@ -93,11 +93,12 @@ export default class ChatScene extends Phaser.Scene {
     });
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
-    const keyHint = `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${this.pinning ? '   ·   star: save to notebook' : ''}`;
     // On the dark page background, so it uses the light label colour (readable in high contrast too).
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, keyHint, text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, this.keyHint(), text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
+    // Focus ring on 'Find a place →' once the chat is done, so it's clear Enter / → will press it.
+    this.goRing = this.add.graphics().setVisible(false);
 
     // Only a tap on the chat panel skips ahead (not the Notebook), and not the end of a drag.
     this.input.on('pointerup', (p, over) => {
@@ -110,7 +111,11 @@ export default class ChatScene extends Phaser.Scene {
 
     const kb = this.input.keyboard;
     kb.on('keydown-SPACE', () => this.next());
-    kb.on('keydown-ENTER', () => this.next());
+    // Enter shows the next message; once the whole chat is shown, Enter or → goes to 'Find a place'.
+    kb.on('keydown-ENTER', () => (this.done() ? this.findPlace() : this.next()));
+    kb.on('keydown-RIGHT', () => {
+      if (this.done()) this.findPlace();
+    });
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
       if (this.done() || this.introOpen) return;
@@ -173,6 +178,19 @@ export default class ChatScene extends Phaser.Scene {
 
   done() {
     return this.shown >= this.level.script.length;
+  }
+
+  /** Enter / →: what 'Find a place →' does, ignored while the volume panel or an intro card is open. */
+  findPlace() {
+    if (this.registry.get('hudPanelOpen') || this.introOpen) return;
+    this.scene.start('Results', { levelId: this.level.id });
+  }
+
+  /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */
+  keyHint() {
+    const star = this.pinning ? '   ·   star: save to notebook' : '';
+    if (this.done()) return `enter or →: find a place   ·   ↑ ↓: scroll${star}`;
+    return `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${star}`;
   }
 
   /**
@@ -253,6 +271,16 @@ export default class ChatScene extends Phaser.Scene {
     else if (this.hold.manual) msg = PROMPT.manual;
     else if (this.hold.reread || this.hold.hover) msg = PROMPT.reread;
     if (this.prompt.text !== msg) this.prompt.setText(msg);
+    if (this.keys) {
+      const hint = this.keyHint();
+      if (this.keys.text !== hint) this.keys.setText(hint);
+    }
+    if (this.goRing && this.done() && !this.goRing.visible) {
+      // C.highlight read now, so High contrast applies.
+      const w = NOTEBOOK.w + 8, h = 44 + 8;
+      this.goRing.clear().lineStyle(4, C.highlight).strokeRoundedRect(NOTEBOOK.x - 4, H - 38 - h / 2, w, h, 12);
+      this.goRing.setVisible(true);
+    }
   }
 
   /** Resting on any message but the newest for HOVER_PAUSE_MS holds the chat; moving off releases it. */
