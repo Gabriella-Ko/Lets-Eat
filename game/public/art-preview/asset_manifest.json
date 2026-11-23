@@ -473,6 +473,13 @@
         1407,
         768
       ]
+    },
+    "title_screen": {
+      "file": "ui/title_screen.jpg",
+      "size": [
+        1375,
+        768
+      ]
     }
   },
   "icons": {
