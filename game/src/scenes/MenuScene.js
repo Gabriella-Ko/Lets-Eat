@@ -6,6 +6,7 @@ import { starTotals } from '../logic/progress.js';
 import { showChapterIntro } from '../ui/chapterIntro.js';
 import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
+import { play as playSfx } from '../ui/sfx.js';
 
 // Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m1|m2|m3, default = today's layout.
 //   m1: buttons in a row across the top, a smaller map on the left with the chapter under it, the level list on the right
@@ -147,7 +148,9 @@ export default class MenuScene extends Phaser.Scene {
     kb.on('keydown-ENTER', () => {
       if (this.introOpen) return;
       const card = this.levelCards?.[this.focus];
-      if (card) this.scene.start('Chat', { levelId: card.lvl.id });
+      if (!card) return;
+      playSfx(this, 'click');
+      this.scene.start('Chat', { levelId: card.lvl.id });
     });
   }
 
@@ -208,7 +211,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, right - 82 + s * 26, cy, 10, s < best);
       c.add(g);
       const hit = this.add.zone(left + cw / 2, cy, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => this.scene.start('Chat', { levelId: lvl.id }));
+      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x: left, y, w: cw, h: ch });
     });
@@ -273,7 +276,7 @@ export default class MenuScene extends Phaser.Scene {
       lvl.guests.forEach((id, k) => c.add(portrait(this, x + cw / 2 - ((n - 1) * step) / 2 + k * step, top + 96, size, id, 'HAPPY')));
       c.add(this.add.text(x + cw / 2, top + 128, `${n} friends`, text(12, C.inkSoft)).setOrigin(0.5));
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => this.scene.start('Chat', { levelId: lvl.id }));
+      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });
@@ -316,7 +319,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, x + cw - 64 + s * 22, top + 18, 8, s < best);
       c.add(g);
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => this.scene.start('Chat', { levelId: lvl.id }));
+      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });

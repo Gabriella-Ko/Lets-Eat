@@ -2,6 +2,7 @@ import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pix
 import { clearPages } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
+import { play as playSfx } from './sfx.js';
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
@@ -31,7 +32,9 @@ export function button(scene, x, y, label, onClick, { w = 200, h = 44, fill = C.
   c.on('pointerout', () => draw(false));
   c.on('pointerdown', (p, lx, ly, e) => {
     e?.stopPropagation?.();
-    if (enabled) onClick();
+    if (!enabled) return;
+    playSfx(scene, 'click');
+    onClick();
   });
   c.setEnabled = (on) => {
     enabled = on;

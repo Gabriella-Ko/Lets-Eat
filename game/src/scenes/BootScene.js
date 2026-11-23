@@ -3,6 +3,7 @@ import { levels, problems, rules } from '../content.js';
 import { makePlaceholderArt } from '../ui/widgets.js';
 import { setEnabled as setMusicEnabled, isEnabled as isMusicEnabled } from '../ui/music.js';
 import { musicOn } from '../ui/settings.js';
+import { loadSfx } from '../ui/sfx.js';
 
 // Where portrait art comes from. Today: the preview cut by game/tools/slice_portraits.py.
 // When the Art Asset agent's public/assets/asset_manifest.json exists, point this at it.
@@ -35,6 +36,8 @@ export default class BootScene extends Phaser.Scene {
       for (const [key, entry] of Object.entries(manifest?.[group] || {})) this.load.image(key, base + entry.file);
     }
     // Music isn't loaded here: src/ui/music.js fetches one track at a time, when it's about to play.
+    // Sound effects are small (about 1.3 MB in all), so they load now; a missing one is skipped by sfx.js.
+    loadSfx(this);
     this.load.once('complete', () => {
       for (const [key, entry] of Object.entries(manifest?.portraits || {})) {
         const src = this.textures.get(`file:${entry.file}`);

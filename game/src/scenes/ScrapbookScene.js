@@ -5,6 +5,7 @@ import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { badge } from '../ui/badge.js';
 import { tween } from '../ui/motion.js';
+import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
 
 // Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs above the right page, one per
@@ -96,6 +97,7 @@ export default class ScrapbookScene extends Phaser.Scene {
     const idx = (q) => this.pages.findIndex((x) => x.id === q);
     dir = dir || (changed && idx(id) < idx(this.selected) ? -1 : 1);
     this.selected = id;
+    if (changed) playSfx(this, 'page_turn'); // tabs, corners and arrows; a tab's own click is merged into it
     this.turnTo(this.pages.find((x) => x.id === id), dir, changed);
   }
 
@@ -162,7 +164,7 @@ export default class ScrapbookScene extends Phaser.Scene {
       g.fillStyle(open ? this.friendOf(q).color : C.goldDim, on ? 1 : 0.78).fillRoundedRect(x, y, tw, h, { tl: 10, tr: 10, bl: 0, br: 0 });
       c.add(g);
       c.add(badge(this, x + tw / 2, y + (h - 10) / 2, on ? 36 : 32, q, open));
-      if (open) c.add(this.add.zone(x + tw / 2, y + h / 2, tw, h).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.select(q.id)));
+      if (open) c.add(this.add.zone(x + tw / 2, y + h / 2, tw, h).setInteractive({ useHandCursor: true }).on('pointerdown', () => { playSfx(this, 'click'); this.select(q.id); }));
     });
   }
 
@@ -242,6 +244,7 @@ export default class ScrapbookScene extends Phaser.Scene {
     if (!pageAnimations()) {
       // Page animations off (Options): the rosette simply appears.
       r.setVisible(true).setAlpha(1).setScale(1).setAngle(a);
+      playSfx(this, 'badge_stuck');
       return;
     }
     r.setVisible(true).setAlpha(0).setScale(1.8).setAngle(a + 18);
@@ -249,6 +252,8 @@ export default class ScrapbookScene extends Phaser.Scene {
       targets: r, alpha: 1, scale: 1, angle: a, delay, duration: 260, ease: 'Quad.easeIn',
       onComplete: () => {
         if (!r.active) return;
+        playSfx(this, 'badge_stuck'); // as it lands
+
         tween(this, { targets: r, scaleX: 1.08, scaleY: 0.92, duration: 70, yoyo: true });
         const m = r.getWorldTransformMatrix();
         const ring = this.add.graphics({ x: m.tx, y: m.ty }).setDepth(4).lineStyle(4, C.highlight, 0.9).strokeCircle(0, 0, r.radius);

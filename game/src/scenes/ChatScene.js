@@ -10,6 +10,7 @@ import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
 import { introSteps } from '../logic/introOrder.js';
 import { recordOpened } from '../ui/openedStore.js';
+import { play as playSfx } from '../ui/sfx.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -112,9 +113,14 @@ export default class ChatScene extends Phaser.Scene {
     const kb = this.input.keyboard;
     kb.on('keydown-SPACE', () => this.next());
     // Enter shows the next message; once the whole chat is shown, Enter or → goes to 'Find a place'.
-    kb.on('keydown-ENTER', () => (this.done() ? this.findPlace() : this.next()));
+    // The keyboard twin of the "Find a place →" button clicks like it (findPlace() ignores keys while blocked).
+    const findByKey = () => {
+      if (!this.registry.get('hudPanelOpen') && !this.introOpen) playSfx(this, 'click');
+      this.findPlace();
+    };
+    kb.on('keydown-ENTER', () => (this.done() ? findByKey() : this.next()));
     kb.on('keydown-RIGHT', () => {
-      if (this.done()) this.findPlace();
+      if (this.done()) findByKey();
     });
     kb.on('keydown-A', () => this.showAll());
     kb.on('keydown-P', () => {
