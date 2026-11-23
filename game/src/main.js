@@ -1,8 +1,4 @@
 import Phaser from 'phaser';
-import '@fontsource/silkscreen/400.css';
-import '@fontsource/silkscreen/700.css';
-import '@fontsource/nunito/400.css';
-import '@fontsource/nunito/700.css';
 import '@fontsource/jersey-10/400.css'; // Jersey 10 comes in one weight only
 import '@fontsource/lexend/400.css';
 import '@fontsource/lexend/700.css';
@@ -19,8 +15,8 @@ import CreditsScene from './scenes/CreditsScene.js';
 import FriendsScene from './scenes/FriendsScene.js';
 import HudScene from './scenes/HudScene.js';
 
-// Canvas text needs every font of both sets loaded before the first scene draws (Options > Font switches between them).
-const FAMILIES = ['Silkscreen', 'Nunito', 'Jersey 10', 'Lexend'];
+// Canvas text needs both fonts loaded before the first scene draws.
+const FAMILIES = ['Jersey 10', 'Lexend'];
 await Promise.all(FAMILIES.flatMap((f) => [document.fonts.load(`20px "${f}"`), document.fonts.load(`bold 20px "${f}"`)])).catch(() => {});
 
 window.__game = new Phaser.Game({

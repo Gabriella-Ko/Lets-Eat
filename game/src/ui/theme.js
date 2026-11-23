@@ -1,7 +1,7 @@
 // Palette sampled from Gabriella's portrait sheets (assets/art/*_sheet.jpg):
 // warm dark-brown label bars, dusty-rose label text, dusty blue, rust and ribbon orange.
 // The bible lists the palette as Open; once confirmed, record it there.
-import { highContrast, textScale, fontChoice } from './settings.js';
+import { highContrast, textScale } from './settings.js';
 
 export const W = 960;
 export const H = 640;
@@ -52,20 +52,17 @@ applyPalette();
 
 export const hex = (n) => '#' + n.toString(16).padStart(6, '0');
 
-// Font sets (bible: Art direction > Fonts, Gabriella 2026-11-23), chosen in Options > Font.
-// heading: headings, labels, buttons (pixel()); body: chat and reviews (text(), readText()).
-// headingScale keeps headings about the visual size Pixelify Sans had (Silkscreen runs big, Jersey 10 small).
-export const FONT_SETS = {
-  default: { heading: 'Silkscreen', headingScale: 0.82, body: 'Nunito' },
-  easier: { heading: 'Jersey 10', headingScale: 1.3, body: 'Lexend' },
-};
-const fontSet = () => FONT_SETS[fontChoice()] || FONT_SETS.default;
-/** Heading font stack of the chosen set, read at draw time (like C after High contrast). */
-export const pixelFont = () => `"${fontSet().heading}", "Trebuchet MS", sans-serif`;
-/** Body font stack of the chosen set, read at draw time. */
-export const bodyFont = () => `"${fontSet().body}", "Trebuchet MS", "Segoe UI", sans-serif`;
-/** Pixel size for a heading of nominal `size`, after the chosen heading font's size factor. */
-export const pixelSize = (size) => Math.round(size * fontSet().headingScale);
+// Fonts (bible: Art direction > Fonts, Gabriella 2026-11-23): one set only.
+// Jersey 10 for headings, labels, buttons (pixel()); Lexend for chat and reviews (text(), readText()).
+const HEADING_FONT = 'Jersey 10';
+const BODY_FONT = 'Lexend';
+const HEADING_SCALE = 1.3; // Jersey 10 runs small; keeps headings about the visual size Pixelify Sans had
+/** Heading font stack. */
+export const pixelFont = () => `"${HEADING_FONT}", "Trebuchet MS", sans-serif`;
+/** Body font stack. */
+export const bodyFont = () => `"${BODY_FONT}", "Trebuchet MS", "Segoe UI", sans-serif`;
+/** Pixel size for a heading of nominal `size`, after Jersey 10's size factor. */
+export const pixelSize = (size) => Math.round(size * HEADING_SCALE);
 
 export const text = (size, color = C.ink, extra = {}) => ({
   fontFamily: bodyFont(),
@@ -75,8 +72,8 @@ export const text = (size, color = C.ink, extra = {}) => ({
 });
 export const pixel = (size, color = C.ink, extra = {}) => text(pixelSize(size), color, { fontFamily: pixelFont(), ...extra });
 /**
- * Shrinks a one-line text object's font until it is at most maxW wide, so a label written for one font set
- * never spills out of its button, card or plate in the other (the four fonts differ in width).
+ * Shrinks a one-line text object's font until it is at most maxW wide, so a long label
+ * never spills out of its button, card or plate.
  */
 export function fitWidth(t, maxW, min = 9) {
   let size = parseFloat(t.style.fontSize);
