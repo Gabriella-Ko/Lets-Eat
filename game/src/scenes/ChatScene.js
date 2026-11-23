@@ -123,6 +123,11 @@ export default class ChatScene extends Phaser.Scene {
     kb.on('keydown-PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
     kb.on('keydown-HOME', () => this.chat.scrollBy(-1e6));
     kb.on('keydown-END', () => this.chat.scrollBy(1e6));
+    // Backspace does what '← Levels' does, unless the volume panel or an intro card is open.
+    kb.on('keydown-BACKSPACE', () => {
+      if (this.registry.get('hudPanelOpen') || this.introOpen) return;
+      this.scene.start('Menu');
+    });
 
     if (this.revealAll) {
       while (!this.done()) this.next(true);
