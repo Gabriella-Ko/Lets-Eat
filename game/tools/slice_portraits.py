@@ -53,6 +53,7 @@ def main():
     manifest['outcomes'] = cut_outcomes()
     manifest['backgrounds'] = cut_chat_backgrounds()
     manifest['ui'] = cut_ui_art()
+    manifest['scrapbook'] = cut_scrapbook()
     manifest['icons'] = copy_pixel_art(r'icon_[a-z_]+', 'icons', 128)
     manifest['badges'] = copy_pixel_art(r'badge_[a-z_]+', 'badges', 320)
     with open(os.path.join(OUT, 'asset_manifest.json'), 'w') as f:
@@ -62,7 +63,7 @@ def main():
         for i, c in enumerate(cells):
             sheet.paste(c, ((i % 6) * 128, (i // 6) * 128))
         sheet.save(sys.argv[sys.argv.index('--contact') + 1])
-    print(f'wrote {len(manifest["portraits"])} portrait entries, {len(manifest["outcomes"])} outcome images, {len(manifest["backgrounds"])} chat backgrounds, {len(manifest["icons"])} icons, {len(manifest["badges"])} badges')
+    print(f'wrote {len(manifest["portraits"])} portrait entries, {len(manifest["outcomes"])} outcome images, {len(manifest["backgrounds"])} chat backgrounds, {len(manifest["scrapbook"])} scrapbook pictures, {len(manifest["icons"])} icons, {len(manifest["badges"])} badges')
 
 def cut_outcomes():
     """assets/art/level_XX_result_<venue name>.jpg -> outcomes/outcome_level_XX_<venue id>.jpg (680x456).
@@ -88,6 +89,24 @@ def cut_outcomes():
         im = im.crop(cover_box(im.size, 680 / 456)).resize((680, 456), Image.LANCZOS)
         im.save(os.path.join(OUT, 'outcomes', key + '.jpg'), quality=90)
         out[key] = {'file': f'outcomes/{key}.jpg'}
+    return out
+
+# Scrapbook pictures fill the taped photo on the Scrapbook's left page (352x264, 4:3); cut at twice that size.
+SCRAP_SIZE = (704, 528)
+
+def cut_scrapbook():
+    """assets/art/scrap_<callback id>.jpg|png -> scrapbook/scrap_<id>.jpg, centre-cropped to 4:3."""
+    out = {}
+    os.makedirs(os.path.join(OUT, 'scrapbook'), exist_ok=True)
+    for f in sorted(os.listdir(SRC)):
+        m = re.match(r'(scrap_[a-z_]+)\.(jpe?g|png)$', f)
+        if not m:
+            continue
+        key = m.group(1)
+        im = Image.open(os.path.join(SRC, f)).convert('RGB')
+        im = im.crop(cover_box(im.size, SCRAP_SIZE[0] / SCRAP_SIZE[1])).resize(SCRAP_SIZE, Image.LANCZOS)
+        im.save(os.path.join(OUT, 'scrapbook', key + '.jpg'), quality=90)
+        out[key] = {'file': f'scrapbook/{key}.jpg'}
     return out
 
 # Chat backgrounds keep the whole picture (no crop): the game shows them at the chat panel's width

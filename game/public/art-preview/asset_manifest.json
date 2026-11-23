@@ -370,8 +370,14 @@
     "outcome_level_15_night_market_sundial": {
       "file": "outcomes/outcome_level_15_night_market_sundial.jpg"
     },
+    "outcome_level_15_night_market_wild_thistle": {
+      "file": "outcomes/outcome_level_15_night_market_wild_thistle.jpg"
+    },
     "outcome_level_16_waterfront_breakwater": {
       "file": "outcomes/outcome_level_16_waterfront_breakwater.jpg"
+    },
+    "outcome_level_16_waterfront_copper_buoy": {
+      "file": "outcomes/outcome_level_16_waterfront_copper_buoy.jpg"
     },
     "outcome_level_16_waterfront_cormorant": {
       "file": "outcomes/outcome_level_16_waterfront_cormorant.jpg"
@@ -450,6 +456,27 @@
     },
     "outcome_level_19_waterfront_wavecrest": {
       "file": "outcomes/outcome_level_19_waterfront_wavecrest.jpg"
+    },
+    "outcome_level_20_waterfront_bluewater": {
+      "file": "outcomes/outcome_level_20_waterfront_bluewater.jpg"
+    },
+    "outcome_level_20_waterfront_breakwater": {
+      "file": "outcomes/outcome_level_20_waterfront_breakwater.jpg"
+    },
+    "outcome_level_20_waterfront_keel_street": {
+      "file": "outcomes/outcome_level_20_waterfront_keel_street.jpg"
+    },
+    "outcome_level_20_waterfront_marina_arch": {
+      "file": "outcomes/outcome_level_20_waterfront_marina_arch.jpg"
+    },
+    "outcome_level_20_waterfront_pier_nine": {
+      "file": "outcomes/outcome_level_20_waterfront_pier_nine.jpg"
+    },
+    "outcome_level_20_waterfront_quayside": {
+      "file": "outcomes/outcome_level_20_waterfront_quayside.jpg"
+    },
+    "outcome_level_20_waterfront_tidewater": {
+      "file": "outcomes/outcome_level_20_waterfront_tidewater.jpg"
     }
   },
   "backgrounds": {
@@ -480,6 +507,17 @@
         1375,
         768
       ]
+    }
+  },
+  "scrapbook": {
+    "scrap_plate_of_fries": {
+      "file": "scrapbook/scrap_plate_of_fries.jpg"
+    },
+    "scrap_satay_incident": {
+      "file": "scrapbook/scrap_satay_incident.jpg"
+    },
+    "scrap_sushi_day": {
+      "file": "scrapbook/scrap_sushi_day.jpg"
     }
   },
   "icons": {
