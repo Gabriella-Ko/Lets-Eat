@@ -6,7 +6,8 @@ import { loadPages } from '../ui/scrapbookStore.js';
 import { badge } from '../ui/badge.js';
 import { tween } from '../ui/motion.js';
 
-// Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs along the top, one per page.
+// Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs above the right page, one per
+// page, badge only (her pick R1); the book's cover edge takes the open page's bookmark colour.
 // Left page: the page art as a taped photo, who the memory is with and where it was found. Right page: the title,
 // the badge large in a ribbon rosette, and the story on ruled lines. Switching pages turns the page, then the
 // rosette is stuck onto the page. Click a tab or a page corner, or use left/right.
@@ -106,9 +107,9 @@ export default class ScrapbookScene extends Phaser.Scene {
   /** The book (cover, two pages, spine) and the page-turn corners. Drawn once; spreads go on top. */
   drawBook() {
     const B = BOOK;
+    this.cover = this.add.graphics().setDepth(0.45);
+    this.drawCover(C.accentDark);
     const g = this.add.graphics().setDepth(0.5);
-    g.fillStyle(0x000000, 0.3).fillRoundedRect(B.x + 4, B.y + 8, B.w, B.h, 10);
-    g.fillStyle(C.accentDark, 1).fillRoundedRect(B.x - 8, B.y - 6, B.w + 16, B.h + 14, 12); // the cover peeking out
     g.fillStyle(PAPER_LEFT, 1).fillRoundedRect(B.x, B.y, PW, B.h, { tl: 8, bl: 8, tr: 0, br: 0 });
     g.fillStyle(PAPER, 1).fillRoundedRect(MID, B.y, PW, B.h, { tl: 0, bl: 0, tr: 8, br: 8 });
     const spine = this.add.graphics().setDepth(2.5); // stays over the turning page
@@ -128,26 +129,36 @@ export default class ScrapbookScene extends Phaser.Scene {
     }
   }
 
-  /** Bookmark tabs along the top of the book, one per page, in the friend's colour. The open page's tab stands taller. */
+  /** The cover peeking out around the pages, in the open page's bookmark colour. */
+  drawCover(col) {
+    const B = BOOK;
+    this.cover.clear();
+    this.cover.fillStyle(0x000000, 0.3).fillRoundedRect(B.x + 4, B.y + 8, B.w, B.h, 10);
+    this.cover.fillStyle(col, 1).fillRoundedRect(B.x - 8, B.y - 6, B.w + 16, B.h + 14, 12);
+  }
+
+  /**
+   * Bookmark tabs above the right page, one per page: the badge on a tab in the friend's colour (grey "?" when
+   * locked). The open page's tab stands taller, and the cover takes its colour.
+   */
   drawTabs(p) {
     this.tabs?.destroy();
     const c = (this.tabs = this.add.container(0, 0).setDepth(0));
+    if (p) this.drawCover(this.friendOf(p).color);
     const n = this.pages.length;
-    const gap = 8;
-    const tw = (BOOK.w - 40 - gap * (n - 1)) / n;
+    const gap = 6;
+    const tw = (PW - 48 - gap * (n - 1)) / n;
     this.pages.forEach((q, i) => {
       const open = q.id in this.unlocked;
       const on = p && q.id === p.id;
-      const x = BOOK.x + 20 + i * (tw + gap);
+      const x = MID + 24 + i * (tw + gap);
       const h = on ? 58 : 48;
       const y = BOOK.y - h + 10;
       const g = this.add.graphics();
       g.fillStyle(0x000000, 0.22).fillRoundedRect(x + 3, y - 2, tw, h, { tl: 10, tr: 10, bl: 0, br: 0 });
       g.fillStyle(open ? this.friendOf(q).color : C.goldDim, on ? 1 : 0.78).fillRoundedRect(x, y, tw, h, { tl: 10, tr: 10, bl: 0, br: 0 });
       c.add(g);
-      const cy = y + (h - 10) / 2;
-      c.add(badge(this, x + 22, cy, 30, q, open));
-      c.add(this.add.text(x + 42, cy, open ? q.title : '???', pixel(11, on ? 0xffffff : C.panel, { fontStyle: 'bold', wordWrap: { width: tw - 50 } })).setOrigin(0, 0.5));
+      c.add(badge(this, x + tw / 2, y + (h - 10) / 2, on ? 36 : 32, q, open));
       if (open) c.add(this.add.zone(x + tw / 2, y + h / 2, tw, h).setInteractive({ useHandCursor: true }).on('pointerdown', () => this.select(q.id)));
     });
   }
