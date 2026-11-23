@@ -30,11 +30,20 @@ export default class MenuScene extends Phaser.Scene {
       const got = Object.keys(loadPages()).length;
       button(this, W - 100, 40, `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: 168, h: 38, size: 15, fill: C.blue }).setDepth(5);
     }
+    // Back to the Title screen (Gabriella, 2026-11-23): button top left, Esc or Backspace. The three left
+    // buttons stack above the map's district hotspots (campus starts at about y 145 on the picture).
+    const toTitle = () => {
+      if (this.registry.get('hudPanelOpen') || this.introOpen) return; // Esc closes the volume panel / intro card first
+      this.scene.start('Title');
+    };
+    button(this, 90, 30, '← Title', () => this.scene.start('Title'), { w: 120, h: 34, size: 15, fill: C.bar }).setDepth(5);
+    this.input.keyboard?.on('keydown-ESC', toTitle);
+    this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.
-    button(this, 90, 40, 'Options', () => this.scene.start('Options'), { w: 140, h: 38, size: 15, fill: C.bar }).setDepth(5);
+    button(this, 90, 72, 'Options', () => this.scene.start('Options'), { w: 140, h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-O', () => this.scene.start('Options'));
     // Credits: music and art (bible: Game identity > Audio).
-    button(this, 90, 84, 'Credits', () => this.scene.start('Credits'), { w: 140, h: 34, size: 15, fill: C.bar }).setDepth(5);
+    button(this, 90, 114, 'Credits', () => this.scene.start('Credits'), { w: 140, h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-C', () => this.scene.start('Credits'));
     // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
     button(this, W - 100, 112, 'Friends', () => this.scene.start('Friends'), { w: 168, h: 32, size: 15, fill: C.bar }).setDepth(5);
