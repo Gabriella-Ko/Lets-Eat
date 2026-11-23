@@ -4,6 +4,7 @@ import { button, portrait, loadProgress } from '../ui/widgets.js';
 import { loadOpened } from '../ui/openedStore.js';
 import { friendCards } from '../logic/friends.js';
 import { tween } from '../ui/motion.js';
+import { pageAnimations } from '../ui/settings.js';
 
 // Layout (Gabriella picked draft B3, 2026-11-23): bookmark tabs down the left, one per friend, sticking out of a
 // spiral notebook page; the selected friend's polaroid is taped on the left of the page, with their name, needs
@@ -113,7 +114,7 @@ export default class FriendsScene extends Phaser.Scene {
 
     const old = this.pageC;
     this.pageC = page;
-    if (!animate || !old) {
+    if (!animate || !old || !pageAnimations()) {
       old?.destroy();
       return;
     }

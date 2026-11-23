@@ -11,10 +11,12 @@ const ROWS = [
   { key: 'contrast', title: 'High contrast', about: 'Black text, lighter panels, stronger highlights and a faded chat backdrop.' },
   { key: 'motion', title: 'Reduce motion', about: 'No sliding, popping, pulsing or spinning: things simply appear.' },
   { key: 'music', title: 'Music', about: 'Background music. Plays after your first click or key press.' },
+  { key: 'pageAnimations', title: 'Page animations', about: 'Page turns in the Scrapbook and on the Friends page, and the badge being stuck on.' },
 ];
 const LEFT = { x: 40, y: 88, w: 540 };
 const PREVIEW = { x: 604, y: 88, w: 316, h: 440 };
-const ROW_H = 98; // five rows still clear the key hint at the bottom
+const ROW_H = 84; // six rows still clear the key hint at the bottom
+const ROW_GAP = 10; // space between row panels
 
 /**
  * Accessibility options (saved per browser, see ui/settings.js). Mouse or keyboard:
@@ -126,22 +128,24 @@ export default class OptionsScene extends Phaser.Scene {
   drawRow(row, i, current) {
     const y = LEFT.y + i * ROW_H;
     const frame = this.add.graphics();
-    panel(this, LEFT.x, y, LEFT.w, ROW_H - 14, C.panel, 12);
-    this.add.text(LEFT.x + 20, y + 14, row.title.toUpperCase(), pixel(17, C.ink, { fontStyle: 'bold' }));
-    const about = this.add.text(LEFT.x + 20, y + 38, row.about, text(13, C.inkSoft, { wordWrap: { width: LEFT.w - 40 } }));
-    let x = LEFT.x + 20;
-    // Buttons sit under the description, however many lines it takes.
-    const py = Math.max(about.y + about.height + 6, y + ROW_H - 14 - 28 - 10);
-    for (const o of OPTIONS[row.key]) {
+    panel(this, LEFT.x, y, LEFT.w, ROW_H - ROW_GAP, C.panel, 12);
+    this.add.text(LEFT.x + 20, y + 12, row.title.toUpperCase(), pixel(17, C.ink, { fontStyle: 'bold' }));
+    this.add.text(LEFT.x + 20, y + 38, row.about, text(13, C.inkSoft, { wordWrap: { width: LEFT.w - 40 } }));
+    // Six rows: the choice buttons sit at the right of the title line, the description underneath.
+    const h = 26;
+    const py = y + 9;
+    const labels = OPTIONS[row.key].map((o) => this.add.text(0, 0, o.label, pixel(14, o.id === current ? C.panel : C.ink, { fontStyle: 'bold' })));
+    let x = LEFT.x + LEFT.w - 16 - labels.reduce((sum, t) => sum + t.width + 26 + 8, -8);
+    for (const [k, o] of OPTIONS[row.key].entries()) {
       const on = o.id === current;
-      const t = this.add.text(0, 0, o.label, pixel(14, on ? C.panel : C.ink, { fontStyle: 'bold' }));
-      const w = t.width + 26, h = 28;
+      const t = labels[k];
+      const w = t.width + 26;
       const bx = x; // this button's own x: the loop moves `x` on, and hover redraws happen later
       const g = this.add.graphics();
       const draw = (hover) => {
         g.clear();
-        g.fillStyle(on ? C.accent : hover ? C.starred : 0xffffff, 1).fillRoundedRect(bx, py, w, h, 14);
-        g.lineStyle(on ? 2 : 1, on ? C.accentDark : C.inkSoft, 1).strokeRoundedRect(bx, py, w, h, 14);
+        g.fillStyle(on ? C.accent : hover ? C.starred : 0xffffff, 1).fillRoundedRect(bx, py, w, h, 13);
+        g.lineStyle(on ? 2 : 1, on ? C.accentDark : C.inkSoft, 1).strokeRoundedRect(bx, py, w, h, 13);
       };
       draw(false);
       t.setPosition(bx + 13, py + (h - t.height) / 2).setDepth(1);
@@ -159,7 +163,7 @@ export default class OptionsScene extends Phaser.Scene {
   drawFocus() {
     this.rowFrames.forEach(({ frame, y }, i) => {
       frame.clear();
-      if (i === this.focus) frame.lineStyle(3, C.highlight, 1).strokeRoundedRect(LEFT.x - 5, y - 5, LEFT.w + 10, ROW_H - 4, 15);
+      if (i === this.focus) frame.lineStyle(3, C.highlight, 1).strokeRoundedRect(LEFT.x - 5, y - 5, LEFT.w + 10, ROW_H - ROW_GAP + 10, 15);
     });
   }
 

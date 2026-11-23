@@ -5,6 +5,7 @@ import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { badge } from '../ui/badge.js';
 import { tween } from '../ui/motion.js';
+import { pageAnimations } from '../ui/settings.js';
 
 // Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs above the right page, one per
 // page, badge only (her pick R1); the book's cover edge takes the open page's bookmark colour.
@@ -236,6 +237,11 @@ export default class ScrapbookScene extends Phaser.Scene {
   /** The rosette lands on the page: dropped from above, a little squash, a ring and sparkles. */
   stickOn(r, delay = 0) {
     const a = r.baseAngle;
+    if (!pageAnimations()) {
+      // Page animations off (Options): the rosette simply appears.
+      r.setVisible(true).setAlpha(1).setScale(1).setAngle(a);
+      return;
+    }
     r.setVisible(true).setAlpha(0).setScale(1.8).setAngle(a + 18);
     tween(this, {
       targets: r, alpha: 1, scale: 1, angle: a, delay, duration: 260, ease: 'Quad.easeIn',
@@ -308,7 +314,7 @@ export default class ScrapbookScene extends Phaser.Scene {
 
     const old = this.spread;
     this.spread = next;
-    if (!animate || !old) {
+    if (!animate || !old || !pageAnimations()) {
       old?.destroy();
       this.stickOn(rosette, 250);
       return;
