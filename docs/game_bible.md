@@ -267,6 +267,24 @@ What the player sees and uses outside the chat itself. Every screen works with m
 | Options | Text size (Normal or Large), Chat pace (Quick or Relaxed), High contrast, Reduce motion, Music, How to play and Reset progress. Stars never rely on colour alone: empty stars are outlined and the result screen says "3 of 3 stars". | Locked |
 | Reset progress | In Options, after a confirm: clears stars, Scrapbook pages, friends met, "been here" history and the intro cards already seen. | Locked |
 
+## Sound effects
+
+Sound files live in `assets/sfx/`. Each file's license and any required credit go in the credits file, like the music. Sound effects follow the Music volume and mute setting.
+
+| Event | Sound file | Notes | Status |
+| --- | --- | --- | --- |
+| Button click | `floraphonic-multi-pop-2-188167.mp3` | Every button and tab, includes choosing a place on the results list | Locked |
+| Chat message appears | `message_pop.mp3` | Each new line in the group chat; quiet | Open |
+| Pick a venue | `select.mp3` | Choosing a place on the results list | Open |
+| Outcome: perfect (3 stars) | `freesound_community-success-1-6297.mp3` | Plays as the outcome screen opens | Locked |
+| Outcome: partial | `benkirb-shine-8-268901.mp3` or `benkirb-shine-7-268909.mp3` | | Locked |
+| Outcome: fail | `mori_sound-fx-error-piano-514787.mp3` or `mori_sound-fx-loose-cartoon-521523.mp3` | | Locked |
+| Star earned | `benkirb-shine-6-268910.mp3` or `benkirb-shine-11-268907.mp3` |  | Locked |
+| Scrapbook page unlocked | `universfield-bright-notifications-151766.mp3` | | Locked |
+| Scrapbook page turn | `floraphonic-newspaper-foley-15-196732.mp3` | Also Friends page flip | Locked |
+| Badge stuck on | `vadim_makes_sound-achievement-badge-pop-sound-1-547860.mp3` | Scrapbook stick-on animation; Also unlocking new friend page. | Locked |
+| Level unlocked on map | `level_unlock.mp3` | | Open |
+
 ## Data schemas
 
 Four files per level plus one venue registry per district, all sharing the same `level_id` and venue ids. Every file carries `generated_by` and `edited_by` for Provenance. (Locked)
