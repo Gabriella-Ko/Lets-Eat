@@ -161,3 +161,5 @@
 {"at":"2026-11-23T15:36:13.730Z","round":2,"event":"verify","id":"friends_button_mina_orange","outside":[],"met":true,"failing":[],"boot_test":true}
 {"at":"2026-11-23T15:36:13.882Z","round":2,"event":"commit","id":"friends_button_mina_orange","ok":true}
 {"at":"2026-11-23T15:36:13.895Z","round":3,"event":"done","met":41}
+{"at":"2026-11-23T16:39:36.238Z","round":1,"event":"scan","missing":[{"id":"back_buttons_match_menu","score":2},{"id":"chat_backspace_to_levels","score":2},{"id":"results_backspace_to_chat","score":2},{"id":"unlock_focus_after_buttons","score":2}],"next":"back_buttons_match_menu"}
+{"at":"2026-11-23T16:39:42.871Z","round":1,"event":"scan","missing":[{"id":"chat_backspace_to_levels","score":2},{"id":"results_backspace_to_chat","score":2},{"id":"unlock_focus_after_buttons","score":2}],"next":"chat_backspace_to_levels"}

@@ -923,7 +923,7 @@
         },
         {
           "contains": "src/scenes/MenuScene.js",
-          "pattern": "'← Title'[^\\n]*w: 140, h: 34"
+          "pattern": "'← Title'[^\\n]*w: 140, h: 34|current: \\{[\\s\\S]*?title: \\[\\d+, \\d+, 140\\]"
         }
       ]
     },
@@ -940,6 +940,54 @@
         {
           "contains": "src/scenes/MenuScene.js",
           "pattern": "'Friends'[^\\n]*fill: CHARACTERS\\.mina\\.color"
+        }
+      ]
+    },
+    {
+      "id": "results_backspace_to_chat",
+      "title": "Results list: Backspace goes back to the chat",
+      "bible": "Controls (Gabriella, 2026-11-23): on the results list, Backspace returns to the chat.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/ResultsListScene.js pressing Backspace (keydown-BACKSPACE) does what the '← Back to chat' button does: this.scene.start('Chat', { levelId, revealAll: true }). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')) and while any card or overlay on this screen is open (close that first, as Esc would). Arrow keys, Enter and R keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "chat_backspace_to_levels",
+      "title": "Chat: Backspace goes back to the level map",
+      "bible": "Controls (Gabriella, 2026-11-23): on the chat screen, Backspace returns to the levels.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/ChatScene.js pressing Backspace (keydown-BACKSPACE) does what the '← Levels' button does: this.scene.start('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')) and while the How to play card, the chapter intro card or any other overlay on the chat is open. Space, Enter, A, P and the scrolling keys keep working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "unlock_focus_after_buttons",
+      "title": "Unlock cards: the focus ring appears only once the buttons are shown",
+      "bible": "Outcome screen (Gabriella, 2026-11-23): when a new Scrapbook page is unlocked, show the highlight around the button only once 'Keep going' is visible; during the animation the button isn't visible yet but its highlight already is.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/OutcomeScene.js showNextUnlock() calls drawFocus() straight away, so the focus ring is drawn around 'Keep going' / 'Next →' about a second before the buttons fade in (delay 950 ms). Fix, for both kinds of unlock card (new Scrapbook page, new friend): add unlockCard.ready = false when the card is made; while it is false, activeButtons() returns no buttons (so no ring is drawn and Enter/arrow keys do nothing on the card); set it true in the onComplete of the buttons' fade-in tween and call drawFocus() then. With Reduce motion / Animations off the tween completes at once, so the ring shows straight away. A click on the card or Esc still moves on as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "unlockCard\\.ready|ready: false"
         }
       ]
     }
