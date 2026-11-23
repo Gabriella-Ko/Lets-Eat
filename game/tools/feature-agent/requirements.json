@@ -740,6 +740,93 @@
           "pattern": "pageAnimations\\("
         }
       ]
+    },
+    {
+      "id": "title_start_after_return",
+      "title": "Title screen: Start always works, also after coming back from the map",
+      "bible": "Title screen (Gabriella, 2026-11-23): after going back to the title from the level map ('← Title' or Backspace), the Start button stops working. Start must always go to the level map.",
+      "status": "Proposed",
+      "impact": 5,
+      "effort": 1,
+      "depends": [
+        "title_screen",
+        "menu_back_to_title"
+      ],
+      "spec": "Bug: src/scenes/TitleScene.js go() sets this.leaving = true and never clears it. Phaser reuses the scene object, so the second time the title screen is shown, go() returns straight away and Start, Enter, Space and clicks do nothing. Fix: reset this.leaving = false at the start of create(). Also add a check to test/browser-boot.mjs that boots the game, goes Title -> Menu (Enter), back to Title (Backspace), then presses Enter again and confirms the Menu scene is active.",
+      "detect": [
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "this\\.leaving = false"
+        }
+      ]
+    },
+    {
+      "id": "backspace_back_to_map",
+      "title": "Backspace returns to the level map from Options, Scrapbook and Friends",
+      "bible": "Controls (Gabriella, 2026-11-23): allow Backspace on the Options, Scrapbook and Friends screens to return to the level screen.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "In src/scenes/OptionsScene.js, src/scenes/ScrapbookScene.js and src/scenes/FriendsScene.js, pressing Backspace (keydown-BACKSPACE) does the same as Esc there: go back to the level map ('Menu'). Ignore it while the volume panel is open (this.registry.get('hudPanelOpen')), like Esc. Esc keeps working as before.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "keydown-BACKSPACE"
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "keydown-BACKSPACE"
+        }
+      ]
+    },
+    {
+      "id": "credits_panel_lighter",
+      "title": "Credits: the panel a little more see-through",
+      "bible": "Credits screen (Gabriella, 2026-11-23): make the white credits panel slightly more transparent.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "credits_over_title_art"
+      ],
+      "spec": "In src/scenes/CreditsScene.js lower PANEL_ALPHA from 0.84 to 0.70, so more of the title picture shows through the credits panel. The credit text must stay easy to read: if it no longer is, darken the see-through layer over the picture slightly rather than raising the panel's alpha again.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "PANEL_ALPHA = 0\\.(6\\d|7[0-5])\\b"
+        }
+      ]
+    },
+    {
+      "id": "options_animations_row",
+      "title": "Options: 'Reduce motion' becomes 'Animations', with a live preview",
+      "bible": "Options (Gabriella, 2026-11-23): reword 'Reduce motion' as 'Animations' and add a preview of the animation.",
+      "status": "Proposed",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "page_animations_option"
+      ],
+      "spec": "In src/scenes/OptionsScene.js rename the 'Reduce motion' row to 'Animations', with the meaning flipped so On means animations play: in src/ui/settings.js the motion options become [{ id: 'reduced', label: 'Off' }, { id: 'full', label: 'On' }] (same stored ids, so saved settings keep working; Off/On order like the other rows). About text: 'Sliding, popping, pulsing and spinning. Off: things simply appear.' Add a method previewMotion() that animates the Options PREVIEW panel when Animations is On: the preview's three stars pop in one after another (scale 0 to 1, Back.easeOut, like the Outcome screen) and the chat bubble slides in, repeating every 2-3 seconds. When Animations is Off, the preview is shown still, all at once. Changing the setting updates the preview straight away (the screen already redraws on change). Keep the 'Page animations' row; its about text should still make sense next to the renamed row.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "title: 'Animations'"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "previewMotion"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "^(?![\\s\\S]*Reduce motion')"
+        }
+      ]
     }
   ]
 }
