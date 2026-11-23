@@ -1156,6 +1156,32 @@
           "pattern": "page_turn"
         }
       ]
+    },
+    {
+      "id": "options_sfx_toggle",
+      "title": "Options: a Sound effects On/Off row, separate from Music",
+      "bible": "Screens and controls > Options (Gabriella, 2026-11-23): Options has a Sound effects toggle.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [
+        "sound_effects"
+      ],
+      "spec": "(1) src/ui/settings.js: a new setting 'sfx' with options On / Off, default 'on', saved with the other settings, and an export sfxOn(). (2) src/scenes/OptionsScene.js: a row { key: 'sfx', title: 'Sound effects', about: 'Clicks, page turns, stars and outcome sounds. Plays after your first click or key press.' } right after the Music row. All rows must still fit above the key hint, with keyboard focus (arrows, Enter) working as for the other rows. Choosing On plays one 'click' as a preview. (3) src/ui/sfx.js: play() checks sfxOn() instead of the Music On/Off, so sound effects can play with Music Off and stay silent with Sound effects Off. They keep using the Music volume slider's level (nothing plays at volume 0). (4) Reset progress keeps this setting, like Music. (5) Update the Sound effects bullet in game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "sfxOn"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "key: 'sfx'"
+        },
+        {
+          "contains": "src/ui/sfx.js",
+          "pattern": "sfxOn"
+        }
+      ]
     }
   ]
 }
