@@ -77,6 +77,7 @@ export default class HudScene extends Phaser.Scene {
       fn();
     };
     // onKey (src/ui/keys.js) acts once per key press; { panel: true } because these keys belong to the panel.
+    // It registers keydown-<name>: keydown-M, keydown-ESC, keydown-LEFT, keydown-RIGHT, keydown-ENTER, keydown-SPACE.
     const panelKey = (name, fn) => onKey(this, name, fn, { panel: true });
     panelKey('M', (event) => {
       event?.stopPropagation?.();
