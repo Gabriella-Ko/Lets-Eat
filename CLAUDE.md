@@ -22,6 +22,7 @@ Read `docs/game_bible.md`. It is the single source of truth. If a request confli
 | Draft art (PixelLab) | `art-generator` subagent + script | Delegate the prompts, then run `python scripts/pixellab_draft.py` in the background (see below) |
 | Cross-level check | Integration script | `node scripts/integrate.js` (spec: `docs/specs/integration.md`) |
 | Lineage | Provenance script + git | `node scripts/provenance.js` (spec: `docs/specs/provenance.md`) |
+| Bug hunt (game) | `bug-hunter-*` subagents (7 testers) | Delegate on request, in parallel (spec: `docs/specs/bug_hunt.md`) |
 
 If a script does not exist yet, tell Gabriella and offer to build it from its spec. Never skip a check because its script is missing.
 
@@ -57,6 +58,9 @@ logs/                           run_log.json, validation_, critique_, playtest_,
    - 0–1/3 → back to `narrative-writer` if a clue is missing or buried too deep; back to `puzzle-architect` if the puzzle itself is unsound.
 9. Push `level/XX` and open a PR into `master` (`gh pr create --base master --title "level_XX: <one-line summary>"`) whose body is the one-line summary per check, including the critic's verdict and any suggestions. Present the level to Gabriella with that summary and the PR link. Wait for approval.
 10. After approval: log the approval, run Integration, then Provenance, and commit each result on `level/XX`. Push, then merge the PR with a merge commit (`gh pr merge --merge --delete-branch --subject "Merge level_XX: <one-line summary>"`). Never squash or rebase: Provenance records each agent commit's hash. If the merge says "not mergeable" right after a push, check `gh pr view <n> --json mergeable`: `UNKNOWN` means GitHub is still checking, so retry; `CONFLICTING` means stop and report. Finally update local `master` (`git checkout master && git pull`).
+
+## Bug hunt (game)
+When Gabriella asks for a bug hunt, delegate the `bug-hunter-*` agents she names (all seven if she doesn't say): `normal-player`, `speed-clicker`, `keyboard-only`, `settings-fiddler`, `quitter`, `wrong-answer`, `accessibility`. They can run in parallel (each has its own port). Each drives the game on `game/prototype` (worktree `Lets-Eat-game`) in Chrome through Playwright, follows `docs/specs/bug_hunt.md`, never changes the game, and writes `logs/bughunt/<agent id>_<date>_run<N>.json` with screenshots in `logs/bughunt/shots/`. Then merge their reports into one list for Gabriella: duplicates merged, blockers and majors first, each with steps and a screenshot. Fixes go through the game side (a requirement for the feature agent, or a game session), never through the bug hunters. Commit the reports on `master` only when she asks.
 
 ## Draft art (PixelLab, Nano Banana 2)
 All drafts show on one dashboard, Art Artifacts (`assets/drafts/index.html`) (`python scripts/art_dashboard.py` rebuilds it): Badges & icons, and Outcomes. Gabriella picks there and pastes her picks back.
