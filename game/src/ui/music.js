@@ -79,9 +79,13 @@ export function setVolume(v) {
   for (const fn of volumeListeners) fn(volume, enabled);
 }
 
-/** Call fn(volume, enabled) whenever either changes (keeps every music control in step). */
+/** Call fn(volume, enabled) whenever either changes (keeps every music control in step). Returns a function that stops listening. */
 export function onVolume(fn) {
   volumeListeners.push(fn);
+  return () => {
+    const i = volumeListeners.indexOf(fn);
+    if (i >= 0) volumeListeners.splice(i, 1);
+  };
 }
 
 /** The key of the track playing now, or null (for tests and the Hud). */

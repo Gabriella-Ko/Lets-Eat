@@ -3,7 +3,7 @@ import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '.
 import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
-import { setEnabled as setMusicEnabled } from '../ui/music.js';
+import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
 import { play as playSfx } from '../ui/sfx.js';
 
 const ROWS = [
@@ -50,6 +50,10 @@ export default class OptionsScene extends Phaser.Scene {
     this.add.text(W / 2, 66, 'changes apply straight away and are saved on this device', pixel(14, C.highlight)).setOrigin(0.5);
 
     const s = getSettings();
+    // The Music row follows the bottom-left music button (HudScene) while this screen is open.
+    this.musicShown = s.music;
+    const stopSync = onVolume((volume, enabled) => this.syncMusicRow(enabled));
+    this.events.once('shutdown', stopSync);
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
     this.previewMotion();
@@ -169,9 +173,27 @@ export default class OptionsScene extends Phaser.Scene {
     if (next && next.id !== opts[i]?.id) this.choose(row.key, next.id);
   }
 
+  /**
+   * Music was switched on or off elsewhere (the Hud's music button): save it as the Music setting and
+   * redraw this screen on the next tick, so the row shows it at once and choosing the other choice works.
+   * Volume-only changes, and the change this screen made itself, leave the screen alone.
+   */
+  syncMusicRow(enabled) {
+    const id = enabled ? 'on' : 'off';
+    if (id === this.musicShown) return;
+    this.musicShown = id;
+    setSetting('music', id);
+    this.time.delayedCall(0, () => {
+      if (this.scene.isActive() && getSettings().music === id) this.scene.restart({ focus: this.focus });
+    });
+  }
+
   choose(key, id) {
     setSetting(key, id);
-    if (key === 'music') setMusicEnabled(id === 'on');
+    if (key === 'music') {
+      this.musicShown = id; // so syncMusicRow ignores the change made here
+      setMusicEnabled(id === 'on');
+    }
     if (key === 'sfx' && id === 'on') playSfx(this, 'click'); // a preview of what was just switched on
     applyPalette();
     this.scene.restart({ focus: this.focus });
