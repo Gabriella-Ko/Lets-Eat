@@ -77,6 +77,11 @@ export default class ChatScene extends Phaser.Scene {
     this.shown = 0;
     this.msgs = []; // { y, h } of each message, in chat content space (for hover-to-pause)
     this.firstHighlightY = null;
+    // Keyboard starring: the focused line's index and each line's star toggle (pin levels only).
+    this.focusIdx = null;
+    this.pinToggles = [];
+    this.focusRing = this.add.graphics();
+    this.chat.content.add(this.focusRing);
     this.typing = null;
     this.timer = null;
     // Three reasons to hold the next message; the chat waits while any is true.
@@ -128,8 +133,10 @@ export default class ChatScene extends Phaser.Scene {
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
-    kb.on('keydown-UP', () => this.chat.scrollBy(-KEY_STEP));
-    kb.on('keydown-DOWN', () => this.chat.scrollBy(KEY_STEP));
+    // Star levels: ↑ ↓ move the line focus and S stars it; other levels: ↑ ↓ scroll.
+    kb.on('keydown-UP', () => (this.pinning ? this.moveFocus(-1) : this.chat.scrollBy(-KEY_STEP)));
+    kb.on('keydown-DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
+    if (this.pinning) kb.on('keydown-S', () => this.starFocused());
     kb.on('keydown-PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
     kb.on('keydown-PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
     kb.on('keydown-HOME', () => this.chat.scrollBy(-1e6));
@@ -194,9 +201,10 @@ export default class ChatScene extends Phaser.Scene {
 
   /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */
   keyHint() {
-    const star = this.pinning ? '   ·   star: save to notebook' : '';
-    if (this.done()) return `enter or →: find a place   ·   ↑ ↓: scroll${star}`;
-    return `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${star}`;
+    // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
+    const lines = this.pinning ? '↑ ↓: pick a line   ·   s: star a line' : '↑ ↓: scroll';
+    if (this.done()) return `enter or →: find a place   ·   ${lines}`;
+    return `space: next   ·   P: pause   ·   A: show all   ·   ${lines}`;
   }
 
   /**
@@ -351,6 +359,41 @@ export default class ChatScene extends Phaser.Scene {
    * bubble turns `C.starred` with an orange edge (see addMessage), and the line is in the Notebook.
    * Code still calls these "pins". onChange(pinned) lets the bubble redraw.
    */
+  /**
+   * Keyboard starring (bug hunt run 1, KB-03): ↑ ↓ move a focus ring through the lines shown so far
+   * (the chat scrolls to keep it in view), S stars or unstars it like clicking its star. The first ↑ ↓ or S
+   * focuses the newest line. Ignored while the volume panel or an intro card is open.
+   */
+  moveFocus(step) {
+    if (this.registry.get('hudPanelOpen') || this.introOpen || !this.msgs.length) return;
+    const last = this.msgs.length - 1;
+    this.focusIdx = this.focusIdx === null ? last : Math.min(Math.max(this.focusIdx + step, 0), last);
+    this.drawFocus();
+  }
+
+  starFocused() {
+    if (this.registry.get('hudPanelOpen') || this.introOpen || !this.msgs.length) return;
+    if (this.focusIdx === null) {
+      this.focusIdx = this.msgs.length - 1;
+      this.drawFocus();
+    }
+    const toggle = this.pinToggles[this.focusIdx];
+    if (toggle) toggle(false);
+  }
+
+  /** 4 px C.highlight ring around the focused row (read when drawing, so High contrast applies), scrolled into view. */
+  drawFocus() {
+    const m = this.msgs[this.focusIdx];
+    if (!m) return;
+    const w = CHAT.w - 24;
+    this.focusRing.clear().lineStyle(4, C.highlight, 1).strokeRoundedRect(0, m.y - 4, w, m.h + 8, 12);
+    this.chat.content.bringToTop(this.focusRing);
+    const offset = CHAT.y + 10 - this.chat.content.y;
+    const vh = this.chat.viewHeight;
+    if (m.y - 8 < offset) this.chat.scrollBy(m.y - 8 - offset);
+    else if (m.y + m.h + 8 > offset + vh) this.chat.scrollBy(m.y + m.h + 8 - offset - vh);
+  }
+
   addPin(c, x, y, idx, line, onChange) {
     // Drawn around its own origin so the pop animation scales in place.
     const g = this.add.graphics({ x, y });
@@ -375,15 +418,20 @@ export default class ChatScene extends Phaser.Scene {
     zone.on('pointerup', (p) => {
       const inChat = p.y >= CHAT.y && p.y <= CHAT.y + CHAT.h; // masked rows above/below the panel don't count
       if (!inChat || Phaser.Math.Distance.Between(p.downX, p.downY, p.upX, p.upY) >= DRAG_THRESHOLD) return;
+      toggle(true);
+    });
+    // Shared by the click and the S key (keyboard: no hover outline).
+    const toggle = (hover) => {
       const pins = getPins(this, this.level.id);
       const pinned = !pins.includes(idx);
       setPins(this, this.level.id, pinned ? [...pins, idx] : pins.filter((i) => i !== idx));
       if (pinned) this.notebook.add(line, idx);
       else this.notebook.remove(idx);
-      draw(pinned, true);
+      draw(pinned, hover);
       onChange(pinned);
       tween(this, { targets: g, scale: { from: 1.25, to: 1 }, duration: 160, ease: 'Back.easeOut' });
-    });
+    };
+    this.pinToggles[idx] = toggle;
     c.add([g, zone]);
   }
 
