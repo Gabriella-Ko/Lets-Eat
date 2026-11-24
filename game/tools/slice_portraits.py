@@ -159,6 +159,17 @@ def cut_ui_art():
             with Image.open(os.path.join(SRC, f)) as im:
                 out['title_screen'] = {'file': 'ui/title_screen' + ext, 'size': list(im.size)}
             break
+    # assets/art/ending_coast_photo.jpg and ending_group_photo.jpg (picked Gemini drafts) -> ui/<key>.jpg,
+    # centre-cropped to 3:2 at 840x560. EndingScene shows them in Maya's chat bubble and on the send-off polaroid.
+    for f in sorted(os.listdir(SRC)):
+        m = re.match(r'(ending_(?:coast|group)_photo)\.(jpe?g|png)$', f)
+        if not m:
+            continue
+        os.makedirs(os.path.join(OUT, 'ui'), exist_ok=True)
+        im = Image.open(os.path.join(SRC, f)).convert('RGB')
+        im = im.crop(cover_box(im.size, 3 / 2)).resize((840, 560), Image.LANCZOS)
+        im.save(os.path.join(OUT, 'ui', m.group(1) + '.jpg'), quality=90)
+        out[m.group(1)] = {'file': f'ui/{m.group(1)}.jpg', 'size': [840, 560]}
     return out
 
 def copy_pixel_art(pattern, folder, size):

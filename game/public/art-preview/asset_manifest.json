@@ -507,6 +507,20 @@
         1375,
         768
       ]
+    },
+    "ending_coast_photo": {
+      "file": "ui/ending_coast_photo.jpg",
+      "size": [
+        840,
+        560
+      ]
+    },
+    "ending_group_photo": {
+      "file": "ui/ending_group_photo.jpg",
+      "size": [
+        840,
+        560
+      ]
     }
   },
   "scrapbook": {
