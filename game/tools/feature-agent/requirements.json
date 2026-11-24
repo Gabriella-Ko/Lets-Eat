@@ -1296,7 +1296,7 @@
       "depends": [
         "ending_scene"
       ],
-      "spec": "(1) The Ending plays only after Continue on the level_20 Outcome screen when the pick was perfect, and only once: the localStorage flag 'lets-eat-ending-seen-v1' is set as soon as it starts (so skipping through still counts), and while it is set, a perfect level_20 pick shows the usual 'Back to levels' instead. (2) Reset progress clears that flag, so the ending plays again after the next perfect level_20 pick. (3) Esc skips: in part 1 (the group chat) it jumps to part 2, in part 2 (the send-off page) it goes back to the map. Each part's control text at the bottom names it: part 1 includes 'esc: skip', part 2 includes 'esc: back to the map'.",
+      "spec": "(1) The Ending plays only after Continue on the level_20 Outcome screen when the pick was perfect, and only once: the localStorage flag 'lets-eat-ending-seen-v1' is set when the player leaves it for the map (changed 2026-11-24 after the bug hunt, see ending_seen_on_leave; a reload mid-ending replays it), and while it is set, a perfect level_20 pick shows the usual 'Back to levels' instead. (2) Reset progress clears that flag, so the ending plays again after the next perfect level_20 pick. (3) Esc skips: in part 1 (the group chat) it jumps to part 2, in part 2 (the send-off page) it goes back to the map. Each part's control text at the bottom names it: part 1 includes 'esc: skip', part 2 includes 'esc: back to the map'.",
       "detect": [
         {
           "contains": "src/scenes/OutcomeScene.js",
@@ -1359,6 +1359,476 @@
         {
           "contains": "src/scenes/ResultsListScene.js",
           "pattern": "r: recommend"
+        }
+      ]
+    },
+    {
+      "id": "scene_switch_guard",
+      "title": "One screen change at a time: double inputs never open two screens",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: SC-01, SC-02.",
+      "status": "Locked",
+      "impact": 5,
+      "effort": 3,
+      "depends": [],
+      "spec": "Add src/ui/sceneSwitch.js exporting goScene(scene, key, data). The first call on a scene instance starts the new screen; any later call on the same instance (another key, a second click in the same frame, a button pressed while the switch is under way) is ignored. Every screen change in src/scenes goes through goScene instead of this.scene.start (BootScene, Title, Menu, Chat, Results, Outcome, Scrapbook, Options, Credits, Friends, Ending). scene.restart inside EndingScene may stay. Repro: R then Backspace on Results, Enter then Backspace at the end of the chat, clicking Try again then Levels on the Outcome, and a double-click with both clicks in one frame must each leave exactly one screen running, and one-time cards must not be used up by a thrown-away copy. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/ui/sceneSwitch.js"
+        },
+        {
+          "contains": "src/ui/sceneSwitch.js",
+          "pattern": "export function goScene"
+        },
+        {
+          "absent": "src/scenes",
+          "pattern": "this\\.scene\\.start\\("
+        }
+      ]
+    },
+    {
+      "id": "ending_seen_on_leave",
+      "title": "Ending: counts as seen only when the player leaves it, so a reload replays it",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: QT-01.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/EndingScene.js: stop calling markEndingSeen() in create(). Call it when the player leaves the ending for the map (Continue, Enter or Esc on part 2). Skipping part 1 with Esc still goes to part 2 and does not mark it. A reload or closed tab mid-ending means the next perfect level_20 pick offers 'Continue →' to the ending again. This replaces rule (1) of ending_rules ('set as soon as it starts'). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "markEndingSeen"
+        },
+        {
+          "absent": "src/scenes",
+          "pattern": "markEndingSeen\\(\\); // plays once, even if the player skips through"
+        }
+      ]
+    },
+    {
+      "id": "reset_clears_seen_memory",
+      "title": "Reset progress also clears the in-memory 'seen' lists",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: SF-01.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/chapterIntro.js, src/ui/howToPlay.js and src/ui/friendsAnnounced.js each keep a 'seen' list in memory besides localStorage. Give each module an export clearSeen() that empties its in-memory list (and its saved key), and call all three from resetProgress() in src/ui/widgets.js. After Reset progress, without a reload, How to play, the chapter cards and the 'new friend' cards show again at the right moments, and nothing extra appears after a later reload. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "export function clearSeen"
+        },
+        {
+          "contains": "src/ui/howToPlay.js",
+          "pattern": "export function clearSeen"
+        },
+        {
+          "contains": "src/ui/friendsAnnounced.js",
+          "pattern": "export function clearSeen"
+        },
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "clearSeen"
+        }
+      ]
+    },
+    {
+      "id": "kb_scrapbook_key",
+      "title": "Map: S opens the Scrapbook, like O, C and F",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-01.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/MenuScene.js: pressing S on the level map opens the Scrapbook (same as its button, click sound included). Name it in the map's key hint (see key_hints_everywhere). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keydown-S\\b"
+        }
+      ]
+    },
+    {
+      "id": "kb_options_reset",
+      "title": "Options: Reset progress reachable by keyboard",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-02.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/OptionsScene.js: the arrow-key focus also reaches the 'Reset progress' button (after the last row, or with R), Enter opens its check, and in the check ←/→ choose Cancel or Reset, Enter confirms and Esc cancels. Keep the focus ring visible on whichever is focused. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "resetFocus"
+        }
+      ]
+    },
+    {
+      "id": "kb_chat_star",
+      "title": "Chat: lines can be starred by keyboard",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-03.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/ChatScene.js (chapter 2 on, where starring exists): ↑/↓ move a line focus ring through the lines shown so far (the chat scrolls to keep it in view), and S stars or unstars the focused line, exactly like clicking its star. Update the chat's key hint so 'star' names the key ('s: star a line'). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "keydown-S\\b"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "s: star"
+        }
+      ]
+    },
+    {
+      "id": "kb_results_sort_filter",
+      "title": "Results: sort and filter by keyboard",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-04.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/ResultsListScene.js: S cycles the sort (Mixed → Cheapest → A–Z) and F cycles the filters (all → each filter button in order → all), exactly like clicking them; the open place and the focus ring stay sensible. Add them to the bottom control text ('s: sort', 'f: filter'). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-S\\b"
+        },
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-F\\b"
+        },
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "s: sort"
+        }
+      ]
+    },
+    {
+      "id": "kb_volume_panel",
+      "title": "Music button panel usable by keyboard; keys don't leak behind it",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-05, KB-06.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/HudScene.js: while the volume panel is open (M or a click), ←/→ change the volume in 10% steps, Enter or Space toggles Music on/off, Esc or M closes it, and those keys never reach the screen underneath (chat, Options, results...). Name M in the key hints ('m: music'). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "keydown-LEFT"
+        },
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "keydown-RIGHT"
+        }
+      ]
+    },
+    {
+      "id": "friend_card_seen_on_close",
+      "title": "'New friend' card counts as announced only once it has been shown",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: QT-02, SC-03.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/OutcomeScene.js and src/ui/friendsAnnounced.js: markAnnounced() is called when the 'A new friend has joined!' card appears on screen (not when the Outcome opens), so leaving within the first ~1.4 s, reloading, or mashing Enter keeps the friend unannounced and the card shows on the next Outcome of that level. Name the call site with a helper announceShown(ids) in OutcomeScene. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "announceShown"
+        }
+      ]
+    },
+    {
+      "id": "pending_pages_saved",
+      "title": "New Scrapbook pages wait for their card even across a reload",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: QT-03, WA-01.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [],
+      "spec": "The list of Scrapbook pages unlocked but not yet announced is saved in localStorage 'lets-eat-pending-pages-v1' (not only in memory) and is not cleared when the chat reopens. A page is removed from it only when its 'NEW SCRAPBOOK PAGE!' card has been shown. So leaving the level, reloading or going back to the map before the Outcome still gets the card on the next Outcome. Reset progress clears it. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/scrapbookStore.js",
+          "pattern": "lets-eat-pending-pages-v1"
+        }
+      ]
+    },
+    {
+      "id": "intro_seen_on_close",
+      "title": "Chapter card and How to play count as seen only once closed; no instant close",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: QT-04, SC-04.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/chapterIntro.js and src/ui/howToPlay.js: mark the card seen when the player closes it, not when it opens, so a reload while it is open shows it again. Ignore clicks and keys for the first 400 ms after it opens (const OPEN_GRACE_MS = 400), so the second click of a double-click on a level card can't close it at once. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/chapterIntro.js",
+          "pattern": "OPEN_GRACE_MS"
+        },
+        {
+          "contains": "src/ui/howToPlay.js",
+          "pattern": "OPEN_GRACE_MS"
+        }
+      ]
+    },
+    {
+      "id": "keys_once_per_press",
+      "title": "Each key press acts once (no repeats in the same frame)",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: SF-03.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 3,
+      "depends": [],
+      "spec": "Add src/ui/keys.js exporting onKey(scene, name, fn): it registers keydown-<name> and acts once per native keyboard event (like EndingScene's existing onKey), and ignores the key while the volume panel is open (registry 'hudPanelOpen'). Use it for every keydown listener in src/scenes. Six quick ArrowDowns on Options move the focus six rows, and Up then Right changes the row above, not another. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/ui/keys.js"
+        },
+        {
+          "contains": "src/ui/keys.js",
+          "pattern": "export function onKey"
+        },
+        {
+          "absent": "src/scenes",
+          "pattern": "\\.on\\(\\s*[`']keydown-"
+        }
+      ]
+    },
+    {
+      "id": "map_opens_on_played_level",
+      "title": "Map opens on the district and level card just played",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: NP-01, KB-10.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/MenuScene.js: when the map opens after a level (← Levels, Back to levels, Esc from the Ending, Next level → then back), it selects that level's district and puts the focus ring on that level's card. Store the last played level in the registry as 'lastLevel' when a level's chat opens. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "lastLevel"
+        }
+      ]
+    },
+    {
+      "id": "key_hints_everywhere",
+      "title": "Every screen names its keys at the bottom",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: KB-07, KB-08, KB-09.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 2,
+      "depends": [
+        "kb_scrapbook_key"
+      ],
+      "spec": "Add keyHint(scene, text) to src/ui/widgets.js: one line of control text at the bottom centre (text(12, C.label), clear of the bottom-left 44 px music button), the same style as the Results line. Use it on Title ('enter: start'), the map ('↑ ↓: level · ← →: district · enter: play · s: scrapbook · f: friends · o: options · c: credits · m: music'), Outcome, Scrapbook, Friends, Credits, Options, Chat and both Ending parts, naming every key that screen really handles. The chat line adds enter (next message) and backspace (back to levels); Ending part 1 adds enter and backspace. Never name a key that does nothing there. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "export function keyHint"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "keyHint\\("
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "keyHint\\("
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "keyHint\\("
+        },
+        {
+          "contains": "src/scenes/ScrapbookScene.js",
+          "pattern": "keyHint\\("
+        },
+        {
+          "contains": "src/scenes/FriendsScene.js",
+          "pattern": "keyHint\\("
+        },
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "keyHint\\("
+        }
+      ]
+    },
+    {
+      "id": "outcome_focus_try_again",
+      "title": "After a fail, Enter means Try again",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: NP feedback.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/OutcomeScene.js: the button focused when the Outcome opens is 'Try again' after a fail, and the continue button (Next level → / Continue → / Back to levels) otherwise. Name it const defaultFocus. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "defaultFocus"
+        }
+      ]
+    },
+    {
+      "id": "options_music_row_sync",
+      "title": "Options' Music row follows the music button",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: SF-02.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/OptionsScene.js: when music is switched on or off from the bottom-left music button while Options is open, the Music row updates at once, and choosing 'On' on the row after that works. Listen for the change with a named handler syncMusicRow. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "syncMusicRow"
+        }
+      ]
+    },
+    {
+      "id": "volume_default_when_empty",
+      "title": "An empty or broken saved volume falls back to 25%",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: SF-04.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/music.js: read the saved 'lets-eat-music-volume-v1' through readSavedVolume(): a missing, empty or non-numeric value gives the 25% default; only a real number 0–1 is used (0 stays silent). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/music.js",
+          "pattern": "readSavedVolume"
+        }
+      ]
+    },
+    {
+      "id": "options_toggle_order",
+      "title": "Every On/Off option reads 'Off | On'",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: NP-02.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/settings.js OPTIONS: list music and sfx as Off then On, like High contrast and Animations, so → always turns a setting on. Stored ids ('on'/'off') and defaults stay the same. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "absent": "src/ui",
+          "pattern": "\\{ id: 'on', label: 'On' \\},\\s*\\{ id: 'off', label: 'Off' \\}"
+        }
+      ]
+    },
+    {
+      "id": "no_page_card_after_fail",
+      "title": "No Scrapbook page card after a fail (it can give a clue away)",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: WA-02.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "pending_pages_saved"
+      ],
+      "spec": "src/scenes/OutcomeScene.js: after a fail, hold the 'NEW SCRAPBOOK PAGE!' card back, as the 'new friend' card already is; it shows on the next non-fail Outcome of that level (the page stays pending, see pending_pages_saved). Name the condition const showPageCard. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "showPageCard"
+        }
+      ]
+    },
+    {
+      "id": "page_centred_brown_bars",
+      "title": "Game centred in any window, side bars in the game's brown",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: AX-01.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "index.html and src/main.js: the canvas is centred once (not by both the page CSS and Phaser's CENTER_BOTH), so a 1280x720 or 800x1000 window has equal bars, and the page background is the game's dark brown (C.bg, #2e2624) instead of #2b2233. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "index.html",
+          "pattern": "background:\\s*#2e2624"
+        }
+      ]
+    },
+    {
+      "id": "browser_zoom_scales",
+      "title": "Browser zoom makes the game bigger instead of refitting",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: AX-02.",
+      "status": "Open",
+      "impact": 1,
+      "effort": 3,
+      "depends": [],
+      "spec": "Investigate whether the game can honour browser zoom (for example a maximum fit size that grows with devicePixelRatio, or letting the canvas overflow with scrolling when zoomed), and whether CSS zoom breaks mouse input. Only build it if it stays crisp and clickable; otherwise write the finding in game/CLAUDE.md. Mark the code with const ZOOM_SUPPORT. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/main.js",
+          "pattern": "ZOOM_SUPPORT"
+        }
+      ]
+    },
+    {
+      "id": "locked_badge_contrast",
+      "title": "Locked district badges readable (4.5:1) with High contrast",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: AX-03.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/cityMap.js and src/ui/theme.js: locked badge text uses a colour C.locked that reaches at least 4.5:1 against the badge plate with High contrast on (and is clearly readable with it off). Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/cityMap.js",
+          "pattern": "C\\.locked"
+        }
+      ]
+    },
+    {
+      "id": "speaker_names_readable",
+      "title": "Speaker names on Outcome and roll call: bigger and readable",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: AX-04.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "Add nameColor(id) to src/ui/theme.js: the friend's colour normally, and a darker version that reaches 4.5:1 on the cream panel with High contrast on. Use it for speaker names on the Outcome reactions and the Ending roll call, at 13 px or larger. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "export (const|function) nameColor"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "nameColor\\("
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "nameColor\\("
+        }
+      ]
+    },
+    {
+      "id": "options_preview_line",
+      "title": "Options preview: no stray line from the name into the bubble",
+      "bible": "Bug hunt run 1 (2026-11-24, logs/bughunt/*_run1.json on master; Gabriella: fix all). Bugs: AX-05.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/OptionsScene.js: the chat preview's speaker name ('LIAM') has no stray line running into the bubble edge; draw the bubble with drawPreviewBubble() and check the screenshot. Afterwards the bug hunter's script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "drawPreviewBubble"
         }
       ]
     }
