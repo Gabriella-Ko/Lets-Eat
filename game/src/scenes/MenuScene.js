@@ -111,11 +111,13 @@ export default class MenuScene extends Phaser.Scene {
     }
     // Back to the Title screen (Gabriella, 2026-11-23): button top left, Esc or Backspace. The three left
     // buttons stack above the map's district hotspots (campus starts at about y 145 on the picture).
+    // start() goes through goScene, the guarded scene start (one switch per instance), like BootScene's.
+    const start = (key) => goScene(this, key);
     const toTitle = () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return; // Esc closes the volume panel / intro card first
-      goScene(this, 'Title');
+      start('Title');
     };
-    button(this, B.title[0], B.title[1], '← Title', () => goScene(this, 'Title'), { w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    button(this, B.title[0], B.title[1], '← Title', () => start('Title'),{ w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-ESC', toTitle);
     this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.
