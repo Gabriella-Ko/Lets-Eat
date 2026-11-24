@@ -54,14 +54,19 @@ const defaults = () => ({
 let memory = null; // fallback when storage is blocked
 let cache = null;
 
+/** The saved settings object as it is in storage right now (a plain object), else null. Never throws. */
+function readStored() {
+  try {
+    const v = JSON.parse(localStorage.getItem(KEY));
+    return v && typeof v === 'object' && !Array.isArray(v) ? v : null;
+  } catch {
+    return null; // blocked or corrupt
+  }
+}
+
 export function getSettings() {
   if (cache) return cache;
-  let saved = null;
-  try {
-    saved = JSON.parse(localStorage.getItem(KEY));
-  } catch {
-    /* blocked or corrupt */
-  }
+  const saved = readStored();
   const s = { ...defaults(), ...(memory || {}), ...(saved || {}) };
   // Drop values that no longer exist.
   for (const k of Object.keys(OPTIONS)) if (!OPTIONS[k].some((o) => o.id === s[k])) s[k] = defaults()[k];
@@ -69,16 +74,30 @@ export function getSettings() {
   return s;
 }
 
+/**
+ * Saves one setting. Re-reads what is saved first and changes only `key`, so a setting another tab
+ * saved meanwhile is kept (bug hunt SF-06, 2026-11-24).
+ */
 export function setSetting(key, id) {
-  const s = { ...getSettings(), [key]: id };
-  cache = s;
-  memory = s;
+  const stored = readStored();
+  const next = { ...(stored || memory || {}), [key]: id };
+  memory = { ...(memory || {}), [key]: id };
   try {
-    localStorage.setItem(KEY, JSON.stringify(s));
+    localStorage.setItem(KEY, JSON.stringify(next));
   } catch {
     /* kept in memory for this session */
   }
-  return s;
+  cache = null;
+  return getSettings();
+}
+
+// Another tab saved settings: drop the cache so the next read picks up its change (bug hunt SF-06).
+try {
+  window.addEventListener('storage', (e) => {
+    if (e.key === KEY || e.key === null) cache = null;
+  });
+} catch {
+  /* no window (Node tests) */
 }
 
 const opt = (key) => OPTIONS[key].find((o) => o.id === getSettings()[key]);
