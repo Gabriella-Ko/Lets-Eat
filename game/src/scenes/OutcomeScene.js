@@ -266,8 +266,11 @@ export default class OutcomeScene extends Phaser.Scene {
     markAnnounced(friends);
     this.newFriendIds = friends;
     // Pages still waiting for their card (saved, so a reload or a trip to the map before this screen keeps them).
-    // Each leaves the list only when its card shows (showNextUnlock).
-    const ids = loadPending();
+    // Each leaves the list only when its card shows (showNextUnlock). Held back after a fail, like the
+    // friend card (WA-02): the page's title can point at the callback line, which is often a clue, so the
+    // pages stay pending (card and corner note) until the next non-fail Outcome.
+    const showPageCard = cleared;
+    const ids = showPageCard ? loadPending() : [];
     this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
     if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
