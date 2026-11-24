@@ -167,7 +167,7 @@
           "file": "src/scenes/ScrapbookScene.js"
         },
         {
-          "contains": "src/scenes/ChatScene.js",
+          "contains": "src/scenes/OutcomeScene.js",
           "pattern": "unlockPage\\("
         }
       ]
