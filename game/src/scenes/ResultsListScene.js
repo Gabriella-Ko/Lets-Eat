@@ -114,7 +114,7 @@ export default class ResultsListScene extends Phaser.Scene {
         if (this.registry.get('hudPanelOpen')) return;
         goScene(this, 'Chat', { levelId: lvl.id, revealAll: true });
       });
-      // S cycles the sort (Mixed → Cheapest → A–Z), F cycles the filters (all → each SHOW chip alone, in order → all),
+      // S (keydown-S, through onKey) cycles the sort (Mixed → Cheapest → A–Z), F (keydown-F) cycles the filters (all → each SHOW chip alone, in order → all),
       // exactly like clicking the pills; the open volume panel takes them first.
       onKey(this, 'S', () => {
         if (this.registry.get('hudPanelOpen')) return;
