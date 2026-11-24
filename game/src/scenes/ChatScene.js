@@ -145,10 +145,15 @@ export default class ChatScene extends Phaser.Scene {
     onKey(this, 'DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
     // S (keydown-S, through onKey so each press acts once) stars or unstars the focused line.
     if (this.pinning) onKey(this, 'S', () => this.starFocused());
-    onKey(this, 'PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
-    onKey(this, 'PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
-    onKey(this, 'HOME', () => this.chat.scrollBy(-1e6));
-    onKey(this, 'END', () => this.chat.scrollBy(1e6));
+    // Page and Home/End scroll; in star levels the focus then moves to a visible line (KB-11).
+    const page = (dy) => {
+      this.chat.scrollBy(dy);
+      this.refocusVisible();
+    };
+    onKey(this, 'PAGE_UP', () => page(-this.chat.viewHeight * 0.8));
+    onKey(this, 'PAGE_DOWN', () => page(this.chat.viewHeight * 0.8));
+    onKey(this, 'HOME', () => page(-1e6));
+    onKey(this, 'END', () => page(1e6));
     // Backspace does what '← Levels' does, unless the volume panel or an intro card is open.
     onKey(this, 'BACKSPACE', () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return;
@@ -380,10 +385,12 @@ export default class ChatScene extends Phaser.Scene {
 
   starFocused() {
     if (this.registry.get('hudPanelOpen') || this.introOpen || !this.msgs.length) return;
-    if (this.focusIdx === null) {
-      this.focusIdx = this.msgs.length - 1;
-      this.drawFocus();
+    // KB-11: never star a line the player can't see. A focus that has scrolled away (new messages,
+    // wheel, End/PageDown) moves to the nearest fully visible line first, which is then scrolled into view.
+    if (this.focusIdx === null || !this.lineVisible(this.focusIdx)) {
+      this.focusIdx = this.nearestVisibleLine(this.focusIdx === null ? this.msgs.length - 1 : this.focusIdx);
     }
+    this.drawFocus();
     const toggle = this.pinToggles[this.focusIdx];
     if (toggle) toggle(false);
   }
@@ -395,10 +402,46 @@ export default class ChatScene extends Phaser.Scene {
     const w = CHAT.w - 24;
     this.focusRing.clear().lineStyle(4, C.highlight, 1).strokeRoundedRect(0, m.y - 4, w, m.h + 8, 12);
     this.chat.content.bringToTop(this.focusRing);
-    const offset = CHAT.y + 10 - this.chat.content.y;
-    const vh = this.chat.viewHeight;
-    if (m.y - 8 < offset) this.chat.scrollBy(m.y - 8 - offset);
-    else if (m.y + m.h + 8 > offset + vh) this.chat.scrollBy(m.y + m.h + 8 - offset - vh);
+    this.scrollToLine(this.focusIdx);
+  }
+
+  /** Content-space top of the view and its height. */
+  chatView() {
+    return { top: CHAT.y + 10 - this.chat.content.y, h: this.chat.viewHeight };
+  }
+
+  /** True when line i (with its focus ring margin, capped to the view) is fully inside the view. */
+  lineVisible(i) {
+    const m = this.msgs[i];
+    if (!m) return false;
+    const { top, h } = this.chatView();
+    const pad = m.h + 16 <= h ? 8 : 0;
+    return m.y - pad >= top - 1 && m.y + Math.min(m.h, h) + pad <= top + h + 1;
+  }
+
+  /** Index of the fully visible line closest to line i (i itself when nothing is fully visible). */
+  nearestVisibleLine(i) {
+    let best = null;
+    for (let j = 0; j < this.msgs.length; j++) {
+      if (this.lineVisible(j) && (best === null || Math.abs(j - i) < Math.abs(best - i))) best = j;
+    }
+    return best === null ? i : best;
+  }
+
+  /** Scroll so line i is fully visible with its focus ring (counts as the player scrolling). */
+  scrollToLine(i) {
+    const m = this.msgs[i];
+    if (!m) return;
+    const { top, h } = this.chatView();
+    if (m.y - 8 < top || m.h + 16 > h) this.chat.scrollBy(m.y - 8 - top);
+    else if (m.y + m.h + 8 > top + h) this.chat.scrollBy(m.y + m.h + 8 - top - h);
+  }
+
+  /** After a page or End/Home scroll in star levels, keep the focus on a line that's on screen. */
+  refocusVisible() {
+    if (!this.pinning || this.focusIdx === null || this.lineVisible(this.focusIdx)) return;
+    this.focusIdx = this.nearestVisibleLine(this.focusIdx);
+    this.drawFocus();
   }
 
   addPin(c, x, y, idx, line, onChange) {
