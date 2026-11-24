@@ -102,8 +102,9 @@ export default class ResultsListScene extends Phaser.Scene {
           this.select(card);
         }
       });
-      // R recommends only the place whose details are open (so its reviews were read first); with none open it does
-      // nothing, and the open volume panel takes it first.
+      // R (keydown-R, through onKey) recommends only the place whose details are open, exactly like "Recommend this",
+      // so its reviews were read first; with none open it does nothing (no sound, no scene change), never the focused
+      // card. The open volume panel takes it first.
       onKey(this, 'R', () => {
         if (this.registry.get('hudPanelOpen')) return;
         recommend();
