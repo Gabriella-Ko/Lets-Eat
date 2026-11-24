@@ -103,7 +103,8 @@ export default class MenuScene extends Phaser.Scene {
     if (pages) {
       const got = Object.keys(loadPages()).length;
       button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => goScene(this, 'Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
-      // S opens it too, like O, C and F (bug hunt KB-01); waits while the volume panel or an intro card is up.
+      // S opens it too, like O, C and F (bug hunt KB-01): onKey registers keydown-S (once per press), with the
+      // click sound like the button; waits while the volume panel or an intro card is up.
       onKey(this, 'S', () => {
         if (this.registry.get('hudPanelOpen') || this.introOpen) return;
         playSfx(this, 'click');
