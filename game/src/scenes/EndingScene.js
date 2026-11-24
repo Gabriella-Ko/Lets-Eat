@@ -76,7 +76,7 @@ export default class EndingScene extends Phaser.Scene {
     this.drawBackground();
     this.chat = scrollArea(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
     // Key hint (bug hunt KB-09): every key part 1 handles.
-    this.keys = keyHint(this, 'space or enter: next · a: show all · ↑ ↓: scroll · m: music · esc or backspace: skip', { x: CHAT.x + CHAT.w / 2, y: H - 28 });
+    this.keys = keyHint(this, 'space or enter: next · a: show all · ↑ ↓: scroll · m: music · esc: skip · backspace too', { x: CHAT.x + CHAT.w / 2, y: H - 28 });
 
     this.onKey('SPACE', () => this.advance());
     this.onKey('ENTER', () => (this.done() ? this.toPart2() : this.advance()));
@@ -207,7 +207,7 @@ export default class EndingScene extends Phaser.Scene {
 
   /** "The End": campaign stars, the six friends' faces and Continue. */
   showEndCard() {
-    this.keys.setHint('enter or →: continue · ↑ ↓: scroll · m: music · esc or backspace: skip');
+    this.keys.setHint('enter or →: continue · ↑ ↓: scroll · m: music · esc: skip · backspace too');
     const c = this.add.container(0, 0);
     const g = this.add.graphics();
     g.fillStyle(0x000000, 0.3).fillRoundedRect(CARD.x + 4, CARD.y + 6, CARD.w, CARD.h, 16);
@@ -266,7 +266,7 @@ export default class EndingScene extends Phaser.Scene {
     this.onKey('BACKSPACE', () => this.leave(false));
     // Key hint (bug hunt KB-09): Esc / Backspace work from the start; Enter / → join once Continue is up
     // (rollCall). Left of centre so it stays clear of the Continue button bottom right.
-    this.keys = keyHint(this, 'm: music  ·  esc or backspace: back to the map', { x: 380 });
+    this.keys = keyHint(this, 'm: music  ·  esc: back to the map  ·  backspace too', { x: 380 });
 
     this.dropPolaroid(() => this.rollCall());
   }
@@ -328,7 +328,7 @@ export default class EndingScene extends Phaser.Scene {
       const btn = button(this, W - 130, H - 44, 'Continue →', () => this.leave(), { w: 200, h: 44, fill: C.good }).setAlpha(0);
       tween(this, { targets: [thanks, btn], alpha: 1, duration: 400, onComplete: () => {
         this.ready = true;
-        this.keys.setHint('enter or →: continue  ·  m: music  ·  esc or backspace: back to the map');
+        this.keys.setHint('enter or →: continue  ·  m: music  ·  esc: back to the map  ·  backspace too');
       } });
     });
   }
