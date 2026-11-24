@@ -5,7 +5,7 @@ import { chatPaceMs, highContrast } from '../ui/settings.js';
 import { panel, button, portrait, keyHint } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
-import { unlockPage } from '../ui/scrapbookStore.js';
+import { hearPage } from '../ui/scrapbookStore.js';
 import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
 import { introSteps } from '../logic/introOrder.js';
@@ -257,9 +257,9 @@ export default class ChatScene extends Phaser.Scene {
     const idx = this.shown++;
     const line = script[idx];
     this.addMessage(line, instant, idx);
-    // Reading a callback line unlocks its scrapbook page (bible: Scrapbook > Unlock).
-    // unlockPage also queues the page's card (saved pending list).
-    if (line.callback) unlockPage(line.callback, this.level.id);
+    // Reading a callback line only remembers its scrapbook page as heard in this level (saved); the page
+    // unlocks on this level's win, in OutcomeScene (Bug hunt run 2, WA-02, WA-03).
+    if (line.callback) hearPage(line.callback, this.level.id);
     if (this.pinning ? getPins(this, this.level.id).includes(idx) : line.clue) this.notebook.add(line, idx);
     if (!instant) this.chat.scrollToBottom();
     if (this.bg && !instant && !this.done()) this.panBackground(this.bg, (this.shown - 1) / Math.max(1, script.length - 1));

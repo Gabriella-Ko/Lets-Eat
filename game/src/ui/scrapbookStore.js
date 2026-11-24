@@ -1,6 +1,6 @@
 // Unlocked scrapbook pages, saved per browser like the stars (localStorage).
-// Bible: a page unlocks the first time the player reads a line tagged with its callback id,
-// and stays unlocked across levels and replays.
+// A page unlocks on the first win (1+ stars) of a level whose chat line tagged with its callback id the
+// player read (Bug hunt run 2, WA-02, WA-03), and stays unlocked across levels and replays.
 
 import { readSaved } from './safeStore.js';
 
@@ -63,6 +63,60 @@ export function clearPending() {
   pendingMemory = null;
   try {
     localStorage.removeItem(PENDING_KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
+// Pages whose callback line was read but not yet earned (Bug hunt run 2, WA-02, WA-03). Reading the line only
+// remembers it here, per level; the page unlocks on the Outcome of a win (1+ stars) of that same level.
+// Saved, so leaving the level or reloading before the win still counts (keeps WA-01 fixed).
+const HEARD_KEY = 'lets-eat-heard-pages-v1';
+let heardMemory = null;
+
+function loadHeardAll() {
+  const saved = readSaved(HEARD_KEY, 'object'); // a damaged value counts as nothing heard
+  if (saved) return saved;
+  return { ...(heardMemory || {}) };
+}
+
+function saveHeardAll(all) {
+  heardMemory = all;
+  try {
+    localStorage.setItem(HEARD_KEY, JSON.stringify(all));
+  } catch {
+    /* storage blocked: kept in memory for this session */
+  }
+}
+
+/** Page ids heard in this level's chat, waiting for its win. */
+export function loadHeard(levelId) {
+  const ids = loadHeardAll()[levelId];
+  return Array.isArray(ids) ? ids.filter((id) => typeof id === 'string') : [];
+}
+
+/** The player read a callback line in this level's chat: remember the page (once). */
+export function hearPage(id, levelId) {
+  const all = loadHeardAll();
+  const ids = loadHeard(levelId);
+  if (ids.includes(id)) return;
+  all[levelId] = [...ids, id];
+  saveHeardAll(all);
+}
+
+/** Forget the pages heard in this level (called once the win has unlocked them). */
+export function forgetHeard(levelId) {
+  const all = loadHeardAll();
+  if (!(levelId in all)) return;
+  delete all[levelId];
+  saveHeardAll(all);
+}
+
+/** Forget every heard page (Options > Reset progress). */
+export function clearHeard() {
+  heardMemory = null;
+  try {
+    localStorage.removeItem(HEARD_KEY);
   } catch {
     /* storage blocked: nothing saved to clear */
   }

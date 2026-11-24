@@ -14,7 +14,7 @@ import { play as playSfx } from '../ui/sfx.js';
 import { endingSeen } from '../ui/endingStore.js';
 import { goScene } from '../ui/sceneSwitch.js';
 import { onKey } from '../ui/keys.js';
-import { loadPending, removePending } from '../ui/scrapbookStore.js';
+import { forgetHeard, loadHeard, loadPages, loadPending, removePending, unlockPage } from '../ui/scrapbookStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -274,8 +274,16 @@ export default class OutcomeScene extends Phaser.Scene {
     // Each leaves the list only when its card shows (showNextUnlock). Held back after a fail, like the
     // friend card (WA-02): the page's title can point at the callback line, which is often a clue, so the
     // pages stay pending (card and corner note) until the next non-fail Outcome.
+    // A win (1+ stars) unlocks the pages whose callback line was read in this level's chat (Bug hunt run 2,
+    // WA-02, WA-03); a fail unlocks nothing and keeps them heard for a later win of this level.
+    if (cleared) {
+      for (const id of loadHeard(this.level.id)) unlockPage(id, this.level.id); // queues each new page's card
+      forgetHeard(this.level.id);
+    }
     const showPageCard = cleared;
-    const ids = showPageCard ? loadPending() : [];
+    // Only this level's pages: a page unlocked in another level never shows its card here.
+    const unlockedIn = loadPages();
+    const ids = showPageCard ? loadPending().filter((id) => unlockedIn[id] === this.level.id) : [];
     this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
     if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
