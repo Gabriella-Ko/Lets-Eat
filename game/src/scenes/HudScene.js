@@ -52,11 +52,7 @@ export default class HudScene extends Phaser.Scene {
     this.toggleBg = this.add.graphics();
     const toggleZone = this.add.zone(PANEL.x + PANEL.w - 36, PANEL.y + 20, 52, 24).setInteractive({ useHandCursor: true });
     toggleZone.hudControl = 'music-toggle';
-    toggleZone.on('pointerdown', () => {
-      const on = !isEnabled();
-      setEnabled(on);
-      setSetting('music', on ? 'on' : 'off'); // keep the Options screen's Music row in step
-    });
+    toggleZone.on('pointerdown', () => this.toggleMusic());
     this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone]);
 
     // A click anywhere outside the panel box and the speaker button closes the panel: on any screen's
@@ -68,15 +64,28 @@ export default class HudScene extends Phaser.Scene {
     window.addEventListener('pointerdown', this.onWindowDown);
     this.events.once('shutdown', () => window.removeEventListener('pointerdown', this.onWindowDown));
     this.events.once('destroy', () => window.removeEventListener('pointerdown', this.onWindowDown));
-    this.input.keyboard?.on('keydown-M', () => this.setOpen(!this.open));
-    // Esc with the panel open closes it and nothing else: this scene is on top, so stopping the event keeps
-    // the screens underneath from also using it (back, closing their cards). 'hudPanelOpen' stays set until
-    // after this key press, so any screen whose Esc handler still fires can ignore it.
-    this.input.keyboard?.on('keydown-ESC', (event) => {
+    // Keyboard (bug hunt run 1, KB-05, KB-06). This scene is on top, so Phaser hands it every key first;
+    // stopPropagation() (not stopImmediatePropagation(), which only stops this scene's own handlers) keeps
+    // the screens underneath from seeing the key at all. While the panel is open: ← → volume in 10% steps,
+    // Enter / Space Music on/off, Esc or M close, and no other key reaches the screen underneath either.
+    // 'hudPanelOpen' stays set until after a closing key press, as a second guard for the screens' handlers.
+    const kb = this.input.keyboard;
+    const whileOpen = (fn) => (event) => {
       if (!this.open) return;
-      event?.stopImmediatePropagation?.();
-      this.setOpen(false, { deferFlag: true });
+      event?.stopPropagation?.();
+      fn();
+    };
+    kb?.on('keydown-M', (event) => {
+      event?.stopPropagation?.();
+      if (this.open) this.setOpen(false, { deferFlag: true });
+      else this.setOpen(true);
     });
+    kb?.on('keydown-ESC', whileOpen(() => this.setOpen(false, { deferFlag: true })));
+    kb?.on('keydown-LEFT', whileOpen(() => this.stepVolume(-1)));
+    kb?.on('keydown-RIGHT', whileOpen(() => this.stepVolume(1)));
+    kb?.on('keydown-ENTER', whileOpen(() => this.toggleMusic()));
+    kb?.on('keydown-SPACE', whileOpen(() => this.toggleMusic()));
+    kb?.on('keydown', whileOpen(() => {})); // any other key: swallowed while the panel is open
     this.events.once('shutdown', () => this.registry.set('hudPanelOpen', false));
 
     onVolume(() => this.draw());
@@ -92,6 +101,19 @@ export default class HudScene extends Phaser.Scene {
       if (inPanel || inIcon) return;
     }
     this.setOpen(false);
+  }
+
+  /** Music on/off, kept in step with the Options screen's Music row. */
+  toggleMusic() {
+    const on = !isEnabled();
+    setEnabled(on);
+    setSetting('music', on ? 'on' : 'off');
+    this.draw();
+  }
+
+  /** One 10% step of the volume, snapped to the nearest 10%. */
+  stepVolume(dir) {
+    setVolume(Math.min(10, Math.max(0, Math.round(getVolume() * 10) + dir)) / 10);
   }
 
   /** deferFlag: clear 'hudPanelOpen' only after the current key press has reached every scene. */

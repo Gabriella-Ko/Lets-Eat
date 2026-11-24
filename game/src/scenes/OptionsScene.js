@@ -54,7 +54,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.drawPreview();
     this.previewMotion();
     this.previewChatPace();
-    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose   ·   ← → change   ·   R: reset   ·   H: how to play   ·   Esc: back', text(13, C.label));
+    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose  ·  ← → change  ·  R: reset  ·  H: how to play  ·  M: music  ·  Esc: back', text(13, C.label));
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
     button(this, RESET_BTN.x, RESET_BTN.y, 'Reset progress', () => this.confirmReset(), { w: RESET_BTN.w, h: RESET_BTN.h, size: 14, fill: C.bad });
     this.resetFrame = this.add.graphics().setDepth(2); // focus ring for the Reset progress button

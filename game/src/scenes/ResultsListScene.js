@@ -131,8 +131,8 @@ export default class ResultsListScene extends Phaser.Scene {
 
     // Key hint under the list and details panels, clear of the music button in the bottom-left corner.
     this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, this.filterChips().length > 1
-      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  backspace: back to chat'
-      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  m: music  ·  backspace: back to chat'
+      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  m: music  ·  backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
 
     this.drawControls();
     this.drawCards();

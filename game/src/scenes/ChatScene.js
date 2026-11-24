@@ -202,9 +202,9 @@ export default class ChatScene extends Phaser.Scene {
   /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */
   keyHint() {
     // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
-    const lines = this.pinning ? '↑ ↓: pick a line   ·   s: star a line' : '↑ ↓: scroll';
-    if (this.done()) return `enter or →: find a place   ·   ${lines}`;
-    return `space: next   ·   P: pause   ·   A: show all   ·   ${lines}`;
+    const lines = this.pinning ? '↑ ↓: pick a line  ·  s: star a line' : '↑ ↓: scroll';
+    if (this.done()) return `enter or →: find a place  ·  ${lines}  ·  m: music`;
+    return `space: next  ·  P: pause  ·  A: show all  ·  ${lines}  ·  m: music`;
   }
 
   /**
