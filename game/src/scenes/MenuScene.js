@@ -101,6 +101,12 @@ export default class MenuScene extends Phaser.Scene {
     if (pages) {
       const got = Object.keys(loadPages()).length;
       button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
+      // S opens it too, like O, C and F (bug hunt KB-01); waits while the volume panel or an intro card is up.
+      this.input.keyboard?.on('keydown-S', () => {
+        if (this.registry.get('hudPanelOpen') || this.introOpen) return;
+        playSfx(this, 'click');
+        this.scene.start('Scrapbook');
+      });
     }
     // Back to the Title screen (Gabriella, 2026-11-23): button top left, Esc or Backspace. The three left
     // buttons stack above the map's district hotspots (campus starts at about y 145 on the picture).
