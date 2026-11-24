@@ -40,6 +40,9 @@ const STEPS = [
 ];
 
 const KEY = 'lets-eat-how-to-play-v1';
+/** Clicks and keys are ignored this long after the overlay opens, so the second click of a double-click
+ * on a level card can't skip it at once. */
+export const OPEN_GRACE_MS = 400;
 let memory = false; // fallback when storage is blocked
 
 /** Has the player already seen How to play? */
@@ -73,11 +76,13 @@ export function clearSeen() {
 
 /**
  * Three-step overlay over the whole screen. Next with the button or Enter, skip at any step with the
- * button or Esc; onDone runs once, as it closes. Marks How to play as seen. Returns a handle with close().
+ * button or Esc; onDone runs once, as it closes. Marks How to play as seen when it closes (not as it opens), so a reload
+ * while it is up shows it again. Clicks and keys in the first OPEN_GRACE_MS do nothing. Returns a handle with close().
  * Every interactive part has isIntro set, so ChatScene's tap-to-skip ignores clicks on it.
  */
 export function showHowToPlay(scene, onDone = () => {}) {
-  markSeen();
+  const openedAt = Date.now();
+  const settling = () => Date.now() - openedAt < OPEN_GRACE_MS;
   const root = scene.add.container(0, 0).setDepth(1000);
   const shade = scene.add.rectangle(W / 2, H / 2, W, H, C.bg, 0.78);
   const blocker = scene.add.zone(W / 2, H / 2, W, H).setInteractive();
@@ -134,7 +139,7 @@ export function showHowToPlay(scene, onDone = () => {}) {
   };
 
   function advance() {
-    if (closed) return;
+    if (closed || settling()) return;
     if (step < STEPS.length - 1) {
       step++;
       drawStep();
@@ -143,8 +148,9 @@ export function showHowToPlay(scene, onDone = () => {}) {
 
   const kb = scene.input.keyboard;
   function close() {
-    if (closed) return;
+    if (closed || settling()) return;
     closed = true;
+    markSeen();
     kb?.off('keydown-ENTER', advance);
     kb?.off('keydown-ESC', close);
     pulse?.stop();

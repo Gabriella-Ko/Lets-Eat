@@ -14,6 +14,9 @@ export const CHAPTER_INTROS = {
 };
 
 const KEY = 'lets-eat-chapter-intros-v1';
+/** Clicks and keys are ignored this long after the card opens, so the second click of a double-click
+ * on a level card can't close it at once. */
+export const OPEN_GRACE_MS = 400;
 let memory = {}; // fallback when storage is blocked
 
 function load() {
@@ -53,7 +56,8 @@ export function clearSeen() {
 
 /**
  * Card over the whole screen. Continue with a click, Enter or Esc; onDone runs once, as it closes.
- * Marks the chapter as seen. Returns a handle with close(), or null for an unknown chapter (onDone runs at once).
+ * Marks the chapter as seen when it closes (not as it opens), so a reload while it is up shows it again.
+ * Clicks and keys in the first OPEN_GRACE_MS do nothing. Returns a handle with close(), or null for an unknown chapter (onDone runs at once).
  */
 export function showChapterIntro(scene, chapter, onDone = () => {}) {
   const info = CHAPTER_INTROS[chapter];
@@ -61,8 +65,7 @@ export function showChapterIntro(scene, chapter, onDone = () => {}) {
     onDone();
     return null;
   }
-  markSeen(chapter);
-
+  const openedAt = Date.now();
   const root = scene.add.container(0, 0).setDepth(1000);
   const shade = scene.add.rectangle(W / 2, H / 2, W, H, C.bg, 0.82);
   const blocker = scene.add.zone(W / 2, H / 2, W, H).setInteractive();
@@ -93,8 +96,9 @@ export function showChapterIntro(scene, chapter, onDone = () => {}) {
   const kb = scene.input.keyboard;
   let closed = false;
   const close = () => {
-    if (closed) return;
+    if (closed || Date.now() - openedAt < OPEN_GRACE_MS) return;
     closed = true;
+    markSeen(chapter);
     kb?.off('keydown-ENTER', close);
     kb?.off('keydown-ESC', close);
     blocker.disableInteractive();
@@ -104,7 +108,7 @@ export function showChapterIntro(scene, chapter, onDone = () => {}) {
   // Close on release, and only for a press that began on the card, so the click that opened it
   // (a menu heading) doesn't close it again and the closing click doesn't also skip a chat message.
   let pressed = false;
-  blocker.on('pointerdown', () => (pressed = true));
+  blocker.on('pointerdown', () => (pressed = Date.now() - openedAt >= OPEN_GRACE_MS));
   blocker.on('pointerup', () => pressed && close());
   kb?.on('keydown-ENTER', close);
   kb?.on('keydown-ESC', close);
