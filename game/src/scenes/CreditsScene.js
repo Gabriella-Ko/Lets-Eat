@@ -1,8 +1,8 @@
 import Phaser from 'phaser';
-import { C, W, H, pixel, text, readText } from '../ui/theme.js';
+import { C, W, H, pixel, text, readText, contrast } from '../ui/theme.js';
 import { panel, button, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
-import { reduceMotion } from '../ui/settings.js';
+import { reduceMotion, highContrast } from '../ui/settings.js';
 import { goScene } from '../ui/sceneSwitch.js';
 import { onKey } from '../ui/keys.js';
 
@@ -10,6 +10,17 @@ const ART_KEY = 'title_screen'; // same picture as TitleScene (manifest group 'u
 const SHADE_ALPHA = 0.45; // dark see-through layer over the picture (calms it so the plain panel text reads)
 const HEADER_FADE_H = 110; // extra dark fade behind the header
 const PANEL_ALPHA = 0.55; // credits panel lets the picture show through
+const HC_PANEL_ALPHA = 1; // High contrast: the panel is fully opaque, so the list reads on plain panel colour (bug hunt AX-07)
+const MIN_CONTRAST = 4.5; // WCAG AA for the Artist / Source / License lines
+
+/** Colour of the Artist / Source / License lines, read when drawing: C.inkSoft, darkened if needed to reach 4.5:1 on C.panel. */
+function detailColor() {
+  let c = C.inkSoft;
+  for (let i = 0; i < 40 && contrast(c, C.panel) < MIN_CONTRAST; i++) {
+    c = (Math.floor(((c >> 16) & 255) * 0.94) << 16) | (Math.floor(((c >> 8) & 255) * 0.94) << 8) | Math.floor((c & 255) * 0.94);
+  }
+  return c;
+}
 const BOX = { x: 60, y: 96, w: W - 120, h: 500 };
 const PAD = 28;
 const ROLL_PX_PER_S = 24; // slow, readable roll
@@ -55,7 +66,8 @@ export default class CreditsScene extends Phaser.Scene {
       // Translucent panel, so the picture shows through around and behind the list.
       const g = this.add.graphics();
       g.fillStyle(0x000000, 0.18).fillRoundedRect(BOX.x + 3, BOX.y + 5, BOX.w, BOX.h, 16);
-      g.fillStyle(C.panel, PANEL_ALPHA).fillRoundedRect(BOX.x, BOX.y, BOX.w, BOX.h, 16);
+      const hcPanelAlpha = highContrast() ? HC_PANEL_ALPHA : PANEL_ALPHA; // fully opaque with High contrast
+      g.fillStyle(C.panel, hcPanelAlpha).fillRoundedRect(BOX.x, BOX.y, BOX.w, BOX.h, 16);
     } else {
       panel(this, BOX.x, BOX.y, BOX.w, BOX.h);
     }
@@ -72,9 +84,10 @@ export default class CreditsScene extends Phaser.Scene {
       area.content.add(this.add.graphics().fillStyle(C.accent, 1).fillRect(PAD, y, 60, 3));
       y += 14;
     };
+    const detail = highContrast() ? detailColor() : C.inkSoft;
     const line = (label, value) => {
       if (value === null || value === undefined || value === '') return;
-      add(this.add.text(PAD + 12, y, `${label}: ${value}`, readText(14, C.inkSoft, wrap)), 3);
+      add(this.add.text(PAD + 12, y, `${label}: ${value}`, readText(14, detail, wrap)), 3);
     };
 
     heading(`MUSIC (${music.length})`);
