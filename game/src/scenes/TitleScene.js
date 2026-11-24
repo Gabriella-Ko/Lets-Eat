@@ -4,6 +4,7 @@ import { button, keyHint } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const ART_KEY = 'title_screen'; // assets/art/title_screen.jpg via tools/slice_portraits.py (manifest group 'ui')
 const PLATE_H = 170; // dark fade over the sky; the friends' faces in the lower half stay clear
@@ -48,8 +49,8 @@ export default class TitleScene extends Phaser.Scene {
     tween(this, { targets: keys, alpha: 0.85, delay: 300, duration: 400, ease: 'Sine.easeOut' });
 
     this.input.on('pointerdown', () => this.go());
-    this.input.keyboard.on('keydown-ENTER', () => this.go());
-    this.input.keyboard.on('keydown-SPACE', () => this.go());
+    onKey(this, 'ENTER', () => this.go());
+    onKey(this, 'SPACE', () => this.go());
   }
 
   go() {

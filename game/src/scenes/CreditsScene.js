@@ -4,6 +4,7 @@ import { panel, button, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { reduceMotion } from '../ui/settings.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const ART_KEY = 'title_screen'; // same picture as TitleScene (manifest group 'ui')
 const SHADE_ALPHA = 0.45; // dark see-through layer over the picture (calms it so the plain panel text reads)
@@ -133,14 +134,14 @@ export default class CreditsScene extends Phaser.Scene {
     if (kb) {
       const page = area.viewHeight - 40;
       const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
-      kb.on('keydown-ESC', back);
-      kb.on('keydown-BACKSPACE', back);
-      kb.on('keydown-UP', () => area.scrollBy(-40));
-      kb.on('keydown-DOWN', () => area.scrollBy(40));
-      kb.on('keydown-PAGE_UP', () => area.scrollBy(-page));
-      kb.on('keydown-PAGE_DOWN', () => area.scrollBy(page));
-      kb.on('keydown-HOME', () => area.scrollBy(-1e6));
-      kb.on('keydown-END', () => area.scrollBy(1e6));
+      onKey(this, 'ESC', back);
+      onKey(this, 'BACKSPACE', back);
+      onKey(this, 'UP', () => area.scrollBy(-40));
+      onKey(this, 'DOWN', () => area.scrollBy(40));
+      onKey(this, 'PAGE_UP', () => area.scrollBy(-page));
+      onKey(this, 'PAGE_DOWN', () => area.scrollBy(page));
+      onKey(this, 'HOME', () => area.scrollBy(-1e6));
+      onKey(this, 'END', () => area.scrollBy(1e6));
     }
   }
 

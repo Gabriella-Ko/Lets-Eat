@@ -8,6 +8,7 @@ import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m0..m7. The default ('current') is her pick, M6 with the
 // grid boxes; m0 is the layout before it.
@@ -103,7 +104,7 @@ export default class MenuScene extends Phaser.Scene {
       const got = Object.keys(loadPages()).length;
       button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => goScene(this, 'Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
       // S opens it too, like O, C and F (bug hunt KB-01); waits while the volume panel or an intro card is up.
-      this.input.keyboard?.on('keydown-S', () => {
+      onKey(this, 'S', () => {
         if (this.registry.get('hudPanelOpen') || this.introOpen) return;
         playSfx(this, 'click');
         goScene(this, 'Scrapbook');
@@ -118,17 +119,17 @@ export default class MenuScene extends Phaser.Scene {
       start('Title');
     };
     button(this, B.title[0], B.title[1], '← Title', () => start('Title'),{ w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-ESC', toTitle);
-    this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
+    onKey(this, 'ESC', toTitle);
+    onKey(this, 'BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.
     button(this, B.options[0], B.options[1], 'Options', () => goScene(this, 'Options'), { w: B.options[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-O', () => goScene(this, 'Options'));
+    onKey(this, 'O', () => goScene(this, 'Options'));
     // Credits: music and art (bible: Game identity > Audio).
     button(this, B.credits[0], B.credits[1], 'Credits', () => goScene(this, 'Credits'), { w: B.credits[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-C', () => goScene(this, 'Credits'));
+    onKey(this, 'C', () => goScene(this, 'Credits'));
     // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
     button(this, B.friends[0], B.friends[1], 'Friends', () => goScene(this, 'Friends'), { w: B.friends[2], h: 34, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
-    this.input.keyboard?.on('keydown-F', () => goScene(this, 'Friends'));
+    onKey(this, 'F', () => goScene(this, 'Friends'));
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);
@@ -200,11 +201,11 @@ export default class MenuScene extends Phaser.Scene {
     };
     this.introOpen = false;
     const when = (fn) => () => !this.introOpen && fn();
-    kb.on('keydown-UP', when(() => move(-1)));
-    kb.on('keydown-DOWN', when(() => move(1)));
-    kb.on('keydown-LEFT', when(() => district(-1)));
-    kb.on('keydown-RIGHT', when(() => district(1)));
-    kb.on('keydown-ENTER', () => {
+    onKey(this, 'UP', when(() => move(-1)));
+    onKey(this, 'DOWN', when(() => move(1)));
+    onKey(this, 'LEFT', when(() => district(-1)));
+    onKey(this, 'RIGHT', when(() => district(1)));
+    onKey(this, 'ENTER', () => {
       if (this.introOpen) return;
       const card = this.levelCards?.[this.focus];
       if (!card) return;

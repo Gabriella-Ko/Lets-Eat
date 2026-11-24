@@ -13,6 +13,7 @@ import { recordPick } from '../ui/visitStore.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { endingSeen } from '../ui/endingStore.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 import { loadPending, removePending } from '../ui/scrapbookStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
@@ -145,15 +146,14 @@ export default class OutcomeScene extends Phaser.Scene {
       : btns.findIndex(([, , fill]) => fill === C.good);
     this.focus = defaultFocus >= 0 ? defaultFocus : btns.length - 1;
     this.focusRing = this.add.graphics().setDepth(UNLOCK_DEPTH + 5);
-    const kb = this.input.keyboard;
     const move = (d) => {
       const list = this.activeButtons();
       if (!list.length) return;
       this.setFocus((this.focusIndex() + d + list.length) % list.length);
     };
-    kb.on('keydown-LEFT', () => move(-1));
-    kb.on('keydown-RIGHT', () => move(1));
-    kb.on('keydown-ENTER', () => {
+    onKey(this, 'LEFT', () => move(-1));
+    onKey(this, 'RIGHT', () => move(1));
+    onKey(this, 'ENTER', () => {
       if (this.recap && !this.unlockCard) return this.closeRecap();
       const b = this.activeButtons()[this.focusIndex()];
       if (!b) return;
@@ -164,7 +164,7 @@ export default class OutcomeScene extends Phaser.Scene {
     // Key hint under the buttons (bug hunt KB-07). Esc only closes the clue recap or an unlock card.
     keyHint(this, '← →: choose  ·  enter: press  ·  esc: close recap or card  ·  m: music', { y: H - 10 });
 
-    this.input.keyboard.on('keydown-ESC', () => {
+    onKey(this, 'ESC', () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel
       if (this.unlockCard) this.showNextUnlock(); else this.closeRecap();
     });

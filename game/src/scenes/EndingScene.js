@@ -9,6 +9,7 @@ import { starTotals } from '../logic/progress.js';
 import { markEndingSeen } from '../ui/endingStore.js';
 import { ending } from '../content.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Ending (bible: Campaign structure > Maya's send-off; Gabriella 2026-11-23: options 1 and 2 merged, chat first,
 // then the photo page). Part 1: the final group chat, the next morning. Part 2: the group photo and roll call
@@ -47,14 +48,8 @@ export default class EndingScene extends Phaser.Scene {
   create() {
     // Seen is recorded only when the player leaves part 2 for the map (leave()), so a reload replays it.
     this.leaving = false;
-    const kb = this.input.keyboard;
-    // Phaser can hand the same keydown to a listener twice when keys come quickly; act once per native event.
-    let last = null;
-    this.onKey = (name, fn) => kb?.on(`keydown-${name}`, (e) => {
-      if (e === last || this.registry.get('hudPanelOpen')) return;
-      last = e;
-      fn(e);
-    });
+    // Once per key press, ignored while the volume panel is open (src/ui/keys.js).
+    this.onKey = (name, fn) => onKey(this, name, fn);
     if (this.part === 1) this.createChat();
     else this.createPhotoPage();
     this.events.once('shutdown', () => this.timer?.remove(false));

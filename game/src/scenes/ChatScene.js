@@ -12,6 +12,7 @@ import { introSteps } from '../logic/introOrder.js';
 import { recordOpened } from '../ui/openedStore.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -121,34 +122,34 @@ export default class ChatScene extends Phaser.Scene {
     this.input.on('pointermove', (p) => this.trackHover(p));
     this.input.on('gameout', () => this.trackHover(null));
 
-    const kb = this.input.keyboard;
-    kb.on('keydown-SPACE', () => this.next());
+    // Keys go through onKey (src/ui/keys.js): once per press, ignored while the volume panel is open.
+    onKey(this, 'SPACE', () => this.next());
     // Enter shows the next message; once the whole chat is shown, Enter or → goes to 'Find a place'.
     // The keyboard twin of the "Find a place →" button clicks like it (findPlace() ignores keys while blocked).
     const findByKey = () => {
       if (!this.registry.get('hudPanelOpen') && !this.introOpen) playSfx(this, 'click');
       this.findPlace();
     };
-    kb.on('keydown-ENTER', () => (this.done() ? findByKey() : this.next()));
-    kb.on('keydown-RIGHT', () => {
+    onKey(this, 'ENTER', () => (this.done() ? findByKey() : this.next()));
+    onKey(this, 'RIGHT', () => {
       if (this.done()) findByKey();
     });
-    kb.on('keydown-A', () => this.showAll());
-    kb.on('keydown-P', () => {
+    onKey(this, 'A', () => this.showAll());
+    onKey(this, 'P', () => {
       if (this.done() || this.introOpen) return;
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
     // Star levels: ↑ ↓ move the line focus and S stars it; other levels: ↑ ↓ scroll.
-    kb.on('keydown-UP', () => (this.pinning ? this.moveFocus(-1) : this.chat.scrollBy(-KEY_STEP)));
-    kb.on('keydown-DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
-    if (this.pinning) kb.on('keydown-S', () => this.starFocused());
-    kb.on('keydown-PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
-    kb.on('keydown-PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
-    kb.on('keydown-HOME', () => this.chat.scrollBy(-1e6));
-    kb.on('keydown-END', () => this.chat.scrollBy(1e6));
+    onKey(this, 'UP', () => (this.pinning ? this.moveFocus(-1) : this.chat.scrollBy(-KEY_STEP)));
+    onKey(this, 'DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
+    if (this.pinning) onKey(this, 'S', () => this.starFocused());
+    onKey(this, 'PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
+    onKey(this, 'PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
+    onKey(this, 'HOME', () => this.chat.scrollBy(-1e6));
+    onKey(this, 'END', () => this.chat.scrollBy(1e6));
     // Backspace does what '← Levels' does, unless the volume panel or an intro card is open.
-    kb.on('keydown-BACKSPACE', () => {
+    onKey(this, 'BACKSPACE', () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return;
       goScene(this, 'Menu');
     });

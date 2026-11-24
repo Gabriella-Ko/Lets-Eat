@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { C, H, pixel, text } from '../ui/theme.js';
 import { start as startMusic, getVolume, setVolume, isEnabled, setEnabled, onVolume } from '../ui/music.js';
 import { setSetting } from '../ui/settings.js';
+import { onKey } from '../ui/keys.js';
 
 const ICON = { x: 26, y: H - 22, r: 14 };
 const PANEL = { x: 10, y: H - 108, w: 236, h: 72 };
@@ -75,16 +76,18 @@ export default class HudScene extends Phaser.Scene {
       event?.stopPropagation?.();
       fn();
     };
-    kb?.on('keydown-M', (event) => {
+    // onKey (src/ui/keys.js) acts once per key press; { panel: true } because these keys belong to the panel.
+    const panelKey = (name, fn) => onKey(this, name, fn, { panel: true });
+    panelKey('M', (event) => {
       event?.stopPropagation?.();
       if (this.open) this.setOpen(false, { deferFlag: true });
       else this.setOpen(true);
     });
-    kb?.on('keydown-ESC', whileOpen(() => this.setOpen(false, { deferFlag: true })));
-    kb?.on('keydown-LEFT', whileOpen(() => this.stepVolume(-1)));
-    kb?.on('keydown-RIGHT', whileOpen(() => this.stepVolume(1)));
-    kb?.on('keydown-ENTER', whileOpen(() => this.toggleMusic()));
-    kb?.on('keydown-SPACE', whileOpen(() => this.toggleMusic()));
+    panelKey('ESC', whileOpen(() => this.setOpen(false, { deferFlag: true })));
+    panelKey('LEFT', whileOpen(() => this.stepVolume(-1)));
+    panelKey('RIGHT', whileOpen(() => this.stepVolume(1)));
+    panelKey('ENTER', whileOpen(() => this.toggleMusic()));
+    panelKey('SPACE', whileOpen(() => this.toggleMusic()));
     kb?.on('keydown', whileOpen(() => {})); // any other key: swallowed while the panel is open
     this.events.once('shutdown', () => this.registry.set('hudPanelOpen', false));
 

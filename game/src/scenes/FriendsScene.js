@@ -7,6 +7,7 @@ import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Layout (Gabriella picked draft B3, 2026-11-23): bookmark tabs down the left, one per friend, sticking out of a
 // spiral notebook page; the selected friend's polaroid is taped on the left of the page, with their name, needs
@@ -72,11 +73,11 @@ export default class FriendsScene extends Phaser.Scene {
       last = e;
       this.select((this.sel + d + this.cards.length) % this.cards.length, d);
     };
-    this.input.keyboard?.on('keydown-UP', step(-1));
-    this.input.keyboard?.on('keydown-DOWN', step(1));
+    onKey(this, 'UP', step(-1));
+    onKey(this, 'DOWN', step(1));
     const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
-    this.input.keyboard?.on('keydown-ESC', back);
-    this.input.keyboard?.on('keydown-BACKSPACE', back);
+    onKey(this, 'ESC', back);
+    onKey(this, 'BACKSPACE', back);
     keyHint(this, '↑ ↓: friend  ·  m: music  ·  esc or backspace: back to levels', { y: H - 9 }); // bug hunt KB-07
   }
 

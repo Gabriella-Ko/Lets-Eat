@@ -6,6 +6,7 @@ import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceM
 import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene, isSwitching } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -68,23 +69,23 @@ export default class OptionsScene extends Phaser.Scene {
     // While How to play or the reset check is up, its own keys act and this screen's keys wait.
     // The arrow-key focus runs through the rows and then the Reset progress button (focus === ROWS.length).
     this.helpOpen = false;
-    const kb = this.input.keyboard;
+    // onKey (src/ui/keys.js) acts once per key press and waits while the volume panel is open.
     const when = (fn) => () => { if (!this.helpOpen) fn(); };
     const stops = ROWS.length + 1;
-    kb.on('keydown-UP', when(() => { this.focus = (this.focus + stops - 1) % stops; this.drawFocus(); }));
-    kb.on('keydown-DOWN', when(() => { this.focus = (this.focus + 1) % stops; this.drawFocus(); }));
-    kb.on('keydown-LEFT', when(() => this.step(-1)));
-    kb.on('keydown-RIGHT', when(() => this.step(1)));
-    kb.on('keydown-H', when(() => this.howToPlay()));
-    kb.on('keydown-R', when(() => { if (!this.registry.get('hudPanelOpen')) { this.focus = ROWS.length; this.drawFocus(); } }));
-    kb.on('keydown-ENTER', when(() => {
-      if (this.focus !== ROWS.length || this.registry.get('hudPanelOpen')) return;
+    onKey(this, 'UP', when(() => { this.focus = (this.focus + stops - 1) % stops; this.drawFocus(); }));
+    onKey(this, 'DOWN', when(() => { this.focus = (this.focus + 1) % stops; this.drawFocus(); }));
+    onKey(this, 'LEFT', when(() => this.step(-1)));
+    onKey(this, 'RIGHT', when(() => this.step(1)));
+    onKey(this, 'H', when(() => this.howToPlay()));
+    onKey(this, 'R', when(() => { this.focus = ROWS.length; this.drawFocus(); }));
+    onKey(this, 'ENTER', when(() => {
+      if (this.focus !== ROWS.length) return;
       playSfx(this, 'click');
       this.confirmReset();
     }));
-    const back = when(() => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); });
-    kb.on('keydown-ESC', back);
-    kb.on('keydown-BACKSPACE', back);
+    const back = when(() => goScene(this, 'Menu'));
+    onKey(this, 'ESC', back);
+    onKey(this, 'BACKSPACE', back);
   }
 
   /**
@@ -115,9 +116,9 @@ export default class OptionsScene extends Phaser.Scene {
     const title = this.add.text(W / 2, by + 30, 'RESET PROGRESS?', pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);
     const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages, friends met and the places you have been, and shows How to play and the chapter cards again. Your options and music stay as they are.',
       readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
-    const kb = this.input.keyboard;
     const keys = {};
-    const unbind = () => Object.entries(keys).forEach(([ev, fn]) => kb.off(ev, fn));
+    let unbinders = [];
+    const unbind = () => { unbinders.forEach((off) => off()); unbinders = []; };
     const close = () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc belongs to the volume panel
       unbind();
@@ -143,20 +144,20 @@ export default class OptionsScene extends Phaser.Scene {
       ring.strokeRoundedRect(cx - 80 - 6, btnY - 20 - 6, 160 + 12, 40 + 12, 12);
     };
     drawRing();
-    const free = (fn) => () => { if (!this.registry.get('hudPanelOpen')) fn(); };
-    keys['keydown-ESC'] = close;
-    keys['keydown-LEFT'] = free(() => { this.resetFocus = 0; drawRing(); });
-    keys['keydown-RIGHT'] = free(() => { this.resetFocus = 1; drawRing(); });
-    keys['keydown-ENTER'] = free(() => {
+    // onKey ignores these while the volume panel is open, and acts once per key press.
+    keys.ESC = close;
+    keys.LEFT = () => { this.resetFocus = 0; drawRing(); };
+    keys.RIGHT = () => { this.resetFocus = 1; drawRing(); };
+    keys.ENTER = () => {
       playSfx(this, 'click');
       if (this.resetFocus === 1) reset(); else close();
-    });
+    };
     box.add([card, title, body, ring, cancelBtn, resetBtn]);
     layer.add([shade, box]);
     // bind on the next tick, so the Enter that opened this check doesn't also press a button in it
     this.time.delayedCall(0, () => {
       if (!layer.active) return;
-      Object.entries(keys).forEach(([ev, fn]) => kb.on(ev, fn));
+      unbinders = Object.entries(keys).map(([name, fn]) => onKey(this, name, fn));
     });
     shade.setAlpha(0);
     box.setAlpha(0).setY(16);

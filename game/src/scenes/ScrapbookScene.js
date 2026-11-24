@@ -8,6 +8,7 @@ import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs above the right page, one per
 // page, badge only (her pick R1); the book's cover edge takes the open page's bookmark colour.
@@ -67,11 +68,11 @@ export default class ScrapbookScene extends Phaser.Scene {
         last = e;
         this.step(d);
       };
-      kb.on('keydown-LEFT', move(-1));
-      kb.on('keydown-RIGHT', move(1));
+      onKey(this, 'LEFT', move(-1));
+      onKey(this, 'RIGHT', move(1));
       const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
-      kb.on('keydown-ESC', back);
-      kb.on('keydown-BACKSPACE', back);
+      onKey(this, 'ESC', back);
+      onKey(this, 'BACKSPACE', back);
     }
     keyHint(this, '← →: turn the page  ·  m: music  ·  esc or backspace: back to levels');// bug hunt KB-07
 

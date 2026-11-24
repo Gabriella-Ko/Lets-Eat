@@ -8,6 +8,7 @@ import { pastVisit } from '../logic/beenHere.js';
 import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Getters, so the colours follow the High contrast option.
 const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
@@ -90,9 +91,9 @@ export default class ResultsListScene extends Phaser.Scene {
         playSfx(this, 'click');
         goScene(this, 'Outcome', { levelId: lvl.id, venueId: this.selected.id });
       };
-      kb.on('keydown-UP', () => move(-1));
-      kb.on('keydown-DOWN', () => move(1));
-      kb.on('keydown-ENTER', () => {
+      onKey(this, 'UP', () => move(-1));
+      onKey(this, 'DOWN', () => move(1));
+      onKey(this, 'ENTER', () => {
         const card = this.cards[this.focus];
         if (!card) return;
         if (this.selected === card.venue) recommend();
@@ -103,23 +104,23 @@ export default class ResultsListScene extends Phaser.Scene {
       });
       // R recommends only the place whose details are open (so its reviews were read first); with none open it does
       // nothing, and the open volume panel takes it first.
-      kb.on('keydown-R', () => {
+      onKey(this, 'R', () => {
         if (this.registry.get('hudPanelOpen')) return;
         recommend();
       });
       // Backspace does what "← Back to chat" does; the open volume panel takes it first.
-      kb.on('keydown-BACKSPACE', () => {
+      onKey(this, 'BACKSPACE', () => {
         if (this.registry.get('hudPanelOpen')) return;
         goScene(this, 'Chat', { levelId: lvl.id, revealAll: true });
       });
       // S cycles the sort (Mixed → Cheapest → A–Z), F cycles the filters (all → each SHOW chip alone, in order → all),
       // exactly like clicking the pills; the open volume panel takes them first.
-      kb.on('keydown-S', () => {
+      onKey(this, 'S', () => {
         if (this.registry.get('hudPanelOpen')) return;
         const i = SORTS.findIndex((s) => s.id === this.view.sort);
         this.setView({ sort: SORTS[(i + 1) % SORTS.length].id });
       });
-      kb.on('keydown-F', () => {
+      onKey(this, 'F', () => {
         if (this.registry.get('hudPanelOpen')) return;
         const chips = this.filterChips();
         if (chips.length < 2) return;
