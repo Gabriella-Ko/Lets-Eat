@@ -6,6 +6,8 @@ One page for every draft:
     (assets/drafts/gemini_outcome_prompts.json, images saved in assets/drafts/gemini/level_XX/).
   - Scrapbook pictures, one per callback, also made by hand in Gemini
     (assets/drafts/gemini_scrapbook_prompts.json, images saved in assets/drafts/gemini/scrapbook/).
+  - Ending art: the ending scene's two pictures by hand in Gemini
+    (assets/drafts/gemini_ending_prompts.json, images saved in assets/drafts/gemini/ending/).
   - Screen layouts: earlier rounds of the Outcome, Friends and Scrapbook screens, the map layout drafts and the
     ending scene drafts
     (assets/drafts/screens/screens.json, screenshots and GIFs beside it).
@@ -32,6 +34,8 @@ OUTCOME_PROMPTS = DRAFTS / "gemini_outcome_prompts.json"
 GEMINI_DIR = DRAFTS / "gemini"
 SCRAPBOOK_PROMPTS = DRAFTS / "gemini_scrapbook_prompts.json"
 SCRAPBOOK_DIR = GEMINI_DIR / "scrapbook"
+ENDING_PROMPTS = DRAFTS / "gemini_ending_prompts.json"
+ENDING_DIR = GEMINI_DIR / "ending"
 PROGRESS = ROOT / "logs" / "gemini_prompts_progress.json"
 SCREENS = DRAFTS / "screens" / "screens.json"
 EXTS = (".png", ".jpg", ".jpeg", ".webp")
@@ -84,6 +88,24 @@ def scrapbook_rows():
             "id": it["id"], "title": it.get("title", it["id"]), "friend": it.get("friend", ""),
             "first_level": it.get("first_level", ""), "people": it.get("people", []), "stem": stem, "drafts": n,
             "prompt": it["prompt"], "variations": variations, "saved": saved,
+            "refs": [r.replace("\\", "/") for r in it["refs"]],
+        })
+    return rows
+
+
+
+def ending_rows():
+    if not ENDING_PROMPTS.exists():
+        return []
+    rows = []
+    for it in json.loads(ENDING_PROMPTS.read_text("utf-8"))["pictures"]:
+        stem = Path(it["file"]).stem
+        n = int(it.get("drafts", 3))
+        variations = (it.get("variations") or [])[:n] + [""] * max(0, n - len(it.get("variations") or []))
+        saved = sum(1 for v in range(1, n + 1) if any((ENDING_DIR / f"{stem}_v{v}{e}").exists() for e in EXTS))
+        rows.append({
+            "id": it["id"], "title": it.get("title", it["id"]), "people": it.get("people", []), "stem": stem,
+            "drafts": n, "prompt": it["prompt"], "variations": variations, "saved": saved,
             "refs": [r.replace("\\", "/") for r in it["refs"]],
         })
     return rows
@@ -187,7 +209,7 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 </style></head><body>
 <header>
   <h1>ART ARTIFACTS</h1>
-  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button><button data-tab="s-outcome">Outcome screen</button><button data-tab="s-friends">Friends screen</button><button data-tab="s-scrapbook">Scrapbook screen</button><button data-tab="s-map">Map layouts</button><button data-tab="s-ending">Ending</button><button data-tab="fonts">Fonts</button></div>
+  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button><button data-tab="ending-art">Ending art</button><button data-tab="s-outcome">Outcome screen</button><button data-tab="s-friends">Friends screen</button><button data-tab="s-scrapbook">Scrapbook screen</button><button data-tab="s-map">Map layouts</button><button data-tab="s-ending">Ending</button><button data-tab="fonts">Fonts</button></div>
   <span class="stat" id="stat"></span>
   <progress id="bar" value="0" max="1"></progress>
   <span class="stat"><b id="picks">0</b> picked</span>
@@ -224,6 +246,18 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
     </div>
     <div id="slist" class="slist"></div>
   </section>
+  <section id="ending-art">
+    <div class="how">
+      <b>Ending scene pictures, by hand in the free Gemini app (Nano Banana 2).</b> Two 3:2 landscape pictures: the coast photo Maya posts in the final group chat, and the group photo on the last scrapbook page. For each draft:
+      <ol>
+        <li>Open a <b>new chat</b> in Gemini. Attach the card's reference images (click one to open it full size).</li>
+        <li>Click <b>copy prompt</b> for that draft (v1, v2…), paste and send. Ask for fixes in the same chat if needed.</li>
+        <li>Download it into <span class="code">assets/drafts/gemini/ending/</span> and name it with <b>copy name</b> (no extension).</li>
+        <li>Click <b>Reload</b>. Then pick one per picture and "Copy my picks".</li>
+      </ol>
+    </div>
+    <div id="elist" class="slist"></div>
+  </section>
   <section id="s-outcome"><div class="how">Every round of Outcome screen drafts, oldest first. The green <b>in the game</b> card is the one that was picked. Click a picture to open it full size.</div><div class="rounds"></div></section>
   <section id="s-friends"><div class="how">Every round of Friends page drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
   <section id="s-scrapbook"><div class="how">Every round of Scrapbook screen drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
@@ -247,7 +281,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const toast = (t) => { const e = $("#toast"); e.textContent = t; setTimeout(() => (e.textContent = ""), 1800); };
 const copy = async (text, what) => { try { await navigator.clipboard.writeText(text); toast(what + " copied"); } catch (e) { prompt("Copy:", text); } };
 const stamp = Date.now();
-const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0], "s-outcome": [0, 0], "s-friends": [0, 0], "s-scrapbook": [0, 0], "s-map": [0, 0], "s-ending": [0, 0], fonts: [0, 0] };
+const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0], "ending-art": [0, 0], "s-outcome": [0, 0], "s-friends": [0, 0], "s-scrapbook": [0, 0], "s-map": [0, 0], "s-ending": [0, 0], fonts: [0, 0] };
 const TABS = Object.keys(counts);
 
 /** Prompt, per-draft copy buttons and reference thumbnails, shared by Outcomes and Scrapbook cards. */
@@ -406,6 +440,31 @@ for (const r of DATA.scrapbook) {
   sl.append(card); scards.push(card);
 }
 
+// ---- Ending art (Gemini, by hand)
+const el = $("#elist");
+const ecards = [];
+if (!(DATA.ending || []).length) el.innerHTML = `<p class="empty">No ending prompts yet: the art generator agent writes them.</p>`;
+for (const r of DATA.ending || []) {
+  const card = document.createElement("div"); card.className = "card ocard"; card.id = `ending-${r.id}`;
+  card.dataset.need = r.drafts;
+  card.innerHTML = `
+    <div>
+      <div class="top"><h3></h3></div>
+      <p class="sub"></p>
+      <div class="prompt"></div>
+      <div class="dlist"></div>
+      <div style="font-size:12px;color:var(--soft)">Attach these references:</div>
+      <div class="refs"></div>
+    </div>
+    <div class="slots"></div>`;
+  $("h3", card).textContent = r.title;
+  $(".sub", card).textContent = `${r.stem}.png · in the picture: ${r.people.join(", ")}`;
+  fillPrompt(card, r);
+  const bases = Array.from({ length: r.drafts }, (_, i) => `gemini/ending/${r.stem}_v${i + 1}`);
+  $(".slots", card).append(draftRow(card, `ending:${r.id}`, bases, EXTS, "wide", "ending-art"));
+  el.append(card); ecards.push(card);
+}
+
 // ---- Screen layouts: earlier rounds (Outcome, Friends, Scrapbook) and the map layout drafts
 const SCREENS = DATA.screens || {};
 for (const [key, sec] of [["outcome", "s-outcome"], ["friends", "s-friends"], ["scrapbook", "s-scrapbook"], ["map", "s-map"], ["ending", "s-ending"]]) {
@@ -520,6 +579,7 @@ function settle() {
   $("#stat").innerHTML = tab.startsWith("s-") ? `<b>${t}</b> ${word}` : `<b>${d}</b> / <b>${t}</b> ${word}`;
   $("#bar").max = t || 1; $("#bar").value = d;
   markNext(scards);
+  markNext(ecards);
   const next = markNext(ocards);
   for (const [level, lb] of Object.entries(levelBodies)) {
     const cs = ocards.filter((c) => c.dataset.level === level);
@@ -528,7 +588,7 @@ function settle() {
     lb.h.classList.toggle("complete", got >= need);
   }
   const hide = $("#hide").checked;
-  [...ocards, ...scards].forEach((c) => c.classList.toggle("hidden", hide && (+c.dataset.saved || 0) >= +c.dataset.need));
+  [...ocards, ...scards, ...ecards].forEach((c) => c.classList.toggle("hidden", hide && (+c.dataset.saved || 0) >= +c.dataset.need));
 }
 function show(t) {
   tab = t;
@@ -536,7 +596,7 @@ function show(t) {
   document.querySelectorAll(".tabs button").forEach((b) => b.classList.toggle("on", b.dataset.tab === t));
   for (const id of TABS) $("#" + id).classList.toggle("hidden", t !== id);
   document.querySelectorAll(".only-pl").forEach((e) => e.classList.toggle("hidden", t !== "pixellab"));
-  $("label.only-oc").classList.toggle("hidden", t !== "outcomes" && t !== "scrapbook");
+  $("label.only-oc").classList.toggle("hidden", t !== "outcomes" && t !== "scrapbook" && t !== "ending-art");
   $("#bar").classList.toggle("hidden", t.startsWith("s-"));
   $("#collapse").classList.toggle("hidden", t !== "outcomes");
   settle();
@@ -566,11 +626,14 @@ def build():
         "pixellab": pixellab_groups(),
         "outcomes": [{k: v for k, v in r.items() if k != "saved"} for r in rows],
         "scrapbook": [{k: v for k, v in p.items() if k != "saved"} for p in pages],
+        "ending": [{k: v for k, v in e.items() if k != "saved"} for e in ending_rows()],
         "screens": json.loads(SCREENS.read_text("utf-8")) if SCREENS.exists() else {},
     }
     DRAFTS.mkdir(parents=True, exist_ok=True)
     if pages:
         SCRAPBOOK_DIR.mkdir(parents=True, exist_ok=True)
+    if ENDING_PROMPTS.exists():
+        ENDING_DIR.mkdir(parents=True, exist_ok=True)
     for level in {r["level"] for r in rows}:
         (GEMINI_DIR / level).mkdir(parents=True, exist_ok=True)
     page = DRAFTS / "index.html"

@@ -1,0 +1,58 @@
+{
+  "pictures": [
+    {
+      "id": "ending_group_photo",
+      "title": "Maya's send-off",
+      "level": "level_20",
+      "use": "Polaroid on the last Scrapbook page",
+      "people": [
+        "maya",
+        "liam",
+        "mina",
+        "roxy",
+        "cyrus",
+        "brooke"
+      ],
+      "file": "ending_group_photo.png",
+      "refs": [
+        "assets/art/maya_sheet.jpg",
+        "assets/art/liam_sheet.jpg",
+        "assets/art/mina_sheet.jpg",
+        "assets/art/roxy_sheet.jpg",
+        "assets/art/cyrus_sheet.jpg",
+        "assets/art/brooke_sheet.jpg",
+        "assets/art/level_20_result_breakwater.jpg"
+      ],
+      "prompt": "Make one landscape 3:2 picture in the same pixel-art look as the attached Breakwater restaurant image: cozy pixel art, soft outlines, warm golden evening light, a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, skin #e8a98a, slate blue #5d7985, sage #6f8f5a, and for the water and evening sky only: #385e73, #6d8b99, #7bbbcf, #ae684a. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at about 350x230 pixels: six clear faces, few props, large simple shapes.\n\nWho: exactly six friends posing together for a group photo, all looking straight at the camera, waist up, squeezed close around one end of a single wooden table. Maya in the centre, the guest of honour, matching the attached Maya character sheet exactly (long wavy dark navy hair with purple streaks, two buns on top, warm brown skin), in the black-and-white varsity jacket over a purple top she wears in the attached Breakwater image. Liam, matching the attached Liam character sheet exactly (dark charcoal knit beanie, short blond hair, dark olive-brown button shirt). Mina, matching the attached Mina character sheet exactly (long wavy dark brown hair, orange ribbon bow, small drop earrings, rosy cheeks), in a mustard-yellow top. Roxy, matching the attached Roxy character sheet exactly (long wild wavy ash-blonde hair, woven rust-brown headband with small coloured beads, warm tan skin), in a rust sleeveless top with a pendant necklace. Cyrus, matching the attached Cyrus character sheet exactly (wavy black hair, black rectangular glasses, light blue button-up shirt with rolled sleeves, silver wristwatch). Brooke, matching the attached Brooke character sheet exactly (chin-length bob, black at the roots fading to golden blonde ends, warm tan skin), in an olive-green jacket over a striped top. Nobody else in focus; staff and other diners, if any, are small and blurred in the background.\n\nWhat: the crew's send-off dinner the night before Maya's coast trip, the only night all six are at one table. Everyone is happy and celebrating: big smiles, arms around shoulders, Liam and Roxy leaning in from the sides, Brooke the proud organiser with a hand on Maya's shoulder, Cyrus relaxed and grinning, Mina smiling softly. Maya is beaming, a little teary with joy. Keep the table simple: a few plates of orecchiette pasta with broccoli, a basket of bread and a couple of glasses of pale lemon granita, low in the foreground so they never cover a face.\n\nWhere: Breakwater, the Italian kitchen in an old boathouse at the end of the harbour arm in the Waterfront district, at the end of summer. Behind the friends, an open wide door shows the harbour at sunset: golden low sun over the water, a few moored sailboats, a string of small bunting flags. Soft, blurred, warm.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+      "drafts": 4,
+      "variations": [
+        "",
+        "Make it a selfie: Brooke holds the phone at arm's length from the left edge, everyone crowded in tight around Maya, faces larger in the frame, the sunset harbour filling the space between their heads.",
+        "Camera a little wider and lower, so the friends stand in a row behind the table with the open boathouse door and the sunset over the water clearly framed behind Maya in the centre.",
+        "The moment just after the photo: all six are mid-laugh, clinking glasses of lemon granita together above the table, Maya in the middle with her glass raised highest."
+      ]
+    },
+    {
+      "id": "ending_coast_photo",
+      "title": "made it!! look at this view",
+      "level": "level_20",
+      "use": "Photo Maya posts in the group chat the next morning, shown inside a chat bubble",
+      "people": [
+        "maya"
+      ],
+      "file": "ending_coast_photo.png",
+      "refs": [
+        "assets/art/maya_sheet.jpg",
+        "assets/art/level_17_result_sea_glass.jpg"
+      ],
+      "prompt": "Make one landscape 3:2 picture in the same pixel-art look as the attached waterfront image: cozy pixel art, soft outlines, warm palette. Use that image for style only: this scene is a bright, sunny morning, not an evening. a limited palette in these colours: cream #f3e4d0, warm brown #3f3533, orange #d9822b, gold #f2c14e, rust #8a4a2c, skin #e8a98a, slate blue #5d7985, sage #6f8f5a, and for the sea and sky: #385e73, #6d8b99, #7bbbcf, #9fb6bf. Full-bleed scene to every edge, with no border, frame, tape, paper edge or polaroid edge. It must read clearly at about 300x190 pixels, small inside a chat bubble: a simple, bold composition, a clear horizon, large simple shapes, one face at most.\n\nWho: Maya alone, taking a selfie in the foreground on one side of the frame, head and shoulders, matching the attached Maya character sheet exactly (long wavy dark navy hair with purple streaks, two buns on top, warm brown skin), in a black-and-white varsity jacket. She is grinning wide with pure joy, eyes bright, a little windswept. No one else in the picture.\n\nWhat: the morning after her send-off dinner, Maya has finally made it to the coast she saved for all year, and this is the photo she sends her friends. It feels bright, hopeful and free: the trip is real.\n\nWhere: a quiet, sunny stretch of coast far from the city, clearly a different place from the city harbour: a wide view of a sandy cove with turquoise and deep blue sea, gentle white surf, grassy cliffs or dunes, a clear blue sky with a few soft clouds and a couple of gulls. No city buildings, no harbour, no boats moored at a quay. Clean morning sunlight.\n\nNo text anywhere: no words, letters, numbers, signs with writing, menus with writing or speech bubbles.",
+      "drafts": 4,
+      "variations": [
+        "",
+        "The view alone, no people: the sunny cove from a cliff-top path, dune grass in the foreground, sand and turquoise sea curving away to the horizon.",
+        "Maya seen from just behind, standing at a wooden fence on a cliff-top path, arms flung wide toward the sea, her two hair buns and purple-streaked waves blowing in the wind, the cove filling the rest of the frame.",
+        "Camera closer on the selfie: Maya's happy face large on the left third, squinting a little in the sun with a peace sign, the bright sea and beach behind her on the right."
+      ]
+    }
+  ]
+}
