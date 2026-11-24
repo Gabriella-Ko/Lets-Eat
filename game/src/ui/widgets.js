@@ -2,6 +2,7 @@ import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pix
 import { clearPages } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
+import { clearEndingSeen } from './endingStore.js';
 import { play as playSfx } from './sfx.js';
 
 /** Rounded panel. Returns the Graphics object. */
@@ -167,4 +168,5 @@ export function resetProgress() {
   clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
   clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
   clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback
+  clearEndingSeen(); // 'lets-eat-ending-seen-v1', so the ending plays again
 }

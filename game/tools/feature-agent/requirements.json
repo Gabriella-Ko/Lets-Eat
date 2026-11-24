@@ -1182,6 +1182,109 @@
           "pattern": "sfxOn"
         }
       ]
+    },
+    {
+      "id": "ending_scene",
+      "title": "Ending: the final group chat (next morning), then the group photo + roll call on a scrapbook page",
+      "bible": "Campaign structure > Maya's send-off (level_20): the finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke, the only level with all six friends; the Trip Fund storyline ends there. Ending (Gabriella, 2026-11-23): options 1 and 2 merged into one ending, chat first, then the photo page.",
+      "status": "Proposed",
+      "impact": 4,
+      "effort": 4,
+      "depends": [],
+      "spec": "src/scenes/EndingScene.js (scene key 'Ending'), one scene in two parts, matching the drafts on the Art Artifacts 'Ending' tab (assets/drafts/screens/ending/ on master: v2 then v1). PART 1, THE FINAL GROUP CHAT: the Chat screen's look (chapter 4 backdrop chat_bg_chapter_04, portraits, names, white bubbles, typing bubbles at the Chat pace setting), headed 'THE GROUP CHAT' with 'the next morning'. Maya's first message carries a photo inside her bubble (art ending_coast_photo); everyone reacts; the last message thanks the player. When every line is shown, a 'The End' card on the right shows the campaign stars (earned / max), the six friends' faces and a Continue button (Enter / → also continue). The chat scrolls when it overflows. PART 2, THE GROUP PHOTO + ROLL CALL: an open book like the Scrapbook, titled 'THE SEND-OFF' / 'chapter 4 · waterfront · the end'. Left page: a polaroid of all six at the send-off table (art ending_group_photo) dropped and taped on, with a handwritten caption. Right page: 'ROLL CALL', one closing line per friend with their portrait and name colour, appearing one by one. Then 'thanks for always knowing where to eat.' and Continue, which returns to the map. LINES: from content/campaign/ending.json, bundled like the level files in src/content.js (an optional import.meta.glob, so a missing file is not an error). Schema: { \"chat\": [{ \"speaker\", \"emotion\", \"text\", \"photo\"?: true }], \"roll_call\": { \"<friend id>\": { \"text\", \"emotion\" } }, \"caption\", \"generated_by\", \"edited_by\" }. The game never writes these lines itself: until the narrative writer has written the file, show grey placeholder bubbles/rows reading '[line to come]' so the layout can be tested. ART: ending_coast_photo and ending_group_photo through the asset manifest like other art; until they exist, the striped 'ART GOES HERE' placeholder naming the file (as the Scrapbook does). WHEN: it plays once, after Continue on the level_20 Outcome screen when the pick was perfect; a flag in localStorage ('lets-eat-ending-seen-v1') stops it repeating, and Reset progress clears it. Esc / Backspace skip to part 2, then to the map. Dev shortcut: ?scene=Ending. Animations follow the Animations option (off: things simply appear). Sounds through src/ui/sfx.js: outcome_perfect as the polaroid lands, badge_stuck for the tape, click on Continue. Keep the bottom-left 44 px free for the music button. Register the scene in src/main.js, add it to the browser boot test, and add an 'Ending' bullet to game/CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/scenes/EndingScene.js"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "ending_coast_photo"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "ending_group_photo"
+        },
+        {
+          "contains": "src/content.js",
+          "pattern": "content/campaign/ending"
+        },
+        {
+          "contains": "src/main.js",
+          "pattern": "EndingScene"
+        }
+      ]
+    },
+    {
+      "id": "ending_addon_badge",
+      "title": "Ending add-on: an 'ending' badge",
+      "bible": "Campaign structure > Maya's send-off (level_20): the finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke, the only level with all six friends; the Trip Fund storyline ends there. Ending scene ideas (Gabriella, 2026-11-23), not chosen yet.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "ending_pick"
+      ],
+      "spec": "ADD-ON NOT CHOSEN YET: waits on 'ending_pick', which is not a requirement on purpose, so the feature agent never builds this until Gabriella picks an ending (then the orchestrator removes the gate from the chosen ones). A badge for finishing the campaign (art badge_ending), shown in the ending and kept afterwards. The ending plays once, right after the level_20 Outcome screen of a winning pick (not on replays unless the player chooses to see it again), and is skippable with Esc / Backspace / Enter. New chat lines come from the content pipeline (narrative-writer), never written in game code; new art (group photo, coast photo) is Gabriella's, with a placeholder until it exists. Animations follow the Animations option; sounds use src/ui/sfx.js.",
+      "detect": [
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "badge_ending"
+        }
+      ]
+    },
+    {
+      "id": "ending_addon_credits",
+      "title": "Ending add-on: roll into the Credits afterwards",
+      "bible": "Campaign structure > Maya's send-off (level_20): the finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke, the only level with all six friends; the Trip Fund storyline ends there. Ending scene ideas (Gabriella, 2026-11-23), not chosen yet.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 1,
+      "depends": [
+        "ending_pick"
+      ],
+      "spec": "ADD-ON NOT CHOSEN YET: waits on 'ending_pick', which is not a requirement on purpose, so the feature agent never builds this until Gabriella picks an ending (then the orchestrator removes the gate from the chosen ones). After the ending's Continue, the Credits screen opens (then back to the map as usual). The ending plays once, right after the level_20 Outcome screen of a winning pick (not on replays unless the player chooses to see it again), and is skippable with Esc / Backspace / Enter. New chat lines come from the content pipeline (narrative-writer), never written in game code; new art (group photo, coast photo) is Gabriella's, with a placeholder until it exists. Animations follow the Animations option; sounds use src/ui/sfx.js.",
+      "detect": [
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "'Credits'"
+        }
+      ]
+    },
+    {
+      "id": "ending_addon_replay",
+      "title": "Ending add-on: a 'Replay for 3 stars' prompt",
+      "bible": "Campaign structure > Maya's send-off (level_20): the finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke, the only level with all six friends; the Trip Fund storyline ends there. Ending scene ideas (Gabriella, 2026-11-23), not chosen yet.",
+      "status": "Proposed",
+      "impact": 2,
+      "effort": 2,
+      "depends": [
+        "ending_pick"
+      ],
+      "spec": "ADD-ON NOT CHOSEN YET: waits on 'ending_pick', which is not a requirement on purpose, so the feature agent never builds this until Gabriella picks an ending (then the orchestrator removes the gate from the chosen ones). If any level has fewer than 3 stars, the ending offers 'Replay for 3 stars', listing those levels; picking one starts it. The ending plays once, right after the level_20 Outcome screen of a winning pick (not on replays unless the player chooses to see it again), and is skippable with Esc / Backspace / Enter. New chat lines come from the content pipeline (narrative-writer), never written in game code; new art (group photo, coast photo) is Gabriella's, with a placeholder until it exists. Animations follow the Animations option; sounds use src/ui/sfx.js.",
+      "detect": [
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "Replay for 3 stars"
+        }
+      ]
+    },
+    {
+      "id": "ending_addon_sfx",
+      "title": "Ending add-on: sound effects in the ending",
+      "bible": "Campaign structure > Maya's send-off (level_20): the finale is the crew's send-off dinner before Maya's coast trip, organised by Brooke, the only level with all six friends; the Trip Fund storyline ends there. Ending scene ideas (Gabriella, 2026-11-23), not chosen yet.",
+      "status": "Proposed",
+      "impact": 1,
+      "effort": 1,
+      "depends": [
+        "ending_pick"
+      ],
+      "spec": "ADD-ON NOT CHOSEN YET: waits on 'ending_pick', which is not a requirement on purpose, so the feature agent never builds this until Gabriella picks an ending (then the orchestrator removes the gate from the chosen ones). Uses the existing sounds: outcome_perfect for the photo, badge_stuck when something is stuck on, page_turn for page turns. The ending plays once, right after the level_20 Outcome screen of a winning pick (not on replays unless the player chooses to see it again), and is skippable with Esc / Backspace / Enter. New chat lines come from the content pipeline (narrative-writer), never written in game code; new art (group photo, coast photo) is Gabriella's, with a placeholder until it exists. Animations follow the Animations option; sounds use src/ui/sfx.js.",
+      "detect": [
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "playSfx"
+        }
+      ]
     }
   ]
 }
