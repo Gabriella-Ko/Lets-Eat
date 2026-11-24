@@ -14,6 +14,7 @@ import OptionsScene from './scenes/OptionsScene.js';
 import CreditsScene from './scenes/CreditsScene.js';
 import FriendsScene from './scenes/FriendsScene.js';
 import HudScene from './scenes/HudScene.js';
+import EndingScene from './scenes/EndingScene.js';
 
 // Canvas text needs both fonts loaded before the first scene draws.
 const FAMILIES = ['Jersey 10', 'Lexend'];
@@ -26,5 +27,5 @@ window.__game = new Phaser.Game({
   height: H,
   backgroundColor: C.bg,
   scale: { mode: Phaser.Scale.FIT, autoCenter: Phaser.Scale.CENTER_BOTH },
-  scene: [BootScene, TitleScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene, CreditsScene, FriendsScene, HudScene],
+  scene: [BootScene, TitleScene, MenuScene, ChatScene, ResultsListScene, OutcomeScene, ScrapbookScene, OptionsScene, CreditsScene, FriendsScene, EndingScene, HudScene],
 });

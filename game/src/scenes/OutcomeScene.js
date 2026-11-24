@@ -11,6 +11,7 @@ import { newFriends, markAnnounced } from '../ui/friendsAnnounced.js';
 import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { endingSeen } from '../ui/endingStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -119,7 +120,11 @@ export default class OutcomeScene extends Phaser.Scene {
       btns.push(['Try again', () => this.scene.start('Results', { levelId: lvl.id }), C.accent]);
     }
     if (score.result !== 'fail') {
-      btns.push(this.nextLevel
+      // The finale: a perfect level_20 pick goes on to the Ending, once (lets-eat-ending-seen-v1).
+      const toEnding = lvl.id === 'level_20' && score.result === 'perfect' && !endingSeen();
+      btns.push(toEnding
+        ? ['Continue →', () => this.scene.start('Ending'), C.good]
+        : this.nextLevel
         ? ['Next level →', () => this.scene.start('Chat', { levelId: this.nextLevel.id }), C.good]
         : ['Back to levels', () => this.scene.start('Menu'), C.good]);
     }

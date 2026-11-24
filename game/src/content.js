@@ -9,4 +9,8 @@ const registries = Object.values(import.meta.glob('../../content/registry/*.json
 export const { levels, problems } = buildLevels(files, registries);
 export { rules };
 
+// The ending's lines (narrative writer). Optional: until the file exists the Ending scene shows placeholders.
+const endingFiles = import.meta.glob('../../content/campaign/ending.json', { eager: true, import: 'default' });
+export const ending = Object.values(endingFiles)[0] || null;
+
 if (problems.length) console.warn("Let's Eat! content problems:\n" + problems.join('\n'));
