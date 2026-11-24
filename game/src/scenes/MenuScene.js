@@ -8,12 +8,28 @@ import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 
-// Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m1|m2|m3, default = today's layout.
+// Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m0..m7. The default ('current') is her pick, M6 with the
+// grid boxes; m0 is the layout before it.
 //   m1: buttons in a row across the top, a smaller map on the left with the chapter under it, the level list on the right
 //   m2: the map edge to edge across the top, the level cards on a dark strip along the bottom
 //   m3: a sidebar with every button, a bigger map beside it, tall level cards with the friends' faces
+// Round 2 with the new map (city_map_v3, taller): maxH caps the map's height so the cards still fit.
+//   m4: m1's button row across the top, the map centred under it, level cards in a row (as now)
+//   m5: m3's sidebar, the biggest map, level cards in a row (as now)
+// Round 3 with city_map_v4 (no painted signs; the badges carry the district names):
+//   m6: the map edge to edge (its top strip trimmed), every button in a row in the top-left corner over the map,
+//       level cards in a row on a bottom strip, each with the friends' faces
+//   m7: as m6, with the buttons stacked in a column in the top-left corner
 const MENU_LAYOUTS = {
+  // The menu (Gabriella's pick, 2026-11-24: M6, bottom middle, lined up): the map edge to edge with its top banner
+  // trimmed, every button in a row in the top-left corner, four equal district boxes with the badge at the bottom
+  // middle of each, level cards with the friends' faces on a bottom strip.
   current: {
+    map: { x: 0, y: 0, w: W, cropTop: 122, grid: true }, cards: 'faces', row: { left: 60, right: W - 24 }, strip: true,
+    btn: { title: [62, 26, 100], options: [170, 26, 104], credits: [282, 26, 104], friends: [394, 26, 104], scrap: [530, 26, 152] },
+    total: [W - 16, 14],
+  },
+  m0: {
     map: { x: 24, y: 12, w: W - 48 }, maxH: 498, cards: 'row', row: { left: 60, right: W - 24 },
     btn: { title: [90, 30, 140], options: [90, 72, 140], credits: [90, 114, 140], scrap: [W - 100, 40, 168], friends: [W - 100, 112, 168] },
     total: [W - 30, 72],
@@ -24,14 +40,34 @@ const MENU_LAYOUTS = {
     total: [632, 72],
   },
   m2: {
-    map: { x: 0, y: 0, w: W }, cards: 'row', row: { left: 60, right: W - 24 }, strip: true,
+    map: { x: 0, y: 0, w: W }, maxH: 520, cards: 'row', row: { left: 60, right: W - 24 }, strip: true,
     btn: { title: [90, 30, 140], options: [90, 72, 140], credits: [90, 114, 140], scrap: [W - 100, 30, 168], friends: [W - 100, 72, 168] },
     total: [W - 30, 100],
   },
   m3: {
-    map: { x: 206, y: 14, w: W - 222 }, cards: 'tall', row: { left: 206, right: W - 16 }, sidebar: 190,
+    map: { x: 206, y: 14, w: W - 222 }, maxH: 425, cards: 'tall', row: { left: 206, right: W - 16 }, sidebar: 190,
     btn: { title: [95, 34, 160], options: [95, 80, 160], credits: [95, 126, 160], friends: [95, 190, 160], scrap: [95, 236, 160] },
     total: [150, 290],
+  },
+  m4: {
+    map: { x: 24, y: 58, w: W - 48 }, maxH: 440, cards: 'row', row: { left: 60, right: W - 24 },
+    btn: { title: [94, 28, 140], options: [244, 28, 140], credits: [394, 28, 140], friends: [W - 280, 28, 168], scrap: [W - 100, 28, 168] },
+    total: [W - 30, 62],
+  },
+  m5: {
+    map: { x: 206, y: 14, w: W - 222 }, maxH: 484, cards: 'row', row: { left: 206, right: W - 16 }, sidebar: 190,
+    btn: { title: [95, 34, 160], options: [95, 80, 160], credits: [95, 126, 160], friends: [95, 190, 160], scrap: [95, 236, 160] },
+    total: [150, 290],
+  },
+  m6: {
+    map: { x: 0, y: 0, w: W, cropTop: 122 }, cards: 'faces', row: { left: 60, right: W - 24 }, strip: true,
+    btn: { title: [62, 26, 100], options: [170, 26, 104], credits: [282, 26, 104], friends: [394, 26, 104], scrap: [530, 26, 152] },
+    total: [W - 16, 14],
+  },
+  m7: {
+    map: { x: 0, y: 0, w: W, cropTop: 122 }, cards: 'faces', row: { left: 60, right: W - 24 }, strip: true,
+    btn: { title: [84, 26, 152], options: [84, 66, 152], credits: [84, 106, 152], friends: [84, 146, 152], scrap: [84, 186, 152] },
+    total: [W - 16, 14],
   },
 };
 const menuLayout = () => MENU_LAYOUTS[new URLSearchParams(window.location.search).get('menuLayout')] || MENU_LAYOUTS.current;
@@ -178,7 +214,7 @@ export default class MenuScene extends Phaser.Scene {
     this.levelCards = [];
     this.focus = 0;
     if (!lvls.length) return;
-    if (this.art && this.ML.cards === 'row') return this.showChapterRow(c, chapter, lvls, totals, progress);
+    if (this.art && (this.ML.cards === 'row' || this.ML.cards === 'faces')) return this.showChapterRow(c, chapter, lvls, totals, progress);
     if (this.art && this.ML.cards === 'tall') return this.showChapterTall(c, chapter, lvls, totals, progress);
     const L = this.art ? this.ML.list : { left: 520, right: W - 24, top: 140 };
     const left = L.left;
@@ -319,10 +355,18 @@ export default class MenuScene extends Phaser.Scene {
       const x = left + i * (cw + gap);
       c.add(panel(this, x, top, cw, ch, C.panel, 8));
       c.add(this.add.text(x + 14, top + 16, `LEVEL ${lvl.number}`, pixel(17, C.ink, { fontStyle: 'bold' })).setOrigin(0, 0.5));
-      c.add(this.add.text(x + 14, top + 36, `${lvl.guests.length} friends`, text(12, C.inkSoft)).setOrigin(0, 0.5));
+      // Narrow cards (m5's sidebar leaves less room): the stars get their own line under the level name.
+      const narrow = cw < 160 && this.ML.cards !== 'faces';
+      if (this.ML.cards === 'faces') {
+        // m6/m7: the friends coming along, as a row of faces under the level name
+        const n = lvl.guests.length, size = 26, step = Math.min(size + 4, (cw - 28 - size) / Math.max(1, n - 1));
+        lvl.guests.forEach((id, k) => c.add(portrait(this, x + 14 + size / 2 + k * step, top + 52, size, id, 'HAPPY')));
+      } else {
+        c.add(this.add.text(x + 14, top + (narrow ? 62 : 36), `${lvl.guests.length} friends`, text(12, C.inkSoft)).setOrigin(0, 0.5));
+      }
       const g = this.add.graphics();
       const best = progress[lvl.id] || 0;
-      for (let s = 0; s < 3; s++) star(g, x + cw - 64 + s * 22, top + 18, 8, s < best);
+      for (let s = 0; s < 3; s++) star(g, narrow ? x + 22 + s * 22 : x + cw - 64 + s * 22, top + (narrow ? 40 : 18), 8, s < best);
       c.add(g);
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
       hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });

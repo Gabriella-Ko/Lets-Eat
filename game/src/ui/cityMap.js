@@ -101,54 +101,94 @@ export function cityMap(scene, opts) {
   return { select, unlocked: LAYOUT.map((d) => d.chapter).filter((ch) => openChapters.has(ch)) };
 }
 
-// ---- the real map (assets/art/City Map.jpg -> texture 'city_map', 1312x816; picked draft city_map_v3)
+// ---- the real map (assets/art/City Map.jpg -> texture 'city_map', 1312x816; draft city_map_v4, no painted district signs)
 
 /**
- * Where each district sits on the picture, in the picture's own pixels: the click area, and where its star
- * badge goes (next to the district's painted label). Scaled to whatever size the map is drawn at.
+ * Where each district sits on the picture, in the picture's own pixels: the click area, and where its badge
+ * goes. The picture has no painted district signs, so the badge carries the name as well as the stars.
+ * Scaled to whatever size the map is drawn at.
  */
 export const ART_DISTRICTS = [
-  { chapter: 1, district: 'campus', area: [30, 110, 640, 440], badge: [262, 150] },
-  { chapter: 2, district: 'downtown', area: [650, 120, 1290, 470], badge: [1010, 210] },
-  { chapter: 3, district: 'night_market', area: [20, 445, 690, 800], badge: [187, 550] },
-  { chapter: 4, district: 'waterfront', area: [700, 480, 1290, 800], badge: [978, 710] },
+  { chapter: 1, district: 'campus', name: 'CAMPUS', area: [30, 60, 640, 440], badge: [390, 330] },
+  { chapter: 2, district: 'downtown', name: 'DOWNTOWN', area: [650, 120, 1290, 470], badge: [1010, 230], rowBottom: 440 },
+  { chapter: 3, district: 'night_market', name: 'NIGHT MARKET', area: [20, 445, 690, 800], badge: [220, 545] },
+  { chapter: 4, district: 'waterfront', name: 'WATERFRONT', area: [700, 480, 1290, 800], badge: [980, 760] },
 ];
+
+// Dev server only: ?badges=bl|mid|br|bm puts every district badge at the bottom left, middle, bottom right or
+// bottom middle of its area; split puts the west ones bottom left and the east ones bottom right
+// (badge placement drafts for Gabriella, 2026-11-23/24).
+const BADGES_AT = import.meta.env.DEV ? new URLSearchParams(window.location.search).get('badges') : null;
+// grid: equal boxes instead of the painted areas, as [column, row].
+const GRID = { campus: [0, 0], downtown: [1, 0], night_market: [0, 1], waterfront: [1, 1] };
 
 /** True when the menu should use the full-width picture layout. */
 export const hasCityMapArt = (scene) => scene.textures.exists(CITY_MAP_KEY);
 
-/** The picture drawn to fill opts.w (its height follows the picture's shape), with district hotspots on it. */
+/**
+ * The picture drawn to fill opts.w (its height follows the picture's shape), with district hotspots on it.
+ * opts.cropTop (picture pixels) trims the top strip off, so a full-width map can fit a shorter space.
+ */
 function artMap(scene, opts) {
   const { x, y, w, levels = [], open = [], totals = { byChapter: {} }, onSelect } = opts;
   const openChapters = new Set(open.map((l) => l.chapter));
+  const crop = opts.cropTop || 0;
+  // Equal boxes in a 2x2 grid (opts.grid, the default layout since Gabriella picked it, 2026-11-24); a ?badges= draft overrides.
+  const useGrid = BADGES_AT ? BADGES_AT === 'grid' : !!opts.grid;
   const img = scene.add.image(x, y, CITY_MAP_KEY).setOrigin(0);
   const k = w / img.width;
-  img.setScale(k);
-  const h = img.height * k;
+  img.setScale(k).setCrop(0, crop, img.width, img.height - crop).setPosition(x, y - crop * k);
+  const h = (img.height - crop) * k;
   const frame = scene.add.graphics();
   frame.lineStyle(4, C.bar, 1).strokeRoundedRect(x - 2, y - 2, w + 4, h + 4, 10);
   const px = (ix) => x + ix * k;
-  const py = (iy) => y + iy * k;
+  const py = (iy) => y + (Math.max(iy, crop) - crop) * k;
 
   const rings = {};
   for (const d of ART_DISTRICTS) {
     const district = levels.find((l) => l.chapter === d.chapter)?.district || d.district;
     const unlocked = openChapters.has(d.chapter);
     const [ax1, ay1, ax2, ay2] = d.area;
-    const rx = px(ax1), ry = py(ay1), rw = (ax2 - ax1) * k, rh = (ay2 - ay1) * k;
+    let rx = px(ax1), ry = py(ay1), rw = (ax2 - ax1) * k, rh = py(ay2) - ry; // py clamps a trimmed top
+    if (useGrid) {
+      // Grid: four equal boxes in a 2x2 grid (below the button row), badge at the bottom middle of each.
+      const gm = 10, gg = 8, gt = 52;
+      const gw = (w - 2 * gm - gg) / 2, gh = (h - gt - gm - gg) / 2;
+      const [col, row] = GRID[d.district];
+      rx = x + gm + col * (gw + gg); ry = y + gt + row * (gh + gg); rw = gw; rh = gh;
+    }
     if (!unlocked) scene.add.graphics().fillStyle(0x000000, 0.58).fillRoundedRect(rx, ry, rw, rh, 12);
 
-    // Badge next to the painted label: star total when open, LOCKED when not.
-    const bx = px(d.badge[0]), by = py(d.badge[1]);
+    // Badge: the district's name, then its star total when open, LOCKED when not.
     const t = totals.byChapter[d.chapter] || { earned: 0, max: 0 };
     const label = unlocked ? `${t.earned} / ${t.max}` : 'LOCKED';
-    const txt = scene.add.text(0, 0, label, pixel(14, unlocked ? (t.perfect ? C.highlight : C.label) : C.goldDim, { fontStyle: 'bold' }));
-    const bw = txt.width + (unlocked ? 40 : 22), bh = 26;
+    const nm = scene.add.text(0, 0, d.name, pixel(14, unlocked ? C.label : C.goldDim, { fontStyle: 'bold' }));
+    const txt = scene.add.text(0, 0, label, pixel(13, unlocked ? (t.perfect ? C.highlight : C.label) : C.goldDim));
+    const gap = unlocked ? 34 : 14;
+    const bw = nm.width + gap + txt.width + 24, bh = 28;
+    let bx = px(d.badge[0]), by = py(d.badge[1]);
+    if (useGrid) {
+      bx = rx + rw / 2;
+      by = ry + rh - 10 - bh / 2;
+    } else if (BADGES_AT) {
+      // Badge placement drafts (?badges=bl|mid|br|bm): the same spot in every district's area.
+      const pad = 14;
+      const left = rx + pad + bw / 2, right = rx + rw - pad - bw / 2, centre = rx + rw / 2;
+      // split: the west districts (Campus, Night Market) bottom left, the east ones (Downtown, Waterfront) bottom right.
+      const split = d.district === 'campus' || d.district === 'night_market' ? left : right;
+      bx = { bl: left, br: right, bm: centre, mid: centre, split }[BADGES_AT] ?? bx;
+      // Bottom placements: Downtown's badge lines up with Campus's (rowBottom), not its own area's lower edge.
+      const bottom = BADGES_AT !== 'mid' && d.rowBottom ? py(d.rowBottom) : ry + rh;
+      by = BADGES_AT === 'mid' ? ry + rh / 2 : bottom - pad - bh / 2;
+      // bm: the top row (Campus, Downtown) sits a little lower, so Downtown's badge clears the fountain.
+      if (BADGES_AT === 'bm' && (d.district === 'campus' || d.district === 'downtown')) by += 34;
+    }
     const plate = scene.add.graphics();
-    plate.fillStyle(C.bg, 0.88).fillRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 13);
-    plate.lineStyle(2, unlocked ? C.label : C.goldDim, 0.8).strokeRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 13);
-    txt.setPosition(bx - bw / 2 + (unlocked ? 30 : 11), by - txt.height / 2).setDepth(1);
-    if (unlocked) star(scene.add.graphics().setDepth(1), bx - bw / 2 + 16, by, 7, t.earned > 0);
+    plate.fillStyle(C.bg, 0.9).fillRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 14);
+    plate.lineStyle(2, unlocked ? C.label : C.goldDim, 0.8).strokeRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 14);
+    nm.setPosition(bx - bw / 2 + 12, by - nm.height / 2).setDepth(1);
+    txt.setPosition(nm.x + nm.width + gap, by - txt.height / 2).setDepth(1);
+    if (unlocked) star(scene.add.graphics().setDepth(1), nm.x + nm.width + 17, by, 7, t.earned > 0);
 
     const ring = scene.add.graphics().setDepth(2);
     const drawRing = (mode) => {
