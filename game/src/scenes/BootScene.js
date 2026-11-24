@@ -72,7 +72,7 @@ export default class BootScene extends Phaser.Scene {
         recap: q.has('recap'),
       });
     } else {
-      // Title screen once, then the city map (Menu). goScene is the guarded this.scene.start('Title').
+      // Title screen once, then the city map (Menu). goScene is the guarded scene start (one switch per instance).
       goScene(this, 'Title');
     }
   }
