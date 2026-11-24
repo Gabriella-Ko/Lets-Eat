@@ -16,6 +16,9 @@ export const C = {
   inkSoft: 0x7d6a60,
   accent: 0xd9822b, // Mina's ribbon orange: primary buttons
   accentDark: 0xb8641a,
+  // High-contrast orange (bug hunt run 2, AX-08): cream text (C.panel) on it reaches about 5.3:1,
+  // so orange buttons and chips (the 16 px 'Mixed' chip, Options' selected values) pass 4.5:1.
+  orangeHc: 0xa04a00,
   blue: 0x5d7985, // Liam's backdrop blue: neutral buttons
   rust: 0x8a4a2c,
   gold: 0xf2c14e,
@@ -37,8 +40,8 @@ const HIGH_CONTRAST = {
   panelDark: 0xe2d6c7,
   ink: 0x000000,
   inkSoft: 0x3d322d,
-  accent: 0xb55400,
-  accentDark: 0x8a3f00,
+  accent: C.orangeHc, // was 0xb55400 (about 4.3:1 under cream text)
+  accentDark: 0x7a3600,
   blue: 0x2e5566,
   goldDim: 0x8f7d72,
   locked: 0xc9b9ad, // about 7.5:1 on the badge plate
