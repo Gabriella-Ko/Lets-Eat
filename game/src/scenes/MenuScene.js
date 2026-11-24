@@ -14,7 +14,7 @@ import { play as playSfx } from '../ui/sfx.js';
 //   m3: a sidebar with every button, a bigger map beside it, tall level cards with the friends' faces
 const MENU_LAYOUTS = {
   current: {
-    map: { x: 24, y: 12, w: W - 48 }, cards: 'row', row: { left: 60, right: W - 24 },
+    map: { x: 24, y: 12, w: W - 48 }, maxH: 498, cards: 'row', row: { left: 60, right: W - 24 },
     btn: { title: [90, 30, 140], options: [90, 72, 140], credits: [90, 114, 140], scrap: [W - 100, 40, 168], friends: [W - 100, 112, 168] },
     total: [W - 30, 72],
   },
@@ -109,7 +109,13 @@ export default class MenuScene extends Phaser.Scene {
     const saved = this.registry.get('menuChapter');
     const selected = openChapters.includes(saved) ? saved : openChapters[openChapters.length - 1];
     // With the picture: full width at the top, level cards in a row below. Without it: map left, list right.
-    const box = this.art ? ML.map : { x: 24, y: 140, w: 470, h: 476 };
+    let box = this.art ? ML.map : { x: 24, y: 140, w: 470, h: 476 };
+    if (this.art && ML.maxH) {
+      // A taller picture is narrowed (and centred) so it never grows past maxH and pushes the level cards off screen.
+      const src = this.textures.get('city_map').getSourceImage();
+      const w = Math.min(box.w, Math.floor((ML.maxH * src.width) / src.height));
+      box = { ...box, x: box.x + Math.floor((box.w - w) / 2), w };
+    }
     const map = cityMap(this, {
       ...box, levels, open, totals, selected,
       onSelect: (chapter) => this.showChapter(chapter, open, totals, progress),

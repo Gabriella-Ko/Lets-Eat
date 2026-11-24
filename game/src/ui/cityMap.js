@@ -101,17 +101,17 @@ export function cityMap(scene, opts) {
   return { select, unlocked: LAYOUT.map((d) => d.chapter).filter((ch) => openChapters.has(ch)) };
 }
 
-// ---- the real map (assets/art/City Map.jpg -> texture 'city_map', 1408x768)
+// ---- the real map (assets/art/City Map.jpg -> texture 'city_map', 1312x816; picked draft city_map_v3)
 
 /**
  * Where each district sits on the picture, in the picture's own pixels: the click area, and where its star
  * badge goes (next to the district's painted label). Scaled to whatever size the map is drawn at.
  */
 export const ART_DISTRICTS = [
-  { chapter: 1, district: 'campus', area: [40, 200, 560, 730], badge: [300, 600] },
-  { chapter: 2, district: 'downtown', area: [565, 235, 925, 730], badge: [732, 680] },
-  { chapter: 3, district: 'night_market', area: [930, 380, 1380, 730], badge: [1270, 648] },
-  { chapter: 4, district: 'waterfront', area: [930, 110, 1380, 376], badge: [1262, 362] },
+  { chapter: 1, district: 'campus', area: [30, 110, 640, 440], badge: [262, 150] },
+  { chapter: 2, district: 'downtown', area: [650, 120, 1290, 470], badge: [1010, 210] },
+  { chapter: 3, district: 'night_market', area: [20, 445, 690, 800], badge: [187, 550] },
+  { chapter: 4, district: 'waterfront', area: [700, 480, 1290, 800], badge: [978, 710] },
 ];
 
 /** True when the menu should use the full-width picture layout. */
