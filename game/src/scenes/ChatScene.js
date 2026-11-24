@@ -216,7 +216,9 @@ export default class ChatScene extends Phaser.Scene {
   keyHintText() {
     // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
     // Tight " · " separators so the line fits under the chat panel without shrinking much.
-    const lines = this.pinning ? '↑ ↓: pick a line · s: star a line' : '↑ ↓: scroll';
+    // Page Up/Down and Home/End are named only once the chat is long enough to scroll (bug hunt KB-13).
+    const jump = this.chat?.canScroll?.() ? ' · page up / down, home / end: jump' : '';
+    const lines = (this.pinning ? '↑ ↓: pick a line · s: star a line' : '↑ ↓: scroll') + jump;
     if (this.done()) return `enter or →: find a place · ${lines} · m: music · backspace: levels`;
     return `space or enter: next · p: pause · a: show all · ${lines} · m: music · backspace: levels`;
   }

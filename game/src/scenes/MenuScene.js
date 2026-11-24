@@ -182,7 +182,7 @@ export default class MenuScene extends Phaser.Scene {
 
     // Key hint along the bottom (bug hunt KB-07): only keys this screen handles (S only with a Scrapbook).
     keyHint(this, ['↑ ↓: level', '← →: district', 'enter: play', pages ? 's: scrapbook' : null, 'f: friends',
-      'o: options', 'c: credits', 'm: music', 'esc: title'].filter(Boolean).join('  ·  '), { y: H - 13 });
+      'o: options', 'c: credits', 'm: music', 'esc or backspace: title'].filter(Boolean).join('  ·  '), { y: H - 13 });
 
     // Keyboard: up/down move the focus ring between level cards, left/right switch district, Enter opens.
     const kb = this.input.keyboard;

@@ -54,7 +54,13 @@ export default class HudScene extends Phaser.Scene {
     const toggleZone = this.add.zone(PANEL.x + PANEL.w - 36, PANEL.y + 20, 52, 24).setInteractive({ useHandCursor: true });
     toggleZone.hudControl = 'music-toggle';
     toggleZone.on('pointerdown', () => this.toggleMusic());
-    this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone]);
+    // The panel's own key hint (bug hunt run 2, KB-13), on a dark strip just above the panel so it never
+    // mixes with the screen's hint along the bottom; it shows and hides with the panel.
+    const hint = this.add.text(PANEL.x + 10, PANEL.y - 17, '← →: volume  ·  enter: music on/off  ·  esc: close',
+      text(12, C.label)).setOrigin(0, 0.5);
+    const hintBg = this.add.graphics();
+    hintBg.fillStyle(C.bg, 0.9).fillRoundedRect(PANEL.x, PANEL.y - 30, hint.width + 20, 26, 8);
+    this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone, hintBg, hint]);
 
     // A click anywhere outside the panel box and the speaker button closes the panel: on any screen's
     // buttons and cards (this scene is on top, so it hears every press), and in the page around the canvas.
