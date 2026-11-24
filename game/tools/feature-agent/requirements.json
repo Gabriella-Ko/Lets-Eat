@@ -1285,6 +1285,82 @@
           "pattern": "playSfx"
         }
       ]
+    },
+    {
+      "id": "ending_rules",
+      "title": "Ending: plays once after a perfect level_20 pick, Reset replays it, Esc skips with the key shown",
+      "bible": "Ending (Gabriella, 2026-11-24): the ending scene's rules.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "ending_scene"
+      ],
+      "spec": "(1) The Ending plays only after Continue on the level_20 Outcome screen when the pick was perfect, and only once: the localStorage flag 'lets-eat-ending-seen-v1' is set as soon as it starts (so skipping through still counts), and while it is set, a perfect level_20 pick shows the usual 'Back to levels' instead. (2) Reset progress clears that flag, so the ending plays again after the next perfect level_20 pick. (3) Esc skips: in part 1 (the group chat) it jumps to part 2, in part 2 (the send-off page) it goes back to the map. Each part's control text at the bottom names it: part 1 includes 'esc: skip', part 2 includes 'esc: back to the map'.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "endingSeen\\(\\)"
+        },
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "clearEndingSeen"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "markEndingSeen"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "esc: skip"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "esc: back to the map"
+        }
+      ]
+    },
+    {
+      "id": "results_r_recommend",
+      "title": "Results list: R recommends a place, and the controls are shown at the bottom",
+      "bible": "Screens and controls > Results (Gabriella, 2026-11-24): R recommends; the screen shows its keyboard controls.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/ResultsListScene.js. (1) Pressing R recommends a place, exactly like the 'Recommend this' button (same click sound, goes to the Outcome screen): the place whose details are open (changed 2026-11-24, see results_r_needs_open: R needs a place open first). R does nothing while the volume panel is open (like Backspace). (2) Add a line of control text at the bottom of the screen, in the same style as the other screens' key hints (text(12, C.label), centred, near the bottom, clear of the bottom-left 44 px music button and of the cards and details panel): '↑ ↓: choose   ·   enter: open   ·   r: recommend   ·   backspace: back to chat'. Keep the existing Enter, arrow and Backspace behaviour. Add the new keys to the browser boot test if it drives this screen, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "r: recommend"
+        }
+      ]
+    },
+    {
+      "id": "results_r_needs_open",
+      "title": "Results list: R recommends only once a place's details are open",
+      "bible": "Screens and controls > Results (Gabriella, 2026-11-24): R works only after a place is open, so the player reads its reviews before recommending.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [
+        "results_r_recommend"
+      ],
+      "spec": "src/scenes/ResultsListScene.js: pressing R recommends the place whose details are open, exactly like the 'Recommend this' button. When no place is open, R does nothing (no sound, no scene change): it no longer recommends the focused card. Enter still opens the focused card, and Enter again on the open card still recommends. R still does nothing while the volume panel is open. Keep the bottom control text ('r: recommend'). Update the browser boot test if it presses R with nothing open, and the Results note in game/CLAUDE.md.",
+      "detect": [
+        {
+          "absent": "src/scenes",
+          "pattern": "if \\(!this\\.selected\\) \\{\\s*const card = this\\.cards\\[this\\.focus\\]"
+        },
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "keydown-R"
+        },
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "r: recommend"
+        }
+      ]
     }
   ]
 }
