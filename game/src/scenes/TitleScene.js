@@ -40,13 +40,13 @@ export default class TitleScene extends Phaser.Scene {
 
     const start = button(this, W / 2, H - 56, 'Start', () => this.go(), { w: 180, h: 46, size: 20 });
 
-    const keys = keyHint(this, 'enter: start  ·  m: music', { y: H - 14 });
-    if (hasArt) keys.setShadow(1, 2, '#000000', 3, false, true);
+    // On a dark plate so it reads at 4.5:1 over the busy art (bible: Bug hunt run 2, NP-03).
+    const keys = keyHint(this, 'enter: start  ·  m: music', { y: H - 14, plate: true });
 
-    for (const o of [title, tagline, start, keys]) o.setAlpha(0);
+    for (const o of [title, tagline, start, keys, keys.plate]) o.setAlpha(0);
     tween(this, { targets: [title, tagline], alpha: 1, duration: 500, ease: 'Sine.easeOut' });
     tween(this, { targets: start, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
-    tween(this, { targets: keys, alpha: 0.85, delay: 300, duration: 400, ease: 'Sine.easeOut' });
+    tween(this, { targets: keys, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
 
     this.input.on('pointerdown', () => this.go());
     onKey(this, 'ENTER', () => this.go());

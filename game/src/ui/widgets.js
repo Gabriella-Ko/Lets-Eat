@@ -13,12 +13,39 @@ import { play as playSfx } from './sfx.js';
  * (text(12, C.label), 0.85 alpha). It shrinks to fit between the 44 px music button corners on both sides,
  * so it never runs under the bottom-left speaker. Returns the Text; call its setHint(str) to change the line
  * (it re-fits from 12 px).
+ * With { plate: true } the line sits on a dark rounded plate (C.bg at 90%, read when drawing) so it reads at
+ * 4.5:1 or better over busy art; the text is then fully opaque. The plate is `t.plate` and follows the
+ * text's alpha and visibility (tween the text alone), and setHint redraws it to the new width.
  */
-export function keyHint(scene, str, { x = W / 2, y = H - 20 } = {}) {
+export function keyHint(scene, str, { x = W / 2, y = H - 20, plate = false } = {}) {
   const maxW = 2 * Math.min(x - 56, W - 56 - x);
-  const t = scene.add.text(x, y, str, text(12, C.label)).setOrigin(0.5).setAlpha(0.85).setDepth(50);
-  t.setHint = (s) => fitWidth(t.setFontSize(12).setText(s), maxW);
-  return fitWidth(t, maxW);
+  const t = scene.add.text(x, y, str, text(12, C.label)).setOrigin(0.5).setAlpha(plate ? 1 : 0.85).setDepth(50);
+  if (!plate) {
+    t.setHint = (s) => fitWidth(t.setFontSize(12).setText(s), maxW);
+    return fitWidth(t, maxW);
+  }
+  const g = scene.add.graphics().setDepth(49);
+  const drawPlate = () => {
+    const w = t.displayWidth + 20;
+    const h = t.displayHeight + 8;
+    g.clear().fillStyle(C.bg, 0.9).fillRoundedRect(t.x - w / 2, t.y - h / 2, w, h, Math.min(10, h / 2));
+  };
+  const follow = () => g.setAlpha(t.alpha).setVisible(t.visible);
+  t.plate = g;
+  t.setHint = (s) => {
+    fitWidth(t.setFontSize(12).setText(s), maxW);
+    drawPlate();
+    return t;
+  };
+  fitWidth(t, maxW);
+  drawPlate();
+  scene.events.on('postupdate', follow);
+  scene.events.once('shutdown', () => scene.events.off('postupdate', follow));
+  t.once('destroy', () => {
+    scene.events.off('postupdate', follow);
+    g.destroy();
+  });
+  return t;
 }
 
 /** Rounded panel. Returns the Graphics object. */
