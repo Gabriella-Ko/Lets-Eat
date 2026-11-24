@@ -2,17 +2,15 @@
 // Bible: a page unlocks the first time the player reads a line tagged with its callback id,
 // and stays unlocked across levels and replays.
 
+import { readSaved } from './safeStore.js';
+
 const KEY = 'lets-eat-scrapbook-v1';
 let memory = null; // fallback when storage is blocked, so pages still stick for this session
 
 /** { <callback id>: <level id where it unlocked> } */
 export function loadPages() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(KEY));
-    if (saved) return saved;
-  } catch {
-    /* storage blocked or corrupt */
-  }
+  const saved = readSaved(KEY, 'object'); // a string, number or array counts as no pages
+  if (saved) return saved;
   return { ...(memory || {}) };
 }
 
@@ -34,12 +32,8 @@ let pendingMemory = null;
 
 /** Page ids still waiting for their card, in unlock order. */
 export function loadPending() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(PENDING_KEY));
-    if (Array.isArray(saved)) return saved.filter((id) => typeof id === 'string');
-  } catch {
-    /* storage blocked or corrupt */
-  }
+  const saved = readSaved(PENDING_KEY, 'array');
+  if (saved) return saved.filter((id) => typeof id === 'string');
   return [...(pendingMemory || [])];
 }
 
