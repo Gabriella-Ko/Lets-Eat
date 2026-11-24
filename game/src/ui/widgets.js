@@ -29,6 +29,28 @@ export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
   return g;
 }
 
+/**
+ * Strokes only a chat bubble's rounded edge, with the line style already set on `g`. It starts a new path
+ * and moves to the edge before drawing, so the stroke never joins a point left over from earlier drawing
+ * (that used to show as a stray line from the speaker name into the bubble in High contrast, AX-05, AX-06).
+ */
+export function strokeBubbleEdge(g, x, y, w, h, r) {
+  r = Math.max(0, Math.min(r, w / 2, h / 2));
+  g.beginPath();
+  g.moveTo(x + r, y);
+  g.lineTo(x + w - r, y);
+  g.arc(x + w - r, y + r, r, -Math.PI / 2, 0);
+  g.lineTo(x + w, y + h - r);
+  g.arc(x + w - r, y + h - r, r, 0, Math.PI / 2);
+  g.lineTo(x + r, y + h);
+  g.arc(x + r, y + h - r, r, Math.PI / 2, Math.PI);
+  g.lineTo(x, y + r);
+  g.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5);
+  g.closePath();
+  g.strokePath();
+  return g;
+}
+
 /** Clickable button styled like the portrait sheets' label bars. Call .setEnabled(false) to grey it out. */
 export function button(scene, x, y, label, onClick, { w = 200, h = 44, fill = C.accent, size = 18 } = {}) {
   const c = scene.add.container(x, y);

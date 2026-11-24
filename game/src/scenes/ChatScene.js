@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
 import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { chatPaceMs, highContrast } from '../ui/settings.js';
-import { panel, button, portrait, keyHint } from '../ui/widgets.js';
+import { panel, button, portrait, keyHint, strokeBubbleEdge } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
 import { hearPage } from '../ui/scrapbookStore.js';
@@ -507,8 +507,11 @@ export default class ChatScene extends Phaser.Scene {
       bubble.clear();
       const fill = hl ? C.highlight : starred ? C.starred : 0xffffff;
       bubble.fillStyle(fill, 1).fillRoundedRect(70, 19, bw, bh, 10);
-      if (hl) bubble.lineStyle(3, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
-      else if (starred) bubble.lineStyle(2, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
+      // Edges go through strokeBubbleEdge (a fresh path), so no line runs from the name into the bubble.
+      // High contrast also gives a plain bubble a thin ink edge.
+      if (hl) strokeBubbleEdge(bubble.lineStyle(3, C.accent, 1), 70, 19, bw, bh, 10);
+      else if (starred) strokeBubbleEdge(bubble.lineStyle(2, C.accent, 1), 70, 19, bw, bh, 10);
+      else if (highContrast()) strokeBubbleEdge(bubble.lineStyle(1, C.inkSoft, 1), 70, 19, bw, bh, 10);
     };
     drawBubble(this.pinning && getPins(this, this.level.id).includes(idx));
     c.add([bubble, face, name, body]);

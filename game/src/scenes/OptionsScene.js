@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
-import { panel, button, portrait, star, resetProgress, keyHint } from '../ui/widgets.js';
+import { panel, button, portrait, star, resetProgress, keyHint, strokeBubbleEdge } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
@@ -294,8 +294,7 @@ export default class OptionsScene extends Phaser.Scene {
     const g = this.add.graphics();
     g.fillStyle(0xffffff, 1).fillRoundedRect(x, y, w, h, 9);
     if (highContrast()) {
-      g.beginPath();
-      g.lineStyle(1, C.inkSoft, 1).strokeRoundedRect(x, y, w, h, 9);
+      strokeBubbleEdge(g.lineStyle(1, C.inkSoft, 1), x, y, w, h, 9);
     }
     return g;
   }
