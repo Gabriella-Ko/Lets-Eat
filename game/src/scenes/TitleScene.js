@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, pixel } from '../ui/theme.js';
-import { button } from '../ui/widgets.js';
+import { button, keyHint } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { goScene } from '../ui/sceneSwitch.js';
@@ -39,9 +39,13 @@ export default class TitleScene extends Phaser.Scene {
 
     const start = button(this, W / 2, H - 56, 'Start', () => this.go(), { w: 180, h: 46, size: 20 });
 
-    for (const o of [title, tagline, start]) o.setAlpha(0);
+    const keys = keyHint(this, 'enter: start  ·  m: music', { y: H - 14 });
+    if (hasArt) keys.setShadow(1, 2, '#000000', 3, false, true);
+
+    for (const o of [title, tagline, start, keys]) o.setAlpha(0);
     tween(this, { targets: [title, tagline], alpha: 1, duration: 500, ease: 'Sine.easeOut' });
     tween(this, { targets: start, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
+    tween(this, { targets: keys, alpha: 0.85, delay: 300, duration: 400, ease: 'Sine.easeOut' });
 
     this.input.on('pointerdown', () => this.go());
     this.input.keyboard.on('keydown-ENTER', () => this.go());

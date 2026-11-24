@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { C, W, CHARACTERS, pixel, readText } from '../ui/theme.js';
-import { button, portrait, loadProgress } from '../ui/widgets.js';
+import { C, W, H, CHARACTERS, pixel, readText } from '../ui/theme.js';
+import { button, portrait, loadProgress, keyHint } from '../ui/widgets.js';
 import { loadOpened } from '../ui/openedStore.js';
 import { friendCards } from '../logic/friends.js';
 import { tween } from '../ui/motion.js';
@@ -56,7 +56,7 @@ export default class FriendsScene extends Phaser.Scene {
     this.add.text(W / 2, 36, 'FRIENDS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const met = this.cards.filter((c) => c.met).length;
     this.add.text(W / 2, 66, `what you've learned about the crew · met ${met}/${this.cards.length}`, pixel(15, C.highlight)).setOrigin(0.5);
-    this.add.text(W / 2, 624, 'needs show up here once you clear a level where they come up in the chat', pixel(13, C.label)).setOrigin(0.5);
+    this.add.text(W / 2, 612, 'needs show up here once you clear a level where they come up in the chat', pixel(13, C.label)).setOrigin(0.5);
 
     this.sel = Math.max(0, this.cards.findIndex((f) => f.met));
     this.tabsC = null;
@@ -77,6 +77,7 @@ export default class FriendsScene extends Phaser.Scene {
     const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
     this.input.keyboard?.on('keydown-ESC', back);
     this.input.keyboard?.on('keydown-BACKSPACE', back);
+    keyHint(this, '↑ ↓: friend  ·  m: music  ·  esc or backspace: back to levels', { y: H - 9 }); // bug hunt KB-07
   }
 
   /** dir: 1 forward (down), -1 back (up); from the tab order when not given. */

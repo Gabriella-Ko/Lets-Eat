@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, nameColor, hex, pixel, text, readText } from '../ui/theme.js';
-import { button, portrait, star, loadProgress } from '../ui/widgets.js';
+import { button, portrait, star, loadProgress, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
@@ -75,7 +75,8 @@ export default class EndingScene extends Phaser.Scene {
     g.fillStyle(C.panel, 1).fillRoundedRect(CHAT.x, CHAT.y, CHAT.w, CHAT.h, 16);
     this.drawBackground();
     this.chat = scrollArea(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 28, 'space: next   ·   A: show all   ·   ↑ ↓: scroll   ·   esc: skip', text(12, C.label)).setOrigin(0.5);
+    // Key hint (bug hunt KB-09): every key part 1 handles.
+    this.keys = keyHint(this, 'space or enter: next · a: show all · ↑ ↓: scroll · m: music · esc or backspace: skip', { x: CHAT.x + CHAT.w / 2, y: H - 28 });
 
     this.onKey('SPACE', () => this.advance());
     this.onKey('ENTER', () => (this.done() ? this.toPart2() : this.advance()));
@@ -206,7 +207,7 @@ export default class EndingScene extends Phaser.Scene {
 
   /** "The End": campaign stars, the six friends' faces and Continue. */
   showEndCard() {
-    this.keys.setText('enter or →: continue   ·   ↑ ↓: scroll');
+    this.keys.setHint('enter or →: continue · ↑ ↓: scroll · m: music · esc or backspace: skip');
     const c = this.add.container(0, 0);
     const g = this.add.graphics();
     g.fillStyle(0x000000, 0.3).fillRoundedRect(CARD.x + 4, CARD.y + 6, CARD.w, CARD.h, 16);
@@ -263,6 +264,9 @@ export default class EndingScene extends Phaser.Scene {
     this.onKey('RIGHT', () => { if (this.ready) next(); });
     this.onKey('ESC', () => this.leave(false));
     this.onKey('BACKSPACE', () => this.leave(false));
+    // Key hint (bug hunt KB-09): Esc / Backspace work from the start; Enter / → join once Continue is up
+    // (rollCall). Left of centre so it stays clear of the Continue button bottom right.
+    this.keys = keyHint(this, 'm: music  ·  esc or backspace: back to the map', { x: 380 });
 
     this.dropPolaroid(() => this.rollCall());
   }
@@ -322,8 +326,10 @@ export default class EndingScene extends Phaser.Scene {
     this.time.delayedCall(step * (FRIENDS.length + 1.5), () => {
       const thanks = this.add.text(MID + PW / 2, BOOK.y + BOOK.h - 30, 'thanks for always knowing where to eat.', readText(16, C.ink, { fontStyle: 'italic' })).setOrigin(0.5).setAlpha(0);
       const btn = button(this, W - 130, H - 44, 'Continue →', () => this.leave(), { w: 200, h: 44, fill: C.good }).setAlpha(0);
-      tween(this, { targets: [thanks, btn], alpha: 1, duration: 400, onComplete: () => { this.ready = true; } });
-      this.add.text(W / 2, H - 20, 'enter or →: continue   ·   esc: back to the map', text(12, C.label)).setOrigin(0.5);
+      tween(this, { targets: [thanks, btn], alpha: 1, duration: 400, onComplete: () => {
+        this.ready = true;
+        this.keys.setHint('enter or →: continue  ·  m: music  ·  esc or backspace: back to the map');
+      } });
     });
   }
 

@@ -2,7 +2,7 @@ import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
 import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { chatPaceMs, highContrast } from '../ui/settings.js';
-import { panel, button, portrait } from '../ui/widgets.js';
+import { panel, button, portrait, keyHint } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
 import { unlockPage } from '../ui/scrapbookStore.js';
@@ -106,7 +106,7 @@ export default class ChatScene extends Phaser.Scene {
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
     // On the dark page background, so it uses the light label colour (readable in high contrast too).
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, this.keyHint(), text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+    this.keys = keyHint(this, this.keyHintText(), { x: CHAT.x + CHAT.w / 2 });
     this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => goScene(this, 'Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
     // Focus ring on 'Find a place →' once the chat is done, so it's clear Enter / → will press it.
@@ -206,11 +206,12 @@ export default class ChatScene extends Phaser.Scene {
   }
 
   /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */
-  keyHint() {
+  keyHintText() {
     // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
-    const lines = this.pinning ? '↑ ↓: pick a line  ·  s: star a line' : '↑ ↓: scroll';
-    if (this.done()) return `enter or →: find a place  ·  ${lines}  ·  m: music`;
-    return `space: next  ·  P: pause  ·  A: show all  ·  ${lines}  ·  m: music`;
+    // Tight " · " separators so the line fits under the chat panel without shrinking much.
+    const lines = this.pinning ? '↑ ↓: pick a line · s: star it' : '↑ ↓: scroll';
+    if (this.done()) return `enter or →: find a place · ${lines} · m: music · backspace: levels`;
+    return `space or enter: next · p: pause · a: show all · ${lines} · m: music · backspace: levels`;
   }
 
   /**
@@ -290,8 +291,8 @@ export default class ChatScene extends Phaser.Scene {
     else if (this.hold.reread || this.hold.hover) msg = PROMPT.reread;
     if (this.prompt.text !== msg) this.prompt.setText(msg);
     if (this.keys) {
-      const hint = this.keyHint();
-      if (this.keys.text !== hint) this.keys.setText(hint);
+      const hint = this.keyHintText();
+      if (this.keys.text !== hint) this.keys.setHint(hint);
     }
     if (this.goRing && this.done() && !this.goRing.visible) {
       // C.highlight read now, so High contrast applies.

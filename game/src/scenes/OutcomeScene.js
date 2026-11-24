@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
 import { C, W, H, CHARACTERS, nameColor, pixel, text, readText, fitWidth } from '../ui/theme.js';
-import { panel, button, star, saveStars, portrait } from '../ui/widgets.js';
+import { panel, button, star, saveStars, portrait, keyHint } from '../ui/widgets.js';
 import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
@@ -161,6 +161,8 @@ export default class OutcomeScene extends Phaser.Scene {
       b.fn();
     });
     this.drawFocus();
+    // Key hint under the buttons (bug hunt KB-07). Esc only closes the clue recap or an unlock card.
+    keyHint(this, '← →: choose  ·  enter: press  ·  esc: close recap or card  ·  m: music', { y: H - 10 });
 
     this.input.keyboard.on('keydown-ESC', () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel

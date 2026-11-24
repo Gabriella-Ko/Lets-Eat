@@ -1,4 +1,4 @@
-import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
+import { C, W, H, text, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
 import { clearPages, clearPending } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
@@ -7,6 +7,19 @@ import { clearSeen as clearHowToPlaySeen } from './howToPlay.js';
 import { clearSeen as clearChapterIntrosSeen } from './chapterIntro.js';
 import { clearSeen as clearFriendsAnnounced } from './friendsAnnounced.js';
 import { play as playSfx } from './sfx.js';
+
+/**
+ * One line of control text at the bottom centre of a screen, styled like the restaurant list's line
+ * (text(12, C.label), 0.85 alpha). It shrinks to fit between the 44 px music button corners on both sides,
+ * so it never runs under the bottom-left speaker. Returns the Text; call its setHint(str) to change the line
+ * (it re-fits from 12 px).
+ */
+export function keyHint(scene, str, { x = W / 2, y = H - 20 } = {}) {
+  const maxW = 2 * Math.min(x - 56, W - 56 - x);
+  const t = scene.add.text(x, y, str, text(12, C.label)).setOrigin(0.5).setAlpha(0.85).setDepth(50);
+  t.setHint = (s) => fitWidth(t.setFontSize(12).setText(s), maxW);
+  return fitWidth(t, maxW);
+}
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {

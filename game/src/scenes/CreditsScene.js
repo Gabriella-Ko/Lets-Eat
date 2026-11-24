@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, pixel, text, readText } from '../ui/theme.js';
-import { panel, button } from '../ui/widgets.js';
+import { panel, button, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { reduceMotion } from '../ui/settings.js';
 import { goScene } from '../ui/sceneSwitch.js';
@@ -117,7 +117,7 @@ export default class CreditsScene extends Phaser.Scene {
     this.atEndSince = null; // the scene object is reused between visits
     this.rolling = !reduceMotion() && !area.atBottom();
     this.holdUntil = this.time.now + START_DELAY_MS;
-    const hint = this.add.text(W / 2, BOX.y + BOX.h + 22, '', pixel(13, C.label)).setOrigin(0.5);
+    const hint = this.add.text(W / 2, BOX.y + BOX.h + 15, '', pixel(13, C.label)).setOrigin(0.5);
     if (hasArt) hint.setShadow(1, 2, '#000000', 3, false, true);
     const updateHint = () => hint.setText(this.rolling ? 'scroll to read at your own pace' : area.atBottom() ? '' : '↓ scroll for more');
     area.onScroll((f, byUser) => {
@@ -125,6 +125,9 @@ export default class CreditsScene extends Phaser.Scene {
       updateHint();
     });
     updateHint();
+    // Key hint along the bottom (bug hunt KB-07).
+    const keys = keyHint(this, '↑ ↓: scroll  ·  page up / down, home / end: jump  ·  m: music  ·  esc or backspace: back to levels', { y: H - 9 });
+    if (hasArt) keys.setShadow(1, 2, '#000000', 3, false, true);
 
     const kb = this.input.keyboard;
     if (kb) {

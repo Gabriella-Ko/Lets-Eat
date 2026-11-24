@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
-import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
+import { panel, button, portrait, star, resetProgress, keyHint } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
@@ -59,7 +59,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.drawPreview();
     this.previewMotion();
     this.previewChatPace();
-    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose  ·  ← → change  ·  R: reset  ·  H: how to play  ·  M: music  ·  Esc: back', text(13, C.label));
+    keyHint(this, '↑ ↓: choose  ·  ← →: change  ·  r, enter: reset progress  ·  h: how to play  ·  m: music  ·  esc or backspace: back', { y: H - 18 });
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
     button(this, RESET_BTN.x, RESET_BTN.y, 'Reset progress', () => this.confirmReset(), { w: RESET_BTN.w, h: RESET_BTN.h, size: 14, fill: C.bad });
     this.resetFrame = this.add.graphics().setDepth(2); // focus ring for the Reset progress button

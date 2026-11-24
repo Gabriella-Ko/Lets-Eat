@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, CHARACTERS, pixel, text, readText } from '../ui/theme.js';
-import { button, loadProgress } from '../ui/widgets.js';
+import { button, loadProgress, keyHint } from '../ui/widgets.js';
 import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { badge } from '../ui/badge.js';
@@ -73,6 +73,7 @@ export default class ScrapbookScene extends Phaser.Scene {
       kb.on('keydown-ESC', back);
       kb.on('keydown-BACKSPACE', back);
     }
+    keyHint(this, '← →: turn the page  ·  m: music  ·  esc or backspace: back to levels');// bug hunt KB-07
 
     this.drawBook();
     const first = (this.openOn in this.unlocked && this.pages.find((p) => p.id === this.openOn)) || this.pages.find((p) => p.id in this.unlocked);

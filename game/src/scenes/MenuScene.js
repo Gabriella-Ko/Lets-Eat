@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { C, W, H, DISTRICTS, CHARACTERS, pixel, text } from '../ui/theme.js';
-import { panel, star, button, portrait, loadProgress } from '../ui/widgets.js';
+import { panel, star, button, portrait, loadProgress, keyHint } from '../ui/widgets.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { starTotals } from '../logic/progress.js';
 import { showChapterIntro } from '../ui/chapterIntro.js';
@@ -178,6 +178,10 @@ export default class MenuScene extends Phaser.Scene {
     }
     this.showChapter(selected, open, totals, progress);
 
+    // Key hint along the bottom (bug hunt KB-07): only keys this screen handles (S only with a Scrapbook).
+    keyHint(this, ['↑ ↓: level', '← →: district', 'enter: play', pages ? 's: scrapbook' : null, 'f: friends',
+      'o: options', 'c: credits', 'm: music', 'esc: title'].filter(Boolean).join('  ·  '), { y: H - 13 });
+
     // Keyboard: up/down move the focus ring between level cards, left/right switch district, Enter opens.
     const kb = this.input.keyboard;
     if (!kb) return;
@@ -319,7 +323,7 @@ export default class MenuScene extends Phaser.Scene {
       c.add([score, sg]);
     }
     const top = hy + 28;
-    const ch = H - 14 - top;
+    const ch = H - 28 - top; // room under the cards for the key hint
     const cw = (right - left - gap * 4) / 5;
     lvls.forEach((lvl, i) => {
       const x = left + i * (cw + gap);
@@ -364,7 +368,7 @@ export default class MenuScene extends Phaser.Scene {
       if (t.perfect) c.add(this.add.text(score.x - score.width - 28, hy, 'PERFECT', pixel(13, C.highlight, { fontStyle: 'bold' })).setOrigin(1, 0));
     }
     const top = hy + 24;
-    const ch = Math.max(56, H - 10 - top);
+    const ch = Math.max(56, H - 28 - top); // room under the cards for the key hint
     const cw = (right - left - gap * 4) / 5; // a chapter has 5 levels
     lvls.forEach((lvl, i) => {
       const x = left + i * (cw + gap);
