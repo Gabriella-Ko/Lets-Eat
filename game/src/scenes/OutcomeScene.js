@@ -136,7 +136,12 @@ export default class OutcomeScene extends Phaser.Scene {
     // Keyboard: left/right move a focus ring between the buttons, Enter presses. While the unlock card is up
     // the keys work on its two buttons; while the recap is open, Enter closes it.
     this.focusBtns = btns.map(([, fn], i) => ({ x: x0 + i * (bw + 20), y: H - 44, w: bw, h: 44, fn }));
-    this.focus = btns.length - 1; // the forward button (next level / try again / levels)
+    // Focus starts on "Try again" after a fail, else on the continue button (Next level → / Continue → /
+    // Back to levels), so Enter never sends a failed player back to the map.
+    const defaultFocus = score.result === 'fail'
+      ? btns.findIndex(([label]) => label === 'Try again')
+      : btns.findIndex(([, , fill]) => fill === C.good);
+    this.focus = defaultFocus >= 0 ? defaultFocus : btns.length - 1;
     this.focusRing = this.add.graphics().setDepth(UNLOCK_DEPTH + 5);
     const kb = this.input.keyboard;
     const move = (d) => {
