@@ -30,14 +30,15 @@ export const OPTIONS = {
     { id: 'full', label: 'On' },
   ],
   // Applied through ui/music.js setEnabled(), which also keeps its own saved on/off.
+  // Every On/Off row lists Off first, so → always turns it on (bug hunt NP-02, 2026-11-24).
   music: [
-    { id: 'on', label: 'On' },
     { id: 'off', label: 'Off' },
+    { id: 'on', label: 'On' },
   ],
   // Options row "Sound effects" (Gabriella, 2026-11-23): separate from Music; read by ui/sfx.js play().
   sfx: [
-    { id: 'on', label: 'On' },
     { id: 'off', label: 'Off' },
+    { id: 'on', label: 'On' },
   ],
 };
 
