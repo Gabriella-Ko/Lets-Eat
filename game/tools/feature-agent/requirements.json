@@ -1831,6 +1831,321 @@
           "pattern": "drawPreviewBubble"
         }
       ]
+    },
+    {
+      "id": "saved_data_shape",
+      "title": "Damaged saved data never freezes the game",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: QT-05, QT-06.",
+      "status": "Locked",
+      "impact": 4,
+      "effort": 2,
+      "depends": [],
+      "spec": "Add src/ui/safeStore.js exporting readSaved(key, kind) with kind 'object' or 'array': it parses localStorage and returns the value only if it has that shape (a plain object, not an array, or an array), otherwise null, and never throws. loadVisits() in src/ui/visitStore.js and loadPages()/loadPending() in src/ui/scrapbookStore.js use it, so a saved string, number or wrong shape counts as empty. Repro: set lets-eat-venues-v1 to '\"abc\"' or 5 and reload: 'Find a place' opens the Results list with no page error. Set lets-eat-scrapbook-v1 to '\"abc\"' or [1,2,3]: the map shows SCRAPBOOK 0/5 and the satay callback line doesn't throw. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "file": "src/ui/safeStore.js"
+        },
+        {
+          "contains": "src/ui/safeStore.js",
+          "pattern": "export function readSaved"
+        },
+        {
+          "contains": "src/ui/visitStore.js",
+          "pattern": "readSaved\\("
+        },
+        {
+          "contains": "src/ui/scrapbookStore.js",
+          "pattern": "readSaved\\("
+        }
+      ]
+    },
+    {
+      "id": "esc_waits_for_card",
+      "title": "Esc can't skip a 'new friend' or page card before it has shown",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: SC-05.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/OutcomeScene.js: the Esc handler ignores the key while an unlock card is still appearing (this.unlockCard exists and is not ready), exactly like Enter, the arrows and the buttons. Repro: level_05, press Esc 1 or 3 times quickly as the first friend card appears: every friend card still shows, and none is saved as met before it has shown. Same for 'NEW SCRAPBOOK PAGE!' cards. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "this\\.unlockCard && !this\\.unlockCard\\.ready\\) return"
+        }
+      ]
+    },
+    {
+      "id": "page_unlock_on_win",
+      "title": "A Scrapbook page unlocks on its own level's win, not when its line is read",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: WA-02, WA-03.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 2,
+      "depends": [],
+      "spec": "Reading a callback line in the chat no longer unlocks the page (ChatScene stops calling unlockPage). Instead it remembers the page as heard for that level (saved, so leaving and coming back still counts, keeping WA-01 fixed). On the Outcome of a win (1+ stars) of that same level, OutcomeScene unlocks the heard pages and shows their card. A fail unlocks nothing and the Scrapbook count doesn't change. A page heard in level_02 never shows its card on another level's Outcome. Reset progress clears the heard list too. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "absent": "src/scenes",
+          "pattern": "unlockPage\\(line\\.callback"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "unlockPage\\("
+        }
+      ]
+    },
+    {
+      "id": "options_keys_after_change",
+      "title": "Options: a key right after a change is never lost",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: SF-05.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 2,
+      "depends": [],
+      "spec": "src/scenes/OptionsScene.js: changing a setting (← →, Enter or a click) updates the rows in place with a refreshRows() method instead of restarting the screen, so a ↓ pressed in the same frame as → still moves the focus and the next ← → changes the right row. Chat pace and the preview still pick up a new value at once; Music still follows the music button. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "refreshRows\\("
+        },
+        {
+          "absent": "src/scenes",
+          "pattern": "this\\.scene\\.restart\\(\\{ focus: this\\.focus \\}\\)"
+        }
+      ]
+    },
+    {
+      "id": "settings_two_tabs",
+      "title": "Two tabs: a setting changed in one doesn't undo the other's",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: SF-06.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/settings.js: saving a setting re-reads the saved settings first and changes only that one key, and the module listens for the window 'storage' event so a tab picks up the other tab's change. Repro: two tabs, change High contrast in A, then Chat pace in B: both changes are kept after a reload. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/settings.js",
+          "pattern": "addEventListener\\(\\s*['\\\"]storage['\\\"]"
+        }
+      ]
+    },
+    {
+      "id": "chat_star_scroll",
+      "title": "Chat: S never stars a line that's off screen",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: KB-11.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/ChatScene.js: when the keyboard focus moves to a line, or S stars one, the chat scrolls so that line is fully visible (scrollToLine(index)), and its focus ring shows. After End or PageDown the focus moves to a visible line. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "scrollToLine\\("
+        }
+      ]
+    },
+    {
+      "id": "key_hints_complete",
+      "title": "Every working key is named on screen",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: KB-13.",
+      "status": "Locked",
+      "impact": 2,
+      "effort": 1,
+      "depends": [],
+      "spec": "While the music volume panel is open, HudScene shows its own key hint: '← →: volume  ·  enter: music on/off  ·  esc: close'. The map's key hint names backspace (with esc) for back to the title. In chats, the key hint names page up / down and home / end when the chat can scroll. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "← →: volume"
+        },
+        {
+          "contains": "src/scenes/MenuScene.js",
+          "pattern": "backspace"
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "page up"
+        }
+      ]
+    },
+    {
+      "id": "notebook_star_text",
+      "title": "Notebook: says how to star with keys, and says it once",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: KB-12, NP feedback.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/notebook.js: the empty Notebook gives the tip once (not in the box and again below it), and names both ways: click the star, or S on the highlighted line. Same for the Results Notebook's empty text. No 'tap the star' left. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "absent": "src/ui",
+          "pattern": "tap the star"
+        }
+      ]
+    },
+    {
+      "id": "hc_stray_line",
+      "title": "High contrast: no stray line on the Options preview or a starred chat line",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: AX-05, AX-06.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "Add strokeBubbleEdge(g, x, y, w, h, r) to src/ui/widgets.js: it starts a new path, then strokes only the bubble's rounded edge. OptionsScene's preview bubbles and ChatScene's bubbles (also when starred) draw their High contrast edge with it, so no line runs from the speaker name into the bubble. Check screenshots with High contrast on. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/widgets.js",
+          "pattern": "export function strokeBubbleEdge"
+        },
+        {
+          "contains": "src/scenes/OptionsScene.js",
+          "pattern": "strokeBubbleEdge\\("
+        },
+        {
+          "contains": "src/scenes/ChatScene.js",
+          "pattern": "strokeBubbleEdge\\("
+        }
+      ]
+    },
+    {
+      "id": "speaker_names_bigger",
+      "title": "Speaker names on Outcome and roll call: clearly bigger",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: AX-04.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/theme.js exports NAME_SIZE = 20 (px), used for speaker names on the Outcome and the Ending roll call (with nameColor). Check nothing overlaps at 960x640. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "export const NAME_SIZE"
+        },
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "NAME_SIZE"
+        },
+        {
+          "contains": "src/scenes/EndingScene.js",
+          "pattern": "NAME_SIZE"
+        }
+      ]
+    },
+    {
+      "id": "hc_credits_contrast",
+      "title": "High contrast: Credits list readable",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: AX-07.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/CreditsScene.js: with High contrast on, the list panel is fully opaque (hcPanelAlpha = 1), and the Artist/Source/License lines reach 4.5:1 against it. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "hcPanelAlpha"
+        }
+      ]
+    },
+    {
+      "id": "hc_orange_labels",
+      "title": "High contrast: labels on orange buttons and chips reach 4.5:1",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: AX-08.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/ui/theme.js: with High contrast on, orange buttons and chips use a darker orange (C.orangeHc) so cream text on them reaches at least 4.5:1, including the 16px 'Mixed' chip and the selected values in Options. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "orangeHc"
+        }
+      ]
+    },
+    {
+      "id": "title_hint_readable",
+      "title": "Title screen: key hint readable over the picture",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: NP-03.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/TitleScene.js: the 'enter: start · m: music' hint sits on a plate (keyHint option { plate: true }, added to keyHint in src/ui/widgets.js: a dark rounded panel behind the text), so it reads at 4.5:1 over the busy art. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "plate:\\s*true"
+        }
+      ]
+    },
+    {
+      "id": "volume_zero_label",
+      "title": "Volume panel says OFF at 0%",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: NP-04.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/HudScene.js: the panel's music label comes from musicLabel(), which reads OFF when music is off or the volume is 0, matching the muted corner icon. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "musicLabel\\("
+        }
+      ]
+    },
+    {
+      "id": "volume_steps",
+      "title": "Volume steps go 25% → 30% → 40%, not 25% → 40%",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: SF-07.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/HudScene.js stepVolume: going up from a value between steps goes to the next 10% above it (Math.ceil), going down to the next 10% below it (Math.floor). From 25%: → gives 30%, ← gives 20%. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/HudScene.js",
+          "pattern": "Math\\.ceil"
+        }
+      ]
+    },
+    {
+      "id": "page_note_fit",
+      "title": "Outcome: the waiting-pages note never covers the heading",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: AX-09.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/OutcomeScene.js: the 'NEW SCRAPBOOK PAGES' note is laid out by fitPageNote() so with 1, 2 or 3 pages it never overlaps the 'PERFECT MATCH!' heading or the venue line (move it below them or shrink it). Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/OutcomeScene.js",
+          "pattern": "fitPageNote\\("
+        }
+      ]
+    },
+    {
+      "id": "details_backspace_closes",
+      "title": "Results: Backspace closes an open place first",
+      "bible": "Bug hunt run 2 (2026-11-24, logs/bughunt/*_run2.json on master; Gabriella: fix all). Bugs: NP feedback.",
+      "status": "Locked",
+      "impact": 1,
+      "effort": 1,
+      "depends": [],
+      "spec": "src/scenes/ResultsListScene.js: with a place's details open, Backspace closes them (closeDetails()) and keeps that place selected; with nothing open, Backspace goes back to the chat as now. Update the key hint. Afterwards the bug hunter's run 2 script for this bug (named in its report) should no longer reproduce it. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/scenes/ResultsListScene.js",
+          "pattern": "closeDetails\\("
+        }
+      ]
     }
   ]
 }
