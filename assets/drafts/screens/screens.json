@@ -436,6 +436,195 @@
   ],
   "map": [
     {
+      "round": "M6 badge placement drafts",
+      "date": "2026-11-23",
+      "about": "M6 with the district badges in the same spot of every district's area. Each shows the four districts selected in turn, so you can see the badge against the highlight. Try one in the game: add ?menuLayout=m6&badges=bl (mid, br, bm, split) to the link.",
+      "items": [
+        {
+          "id": "v4_m6_badges_split",
+          "title": "M6 · left and right",
+          "note": "Campus and Night Market badges bottom left, Downtown and Waterfront bottom right; Downtown on the same line as Campus.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_badges_split_campus.jpg",
+            "map/v4_m6_badges_split_downtown.jpg",
+            "map/v4_m6_badges_split_night_market.jpg",
+            "map/v4_m6_badges_split_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m6_badges_bl",
+          "title": "M6 · bottom left, lined up",
+          "note": "Every district badge in the bottom-left corner of its area, with the Downtown badge on the same line as the Campus badge.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_badges_bl_campus.jpg",
+            "map/v4_m6_badges_bl_downtown.jpg",
+            "map/v4_m6_badges_bl_night_market.jpg",
+            "map/v4_m6_badges_bl_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m6_badges_mid",
+          "title": "M6 · middle",
+          "note": "Every district badge in the middle of its area.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_badges_mid_campus.jpg",
+            "map/v4_m6_badges_mid_downtown.jpg",
+            "map/v4_m6_badges_mid_night_market.jpg",
+            "map/v4_m6_badges_mid_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m6_badges_br",
+          "title": "M6 · bottom right, lined up",
+          "note": "Every district badge in the bottom-right corner of its area, with the Downtown badge on the same line as the Campus badge.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_badges_br_campus.jpg",
+            "map/v4_m6_badges_br_downtown.jpg",
+            "map/v4_m6_badges_br_night_market.jpg",
+            "map/v4_m6_badges_br_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m6_badges_bm",
+          "title": "M6 · bottom middle",
+          "note": "Every district badge at the bottom, centred, of its area.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_badges_bm_campus.jpg",
+            "map/v4_m6_badges_bm_downtown.jpg",
+            "map/v4_m6_badges_bm_night_market.jpg",
+            "map/v4_m6_badges_bm_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m6_badges_bm2",
+          "title": "M6 · bottom middle, lined up",
+          "note": "Bottom middle, lined up: the four highlight boxes are now the same size in a 2x2 grid below the buttons, and each badge sits inside the bottom middle of its box (Downtown clears the fountain). Try it: ?menuLayout=m6&badges=grid",
+          "picked": true,
+          "images": [
+            "map/v4_m6_badges_grid_campus.jpg",
+            "map/v4_m6_badges_grid_downtown.jpg",
+            "map/v4_m6_badges_grid_night_market.jpg",
+            "map/v4_m6_badges_grid_waterfront.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Map layout drafts, map v4 (no painted signs)",
+      "date": "2026-11-23",
+      "about": "city_map_v4 has no painted district signs, so each district's badge now shows its name and stars. Each layout shows the four districts selected in turn: Campus, Downtown, Night Market, Waterfront. Try one in the game: add ?menuLayout=m6 (or m7) to the link.",
+      "items": [
+        {
+          "id": "v4_m6",
+          "title": "M6",
+          "note": "Map edge to edge (its top banner trimmed off), every button in a row in the top-left corner over the map, level cards in a row on a bottom strip with the friends’ faces.",
+          "picked": false,
+          "images": [
+            "map/v4_m6_campus.jpg",
+            "map/v4_m6_downtown.jpg",
+            "map/v4_m6_night_market.jpg",
+            "map/v4_m6_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v4_m7",
+          "title": "M7",
+          "note": "The same as M6, with the buttons stacked in a column in the top-left corner.",
+          "picked": false,
+          "images": [
+            "map/v4_m7_campus.jpg",
+            "map/v4_m7_downtown.jpg",
+            "map/v4_m7_night_market.jpg",
+            "map/v4_m7_waterfront.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "round": "Map layout drafts, new map (city_map_v3)",
+      "date": "2026-11-23",
+      "about": "Each layout shows the four districts selected in turn: Campus (top left), Downtown (top right), Night Market (bottom left), Waterfront (bottom right). Pick one, or say what to mix (buttons from one, cards from another). Try one in the game: add ?menuLayout=m1 (m2 to m5) to the link.",
+      "items": [
+        {
+          "id": "v3_current",
+          "title": "Now",
+          "note": "Buttons in the top corners over the map, map centred, level cards in a row under it. The buttons cover the edge of the Campus sign.",
+          "picked": false,
+          "images": [
+            "map/v3_current_campus.jpg",
+            "map/v3_current_downtown.jpg",
+            "map/v3_current_night_market.jpg",
+            "map/v3_current_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v3_m1",
+          "title": "M1",
+          "note": "Buttons in a row across the top, smaller map with the chapter card under it, level list on the right.",
+          "picked": false,
+          "images": [
+            "map/v3_m1_campus.jpg",
+            "map/v3_m1_downtown.jpg",
+            "map/v3_m1_night_market.jpg",
+            "map/v3_m1_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v3_m2",
+          "title": "M2",
+          "note": "Bigger map behind the corner buttons, level cards on a dark strip along the bottom. The buttons cover the Campus sign.",
+          "picked": false,
+          "images": [
+            "map/v3_m2_campus.jpg",
+            "map/v3_m2_downtown.jpg",
+            "map/v3_m2_night_market.jpg",
+            "map/v3_m2_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v3_m3",
+          "title": "M3",
+          "note": "Sidebar with every button, map beside it, tall level cards with the friends’ faces.",
+          "picked": false,
+          "images": [
+            "map/v3_m3_campus.jpg",
+            "map/v3_m3_downtown.jpg",
+            "map/v3_m3_night_market.jpg",
+            "map/v3_m3_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v3_m4",
+          "title": "M4 (new)",
+          "note": "M1’s button row across the top, the map centred under it with nothing covering it, level cards in a row.",
+          "picked": false,
+          "images": [
+            "map/v3_m4_campus.jpg",
+            "map/v3_m4_downtown.jpg",
+            "map/v3_m4_night_market.jpg",
+            "map/v3_m4_waterfront.jpg"
+          ]
+        },
+        {
+          "id": "v3_m5",
+          "title": "M5 (new)",
+          "note": "M3’s sidebar, the biggest map, level cards in a row with the stars under the level name.",
+          "picked": false,
+          "images": [
+            "map/v3_m5_campus.jpg",
+            "map/v3_m5_downtown.jpg",
+            "map/v3_m5_night_market.jpg",
+            "map/v3_m5_waterfront.jpg"
+          ]
+        }
+      ]
+    },
+    {
       "round": "Map layout drafts",
       "date": "2026-11-23",
       "about": "Pick one, or say what to mix. Try one in the game: add ?menuLayout=m1 (m2, m3) to the link.",
