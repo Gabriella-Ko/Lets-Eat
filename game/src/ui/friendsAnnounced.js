@@ -31,3 +31,13 @@ export function markAnnounced(ids) {
     /* kept in memory for this session */
   }
 }
+
+/** Forget every friend announced (Reset progress): the saved key and the in-memory fallback. */
+export function clearSeen() {
+  memory = null;
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}

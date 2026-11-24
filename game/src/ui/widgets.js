@@ -3,6 +3,9 @@ import { clearPages } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
 import { clearEndingSeen } from './endingStore.js';
+import { clearSeen as clearHowToPlaySeen } from './howToPlay.js';
+import { clearSeen as clearChapterIntrosSeen } from './chapterIntro.js';
+import { clearSeen as clearFriendsAnnounced } from './friendsAnnounced.js';
 import { play as playSfx } from './sfx.js';
 
 /** Rounded panel. Returns the Graphics object. */
@@ -161,10 +164,13 @@ export function saveStars(levelId, stars) {
  */
 export function resetProgress() {
   try {
-    for (const k of [KEY, 'lets-eat-how-to-play-v1', 'lets-eat-chapter-intros-v1', 'lets-eat-friends-announced-v1']) localStorage.removeItem(k);
+    localStorage.removeItem(KEY);
   } catch {
     /* storage blocked: nothing saved to clear */
   }
+  clearHowToPlaySeen(); // 'lets-eat-how-to-play-v1', plus its in-memory fallback
+  clearChapterIntrosSeen(); // 'lets-eat-chapter-intros-v1', plus its in-memory fallback
+  clearFriendsAnnounced(); // 'lets-eat-friends-announced-v1', plus its in-memory fallback
   clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
   clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
   clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback

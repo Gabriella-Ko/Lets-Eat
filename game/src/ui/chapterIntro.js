@@ -41,6 +41,16 @@ function markSeen(chapter) {
   }
 }
 
+/** Forget every chapter card seen (Reset progress): the saved key and the in-memory fallback. */
+export function clearSeen() {
+  memory = {};
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
 /**
  * Card over the whole screen. Continue with a click, Enter or Esc; onDone runs once, as it closes.
  * Marks the chapter as seen. Returns a handle with close(), or null for an unknown chapter (onDone runs at once).

@@ -61,6 +61,16 @@ function markSeen() {
   }
 }
 
+/** Forget that How to play was seen (Reset progress): the saved key and the in-memory fallback. */
+export function clearSeen() {
+  memory = false;
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
 /**
  * Three-step overlay over the whole screen. Next with the button or Enter, skip at any step with the
  * button or Esc; onDone runs once, as it closes. Marks How to play as seen. Returns a handle with close().
