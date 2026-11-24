@@ -6,7 +6,8 @@ One page for every draft:
     (assets/drafts/gemini_outcome_prompts.json, images saved in assets/drafts/gemini/level_XX/).
   - Scrapbook pictures, one per callback, also made by hand in Gemini
     (assets/drafts/gemini_scrapbook_prompts.json, images saved in assets/drafts/gemini/scrapbook/).
-  - Screen layouts: earlier rounds of the Outcome, Friends and Scrapbook screens, and the map layout drafts
+  - Screen layouts: earlier rounds of the Outcome, Friends and Scrapbook screens, the map layout drafts and the
+    ending scene drafts
     (assets/drafts/screens/screens.json, screenshots and GIFs beside it).
   - Fonts: font pairings and type scales, drawn live in the page (Google Fonts).
 
@@ -186,7 +187,7 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
 </style></head><body>
 <header>
   <h1>ART ARTIFACTS</h1>
-  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button><button data-tab="s-outcome">Outcome screen</button><button data-tab="s-friends">Friends screen</button><button data-tab="s-scrapbook">Scrapbook screen</button><button data-tab="s-map">Map layouts</button><button data-tab="fonts">Fonts</button></div>
+  <div class="tabs"><button data-tab="pixellab">Badges &amp; icons</button><button data-tab="outcomes">Outcomes</button><button data-tab="scrapbook">Scrapbook</button><button data-tab="s-outcome">Outcome screen</button><button data-tab="s-friends">Friends screen</button><button data-tab="s-scrapbook">Scrapbook screen</button><button data-tab="s-map">Map layouts</button><button data-tab="s-ending">Ending</button><button data-tab="fonts">Fonts</button></div>
   <span class="stat" id="stat"></span>
   <progress id="bar" value="0" max="1"></progress>
   <span class="stat"><b id="picks">0</b> picked</span>
@@ -227,6 +228,7 @@ h2 small { font-size:13px; color:var(--soft); letter-spacing:0; text-transform:n
   <section id="s-friends"><div class="how">Every round of Friends page drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
   <section id="s-scrapbook"><div class="how">Every round of Scrapbook screen drafts, oldest first. The green <b>in the game</b> card is the one that was picked. The animations loop; click one to open it full size.</div><div class="rounds"></div></section>
   <section id="s-map"><div class="how"><b>Map (level select) layout drafts.</b> Click a card to pick it, then "Copy my picks". Each one is in the game too: add <span class="code">?menuLayout=m1</span> (or m2, m3) to the game's link.</div><div class="rounds"></div></section>
+  <section id="s-ending"><div class="how"><b>Ending scene drafts</b> (after level_20, the send-off). Click a card to pick it (or say what to mix), then "Copy my picks". Lines and art are placeholders: the real lines come from the narrative writer, the photos from you.</div><div class="rounds"></div></section>
   <section id="fonts">
     <div class="how"><b>Fonts.</b> Pick a <b>font pairing</b> (headings and buttons / chat and reviews) and a <b>type scale</b> (how big each kind of text is), then "Copy my picks". The type scales are drawn in the pairing you picked, and the pairings in the scale you picked, so you see them together. Sizes are game pixels (the game is 960×640).</div>
     <h2>Font pairings</h2><div id="fpairs" class="sgrid"></div>
@@ -245,7 +247,7 @@ const $ = (s, el = document) => el.querySelector(s);
 const toast = (t) => { const e = $("#toast"); e.textContent = t; setTimeout(() => (e.textContent = ""), 1800); };
 const copy = async (text, what) => { try { await navigator.clipboard.writeText(text); toast(what + " copied"); } catch (e) { prompt("Copy:", text); } };
 const stamp = Date.now();
-const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0], "s-outcome": [0, 0], "s-friends": [0, 0], "s-scrapbook": [0, 0], "s-map": [0, 0], fonts: [0, 0] };
+const counts = { pixellab: [0, 0], outcomes: [0, 0], scrapbook: [0, 0], "s-outcome": [0, 0], "s-friends": [0, 0], "s-scrapbook": [0, 0], "s-map": [0, 0], "s-ending": [0, 0], fonts: [0, 0] };
 const TABS = Object.keys(counts);
 
 /** Prompt, per-draft copy buttons and reference thumbnails, shared by Outcomes and Scrapbook cards. */
@@ -406,10 +408,10 @@ for (const r of DATA.scrapbook) {
 
 // ---- Screen layouts: earlier rounds (Outcome, Friends, Scrapbook) and the map layout drafts
 const SCREENS = DATA.screens || {};
-for (const [key, sec] of [["outcome", "s-outcome"], ["friends", "s-friends"], ["scrapbook", "s-scrapbook"], ["map", "s-map"]]) {
+for (const [key, sec] of [["outcome", "s-outcome"], ["friends", "s-friends"], ["scrapbook", "s-scrapbook"], ["map", "s-map"], ["ending", "s-ending"]]) {
   const host = $(`#${sec} .rounds`);
   const rounds = SCREENS[key] || [];
-  const pickable = key === "map";
+  const pickable = key === "map" || key === "ending";
   if (!rounds.length) host.innerHTML = `<p class="empty">Nothing here yet.</p>`;
   for (const r of rounds) {
     const h = document.createElement("h2"); h.innerHTML = `<span></span><small></small>`;
@@ -430,7 +432,7 @@ for (const [key, sec] of [["outcome", "s-outcome"], ["friends", "s-friends"], ["
       }
       counts[sec][0]++; counts[sec][1]++;
       if (pickable) {
-        const k = "map";
+        const k = key;
         const refresh = () => { document.querySelectorAll(`#${sec} .scard`).forEach((c) => c.classList.toggle("picked", picks[k] === c.dataset.id)); $("#picks").textContent = Object.keys(picks).length; };
         card.dataset.id = it.id;
         card.onclick = () => { if (picks[k] === it.id) delete picks[k]; else picks[k] = it.id; save(); refresh(); };

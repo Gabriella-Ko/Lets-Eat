@@ -478,5 +478,45 @@
         }
       ]
     }
+  ],
+  "ending": [
+    {
+      "round": "Ending drafts",
+      "date": "2026-11-23",
+      "about": "After level_20 (Maya's send-off). The animation, then the finished screen. Lines and photos are placeholders; options 1 and 2 combine well (chat first, then the photo).",
+      "items": [
+        {
+          "id": "e1",
+          "title": "1 · Group photo + roll call",
+          "note": "A polaroid of all six dropped onto a scrapbook page, then one closing line from each friend, a thank-you and Continue.",
+          "picked": false,
+          "images": [
+            "ending/v1.gif",
+            "ending/v1.jpg"
+          ]
+        },
+        {
+          "id": "e2",
+          "title": "2 · Final group chat",
+          "note": "The next morning: Maya posts a coast photo, everyone reacts, the last message thanks the player; a 'The End' card with stars and Continue.",
+          "picked": false,
+          "images": [
+            "ending/v2.gif",
+            "ending/v2_photo.jpg",
+            "ending/v2.jpg"
+          ]
+        },
+        {
+          "id": "e3",
+          "title": "3 · Scrapbook flip-through",
+          "note": "The Scrapbook turns through every page you earned, then a new last page, 'The Send-off', gets its photo and a gold rosette stuck on.",
+          "picked": false,
+          "images": [
+            "ending/v3.gif",
+            "ending/v3.jpg"
+          ]
+        }
+      ]
+    }
   ]
 }
