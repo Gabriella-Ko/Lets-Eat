@@ -362,19 +362,19 @@
       "detect": [
         {
           "contains": "src/scenes/ResultsListScene.js",
-          "pattern": "keydown-DOWN"
+          "pattern": "keydown-DOWN\\b|onKey\\([^,]+,\\s*['\"]DOWN['\"]"
         },
         {
           "contains": "src/scenes/OutcomeScene.js",
-          "pattern": "keydown-RIGHT"
+          "pattern": "keydown-RIGHT\\b|onKey\\([^,]+,\\s*['\"]RIGHT['\"]"
         },
         {
           "contains": "src/scenes/ScrapbookScene.js",
-          "pattern": "keydown-RIGHT"
+          "pattern": "keydown-RIGHT\\b|onKey\\([^,]+,\\s*['\"]RIGHT['\"]"
         },
         {
           "contains": "src/scenes/MenuScene.js",
-          "pattern": "keydown-ENTER"
+          "pattern": "keydown-ENTER\\b|onKey\\([^,]+,\\s*['\"]ENTER['\"]"
         }
       ]
     },
@@ -582,7 +582,7 @@
         },
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "keydown-ESC"
+          "pattern": "keydown-ESC\\b|onKey\\([^,]+,\\s*['\"]ESC['\"]"
         }
       ]
     },
@@ -686,11 +686,11 @@
         },
         {
           "contains": "src/scenes/MenuScene.js",
-          "pattern": "keydown-ESC"
+          "pattern": "keydown-ESC\\b|onKey\\([^,]+,\\s*['\"]ESC['\"]"
         },
         {
           "contains": "src/scenes/MenuScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         }
       ]
     },
@@ -768,15 +768,15 @@
       "detect": [
         {
           "contains": "src/scenes/OptionsScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         },
         {
           "contains": "src/scenes/ScrapbookScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         },
         {
           "contains": "src/scenes/FriendsScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         }
       ]
     },
@@ -838,7 +838,7 @@
       "detect": [
         {
           "contains": "src/scenes/CreditsScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         }
       ]
     },
@@ -955,7 +955,7 @@
       "detect": [
         {
           "contains": "src/scenes/ResultsListScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         }
       ]
     },
@@ -971,7 +971,7 @@
       "detect": [
         {
           "contains": "src/scenes/ChatScene.js",
-          "pattern": "keydown-BACKSPACE"
+          "pattern": "keydown-BACKSPACE\\b|onKey\\([^,]+,\\s*['\"]BACKSPACE['\"]"
         }
       ]
     },
@@ -1005,7 +1005,7 @@
       "detect": [
         {
           "contains": "src/scenes/ChatScene.js",
-          "pattern": "keydown-RIGHT"
+          "pattern": "keydown-RIGHT\\b|onKey\\([^,]+,\\s*['\"]RIGHT['\"]"
         },
         {
           "contains": "src/scenes/ChatScene.js",
@@ -1354,7 +1354,7 @@
         },
         {
           "contains": "src/scenes/ResultsListScene.js",
-          "pattern": "keydown-R"
+          "pattern": "keydown-R\\b|onKey\\([^,]+,\\s*['\"]R['\"]"
         },
         {
           "contains": "src/scenes/ResultsListScene.js",
@@ -1445,7 +1445,7 @@
       "detect": [
         {
           "contains": "src/scenes/MenuScene.js",
-          "pattern": "keydown-S\\b"
+          "pattern": "keydown-S\\b|onKey\\([^,]+,\\s*['\"]S['\"]"
         }
       ]
     },
@@ -1477,7 +1477,7 @@
       "detect": [
         {
           "contains": "src/scenes/ChatScene.js",
-          "pattern": "keydown-S\\b"
+          "pattern": "keydown-S\\b|onKey\\([^,]+,\\s*['\"]S['\"]"
         },
         {
           "contains": "src/scenes/ChatScene.js",
@@ -1497,11 +1497,11 @@
       "detect": [
         {
           "contains": "src/scenes/ResultsListScene.js",
-          "pattern": "keydown-S\\b"
+          "pattern": "keydown-S\\b|onKey\\([^,]+,\\s*['\"]S['\"]"
         },
         {
           "contains": "src/scenes/ResultsListScene.js",
-          "pattern": "keydown-F\\b"
+          "pattern": "keydown-F\\b|onKey\\([^,]+,\\s*['\"]F['\"]"
         },
         {
           "contains": "src/scenes/ResultsListScene.js",
@@ -1521,11 +1521,11 @@
       "detect": [
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "keydown-LEFT"
+          "pattern": "keydown-LEFT\\b|onKey\\([^,]+,\\s*['\"]LEFT['\"]"
         },
         {
           "contains": "src/scenes/HudScene.js",
-          "pattern": "keydown-RIGHT"
+          "pattern": "keydown-RIGHT\\b|onKey\\([^,]+,\\s*['\"]RIGHT['\"]"
         }
       ]
     },
