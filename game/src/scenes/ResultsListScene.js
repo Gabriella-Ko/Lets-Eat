@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, pixel, text, readText, fitWidth } from '../ui/theme.js';
+import { C, W, H, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { notebook, pinMode, getPins } from '../ui/notebook.js';
 import { scrollArea } from '../ui/scroll.js';
@@ -100,13 +100,25 @@ export default class ResultsListScene extends Phaser.Scene {
           this.select(card);
         }
       });
-      kb.on('keydown-R', recommend);
+      // R recommends the open place or, with none open yet, the focused card's; the open volume panel takes it first.
+      kb.on('keydown-R', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        if (!this.selected) {
+          const card = this.cards[this.focus];
+          if (!card) return;
+          this.selected = card.venue;
+        }
+        recommend();
+      });
       // Backspace does what "← Back to chat" does; the open volume panel takes it first.
       kb.on('keydown-BACKSPACE', () => {
         if (this.registry.get('hudPanelOpen')) return;
         this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
       });
     }
+
+    // Key hint under the list and details panels, clear of the music button in the bottom-left corner.
+    this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, '↑ ↓: choose   ·   enter: open   ·   r: recommend   ·   backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
 
     this.drawControls();
     this.drawCards();
