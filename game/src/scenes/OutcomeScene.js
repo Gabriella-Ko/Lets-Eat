@@ -262,8 +262,9 @@ export default class OutcomeScene extends Phaser.Scene {
     // Friends met for the first time on this level get their own card first (announced once each), in the
     // level's guest order. Only on a cleared level: the card's tagline names a need, so after a fail it
     // would hand the answer to the retry.
+    // Not marked announced here: each friend counts as announced only once their card is on screen
+    // (announceShown in showNextUnlock), so leaving, reloading or mashing Enter before it keeps them (QT-02, SC-03).
     const friends = cleared ? newFriends(this.level.guests) : [];
-    markAnnounced(friends);
     this.newFriendIds = friends;
     // Pages still waiting for their card (saved, so a reload or a trip to the map before this screen keeps them).
     // Each leaves the list only when its card shows (showNextUnlock). Held back after a fail, like the
@@ -300,6 +301,14 @@ export default class OutcomeScene extends Phaser.Scene {
    * "Keep going" closes (or "Next →" when more cards follow). Shown here, after the level, never in the chat,
    * so it can't flag which chat line was a callback (and so often a clue).
    */
+  /**
+   * Record these friends as announced, called the moment their "A new friend has joined!" card appears
+   * (Bug hunt run 1, QT-02, SC-03). Until then they stay unannounced, so the card shows on a later Outcome.
+   */
+  announceShown(ids) {
+    markAnnounced(ids);
+  }
+
   showNextUnlock() {
     this.closeUnlock();
     const item = this.unlockQueue?.shift();
@@ -307,6 +316,7 @@ export default class OutcomeScene extends Phaser.Scene {
     const { type, id } = item;
     let view;
     if (type === 'friend') {
+      this.announceShown([id]); // its card shows now
       const ch = CHARACTERS[id] || { name: id, color: C.inkSoft };
       view = {
         head: 'A NEW FRIEND HAS JOINED!', ruled: false,

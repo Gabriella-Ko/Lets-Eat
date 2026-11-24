@@ -20,7 +20,7 @@ export function newFriends(guests) {
   return (guests || []).filter((g) => !seen.has(g));
 }
 
-/** Remember these friends as announced. */
+/** Remember these friends as announced. Call only once their card is on screen (OutcomeScene.announceShown). */
 export function markAnnounced(ids) {
   if (!ids.length) return;
   const all = [...new Set([...load(), ...ids])];
