@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, H, CHARACTERS, hex, pixel, text, readText } from '../ui/theme.js';
+import { C, W, H, CHARACTERS, nameColor, hex, pixel, text, readText } from '../ui/theme.js';
 import { button, portrait, star, loadProgress } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { tween } from '../ui/motion.js';
@@ -131,7 +131,7 @@ export default class EndingScene extends Phaser.Scene {
     const ch = CHARACTERS[speaker] || { name: speaker || '', color: C.inkSoft };
     const c = this.add.container(0, this.chatY);
     const face = portrait(this, 30, 30, 52, speaker, 'NEUTRAL');
-    const name = this.add.text(70, 0, `${ch.name.toUpperCase()} is typing`, pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
+    const name = this.add.text(70, 0, `${ch.name.toUpperCase()} is typing`, pixel(15, nameColor(speaker), { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
     const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(70, 19, 64, 34, 10);
     const dots = [0, 1, 2].map((i) => this.add.circle(88 + i * 14, 36, 4, C.inkSoft).setAlpha(0.3));
     c.add([bubble, face, name, ...dots]);
@@ -160,7 +160,7 @@ export default class EndingScene extends Phaser.Scene {
     const grey = !!line.placeholder;
     const c = this.add.container(0, this.chatY);
     const face = portrait(this, 30, 30, 52, line.speaker, line.emotion);
-    const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
+    const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, nameColor(line.speaker), { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
     const maxW = CHAT.w - 70 - 30;
     const t = this.add.text(84, 30, line.text || TO_COME, readText(15, grey ? C.inkSoft : C.ink, { wordWrap: { width: maxW - 28 } }));
     let bw = Math.max(80, t.width + 28);
@@ -222,7 +222,7 @@ export default class EndingScene extends Phaser.Scene {
     FRIENDS.forEach((id, i) => {
       const x = cx + ((i % 3) - 1) * 84, y = CARD.y + 220 + Math.floor(i / 3) * 104;
       c.add(portrait(this, x, y, 64, id, 'HAPPY'));
-      c.add(this.add.text(x, y + 46, CHARACTERS[id].name, pixel(14, CHARACTERS[id].color, { fontStyle: 'bold' })).setOrigin(0.5));
+      c.add(this.add.text(x, y + 46, CHARACTERS[id].name, pixel(14, nameColor(id), { fontStyle: 'bold' })).setOrigin(0.5));
     });
     c.add(button(this, cx, CARD.y + CARD.h - 44, 'Continue →', () => this.toPart2(), { w: 200, h: 44, fill: C.good }));
     c.setAlpha(0);
@@ -312,7 +312,7 @@ export default class EndingScene extends Phaser.Scene {
       const grey = !entry?.text;
       const c = this.add.container(x0, y0 + i * rowH).setAlpha(0);
       c.add(portrait(this, 22, 22, 40, id, entry?.emotion || 'HAPPY'));
-      c.add(this.add.text(52, 0, CHARACTERS[id].name.toUpperCase(), pixel(14, CHARACTERS[id].color, { fontStyle: 'bold' })));
+      c.add(this.add.text(52, 0, CHARACTERS[id].name.toUpperCase(), pixel(14, nameColor(id), { fontStyle: 'bold' })));
       const body = this.add.text(52, 20, entry?.text || TO_COME, readText(13, grey ? C.inkSoft : C.ink, { wordWrap: { width: PW - 100 } }));
       if (grey) c.add(this.add.graphics().fillStyle(GREY, 1).fillRoundedRect(46, 17, body.width + 12, body.height + 6, 6));
       c.add(body);

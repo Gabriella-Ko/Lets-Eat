@@ -95,7 +95,29 @@ export const CHARACTERS = {
   brooke: { name: 'Brooke', color: 0x86691a },
 };
 
-export const EMOTIONS = ['HAPPY', 'ANNOYED', 'SURPRISED', 'HUNGRY', 'ANGRY', 'NEUTRAL'];
+const luminance = (n) => {
+  const ch = (v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; };
+  return 0.2126 * ch((n >> 16) & 255) + 0.7152 * ch((n >> 8) & 255) + 0.0722 * ch(n & 255);
+};
+/** WCAG contrast ratio between two 0xRRGGBB colours. */
+export const contrast = (a, b) => {
+  const [hi, lo] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (hi + 0.05) / (lo + 0.05);
+};
+/**
+ * A friend's name colour, read when drawing. Normally their own colour; with High contrast,
+ * darkened in small steps until it reaches 4.5:1 on the cream panel (C.panel).
+ */
+export function nameColor(id, fallback = C.inkSoft) {
+  let c = CHARACTERS[id]?.color ?? fallback;
+  if (!highContrast()) return c;
+  for (let i = 0; i < 40 && contrast(c, C.panel) < 4.5; i++) {
+    c = (Math.floor(((c >> 16) & 255) * 0.94) << 16) | (Math.floor(((c >> 8) & 255) * 0.94) << 8) | Math.floor((c & 255) * 0.94);
+  }
+  return c;
+}
+
+export const EMOTIONS =['HAPPY', 'ANNOYED', 'SURPRISED', 'HUNGRY', 'ANGRY', 'NEUTRAL'];
 
 export const CUISINES = {
   noodles: 0xf0c05a, sushi: 0xe9887a, pizza: 0xd9622f, burgers: 0xb7773f, tacos: 0xe7b23d,
