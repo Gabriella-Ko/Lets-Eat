@@ -20,6 +20,7 @@ export const C = {
   rust: 0x8a4a2c,
   gold: 0xf2c14e,
   goldDim: 0x5a4a45,
+  locked: 0xa39186, // LOCKED district badge text on the dark badge plate (C.bg): about 4.9:1
   highlight: 0xf6d78b, // a missed clue line, after a wrong pick
   starred: 0xfdf0dc, // a chat bubble the player starred (soft cream, kept apart from highlight)
   good: 0x6f8f5a,
@@ -40,6 +41,7 @@ const HIGH_CONTRAST = {
   accentDark: 0x8a3f00,
   blue: 0x2e5566,
   goldDim: 0x8f7d72,
+  locked: 0xc9b9ad, // about 7.5:1 on the badge plate
   highlight: 0xffd84d,
   starred: 0xfff1d6,
   good: 0x3f6b2c,

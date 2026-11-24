@@ -70,13 +70,13 @@ export function cityMap(scene, opts) {
     const plate = scene.add.graphics();
     plate.fillStyle(C.bg, unlocked ? 0.82 : 0.6).fillRoundedRect(cx - 92, cy - 30, 184, 60, 10);
     const name = (DISTRICTS[district] || district).toUpperCase();
-    fitWidth(scene.add.text(cx, cy - 13, name, pixel(17, unlocked ? C.label : C.goldDim, { fontStyle: 'bold' })).setOrigin(0.5), 172);
+    fitWidth(scene.add.text(cx, cy - 13, name, pixel(17, unlocked ? C.label : C.locked, { fontStyle: 'bold' })).setOrigin(0.5), 172);
     if (unlocked) {
       const t = totals.byChapter[d.chapter] || { earned: 0, max: 0 };
       const score = scene.add.text(cx + 10, cy + 13, `${t.earned} / ${t.max}`, pixel(15, t.perfect ? C.highlight : C.label)).setOrigin(0.5);
       star(scene.add.graphics(), score.x - score.width / 2 - 12, cy + 13, 8, t.earned > 0);
     } else {
-      scene.add.text(cx, cy + 13, 'LOCKED', pixel(14, C.goldDim)).setOrigin(0.5);
+      scene.add.text(cx, cy + 13, 'LOCKED', pixel(14, C.locked)).setOrigin(0.5);
     }
 
     const ring = scene.add.graphics();
@@ -162,8 +162,8 @@ function artMap(scene, opts) {
     // Badge: the district's name, then its star total when open, LOCKED when not.
     const t = totals.byChapter[d.chapter] || { earned: 0, max: 0 };
     const label = unlocked ? `${t.earned} / ${t.max}` : 'LOCKED';
-    const nm = scene.add.text(0, 0, d.name, pixel(14, unlocked ? C.label : C.goldDim, { fontStyle: 'bold' }));
-    const txt = scene.add.text(0, 0, label, pixel(13, unlocked ? (t.perfect ? C.highlight : C.label) : C.goldDim));
+    const nm = scene.add.text(0, 0, d.name, pixel(14, unlocked ? C.label : C.locked, { fontStyle: 'bold' }));
+    const txt = scene.add.text(0, 0, label, pixel(13, unlocked ? (t.perfect ? C.highlight : C.label) : C.locked));
     const gap = unlocked ? 34 : 14;
     const bw = nm.width + gap + txt.width + 24, bh = 28;
     let bx = px(d.badge[0]), by = py(d.badge[1]);
@@ -185,7 +185,7 @@ function artMap(scene, opts) {
     }
     const plate = scene.add.graphics();
     plate.fillStyle(C.bg, 0.9).fillRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 14);
-    plate.lineStyle(2, unlocked ? C.label : C.goldDim, 0.8).strokeRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 14);
+    plate.lineStyle(2, unlocked ? C.label : C.locked, 0.8).strokeRoundedRect(bx - bw / 2, by - bh / 2, bw, bh, 14);
     nm.setPosition(bx - bw / 2 + 12, by - nm.height / 2).setDepth(1);
     txt.setPosition(nm.x + nm.width + gap, by - txt.height / 2).setDepth(1);
     if (unlocked) star(scene.add.graphics().setDepth(1), nm.x + nm.width + 17, by, 7, t.earned > 0);
