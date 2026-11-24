@@ -143,6 +143,7 @@ export default class ChatScene extends Phaser.Scene {
     // Star levels: ↑ ↓ move the line focus and S stars it; other levels: ↑ ↓ scroll.
     onKey(this, 'UP', () => (this.pinning ? this.moveFocus(-1) : this.chat.scrollBy(-KEY_STEP)));
     onKey(this, 'DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
+    // S (keydown-S, through onKey so each press acts once) stars or unstars the focused line.
     if (this.pinning) onKey(this, 'S', () => this.starFocused());
     onKey(this, 'PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
     onKey(this, 'PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
@@ -210,7 +211,7 @@ export default class ChatScene extends Phaser.Scene {
   keyHintText() {
     // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
     // Tight " · " separators so the line fits under the chat panel without shrinking much.
-    const lines = this.pinning ? '↑ ↓: pick a line · s: star it' : '↑ ↓: scroll';
+    const lines = this.pinning ? '↑ ↓: pick a line · s: star a line' : '↑ ↓: scroll';
     if (this.done()) return `enter or →: find a place · ${lines} · m: music · backspace: levels`;
     return `space or enter: next · p: pause · a: show all · ${lines} · m: music · backspace: levels`;
   }
