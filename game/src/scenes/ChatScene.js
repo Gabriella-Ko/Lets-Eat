@@ -56,6 +56,11 @@ export default class ChatScene extends Phaser.Scene {
     // How to play shown from Options: a real level screen behind the steps, then back to returnTo.
     this.howToPlayDemo = !!data.howToPlay;
     this.returnTo = data.returnTo || 'Menu';
+    // The map opens on this level's district and card next time (not for the How to play demo from Options).
+    if (!this.howToPlayDemo) {
+      this.registry.set('lastLevel', this.level.id);
+      this.registry.set('lastLevelNew', true);
+    }
     this.pinning = pinMode(this.level);
     if (this.pinning && !this.revealAll) setPins(this, this.level.id, []);
     // Scrapbook pages unlocked during this visit to the level; the Outcome screen announces them.

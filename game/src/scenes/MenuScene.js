@@ -148,6 +148,10 @@ export default class MenuScene extends Phaser.Scene {
     // City map: one district per chapter; locked districts are greyed. Clicking an open one lists its levels
     // on the right. The last district picked is kept in the registry; otherwise the newest open chapter.
     const openChapters = [...new Set(open.map((l) => l.chapter))].sort((a, b) => a - b);
+    // Back from a level: its district first (once per level visit), so the map opens where the player was.
+    const last = open.find((l) => l.id === this.registry.get('lastLevel'));
+    if (last && this.registry.get('lastLevelNew')) this.registry.set('menuChapter', last.chapter);
+    this.registry.set('lastLevelNew', false);
     const saved = this.registry.get('menuChapter');
     const selected = openChapters.includes(saved) ? saved : openChapters[openChapters.length - 1];
     // With the picture: full width at the top, level cards in a row below. Without it: map left, list right.
@@ -204,6 +208,8 @@ export default class MenuScene extends Phaser.Scene {
 
   /** Focus ring (C.highlight, read at draw time so High contrast applies) around the focused level card. */
   drawFocus() {
+    // A freshly drawn district starts on the last played level's card when it is in this district.
+    if (this.focus == null) this.focus = Math.max(0, this.levelCards.findIndex((card) => card.lvl.id === this.registry.get('lastLevel')));
     const g = this.focusRing;
     const card = this.levelCards?.[this.focus];
     if (!g || !card) return;
@@ -218,7 +224,7 @@ export default class MenuScene extends Phaser.Scene {
     const c = (this.cards = this.add.container(0, 0));
     const lvls = open.filter((l) => l.chapter === chapter);
     this.levelCards = [];
-    this.focus = 0;
+    this.focus = null; // drawFocus() picks the last played level's card, else the first
     if (!lvls.length) return;
     if (this.art && (this.ML.cards === 'row' || this.ML.cards === 'faces')) return this.showChapterRow(c, chapter, lvls, totals, progress);
     if (this.art && this.ML.cards === 'tall') return this.showChapterTall(c, chapter, lvls, totals, progress);
