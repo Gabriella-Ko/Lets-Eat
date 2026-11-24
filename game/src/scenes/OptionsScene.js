@@ -284,6 +284,21 @@ export default class OptionsScene extends Phaser.Scene {
    * With Animations off the timing is the same, but rows simply appear (tween() jumps to the end).
    * Its timer is removed when the screen shuts down.
    */
+  /**
+   * A white chat bubble for the preview. The edge is stroked only with High contrast, as its own
+   * closed path (a 0-width stroke after the fill used to leave a stray line from the name into the
+   * bubble's edge, AX-05).
+   */
+  drawPreviewBubble(x, y, w, h) {
+    const g = this.add.graphics();
+    g.fillStyle(0xffffff, 1).fillRoundedRect(x, y, w, h, 9);
+    if (highContrast()) {
+      g.beginPath();
+      g.lineStyle(1, C.inkSoft, 1).strokeRoundedRect(x, y, w, h, 9);
+    }
+    return g;
+  }
+
   previewChatPace() {
     const layer = this.previewChat;
     if (!layer) return;
@@ -320,8 +335,7 @@ export default class OptionsScene extends Phaser.Scene {
       const name = this.add.text(62, 0, ch.name.toUpperCase(), pixel(13, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 3 }));
       const body = this.add.text(73, 23, line.text, readText(13, C.ink, { wordWrap: { width: w - 62 - 18 - 22, useAdvancedWrap: true } }));
       const bw = body.width + 22, bh = body.height + 12;
-      const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(62, 17, bw, bh, 9)
-        .lineStyle(highContrast() ? 1 : 0, C.inkSoft, 1).strokeRoundedRect(62, 17, bw, bh, 9);
+      const bubble = this.drawPreviewBubble(62, 17, bw, bh);
       c.add([bubble, face, name, body]);
       layer.add(c);
       c.setPosition(-16, rowY).setAlpha(0);
