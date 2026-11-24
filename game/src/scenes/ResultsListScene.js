@@ -100,14 +100,10 @@ export default class ResultsListScene extends Phaser.Scene {
           this.select(card);
         }
       });
-      // R recommends the open place or, with none open yet, the focused card's; the open volume panel takes it first.
+      // R recommends only the place whose details are open (so its reviews were read first); with none open it does
+      // nothing, and the open volume panel takes it first.
       kb.on('keydown-R', () => {
         if (this.registry.get('hudPanelOpen')) return;
-        if (!this.selected) {
-          const card = this.cards[this.focus];
-          if (!card) return;
-          this.selected = card.venue;
-        }
         recommend();
       });
       // Backspace does what "← Back to chat" does; the open volume panel takes it first.
