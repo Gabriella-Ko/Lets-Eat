@@ -166,7 +166,9 @@ export default class OutcomeScene extends Phaser.Scene {
 
     onKey(this, 'ESC', () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel
-      if (this.unlockCard) this.showNextUnlock(); else this.closeRecap();
+      // A card still appearing ignores Esc, like Enter and the arrows (bug hunt SC-05).
+      if (this.unlockCard && !this.unlockCard.ready) return;
+      if (this.unlockCard)this.showNextUnlock(); else this.closeRecap();
     });
     if (this.openRecapOnStart) this.openRecap();
   }
