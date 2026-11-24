@@ -289,18 +289,49 @@ export default class OutcomeScene extends Phaser.Scene {
     if (!ids.length) return;
     const callbacks = this.registry.get('rules').callbacks || {};
     const titles = ids.map((id) => callbacks[id]?.title || id);
-    const label = `${ids.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE'}`;
-    const c = this.add.container(W - 24, 22);
-    const t1 = this.add.text(-14, 10, label, pixel(13, C.accent, { fontStyle: 'bold' })).setOrigin(1, 0);
-    const t2 = this.add.text(-14, 30, titles.join(' · '), text(14, C.ink)).setOrigin(1, 0);
-    const bw = Math.max(t1.width, t2.width) + 28;
-    const g = this.add.graphics();
-    g.fillStyle(C.panel, 1).fillRoundedRect(-bw, 0, bw, 58, 10);
-    g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, 58, 10);
-    c.add([g, t1, t2]);
+    const c = this.fitPageNote(titles);
     c.setAlpha(0);
-    tween(this, { targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
+    tween(this, { targets: c, alpha: 1, y: c.y + 4, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
+  }
+
+  /**
+   * Lays out the "NEW SCRAPBOOK PAGE(S)" note in the top-right corner, inside the strip right of the
+   * heading and venue line (both kept within W/2 ± (W/2 - 180) by fitWidth) and above the reactions panel,
+   * so with 1, 2 or 3 pages it never covers "PERFECT MATCH!" or "You sent everyone to …" (Bug hunt run 2, AX-09).
+   * One title per line, each shrunk to the strip's width; if the lines are still too tall, all shrink together.
+   */
+  fitPageNote(titles) {
+    const PAD = 14;
+    const right = W - 24;
+    const left = W - 180 + 12; // heading area ends at W - 180
+    const top = 18;
+    const maxW = right - left - 2 * PAD;
+    const maxH = REACT.y - 6 - top; // stop above the reactions panel
+    const label = titles.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE';
+    const c = this.add.container(right, top);
+    const t1 = fitWidth(this.add.text(-PAD, 8, label, pixel(13, C.accent, { fontStyle: 'bold' })).setOrigin(1, 0), maxW);
+    let lines = [];
+    let h = 0;
+    for (let size = 14; size >= 9; size--) {
+      lines.forEach((t) => t.destroy());
+      lines = [];
+      let y = 8 + t1.height + 4;
+      for (const title of titles) {
+        const t = fitWidth(this.add.text(-PAD, y, title, text(size, C.ink)).setOrigin(1, 0), maxW, Math.min(9, size));
+        lines.push(t);
+        y += t.height + 2;
+      }
+      h = y + 8;
+      if (h <= maxH) break;
+    }
+    const bw = Math.min(right - left, Math.max(t1.width, ...lines.map((t) => t.width)) + 2 * PAD);
+    const g = this.add.graphics();
+    g.fillStyle(C.panel, 1).fillRoundedRect(-bw, 0, bw, h, 10);
+    g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, h, 10);
+    c.add([g, t1, ...lines]);
+    c.layout = { x: right - bw, y: top, w: bw, h }; // its box on screen (before the 4 px settle)
+    return c;
   }
 
   /**
