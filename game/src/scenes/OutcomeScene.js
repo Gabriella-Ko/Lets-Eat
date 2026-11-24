@@ -13,6 +13,7 @@ import { recordPick } from '../ui/visitStore.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { endingSeen } from '../ui/endingStore.js';
 import { goScene } from '../ui/sceneSwitch.js';
+import { loadPending, removePending } from '../ui/scrapbookStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -264,12 +265,12 @@ export default class OutcomeScene extends Phaser.Scene {
     const friends = cleared ? newFriends(this.level.guests) : [];
     markAnnounced(friends);
     this.newFriendIds = friends;
-    const key = `newPages:${this.level.id}`;
-    const ids = this.registry.get(key) || [];
+    // Pages still waiting for their card (saved, so a reload or a trip to the map before this screen keeps them).
+    // Each leaves the list only when its card shows (showNextUnlock).
+    const ids = loadPending();
     this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
     if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
-    this.registry.set(key, []);
     const callbacks = this.registry.get('rules').callbacks || {};
     const titles = ids.map((id) => callbacks[id]?.title || id);
     const label = `${ids.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE'}`;
@@ -312,7 +313,11 @@ export default class OutcomeScene extends Phaser.Scene {
       };
     } else {
       const cb = (this.registry.get('rules').callbacks || {})[id];
-      if (!cb) return this.showNextUnlock();
+      if (!cb) {
+        removePending(id); // no such page in the rules: its card can never show
+        return this.showNextUnlock();
+      }
+      removePending(id); // its card shows now
       const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
       view = {
         head: 'NEW SCRAPBOOK PAGE!', ruled: true,

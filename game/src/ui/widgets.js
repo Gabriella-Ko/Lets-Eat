@@ -1,5 +1,5 @@
 import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
-import { clearPages } from './scrapbookStore.js';
+import { clearPages, clearPending } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
 import { clearEndingSeen } from './endingStore.js';
@@ -172,6 +172,7 @@ export function resetProgress() {
   clearChapterIntrosSeen(); // 'lets-eat-chapter-intros-v1', plus its in-memory fallback
   clearFriendsAnnounced(); // 'lets-eat-friends-announced-v1', plus its in-memory fallback
   clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
+  clearPending(); // 'lets-eat-pending-pages-v1' (pages waiting for their card), plus its in-memory fallback
   clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
   clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback
   clearEndingSeen(); // 'lets-eat-ending-seen-v1', so the ending plays again

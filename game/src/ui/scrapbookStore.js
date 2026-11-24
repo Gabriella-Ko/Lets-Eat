@@ -26,12 +26,61 @@ export function clearPages() {
   }
 }
 
+// Pages unlocked but not yet announced by their "NEW SCRAPBOOK PAGE!" card (Bug hunt run 1, QT-03, WA-01).
+// Saved, so leaving the level, reloading or going back to the map before the Outcome still gets the card
+// on the next Outcome. A page leaves the list only once its card has shown.
+const PENDING_KEY = 'lets-eat-pending-pages-v1';
+let pendingMemory = null;
+
+/** Page ids still waiting for their card, in unlock order. */
+export function loadPending() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PENDING_KEY));
+    if (Array.isArray(saved)) return saved.filter((id) => typeof id === 'string');
+  } catch {
+    /* storage blocked or corrupt */
+  }
+  return [...(pendingMemory || [])];
+}
+
+function savePending(ids) {
+  pendingMemory = ids;
+  try {
+    localStorage.setItem(PENDING_KEY, JSON.stringify(ids));
+  } catch {
+    /* storage blocked: kept in memory for this session */
+  }
+}
+
+/** Queue a page for its card (once). */
+export function addPending(id) {
+  const ids = loadPending();
+  if (!ids.includes(id)) savePending([...ids, id]);
+}
+
+/** A page's card has shown: stop waiting for it. */
+export function removePending(id) {
+  const ids = loadPending();
+  if (ids.includes(id)) savePending(ids.filter((x) => x !== id));
+}
+
+/** Forget every waiting card (Options > Reset progress). */
+export function clearPending() {
+  pendingMemory = null;
+  try {
+    localStorage.removeItem(PENDING_KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
+  }
+}
+
 /** Unlock a page. Returns true only the first time. */
 export function unlockPage(id, levelId) {
   const pages = loadPages();
   if (id in pages) return false;
   pages[id] = levelId;
   memory = pages;
+  addPending(id);
   try {
     localStorage.setItem(KEY, JSON.stringify(pages));
   } catch {
