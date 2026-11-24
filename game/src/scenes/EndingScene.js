@@ -44,7 +44,7 @@ export default class EndingScene extends Phaser.Scene {
   }
 
   create() {
-    markEndingSeen(); // plays once, even if the player skips through
+    // Seen is recorded only when the player leaves part 2 for the map (leave()), so a reload replays it.
     this.leaving = false;
     const kb = this.input.keyboard;
     // Phaser can hand the same keydown to a listener twice when keys come quickly; act once per native event.
@@ -332,6 +332,7 @@ export default class EndingScene extends Phaser.Scene {
     this.leaving = true;
     if (click && !this.ready) return void (this.leaving = false);
     if (click) playSfx(this, 'click');
+    markEndingSeen(); // only now: a reload or closed tab mid-ending offers it again
     this.scene.start('Menu');
   }
 }
