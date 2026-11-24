@@ -3,6 +3,7 @@ import { C, W, H, pixel } from '../ui/theme.js';
 import { button } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 const ART_KEY = 'title_screen'; // assets/art/title_screen.jpg via tools/slice_portraits.py (manifest group 'ui')
 const PLATE_H = 170; // dark fade over the sky; the friends' faces in the lower half stay clear
@@ -51,6 +52,6 @@ export default class TitleScene extends Phaser.Scene {
     if (this.leaving) return;
     this.leaving = true;
     playSfx(this, 'click'); // Enter, Space or a click anywhere (the Start button's own click is merged into it)
-    this.scene.start('Menu');
+    goScene(this, 'Menu');
   }
 }

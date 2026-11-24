@@ -11,6 +11,7 @@ import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
 import { introSteps } from '../logic/introOrder.js';
 import { recordOpened } from '../ui/openedStore.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -71,7 +72,7 @@ export default class ChatScene extends Phaser.Scene {
     const lvl = this.level;
     recordOpened(lvl.id); // its guests now count as met on the Friends page
     fitWidth(this.add.text(W / 2, 36, `LEVEL ${lvl.number} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5), W - 2 * 180);
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));
 
     panel(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
@@ -106,7 +107,7 @@ export default class ChatScene extends Phaser.Scene {
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
     // On the dark page background, so it uses the light label colour (readable in high contrast too).
     this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, this.keyHint(), text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
-    this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
+    this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => goScene(this, 'Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
     // Focus ring on 'Find a place →' once the chat is done, so it's clear Enter / → will press it.
     this.goRing = this.add.graphics().setVisible(false);
@@ -149,7 +150,7 @@ export default class ChatScene extends Phaser.Scene {
     // Backspace does what '← Levels' does, unless the volume panel or an intro card is open.
     kb.on('keydown-BACKSPACE', () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return;
-      this.scene.start('Menu');
+      goScene(this, 'Menu');
     });
 
     if (this.revealAll) {
@@ -171,7 +172,7 @@ export default class ChatScene extends Phaser.Scene {
     if (this.howToPlayDemo) {
       for (let i = 0; i < DEMO_LINES && !this.done(); i++) this.next(true);
       this.introOpen = true;
-      showHowToPlay(this, () => this.scene.start(this.returnTo));
+      showHowToPlay(this, () => goScene(this, this.returnTo));
       return;
     }
     const steps = introSteps(lvl.number, { howToPlay: howToPlaySeen(), chapter: chapterIntroSeen(lvl.chapter) });
@@ -201,7 +202,7 @@ export default class ChatScene extends Phaser.Scene {
   /** Enter / →: what 'Find a place →' does, ignored while the volume panel or an intro card is open. */
   findPlace() {
     if (this.registry.get('hudPanelOpen') || this.introOpen) return;
-    this.scene.start('Results', { levelId: this.level.id });
+    goScene(this, 'Results', { levelId: this.level.id });
   }
 
   /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */

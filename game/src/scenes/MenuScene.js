@@ -7,6 +7,7 @@ import { showChapterIntro } from '../ui/chapterIntro.js';
 import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 // Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m0..m7. The default ('current') is her pick, M6 with the
 // grid boxes; m0 is the layout before it.
@@ -100,32 +101,32 @@ export default class MenuScene extends Phaser.Scene {
     const pages = Object.keys(this.registry.get('rules').callbacks || {}).length;
     if (pages) {
       const got = Object.keys(loadPages()).length;
-      button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
+      button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => goScene(this, 'Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
       // S opens it too, like O, C and F (bug hunt KB-01); waits while the volume panel or an intro card is up.
       this.input.keyboard?.on('keydown-S', () => {
         if (this.registry.get('hudPanelOpen') || this.introOpen) return;
         playSfx(this, 'click');
-        this.scene.start('Scrapbook');
+        goScene(this, 'Scrapbook');
       });
     }
     // Back to the Title screen (Gabriella, 2026-11-23): button top left, Esc or Backspace. The three left
     // buttons stack above the map's district hotspots (campus starts at about y 145 on the picture).
     const toTitle = () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return; // Esc closes the volume panel / intro card first
-      this.scene.start('Title');
+      goScene(this, 'Title');
     };
-    button(this, B.title[0], B.title[1], '← Title', () => this.scene.start('Title'), { w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    button(this, B.title[0], B.title[1], '← Title', () => goScene(this, 'Title'), { w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
     this.input.keyboard?.on('keydown-ESC', toTitle);
     this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.
-    button(this, B.options[0], B.options[1], 'Options', () => this.scene.start('Options'), { w: B.options[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-O', () => this.scene.start('Options'));
+    button(this, B.options[0], B.options[1], 'Options', () => goScene(this, 'Options'), { w: B.options[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    this.input.keyboard?.on('keydown-O', () => goScene(this, 'Options'));
     // Credits: music and art (bible: Game identity > Audio).
-    button(this, B.credits[0], B.credits[1], 'Credits', () => this.scene.start('Credits'), { w: B.credits[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-C', () => this.scene.start('Credits'));
+    button(this, B.credits[0], B.credits[1], 'Credits', () => goScene(this, 'Credits'), { w: B.credits[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    this.input.keyboard?.on('keydown-C', () => goScene(this, 'Credits'));
     // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
-    button(this, B.friends[0], B.friends[1], 'Friends', () => this.scene.start('Friends'), { w: B.friends[2], h: 34, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
-    this.input.keyboard?.on('keydown-F', () => this.scene.start('Friends'));
+    button(this, B.friends[0], B.friends[1], 'Friends', () => goScene(this, 'Friends'), { w: B.friends[2], h: 34, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
+    this.input.keyboard?.on('keydown-F', () => goScene(this, 'Friends'));
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);
@@ -202,7 +203,7 @@ export default class MenuScene extends Phaser.Scene {
       const card = this.levelCards?.[this.focus];
       if (!card) return;
       playSfx(this, 'click');
-      this.scene.start('Chat', { levelId: card.lvl.id });
+      goScene(this, 'Chat', { levelId: card.lvl.id });
     });
   }
 
@@ -265,7 +266,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, right - 82 + s * 26, cy, 10, s < best);
       c.add(g);
       const hit = this.add.zone(left + cw / 2, cy, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x: left, y, w: cw, h: ch });
     });
@@ -330,7 +331,7 @@ export default class MenuScene extends Phaser.Scene {
       lvl.guests.forEach((id, k) => c.add(portrait(this, x + cw / 2 - ((n - 1) * step) / 2 + k * step, top + 96, size, id, 'HAPPY')));
       c.add(this.add.text(x + cw / 2, top + 128, `${n} friends`, text(12, C.inkSoft)).setOrigin(0.5));
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });
@@ -381,7 +382,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, narrow ? x + 22 + s * 22 : x + cw - 64 + s * 22, top + (narrow ? 40 : 18), 8, s < best);
       c.add(g);
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });

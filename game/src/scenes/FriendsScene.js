@@ -6,6 +6,7 @@ import { friendCards } from '../logic/friends.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 // Layout (Gabriella picked draft B3, 2026-11-23): bookmark tabs down the left, one per friend, sticking out of a
 // spiral notebook page; the selected friend's polaroid is taped on the left of the page, with their name, needs
@@ -51,7 +52,7 @@ export default class FriendsScene extends Phaser.Scene {
     // How many opened levels each friend was a guest in.
     for (const f of this.cards) f.together = levels.filter((l) => (l.guests || []).includes(f.id) && opened.includes(l.id)).length;
 
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'FRIENDS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const met = this.cards.filter((c) => c.met).length;
     this.add.text(W / 2, 66, `what you've learned about the crew · met ${met}/${this.cards.length}`, pixel(15, C.highlight)).setOrigin(0.5);
@@ -73,7 +74,7 @@ export default class FriendsScene extends Phaser.Scene {
     };
     this.input.keyboard?.on('keydown-UP', step(-1));
     this.input.keyboard?.on('keydown-DOWN', step(1));
-    const back = () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); };
+    const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
     this.input.keyboard?.on('keydown-ESC', back);
     this.input.keyboard?.on('keydown-BACKSPACE', back);
   }

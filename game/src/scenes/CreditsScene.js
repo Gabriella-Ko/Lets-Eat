@@ -3,6 +3,7 @@ import { C, W, H, pixel, text, readText } from '../ui/theme.js';
 import { panel, button } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { reduceMotion } from '../ui/settings.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 const ART_KEY = 'title_screen'; // same picture as TitleScene (manifest group 'ui')
 const SHADE_ALPHA = 0.45; // dark see-through layer over the picture (calms it so the plain panel text reads)
@@ -44,7 +45,7 @@ export default class CreditsScene extends Phaser.Scene {
       shade.fillRect(0, 0, W, HEADER_FADE_H);
     }
 
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     const title = this.add.text(W / 2, 36, 'CREDITS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const sub = this.add.text(W / 2, 66, 'the music, sounds and art in this game', pixel(15, C.highlight)).setOrigin(0.5);
     if (hasArt) for (const t of [title, sub]) t.setShadow(2, 3, '#000000', 4, false, true);
@@ -128,7 +129,7 @@ export default class CreditsScene extends Phaser.Scene {
     const kb = this.input.keyboard;
     if (kb) {
       const page = area.viewHeight - 40;
-      const back = () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); };
+      const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
       kb.on('keydown-ESC', back);
       kb.on('keydown-BACKSPACE', back);
       kb.on('keydown-UP', () => area.scrollBy(-40));

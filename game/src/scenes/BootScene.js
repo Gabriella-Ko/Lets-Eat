@@ -4,6 +4,7 @@ import { makePlaceholderArt } from '../ui/widgets.js';
 import { setEnabled as setMusicEnabled, isEnabled as isMusicEnabled } from '../ui/music.js';
 import { musicOn } from '../ui/settings.js';
 import { loadSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 // Where portrait art comes from. Today: the preview cut by game/tools/slice_portraits.py.
 // When the Art Asset agent's public/assets/asset_manifest.json exists, point this at it.
@@ -63,7 +64,7 @@ export default class BootScene extends Phaser.Scene {
     const level = levels.find((l) => l.id === q.get('level'));
     // Dev server only: in a built game this would let players open locked levels.
     if (import.meta.env.DEV && q.get('scene') && level) {
-      this.scene.start(q.get('scene'), {
+      goScene(this, q.get('scene'), {
         levelId: level.id,
         venueId: q.get('venue') || level.spec.solution_id,
         highlight: q.get('highlight') ? q.get('highlight').split(',') : undefined,
@@ -71,7 +72,7 @@ export default class BootScene extends Phaser.Scene {
         recap: q.has('recap'),
       });
     } else {
-      this.scene.start('Title'); // title screen once, then the city map (Menu)
+      goScene(this, 'Title'); // title screen once, then the city map (Menu)
     }
   }
 }

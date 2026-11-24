@@ -7,6 +7,7 @@ import { loadVisits, recordSeen } from '../ui/visitStore.js';
 import { pastVisit } from '../logic/beenHere.js';
 import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 // Getters, so the colours follow the High contrast option.
 const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
@@ -39,7 +40,7 @@ export default class ResultsListScene extends Phaser.Scene {
   create() {
     const lvl = this.level;
     this.add.text(W / 2 - 130, 36, 'PLACES NEARBY', pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    button(this, 100, 36, '← Back to chat', () => this.scene.start('Chat', { levelId: lvl.id, revealAll: true }), { w: 168, h: 34, size: 15, fill: C.bar });
+    button(this, 100, 36, '← Back to chat', () => goScene(this, 'Chat', { levelId: lvl.id, revealAll: true }), { w: 168, h: 34, size: 15, fill: C.bar });
 
     panel(this, LIST.x, LIST.y, LIST.w, LIST.h);
     panel(this, DETAIL.x, DETAIL.y, DETAIL.w, DETAIL.h);
@@ -68,7 +69,7 @@ export default class ResultsListScene extends Phaser.Scene {
     this.moreHint = this.add.text(DETAIL.x + DETAIL.w - 18, DETAIL.y + DETAIL.h - 66, '↓ scroll for more', text(12, C.inkSoft)).setOrigin(1, 0.5).setVisible(false);
     this.reviews.onScroll(() => this.moreHint.setVisible(!!this.selected && !this.reviews.atBottom()));
     this.pickBtn = button(this, DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h - 36, 'Recommend this', () => {
-      this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+      goScene(this, 'Outcome', { levelId: lvl.id, venueId: this.selected.id });
     }, { w: DETAIL.w - 40 });
     this.pickBtn.setVisible(false);
     this.empty = this.add.text(DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h / 2, 'pick a place to read its reviews', text(15, C.inkSoft)).setOrigin(0.5);
@@ -87,7 +88,7 @@ export default class ResultsListScene extends Phaser.Scene {
       const recommend = () => {
         if (!this.selected) return;
         playSfx(this, 'click');
-        this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+        goScene(this, 'Outcome', { levelId: lvl.id, venueId: this.selected.id });
       };
       kb.on('keydown-UP', () => move(-1));
       kb.on('keydown-DOWN', () => move(1));
@@ -109,7 +110,7 @@ export default class ResultsListScene extends Phaser.Scene {
       // Backspace does what "← Back to chat" does; the open volume panel takes it first.
       kb.on('keydown-BACKSPACE', () => {
         if (this.registry.get('hudPanelOpen')) return;
-        this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
+        goScene(this, 'Chat', { levelId: lvl.id, revealAll: true });
       });
       // S cycles the sort (Mixed → Cheapest → A–Z), F cycles the filters (all → each SHOW chip alone, in order → all),
       // exactly like clicking the pills; the open volume panel takes them first.

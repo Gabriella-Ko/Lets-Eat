@@ -5,6 +5,7 @@ import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
 import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene, isSwitching } from '../ui/sceneSwitch.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -45,7 +46,7 @@ export default class OptionsScene extends Phaser.Scene {
 
   create() {
     this.cameras.main.setBackgroundColor(C.bg);
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'OPTIONS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     this.add.text(W / 2, 66, 'changes apply straight away and are saved on this device', pixel(14, C.highlight)).setOrigin(0.5);
 
@@ -81,7 +82,7 @@ export default class OptionsScene extends Phaser.Scene {
       playSfx(this, 'click');
       this.confirmReset();
     }));
-    const back = when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
+    const back = when(() => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); });
     kb.on('keydown-ESC', back);
     kb.on('keydown-BACKSPACE', back);
   }
@@ -95,7 +96,7 @@ export default class OptionsScene extends Phaser.Scene {
     if (this.helpOpen) return;
     const first = this.registry.get('levels')?.[0];
     if (!first) return;
-    this.scene.start('Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
+    goScene(this, 'Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
   }
 
   /**
@@ -127,7 +128,7 @@ export default class OptionsScene extends Phaser.Scene {
     const reset = () => {
       unbind();
       resetProgress();
-      this.scene.start('Menu');
+      goScene(this, 'Menu');
     };
     const btnY = by + bh - 40;
     const cancelBtn = button(this, W / 2 - 100, btnY, 'Cancel', close, { w: 160, h: 40, size: 16, fill: C.bar });
@@ -184,7 +185,7 @@ export default class OptionsScene extends Phaser.Scene {
     this.musicShown = id;
     setSetting('music', id);
     this.time.delayedCall(0, () => {
-      if (this.scene.isActive() && getSettings().music === id) this.scene.restart({ focus: this.focus });
+      if (this.scene.isActive() && !isSwitching(this) && getSettings().music === id) this.scene.restart({ focus: this.focus });
     });
   }
 
@@ -196,7 +197,7 @@ export default class OptionsScene extends Phaser.Scene {
     }
     if (key === 'sfx' && id === 'on') playSfx(this, 'click'); // a preview of what was just switched on
     applyPalette();
-    this.scene.restart({ focus: this.focus });
+    if (!isSwitching(this)) this.scene.restart({ focus: this.focus }); // never a second screen change
   }
 
   drawRow(row, i, current) {

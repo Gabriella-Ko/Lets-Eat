@@ -12,6 +12,7 @@ import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { endingSeen } from '../ui/endingStore.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -116,19 +117,19 @@ export default class OutcomeScene extends Phaser.Scene {
     this.score = score;
     const btns = [['Clue recap', () => this.openRecap(), C.bar]];
     if (score.result !== 'perfect') {
-      btns.push(['Reread the chat', () => this.scene.start('Chat', { levelId: lvl.id, highlight: score.missed }), C.blue]);
-      btns.push(['Try again', () => this.scene.start('Results', { levelId: lvl.id }), C.accent]);
+      btns.push(['Reread the chat', () => goScene(this, 'Chat', { levelId: lvl.id, highlight: score.missed }), C.blue]);
+      btns.push(['Try again', () => goScene(this, 'Results', { levelId: lvl.id }), C.accent]);
     }
     if (score.result !== 'fail') {
       // The finale: a perfect level_20 pick goes on to the Ending, once (lets-eat-ending-seen-v1).
       const toEnding = lvl.id === 'level_20' && score.result === 'perfect' && !endingSeen();
       btns.push(toEnding
-        ? ['Continue →', () => this.scene.start('Ending'), C.good]
+        ? ['Continue →', () => goScene(this, 'Ending'), C.good]
         : this.nextLevel
-        ? ['Next level →', () => this.scene.start('Chat', { levelId: this.nextLevel.id }), C.good]
-        : ['Back to levels', () => this.scene.start('Menu'), C.good]);
+        ? ['Next level →', () => goScene(this, 'Chat', { levelId: this.nextLevel.id }), C.good]
+        : ['Back to levels', () => goScene(this, 'Menu'), C.good]);
     }
-    if (score.result === 'fail') btns.push(['Levels', () => this.scene.start('Menu'), C.bar]);
+    if (score.result === 'fail') btns.push(['Levels', () => goScene(this, 'Menu'), C.bar]);
     const bw = btns.length > 3 ? 196 : 210;
     const x0 = W / 2 - ((btns.length - 1) * (bw + 20)) / 2;
     btns.forEach(([label, fn, fill], i) => button(this, x0 + i * (bw + 20), H - 44, label, fn, { w: bw, fill }));
@@ -307,7 +308,7 @@ export default class OutcomeScene extends Phaser.Scene {
         head: 'A NEW FRIEND HAS JOINED!', ruled: false,
         centre: (x, y) => portrait(this, x, y, 112, id, 'HAPPY'),
         title: ch.name.toUpperCase(), titleColor: ch.color, sub: FRIEND_TAGLINES[id] || '', subColor: C.inkSoft,
-        seeLabel: 'See friends', see: () => this.scene.start('Friends'),
+        seeLabel: 'See friends', see: () => goScene(this, 'Friends'),
       };
     } else {
       const cb = (this.registry.get('rules').callbacks || {})[id];
@@ -317,7 +318,7 @@ export default class OutcomeScene extends Phaser.Scene {
         head: 'NEW SCRAPBOOK PAGE!', ruled: true,
         centre: (x, y) => badge(this, x, y, 120, { id, ...cb }, true),
         title: cb.title.toUpperCase(), titleColor: C.ink, sub: `a memory with ${ch.name}`, subColor: ch.color,
-        seeLabel: 'See it', see: () => this.scene.start('Scrapbook', { select: id }),
+        seeLabel: 'See it', see: () => goScene(this, 'Scrapbook', { select: id }),
       };
     }
     // A new friend's page sticks on like a badge; a new Scrapbook page chimes. Shown here, never in the chat.

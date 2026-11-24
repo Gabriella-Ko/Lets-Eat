@@ -8,6 +8,7 @@ import { chatPaceMs, highContrast, reduceMotion } from '../ui/settings.js';
 import { starTotals } from '../logic/progress.js';
 import { markEndingSeen } from '../ui/endingStore.js';
 import { ending } from '../content.js';
+import { goScene } from '../ui/sceneSwitch.js';
 
 // Ending (bible: Campaign structure > Maya's send-off; Gabriella 2026-11-23: options 1 and 2 merged, chat first,
 // then the photo page). Part 1: the final group chat, the next morning. Part 2: the group photo and roll call
@@ -333,6 +334,6 @@ export default class EndingScene extends Phaser.Scene {
     if (click && !this.ready) return void (this.leaving = false);
     if (click) playSfx(this, 'click');
     markEndingSeen(); // only now: a reload or closed tab mid-ending offers it again
-    this.scene.start('Menu');
+    goScene(this, 'Menu');
   }
 }
