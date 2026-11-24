@@ -111,10 +111,28 @@ export default class ResultsListScene extends Phaser.Scene {
         if (this.registry.get('hudPanelOpen')) return;
         this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
       });
+      // S cycles the sort (Mixed → Cheapest → A–Z), F cycles the filters (all → each SHOW chip alone, in order → all),
+      // exactly like clicking the pills; the open volume panel takes them first.
+      kb.on('keydown-S', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        const i = SORTS.findIndex((s) => s.id === this.view.sort);
+        this.setView({ sort: SORTS[(i + 1) % SORTS.length].id });
+      });
+      kb.on('keydown-F', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        const chips = this.filterChips();
+        if (chips.length < 2) return;
+        const active = chips.filter((ch) => this.view[ch.key].includes(ch.value));
+        const i = active.length === 1 ? chips.indexOf(active[0]) : active.length ? chips.length - 1 : -1;
+        const next = chips[i + 1];
+        this.setView(next ? { prices: [], cuisines: [], [next.key]: [next.value] } : { prices: [], cuisines: [] });
+      });
     }
 
     // Key hint under the list and details panels, clear of the music button in the bottom-left corner.
-    this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, '↑ ↓: choose   ·   enter: open   ·   r: recommend   ·   backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+    this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, this.filterChips().length > 1
+      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  backspace: back to chat'
+      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
 
     this.drawControls();
     this.drawCards();
@@ -157,6 +175,14 @@ export default class ResultsListScene extends Phaser.Scene {
     return w;
   }
 
+  /** The SHOW chips in on-screen order: price tiers, then cuisines when there's more than one. */
+  filterChips() {
+    return [
+      ...this.options.prices.map((p) => ({ key: 'prices', value: p, label: p })),
+      ...(this.options.cuisines.length > 1 ? this.options.cuisines.map((cu) => ({ key: 'cuisines', value: cu, label: pretty(cu) })) : []),
+    ];
+  }
+
   /** SORT row, then SHOW chips (price tiers, and cuisines when there's more than one), wrapping as needed. */
   drawControls() {
     const c = this.controls;
@@ -167,10 +193,7 @@ export default class ResultsListScene extends Phaser.Scene {
     let x = x0 + labelW;
     for (const s of SORTS) x += this.pill(c, x, y, s.label, this.view.sort === s.id, () => this.setView({ sort: s.id }), `sort:${s.id}`) + 6;
 
-    const chips = [
-      ...this.options.prices.map((p) => ({ key: 'prices', value: p, label: p })),
-      ...(this.options.cuisines.length > 1 ? this.options.cuisines.map((cu) => ({ key: 'cuisines', value: cu, label: pretty(cu) })) : []),
-    ];
+    const chips = this.filterChips();
     if (chips.length > 1) {
       y += rowH;
       c.add(this.add.text(x0, y + 5, 'SHOW', pixel(12, C.inkSoft, { fontStyle: 'bold' })));
@@ -190,6 +213,7 @@ export default class ResultsListScene extends Phaser.Scene {
   }
 
   drawCards() {
+    const focusedVenue = this.cards[this.focus]?.venue;
     this.cardLayer.removeAll(true);
     const shown = applyView(this.venues, this.view);
     this.shown = shown;
@@ -208,8 +232,9 @@ export default class ResultsListScene extends Phaser.Scene {
     // A selected place that the filters hide is deselected.
     if (this.selected && !shown.includes(this.selected)) this.deselect();
     else if (this.selected) this.cards.forEach((c) => c.draw(c.venue === this.selected ? 'selected' : undefined));
-    // Keep the focus on the selected card if it's still shown, else the first card.
-    this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === this.selected));
+    // Keep the focus on the selected card if it's still shown, else on the card focused before, else the first card.
+    const keep = this.selected || focusedVenue;
+    this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === keep));
     this.drawFocus();
   }
 
