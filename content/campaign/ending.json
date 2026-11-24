@@ -1,0 +1,22 @@
+{
+  "chat": [
+    { "speaker": "maya", "emotion": "HAPPY", "text": "made it!! sand in my shoes, sun on my face. every cheap noodle bowl was so worth it", "photo": true },
+    { "speaker": "liam", "emotion": "HUNGRY", "text": "is that the actual ocean. ok but what did you have for breakfast" },
+    { "speaker": "brooke", "emotion": "HAPPY", "text": "look at that view. built one cheap lunch at a time!!" },
+    { "speaker": "roxy", "emotion": "SURPRISED", "text": "wait. who's picking your dinners out there?? no assistant, maya. you'll be eating whatever's next to the bus stop" },
+    { "speaker": "cyrus", "emotion": "NEUTRAL", "text": "I drafted her a list of places. Then remembered I haven't needed a list in weeks." },
+    { "speaker": "mina", "emotion": "HAPPY", "text": "maya, look at the light on that water. i'm painting it tonight :)" },
+    { "speaker": "maya", "emotion": "HAPPY", "text": "already saving for the next one. and assistant, you're coming next time. you in?" }
+  ],
+  "roll_call": {
+    "maya": { "text": "the trip fund made it to the coast. so did i. thank you!", "emotion": "HAPPY" },
+    "liam": { "text": "found THE stall. one slurp and the whole summer made sense", "emotion": "HAPPY" },
+    "mina": { "text": "no more plates of fries. i asked, and you always found the table :)", "emotion": "HAPPY" },
+    "roxy": { "text": "i found the night market. you kept me away from the milkshakes!!", "emotion": "HAPPY" },
+    "cyrus": { "text": "One satay incident, ever. I stopped checking. Thank you.", "emotion": "HAPPY" },
+    "brooke": { "text": "started a lunch crew chat. ended up with six at one table!!", "emotion": "HAPPY" }
+  },
+  "caption": "maya's send-off. all six, one table",
+  "generated_by": "narrative_writer",
+  "edited_by": null
+}
