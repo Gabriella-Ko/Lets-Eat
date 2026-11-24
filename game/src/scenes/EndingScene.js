@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, H, CHARACTERS, nameColor, hex, pixel, text, readText } from '../ui/theme.js';
+import { C, W, H, CHARACTERS, nameColor, NAME_SIZE, nameStyle, hex, pixel, text, readText } from '../ui/theme.js';
 import { button, portrait, star, loadProgress, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { tween } from '../ui/motion.js';
@@ -306,15 +306,15 @@ export default class EndingScene extends Phaser.Scene {
   /** One closing line per friend, portrait and name colour, appearing one by one; then thanks and Continue. */
   rollCall() {
     const step = reduceMotion() ? 0 : 450;
-    const x0 = MID + 28, y0 = BOOK.y + 70, rowH = 54;
+    const x0 = MID + 28, y0 = BOOK.y + 70, rowH = 56; // names at NAME_SIZE, line underneath
     FRIENDS.forEach((id, i) => {
       const entry = ending?.roll_call?.[id];
       const grey = !entry?.text;
       const c = this.add.container(x0, y0 + i * rowH).setAlpha(0);
       c.add(portrait(this, 22, 22, 40, id, entry?.emotion || 'HAPPY'));
-      c.add(this.add.text(52, 0, CHARACTERS[id].name.toUpperCase(), pixel(14, nameColor(id), { fontStyle: 'bold' })));
-      const body = this.add.text(52, 20, entry?.text || TO_COME, readText(13, grey ? C.inkSoft : C.ink, { wordWrap: { width: PW - 100 } }));
-      if (grey) c.add(this.add.graphics().fillStyle(GREY, 1).fillRoundedRect(46, 17, body.width + 12, body.height + 6, 6));
+      c.add(this.add.text(52, -2, CHARACTERS[id].name.toUpperCase(), nameStyle(nameColor(id))));
+      const body = this.add.text(52, NAME_SIZE + 3, entry?.text || TO_COME, readText(13, grey ? C.inkSoft : C.ink, { wordWrap: { width: PW - 100 } }));
+      if (grey) c.add(this.add.graphics().fillStyle(GREY, 1).fillRoundedRect(46, NAME_SIZE, body.width + 12, body.height + 6, 6));
       c.add(body);
       this.time.delayedCall(step * (i + 1), () => tween(this, { targets: c, alpha: 1, duration: 260 }));
     });

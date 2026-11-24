@@ -76,6 +76,10 @@ export const text = (size, color = C.ink, extra = {}) => ({
   ...extra,
 });
 export const pixel = (size, color = C.ink, extra = {}) => text(pixelSize(size), color, { fontFamily: pixelFont(), ...extra });
+/** On-screen px of a speaker name on the Outcome screen and the Ending (bug hunt run 2, AX-04). Use with nameStyle(). */
+export const NAME_SIZE = 20;
+/** Bold heading-font style for a speaker name at NAME_SIZE px (not scaled again by pixelSize). */
+export const nameStyle = (color, extra = {}) => text(NAME_SIZE, color, { fontFamily: pixelFont(), fontStyle: 'bold', ...extra });
 /**
  * Shrinks a one-line text object's font until it is at most maxW wide, so a long label
  * never spills out of its button, card or plate.

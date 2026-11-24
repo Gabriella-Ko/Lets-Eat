@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
-import { C, W, H, CHARACTERS, nameColor, pixel, text, readText, fitWidth } from '../ui/theme.js';
+import { C, W, H, CHARACTERS, nameColor, NAME_SIZE, nameStyle, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { panel, button, star, saveStars, portrait, keyHint } from '../ui/widgets.js';
 import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
@@ -33,7 +33,7 @@ const IMG = { x: 22, y: 124, w: 600, h: 400 };
 const REACT = { x: 638, y: 124, w: 300 };
 const FONT = 13; // reaction text
 const FACE = 32; // portrait size
-const NAME = 13; // speaker name (pixel() size, 17 px on screen), coloured by nameColor()
+// Speaker names: NAME_SIZE (20 px on screen) through nameStyle(), coloured by nameColor().
 
 /**
  * The friends react to the pick. Stars come from the game's own scoring (logic/scoring.js);
@@ -95,14 +95,14 @@ export default class OutcomeScene extends Phaser.Scene {
       const ch = CHARACTERS[line.speaker] || { name: line.speaker, color: C.inkSoft };
       const c = this.add.container(0, y).setDepth(1);
       c.add(portrait(this, R.x + 12 + FACE / 2, FACE / 2 + 4, FACE, line.speaker, line.emotion));
-      c.add(this.add.text(R.x + indent, 0, ch.name.toUpperCase(), pixel(NAME, nameColor(line.speaker), { fontStyle: 'bold' })));
-      const top = NAME + 8;
+      c.add(this.add.text(R.x + indent, 0, ch.name.toUpperCase(), nameStyle(nameColor(line.speaker))));
+      const top = NAME_SIZE + 6;
       const body = this.add.text(R.x + indent + 12, top + 8, line.text, readText(FONT, C.ink, { wordWrap: { width: R.w - indent - 36, useAdvancedWrap: true } }));
       const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(R.x + indent, top, body.width + 24, body.height + 16, 8);
       c.add([bubble, body]);
       c.setAlpha(0);
       tween(this, { targets: c, alpha: 1, delay: 700 + i * 500, duration: 250 });
-      y += Math.max(top + body.height + 26, FACE + 16);
+      y += Math.max(top + body.height + 21, FACE + 16); // same row height as before the bigger names
     });
     const panelH = Math.max(IMG.h, y - R.y + 6);
     panel(this, R.x, R.y, R.w, panelH, C.panel, 10);
@@ -218,7 +218,7 @@ export default class OutcomeScene extends Phaser.Scene {
         const isSaved = saved?.has(index);
         const quoteX = 38 + 14;
         const quote = this.add.text(quoteX, ry + 4, `“${line.text}”`, readText(14, C.ink, { wordWrap: { width: LIST_W - quoteX - (saved ? 150 : 24), useAdvancedWrap: true } }));
-        const who = this.add.text(quoteX, ry + quote.height + 6, ch.name, pixel(13, nameColor(line.speaker), { fontStyle: 'bold' }));
+        const who = this.add.text(quoteX, ry + quote.height + 6, ch.name, nameStyle(nameColor(line.speaker)));
         const bar = this.add.graphics().fillStyle(isSaved ? C.accent : C.panelDark, 1).fillRect(38, ry + 2, 4, quote.height + who.height + 6);
         area.content.add([bar, quote, who]);
         if (saved) {
