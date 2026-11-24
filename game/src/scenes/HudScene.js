@@ -15,6 +15,14 @@ function drawMutedSlash(g) {
 }
 
 /**
+ * The panel's music label (bug hunt run 2, NP-04): OFF when music is off or the volume is 0, matching the
+ * muted corner icon, else ON. Enter / Space and the pill still switch the Music setting itself.
+ */
+export function musicLabel(on, volume) {
+  return on && volume > 0 ? 'ON' : 'OFF';
+}
+
+/**
  * Always-on layer above every screen (launched by BootScene, kept on top). Holds the music volume control:
  * a speaker button bottom left that opens a small panel with a volume slider and Music on/off. It's also the
  * host the music player loads tracks through, since this scene never stops. M toggles the panel.
@@ -168,9 +176,9 @@ export default class HudScene extends Phaser.Scene {
     s.lineStyle(2, C.ink, 1).strokeCircle(TRACK.x + TRACK.w * v, TRACK.y, 9);
     this.pct.setText(`${Math.round(v * 100)}%`);
     // On/Off pill.
-    this.toggle.setText(on ? 'ON' : 'OFF');
+    this.toggle.setText(musicLabel(on, v));
     const tw = 52;
-    this.toggleBg.clear().fillStyle(on ? C.accent : C.inkSoft, 1).fillRoundedRect(PANEL.x + PANEL.w - 16 - tw + 4, PANEL.y + 9, tw, 22, 11);
+    this.toggleBg.clear().fillStyle(silent ? C.inkSoft : C.accent, 1).fillRoundedRect(PANEL.x + PANEL.w - 16 - tw + 4, PANEL.y + 9, tw, 22, 11);
     this.toggle.setPosition(PANEL.x + PANEL.w - 16 - tw / 2 + 4, PANEL.y + 20).setOrigin(0.5);
   }
 
