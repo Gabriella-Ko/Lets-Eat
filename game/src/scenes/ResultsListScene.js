@@ -109,9 +109,14 @@ export default class ResultsListScene extends Phaser.Scene {
         if (this.registry.get('hudPanelOpen')) return;
         recommend();
       });
-      // Backspace does what "← Back to chat" does; the open volume panel takes it first.
+      // Backspace closes an open place first (closeDetails(), the place stays focused and highlighted);
+      // with nothing open it does what "← Back to chat" does. The open volume panel takes it first.
       onKey(this, 'BACKSPACE', () => {
         if (this.registry.get('hudPanelOpen')) return;
+        if (this.selected) {
+          this.closeDetails();
+          return;
+        }
         goScene(this, 'Chat', { levelId: lvl.id, revealAll: true });
       });
       // S (keydown-S, through onKey) cycles the sort (Mixed → Cheapest → A–Z), F (keydown-F) cycles the filters (all → each SHOW chip alone, in order → all),
@@ -134,8 +139,8 @@ export default class ResultsListScene extends Phaser.Scene {
 
     // Key hint under the list and details panels, clear of the music button in the bottom-left corner.
     this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, this.filterChips().length > 1
-      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  m: music  ·  backspace: back to chat'
-      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  m: music  ·  backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  m: music  ·  backspace: close / back to chat'
+      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  m: music  ·  backspace: close / back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
 
     this.drawControls();
     this.drawCards();
@@ -235,13 +240,29 @@ export default class ResultsListScene extends Phaser.Scene {
     // A selected place that the filters hide is deselected.
     if (this.selected && !shown.includes(this.selected)) this.deselect();
     else if (this.selected) this.cards.forEach((c) => c.draw(c.venue === this.selected ? 'selected' : undefined));
+    // A place closed with Backspace stays highlighted while it's shown.
+    if (this.kept && !shown.includes(this.kept)) this.kept = null;
+    else if (this.kept) this.cards.forEach((c) => c.venue === this.kept && c.draw('selected'));
     // Keep the focus on the selected card if it's still shown, else on the card focused before, else the first card.
     const keep = this.selected || focusedVenue;
     this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === keep));
     this.drawFocus();
   }
 
+  /** Closes the open place's details but keeps that place focused and highlighted, so Enter reopens it. */
+  closeDetails() {
+    const venue = this.selected;
+    this.deselect();
+    const card = this.cards.find((c) => c.venue === venue);
+    if (!card) return;
+    this.kept = venue;
+    card.draw('selected');
+    this.focus = Math.max(0, this.cards.indexOf(card));
+    this.drawFocus();
+  }
+
   deselect() {
+    this.kept = null;
     this.selected = null;
     this.detail.removeAll(true);
     this.reviews.content.removeAll(true);
@@ -279,8 +300,8 @@ export default class ResultsListScene extends Phaser.Scene {
     const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
     layer.add(zone);
     const card = { venue, draw, x, y, w, h };
-    zone.on('pointerover', () => this.selected !== venue && draw('hover'));
-    zone.on('pointerout', () => this.selected !== venue && draw());
+    zone.on('pointerover', () => this.selected !== venue && this.kept !== venue && draw('hover'));
+    zone.on('pointerout', () => this.selected !== venue && this.kept !== venue && draw());
     zone.on('pointerdown', () => {
       playSfx(this, 'click');
       this.select(card);
@@ -289,6 +310,7 @@ export default class ResultsListScene extends Phaser.Scene {
   }
 
   select(card) {
+    this.kept = null;
     this.selected = card.venue;
     this.focus = Math.max(0, this.cards.indexOf(card));
     this.drawFocus();
