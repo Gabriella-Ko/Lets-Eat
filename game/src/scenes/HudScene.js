@@ -121,9 +121,15 @@ export default class HudScene extends Phaser.Scene {
     this.draw();
   }
 
-  /** One 10% step of the volume, snapped to the nearest 10%. */
+  /**
+   * One 10% step of the volume: up goes to the next 10% above (25% -> 30%, 30% -> 40%),
+   * down to the next 10% below (25% -> 20%, 30% -> 20%).
+   */
   stepVolume(dir) {
-    setVolume(Math.min(10, Math.max(0, Math.round(getVolume() * 10) + dir)) / 10);
+    // In tenths, rounded to 1% so float noise (0.3 * 10 = 3.0000000000000004) doesn't skip a step.
+    const t = Math.round(getVolume() * 100) / 10;
+    const next = dir > 0 ? Math.floor(t) + 1 : Math.ceil(t) - 1;
+    setVolume(Math.min(10, Math.max(0, next)) / 10);
   }
 
   /** deferFlag: clear 'hudPanelOpen' only after the current key press has reached every scene. */
