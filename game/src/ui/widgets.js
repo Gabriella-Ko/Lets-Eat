@@ -1,15 +1,80 @@
-import { C, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
-import { clearPages } from './scrapbookStore.js';
+import { C, W, H, text, CHARACTERS, CUISINES, EMOTIONS, hex, pixel, fitWidth, pixelFont, pixelSize, portraitKey } from './theme.js';
+import { clearHeard, clearPages, clearPending } from './scrapbookStore.js';
 import { clearVisits } from './visitStore.js';
 import { clearOpened } from './openedStore.js';
 import { clearEndingSeen } from './endingStore.js';
+import { clearSeen as clearHowToPlaySeen } from './howToPlay.js';
+import { clearSeen as clearChapterIntrosSeen } from './chapterIntro.js';
+import { clearSeen as clearFriendsAnnounced } from './friendsAnnounced.js';
 import { play as playSfx } from './sfx.js';
+
+/**
+ * One line of control text at the bottom centre of a screen, styled like the restaurant list's line
+ * (text(12, C.label), 0.85 alpha). It shrinks to fit between the 44 px music button corners on both sides,
+ * so it never runs under the bottom-left speaker. Returns the Text; call its setHint(str) to change the line
+ * (it re-fits from 12 px).
+ * With { plate: true } the line sits on a dark rounded plate (C.bg at 90%, read when drawing) so it reads at
+ * 4.5:1 or better over busy art; the text is then fully opaque. The plate is `t.plate` and follows the
+ * text's alpha and visibility (tween the text alone), and setHint redraws it to the new width.
+ */
+export function keyHint(scene, str, { x = W / 2, y = H - 20, plate = false } = {}) {
+  const maxW = 2 * Math.min(x - 56, W - 56 - x);
+  const t = scene.add.text(x, y, str, text(12, C.label)).setOrigin(0.5).setAlpha(plate ? 1 : 0.85).setDepth(50);
+  if (!plate) {
+    t.setHint = (s) => fitWidth(t.setFontSize(12).setText(s), maxW);
+    return fitWidth(t, maxW);
+  }
+  const g = scene.add.graphics().setDepth(49);
+  const drawPlate = () => {
+    const w = t.displayWidth + 20;
+    const h = t.displayHeight + 8;
+    g.clear().fillStyle(C.bg, 0.9).fillRoundedRect(t.x - w / 2, t.y - h / 2, w, h, Math.min(10, h / 2));
+  };
+  const follow = () => g.setAlpha(t.alpha).setVisible(t.visible);
+  t.plate = g;
+  t.setHint = (s) => {
+    fitWidth(t.setFontSize(12).setText(s), maxW);
+    drawPlate();
+    return t;
+  };
+  fitWidth(t, maxW);
+  drawPlate();
+  scene.events.on('postupdate', follow);
+  scene.events.once('shutdown', () => scene.events.off('postupdate', follow));
+  t.once('destroy', () => {
+    scene.events.off('postupdate', follow);
+    g.destroy();
+  });
+  return t;
+}
 
 /** Rounded panel. Returns the Graphics object. */
 export function panel(scene, x, y, w, h, fill = C.panel, radius = 16) {
   const g = scene.add.graphics();
   g.fillStyle(0x000000, 0.18).fillRoundedRect(x + 3, y + 5, w, h, radius);
   g.fillStyle(fill, 1).fillRoundedRect(x, y, w, h, radius);
+  return g;
+}
+
+/**
+ * Strokes only a chat bubble's rounded edge, with the line style already set on `g`. It starts a new path
+ * and moves to the edge before drawing, so the stroke never joins a point left over from earlier drawing
+ * (that used to show as a stray line from the speaker name into the bubble in High contrast, AX-05, AX-06).
+ */
+export function strokeBubbleEdge(g, x, y, w, h, r) {
+  r = Math.max(0, Math.min(r, w / 2, h / 2));
+  g.beginPath();
+  g.moveTo(x + r, y);
+  g.lineTo(x + w - r, y);
+  g.arc(x + w - r, y + r, r, -Math.PI / 2, 0);
+  g.lineTo(x + w, y + h - r);
+  g.arc(x + w - r, y + h - r, r, 0, Math.PI / 2);
+  g.lineTo(x + r, y + h);
+  g.arc(x + r, y + h - r, r, Math.PI / 2, Math.PI);
+  g.lineTo(x, y + r);
+  g.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5);
+  g.closePath();
+  g.strokePath();
   return g;
 }
 
@@ -161,11 +226,16 @@ export function saveStars(levelId, stars) {
  */
 export function resetProgress() {
   try {
-    for (const k of [KEY, 'lets-eat-how-to-play-v1', 'lets-eat-chapter-intros-v1', 'lets-eat-friends-announced-v1']) localStorage.removeItem(k);
+    localStorage.removeItem(KEY);
   } catch {
     /* storage blocked: nothing saved to clear */
   }
+  clearHowToPlaySeen(); // 'lets-eat-how-to-play-v1', plus its in-memory fallback
+  clearChapterIntrosSeen(); // 'lets-eat-chapter-intros-v1', plus its in-memory fallback
+  clearFriendsAnnounced(); // 'lets-eat-friends-announced-v1', plus its in-memory fallback
   clearPages(); // 'lets-eat-scrapbook-v1', plus its in-memory fallback
+  clearPending(); // 'lets-eat-pending-pages-v1' (pages waiting for their card), plus its in-memory fallback
+  clearHeard(); // 'lets-eat-heard-pages-v1' (callback lines read, waiting for their level's win), plus its fallback
   clearVisits(); // 'lets-eat-venues-v1', plus its in-memory fallback
   clearOpened(); // 'lets-eat-opened-v1' (Friends page "met"), plus its in-memory fallback
   clearEndingSeen(); // 'lets-eat-ending-seen-v1', so the ending plays again

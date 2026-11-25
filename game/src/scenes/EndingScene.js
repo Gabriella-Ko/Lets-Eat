@@ -1,6 +1,6 @@
 import Phaser from 'phaser';
-import { C, W, H, CHARACTERS, hex, pixel, text, readText } from '../ui/theme.js';
-import { button, portrait, star, loadProgress } from '../ui/widgets.js';
+import { C, W, H, CHARACTERS, nameColor, NAME_SIZE, nameStyle, hex, pixel, text, readText } from '../ui/theme.js';
+import { button, portrait, star, loadProgress, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
@@ -8,6 +8,8 @@ import { chatPaceMs, highContrast, reduceMotion } from '../ui/settings.js';
 import { starTotals } from '../logic/progress.js';
 import { markEndingSeen } from '../ui/endingStore.js';
 import { ending } from '../content.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Ending (bible: Campaign structure > Maya's send-off; Gabriella 2026-11-23: options 1 and 2 merged, chat first,
 // then the photo page). Part 1: the final group chat, the next morning. Part 2: the group photo and roll call
@@ -44,16 +46,10 @@ export default class EndingScene extends Phaser.Scene {
   }
 
   create() {
-    markEndingSeen(); // plays once, even if the player skips through
+    // Seen is recorded only when the player leaves part 2 for the map (leave()), so a reload replays it.
     this.leaving = false;
-    const kb = this.input.keyboard;
-    // Phaser can hand the same keydown to a listener twice when keys come quickly; act once per native event.
-    let last = null;
-    this.onKey = (name, fn) => kb?.on(`keydown-${name}`, (e) => {
-      if (e === last || this.registry.get('hudPanelOpen')) return;
-      last = e;
-      fn(e);
-    });
+    // Once per key press, ignored while the volume panel is open (src/ui/keys.js).
+    this.onKey = (name, fn) => onKey(this, name, fn);
     if (this.part === 1) this.createChat();
     else this.createPhotoPage();
     this.events.once('shutdown', () => this.timer?.remove(false));
@@ -74,7 +70,8 @@ export default class EndingScene extends Phaser.Scene {
     g.fillStyle(C.panel, 1).fillRoundedRect(CHAT.x, CHAT.y, CHAT.w, CHAT.h, 16);
     this.drawBackground();
     this.chat = scrollArea(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 28, 'space: next   ·   A: show all   ·   ↑ ↓: scroll   ·   esc: skip', text(12, C.label)).setOrigin(0.5);
+    // Key hint (bug hunt KB-09): every key part 1 handles.
+    this.keys = keyHint(this, 'space or enter: next · a: show all · ↑ ↓: scroll · m: music · esc: skip · backspace too', { x: CHAT.x + CHAT.w / 2, y: H - 28 });
 
     this.onKey('SPACE', () => this.advance());
     this.onKey('ENTER', () => (this.done() ? this.toPart2() : this.advance()));
@@ -131,7 +128,7 @@ export default class EndingScene extends Phaser.Scene {
     const ch = CHARACTERS[speaker] || { name: speaker || '', color: C.inkSoft };
     const c = this.add.container(0, this.chatY);
     const face = portrait(this, 30, 30, 52, speaker, 'NEUTRAL');
-    const name = this.add.text(70, 0, `${ch.name.toUpperCase()} is typing`, pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
+    const name = this.add.text(70, 0, `${ch.name.toUpperCase()} is typing`, pixel(15, nameColor(speaker), { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
     const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(70, 19, 64, 34, 10);
     const dots = [0, 1, 2].map((i) => this.add.circle(88 + i * 14, 36, 4, C.inkSoft).setAlpha(0.3));
     c.add([bubble, face, name, ...dots]);
@@ -160,7 +157,7 @@ export default class EndingScene extends Phaser.Scene {
     const grey = !!line.placeholder;
     const c = this.add.container(0, this.chatY);
     const face = portrait(this, 30, 30, 52, line.speaker, line.emotion);
-    const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
+    const name = this.add.text(70, 0, ch.name.toUpperCase(), pixel(15, nameColor(line.speaker), { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 4 }));
     const maxW = CHAT.w - 70 - 30;
     const t = this.add.text(84, 30, line.text || TO_COME, readText(15, grey ? C.inkSoft : C.ink, { wordWrap: { width: maxW - 28 } }));
     let bw = Math.max(80, t.width + 28);
@@ -205,7 +202,7 @@ export default class EndingScene extends Phaser.Scene {
 
   /** "The End": campaign stars, the six friends' faces and Continue. */
   showEndCard() {
-    this.keys.setText('enter or →: continue   ·   ↑ ↓: scroll');
+    this.keys.setHint('enter or →: continue · ↑ ↓: scroll · m: music · esc: skip · backspace too');
     const c = this.add.container(0, 0);
     const g = this.add.graphics();
     g.fillStyle(0x000000, 0.3).fillRoundedRect(CARD.x + 4, CARD.y + 6, CARD.w, CARD.h, 16);
@@ -222,7 +219,7 @@ export default class EndingScene extends Phaser.Scene {
     FRIENDS.forEach((id, i) => {
       const x = cx + ((i % 3) - 1) * 84, y = CARD.y + 220 + Math.floor(i / 3) * 104;
       c.add(portrait(this, x, y, 64, id, 'HAPPY'));
-      c.add(this.add.text(x, y + 46, CHARACTERS[id].name, pixel(14, CHARACTERS[id].color, { fontStyle: 'bold' })).setOrigin(0.5));
+      c.add(this.add.text(x, y + 46, CHARACTERS[id].name, pixel(14, nameColor(id), { fontStyle: 'bold' })).setOrigin(0.5));
     });
     c.add(button(this, cx, CARD.y + CARD.h - 44, 'Continue →', () => this.toPart2(), { w: 200, h: 44, fill: C.good }));
     c.setAlpha(0);
@@ -262,6 +259,9 @@ export default class EndingScene extends Phaser.Scene {
     this.onKey('RIGHT', () => { if (this.ready) next(); });
     this.onKey('ESC', () => this.leave(false));
     this.onKey('BACKSPACE', () => this.leave(false));
+    // Key hint (bug hunt KB-09): Esc / Backspace work from the start; Enter / → join once Continue is up
+    // (rollCall). Left of centre so it stays clear of the Continue button bottom right.
+    this.keys = keyHint(this, 'm: music  ·  esc: back to the map  ·  backspace too', { x: 380 });
 
     this.dropPolaroid(() => this.rollCall());
   }
@@ -306,23 +306,25 @@ export default class EndingScene extends Phaser.Scene {
   /** One closing line per friend, portrait and name colour, appearing one by one; then thanks and Continue. */
   rollCall() {
     const step = reduceMotion() ? 0 : 450;
-    const x0 = MID + 28, y0 = BOOK.y + 70, rowH = 54;
+    const x0 = MID + 28, y0 = BOOK.y + 70, rowH = 56; // names at NAME_SIZE, line underneath
     FRIENDS.forEach((id, i) => {
       const entry = ending?.roll_call?.[id];
       const grey = !entry?.text;
       const c = this.add.container(x0, y0 + i * rowH).setAlpha(0);
       c.add(portrait(this, 22, 22, 40, id, entry?.emotion || 'HAPPY'));
-      c.add(this.add.text(52, 0, CHARACTERS[id].name.toUpperCase(), pixel(14, CHARACTERS[id].color, { fontStyle: 'bold' })));
-      const body = this.add.text(52, 20, entry?.text || TO_COME, readText(13, grey ? C.inkSoft : C.ink, { wordWrap: { width: PW - 100 } }));
-      if (grey) c.add(this.add.graphics().fillStyle(GREY, 1).fillRoundedRect(46, 17, body.width + 12, body.height + 6, 6));
+      c.add(this.add.text(52, -2, CHARACTERS[id].name.toUpperCase(), nameStyle(nameColor(id))));
+      const body = this.add.text(52, NAME_SIZE + 3, entry?.text || TO_COME, readText(13, grey ? C.inkSoft : C.ink, { wordWrap: { width: PW - 100 } }));
+      if (grey) c.add(this.add.graphics().fillStyle(GREY, 1).fillRoundedRect(46, NAME_SIZE, body.width + 12, body.height + 6, 6));
       c.add(body);
       this.time.delayedCall(step * (i + 1), () => tween(this, { targets: c, alpha: 1, duration: 260 }));
     });
     this.time.delayedCall(step * (FRIENDS.length + 1.5), () => {
       const thanks = this.add.text(MID + PW / 2, BOOK.y + BOOK.h - 30, 'thanks for always knowing where to eat.', readText(16, C.ink, { fontStyle: 'italic' })).setOrigin(0.5).setAlpha(0);
       const btn = button(this, W - 130, H - 44, 'Continue →', () => this.leave(), { w: 200, h: 44, fill: C.good }).setAlpha(0);
-      tween(this, { targets: [thanks, btn], alpha: 1, duration: 400, onComplete: () => { this.ready = true; } });
-      this.add.text(W / 2, H - 20, 'enter or →: continue   ·   esc: back to the map', text(12, C.label)).setOrigin(0.5);
+      tween(this, { targets: [thanks, btn], alpha: 1, duration: 400, onComplete: () => {
+        this.ready = true;
+        this.keys.setHint('enter or →: continue  ·  m: music  ·  esc: back to the map  ·  backspace too');
+      } });
     });
   }
 
@@ -332,6 +334,7 @@ export default class EndingScene extends Phaser.Scene {
     this.leaving = true;
     if (click && !this.ready) return void (this.leaving = false);
     if (click) playSfx(this, 'click');
-    this.scene.start('Menu');
+    markEndingSeen(); // only now: a reload or closed tab mid-ending offers it again
+    goScene(this, 'Menu');
   }
 }

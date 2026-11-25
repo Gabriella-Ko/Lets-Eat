@@ -10,7 +10,7 @@ const VOLUME_KEY = 'lets-eat-music-volume-v1';
 const DEFAULT_VOLUME = 0.25;
 
 let enabled = readEnabled();
-let volume = readVolume();
+let volume = readSavedVolume();
 let host = null; // the Hud scene: its loader and the game's sound manager outlive every other scene
 let files = new Map(); // key -> file path
 let tracks = []; // keys still playable
@@ -32,11 +32,16 @@ function readEnabled() {
   }
 }
 
-function readVolume() {
+/**
+ * The saved volume, 0 to 1. Missing, empty, whitespace or non-numeric values (Number('') is 0, which used to
+ * mute the game) and anything outside 0–1 give the 25% default; a real saved 0 stays silent.
+ */
+function readSavedVolume() {
   try {
     const raw = window.localStorage.getItem(VOLUME_KEY);
-    const v = Number(raw);
-    return raw !== null && v >= 0 && v <= 1 ? v : DEFAULT_VOLUME;
+    if (typeof raw !== 'string' || raw.trim() === '') return DEFAULT_VOLUME;
+    const v = Number(raw.trim());
+    return Number.isFinite(v) && v >= 0 && v <= 1 ? v : DEFAULT_VOLUME;
   } catch {
     return DEFAULT_VOLUME;
   }
@@ -79,9 +84,13 @@ export function setVolume(v) {
   for (const fn of volumeListeners) fn(volume, enabled);
 }
 
-/** Call fn(volume, enabled) whenever either changes (keeps every music control in step). */
+/** Call fn(volume, enabled) whenever either changes (keeps every music control in step). Returns a function that stops listening. */
 export function onVolume(fn) {
   volumeListeners.push(fn);
+  return () => {
+    const i = volumeListeners.indexOf(fn);
+    if (i >= 0) volumeListeners.splice(i, 1);
+  };
 }
 
 /** The key of the track playing now, or null (for tests and the Hud). */

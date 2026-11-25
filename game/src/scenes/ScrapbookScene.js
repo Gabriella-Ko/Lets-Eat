@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import { C, W, CHARACTERS, pixel, text, readText } from '../ui/theme.js';
-import { button, loadProgress } from '../ui/widgets.js';
+import { button, loadProgress, keyHint } from '../ui/widgets.js';
 import { scrapbookPages, pageText } from '../logic/scrapbook.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { badge } from '../ui/badge.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { pageAnimations } from '../ui/settings.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Layout (Gabriella picked draft E2, 2026-11-23): an open book with bookmark tabs above the right page, one per
 // page, badge only (her pick R1); the book's cover edge takes the open page's bookmark colour.
@@ -51,7 +53,7 @@ export default class ScrapbookScene extends Phaser.Scene {
     this.tabs = null;
     this.turning = false;
 
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'SCRAPBOOK', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     const count = this.pages.filter((p) => p.id in this.unlocked).length;
     this.add.text(W / 2, 66, `${count} / ${this.pages.length} memories collected`, pixel(15, C.highlight)).setOrigin(0.5);
@@ -66,12 +68,13 @@ export default class ScrapbookScene extends Phaser.Scene {
         last = e;
         this.step(d);
       };
-      kb.on('keydown-LEFT', move(-1));
-      kb.on('keydown-RIGHT', move(1));
-      const back = () => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); };
-      kb.on('keydown-ESC', back);
-      kb.on('keydown-BACKSPACE', back);
+      onKey(this, 'LEFT', move(-1));
+      onKey(this, 'RIGHT', move(1));
+      const back = () => { if (!this.registry.get('hudPanelOpen')) goScene(this, 'Menu'); };
+      onKey(this, 'ESC', back);
+      onKey(this, 'BACKSPACE', back);
     }
+    keyHint(this, '← →: turn the page  ·  m: music  ·  esc or backspace: back to levels');// bug hunt KB-07
 
     this.drawBook();
     const first = (this.openOn in this.unlocked && this.pages.find((p) => p.id === this.openOn)) || this.pages.find((p) => p.id in this.unlocked);

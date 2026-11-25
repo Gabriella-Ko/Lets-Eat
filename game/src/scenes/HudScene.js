@@ -2,6 +2,7 @@ import Phaser from 'phaser';
 import { C, H, pixel, text } from '../ui/theme.js';
 import { start as startMusic, getVolume, setVolume, isEnabled, setEnabled, onVolume } from '../ui/music.js';
 import { setSetting } from '../ui/settings.js';
+import { onKey } from '../ui/keys.js';
 
 const ICON = { x: 26, y: H - 22, r: 14 };
 const PANEL = { x: 10, y: H - 108, w: 236, h: 72 };
@@ -11,6 +12,14 @@ const TRACK = { x: PANEL.x + 16, y: PANEL.y + 48, w: 150 };
 function drawMutedSlash(g) {
   const d = ICON.r * Math.SQRT1_2; // the button's edge at 45 degrees
   g.lineStyle(3, C.label, 1).lineBetween(ICON.x - d, ICON.y - d, ICON.x + d, ICON.y + d);
+}
+
+/**
+ * The panel's music label (bug hunt run 2, NP-04): OFF when music is off or the volume is 0, matching the
+ * muted corner icon, else ON. Enter / Space and the pill still switch the Music setting itself.
+ */
+export function musicLabel(on, volume) {
+  return on && volume > 0 ? 'ON' : 'OFF';
 }
 
 /**
@@ -52,12 +61,14 @@ export default class HudScene extends Phaser.Scene {
     this.toggleBg = this.add.graphics();
     const toggleZone = this.add.zone(PANEL.x + PANEL.w - 36, PANEL.y + 20, 52, 24).setInteractive({ useHandCursor: true });
     toggleZone.hudControl = 'music-toggle';
-    toggleZone.on('pointerdown', () => {
-      const on = !isEnabled();
-      setEnabled(on);
-      setSetting('music', on ? 'on' : 'off'); // keep the Options screen's Music row in step
-    });
-    this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone]);
+    toggleZone.on('pointerdown', () => this.toggleMusic());
+    // The panel's own key hint (bug hunt run 2, KB-13), on a dark strip just above the panel so it never
+    // mixes with the screen's hint along the bottom; it shows and hides with the panel.
+    const hint = this.add.text(PANEL.x + 10, PANEL.y - 17, '← →: volume  ·  enter: music on/off  ·  esc: close',
+      text(12, C.label)).setOrigin(0, 0.5);
+    const hintBg = this.add.graphics();
+    hintBg.fillStyle(C.bg, 0.9).fillRoundedRect(PANEL.x, PANEL.y - 30, hint.width + 20, 26, 8);
+    this.panel.add([bg, label, this.pct, this.slider, trackZone, this.toggleBg, this.toggle, toggleZone, hintBg, hint]);
 
     // A click anywhere outside the panel box and the speaker button closes the panel: on any screen's
     // buttons and cards (this scene is on top, so it hears every press), and in the page around the canvas.
@@ -68,15 +79,31 @@ export default class HudScene extends Phaser.Scene {
     window.addEventListener('pointerdown', this.onWindowDown);
     this.events.once('shutdown', () => window.removeEventListener('pointerdown', this.onWindowDown));
     this.events.once('destroy', () => window.removeEventListener('pointerdown', this.onWindowDown));
-    this.input.keyboard?.on('keydown-M', () => this.setOpen(!this.open));
-    // Esc with the panel open closes it and nothing else: this scene is on top, so stopping the event keeps
-    // the screens underneath from also using it (back, closing their cards). 'hudPanelOpen' stays set until
-    // after this key press, so any screen whose Esc handler still fires can ignore it.
-    this.input.keyboard?.on('keydown-ESC', (event) => {
+    // Keyboard (bug hunt run 1, KB-05, KB-06). This scene is on top, so Phaser hands it every key first;
+    // stopPropagation() (not stopImmediatePropagation(), which only stops this scene's own handlers) keeps
+    // the screens underneath from seeing the key at all. While the panel is open: ← → volume in 10% steps,
+    // Enter / Space Music on/off, Esc or M close, and no other key reaches the screen underneath either.
+    // 'hudPanelOpen' stays set until after a closing key press, as a second guard for the screens' handlers.
+    const kb = this.input.keyboard;
+    const whileOpen = (fn) => (event) => {
       if (!this.open) return;
-      event?.stopImmediatePropagation?.();
-      this.setOpen(false, { deferFlag: true });
+      event?.stopPropagation?.();
+      fn();
+    };
+    // onKey (src/ui/keys.js) acts once per key press; { panel: true } because these keys belong to the panel.
+    // It registers keydown-<name>: keydown-M, keydown-ESC, keydown-LEFT, keydown-RIGHT, keydown-ENTER, keydown-SPACE.
+    const panelKey = (name, fn) => onKey(this, name, fn, { panel: true });
+    panelKey('M', (event) => {
+      event?.stopPropagation?.();
+      if (this.open) this.setOpen(false, { deferFlag: true });
+      else this.setOpen(true);
     });
+    panelKey('ESC', whileOpen(() => this.setOpen(false, { deferFlag: true })));
+    panelKey('LEFT', whileOpen(() => this.stepVolume(-1)));
+    panelKey('RIGHT', whileOpen(() => this.stepVolume(1)));
+    panelKey('ENTER', whileOpen(() => this.toggleMusic()));
+    panelKey('SPACE', whileOpen(() => this.toggleMusic()));
+    kb?.on('keydown', whileOpen(() => {})); // any other key: swallowed while the panel is open
     this.events.once('shutdown', () => this.registry.set('hudPanelOpen', false));
 
     onVolume(() => this.draw());
@@ -92,6 +119,25 @@ export default class HudScene extends Phaser.Scene {
       if (inPanel || inIcon) return;
     }
     this.setOpen(false);
+  }
+
+  /** Music on/off, kept in step with the Options screen's Music row. */
+  toggleMusic() {
+    const on = !isEnabled();
+    setEnabled(on);
+    setSetting('music', on ? 'on' : 'off');
+    this.draw();
+  }
+
+  /**
+   * One 10% step of the volume: up goes to the next 10% above (25% -> 30%, 30% -> 40%),
+   * down to the next 10% below (25% -> 20%, 30% -> 20%).
+   */
+  stepVolume(dir) {
+    // In tenths, rounded to 1% so float noise (0.3 * 10 = 3.0000000000000004) doesn't skip a step.
+    const t = Math.round(getVolume() * 100) / 10;
+    const next = dir > 0 ? Math.floor(t) + 1 : Math.ceil(t) - 1;
+    setVolume(Math.min(10, Math.max(0, next)) / 10);
   }
 
   /** deferFlag: clear 'hudPanelOpen' only after the current key press has reached every scene. */
@@ -130,9 +176,9 @@ export default class HudScene extends Phaser.Scene {
     s.lineStyle(2, C.ink, 1).strokeCircle(TRACK.x + TRACK.w * v, TRACK.y, 9);
     this.pct.setText(`${Math.round(v * 100)}%`);
     // On/Off pill.
-    this.toggle.setText(on ? 'ON' : 'OFF');
+    this.toggle.setText(musicLabel(on, v));
     const tw = 52;
-    this.toggleBg.clear().fillStyle(on ? C.accent : C.inkSoft, 1).fillRoundedRect(PANEL.x + PANEL.w - 16 - tw + 4, PANEL.y + 9, tw, 22, 11);
+    this.toggleBg.clear().fillStyle(silent ? C.inkSoft : C.accent, 1).fillRoundedRect(PANEL.x + PANEL.w - 16 - tw + 4, PANEL.y + 9, tw, 22, 11);
     this.toggle.setPosition(PANEL.x + PANEL.w - 16 - tw / 2 + 4, PANEL.y + 20).setOrigin(0.5);
   }
 

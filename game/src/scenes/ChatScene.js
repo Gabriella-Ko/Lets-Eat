@@ -2,15 +2,17 @@ import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
 import { C, W, H, CHARACTERS, DISTRICTS, hex, pixel, text, readText, fitWidth } from '../ui/theme.js';
 import { chatPaceMs, highContrast } from '../ui/settings.js';
-import { panel, button, portrait } from '../ui/widgets.js';
+import { panel, button, portrait, keyHint, strokeBubbleEdge } from '../ui/widgets.js';
 import { scrollArea, DRAG_THRESHOLD } from '../ui/scroll.js';
 import { notebook, NOTEBOOK, pinMode, getPins, setPins } from '../ui/notebook.js';
-import { unlockPage } from '../ui/scrapbookStore.js';
+import { hearPage } from '../ui/scrapbookStore.js';
 import { showChapterIntro, chapterIntroSeen } from '../ui/chapterIntro.js';
 import { showHowToPlay, howToPlaySeen } from '../ui/howToPlay.js';
 import { introSteps } from '../logic/introOrder.js';
 import { recordOpened } from '../ui/openedStore.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const CHAT = { x: 24, y: 78, w: 644, h: 486 };
 
@@ -56,17 +58,22 @@ export default class ChatScene extends Phaser.Scene {
     // How to play shown from Options: a real level screen behind the steps, then back to returnTo.
     this.howToPlayDemo = !!data.howToPlay;
     this.returnTo = data.returnTo || 'Menu';
+    // The map opens on this level's district and card next time (not for the How to play demo from Options).
+    if (!this.howToPlayDemo) {
+      this.registry.set('lastLevel', this.level.id);
+      this.registry.set('lastLevelNew', true);
+    }
     this.pinning = pinMode(this.level);
     if (this.pinning && !this.revealAll) setPins(this, this.level.id, []);
-    // Scrapbook pages unlocked during this visit to the level; the Outcome screen announces them.
-    if (!this.revealAll) this.registry.set(`newPages:${this.level.id}`, []);
+    // Scrapbook pages unlocked here wait for their card in scrapbookStore's saved pending list (never cleared
+    // by reopening the chat); the next Outcome screen announces them.
   }
 
   create() {
     const lvl = this.level;
     recordOpened(lvl.id); // its guests now count as met on the Friends page
     fitWidth(this.add.text(W / 2, 36, `LEVEL ${lvl.number} · ${(DISTRICTS[lvl.district] || lvl.district).toUpperCase()}`, pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5), W - 2 * 180);
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     lvl.guests.forEach((g, i) => portrait(this, W - 40 - i * 46, 36, 36, g, 'NEUTRAL'));
 
     panel(this, CHAT.x, CHAT.y, CHAT.w, CHAT.h);
@@ -77,6 +84,11 @@ export default class ChatScene extends Phaser.Scene {
     this.shown = 0;
     this.msgs = []; // { y, h } of each message, in chat content space (for hover-to-pause)
     this.firstHighlightY = null;
+    // Keyboard starring: the focused line's index and each line's star toggle (pin levels only).
+    this.focusIdx = null;
+    this.pinToggles = [];
+    this.focusRing = this.add.graphics();
+    this.chat.content.add(this.focusRing);
     this.typing = null;
     this.timer = null;
     // Three reasons to hold the next message; the chat waits while any is true.
@@ -95,8 +107,8 @@ export default class ChatScene extends Phaser.Scene {
 
     this.prompt = this.add.text(CHAT.x + CHAT.w / 2, H - 44, PROMPT.idle, pixel(16, C.highlight)).setOrigin(0.5);
     // On the dark page background, so it uses the light label colour (readable in high contrast too).
-    this.keys = this.add.text(CHAT.x + CHAT.w / 2, H - 20, this.keyHint(), text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
-    this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => this.scene.start('Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
+    this.keys = keyHint(this, this.keyHintText(), { x: CHAT.x + CHAT.w / 2 });
+    this.go = button(this, NOTEBOOK.x + NOTEBOOK.w / 2, H - 38, 'Find a place →', () => goScene(this, 'Results', { levelId: lvl.id }), { w: NOTEBOOK.w });
     this.go.setVisible(false);
     // Focus ring on 'Find a place →' once the chat is done, so it's clear Enter / → will press it.
     this.goRing = this.add.graphics().setVisible(false);
@@ -110,34 +122,42 @@ export default class ChatScene extends Phaser.Scene {
     this.input.on('pointermove', (p) => this.trackHover(p));
     this.input.on('gameout', () => this.trackHover(null));
 
-    const kb = this.input.keyboard;
-    kb.on('keydown-SPACE', () => this.next());
+    // Keys go through onKey (src/ui/keys.js): once per press, ignored while the volume panel is open.
+    onKey(this, 'SPACE', () => this.next());
     // Enter shows the next message; once the whole chat is shown, Enter or → goes to 'Find a place'.
     // The keyboard twin of the "Find a place →" button clicks like it (findPlace() ignores keys while blocked).
     const findByKey = () => {
       if (!this.registry.get('hudPanelOpen') && !this.introOpen) playSfx(this, 'click');
       this.findPlace();
     };
-    kb.on('keydown-ENTER', () => (this.done() ? findByKey() : this.next()));
-    kb.on('keydown-RIGHT', () => {
+    onKey(this, 'ENTER', () => (this.done() ? findByKey() : this.next()));
+    onKey(this, 'RIGHT', () => {
       if (this.done()) findByKey();
     });
-    kb.on('keydown-A', () => this.showAll());
-    kb.on('keydown-P', () => {
+    onKey(this, 'A', () => this.showAll());
+    onKey(this, 'P', () => {
       if (this.done() || this.introOpen) return;
       this.hold.manual = !this.hold.manual;
       this.applyHold();
     });
-    kb.on('keydown-UP', () => this.chat.scrollBy(-KEY_STEP));
-    kb.on('keydown-DOWN', () => this.chat.scrollBy(KEY_STEP));
-    kb.on('keydown-PAGE_UP', () => this.chat.scrollBy(-this.chat.viewHeight * 0.8));
-    kb.on('keydown-PAGE_DOWN', () => this.chat.scrollBy(this.chat.viewHeight * 0.8));
-    kb.on('keydown-HOME', () => this.chat.scrollBy(-1e6));
-    kb.on('keydown-END', () => this.chat.scrollBy(1e6));
+    // Star levels: ↑ ↓ move the line focus and S stars it; other levels: ↑ ↓ scroll.
+    onKey(this, 'UP', () => (this.pinning ? this.moveFocus(-1) : this.chat.scrollBy(-KEY_STEP)));
+    onKey(this, 'DOWN', () => (this.pinning ? this.moveFocus(1) : this.chat.scrollBy(KEY_STEP)));
+    // S (keydown-S, through onKey so each press acts once) stars or unstars the focused line.
+    if (this.pinning) onKey(this, 'S', () => this.starFocused());
+    // Page and Home/End scroll; in star levels the focus then moves to a visible line (KB-11).
+    const page = (dy) => {
+      this.chat.scrollBy(dy);
+      this.refocusVisible();
+    };
+    onKey(this, 'PAGE_UP', () => page(-this.chat.viewHeight * 0.8));
+    onKey(this, 'PAGE_DOWN', () => page(this.chat.viewHeight * 0.8));
+    onKey(this, 'HOME', () => page(-1e6));
+    onKey(this, 'END', () => page(1e6));
     // Backspace does what '← Levels' does, unless the volume panel or an intro card is open.
-    kb.on('keydown-BACKSPACE', () => {
+    onKey(this, 'BACKSPACE', () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return;
-      this.scene.start('Menu');
+      goScene(this, 'Menu');
     });
 
     if (this.revealAll) {
@@ -159,7 +179,7 @@ export default class ChatScene extends Phaser.Scene {
     if (this.howToPlayDemo) {
       for (let i = 0; i < DEMO_LINES && !this.done(); i++) this.next(true);
       this.introOpen = true;
-      showHowToPlay(this, () => this.scene.start(this.returnTo));
+      showHowToPlay(this, () => goScene(this, this.returnTo));
       return;
     }
     const steps = introSteps(lvl.number, { howToPlay: howToPlaySeen(), chapter: chapterIntroSeen(lvl.chapter) });
@@ -189,14 +209,18 @@ export default class ChatScene extends Phaser.Scene {
   /** Enter / →: what 'Find a place →' does, ignored while the volume panel or an intro card is open. */
   findPlace() {
     if (this.registry.get('hudPanelOpen') || this.introOpen) return;
-    this.scene.start('Results', { levelId: this.level.id });
+    goScene(this, 'Results', { levelId: this.level.id });
   }
 
   /** The key hint under the chat: playback keys while messages arrive, Enter / → once every line is shown. */
-  keyHint() {
-    const star = this.pinning ? '   ·   star: save to notebook' : '';
-    if (this.done()) return `enter or →: find a place   ·   ↑ ↓: scroll${star}`;
-    return `space: next   ·   P: pause   ·   A: show all   ·   ↑ ↓: scroll${star}`;
+  keyHintText() {
+    // Star levels: ↑ ↓ pick a line and S stars it (KB-03); otherwise ↑ ↓ scroll.
+    // Tight " · " separators so the line fits under the chat panel without shrinking much.
+    // Page Up/Down and Home/End are named only once the chat is long enough to scroll (bug hunt KB-13).
+    const jump = this.chat?.canScroll?.() ? ' · page up / down, home / end: jump' : '';
+    const lines = (this.pinning ? '↑ ↓: pick a line · s: star a line' : '↑ ↓: scroll') + jump;
+    if (this.done()) return `enter or →: find a place · ${lines} · m: music · backspace: levels`;
+    return `space or enter: next · p: pause · a: show all · ${lines} · m: music · backspace: levels`;
   }
 
   /**
@@ -233,11 +257,9 @@ export default class ChatScene extends Phaser.Scene {
     const idx = this.shown++;
     const line = script[idx];
     this.addMessage(line, instant, idx);
-    // Reading a callback line unlocks its scrapbook page (bible: Scrapbook > Unlock).
-    if (line.callback && unlockPage(line.callback, this.level.id)) {
-      const key = `newPages:${this.level.id}`;
-      this.registry.set(key, [...(this.registry.get(key) || []), line.callback]);
-    }
+    // Reading a callback line only remembers its scrapbook page as heard in this level (saved); the page
+    // unlocks on this level's win, in OutcomeScene (Bug hunt run 2, WA-02, WA-03).
+    if (line.callback) hearPage(line.callback, this.level.id);
     if (this.pinning ? getPins(this, this.level.id).includes(idx) : line.clue) this.notebook.add(line, idx);
     if (!instant) this.chat.scrollToBottom();
     if (this.bg && !instant && !this.done()) this.panBackground(this.bg, (this.shown - 1) / Math.max(1, script.length - 1));
@@ -278,8 +300,8 @@ export default class ChatScene extends Phaser.Scene {
     else if (this.hold.reread || this.hold.hover) msg = PROMPT.reread;
     if (this.prompt.text !== msg) this.prompt.setText(msg);
     if (this.keys) {
-      const hint = this.keyHint();
-      if (this.keys.text !== hint) this.keys.setText(hint);
+      const hint = this.keyHintText();
+      if (this.keys.text !== hint) this.keys.setHint(hint);
     }
     if (this.goRing && this.done() && !this.goRing.visible) {
       // C.highlight read now, so High contrast applies.
@@ -351,6 +373,79 @@ export default class ChatScene extends Phaser.Scene {
    * bubble turns `C.starred` with an orange edge (see addMessage), and the line is in the Notebook.
    * Code still calls these "pins". onChange(pinned) lets the bubble redraw.
    */
+  /**
+   * Keyboard starring (bug hunt run 1, KB-03): ↑ ↓ move a focus ring through the lines shown so far
+   * (the chat scrolls to keep it in view), S stars or unstars it like clicking its star. The first ↑ ↓ or S
+   * focuses the newest line. Ignored while the volume panel or an intro card is open.
+   */
+  moveFocus(step) {
+    if (this.registry.get('hudPanelOpen') || this.introOpen || !this.msgs.length) return;
+    const last = this.msgs.length - 1;
+    this.focusIdx = this.focusIdx === null ? last : Math.min(Math.max(this.focusIdx + step, 0), last);
+    this.drawFocus();
+  }
+
+  starFocused() {
+    if (this.registry.get('hudPanelOpen') || this.introOpen || !this.msgs.length) return;
+    // KB-11: never star a line the player can't see. A focus that has scrolled away (new messages,
+    // wheel, End/PageDown) moves to the nearest fully visible line first, which is then scrolled into view.
+    if (this.focusIdx === null || !this.lineVisible(this.focusIdx)) {
+      this.focusIdx = this.nearestVisibleLine(this.focusIdx === null ? this.msgs.length - 1 : this.focusIdx);
+    }
+    this.drawFocus();
+    const toggle = this.pinToggles[this.focusIdx];
+    if (toggle) toggle(false);
+  }
+
+  /** 4 px C.highlight ring around the focused row (read when drawing, so High contrast applies), scrolled into view. */
+  drawFocus() {
+    const m = this.msgs[this.focusIdx];
+    if (!m) return;
+    const w = CHAT.w - 24;
+    this.focusRing.clear().lineStyle(4, C.highlight, 1).strokeRoundedRect(0, m.y - 4, w, m.h + 8, 12);
+    this.chat.content.bringToTop(this.focusRing);
+    this.scrollToLine(this.focusIdx);
+  }
+
+  /** Content-space top of the view and its height. */
+  chatView() {
+    return { top: CHAT.y + 10 - this.chat.content.y, h: this.chat.viewHeight };
+  }
+
+  /** True when line i (with its focus ring margin, capped to the view) is fully inside the view. */
+  lineVisible(i) {
+    const m = this.msgs[i];
+    if (!m) return false;
+    const { top, h } = this.chatView();
+    const pad = m.h + 16 <= h ? 8 : 0;
+    return m.y - pad >= top - 1 && m.y + Math.min(m.h, h) + pad <= top + h + 1;
+  }
+
+  /** Index of the fully visible line closest to line i (i itself when nothing is fully visible). */
+  nearestVisibleLine(i) {
+    let best = null;
+    for (let j = 0; j < this.msgs.length; j++) {
+      if (this.lineVisible(j) && (best === null || Math.abs(j - i) < Math.abs(best - i))) best = j;
+    }
+    return best === null ? i : best;
+  }
+
+  /** Scroll so line i is fully visible with its focus ring (counts as the player scrolling). */
+  scrollToLine(i) {
+    const m = this.msgs[i];
+    if (!m) return;
+    const { top, h } = this.chatView();
+    if (m.y - 8 < top || m.h + 16 > h) this.chat.scrollBy(m.y - 8 - top);
+    else if (m.y + m.h + 8 > top + h) this.chat.scrollBy(m.y + m.h + 8 - top - h);
+  }
+
+  /** After a page or End/Home scroll in star levels, keep the focus on a line that's on screen. */
+  refocusVisible() {
+    if (!this.pinning || this.focusIdx === null || this.lineVisible(this.focusIdx)) return;
+    this.focusIdx = this.nearestVisibleLine(this.focusIdx);
+    this.drawFocus();
+  }
+
   addPin(c, x, y, idx, line, onChange) {
     // Drawn around its own origin so the pop animation scales in place.
     const g = this.add.graphics({ x, y });
@@ -375,15 +470,20 @@ export default class ChatScene extends Phaser.Scene {
     zone.on('pointerup', (p) => {
       const inChat = p.y >= CHAT.y && p.y <= CHAT.y + CHAT.h; // masked rows above/below the panel don't count
       if (!inChat || Phaser.Math.Distance.Between(p.downX, p.downY, p.upX, p.upY) >= DRAG_THRESHOLD) return;
+      toggle(true);
+    });
+    // Shared by the click and the S key (keyboard: no hover outline).
+    const toggle = (hover) => {
       const pins = getPins(this, this.level.id);
       const pinned = !pins.includes(idx);
       setPins(this, this.level.id, pinned ? [...pins, idx] : pins.filter((i) => i !== idx));
       if (pinned) this.notebook.add(line, idx);
       else this.notebook.remove(idx);
-      draw(pinned, true);
+      draw(pinned, hover);
       onChange(pinned);
       tween(this, { targets: g, scale: { from: 1.25, to: 1 }, duration: 160, ease: 'Back.easeOut' });
-    });
+    };
+    this.pinToggles[idx] = toggle;
     c.add([g, zone]);
   }
 
@@ -407,8 +507,11 @@ export default class ChatScene extends Phaser.Scene {
       bubble.clear();
       const fill = hl ? C.highlight : starred ? C.starred : 0xffffff;
       bubble.fillStyle(fill, 1).fillRoundedRect(70, 19, bw, bh, 10);
-      if (hl) bubble.lineStyle(3, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
-      else if (starred) bubble.lineStyle(2, C.accent, 1).strokeRoundedRect(70, 19, bw, bh, 10);
+      // Edges go through strokeBubbleEdge (a fresh path), so no line runs from the name into the bubble.
+      // High contrast also gives a plain bubble a thin ink edge.
+      if (hl) strokeBubbleEdge(bubble.lineStyle(3, C.accent, 1), 70, 19, bw, bh, 10);
+      else if (starred) strokeBubbleEdge(bubble.lineStyle(2, C.accent, 1), 70, 19, bw, bh, 10);
+      else if (highContrast()) strokeBubbleEdge(bubble.lineStyle(1, C.inkSoft, 1), 70, 19, bw, bh, 10);
     };
     drawBubble(this.pinning && getPins(this, this.level.id).includes(idx));
     c.add([bubble, face, name, body]);

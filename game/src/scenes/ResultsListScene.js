@@ -7,6 +7,8 @@ import { loadVisits, recordSeen } from '../ui/visitStore.js';
 import { pastVisit } from '../logic/beenHere.js';
 import { SORTS, filterOptions, applyView } from '../logic/resultsView.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Getters, so the colours follow the High contrast option.
 const BADGE = { been: { label: 'BEEN HERE', get fill() { return C.accent; } }, seen: { label: 'SEEN BEFORE', get fill() { return C.blue; } } };
@@ -39,7 +41,7 @@ export default class ResultsListScene extends Phaser.Scene {
   create() {
     const lvl = this.level;
     this.add.text(W / 2 - 130, 36, 'PLACES NEARBY', pixel(24, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
-    button(this, 100, 36, '← Back to chat', () => this.scene.start('Chat', { levelId: lvl.id, revealAll: true }), { w: 168, h: 34, size: 15, fill: C.bar });
+    button(this, 100, 36, '← Back to chat', () => goScene(this, 'Chat', { levelId: lvl.id, revealAll: true }), { w: 168, h: 34, size: 15, fill: C.bar });
 
     panel(this, LIST.x, LIST.y, LIST.w, LIST.h);
     panel(this, DETAIL.x, DETAIL.y, DETAIL.w, DETAIL.h);
@@ -68,7 +70,7 @@ export default class ResultsListScene extends Phaser.Scene {
     this.moreHint = this.add.text(DETAIL.x + DETAIL.w - 18, DETAIL.y + DETAIL.h - 66, '↓ scroll for more', text(12, C.inkSoft)).setOrigin(1, 0.5).setVisible(false);
     this.reviews.onScroll(() => this.moreHint.setVisible(!!this.selected && !this.reviews.atBottom()));
     this.pickBtn = button(this, DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h - 36, 'Recommend this', () => {
-      this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+      goScene(this, 'Outcome', { levelId: lvl.id, venueId: this.selected.id });
     }, { w: DETAIL.w - 40 });
     this.pickBtn.setVisible(false);
     this.empty = this.add.text(DETAIL.x + DETAIL.w / 2, DETAIL.y + DETAIL.h / 2, 'pick a place to read its reviews', text(15, C.inkSoft)).setOrigin(0.5);
@@ -87,11 +89,11 @@ export default class ResultsListScene extends Phaser.Scene {
       const recommend = () => {
         if (!this.selected) return;
         playSfx(this, 'click');
-        this.scene.start('Outcome', { levelId: lvl.id, venueId: this.selected.id });
+        goScene(this, 'Outcome', { levelId: lvl.id, venueId: this.selected.id });
       };
-      kb.on('keydown-UP', () => move(-1));
-      kb.on('keydown-DOWN', () => move(1));
-      kb.on('keydown-ENTER', () => {
+      onKey(this, 'UP', () => move(-1));
+      onKey(this, 'DOWN', () => move(1));
+      onKey(this, 'ENTER', () => {
         const card = this.cards[this.focus];
         if (!card) return;
         if (this.selected === card.venue) recommend();
@@ -100,21 +102,45 @@ export default class ResultsListScene extends Phaser.Scene {
           this.select(card);
         }
       });
-      // R recommends only the place whose details are open (so its reviews were read first); with none open it does
-      // nothing, and the open volume panel takes it first.
-      kb.on('keydown-R', () => {
+      // R (keydown-R, through onKey) recommends only the place whose details are open, exactly like "Recommend this",
+      // so its reviews were read first; with none open it does nothing (no sound, no scene change), never the focused
+      // card. The open volume panel takes it first.
+      onKey(this, 'R', () => {
         if (this.registry.get('hudPanelOpen')) return;
         recommend();
       });
-      // Backspace does what "← Back to chat" does; the open volume panel takes it first.
-      kb.on('keydown-BACKSPACE', () => {
+      // Backspace closes an open place first (closeDetails(), the place stays focused and highlighted);
+      // with nothing open it does what "← Back to chat" does. The open volume panel takes it first.
+      onKey(this, 'BACKSPACE', () => {
         if (this.registry.get('hudPanelOpen')) return;
-        this.scene.start('Chat', { levelId: lvl.id, revealAll: true });
+        if (this.selected) {
+          this.closeDetails();
+          return;
+        }
+        goScene(this, 'Chat', { levelId: lvl.id, revealAll: true });
+      });
+      // S (keydown-S, through onKey) cycles the sort (Mixed → Cheapest → A–Z), F (keydown-F) cycles the filters (all → each SHOW chip alone, in order → all),
+      // exactly like clicking the pills; the open volume panel takes them first.
+      onKey(this, 'S', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        const i = SORTS.findIndex((s) => s.id === this.view.sort);
+        this.setView({ sort: SORTS[(i + 1) % SORTS.length].id });
+      });
+      onKey(this, 'F', () => {
+        if (this.registry.get('hudPanelOpen')) return;
+        const chips = this.filterChips();
+        if (chips.length < 2) return;
+        const active = chips.filter((ch) => this.view[ch.key].includes(ch.value));
+        const i = active.length === 1 ? chips.indexOf(active[0]) : active.length ? chips.length - 1 : -1;
+        const next = chips[i + 1];
+        this.setView(next ? { prices: [], cuisines: [], [next.key]: [next.value] } : { prices: [], cuisines: [] });
       });
     }
 
     // Key hint under the list and details panels, clear of the music button in the bottom-left corner.
-    this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, '↑ ↓: choose   ·   enter: open   ·   r: recommend   ·   backspace: back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
+    this.add.text((LIST.x + DETAIL.x + DETAIL.w) / 2, H - 20, this.filterChips().length > 1
+      ? '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  f: filter  ·  m: music  ·  backspace: close / back to chat'
+      : '↑ ↓: choose  ·  enter: open  ·  r: recommend  ·  s: sort  ·  m: music  ·  backspace: close / back to chat', text(12, C.label)).setOrigin(0.5).setAlpha(0.85);
 
     this.drawControls();
     this.drawCards();
@@ -157,6 +183,14 @@ export default class ResultsListScene extends Phaser.Scene {
     return w;
   }
 
+  /** The SHOW chips in on-screen order: price tiers, then cuisines when there's more than one. */
+  filterChips() {
+    return [
+      ...this.options.prices.map((p) => ({ key: 'prices', value: p, label: p })),
+      ...(this.options.cuisines.length > 1 ? this.options.cuisines.map((cu) => ({ key: 'cuisines', value: cu, label: pretty(cu) })) : []),
+    ];
+  }
+
   /** SORT row, then SHOW chips (price tiers, and cuisines when there's more than one), wrapping as needed. */
   drawControls() {
     const c = this.controls;
@@ -167,10 +201,7 @@ export default class ResultsListScene extends Phaser.Scene {
     let x = x0 + labelW;
     for (const s of SORTS) x += this.pill(c, x, y, s.label, this.view.sort === s.id, () => this.setView({ sort: s.id }), `sort:${s.id}`) + 6;
 
-    const chips = [
-      ...this.options.prices.map((p) => ({ key: 'prices', value: p, label: p })),
-      ...(this.options.cuisines.length > 1 ? this.options.cuisines.map((cu) => ({ key: 'cuisines', value: cu, label: pretty(cu) })) : []),
-    ];
+    const chips = this.filterChips();
     if (chips.length > 1) {
       y += rowH;
       c.add(this.add.text(x0, y + 5, 'SHOW', pixel(12, C.inkSoft, { fontStyle: 'bold' })));
@@ -190,6 +221,7 @@ export default class ResultsListScene extends Phaser.Scene {
   }
 
   drawCards() {
+    const focusedVenue = this.cards[this.focus]?.venue;
     this.cardLayer.removeAll(true);
     const shown = applyView(this.venues, this.view);
     this.shown = shown;
@@ -208,12 +240,29 @@ export default class ResultsListScene extends Phaser.Scene {
     // A selected place that the filters hide is deselected.
     if (this.selected && !shown.includes(this.selected)) this.deselect();
     else if (this.selected) this.cards.forEach((c) => c.draw(c.venue === this.selected ? 'selected' : undefined));
-    // Keep the focus on the selected card if it's still shown, else the first card.
-    this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === this.selected));
+    // A place closed with Backspace stays highlighted while it's shown.
+    if (this.kept && !shown.includes(this.kept)) this.kept = null;
+    else if (this.kept) this.cards.forEach((c) => c.venue === this.kept && c.draw('selected'));
+    // Keep the focus on the selected card if it's still shown, else on the card focused before, else the first card.
+    const keep = this.selected || focusedVenue;
+    this.focus = Math.max(0, this.cards.findIndex((c) => c.venue === keep));
+    this.drawFocus();
+  }
+
+  /** Closes the open place's details but keeps that place focused and highlighted, so Enter reopens it. */
+  closeDetails() {
+    const venue = this.selected;
+    this.deselect();
+    const card = this.cards.find((c) => c.venue === venue);
+    if (!card) return;
+    this.kept = venue;
+    card.draw('selected');
+    this.focus = Math.max(0, this.cards.indexOf(card));
     this.drawFocus();
   }
 
   deselect() {
+    this.kept = null;
     this.selected = null;
     this.detail.removeAll(true);
     this.reviews.content.removeAll(true);
@@ -251,8 +300,8 @@ export default class ResultsListScene extends Phaser.Scene {
     const zone = this.add.zone(x + w / 2, y + h / 2, w, h).setInteractive({ useHandCursor: true });
     layer.add(zone);
     const card = { venue, draw, x, y, w, h };
-    zone.on('pointerover', () => this.selected !== venue && draw('hover'));
-    zone.on('pointerout', () => this.selected !== venue && draw());
+    zone.on('pointerover', () => this.selected !== venue && this.kept !== venue && draw('hover'));
+    zone.on('pointerout', () => this.selected !== venue && this.kept !== venue && draw());
     zone.on('pointerdown', () => {
       playSfx(this, 'click');
       this.select(card);
@@ -261,6 +310,7 @@ export default class ResultsListScene extends Phaser.Scene {
   }
 
   select(card) {
+    this.kept = null;
     this.selected = card.venue;
     this.focus = Math.max(0, this.cards.indexOf(card));
     this.drawFocus();

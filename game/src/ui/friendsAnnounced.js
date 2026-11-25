@@ -20,7 +20,7 @@ export function newFriends(guests) {
   return (guests || []).filter((g) => !seen.has(g));
 }
 
-/** Remember these friends as announced. */
+/** Remember these friends as announced. Call only once their card is on screen (OutcomeScene.announceShown). */
 export function markAnnounced(ids) {
   if (!ids.length) return;
   const all = [...new Set([...load(), ...ids])];
@@ -29,5 +29,15 @@ export function markAnnounced(ids) {
     localStorage.setItem(KEY, JSON.stringify(all));
   } catch {
     /* kept in memory for this session */
+  }
+}
+
+/** Forget every friend announced (Reset progress): the saved key and the in-memory fallback. */
+export function clearSeen() {
+  memory = null;
+  try {
+    localStorage.removeItem(KEY);
+  } catch {
+    /* storage blocked: nothing saved to clear */
   }
 }

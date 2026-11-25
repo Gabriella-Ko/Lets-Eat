@@ -18,8 +18,10 @@ export const setPins = (scene, levelId, pins) => scene.registry.set(`pins:${leve
 
 const COPY = {
   auto: { sub: 'lines worth remembering', empty: '' },
-  pinChat: { sub: 'your notebook only keeps what you star. tap the star beside a message to save it.', empty: 'nothing saved yet.\n\ntap the star next to any message to keep it in your notebook.' },
-  pinResults: { sub: 'the lines you saved from the chat', empty: 'nothing saved.\n\ngo back to the chat and tap the star next to a message to keep it here.' },
+  // The how-to-star tip is said once per screen: in the callout on the chat, in the empty text on the
+  // restaurant list (bug hunt run 2, KB-12). It names both ways: the mouse and S on the focused line.
+  pinChat: { sub: 'your notebook only keeps what you star: click the star beside a message, or pick a line with ↑ ↓ and press S.', empty: 'nothing saved yet.' },
+  pinResults: { sub: 'the lines you saved from the chat', empty: 'nothing saved.\n\ngo back to the chat and click the star beside a message, or pick a line with ↑ ↓ and press S, to keep it here.' },
 };
 
 /**

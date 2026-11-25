@@ -1,8 +1,10 @@
 import Phaser from 'phaser';
 import { C, W, H, pixel } from '../ui/theme.js';
-import { button } from '../ui/widgets.js';
+import { button, keyHint } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const ART_KEY = 'title_screen'; // assets/art/title_screen.jpg via tools/slice_portraits.py (manifest group 'ui')
 const PLATE_H = 170; // dark fade over the sky; the friends' faces in the lower half stay clear
@@ -38,19 +40,23 @@ export default class TitleScene extends Phaser.Scene {
 
     const start = button(this, W / 2, H - 56, 'Start', () => this.go(), { w: 180, h: 46, size: 20 });
 
-    for (const o of [title, tagline, start]) o.setAlpha(0);
+    // On a dark plate so it reads at 4.5:1 over the busy art (bible: Bug hunt run 2, NP-03).
+    const keys = keyHint(this, 'enter: start  ·  m: music', { y: H - 14, plate: true });
+
+    for (const o of [title, tagline, start, keys, keys.plate]) o.setAlpha(0);
     tween(this, { targets: [title, tagline], alpha: 1, duration: 500, ease: 'Sine.easeOut' });
     tween(this, { targets: start, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
+    tween(this, { targets: keys, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
 
     this.input.on('pointerdown', () => this.go());
-    this.input.keyboard.on('keydown-ENTER', () => this.go());
-    this.input.keyboard.on('keydown-SPACE', () => this.go());
+    onKey(this, 'ENTER', () => this.go());
+    onKey(this, 'SPACE', () => this.go());
   }
 
   go() {
     if (this.leaving) return;
     this.leaving = true;
     playSfx(this, 'click'); // Enter, Space or a click anywhere (the Start button's own click is merged into it)
-    this.scene.start('Menu');
+    goScene(this, 'Menu');
   }
 }

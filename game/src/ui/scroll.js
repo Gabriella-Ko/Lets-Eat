@@ -82,6 +82,10 @@ export function scrollArea(scene, x, y, w, h) {
     atBottom() {
       return offset >= maxOffset() - 4;
     },
+    /** True when the content is taller than the view, so there is something to scroll. */
+    canScroll() {
+      return maxOffset() > 0;
+    },
     /** Scroll so content-space y sits near the top third of the view. */
     scrollTo(cy) {
       offset = cy - h / 3;

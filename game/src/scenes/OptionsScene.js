@@ -1,10 +1,12 @@
 import Phaser from 'phaser';
 import { C, W, H, CHARACTERS, hex, pixel, text, readText, applyPalette } from '../ui/theme.js';
-import { panel, button, portrait, star, resetProgress } from '../ui/widgets.js';
+import { panel, button, portrait, star, resetProgress, keyHint, strokeBubbleEdge } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { OPTIONS, getSettings, setSetting, highContrast, reduceMotion, chatPaceMs } from '../ui/settings.js';
-import { setEnabled as setMusicEnabled } from '../ui/music.js';
+import { setEnabled as setMusicEnabled, onVolume } from '../ui/music.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene, isSwitching } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 const ROWS = [
   { key: 'textSize', title: 'Text size', about: 'Makes the chat, reviews, Notebook and reactions easier to read.' },
@@ -26,6 +28,7 @@ const PREVIEW_LINES = [
   { speaker: 'cyrus', mood: 'NEUTRAL', text: 'and no peanuts please' },
 ];
 const PREVIEW_HOLD_MS = 2000; // pause after the last line before the exchange starts again
+const RESET_BTN = { x: W - 110, y: 36, w: 180, h: 34 }; // centre and size of the Reset progress button
 
 /**
  * Accessibility options (saved per browser, see ui/settings.js). Mouse or keyboard:
@@ -43,33 +46,89 @@ export default class OptionsScene extends Phaser.Scene {
   }
 
   create() {
+    // The Music row follows the bottom-left music button (HudScene) while this screen is open.
+    this.musicShown = getSettings().music;
+    const stopSync = onVolume((volume, enabled) => this.syncMusicRow(enabled));
+    this.drawn = [];
+    this.events.once('shutdown', () => {
+      stopSync();
+      this.stopPreviewTimers();
+      this.drawn = [];
+    });
+    this.drawScreen();
+
+    // While How to play or the reset check is up, its own keys act and this screen's keys wait.
+    // The arrow-key focus runs through the rows and then the Reset progress button (focus === ROWS.length).
+    this.helpOpen = false;
+    // onKey (src/ui/keys.js) acts once per key press and waits while the volume panel is open.
+    const when = (fn) => () => { if (!this.helpOpen) fn(); };
+    const stops = ROWS.length + 1;
+    onKey(this, 'UP', when(() => { this.focus = (this.focus + stops - 1) % stops; this.drawFocus(); }));
+    onKey(this, 'DOWN', when(() => { this.focus = (this.focus + 1) % stops; this.drawFocus(); }));
+    onKey(this, 'LEFT', when(() => this.step(-1)));
+    onKey(this, 'RIGHT', when(() => this.step(1)));
+    onKey(this, 'H', when(() => this.howToPlay()));
+    onKey(this, 'R', when(() => { this.focus = ROWS.length; this.drawFocus(); }));
+    onKey(this, 'ENTER', when(() => {
+      if (this.focus !== ROWS.length) return;
+      playSfx(this, 'click');
+      this.confirmReset();
+    }));
+    const back = when(() => goScene(this, 'Menu'));
+    onKey(this, 'ESC', back);
+    onKey(this, 'BACKSPACE', back);
+  }
+
+  /**
+   * Draws everything on the screen except the key bindings (bound once in create()). Every game object
+   * it adds is remembered in this.drawn, so refreshRows() can throw it away and draw it again.
+   */
+  drawScreen() {
+    const before = new Set(this.children.list);
     this.cameras.main.setBackgroundColor(C.bg);
-    button(this, 90, 36, '← Levels', () => this.scene.start('Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
+    button(this, 90, 36, '← Levels', () => goScene(this, 'Menu'), { w: 140, h: 34, size: 15, fill: C.bar });
     this.add.text(W / 2, 36, 'OPTIONS', pixel(30, C.label, { fontStyle: 'bold' })).setOrigin(0.5);
     this.add.text(W / 2, 66, 'changes apply straight away and are saved on this device', pixel(14, C.highlight)).setOrigin(0.5);
-
     const s = getSettings();
     this.rowFrames = ROWS.map((row, i) => this.drawRow(row, i, s[row.key]));
     this.drawPreview();
     this.previewMotion();
     this.previewChatPace();
-    this.add.text(LEFT.x + 24, H - 34, '↑ ↓ choose a setting   ·   ← → change it   ·   H: how to play   ·   Esc: back', text(13, C.label));
+    keyHint(this, '↑ ↓: choose  ·  ← →: change  ·  r, enter: reset progress  ·  h: how to play  ·  m: music  ·  esc or backspace: back', { y: H - 18 });
     button(this, PREVIEW.x + PREVIEW.w / 2, H - 70, 'How to play', () => this.howToPlay(), { w: PREVIEW.w, h: 40, size: 16 });
-    button(this, W - 110, 36, 'Reset progress', () => this.confirmReset(), { w: 180, h: 34, size: 14, fill: C.bad });
+    button(this, RESET_BTN.x, RESET_BTN.y, 'Reset progress', () => this.confirmReset(), { w: RESET_BTN.w, h: RESET_BTN.h, size: 14, fill: C.bad });
+    this.resetFrame = this.add.graphics().setDepth(2); // focus ring for the Reset progress button
+    this.drawn = this.children.list.filter((o) => !before.has(o));
     this.drawFocus();
+  }
 
-    // While How to play or the reset check is up, its own keys act and this screen's keys wait.
-    this.helpOpen = false;
-    const kb = this.input.keyboard;
-    const when = (fn) => () => { if (!this.helpOpen) fn(); };
-    kb.on('keydown-UP', when(() => { this.focus = (this.focus + ROWS.length - 1) % ROWS.length; this.drawFocus(); }));
-    kb.on('keydown-DOWN', when(() => { this.focus = (this.focus + 1) % ROWS.length; this.drawFocus(); }));
-    kb.on('keydown-LEFT', when(() => this.step(-1)));
-    kb.on('keydown-RIGHT', when(() => this.step(1)));
-    kb.on('keydown-H', when(() => this.howToPlay()));
-    const back = when(() => { if (!this.registry.get('hudPanelOpen')) this.scene.start('Menu'); });
-    kb.on('keydown-ESC', back);
-    kb.on('keydown-BACKSPACE', back);
+  /** Stops the preview's loops (chat pace exchange, star pops). */
+  stopPreviewTimers() {
+    this.chatPreviewTimer?.remove(false);
+    this.chatPreviewTimer = null;
+    this.starTimer?.remove(false);
+    this.starTimer = null;
+  }
+
+  /**
+   * Redraws the rows and the preview in place after a setting changed (SF-05). It used to restart the
+   * screen, which dropped any key pressed in the same frame (a ↓ right after → was lost, and the next
+   * ← → changed the old row). Keys stay bound and this.focus is kept, so the next key acts on the right
+   * row; the palette, Chat pace and Animations preview pick up the new value at once.
+   */
+  refreshRows() {
+    if (isSwitching(this)) return; // the screen is on its way out
+    this.stopPreviewTimers();
+    const old = this.drawn;
+    const targets = [...old];
+    if (this.previewChat) targets.push(...this.previewChat.list.flatMap((c) => [c, ...(c.list || [])]));
+    this.tweens.killTweensOf(targets);
+    old.forEach((o) => o.destroy());
+    this.previewClip?.destroy(); // after the masked chat area it clips
+    this.previewClip = null;
+    this.previewChat = null;
+    this.previewStars = null;
+    this.drawScreen();
   }
 
   /**
@@ -81,7 +140,7 @@ export default class OptionsScene extends Phaser.Scene {
     if (this.helpOpen) return;
     const first = this.registry.get('levels')?.[0];
     if (!first) return;
-    this.scene.start('Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
+    goScene(this, 'Chat', { levelId: first.id, howToPlay: true, returnTo: 'Options' });
   }
 
   /**
@@ -100,22 +159,49 @@ export default class OptionsScene extends Phaser.Scene {
     const title = this.add.text(W / 2, by + 30, 'RESET PROGRESS?', pixel(22, C.ink, { fontStyle: 'bold' })).setOrigin(0.5);
     const body = this.add.text(W / 2, by + 62, 'Clears your stars (levels lock again), Scrapbook pages, friends met and the places you have been, and shows How to play and the chapter cards again. Your options and music stay as they are.',
       readText(15, C.inkSoft, { align: 'center', wordWrap: { width: bw - 60 } })).setOrigin(0.5, 0);
+    const keys = {};
+    let unbinders = [];
+    const unbind = () => { unbinders.forEach((off) => off()); unbinders = []; };
     const close = () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc belongs to the volume panel
-      this.input.keyboard.off('keydown-ESC', close);
+      unbind();
       layer.destroy();
       this.helpOpen = false;
+      this.drawFocus();
     };
     const reset = () => {
-      this.input.keyboard.off('keydown-ESC', close);
+      unbind();
       resetProgress();
-      this.scene.start('Menu');
+      goScene(this, 'Menu');
     };
-    const cancelBtn = button(this, W / 2 - 100, by + bh - 40, 'Cancel', close, { w: 160, h: 40, size: 16, fill: C.bar });
-    const resetBtn = button(this, W / 2 + 100, by + bh - 40, 'Reset', reset, { w: 160, h: 40, size: 16, fill: C.bad });
-    box.add([card, title, body, cancelBtn, resetBtn]);
+    const btnY = by + bh - 40;
+    const cancelBtn = button(this, W / 2 - 100, btnY, 'Cancel', close, { w: 160, h: 40, size: 16, fill: C.bar });
+    const resetBtn = button(this, W / 2 + 100, btnY, 'Reset', reset, { w: 160, h: 40, size: 16, fill: C.bad });
+    // Keyboard: ← → choose Cancel or Reset (focus starts on Cancel, so a stray Enter changes nothing),
+    // Enter presses the focused one, Esc cancels.
+    this.resetFocus = 0;
+    const ring = this.add.graphics();
+    const drawRing = () => {
+      ring.clear().lineStyle(4, C.highlight, 1);
+      const cx = this.resetFocus === 0 ? W / 2 - 100 : W / 2 + 100;
+      ring.strokeRoundedRect(cx - 80 - 6, btnY - 20 - 6, 160 + 12, 40 + 12, 12);
+    };
+    drawRing();
+    // onKey ignores these while the volume panel is open, and acts once per key press.
+    keys.ESC = close;
+    keys.LEFT = () => { this.resetFocus = 0; drawRing(); };
+    keys.RIGHT = () => { this.resetFocus = 1; drawRing(); };
+    keys.ENTER = () => {
+      playSfx(this, 'click');
+      if (this.resetFocus === 1) reset(); else close();
+    };
+    box.add([card, title, body, ring, cancelBtn, resetBtn]);
     layer.add([shade, box]);
-    this.input.keyboard.on('keydown-ESC', close);
+    // bind on the next tick, so the Enter that opened this check doesn't also press a button in it
+    this.time.delayedCall(0, () => {
+      if (!layer.active) return;
+      unbinders = Object.entries(keys).map(([name, fn]) => onKey(this, name, fn));
+    });
     shade.setAlpha(0);
     box.setAlpha(0).setY(16);
     tween(this, { targets: shade, alpha: 1, duration: 150 });
@@ -125,18 +211,37 @@ export default class OptionsScene extends Phaser.Scene {
   /** Move the focused setting one choice left or right. */
   step(dir) {
     const row = ROWS[this.focus];
+    if (!row) return; // the Reset progress button has no choices
     const opts = OPTIONS[row.key];
     const i = opts.findIndex((o) => o.id === getSettings()[row.key]);
     const next = opts[Math.min(opts.length - 1, Math.max(0, i + dir))];
     if (next && next.id !== opts[i]?.id) this.choose(row.key, next.id);
   }
 
+  /**
+   * Music was switched on or off elsewhere (the Hud's music button): save it as the Music setting and
+   * redraw the rows on the next tick, so the row shows it at once and choosing the other choice works.
+   * Volume-only changes, and the change this screen made itself, leave the screen alone.
+   */
+  syncMusicRow(enabled) {
+    const id = enabled ? 'on' : 'off';
+    if (id === this.musicShown) return;
+    this.musicShown = id;
+    setSetting('music', id);
+    this.time.delayedCall(0, () => {
+      if (this.scene.isActive() && getSettings().music === id) this.refreshRows();
+    });
+  }
+
   choose(key, id) {
     setSetting(key, id);
-    if (key === 'music') setMusicEnabled(id === 'on');
+    if (key === 'music') {
+      this.musicShown = id; // so syncMusicRow ignores the change made here
+      setMusicEnabled(id === 'on');
+    }
     if (key === 'sfx' && id === 'on') playSfx(this, 'click'); // a preview of what was just switched on
     applyPalette();
-    this.scene.restart({ focus: this.focus });
+    this.refreshRows(); // in place, so a key pressed in the same frame still counts
   }
 
   drawRow(row, i, current) {
@@ -179,6 +284,12 @@ export default class OptionsScene extends Phaser.Scene {
       frame.clear();
       if (i === this.focus) frame.lineStyle(3, C.highlight, 1).strokeRoundedRect(LEFT.x - 5, y - 5, LEFT.w + 10, ROW_H - ROW_GAP + 10, 15);
     });
+    // the Reset progress button, the stop after the last row
+    this.resetFrame?.clear();
+    if (this.focus === ROWS.length && this.resetFrame) {
+      const { x, y, w, h } = RESET_BTN;
+      this.resetFrame.lineStyle(4, C.highlight, 1).strokeRoundedRect(x - w / 2 - 6, y - h / 2 - 6, w + 12, h + 12, 12);
+    }
   }
 
   drawPreview() {
@@ -189,6 +300,7 @@ export default class OptionsScene extends Phaser.Scene {
     const chatTop = y + 42;
     this.previewChat = this.add.container(x, chatTop).setDepth(1);
     const clip = this.make.graphics({ add: false }).fillStyle(0xffffff, 1).fillRect(x, chatTop, w, PREVIEW_CHAT_H);
+    this.previewClip = clip;
     this.previewChat.setMask(clip.createGeometryMask());
     let cy = chatTop + PREVIEW_CHAT_H + 8;
     // a review
@@ -213,10 +325,24 @@ export default class OptionsScene extends Phaser.Scene {
    * Plays an example exchange in the PREVIEW panel's chat area, the way the chat does, at the chosen
    * Chat pace: each speaker's "typing" row lasts chatPaceMs(), then their message replaces it, then the
    * next speaker types. After the last line it holds PREVIEW_HOLD_MS, clears and starts again, looping
-   * while the screen is open. A change of setting restarts the screen, so a new pace applies at once.
+   * while the screen is open. A change of setting redraws it (refreshRows), so a new pace applies at once.
    * With Animations off the timing is the same, but rows simply appear (tween() jumps to the end).
    * Its timer is removed when the screen shuts down.
    */
+  /**
+   * A white chat bubble for the preview. The edge is stroked only with High contrast, as its own
+   * closed path (a 0-width stroke after the fill used to leave a stray line from the name into the
+   * bubble's edge, AX-05).
+   */
+  drawPreviewBubble(x, y, w, h) {
+    const g = this.add.graphics();
+    g.fillStyle(0xffffff, 1).fillRoundedRect(x, y, w, h, 9);
+    if (highContrast()) {
+      strokeBubbleEdge(g.lineStyle(1, C.inkSoft, 1), x, y, w, h, 9);
+    }
+    return g;
+  }
+
   previewChatPace() {
     const layer = this.previewChat;
     if (!layer) return;
@@ -253,8 +379,7 @@ export default class OptionsScene extends Phaser.Scene {
       const name = this.add.text(62, 0, ch.name.toUpperCase(), pixel(13, ch.color, { fontStyle: 'bold', stroke: hex(C.panel), strokeThickness: 3 }));
       const body = this.add.text(73, 23, line.text, readText(13, C.ink, { wordWrap: { width: w - 62 - 18 - 22, useAdvancedWrap: true } }));
       const bw = body.width + 22, bh = body.height + 12;
-      const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(62, 17, bw, bh, 9)
-        .lineStyle(highContrast() ? 1 : 0, C.inkSoft, 1).strokeRoundedRect(62, 17, bw, bh, 9);
+      const bubble = this.drawPreviewBubble(62, 17, bw, bh);
       c.add([bubble, face, name, body]);
       layer.add(c);
       c.setPosition(-16, rowY).setAlpha(0);
@@ -281,17 +406,13 @@ export default class OptionsScene extends Phaser.Scene {
       });
     };
     step(0);
-    this.events.once('shutdown', () => {
-      this.chatPreviewTimer?.remove(false);
-      this.chatPreviewTimer = null;
-    });
   }
 
   /**
    * Shows what the Animations option does, in the PREVIEW panel. On: the three stars pop in one after
    * another (scale 0 to 1, Back.easeOut, like the Outcome screen), again every 2.6 s (the chat lines
    * slide in through previewChatPace()). Off: the stars are shown still, all at once. A change of setting
-   * restarts this screen, which stops the loop and runs this again with the new value.
+   * redraws the screen (refreshRows), which stops the loop and runs this again with the new value.
    */
   previewMotion() {
     const stars = this.previewStars || [];
@@ -306,6 +427,6 @@ export default class OptionsScene extends Phaser.Scene {
       });
     };
     play();
-    this.time.addEvent({ delay: 2600, loop: true, callback: play });
+    this.starTimer = this.time.addEvent({ delay: 2600, loop: true, callback: play });
   }
 }

@@ -1,12 +1,14 @@
 import Phaser from 'phaser';
 import { C, W, H, DISTRICTS, CHARACTERS, pixel, text } from '../ui/theme.js';
-import { panel, star, button, portrait, loadProgress } from '../ui/widgets.js';
+import { panel, star, button, portrait, loadProgress, keyHint } from '../ui/widgets.js';
 import { loadPages } from '../ui/scrapbookStore.js';
 import { starTotals } from '../logic/progress.js';
 import { showChapterIntro } from '../ui/chapterIntro.js';
 import { cityMap, hasCityMapArt } from '../ui/cityMap.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
 
 // Map layout drafts for Gabriella (2026-11-23): ?menuLayout=m0..m7. The default ('current') is her pick, M6 with the
 // grid boxes; m0 is the layout before it.
@@ -100,26 +102,35 @@ export default class MenuScene extends Phaser.Scene {
     const pages = Object.keys(this.registry.get('rules').callbacks || {}).length;
     if (pages) {
       const got = Object.keys(loadPages()).length;
-      button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => this.scene.start('Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
+      button(this, B.scrap[0], B.scrap[1], `Scrapbook ${got}/${pages}`, () => goScene(this, 'Scrapbook'), { w: B.scrap[2], h: 34, size: 15, fill: C.blue }).setDepth(5);
+      // S opens it too, like O, C and F (bug hunt KB-01): onKey registers keydown-S (once per press), with the
+      // click sound like the button; waits while the volume panel or an intro card is up.
+      onKey(this, 'S', () => {
+        if (this.registry.get('hudPanelOpen') || this.introOpen) return;
+        playSfx(this, 'click');
+        goScene(this, 'Scrapbook');
+      });
     }
     // Back to the Title screen (Gabriella, 2026-11-23): button top left, Esc or Backspace. The three left
     // buttons stack above the map's district hotspots (campus starts at about y 145 on the picture).
+    // start() goes through goScene, the guarded scene start (one switch per instance), like BootScene's.
+    const start = (key) => goScene(this, key);
     const toTitle = () => {
       if (this.registry.get('hudPanelOpen') || this.introOpen) return; // Esc closes the volume panel / intro card first
-      this.scene.start('Title');
+      start('Title');
     };
-    button(this, B.title[0], B.title[1], '← Title', () => this.scene.start('Title'), { w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-ESC', toTitle);
-    this.input.keyboard?.on('keydown-BACKSPACE', toTitle);
+    button(this, B.title[0], B.title[1], '← Title', () => start('Title'),{ w: B.title[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    onKey(this, 'ESC', toTitle);
+    onKey(this, 'BACKSPACE', toTitle);
     // Accessibility options: text size, chat pace, high contrast, reduce motion.
-    button(this, B.options[0], B.options[1], 'Options', () => this.scene.start('Options'), { w: B.options[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-O', () => this.scene.start('Options'));
+    button(this, B.options[0], B.options[1], 'Options', () => goScene(this, 'Options'), { w: B.options[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    onKey(this, 'O', () => goScene(this, 'Options'));
     // Credits: music and art (bible: Game identity > Audio).
-    button(this, B.credits[0], B.credits[1], 'Credits', () => this.scene.start('Credits'), { w: B.credits[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
-    this.input.keyboard?.on('keydown-C', () => this.scene.start('Credits'));
+    button(this, B.credits[0], B.credits[1], 'Credits', () => goScene(this, 'Credits'), { w: B.credits[2], h: 34, size: 15, fill: C.bar }).setDepth(5);
+    onKey(this, 'C', () => goScene(this, 'Credits'));
     // Friends: who you've met and the permanent needs you've uncovered (bible: Cast).
-    button(this, B.friends[0], B.friends[1], 'Friends', () => this.scene.start('Friends'), { w: B.friends[2], h: 34, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
-    this.input.keyboard?.on('keydown-F', () => this.scene.start('Friends'));
+    button(this, B.friends[0], B.friends[1], 'Friends', () => goScene(this, 'Friends'), { w: B.friends[2], h: 34, size: 15, fill: CHARACTERS.mina.color }).setDepth(5);
+    onKey(this, 'F', () => goScene(this, 'Friends'));
 
     const open = levels.filter((lvl) => {
       const prev = levels.find((l) => l.number === lvl.number - 1);
@@ -142,6 +153,10 @@ export default class MenuScene extends Phaser.Scene {
     // City map: one district per chapter; locked districts are greyed. Clicking an open one lists its levels
     // on the right. The last district picked is kept in the registry; otherwise the newest open chapter.
     const openChapters = [...new Set(open.map((l) => l.chapter))].sort((a, b) => a - b);
+    // Back from a level: its district first (once per level visit), so the map opens where the player was.
+    const last = open.find((l) => l.id === this.registry.get('lastLevel'));
+    if (last && this.registry.get('lastLevelNew')) this.registry.set('menuChapter', last.chapter);
+    this.registry.set('lastLevelNew', false);
     const saved = this.registry.get('menuChapter');
     const selected = openChapters.includes(saved) ? saved : openChapters[openChapters.length - 1];
     // With the picture: full width at the top, level cards in a row below. Without it: map left, list right.
@@ -165,6 +180,10 @@ export default class MenuScene extends Phaser.Scene {
     }
     this.showChapter(selected, open, totals, progress);
 
+    // Key hint along the bottom (bug hunt KB-07): only keys this screen handles (S only with a Scrapbook).
+    keyHint(this, ['↑ ↓: level', '← →: district', 'enter: play', pages ? 's: scrapbook' : null, 'f: friends',
+      'o: options', 'c: credits', 'm: music', 'esc or backspace: title'].filter(Boolean).join('  ·  '), { y: H - 13 });
+
     // Keyboard: up/down move the focus ring between level cards, left/right switch district, Enter opens.
     const kb = this.input.keyboard;
     if (!kb) return;
@@ -183,21 +202,23 @@ export default class MenuScene extends Phaser.Scene {
     };
     this.introOpen = false;
     const when = (fn) => () => !this.introOpen && fn();
-    kb.on('keydown-UP', when(() => move(-1)));
-    kb.on('keydown-DOWN', when(() => move(1)));
-    kb.on('keydown-LEFT', when(() => district(-1)));
-    kb.on('keydown-RIGHT', when(() => district(1)));
-    kb.on('keydown-ENTER', () => {
+    onKey(this, 'UP', when(() => move(-1)));
+    onKey(this, 'DOWN', when(() => move(1)));
+    onKey(this, 'LEFT', when(() => district(-1)));
+    onKey(this, 'RIGHT', when(() => district(1)));
+    onKey(this, 'ENTER', () => {
       if (this.introOpen) return;
       const card = this.levelCards?.[this.focus];
       if (!card) return;
       playSfx(this, 'click');
-      this.scene.start('Chat', { levelId: card.lvl.id });
+      goScene(this, 'Chat', { levelId: card.lvl.id });
     });
   }
 
   /** Focus ring (C.highlight, read at draw time so High contrast applies) around the focused level card. */
   drawFocus() {
+    // A freshly drawn district starts on the last played level's card when it is in this district.
+    if (this.focus == null) this.focus = Math.max(0, this.levelCards.findIndex((card) => card.lvl.id === this.registry.get('lastLevel')));
     const g = this.focusRing;
     const card = this.levelCards?.[this.focus];
     if (!g || !card) return;
@@ -212,7 +233,7 @@ export default class MenuScene extends Phaser.Scene {
     const c = (this.cards = this.add.container(0, 0));
     const lvls = open.filter((l) => l.chapter === chapter);
     this.levelCards = [];
-    this.focus = 0;
+    this.focus = null; // drawFocus() picks the last played level's card, else the first
     if (!lvls.length) return;
     if (this.art && (this.ML.cards === 'row' || this.ML.cards === 'faces')) return this.showChapterRow(c, chapter, lvls, totals, progress);
     if (this.art && this.ML.cards === 'tall') return this.showChapterTall(c, chapter, lvls, totals, progress);
@@ -253,7 +274,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, right - 82 + s * 26, cy, 10, s < best);
       c.add(g);
       const hit = this.add.zone(left + cw / 2, cy, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x: left, y, w: cw, h: ch });
     });
@@ -304,7 +325,7 @@ export default class MenuScene extends Phaser.Scene {
       c.add([score, sg]);
     }
     const top = hy + 28;
-    const ch = H - 14 - top;
+    const ch = H - 28 - top; // room under the cards for the key hint
     const cw = (right - left - gap * 4) / 5;
     lvls.forEach((lvl, i) => {
       const x = left + i * (cw + gap);
@@ -318,7 +339,7 @@ export default class MenuScene extends Phaser.Scene {
       lvl.guests.forEach((id, k) => c.add(portrait(this, x + cw / 2 - ((n - 1) * step) / 2 + k * step, top + 96, size, id, 'HAPPY')));
       c.add(this.add.text(x + cw / 2, top + 128, `${n} friends`, text(12, C.inkSoft)).setOrigin(0.5));
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });
@@ -349,7 +370,7 @@ export default class MenuScene extends Phaser.Scene {
       if (t.perfect) c.add(this.add.text(score.x - score.width - 28, hy, 'PERFECT', pixel(13, C.highlight, { fontStyle: 'bold' })).setOrigin(1, 0));
     }
     const top = hy + 24;
-    const ch = Math.max(56, H - 10 - top);
+    const ch = Math.max(56, H - 28 - top); // room under the cards for the key hint
     const cw = (right - left - gap * 4) / 5; // a chapter has 5 levels
     lvls.forEach((lvl, i) => {
       const x = left + i * (cw + gap);
@@ -369,7 +390,7 @@ export default class MenuScene extends Phaser.Scene {
       for (let s = 0; s < 3; s++) star(g, narrow ? x + 22 + s * 22 : x + cw - 64 + s * 22, top + (narrow ? 40 : 18), 8, s < best);
       c.add(g);
       const hit = this.add.zone(x + cw / 2, top + ch / 2, cw, ch).setInteractive({ useHandCursor: true });
-      hit.on('pointerdown', () => { playSfx(this, 'click'); this.scene.start('Chat', { levelId: lvl.id }); });
+      hit.on('pointerdown', () => { playSfx(this, 'click'); goScene(this, 'Chat', { levelId: lvl.id }); });
       c.add(hit);
       this.levelCards.push({ lvl, x, y: top, w: cw, h: ch });
     });

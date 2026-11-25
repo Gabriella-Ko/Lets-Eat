@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import { tween } from '../ui/motion.js';
-import { C, W, H, CHARACTERS, pixel, text, readText, fitWidth } from '../ui/theme.js';
-import { panel, button, star, saveStars, portrait } from '../ui/widgets.js';
+import { C, W, H, CHARACTERS, nameColor, NAME_SIZE, nameStyle, pixel, text, readText, fitWidth } from '../ui/theme.js';
+import { panel, button, star, saveStars, portrait, keyHint } from '../ui/widgets.js';
 import { scorePick, describeTag } from '../logic/scoring.js';
 import { recapRows } from '../logic/recap.js';
 import { scrollArea } from '../ui/scroll.js';
@@ -12,6 +12,9 @@ import { FRIEND_TAGLINES } from '../logic/friendTaglines.js';
 import { recordPick } from '../ui/visitStore.js';
 import { play as playSfx } from '../ui/sfx.js';
 import { endingSeen } from '../ui/endingStore.js';
+import { goScene } from '../ui/sceneSwitch.js';
+import { onKey } from '../ui/keys.js';
+import { forgetHeard, loadHeard, loadPages, loadPending, removePending, unlockPage } from '../ui/scrapbookStore.js';
 
 const UNLOCK_DELAY_MS = 1400; // after the stars and the first reactions
 const UNLOCK_DEPTH = 30; // above the clue recap (20)
@@ -30,7 +33,7 @@ const IMG = { x: 22, y: 124, w: 600, h: 400 };
 const REACT = { x: 638, y: 124, w: 300 };
 const FONT = 13; // reaction text
 const FACE = 32; // portrait size
-const NAME = 12; // speaker name
+// Speaker names: NAME_SIZE (20 px on screen) through nameStyle(), coloured by nameColor().
 
 /**
  * The friends react to the pick. Stars come from the game's own scoring (logic/scoring.js);
@@ -92,14 +95,14 @@ export default class OutcomeScene extends Phaser.Scene {
       const ch = CHARACTERS[line.speaker] || { name: line.speaker, color: C.inkSoft };
       const c = this.add.container(0, y).setDepth(1);
       c.add(portrait(this, R.x + 12 + FACE / 2, FACE / 2 + 4, FACE, line.speaker, line.emotion));
-      c.add(this.add.text(R.x + indent, 0, ch.name.toUpperCase(), pixel(NAME, ch.color, { fontStyle: 'bold' })));
-      const top = NAME + 8;
+      c.add(this.add.text(R.x + indent, 0, ch.name.toUpperCase(), nameStyle(nameColor(line.speaker))));
+      const top = NAME_SIZE + 6;
       const body = this.add.text(R.x + indent + 12, top + 8, line.text, readText(FONT, C.ink, { wordWrap: { width: R.w - indent - 36, useAdvancedWrap: true } }));
       const bubble = this.add.graphics().fillStyle(0xffffff, 1).fillRoundedRect(R.x + indent, top, body.width + 24, body.height + 16, 8);
       c.add([bubble, body]);
       c.setAlpha(0);
       tween(this, { targets: c, alpha: 1, delay: 700 + i * 500, duration: 250 });
-      y += Math.max(top + body.height + 26, FACE + 16);
+      y += Math.max(top + body.height + 21, FACE + 16); // same row height as before the bigger names
     });
     const panelH = Math.max(IMG.h, y - R.y + 6);
     panel(this, R.x, R.y, R.w, panelH, C.panel, 10);
@@ -116,19 +119,19 @@ export default class OutcomeScene extends Phaser.Scene {
     this.score = score;
     const btns = [['Clue recap', () => this.openRecap(), C.bar]];
     if (score.result !== 'perfect') {
-      btns.push(['Reread the chat', () => this.scene.start('Chat', { levelId: lvl.id, highlight: score.missed }), C.blue]);
-      btns.push(['Try again', () => this.scene.start('Results', { levelId: lvl.id }), C.accent]);
+      btns.push(['Reread the chat', () => goScene(this, 'Chat', { levelId: lvl.id, highlight: score.missed }), C.blue]);
+      btns.push(['Try again', () => goScene(this, 'Results', { levelId: lvl.id }), C.accent]);
     }
     if (score.result !== 'fail') {
       // The finale: a perfect level_20 pick goes on to the Ending, once (lets-eat-ending-seen-v1).
       const toEnding = lvl.id === 'level_20' && score.result === 'perfect' && !endingSeen();
       btns.push(toEnding
-        ? ['Continue →', () => this.scene.start('Ending'), C.good]
+        ? ['Continue →', () => goScene(this, 'Ending'), C.good]
         : this.nextLevel
-        ? ['Next level →', () => this.scene.start('Chat', { levelId: this.nextLevel.id }), C.good]
-        : ['Back to levels', () => this.scene.start('Menu'), C.good]);
+        ? ['Next level →', () => goScene(this, 'Chat', { levelId: this.nextLevel.id }), C.good]
+        : ['Back to levels', () => goScene(this, 'Menu'), C.good]);
     }
-    if (score.result === 'fail') btns.push(['Levels', () => this.scene.start('Menu'), C.bar]);
+    if (score.result === 'fail') btns.push(['Levels', () => goScene(this, 'Menu'), C.bar]);
     const bw = btns.length > 3 ? 196 : 210;
     const x0 = W / 2 - ((btns.length - 1) * (bw + 20)) / 2;
     btns.forEach(([label, fn, fill], i) => button(this, x0 + i * (bw + 20), H - 44, label, fn, { w: bw, fill }));
@@ -136,17 +139,21 @@ export default class OutcomeScene extends Phaser.Scene {
     // Keyboard: left/right move a focus ring between the buttons, Enter presses. While the unlock card is up
     // the keys work on its two buttons; while the recap is open, Enter closes it.
     this.focusBtns = btns.map(([, fn], i) => ({ x: x0 + i * (bw + 20), y: H - 44, w: bw, h: 44, fn }));
-    this.focus = btns.length - 1; // the forward button (next level / try again / levels)
+    // Focus starts on "Try again" after a fail, else on the continue button (Next level → / Continue → /
+    // Back to levels), so Enter never sends a failed player back to the map.
+    const defaultFocus = score.result === 'fail'
+      ? btns.findIndex(([label]) => label === 'Try again')
+      : btns.findIndex(([, , fill]) => fill === C.good);
+    this.focus = defaultFocus >= 0 ? defaultFocus : btns.length - 1;
     this.focusRing = this.add.graphics().setDepth(UNLOCK_DEPTH + 5);
-    const kb = this.input.keyboard;
     const move = (d) => {
       const list = this.activeButtons();
       if (!list.length) return;
       this.setFocus((this.focusIndex() + d + list.length) % list.length);
     };
-    kb.on('keydown-LEFT', () => move(-1));
-    kb.on('keydown-RIGHT', () => move(1));
-    kb.on('keydown-ENTER', () => {
+    onKey(this, 'LEFT', () => move(-1));
+    onKey(this, 'RIGHT', () => move(1));
+    onKey(this, 'ENTER', () => {
       if (this.recap && !this.unlockCard) return this.closeRecap();
       const b = this.activeButtons()[this.focusIndex()];
       if (!b) return;
@@ -154,10 +161,14 @@ export default class OutcomeScene extends Phaser.Scene {
       b.fn();
     });
     this.drawFocus();
+    // Key hint under the buttons (bug hunt KB-07). Esc only closes the clue recap or an unlock card.
+    keyHint(this, '← →: choose  ·  enter: press  ·  esc: close recap or card  ·  m: music', { y: H - 10 });
 
-    this.input.keyboard.on('keydown-ESC', () => {
+    onKey(this, 'ESC', () => {
       if (this.registry.get('hudPanelOpen')) return; // that Esc closed the volume panel
-      if (this.unlockCard) this.showNextUnlock(); else this.closeRecap();
+      // A card still appearing ignores Esc, like Enter and the arrows (bug hunt SC-05).
+      if (this.unlockCard && !this.unlockCard.ready) return;
+      if (this.unlockCard)this.showNextUnlock(); else this.closeRecap();
     });
     if (this.openRecapOnStart) this.openRecap();
   }
@@ -207,7 +218,7 @@ export default class OutcomeScene extends Phaser.Scene {
         const isSaved = saved?.has(index);
         const quoteX = 38 + 14;
         const quote = this.add.text(quoteX, ry + 4, `“${line.text}”`, readText(14, C.ink, { wordWrap: { width: LIST_W - quoteX - (saved ? 150 : 24), useAdvancedWrap: true } }));
-        const who = this.add.text(quoteX, ry + quote.height + 6, ch.name, pixel(13, ch.color, { fontStyle: 'bold' }));
+        const who = this.add.text(quoteX, ry + quote.height + 6, ch.name, nameStyle(nameColor(line.speaker)));
         const bar = this.add.graphics().fillStyle(isSaved ? C.accent : C.panelDark, 1).fillRect(38, ry + 2, 4, quote.height + who.height + 6);
         area.content.add([bar, quote, who]);
         if (saved) {
@@ -255,29 +266,72 @@ export default class OutcomeScene extends Phaser.Scene {
     // Friends met for the first time on this level get their own card first (announced once each), in the
     // level's guest order. Only on a cleared level: the card's tagline names a need, so after a fail it
     // would hand the answer to the retry.
+    // Not marked announced here: each friend counts as announced only once their card is on screen
+    // (announceShown in showNextUnlock), so leaving, reloading or mashing Enter before it keeps them (QT-02, SC-03).
     const friends = cleared ? newFriends(this.level.guests) : [];
-    markAnnounced(friends);
     this.newFriendIds = friends;
-    const key = `newPages:${this.level.id}`;
-    const ids = this.registry.get(key) || [];
+    // Pages still waiting for their card (saved, so a reload or a trip to the map before this screen keeps them).
+    // Each leaves the list only when its card shows (showNextUnlock). Held back after a fail, like the
+    // friend card (WA-02): the page's title can point at the callback line, which is often a clue, so the
+    // pages stay pending (card and corner note) until the next non-fail Outcome.
+    // A win (1+ stars) unlocks the pages whose callback line was read in this level's chat (Bug hunt run 2,
+    // WA-02, WA-03); a fail unlocks nothing and keeps them heard for a later win of this level.
+    if (cleared) {
+      for (const id of loadHeard(this.level.id)) unlockPage(id, this.level.id); // queues each new page's card
+      forgetHeard(this.level.id);
+    }
+    const showPageCard = cleared;
+    // Only this level's pages: a page unlocked in another level never shows its card here.
+    const unlockedIn = loadPages();
+    const ids = showPageCard ? loadPending().filter((id) => unlockedIn[id] === this.level.id) : [];
     this.unlockQueue = [...friends.map((id) => ({ type: 'friend', id })), ...ids.map((id) => ({ type: 'page', id }))];
     if (this.unlockQueue.length) this.time.delayedCall(UNLOCK_DELAY_MS, () => this.showNextUnlock());
     if (!ids.length) return;
-    this.registry.set(key, []);
     const callbacks = this.registry.get('rules').callbacks || {};
     const titles = ids.map((id) => callbacks[id]?.title || id);
-    const label = `${ids.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE'}`;
-    const c = this.add.container(W - 24, 22);
-    const t1 = this.add.text(-14, 10, label, pixel(13, C.accent, { fontStyle: 'bold' })).setOrigin(1, 0);
-    const t2 = this.add.text(-14, 30, titles.join(' · '), text(14, C.ink)).setOrigin(1, 0);
-    const bw = Math.max(t1.width, t2.width) + 28;
-    const g = this.add.graphics();
-    g.fillStyle(C.panel, 1).fillRoundedRect(-bw, 0, bw, 58, 10);
-    g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, 58, 10);
-    c.add([g, t1, t2]);
+    const c = this.fitPageNote(titles);
     c.setAlpha(0);
-    tween(this, { targets: c, alpha: 1, y: 26, delay: 900, duration: 300, ease: 'Back.easeOut' });
+    tween(this, { targets: c, alpha: 1, y: c.y + 4, delay: 900, duration: 300, ease: 'Back.easeOut' });
     this.pageNote = { ids, titles };
+  }
+
+  /**
+   * Lays out the "NEW SCRAPBOOK PAGE(S)" note in the top-right corner, inside the strip right of the
+   * heading and venue line (both kept within W/2 ± (W/2 - 180) by fitWidth) and above the reactions panel,
+   * so with 1, 2 or 3 pages it never covers "PERFECT MATCH!" or "You sent everyone to …" (Bug hunt run 2, AX-09).
+   * One title per line, each shrunk to the strip's width; if the lines are still too tall, all shrink together.
+   */
+  fitPageNote(titles) {
+    const PAD = 14;
+    const right = W - 24;
+    const left = W - 180 + 12; // heading area ends at W - 180
+    const top = 18;
+    const maxW = right - left - 2 * PAD;
+    const maxH = REACT.y - 6 - top; // stop above the reactions panel
+    const label = titles.length > 1 ? 'NEW SCRAPBOOK PAGES' : 'NEW SCRAPBOOK PAGE';
+    const c = this.add.container(right, top);
+    const t1 = fitWidth(this.add.text(-PAD, 8, label, pixel(13, C.accent, { fontStyle: 'bold' })).setOrigin(1, 0), maxW);
+    let lines = [];
+    let h = 0;
+    for (let size = 14; size >= 9; size--) {
+      lines.forEach((t) => t.destroy());
+      lines = [];
+      let y = 8 + t1.height + 4;
+      for (const title of titles) {
+        const t = fitWidth(this.add.text(-PAD, y, title, text(size, C.ink)).setOrigin(1, 0), maxW, Math.min(9, size));
+        lines.push(t);
+        y += t.height + 2;
+      }
+      h = y + 8;
+      if (h <= maxH) break;
+    }
+    const bw = Math.min(right - left, Math.max(t1.width, ...lines.map((t) => t.width)) + 2 * PAD);
+    const g = this.add.graphics();
+    g.fillStyle(C.panel, 1).fillRoundedRect(-bw, 0, bw, h, 10);
+    g.lineStyle(2, C.accent, 1).strokeRoundedRect(-bw, 0, bw, h, 10);
+    c.add([g, t1, ...lines]);
+    c.layout = { x: right - bw, y: top, w: bw, h }; // its box on screen (before the 4 px settle)
+    return c;
   }
 
   /**
@@ -290,6 +344,14 @@ export default class OutcomeScene extends Phaser.Scene {
    * "Keep going" closes (or "Next →" when more cards follow). Shown here, after the level, never in the chat,
    * so it can't flag which chat line was a callback (and so often a clue).
    */
+  /**
+   * Record these friends as announced, called the moment their "A new friend has joined!" card appears
+   * (Bug hunt run 1, QT-02, SC-03). Until then they stay unannounced, so the card shows on a later Outcome.
+   */
+  announceShown(ids) {
+    markAnnounced(ids);
+  }
+
   showNextUnlock() {
     this.closeUnlock();
     const item = this.unlockQueue?.shift();
@@ -297,22 +359,27 @@ export default class OutcomeScene extends Phaser.Scene {
     const { type, id } = item;
     let view;
     if (type === 'friend') {
+      this.announceShown([id]); // its card shows now
       const ch = CHARACTERS[id] || { name: id, color: C.inkSoft };
       view = {
         head: 'A NEW FRIEND HAS JOINED!', ruled: false,
         centre: (x, y) => portrait(this, x, y, 112, id, 'HAPPY'),
         title: ch.name.toUpperCase(), titleColor: ch.color, sub: FRIEND_TAGLINES[id] || '', subColor: C.inkSoft,
-        seeLabel: 'See friends', see: () => this.scene.start('Friends'),
+        seeLabel: 'See friends', see: () => goScene(this, 'Friends'),
       };
     } else {
       const cb = (this.registry.get('rules').callbacks || {})[id];
-      if (!cb) return this.showNextUnlock();
+      if (!cb) {
+        removePending(id); // no such page in the rules: its card can never show
+        return this.showNextUnlock();
+      }
+      removePending(id); // its card shows now
       const ch = CHARACTERS[cb.friend] || { name: cb.friend, color: C.inkSoft };
       view = {
         head: 'NEW SCRAPBOOK PAGE!', ruled: true,
         centre: (x, y) => badge(this, x, y, 120, { id, ...cb }, true),
         title: cb.title.toUpperCase(), titleColor: C.ink, sub: `a memory with ${ch.name}`, subColor: ch.color,
-        seeLabel: 'See it', see: () => this.scene.start('Scrapbook', { select: id }),
+        seeLabel: 'See it', see: () => goScene(this, 'Scrapbook', { select: id }),
       };
     }
     // A new friend's page sticks on like a badge; a new Scrapbook page chimes. Shown here, never in the chat.
