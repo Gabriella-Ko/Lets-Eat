@@ -1,0 +1,77 @@
+{
+  "agent": "bug_hunter_speed_clicker",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "SC-01",
+      "status": "fixed",
+      "note": "Same steps, 18 tries in all. A (R + Backspace on Results, level_03): 5 of 5 end on ['Outcome'] only, built once. B (Enter + Backspace at the end of the level_03 chat): 5 of 5 end on one screen; at worst Results is built and then Backspace on it goes back to Chat, which is two inputs and two actions with one screen at a time. C (Try again + Levels on a fail Outcome, level_01): 5 of 5 go to ['Results'] only; the first click wins. Find a place + Levels clicked together in the chat: 3 of 3 end on one screen. Two map buttons clicked together (Options + Friends) open only Options. goScene() in src/ui/sceneSwitch.js now guards every scene change."
+    },
+    {
+      "id": "SC-02",
+      "status": "fixed",
+      "note": "With both clicks in the same frame: Recommend this on level_01 builds Outcome once (3 of 3) and the Liam card shows. The LEVEL 1 card double-click builds Chat once and the CHAPTER 1 card shows (2 of 2). Next level → double-click from level_05 builds Chat once and the CHAPTER 2 card shows. Map buttons Options, Credits, Friends, Scrapbook and Title, plus Find a place, Back to chat, Levels and level_20 Continue, are each built once on a double-click."
+    },
+    {
+      "id": "SC-03",
+      "status": "fixed",
+      "note": "Leaving the level_01 Outcome 150, 300 or 800 ms after Recommend (Next level →) no longer marks Liam and Cyrus as announced, and replaying level_01 shows their card (3 of 3). Mashing Enter x4 on Results still goes Results > Outcome > level_02 chat in about 1.5 s, but the friends stay unannounced. One way to lose the card remains, with Esc; see SC-05."
+    },
+    {
+      "id": "SC-04",
+      "status": "fixed",
+      "note": "Double-clicking the LEVEL 1 card at 60, 120 and 200 ms leaves the CHAPTER 1 card up (3 of 3), and chapter-intros is not stored until the card is closed. Enter+Enter, Enter+Esc, Enter+Space and Enter x5 from the map also leave the chapter card up."
+    }
+  ],
+  "coverage": [
+    "Run 1 rechecks SC-01 to SC-04 with the run 1 steps (run2_1 to run2_4)",
+    "Map: 8 two-key pairs within a few ms (O+C, O+Esc, Enter+Esc, S+F, F+Backspace, Enter+O, Right+Enter, Esc+Enter); each ends on one screen, built once",
+    "Map: double-click on each top button (Options, Credits, Friends, Scrapbook, Title); two top buttons clicked together; M mashed x7 to open and close the volume panel; Esc while the panel is open; a double-click on the music button",
+    "Title: Enter+Esc, Space+Enter x3 and a Start double-click each open the map once; the extra Enter does not leak into the map",
+    "Chat (level_07, a star level): S mashed while a line types, then Enter x3, Up x6, S x2, Down, S x3. Pins [0,1] match the 2 Notebook entries. Find a place shows only once the chat is done",
+    "Results: F (filter) pressed 1, 2 and 3 times fast with a place open, then R; S (sort) mashed 3, 5 and 7 times then Enter (the focus stays on the same place); a double-click on a place card (opens once, 1 sound); with place A open, place B and Recommend clicked together; a sort pill and Recommend clicked together",
+    "Outcome (level_05, 3 new friends): Enter, Esc, Space, → and Backspace each mashed 10x at 30 ms while the stars fill and the unlock cards pop in; result sound once, one star sound per star",
+    "Outcome: Esc timed against a 'new friend' card popping in (SC-05)",
+    "Ending: normal route from a level_20 perfect pick (6 friend cards closed, then a Continue double-click); Enter x10 in part 1; Esc+Enter; Enter mash before part 2's Continue shows; Esc x10 from the very start; Continue double-click at the end of part 2; replaying level_20 after the ending",
+    "Scrapbook and Friends with a seeded save (all pages, 19 levels): → / ↓ mashed 12x at 15 ms, then →+Esc and ↓+Esc together",
+    "Options: arrow mash across the rows, then a refresh (the settings survive); R and Enter x3 together on Reset progress",
+    "Volume panel open (M) on Chat, Results, Outcome and Title: Enter, Space, Backspace, ↑, ↓, R, S, A, Enter and Backspace mashed. Nothing leaks to the screen behind; Esc closes only the panel. Also M+Backspace, Backspace+M and Enter+M on Results",
+    "Sounds logged in every run: no doubled sounds from double-clicks or mashing",
+    "No page or console errors on any normal route"
+  ],
+  "bugs": [
+    {
+      "id": "SC-05",
+      "title": "Esc closes a 'new friend' card while it is still popping in, before the name and portrait show, and the friend is marked announced for good",
+      "severity": "minor",
+      "where": "Outcome, any level that introduces friends (seen on level_05 and level_01); the code takes the same path for 'NEW SCRAPBOOK PAGE!' cards",
+      "steps": [
+        "New save. Open ?scene=Outcome&level=level_05&venue=campus_basil_hearth (or reach it normally by recommending Basil Hearth)",
+        "As soon as the 'A NEW FRIEND HAS JOINED!' card starts to appear (about 1.4 s in), press Esc once. Or mash Esc 3 times, 40 or 150 ms apart",
+        "Open the same Outcome again, or any later Outcome"
+      ],
+      "expected": "Like Enter, → and the buttons, Esc waits until the card has finished popping in (unlockCard.ready), or at least until the friend's name is shown, before it closes the card. A friend counts as met only after the player could see them.",
+      "actual": "Esc closes the card while it is still faded and empty: no portrait, and the name has alpha 0. The friend still goes into lets-eat-friends-announced-v1, because announceShown runs when the card is created. One Esc loses Maya; three quick presses lose Maya, Mina and Brooke. Their cards never come back (revisit shows 0 cards). Cause: the Outcome's ESC handler calls showNextUnlock() whenever unlockCard is set and never checks unlockCard.ready, while Enter, → and the buttons do check it (OutcomeScene.js, onKey 'ESC'). A carried-over or mashed Esc easily lands in this window, because the hint line says 'esc: close recap or card'.",
+      "frequency": "every time (4 of 4: Esc x1, Esc x3 at 40 ms twice, Esc x3 at 150 ms; also in the Esc x10 mash in run2_8)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_speed_clicker/run2/esc_card_popping_3_40.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_speed_clicker/run2_9.mjs (also run2_8.mjs)"
+    }
+  ],
+  "not_bugs": [
+    "Every scene change is now guarded (goScene): no two-screen state could be produced by any pair of keys or clicks tried.",
+    "Map O then Esc within ms: Options opens, then the Esc closes it back to the map. That is two inputs and two actions, one screen at a time.",
+    "Results: filtering out the open place with F closes its details, so R then does nothing. Sorting keeps the focus ring on the same place.",
+    "Results: with place A open, clicking place B and Recommend in the same instant recommends B, the last place chosen. That is consistent with the clicks, not a stale pick.",
+    "Friends ↓ x12 at 15 ms moves one friend, and Scrapbook → x12 turns about two pages: input is ignored while a turn animates (by design, as in run 1).",
+    "Options Reset progress: R + Enter x3 together opens the confirm and leaves it up. The Enters do nothing until its buttons are ready, so progress is safe.",
+    "On the volume panel, Enter and Space toggle the music. A mash with an odd number of them leaves music off, as pressed.",
+    "Ending: Esc x10 from the start skips both parts, then the remaining Esc presses walk Map > Title. ending-seen is set on leaving. Replaying level_20 after the ending shows only Back to levels.",
+    "level_20 Continue double-clicked while an unlock card is still up does nothing; the card blocks it. Without cards, it opens the Ending once.",
+    "?scene=Outcome&level=level_09&venue=x (a made-up venue id) gives no scene and 1 page error. This is a misuse of the dev shortcut, not a player route, so it is not reported."
+  ],
+  "feedback": "Much sturdier than run 1. I could not get two screens at once or lose a chapter card any more; the only impatient-player trap left is Esc on the pop-in of a new friend card, which skips the friend for good."
+}

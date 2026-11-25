@@ -1,0 +1,69 @@
+{
+  "agent": "bug_hunter_wrong_answer",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "Scoring sweep: the solution and every spec decoy of all 20 levels (all 4 chapters, 128 picks) through the Outcome screen. Title, star count and the Missed / Not safe hint match each decoy's fails_on every time (hard miss = 0 stars + OH NO, soft miss = 2 stars + CLEARED, solution = 3 stars). No page errors.",
+    "level_01 by the normal route (Title > map > Chat > Results > Outcome): fail, then 2 stars, then 3 stars, then fail, then 2 stars. Level 2 stays locked after the fail, unlocks after the 2-star pick, best stars go 0 > 2 > 3 and never drop on later fail/partial replays; the progress-v1 entry, level card stars, Campus badge, chapter heading and top-right total agree after every change and after a page reload.",
+    "Chapter boundary: failing level_05 keeps Downtown LOCKED; a 2-star level_05 pick unlocks Downtown (0 / 15) and keeps Campus selected on the map. Chapter 2 intro card shows on level_06's first open only, not on reopening.",
+    "Downtown run (levels 06-08, fail and pass picks): badge, heading and total update correctly; the chosen district is remembered after each level.",
+    "One-time cards: friend cards show only on the first cleared level (not on a fail, not on replays); chapter intro and How to play don't come back on replays; a scrapbook page card shows once.",
+    "BEEN HERE / SEEN BEFORE pills: Green Bean Cafe is SEEN BEFORE in level_05 after only being listed in level_04 (and stays SEEN BEFORE on a level_05 replay after picking it in level_05); Koi Counter is BEEN HERE in level_08 after picking it in level_06; replaying level_06 after level_08 shows no pills (later levels don't count).",
+    "level_20: a fail shows Try again / Levels, a 2-star pick shows Back to levels (no Continue), no ending starts and ending-seen-v1 stays unset; Try again then the perfect pick shows Continue > Ending; Esc skips part 1 then returns to the map; ending-seen-v1 is set and a perfect replay shows Back to levels (no ending).",
+    "Options > Reset progress after the ending: all progress keys cleared, map back to Campus 0 / 60, and the next perfect level_20 pick offers Continue again.",
+    "Outcome sounds (fail, partial, perfect, including after Try again and Reread the chat): one result sound plus one star sound per star, page / badge sounds with their cards.",
+    "Clue recap after a fail lists only the broken need (Diet: vegetarian, level_20)."
+  ],
+  "bugs": [
+    {
+      "id": "WA-01",
+      "title": "Scrapbook page unlocked in the chat is never announced if the player leaves the level before picking",
+      "severity": "minor",
+      "where": "Chat > Outcome, level_01 and level_02 (any level with a callback line)",
+      "steps": [
+        "Fresh save (or progress up to the level). Open level_02 from the map.",
+        "Press A to show the whole chat (the Trip Fund callback line is read; lets-eat-scrapbook-v1 now has trip_fund).",
+        "Press Backspace (or ← Levels) to go back to the map. The Scrapbook button already reads 2/5.",
+        "Open level_02 again, finish the chat, Find a place, recommend Taco Town.",
+        "Watch the Outcome screen."
+      ],
+      "expected": "The NEW SCRAPBOOK PAGE note and card for The Trip Fund show on this level's Outcome (the first time the level is finished after unlocking it).",
+      "actual": "Only the friend card shows. The page is unlocked silently and its card never appears, on this or any later visit. Cause: ChatScene.init resets the registry list newPages:<level> on every open, and unlockPage only returns true the first time, so the page is never queued again.",
+      "frequency": "every time (2 of 2: level_01 Satay Incident, level_02 Trip Fund)",
+      "setup": { "viewport": "960x640", "settings": "defaults; How to play and chapter-1 intro marked seen" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_wrong_answer/r5_A_outcome.jpg", "logs/bughunt/shots/bug_hunter_wrong_answer/r8_l02_no_page_card.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_wrong_answer/run_8.mjs (arg midchat); also run_5.mjs"
+    },
+    {
+      "id": "WA-02",
+      "title": "After a failed pick the NEW SCRAPBOOK PAGE card still shows and can hand over a different need for the retry",
+      "severity": "minor",
+      "where": "Outcome (fail), level_02 (also level_04 with a seeded save)",
+      "steps": [
+        "Clear level_01, then open level_02 and read the whole chat.",
+        "Recommend Mole Cantina (peanut decoy): OH NO, 0 stars, 'Not safe for everyone: Allergy: peanut'.",
+        "After ~1.4 s the NEW SCRAPBOOK PAGE! card shows: THE TRIP FUND, a memory with Maya.",
+        "Click See it: the page reads 'Cheap eats only: the fund is sacred.'"
+      ],
+      "expected": "Unlock cards are held back after a fail, like the friend card is (OutcomeScene: 'Only on a cleared level: the card's tagline names a need, so after a fail it would hand the answer to the retry'), and shown once the level is cleared.",
+      "actual": "The page card shows on the fail screen. For level_02 it flags the budget need (the Taco Loft decoy) before the retry, a hint the fail screen otherwise doesn't give. (On level_01 and level_03 the page matches the need that was just failed, so it only repeats the hint.) The friend card for the same level is correctly withheld.",
+      "frequency": "every time (2 of 2 on level_02; also seen on level_04 and level_07 fails)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_wrong_answer/r8_l02_fail_card.jpg", "logs/bughunt/shots/bug_hunter_wrong_answer/r8_l02_fail_seeit.jpg", "logs/bughunt/shots/bug_hunter_wrong_answer/r2_outcome0_fail.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_wrong_answer/run_8.mjs (arg fail)"
+    }
+  ],
+  "not_bugs": [
+    "Every decoy's stars and hint text match its spec fails_on, in all 20 levels.",
+    "Best stars never go down: a fail or 2-star replay after 3 stars keeps 3 (storage, card, badge, total).",
+    "Next level only unlocks after at least 1 star; Next level → only offered on a cleared pick.",
+    "Friend cards are not shown after a fail and show on the first clear; never again on replays.",
+    "While an unlock card is up, the Outcome buttons underneath can't be clicked (modal shade), by design.",
+    "Ending part 2 Roll call column looked empty in a screenshot taken 1.5 s after skipping part 1; probably still animating, not checked further.",
+    "R on Results with nothing open does nothing (by design)."
+  ],
+  "feedback": "Unlock cards (several friends in a row on a seeded save) block the Outcome buttons until each is dismissed, which slows down quick wrong-answer retries."
+}

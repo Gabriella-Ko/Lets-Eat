@@ -1,0 +1,113 @@
+{
+  "agent": "bug_hunter_settings_fiddler",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "SF-01",
+      "status": "fixed",
+      "note": "Same steps (play level_01, Reset progress, reopen level_01 without a reload): the Chapter 1 card and all 3 How to play steps show again, and the Outcome shows 'A NEW FRIEND HAS JOINED!' again. After a reload they do not pop up a second time. Also checked with 3 levels played and a keyboard Reset (r2_7). Script r2_1.mjs."
+    },
+    {
+      "id": "SF-02",
+      "status": "fixed",
+      "note": "Turning music off with the HUD speaker pill (mouse) or with Enter/Space in the HUD panel (keyboard) now switches the Options Music row to 'Off' straight away. Clicking 'On' (or pressing Right on the row) then turns the music back on. Screenshot run2/SF02_options_after_hud_off.jpg. Script r2_1.mjs, r2_11.mjs."
+    },
+    {
+      "id": "SF-03",
+      "status": "fixed",
+      "note": "Pressing Down 7 times with 0 ms gaps (7 stops now: 6 rows + the Reset button) comes back to the same row. Pressing Up then Right with no gap now changes the row above, as it should (4 of 4 trials). One related edge case is still there, see SF-05: a key pressed in the same frame as a setting change gets dropped. Script r2_1.mjs."
+    },
+    {
+      "id": "SF-04",
+      "status": "fixed",
+      "note": "An empty string, ' ', 'abc', '-5' and '2' in lets-eat-music-volume-v1 all fall back to 25%. A valid '0.5' gives 50%. Script r2_1.mjs."
+    }
+  ],
+  "coverage": [
+    "Run 1 rechecks SF-01 to SF-04 with the same steps (r2_1)",
+    "Options: every value of every row clicked, then page reload. All 12 values are saved, restored and highlighted after the reload. Defaults are Normal, Quick, Off, On, On, On (r2_2)",
+    "Off | On order: Left picks the first choice and Right the second on every row (Normal/Large, Quick/Relaxed, Off/On x4), and both stop at the ends (r2_2)",
+    "Keyboard Reset: R puts the focus on the button and Enter opens the check with the focus on Cancel. Enter there does nothing; Right then Enter resets. Settings are kept (r2_2, r2_7)",
+    "Garbage in lets-eat-settings-v1, then reload: broken JSON, unknown values, a string, an array, a number, 'null', an empty string, a partial object, __proto__/constructor keys and a 100 KB value. Never an error; the game falls back to defaults (keeping the valid value) and the chat runs (r2_2)",
+    "Music and Sound effects independence, all 4 combinations, using a hook on sound.play and a Reset-button click: the click sound plays only with Sound effects On, and music plays only with Music On (r2_4)",
+    "Volume 0 through the HUD panel with the keyboard (Left x5): no sound effect at all (button clicks, the Sound effects Off/On preview, the Outcome stars), and music runs at 0.00. It survives a reload. Panel keys do not leak into Options (r2_4)",
+    "Chat pace: Options opens only from the map, so the pace was changed between levels in one session (Relaxed > Quick > Relaxed) with no reload. Typing bubbles last about 2 s and 1 s; the Options preview follows the same pace; P pauses the chat (r2_9)",
+    "Animations Off + High contrast: 0 tweens early and late on Title, Chat, Results, Outcome (perfect and fail), Scrapbook (open and page turn) and Ending parts 1 and 2 (r2_6)",
+    "High contrast screenshots: Title, Menu, Chat with chapter card, Results with details, Outcome perfect and fail, Scrapbook, Friends, Credits, Ending parts 1 and 2. All readable (r2_6)",
+    "Text size Large + High contrast: Chat level_12 (whole chat shown), Results details, Friends, Options, and How to play opened from Options with H. No text off screen; closing How to play returns to Options (r2_10)",
+    "Played level_01 to level_03 by the normal route (Next level button after closing the unlock cards), then Reset progress by keyboard: progress, Scrapbook, venues, opened, pending pages, friends and popups are cleared, settings are kept byte for byte, the map shows 0/60 with only Campus Level 1, Scrapbook shows 0/5 with no hints, Friends shows met 0/6 (r2_7)",
+    "After Reset with no reload, level_03's Results show no SEEN BEFORE pill (they did before the Reset), so no in-memory venue history is left over (r2_8)",
+    "Reset with music off, volume 50% and the ending flag set: music-v1 and music-volume-v1 are kept, the ending flag is cleared, and the HUD still shows 50% OFF after a reload (r2_13)",
+    "Same-frame key presses after a setting change (r2_3), two tabs changing settings (r2_11, r2_12), HUD volume steps (r2_14)"
+  ],
+  "bugs": [
+    {
+      "id": "SF-05",
+      "title": "A key pressed in the same frame as an Options change is dropped",
+      "severity": "minor",
+      "where": "Options screen",
+      "steps": [
+        "Map > Options, focus on Text size",
+        "Press Right (or Left) to change Text size and press Down straight after it, under about 10 ms apart (rolling two keys)",
+        "Or click a choice with the mouse and press Down at once"
+      ],
+      "expected": "The setting changes and the focus moves down one row",
+      "actual": "The setting changes but the focus stays on the same row: the Down press is lost. choose() restarts the Options scene (scene.restart) on every change, and a key arriving in that frame never reaches the new scene. With a 10 ms gap or more nothing is lost. It turned up first in r2_2: Left on Animations then an instant Down left the focus on Animations, so the next Left/Right changed Animations instead of Music.",
+      "frequency": "sometimes with 0 ms gaps (4 of 6 key trials, 4 of 4 click+key trials); never with gaps of 10 ms or more (0 of 30)",
+      "setup": { "viewport": "960x640", "settings": "defaults; headless Chrome via Playwright at about 60 fps" },
+      "evidence": [],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/r2_3.mjs"
+    },
+    {
+      "id": "SF-06",
+      "title": "With the game open in two tabs, changing a setting in one tab wipes the change made in the other",
+      "severity": "minor",
+      "where": "Options, two tabs in the same browser",
+      "steps": [
+        "Open the game in two tabs and go to the level map in both",
+        "Tab 1: Options > Sound effects Off",
+        "Tab 2: open Options (it still shows Sound effects On), then set Text size to Large",
+        "Reload tab 1"
+      ],
+      "expected": "Both changes are kept: Sound effects Off and Text size Large",
+      "actual": "Tab 2 saves its whole in-memory settings object, so Sound effects is back to On in storage and in tab 1 after the reload. Tab 2's Options also shows the old value, even when it is opened after tab 1 saved. Same with Animations Off in tab 1 + High contrast On in tab 2: Animations is lost.",
+      "frequency": "every time (3 of 3)",
+      "setup": { "viewport": "960x640", "settings": "defaults, one browser context with two pages" },
+      "evidence": [],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/r2_12.mjs"
+    },
+    {
+      "id": "SF-07",
+      "title": "Volume panel: the first Right press from the default 25% jumps to 40%",
+      "severity": "cosmetic",
+      "where": "HUD music panel (M), any screen",
+      "steps": [
+        "Fresh volume (default 25%). Press M to open the panel",
+        "Press Right 3 times, watching the percentage; start again and press Left 3 times"
+      ],
+      "expected": "10% steps, e.g. 25 > 35 > 45 or 25 > 30 > 40",
+      "actual": "25% > 40% > 50% > 60% going up (the first step is 15 points), and 25% > 20% > 10% > 0% going down. stepVolume() rounds 2.5 up to 3 before adding the step.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/r2_14.mjs"
+    }
+  ],
+  "not_bugs": [
+    "On/Off rows read 'Off | On' on every row, as intended. Left/Right follow that order",
+    "Reset check: Enter on the default focus (Cancel) does nothing, as designed",
+    "Clicking an Options choice while the HUD panel is open closes the panel and applies the choice; reasonable",
+    "The Outcome unlock cards are modal: a click on 'Next level' behind them does nothing until the card is closed (Esc or its own buttons); by design",
+    "Options cannot be opened from inside a level (only from the map), so 'mid-chat' pace changes were tested between levels",
+    "The Friends button on the map is always orange (Mina's colour); it is not a 'new' marker",
+    "The Options preview shows 1 star at first and then 2 with Animations On: the stars are still popping in",
+    "Dev shortcut ?scene=Outcome with a wrong &venue= id throws 'Cannot read properties of undefined (reading dietary_tags)'. This only happens with a hand-typed dev URL; the real route never passes a bad id",
+    "layoutProblems hits on Ending part 1 are chat lines scrolled under the mask, not real overflow"
+  ],
+  "feedback": "All four run 1 bugs are properly fixed, and the keyboard paths (reset, volume panel) feel solid. The only thing I'd still trip over as a player is two tabs quietly undoing each other's settings."
+}

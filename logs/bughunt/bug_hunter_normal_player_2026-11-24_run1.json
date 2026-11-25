@@ -1,0 +1,75 @@
+{
+  "agent": "bug_hunter_normal_player",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "Full normal playthrough from empty saved data: Title (Start) -> map -> level_01 -> chat -> Results -> recommend solution_id -> Outcome -> 'Next level ->' through level_20 -> 'Continue ->' -> Ending part 1 and part 2 -> map. No page or console errors in the whole run (run_2.mjs, 185 screenshots).",
+    "Every level 01-20: chat played to the end with Enter, 'Find a place' only reached after the last message, solution card found and recommended, Outcome showed PERFECT MATCH and 3 of 3 stars every time.",
+    "One-time cards as they happen: chapter intros 1-4 each shown once at the first level of the chapter; How to play (3 steps) once at level_01; new-friend cards for Liam, Cyrus (01), Maya (02), Mina (03), Brooke (04), Roxy (06), each once; Scrapbook page cards at levels 01, 02, 03, 06, 10 (5/5), each once; no cards on replays of level_01 and level_20.",
+    "District unlock: with levels 01-04 done Downtown is LOCKED and clicking it does nothing; after a perfect level_05, opening level_06 and going back, Downtown shows 0 / 15 and lists LEVEL 6.",
+    "After the ending: all four districts open at 15 / 15, top-right total 60 / 60, every chapter marked PERFECT, Scrapbook 5/5, Friends met 6/6; replaying level_20 perfectly shows 'Back to levels' instead of 'Continue ->' and the ending does not play again.",
+    "Ending: part 1 group chat lines, 6 portraits, 'The End' 60 / 60; Esc moves to part 2 (send-off photo, roll call of six); Esc goes back to the map.",
+    "Outcome on replays: partial pick (level_02 Taco Loft) gives CLEARED, 2 of 3 stars, 'Missed: Budget', buttons Clue recap / Reread the chat / Try again / Next level; fail pick (Mole Cantina) gives OH NO..., 0 stars, peanut hint, buttons Clue recap / Reread / Try again / Levels; best stars stay 3.",
+    "Sounds on Outcome (hooked sound.play): perfect = 1 result sound + 3 star sounds, partial = 1 + 2, fail = 1; no doubles.",
+    "'Reread the chat' opens the full chat; Enter there goes back to the Results list.",
+    "Results: BEEN HERE / SEEN BEFORE pills on level_20 (Tidewater picked in level_16, Breakwater seen in level_16) correct; none on first-time lists.",
+    "Scrapbook: 5 pages, arrow keys turn pages and wrap; the chapter 4 add-on line on The Trip Fund shows only once chapter 4 is reached (by design).",
+    "Options: Text size, Chat pace, High contrast, Music and Sound effects changed and survive a reload; Reset progress (in-game confirm) clears progress but keeps settings; after Reset, a perfect level_20 pick offers 'Continue ->' to the ending again.",
+    "Not covered in depth: chat starring/unstarring, every chat pace, sorting/filtering, Credits, Volume 0, Animations off."
+  ],
+  "bugs": [
+    {
+      "id": "NP-01",
+      "title": "Map opens on the last district clicked, not the district of the level just played",
+      "severity": "minor",
+      "where": "Menu (level map), after leaving a level with '← Levels' or after the Ending",
+      "steps": [
+        "Start with levels 01-04 done (or play them). Title -> Start: the map shows Campus.",
+        "Open LEVEL 5 from the map, recommend Basil Hearth, close the Scrapbook card, press 'Next level ->'.",
+        "Level 6 (Downtown) opens with the Chapter 2 card; close it and press '← Levels'."
+      ],
+      "expected": "The map shows the district of the level just visited (Downtown, with LEVEL 6), as the checklist says the chosen district is remembered after visiting a level.",
+      "actual": "The map shows CHAPTER 1 · CAMPUS QUARTER and levels 1-5; the player has to click Downtown to find the level they were just in. Same after the full playthrough: after the Ending, Esc lands on Campus, not Waterfront. The map only remembers the district last clicked on the map (registry 'menuChapter'); 'Next level ->' into a new chapter never updates it.",
+      "frequency": "every time (2 of 2: level_06 via '← Levels', and after the Ending)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_normal_player/r4_map_after_l6.jpg",
+        "logs/bughunt/shots/bug_hunter_normal_player/185_ending_after_esc2.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_normal_player/run_4.mjs"
+    },
+    {
+      "id": "NP-02",
+      "title": "Options toggles are in a different order: 'Off | On' for High contrast and Animations, 'On | Off' for Music and Sound effects",
+      "severity": "cosmetic",
+      "where": "Options",
+      "steps": [
+        "From the map press O (or click Options).",
+        "Compare the two pills on the High contrast and Animations rows with those on the Music and Sound effects rows."
+      ],
+      "expected": "Every on/off setting puts its pills in the same order, so the right arrow always means the same thing.",
+      "actual": "High contrast and Animations read 'Off  On'; Music and Sound effects read 'On  Off'. With the keyboard (left/right change a setting) the same key turns some settings on and others off.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "any" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_normal_player/r7_options_after_reload.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_normal_player/run_7.mjs"
+    }
+  ],
+  "not_bugs": [
+    "No page or console errors in any run.",
+    "Stars, result titles and star totals matched the pick every time; map badges, chapter heading and top-right total always agreed (12/15 vs 12/60, 15/15 vs 60/60, 57/60).",
+    "Clicking a LOCKED district does nothing; districts unlock when their first level opens.",
+    "Each unlock card (friend, Scrapbook page, chapter intro, How to play) shows once and never on a replay.",
+    "The Outcome's main buttons don't react while an unlock card is up: the card is modal, close it first (by design).",
+    "Right after closing the Chapter 1 card, the card fades out while How to play fades in, so both are briefly on screen (004_level_01_chat_after1.jpg); it settles in a moment.",
+    "layoutProblems flagged 'off screen' / 'overlap' for many chat lines and reviews: these are inside scroll areas and are masked; the screenshots look correct.",
+    "The answer was listed first in the Results list on level_01, level_11 and level_17: the list is a seeded shuffle, so this is chance, not a giveaway.",
+    "Liam's small chat portrait looks darker than his friend-card art at 36 px; the portrait files are the same character.",
+    "Small coloured squares on the map's left edge and below the Night Market badge are painted into the map picture, not UI.",
+    "The Friends button is orange (Mina's colour) by design, not a notification."
+  ],
+  "feedback": "Playing straight through with 'Next level ->' never shows the map, so a new district unlocking is only announced by the chapter card, and '← Levels' then drops you back in Campus; also on a fail the focus ring sits on 'Levels' rather than 'Try again', so pressing Enter after a mistake takes you out of the level."
+}

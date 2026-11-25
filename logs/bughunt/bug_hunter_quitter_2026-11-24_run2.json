@@ -1,0 +1,95 @@
+{
+  "agent": "bug_hunter_quitter",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "QT-01",
+      "status": "fixed",
+      "note": "Ending flag is now written only when the player leaves the Ending. Reload 4 s into part 1 (normal Continue route) and reload on part 2 (after Esc) both leave lets-eat-ending-seen-v1 unset, and the level_20 Outcome offers Continue → again. After Esc, Esc to the map the flag is 1 and Continue is gone, as designed (r2_3.mjs; shots r2_3_ending_mid.jpg, r2_3_replay_outcome20.jpg, r2_3_outcome20_after_seen.jpg)."
+    },
+    {
+      "id": "QT-02",
+      "status": "fixed",
+      "note": "level_02: reload 300 ms into the Outcome and 'Next level →' at 0.8 s both leave Maya unannounced, and her card shows on the replay. level_01: reload with Liam's card up saves only liam; Cyrus's card shows first on the replay, with the page note (r2_1.mjs, r2_2.mjs; shots r2_1_reload300_replay.jpg, r2_1_next800_replay.jpg, r2_2_replay_after_liam_reload.jpg)."
+    },
+    {
+      "id": "QT-03",
+      "status": "fixed",
+      "note": "Reading the satay line now saves lets-eat-pending-pages-v1 = [satay_incident]. After a reload or a Backspace to the map, the next level_01 win shows the 'NEW SCRAPBOOK PAGE · The Satay Incident' note and the page card. The page is cleared from the list only after its card shows. A fail keeps it pending (no card) and the next win shows it once (r2_2.mjs, r2_10.mjs; shots r2_2_reload_outcome.jpg, r2_2_backspace_outcome.jpg, r2_10_card_1.jpg)."
+    },
+    {
+      "id": "QT-04",
+      "status": "fixed",
+      "note": "Reload with the chapter 1 card up: the card shows again (chapter-intros not saved). Close it, reload with How to play up: How to play shows again (how-to-play-v1 not saved). Both are saved only on close (r2_1.mjs; shots r2_1_after_reload1.jpg, r2_1_after_reload2.jpg)."
+    }
+  ],
+  "coverage": [
+    "Rechecked all four run 1 bugs with the run 1 steps (see run1_recheck): all fixed",
+    "Reload on Results with a place's details open (normal route, level_01): back to Title, no stars, pending page kept",
+    "Reload 100 ms after Recommend (normal route, level_01): 3 stars saved, level_02 unlocked, friends still unannounced, pending page kept; replay shows Liam, Cyrus and page cards in order",
+    "Fail with a pending page, reload, then win: no cards on the fail, all three cards on the win, then none on a further replay",
+    "'See friends' on Liam's card goes to Friends; Esc from there goes to the map. Cyrus and the page stay pending (not lost)",
+    "Reload with the Reset progress check open: nothing reset. Reset itself clears every key, including the new lets-eat-pending-pages-v1 and the ending flag",
+    "localStorage.clear() mid-chat: the chat carries on without errors; after reload the chapter card shows again",
+    "Browser Back from the Chat: leaves the game (no history), nothing breaks",
+    "Two tabs in one context: tab B clears level_01 and sees Liam's card; tab A then clears level_01 and gets Cyrus's card (no double announce, page stays pending until a card shows)",
+    "Music button volume panel by keyboard, then reload: volume kept",
+    "5 minutes idle on the Outcome after the unlock cards: nothing frozen, one music track (it moved on to the next track), Next level → still works",
+    "Corrupt saved data: every lets-eat-* key set to bad JSON, a string, an array, a wrong-type object, null and a number, then reload and play level_01 (found QT-05, QT-06)"
+  ],
+  "bugs": [
+    {
+      "id": "QT-05",
+      "title": "A non-object 'venues' save crashes the Results screen: 'Find a place' leaves the player on a frozen Chat",
+      "severity": "minor",
+      "where": "Chat → Results, any level (seen on level_01)",
+      "steps": [
+        "Set localStorage 'lets-eat-venues-v1' to a JSON string or number, e.g. \"a string\" or 42 (a hand-edited or damaged save)",
+        "Reload, Start, open level_01, press A to show the whole chat, then press Enter (Find a place)"
+      ],
+      "expected": "The game ignores the bad value (as it does for unreadable JSON, null, or arrays) and opens the Results list",
+      "actual": "Page error \"Cannot create property 'campus_noodle_nook' on string 'a string'\". No scene stays running. The last Chat frame stays on screen with 'Find a place' highlighted and nothing responds. A reload gives the same result, so the player cannot reach any Results screen until they use Reset progress or clear the site's data. loadVisits() in src/ui/visitStore.js returns any truthy parsed value without checking that it is an object. Rated minor only because the save has to be damaged first; the effect is a blocker",
+      "frequency": "every time (4 of 4: \"a string\" and 42, both in the all-keys run and with only this key set)",
+      "setup": { "viewport": "960x640", "settings": "defaults; lets-eat-venues-v1 corrupted" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/run2/r2_6_venues-v1_10.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/run2/r2_6_venues-v1_2.jpg"
+      ],
+      "errors": ["pageerror: Cannot create property 'campus_noodle_nook' on string 'a string'", "pageerror: Cannot create property 'campus_noodle_nook' on number '42'"],
+      "script": "game/.bughunt/bug_hunter_quitter/r2_6.mjs (also r2_4.mjs)"
+    },
+    {
+      "id": "QT-06",
+      "title": "A non-object 'scrapbook' save shows 'SCRAPBOOK 8/5' on the map and crashes the chat at a callback line",
+      "severity": "minor",
+      "where": "Level map and Chat, level_01",
+      "steps": [
+        "Set localStorage 'lets-eat-scrapbook-v1' to \"a string\" (or to an array such as [1,2,{}])",
+        "Reload, Start: look at the Scrapbook button on the map",
+        "Open level_01 and let the chat reach Liam's 'the satay incident' line (or press A), then press Enter"
+      ],
+      "expected": "The bad value is ignored: SCRAPBOOK 0/5, and the page unlocks normally",
+      "actual": "The map button reads 'SCRAPBOOK 8/5' (the string's 8 characters are counted as pages; an array of 3 gives 3/5). Reading the callback line throws \"Cannot use 'in' operator to search for 'satay_incident' in a string\", and Find a place then does not open Results (scene stays Chat, player stuck). loadPages() in src/ui/scrapbookStore.js, like loadVisits(), accepts any truthy value. The friends-announced and pending-pages stores already check Array.isArray, and a bad pending-pages value is handled fine",
+      "frequency": "every time (2 of 2 for the count, 1 of 1 for the chat crash with only this key set)",
+      "setup": { "viewport": "960x640", "settings": "defaults; lets-eat-scrapbook-v1 corrupted" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/run2/r2_4_map_1.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/run2/r2_6_scrapbook-v1_10.jpg"
+      ],
+      "errors": ["pageerror: Cannot use 'in' operator to search for 'satay_incident' in a string"],
+      "script": "game/.bughunt/bug_hunter_quitter/r2_6.mjs (also r2_4.mjs)"
+    }
+  ],
+  "not_bugs": [
+    "Every reload returns to Title (or to the dev-shortcut scene in the URL when one was used), with stars, pages and venues intact; none gained without a win",
+    "Unreadable JSON, null, arrays or numbers in progress, settings, music volume, friends-announced, pending-pages, chapter-intros, opened and how-to-play are ignored without errors. A progress value of 99 is clamped to 3 stars",
+    "Pending scrapbook pages are held back after a fail and shown on the next win, by design (WA-02 comment in OutcomeScene)",
+    "'See friends' from an unlock card leaves the Outcome, and the remaining queued cards wait for the next cleared Outcome. Nothing is lost, it is only deferred",
+    "The Reset progress check has Cancel focused first, and a reload while it is open resets nothing",
+    "A second tab running in the background animates slowly (the browser throttles it), so its unlock card fills in late. That is a test artifact, not a game bug",
+    "The ?scene=Scrapbook / Friends / Options dev shortcuts don't open those screens; only Chat, Results, Outcome and Ending are documented"
+  ],
+  "feedback": "All four run 1 problems are gone: refreshing no longer costs any celebration card or the ending. The only way I could still break the game was with damaged saved data, which freezes the game instead of being ignored."
+}

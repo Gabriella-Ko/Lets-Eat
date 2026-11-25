@@ -1,0 +1,148 @@
+{
+  "agent": "bug_hunter_accessibility",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "AX-01",
+      "status": "fixed",
+      "note": "Same steps as run 1 (run_6). Canvas is now centred with even bars: 1280x720 gives 100 px left / 100 px right, 1920x1080 gives 150 / 150, 800x1000 gives 233 above / 234 below, 640x427 has no bars. Page background is the game's brown rgb(46,38,36). START works by mouse at every size. Shots: run2/a1_1280x720_menu.jpg, run2/a1_800x1000_results.jpg."
+    },
+    {
+      "id": "AX-02",
+      "status": "fixed",
+      "note": "Same steps as run 1 (run_7). With document.body.style.zoom = '2' (and with html zoom 1.5) the canvas no longer spills off the top-left: it keeps its fitted rect (0,240,480x320 at 480x800; 0,0,960x640 at 960x640). Mouse clicks on START and on the LEVEL 1 card both work (Title -> Menu -> Chat). The game cancels the CSS zoom and refits instead of getting bigger. The commit title says 'makes the game bigger', but the code comment says it refits. FIT already fills the window, so there is no room to grow. Real Ctrl+ zoom (emulated as 480x320 at DPR 2) also just refits. Shots: run2/a2_zoom2_480x800_menu.jpg, run2/a2_zoom2_960x640_after_level.jpg."
+    },
+    {
+      "id": "AX-03",
+      "status": "fixed",
+      "note": "Locked badge text now uses C.locked (#c9b9ad in High contrast, about 7.8:1 on the badge plate, up from about 3.5:1). DOWNTOWN / LOCKED reads clearly at 960x640. Shot: run2/b_crop_locked_badge_hc.png."
+    },
+    {
+      "id": "AX-04",
+      "status": "partly",
+      "note": "Names grew only slightly: Outcome reaction names went from 16px to 17px, and Ending roll-call names are 18px. Chat names are 20px. In High contrast, Liam's colour darkens from #9a6b14 to #906412, about 4.6:1 on the cream panel. Brooke #86691a is about 4.55:1. Both now pass 4.5:1, barely. The names are still small Jersey 10 text in friend colours, though easier to read than in run 1. Shots: run2/b_crop_outcome_names_hc.png, run2/f_ending2.jpg."
+    },
+    {
+      "id": "AX-05",
+      "status": "still_there",
+      "note": "With High contrast on (the run 1 setup), the Options PREVIEW still shows a short dark line from the end of 'LIAM' running right along the name's baseline, above the bubble's own top edge. It shows at DPR 2, 4 and 8. With High contrast off there is no bubble outline and no line. The fix (drawPreviewBubble: beginPath before strokeRoundedRect) did not remove it. Shots: run2/c_crop_preview_liam_8x.png, run2/c_crop_preview_liam_high.png, run2/c_crop_preview_liam_normal.png (clean, for comparison). The same artefact also appears in the real Chat, see AX-06."
+    }
+  ],
+  "coverage": [
+    "Run 1 rechecks: AX-01 to AX-05 with run 1's steps (window sizes, body/html zoom with mouse clicks, locked badge crop, Outcome/Ending name sizes, Options preview crop at DPR 2/4/8).",
+    "High contrast On, Animations Off, Music/SFX Off at 960x640: screenshots of Title (new title_screen_v1 picture), map (Campus and Downtown), chats in chapters 1-4 (level_01, 06, 07, 11, 16, 20), Results with a place open (level_06, 11, 16), Outcome perfect (01, 06, 11), partial 2-star (01, 06, 11) and fail (16, 20), new-scrapbook-page and new-friend cards, Scrapbook, Friends, Options, Credits, Ending part 1 and part 2.",
+    "Automated contrast pass: every visible text measured against the screenshot pixels behind it on 13 screens in High contrast. Every hit under 4.5:1 checked by eye.",
+    "layoutProblems on every screen above; each hit checked in its screenshot.",
+    "Window sizes 640x427, 1280x720, 1920x1080 and 800x1000: Title, map and Results checked. With Text size Large at 640x427 and 800x1000: Chat, Results, Outcome and Options checked.",
+    "Browser zoom: body zoom 2 and html zoom 1.5 at 480x800 and 960x640, plus real 200% zoom emulated as 480x320 at DPR 2.",
+    "Animations Off: active tweens counted on Title, map (including after switching district), every chat, Results, every Outcome, Scrapbook, Friends, Options, Credits, both Ending parts, and right after starring a line. Every count was 0.",
+    "Keyboard starring (new): up then S stars a line. It shows a filled star, an orange bubble border, a focus ring and the line in the Notebook, so the change is never shown by colour alone. Checked in both contrast modes.",
+    "New 'NEW SCRAPBOOK PAGES' corner note with 1, 2 and 3 pages waiting.",
+    "Sound Off: new key-hint footers and cards all give visual feedback; nothing new relies on sound."
+  ],
+  "bugs": [
+    {
+      "id": "AX-06",
+      "title": "High contrast: a starred chat line gets a stray dark line from the speaker's name across the top of the bubble",
+      "severity": "cosmetic",
+      "where": "Chat, any level from chapter 2 (seen on level_07)",
+      "steps": [
+        "Options: High contrast On",
+        "Open ?scene=Chat&level=level_07 and wait for a few lines",
+        "Press up to pick Liam's line 'got it. in, eat, out...' and press S to star it (a mouse click on the star does the same)",
+        "Look at the LIAM name above the bubble"
+      ],
+      "expected": "The name sits above the orange-bordered bubble with nothing joining them, as with High contrast off.",
+      "actual": "A thin dark line runs from the end of 'LIAM' to the right along the name's baseline, just above the bubble's orange top edge. The name looks underlined and the bubble looks double-edged. It disappears when the line is unstarred, and does not appear with High contrast off. This is the same artefact as AX-05 in the Options preview: the starred bubble's strokeRoundedRect (ChatScene.js around line 466) seems to reuse the path from an earlier draw.",
+      "frequency": "every time (2 of 2 runs, DPR 2 and DPR 3)",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off, Chat pace Quick" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/h_crop_starred_liam_high.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/h_crop_unstarred_liam_high.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/h_crop_starred_liam_normal.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/g_chat_l07_star_kb_hc.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/r2_9.mjs"
+    },
+    {
+      "id": "AX-07",
+      "title": "Credits list stays on a see-through panel with High contrast on; grey detail lines drop to about 4:1 over the picture",
+      "severity": "minor",
+      "where": "Credits",
+      "steps": [
+        "Options: High contrast On",
+        "On the map press C",
+        "Read the 'Artist: ... / Source: ... / License: ...' lines over the friends' faces and the food"
+      ],
+      "expected": "High contrast makes the list panel solid (as it does for the other panels), so every line is at least 4.5:1.",
+      "actual": "The panel is still drawn at 55% opacity over the title picture (CreditsScene PANEL_ALPHA). The detail lines (#3d322d, 14px Lexend) measure about 4.0-4.4:1 against what shows through, with busy faces and plates behind the text. They are readable but noisy, and High contrast changes nothing here.",
+      "frequency": "every time (2 of 2 runs)",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/g_credits_hc.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/g_crop_credits_hc.png"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/r2_8.mjs"
+    },
+    {
+      "id": "AX-08",
+      "title": "High contrast orange buttons and chips: cream label on #b55400 is 4.35:1, under 4.5:1 for the small labels",
+      "severity": "minor",
+      "where": "Options (selected values), Results (selected sort/filter chip), map (focused top button), Title START, Results RECOMMEND THIS, Outcome TRY AGAIN",
+      "steps": [
+        "Options: High contrast On",
+        "Open Options and read the selected values (Normal, Quick, On, Off), or open Results and read the selected 'Mixed' chip"
+      ],
+      "expected": "High contrast button labels reach at least 4.5:1, since 16-18px labels count as normal-size text.",
+      "actual": "Label colour #f6efe6 on the High-contrast accent #b55400 computes to 4.35:1. Pixel measurement gives about 4.3:1. It is fine for the big 23-26px buttons (large-text rule, 3:1), but the 16px 'Mixed' chip and the 18px Options values are just under. The darker accentDark #8a3f00 would give 6.6:1.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/d_options.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/g_large_640x427_results.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/r2_7.mjs"
+    },
+    {
+      "id": "AX-09",
+      "title": "'NEW SCRAPBOOK PAGES' corner note covers the PERFECT MATCH heading when three pages are waiting",
+      "severity": "cosmetic",
+      "where": "Outcome, any cleared level",
+      "steps": [
+        "Set lets-eat-pending-pages-v1 to ['satay_incident','trip_fund','plate_of_fries'] (three pages waiting for their card), then reload",
+        "Open ?scene=Outcome&level=level_11&venue=night_market_blue_awning (a perfect pick)",
+        "Look at the top of the screen"
+      ],
+      "expected": "The corner note fits beside the heading, or wraps, without covering it.",
+      "actual": "The note is one right-aligned line ('The Satay Incident · The Trip Fund · The Plate of Fries') about 390 px wide. It covers the end of 'PERFECT MATCH!' and 'You sent everyone to Blue Awning'. With 1 or 2 pages it fits. A new save reached the same state: progress for levels 1-19 with an empty scrapbook gave three pages at once.",
+      "frequency": "every time with 3 pages waiting (3 of 3); never with 1-2",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/i_outcome_pending3.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/d_outcome_level_01_perfect.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/run2/e_outcome_two_pending.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/r2_10.mjs"
+    }
+  ],
+  "not_bugs": [
+    "No page or console errors on any screen, size or zoom. The only console warnings came from my own contrast-measuring canvas.",
+    "Animations Off: 0 active tweens on every screen and right after starring a line; the corner note and unlock cards just appear.",
+    "Title (new picture): the yellow tagline measures about 2.8:1 against the sky and awnings behind it, but its dark drop shadow keeps it legible up close. The 'enter: start · m: music' footer over the table is readable. Worth watching, not reported.",
+    "Scrapbook locked tabs: the grey '?' text sits under the badge icon and is not visible; locked tabs show a neutral icon and give no hint.",
+    "Friends locked tabs '???' (white 26px bold on the grey tab, about 3.9:1) pass the large-text 3:1 rule.",
+    "Friends 'met 0/6' after seeding progress without lets-eat-opened-v1 is caused by my seeded save (met = opened a level), not a bug.",
+    "layoutProblems hits checked: chat 'off screen' and header overlaps are scrolled lines inside the masked chat panel; Credits hits are its scroll list; Friends stamp '2 / LEVELS TOGETHER' is by design; Results review vs '↓ scroll for more' / RECOMMEND THIS is the scroll cut-off; Ending part 1 header overlap is a masked scrolled line.",
+    "Text size Large at 640x427 and 800x1000: Chat, Results, Outcome and Options fit with nothing cut off; reviews scroll.",
+    "Starring is never colour-only: filled star, orange border and Notebook entry.",
+    "Every map key (S, F, O, C) opens its screen and Esc returns to the map, in High contrast.",
+    "I didn't finish a full normal-route level_01 pass: after 'a: show all' and 3 Enters the chat was still on its last lines. Speed was not my focus; Results and Outcome were covered through the dev shortcuts."
+  ],
+  "feedback": "The fixes help a lot: the game is centred, zoom no longer breaks clicking and the locked districts read well. High contrast still leaves some see-through panels (Credits, chat background art) and small tinted names, and the stray outline line now also shows up on starred chat lines."
+}

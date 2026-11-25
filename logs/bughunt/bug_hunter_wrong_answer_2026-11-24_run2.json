@@ -1,0 +1,62 @@
+{
+  "agent": "bug_hunter_wrong_answer",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "WA-01",
+      "status": "fixed",
+      "note": "Same steps as run 1 (level_02: press A to read the whole chat, Backspace to the map, reopen, recommend Taco Town). The Outcome now shows the Maya friend card and then NEW SCRAPBOOK PAGE! THE TRIP FUND. Pages now wait in lets-eat-pending-pages-v1 until their card has shown. Script r2_recheck.mjs midchat."
+    },
+    {
+      "id": "WA-02",
+      "status": "partly",
+      "note": "The fail Outcome no longer shows the page card or the corner note (level_02 Mole Cantina: OH NO, 0 stars, buttons only). Clearing the level afterwards shows the card once. But the page is already unlocked and readable while it waits: after the fail the map reads SCRAPBOOK 2/5, and the Scrapbook opens on THE TRIP FUND ('Cheap eats only: the fund is sacred.'). The held-back card also shows on the next clear of any other level (see WA-03). Enter after a fail now means Try again and goes to Results (checked on level_01, level_02 and level_20). Scripts r2_recheck.mjs fail, r2_pending.mjs, r2_pending2.mjs."
+    }
+  ],
+  "coverage": [
+    "Run 1 rechecks WA-01 and WA-02 with the same steps (above).",
+    "Scoring sweep with the dev Outcome shortcut: the solution and every spec decoy of all 20 levels. Stars and hint match fails_on everywhere (run_1.mjs printed no BAD rows). No page errors.",
+    "level_01 by the normal route from a fresh save: fail, Enter (Try again), fail, Enter, 2 stars, then a 3-star replay, a fail replay and a 2-star replay. level_02 stays locked after the fails and unlocks after the 2-star pick. Best stars go 0 > 2 > 3 and never drop. progress-v1, card stars, the Campus badge, the chapter heading and the top-right total agree after every change and after a reload.",
+    "Enter on each Outcome: on a fail it means Try again (focus starts on TRY AGAIN). On a partial with a next level it goes to the next level's Chat. On a level_20 partial or replay it means Back to levels. On a first perfect level_20 pick it means Continue and goes to the Ending. Arrow focus wraps around the button row. Enter opens and closes the Clue recap. Reread the chat leads back to the Chat.",
+    "Chapter boundary: a level_05 fail keeps Downtown LOCKED, and a 2-star pick unlocks it (0 / 15). The Chapter 2 intro shows once. The chosen district is remembered after visiting a level.",
+    "One-time cards: no friend or page card on any fail. Friend cards show on the first clear only, never on replays. Page cards show once.",
+    "Pills: Green Bean Cafe shows SEEN BEFORE in level_05 (listed in level_04). Koi Counter shows BEEN HERE in level_08 (picked in level_06). Replaying level_06 after level_08 shows no pills. A place failed earlier in the same level gets no pill after Try again.",
+    "level_20: a fail and a 2-star pick don't start the Ending, and ending-seen-v1 stays unset. A perfect pick shows CONTINUE → and the Ending plays (Esc skips both parts back to the map). After that, ending-seen-v1 = 1 and a perfect replay shows BACK TO LEVELS with no Ending.",
+    "Options > Reset progress with a page still waiting for its card clears every lets-eat-* key, lets-eat-pending-pages-v1 included."
+  ],
+  "bugs": [
+    {
+      "id": "WA-03",
+      "title": "A page held back after a fail is announced on a different level's Outcome, and can be read in the Scrapbook before the retry",
+      "severity": "minor",
+      "where": "Outcome, level_01 (card for level_02's page); Scrapbook after a level_02 fail",
+      "steps": [
+        "Save with level_01 cleared (Satay Incident page owned). Open level_02 and read the whole chat.",
+        "Recommend Mole Cantina (peanut decoy): OH NO, 0 stars, and no card (correct). lets-eat-pending-pages-v1 = [\"trip_fund\"], and scrapbook-v1 already holds trip_fund.",
+        "Press LEVELS. The map's Scrapbook button reads 2/5. Press S: the Scrapbook opens on THE TRIP FUND, 'Cheap eats only: the fund is sacred.' (found in level 2).",
+        "Back on the map, replay level_01 and recommend Noodle Nook (perfect)."
+      ],
+      "expected": "WA-02's fix holds the page back after a fail so it doesn't hint at the retry. The page should stay hidden until level_02 is cleared and then be announced on level_02's Outcome.",
+      "actual": "Level_01's PERFECT MATCH screen shows the corner note 'NEW SCRAPBOOK PAGE · The Trip Fund' and the NEW SCRAPBOOK PAGE! THE TRIP FUND card, a level_02 page on a level_01 screen. By design the pending list shows on 'the next non-fail Outcome' of any level. The page is also unlocked and readable in the Scrapbook straight after the fail. Together these hand the level_02 budget need to the player before the retry, which is what WA-02's fix tried to stop. (The need is also in level_02's chat itself, so the leak is small.)",
+      "frequency": "every time (2 of 2 runs)",
+      "setup": { "viewport": "960x640", "settings": "defaults; seeded save with level_01 at 3 stars, How to play and the chapter-1 intro seen, Liam and Cyrus announced" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_wrong_answer/run2/pend_l01_outcome.jpg",
+        "logs/bughunt/shots/bug_hunter_wrong_answer/run2/pend2_scrapbook_p2.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_wrong_answer/r2_pending.mjs (also r2_pending2.mjs)"
+    }
+  ],
+  "not_bugs": [
+    "Every decoy's stars and hint text match its spec fails_on, in all 20 levels.",
+    "Best stars never go down after fail or partial replays (storage, card, badge and total).",
+    "Arrow keys on the Outcome button row wrap from the first button to the last. A focus jump I first suspected was this wrap, not a bug.",
+    "On a seeded save with 19 levels cleared but an empty Scrapbook, the level_20 partial pick showed six friend cards and the Trip Fund and Satay Incident page cards. That comes from the unrealistic seed (callback lines in level_20 unlock earlier pages). It is not a real-play bug.",
+    "Enter on a partial with a next level goes straight to the next level's chat (focus starts on NEXT LEVEL →). This looks intended.",
+    "R on Results with nothing open does nothing (by design)."
+  ],
+  "feedback": "With the new Enter = Try again, quick wrong-answer retries feel good. The Scrapbook opening on the newest page right after a fail feels like a spoiler."
+}

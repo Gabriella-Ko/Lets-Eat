@@ -1,0 +1,140 @@
+{
+  "agent": "bug_hunter_accessibility",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "High contrast On + Animations Off + Music/SFX Off, 960x640: screenshots of Title, map (fresh and fully unlocked), how-to-play popups, chapter intro card, chats in chapter 1 (level_01, level_02), chapter 2 (level_06), chapter 3 (level_11), chapter 4 (level_16, level_20), Results with a place open (level_01, level_16), Outcome perfect (level_01, level_06), partial (level_01, level_06), fail (level_01, level_11), new-friend card, Scrapbook, Friends, Options, Credits, Ending part 1 (early and finished) and part 2. Each read for low contrast, text over busy art and colour-only signals.",
+    "layoutProblems on every screen above; every hit checked in its screenshot (chat off-screen hits are masked scroll content, Credits off-screen hits are the scroll list, Friends '14 / LEVELS TOGETHER' is the stamp by design, Results review vs '↓ scroll for more' is the scroll cut-off).",
+    "Window sizes 640x427, 1280x720, 1920x1080, 800x1000 (portrait) and each rotated: Title, map, Results with a place open; canvas rect measured; clicking START works at every size.",
+    "Browser zoom emulated with document.body.style.zoom = '2' at 480x800 and 960x640: Title and map, mouse and keyboard.",
+    "Animations Off: active tween count was 0 on Title, map (incl. switching district), Chat, Outcome and both Ending parts; Credits does not auto-roll; Options preview stars are still; code check: every tween goes through ui/motion.js tween(), no camera fades/shakes.",
+    "Sound Off: every sound effect (click, star, outcome, page unlocked, page turn, badge) has a visual twin; nothing relies on sound alone.",
+    "High contrast toggled through Options with the keyboard: saved and survives a reload.",
+    "Starring a line (chapter 2): filled star plus orange bubble border, not colour alone; missed-clue highlight after a wrong pick readable in both contrast modes.",
+    "Contrast ratios computed from ui/theme.js: friend name colours 3.8-5.4:1 on the High-contrast panel; locked-badge colour 3.2-3.8:1."
+  ],
+  "bugs": [
+    {
+      "id": "AX-01",
+      "title": "Game canvas is off-centre in any non-3:2 window, and the letterbox bars are a different colour from the game",
+      "severity": "minor",
+      "where": "Every screen, window sizes other than 3:2 (e.g. 1280x720, 1920x1080, 800x1000)",
+      "steps": [
+        "Open the game in a 1280x720 window (or 800x1000 portrait)",
+        "Look at the bars either side of (or above/below) the game"
+      ],
+      "expected": "The game is centred with equal bars on both sides, in the game's own background colour.",
+      "actual": "The canvas is pushed right/down by half the bar width: 1280x720 gives 150 px left and 50 px right; 1920x1080 gives 225 px left and 75 px right; 800x1000 gives 350 px above and 117 px below. Likely double centring: Phaser's autoCenter CENTER_BOTH adds margins while index.html's #game is also a flex centre. The bars are purple #2b2233 (index.html) instead of the game's brown #2e2624. Nothing is cut off.",
+      "frequency": "every time (2 of 2 runs, every non-3:2 size)",
+      "setup": { "viewport": "1280x720, 1920x1080, 800x1000", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/r6_1280x720_title.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/r6_800x1000_menu.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/r6_1920x1080_title.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/run_6.mjs"
+    },
+    {
+      "id": "AX-02",
+      "title": "With page zoom at 200% the game spills off the top-left of the window and can't be scrolled back; START and the level cards can't be clicked",
+      "severity": "minor",
+      "where": "Title and map (any screen), body zoom 2",
+      "steps": [
+        "Open the game in a 480x800 (or 960x640) window",
+        "Run document.body.style.zoom = '2' (emulated browser zoom, as the agent brief asks)",
+        "Try to click START, then (after Enter) the LEVEL 1 card"
+      ],
+      "expected": "The game refits to the window, or at least the page scrolls so every part can be reached.",
+      "actual": "The canvas does not refit: at 480x800 its rect is left -240, top 320, 960x640, so the left half is off-screen at a negative offset that scrolling can't reach (scrollTo stays 0,0), and START and the LEVEL 1 card fall below the fold. At 960x640 the rect is -480,-320, 1920x1280. Mouse clicks on START and the level card do nothing; the keyboard (Enter) still works. Caveat: real Ctrl+ zoom shrinks the CSS viewport, so Phaser FIT just refits there; the game then never gets bigger with browser zoom, which is no help to a low-vision player (the only enlargement is Options > Text size).",
+      "frequency": "every time (2 of 2 runs)",
+      "setup": { "viewport": "480x800 and 960x640, body zoom 2", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/r7_zoom2_960x640_title.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/r7_zoom2_480x800_menu.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/r12_zoom2_480x800_title.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/run_7.mjs"
+    },
+    {
+      "id": "AX-03",
+      "title": "Locked district badges stay low-contrast with High contrast on",
+      "severity": "minor",
+      "where": "Level map, locked districts (Downtown, Night Market, Waterfront on a new save)",
+      "steps": [
+        "Options: High contrast On",
+        "Start a new save and open the map",
+        "Read the DOWNTOWN / LOCKED badge"
+      ],
+      "expected": "High contrast makes every label at least 4.5:1, including greyed-out ones (the word LOCKED is the only non-colour sign of state).",
+      "actual": "Name and LOCKED use C.goldDim (0x8f7d72 in High contrast) on the 60% dark plate over the darkened art: about 3.2-3.8:1 for small Jersey 10 text (with High contrast off it is about 1.8:1). Readable up close but faint.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/r11_crop_menu_locked.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/r1_after_start.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/run_11.mjs"
+    },
+    {
+      "id": "AX-04",
+      "title": "Speaker names in Outcome reactions and the Ending roll call are tiny and keep their gold/olive colours in High contrast",
+      "severity": "minor",
+      "where": "Outcome (reaction list), Ending part 2 (Roll call), all levels",
+      "steps": [
+        "Options: High contrast On",
+        "Open ?scene=Outcome&level=level_11&venue=night_market_willow_gate",
+        "Read the names above each reaction (MAYA, LIAM, BROOKE)"
+      ],
+      "expected": "Names readable at a glance, like the 20px names in the Chat.",
+      "actual": "The names are 16px Jersey 10 (cap height about 7 px at 960x640) in the friend colours, which High contrast does not change: Liam #9a6b14 is about 4.1:1 and Brooke #86691a about 4.5:1 on the cream panel. Same small size in the Ending roll call. At 640x427 they are about 5 px tall.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/r8_crop_outcome_reactions.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/r4_outcome_level_11_x.jpg",
+        "logs/bughunt/shots/bug_hunter_accessibility/r5_ending2.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/run_12.mjs"
+    },
+    {
+      "id": "AX-05",
+      "title": "Options preview: a stray line runs from the LIAM name into the chat bubble",
+      "severity": "cosmetic",
+      "where": "Options, PREVIEW panel",
+      "steps": [
+        "Open the map, press O",
+        "Look at the LIAM line in the PREVIEW panel"
+      ],
+      "expected": "Name sits above the bubble, like in the Chat.",
+      "actual": "A short horizontal line continues from the end of 'LIAM' to the bubble's top edge, so the name looks underlined / joined to the bubble outline.",
+      "frequency": "every time (2 of 2 runs)",
+      "setup": { "viewport": "960x640", "settings": "High contrast On, Animations Off, Music Off, Sound effects Off" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_accessibility/r12_crop_options_preview.png",
+        "logs/bughunt/shots/bug_hunter_accessibility/r4_options.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_accessibility/run_12.mjs"
+    }
+  ],
+  "not_bugs": [
+    "No page or console errors on any screen, size or zoom.",
+    "Animations Off: zero running tweens on every screen checked; Credits stays still; Ending part 1 still paces the chat lines (pace, not animation); typing dots stay still.",
+    "Sound Off: every sound effect has a visual twin (stars, OH NO / CLEARED / PERFECT text, new page/friend cards).",
+    "Stars are never colour-only: empty stars are outlined and 'N of 3 stars' is written next to them; starred lines get a filled star plus a border; locked districts say LOCKED.",
+    "Options buttons show the chosen value by fill, not hue alone.",
+    "layoutProblems chat 'off screen' hits are scrolled-off lines inside the masked chat panel; Credits hits are its scroll list; Friends '14 / LEVELS TOGETHER' overlap is the stamp by design.",
+    "Results '↓ scroll for more' sitting over a half-cut review line is the scroll edge, not overflow.",
+    "Title tagline and Credits footer sit over busy art but have a drop shadow and stay legible.",
+    "640x427 and 1920x1080 scale cleanly with nothing cut off (only AX-01's off-centre offset); text at 640x427 is very small (footer hints about 8 px) as expected from FIT scaling.",
+    "High contrast set from Options with the keyboard is saved and survives a reload.",
+    "Esc on Ending part 1 goes to part 2, Esc again goes to the map.",
+    "Reread the chat was blocked once by the new-friend card on a dev-shortcut Outcome; that card is modal by design."
+  ],
+  "feedback": "High contrast helps the panels a lot, but the small pixel-font labels (badges, names, footer hints) stay small and tinted, and nothing in the game gets bigger with browser zoom; a larger heading size under Text size: Large would help most."
+}

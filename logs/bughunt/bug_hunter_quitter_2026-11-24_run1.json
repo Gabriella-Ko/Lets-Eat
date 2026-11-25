@@ -1,0 +1,130 @@
+{
+  "agent": "bug_hunter_quitter",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "Reload mid-chat (level_01) with the chapter card up, with How to play up, and after the callback line: the game restarts at Title, stars intact, no errors",
+    "Reload on Results with a place's details open: back to Title, no stars gained",
+    "Reload 150-300 ms after Recommend (during the star animation), level_01 and level_02: stars saved correctly (3 for a perfect pick)",
+    "Reload with the 'new friend' unlock card open (level_01)",
+    "Reload after a fail (level_01, Satay Spot): 0 stars stored, level_02 stays locked, no stars gained",
+    "Leaving the level_20 Outcome before pressing Continue, and leaving mid-Ending (part 1) and on part 2",
+    "Leaving the Outcome early with 'Next level' before the unlock card appears (level_02)",
+    "Backspace from mid-chat to the map and back into the level",
+    "Browser Back (page.goBack) from the map",
+    "Two tabs in one browser context: play level_01 in tab A, look at the map and Friends in tab B, reload B; Reset progress in A while B is open",
+    "localStorage.clear() on the Outcome screen then reload: clean start, no errors, chapter card and How to play show again",
+    "5 minutes idle on the Chat screen (chat complete), then carry on to Results and Outcome: nothing frozen, music never doubled",
+    "Music after 3 reloads in a row: one track each time",
+    "Options: every setting changed, survives a reload; music off stays silent after reload; Reset progress clears stars, pages, friends and the ending flag and keeps settings"
+  ],
+  "bugs": [
+    {
+      "id": "QT-01",
+      "title": "Ending is lost for good if the player reloads or leaves mid-ending",
+      "severity": "major",
+      "where": "Ending, after a perfect level_20 pick",
+      "steps": [
+        "Have levels 01-19 cleared, then pick Breakwater on level_20 (or open ?scene=Outcome&level=level_20 on the dev server)",
+        "Press Continue → on the Outcome screen; the Ending group chat starts",
+        "About 4 s in (mid part 1), reload the page or close the tab",
+        "Start again, open the map, replay level_20 and pick Breakwater again"
+      ],
+      "expected": "A refresh or crash mid-ending should not count as having seen it: the Ending plays again (or Continue → comes back) until it has actually been watched or skipped with Esc",
+      "actual": "lets-eat-ending-seen-v1 is set to 1 the moment the Ending scene is created (EndingScene.create calls markEndingSeen first). After the reload the level_20 Outcome shows only 'Back to levels'; the Ending can never be seen again without Reset progress, which wipes all stars. There is no replay prompt yet (by design), so the player has no way back to it",
+      "frequency": "every time (2 of 2: once via the normal Continue route, once via the dev shortcut; the flag is set at the start of part 1 both times)",
+      "setup": { "viewport": "960x640", "settings": "defaults; progress for level_01-19 written to localStorage" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/r6_ending_mid.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r6_replay_outcome20.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_quitter/run_6.mjs (also run_8.mjs part c)"
+    },
+    {
+      "id": "QT-02",
+      "title": "'New friend' card is lost forever if the player leaves the Outcome within 1.4 s",
+      "severity": "minor",
+      "where": "Outcome, level_01 and level_02 (any level that introduces a friend)",
+      "steps": [
+        "Fresh save with level_01 cleared and lets-eat-friends-announced-v1 = [liam, cyrus]",
+        "Play level_02 and recommend Taco Town (perfect)",
+        "Within about 1 s of the Outcome screen appearing, either reload the page or click 'Next level →'",
+        "Replay level_02 and pick Taco Town again"
+      ],
+      "expected": "Maya's 'A new friend has joined!' card shows the first time the player clears a level with her, so it should still show on the next clear if it never appeared",
+      "actual": "OutcomeScene.newPageNote calls markAnnounced(friends) at once, but the card only appears after UNLOCK_DELAY_MS (1400 ms). Leaving earlier saves maya as announced and the card never appears, on this visit or any replay. Same when reloading with Liam's card open on level_01: Cyrus's queued card ('NEXT FRIEND →') is lost too",
+      "frequency": "every time (3 of 3: reload at 150 ms on level_01, reload at 300 ms on level_02, Next level click at 0.8 s on level_02)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/r4_replay_after_reload_stars.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r8_b_replay_no_friend_card.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r12_after_quick_next.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_quitter/run_8.mjs (also run_4.mjs, run_12.mjs)"
+    },
+    {
+      "id": "QT-03",
+      "title": "Scrapbook page unlocked in the chat is never announced if the player reloads or goes back to the map first",
+      "severity": "minor",
+      "where": "Chat then Outcome, level_01 (satay_incident); any level with a callback line",
+      "steps": [
+        "Fresh save (How to play and chapter 1 card already seen)",
+        "Open level_01 and let the chat run until Liam's line 'right right. the satay incident. never again'",
+        "Either reload the page, or press Backspace to go back to the map (the map now reads SCRAPBOOK 1/5)",
+        "Open level_01 again, finish the chat, pick Noodle Nook"
+      ],
+      "expected": "The Outcome shows the 'NEW SCRAPBOOK PAGE · The Satay Incident' note and the 'New scrapbook page!' card, as it does when the level is played in one go (r2_outcome.jpg)",
+      "actual": "The page is saved to lets-eat-scrapbook-v1 as soon as the line is read, but the list of pages to announce lives only in the registry (newPages:level_01), which a reload wipes and ChatScene.init resets on re-entry. unlockPage then returns false, so the Outcome shows only the friend card and no page note. The player is never told about the page",
+      "frequency": "every time (2 of 2: one reload, one Backspace)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/r3_outcome_after_reload.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r3_outcome_after_backspace.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r2_outcome.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_quitter/run_3.mjs"
+    },
+    {
+      "id": "QT-04",
+      "title": "Chapter card and How to play are marked seen when they open, so a reload while they are up skips them for good",
+      "severity": "minor",
+      "where": "Chat, level_01 (chapter 1 card, How to play); any first level of a chapter",
+      "steps": [
+        "Fresh save. Title → Enter → Enter to open level_01",
+        "While the 'CHAPTER 1 · CAMPUS QUARTER' card is up, reload the page",
+        "Open level_01 again: the chapter card is gone and How to play shows",
+        "While How to play (step 1 of 3) is up, reload again and reopen level_01"
+      ],
+      "expected": "A card counts as seen once the player closes it, so a reload while it is up shows it again",
+      "actual": "showChapterIntro and showHowToPlay call markSeen() before drawing. After the first reload the chapter card never shows again; after the second, How to play never shows again (lets-eat-how-to-play-v1 = 1). A new player who refreshes on that screen misses the tutorial (it is still reachable from Options, and the chapter card from the chapter heading)",
+      "frequency": "every time (2 of 2 for each card)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_quitter/r1_chat0.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r2_chat_mid.jpg",
+        "logs/bughunt/shots/bug_hunter_quitter/r8_a_after_reload_chat.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_quitter/run_8.mjs (also run_1.mjs, run_2.mjs)"
+    }
+  ],
+  "not_bugs": [
+    "Every reload goes back to the Title screen, never into a half-finished level; stars, pages and venues are intact and none are gained without a win",
+    "Stars are saved the moment the Outcome opens, so a reload during the star animation keeps the earned stars; a fail stores 0 and does not unlock the next level",
+    "A scrapbook page unlocking on reading the line, even after a fail, matches the bible (Scrapbook > Unlock)",
+    "Starred Notebook lines are cleared when re-entering a level's chat (ChatScene resets pins), so losing them on reload matches that design",
+    "The chosen district is kept only in memory (registry); after a reload the map opens on the newest chapter. It is remembered after visiting a level, as the checklist asks",
+    "Browser Back leaves the game entirely (there are no in-game history entries); nothing breaks",
+    "Two tabs: the second tab's map is stale until reloaded, then correct; no data is overwritten between tabs; Reset progress in one tab does not touch the other tab's settings",
+    "localStorage.clear() then reload starts clean with no errors; the chapter card and How to play show again",
+    "5 minutes idle on the Chat: no freeze, the music moves on to the next track, never two tracks at once; three reloads in a row also give one track",
+    "Outcome sounds: one result sound and one star sound per star (3 for a perfect pick)",
+    "All Options settings survive a reload; music off stays silent; Reset progress keeps settings and clears stars, pages, friends, venues and the ending flag",
+    "Leaving the level_20 Outcome before Continue → leaves the Ending unseen; it comes back on the next perfect level_20 pick (plays after a perfect level_20 pick, by design)"
+  ],
+  "feedback": "Everything that celebrates (friend cards, the scrapbook note, the ending) is saved as 'done' before the player actually sees it, so a player who refreshes quietly misses the game's best moments."
+}

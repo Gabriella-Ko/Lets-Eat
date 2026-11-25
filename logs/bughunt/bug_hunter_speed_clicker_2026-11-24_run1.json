@@ -1,0 +1,124 @@
+{
+  "agent": "bug_hunter_speed_clicker",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "Instant double-click (Playwright dblclick, both clicks in one frame) on Title, the five map buttons (Title, Options, Credits, Friends, Scrapbook), level cards, Recommend this, Find a place, Next level, Next friend, Clue recap, Continue (level_20 to Ending and Ending part 2), Reset progress and the Reset confirm",
+    "Human-speed double-click (60, 120, 200 ms between clicks) on Recommend this and the level 1 card",
+    "Mashing Enter, Space, Esc, Backspace and the four arrows (10 presses, 30 ms apart) on Title, Chat (level_07), Results (level_07), Outcome (level_07), Ending (level_20); and on Scrapbook, Friends, Options and Credits reached from the map with a seeded save (all pages, 19 levels cleared)",
+    "Two keys within a few ms: R then Backspace on Results with a place open; Enter then Backspace at the end of the chat; Enter then Escape on an unlock card",
+    "Two buttons clicked back to back on the Outcome (Try again + Levels) and in the Chat (Find a place + Levels)",
+    "Input while things animate: 3 fast clicks on each new star while the chat types (level_07), fast clicks on the chat panel, P and Space mashing, Enter 150 ms into the Outcome, clicks during the ending's group chat and during the part 2 roll call",
+    "Sounds: logged every sound start; no sound was doubled by a double-click or key mash (one click sound per action, one result sound, one star sound per earned star)",
+    "Saved data after each burst: progress, friends-announced, chapter-intros, ending-seen and settings checked against what happened",
+    "Recovery from the two-screens state (Back to chat, Levels, Esc, Enter, Backspace)",
+    "No page or console errors in any run"
+  ],
+  "bugs": [
+    {
+      "id": "SC-01",
+      "title": "Two inputs at the same moment start two screens at once; both draw on top of each other and both take input",
+      "severity": "major",
+      "where": "Any screen with two ways out, seen on Results (level_03), Chat (level_03, level_01) and Outcome (level_01)",
+      "steps": [
+        "Variant A: open Results for level_03 (?scene=Results&level=level_03), press Enter to open the first place, then press R and Backspace within a few ms",
+        "Variant B: open the level_03 chat, Esc to close the chapter card, A to show the whole chat, then press Enter and Backspace within a few ms",
+        "Variant C: on a fail Outcome (level_01, Satay Spot), click Try again and then Levels straight after",
+        "Look at the screen and at the running scenes"
+      ],
+      "expected": "Only the first input counts; the game moves to one screen.",
+      "actual": "Two scenes run at the same time: ['Chat','Outcome'] (A), ['Menu','Results'] (B, C). The Results list is drawn over the level map (map buttons and level cards show through), or the Outcome over the chat. Both screens react to every later click and key, so Backspace then gives ['Title','Chat'] with the Title logo over the chat. In A the Outcome was also built 3 times. It only clears when the player clicks the top screen's back button (e.g. Back to chat, then Levels). Cause: each handler calls scene.start without a 'leaving' guard (TitleScene and EndingScene have one), and two scene.start calls from one scene in the same frame start both targets.",
+      "frequency": "sometimes: A 3 of 4, B 2 of 5, C 2 of 4",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r6_r_backspace.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r6_two_buttons.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r7_chat_enter_backspace.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r7_after_recovery.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_speed_clicker/run_7.mjs (also run_6.mjs, run_9.mjs)"
+    },
+    {
+      "id": "SC-02",
+      "title": "A very fast double-click on a button builds the next screen twice, and the first copy uses up one-time cards (new friend, chapter intro)",
+      "severity": "minor",
+      "where": "Every scene-changing button; losses seen on Results > Outcome (level_01), Map > Chat (level_01) and Outcome level_05 > Chat level_06",
+      "steps": [
+        "New save. Open Results for level_01, click Noodle Nook, then double-click Recommend this with both clicks in the same frame (Playwright dblclick)",
+        "Wait 2.5 s on the Outcome",
+        "Separately: new save, Title > map, double-click the LEVEL 1 card the same way",
+        "Separately: Outcome level_05 (Basil Hearth), close the friend cards, double-click Next level →"
+      ],
+      "expected": "One Outcome / Chat screen; the 'A new friend has joined!' cards for Liam and Cyrus appear; the CHAPTER 1 / CHAPTER 2 card appears.",
+      "actual": "The target scene's create runs twice (log: create Outcome, create Outcome). The first copy marks the friends as announced and the chapter as seen, then is thrown away, so the copy the player sees has no friend cards (2 of 2) and opens straight on How to play / the chat with no chapter card (2 of 2). The cards never come back (lets-eat-friends-announced-v1 = [liam, cyrus], lets-eat-chapter-intros-v1 = {2: true}). Every other button (Options, Credits, Friends, Scrapbook, Find a place, Reset, Continue) is also built twice, without visible harm. Sounds were not doubled. At human double-click speed (60-200 ms apart) the screen is built only once.",
+      "frequency": "every time with both clicks in one frame (6 of 6); 0 of 3 at 60-200 ms",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r2_single_861.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r2_double_222.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r3_menu_single.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r3_menu_double.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r4_next_single.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r4_next_double.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_speed_clicker/run_2.mjs, run_3.mjs, run_4.mjs"
+    },
+    {
+      "id": "SC-03",
+      "title": "Leaving the Outcome before the unlock cards appear loses the 'new friend' cards for good",
+      "severity": "minor",
+      "where": "Outcome, level_01 (any level that introduces a friend)",
+      "steps": [
+        "New save. Open Results for level_01, click Noodle Nook, click Recommend this",
+        "Within about 1.4 s (before the card shows), click Next level → (or press Enter: a mashed or carried-over Enter does this)",
+        "Replay level_01 with the same pick and wait"
+      ],
+      "expected": "The friends' cards wait until the player has seen them, or come back on the next visit.",
+      "actual": "Liam and Cyrus are stored as announced the moment the Outcome opens (newPageNote calls markAnnounced at create), but their cards are only scheduled 1.4 s later. Leaving earlier means the cards never show, and replaying does not bring them back. Mashing Enter on the Results list (Enter, Enter, Enter) goes Results > Outcome > next screen in under half a second the same way.",
+      "frequency": "every time (3 of 3: at 150, 300 and 800 ms)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r14_outcome_300ms.jpg",
+        "logs/bughunt/shots/bug_hunter_speed_clicker/r6_enter_skip.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_speed_clicker/run_14.mjs (also run_6.mjs)"
+    },
+    {
+      "id": "SC-04",
+      "title": "The second click of a normal double-click on a level card closes the chapter intro card before it can be read",
+      "severity": "minor",
+      "where": "Map > Chat, level_01 (first level of each chapter)",
+      "steps": [
+        "New save. Title > map",
+        "Double-click the LEVEL 1 card at normal speed (60-120 ms between clicks)"
+      ],
+      "expected": "The CHAPTER 1 card stays up until the player clicks again on purpose (e.g. ignore clicks in its first few hundred ms).",
+      "actual": "The first click opens the chat and shows the chapter card; the second click lands on the card's 'click to continue' and closes it within ~60 ms. The card is already marked seen, so it does not show again (only from the chapter heading on the map).",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_speed_clicker/r3_menu_single.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_speed_clicker/run_13.mjs"
+    }
+  ],
+  "not_bugs": [
+    "Title: Start is guarded; a double-click or Enter mash opens the map once.",
+    "No sound is doubled by a double-click or mashing: one click per action, one result sound, one star sound per earned star (3 on perfect, 2 on a 2-star result).",
+    "Scrapbook and Friends ignore repeated key events (one page turn per key); page turns are blocked while a turn is animating.",
+    "Fast starring in the chat (3 quick clicks per star, 4 messages, while typing) leaves pins and the Notebook in agreement (stars 0, 2, 4, 6 kept, 4 Notebook entries).",
+    "P mashing toggles pause correctly (odd count = paused); A shows the whole chat; Space and Enter while the chapter card is up do not advance the chat.",
+    "Next friend → double-click does not skip a friend: the second click lands before the next card's buttons are ready.",
+    "Enter then Escape on an unlock card moves through two cards: two inputs, two actions; nothing breaks.",
+    "Double-clicking Clue recap opens it and it stays open; Esc mash closes it. An Enter while an unlock card is still popping in does nothing, by design (buttons not ready).",
+    "Options: double-clicking Reset progress opens one check; double-clicking Reset clears progress, keeps all settings and lands on the map with 0 / 60 and three districts LOCKED.",
+    "Ending: double-click Continue → plays the Ending (built twice, no visible effect); clicks and Enter during part 1 and early in part 2 do nothing harmful; Esc skips both parts; Continue at the end goes to the map; ending-seen is saved.",
+    "Esc/Backspace mashing walks back screen by screen (e.g. Results > Chat > Map > Title, Ending > part 2 > Map > Title); expected, since each press is a 'back'.",
+    "Dev shortcuts ?scene=Menu / Scrapbook / Friends / Options / Credits open the Title instead; the brief only promises Chat, Results, Outcome and Ending shortcuts, so not reported.",
+    "No page or console errors in any of the ~120 page loads."
+  ],
+  "feedback": "As an impatient clicker the game mostly holds up, but almost every button and key goes straight to scene.start with no 'already leaving' guard, so two quick inputs can put two screens on top of each other, and one-time cards are marked seen before I've actually had a chance to see them."
+}

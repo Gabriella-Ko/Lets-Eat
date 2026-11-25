@@ -1,0 +1,95 @@
+{
+  "agent": "bug_hunter_normal_player",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    {
+      "id": "NP-01",
+      "status": "fixed",
+      "note": "Same steps (levels 01-04 done, LEVEL 5 -> perfect -> 'Next level ->' -> level_06 -> '← Levels'): the map now opens on CHAPTER 2 · DOWNTOWN with LEVEL 6 selected. After the Ending, Esc lands on CHAPTER 4 · WATERFRONT with LEVEL 20 selected. Evidence: shots/bug_hunter_normal_player/run2/rc_map_after_l6.jpg, 185_ending_after_esc2.jpg."
+    },
+    {
+      "id": "NP-02",
+      "status": "fixed",
+      "note": "Every On/Off row in Options (High contrast, Animations, Music, Sound effects) now reads 'Off | On'. Evidence: run2/189_options.jpg."
+    },
+    {
+      "id": "run1 feedback: fail focus on 'Levels'",
+      "status": "fixed",
+      "note": "After a fail (level_02, Mole Cantina) the focus ring is on TRY AGAIN, and Enter goes back to the Results list. Evidence: run2/op_fail_outcome.jpg."
+    }
+  ],
+  "coverage": [
+    "Rechecked run 1's NP-01 and NP-02 and the run 1 feedback about fail focus, using the same steps. All three are fixed.",
+    "Full normal playthrough from empty saved data with the normal buttons: new Title screen (Start) -> map -> level_01 ... level_20 -> 'Continue ->' -> Ending part 1 and part 2 -> map (r2_play.mjs, 192 screenshots). Every level gave PERFECT MATCH, 3 of 3 stars. No page or console errors.",
+    "One-time cards appeared once each at the right level: Chapter 1-4 intros, How to play (3 steps, level_01), new-friend cards (Liam and Cyrus at 01, Maya 02, Mina 03, Brooke 04, Roxy 06) and Scrapbook page cards (01, 02, 03, 06, 10, 5/5). None showed again on the level_20 replay.",
+    "After the ending, the map opens on Waterfront with LEVEL 20 selected. All four districts show 15 / 15, the top-right total is 60 / 60 and the chapter is marked PERFECT. Scrapbook shows 5/5 and Friends 'met 6/6'. A perfect replay of level_20 shows 'BACK TO LEVELS' and the ending does not play.",
+    "Ending rules (r2_end2.mjs): a reload during the Ending leaves ending-seen unset, and the next perfect level_20 pick offers 'Continue ->' again. Leaving with Esc twice sets it, and after that the pick shows 'Back to levels'. Esc skips both parts, and the key hints read 'esc: skip' then 'esc: back to the map'.",
+    "District unlock: Downtown is LOCKED until level_06 opens, then shows 0 / 15. Map badges, chapter heading and top-right total agree at every point checked (12/15 vs 12/60, 15/15 vs 15/60, 60/60).",
+    "Chat (level_07, chapter 2): keyboard starring works. ↑ picks a line, S stars it, S again unstars it, 5 quick S presses end starred (odd count), and a second line stars correctly. Notebook entries follow chat order on the Results list. 'Find a place' is reached only after the last line.",
+    "Chat pace: Quick shows lines at about 0.5 s and 1.5 s, Relaxed at about 1.5 s and 3.5 s (level_03).",
+    "Results (level_07): R with nothing open does nothing, as designed. S cycles Mixed -> Cheapest -> A-Z -> Mixed and keeps the selected place. F cycles $ / $$ / Burgers / Curry / all, keeps the selection while the place is still shown and shows 'n of 5 places'. level_10, where every place is $ Cafe, has no filter chips and its key hint leaves out 'f: filter', which is correct.",
+    "Options: Relaxed pace, High contrast on and Animations off survive a reload. Enter on the Text size row does not reset progress. High contrast map is readable.",
+    "Music button panel: M opens it and ← lowers the volume to 0%. Music keeps playing at volume 0 (silent), and 0% survives a reload rather than going back to 25%.",
+    "Fail outcome (level_02, Mole Cantina): OH NO..., 0 of 3 stars, peanut hint, buttons Clue recap / Reread the chat / Try again / Levels. Best stars stayed 2.",
+    "Every map key hint opens its screen: Esc goes to the Title, and O, S, F and C open Options, Scrapbook, Friends and Credits. Each of those returns with Esc.",
+    "Not covered this run: Text size Large, Sound effects off vs music independence, Animations-off visuals on Outcome, review scrolling on every venue, Scrapbook locked-page hints."
+  ],
+  "bugs": [
+    {
+      "id": "NP-03",
+      "title": "Title screen key hint 'enter: start · m: music' is hard to read over the picture",
+      "severity": "cosmetic",
+      "where": "Title",
+      "steps": [
+        "Open the game with empty saved data.",
+        "Look at the line under the START button, at the bottom of the screen."
+      ],
+      "expected": "The key hint is readable, like on the other screens where it sits on the dark brown bar.",
+      "actual": "The hint is thin light grey text drawn straight on the busy table illustration (plates and pizza), with no backing. It is barely readable.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_normal_player/run2/001_title.jpg",
+        "logs/bughunt/shots/bug_hunter_normal_player/run2/cf_title_hint_crop.png"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_normal_player/r2_confirm.mjs"
+    },
+    {
+      "id": "NP-04",
+      "title": "Music panel still says 'ON' at 0% volume while the music button shows the muted icon",
+      "severity": "cosmetic",
+      "where": "Music button panel (bottom-left), any screen, e.g. map and Chat level_02",
+      "steps": [
+        "From the map (or a chat) press M to open the music panel.",
+        "Press ← until the slider reads 0%."
+      ],
+      "expected": "The panel and the button agree: either the toggle shows OFF / muted at 0%, or the button keeps its normal icon.",
+      "actual": "The toggle still reads 'ON' (orange) next to '0%', while the corner music button switches to the crossed-out muted icon. The music plays at volume 0, so it is silent. A player sees 'ON' and hears nothing.",
+      "frequency": "every time (3 of 3, also after a reload)",
+      "setup": { "viewport": "960x640", "settings": "music volume 0" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_normal_player/run2/st_music_panel_0.jpg",
+        "logs/bughunt/shots/bug_hunter_normal_player/run2/cf_map_music_0_reload.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_normal_player/r2_confirm.mjs"
+    }
+  ],
+  "not_bugs": [
+    "No page or console errors in any run-2 script.",
+    "Maya's Friends card reads 'Budget: $$ max' after the campaign. This matches the bible: her max goes up to $$ from chapter 4.",
+    "Chapter 1 levels fill the Notebook by themselves ('lines worth remembering'); from chapter 2 the player stars lines. By design.",
+    "Backspace while the chapter card is up does nothing; the card says 'click, Enter or Esc to continue'. The card is modal.",
+    "Esc in the Chat does not leave the level; only Backspace / '← Levels' does, and the key hint says so.",
+    "Esc on the map goes back to the Title, as its key hint says ('esc: title').",
+    "Selection changes when a filter hides the selected place (filtering to $$ leaves only Cardamom House). Expected; the selection is kept whenever the place is still listed.",
+    "With friend cards up on the Outcome, 'Continue ->' doesn't react until the cards are closed. The cards are modal, as designed.",
+    "Right after closing the Chapter 1 card, it fades out while How to play fades in (004_level_01_chat_after1.jpg). Already noted in run 1; it settles in a moment.",
+    "The music panel briefly covers the bottom-left level card on the map and part of the chat hint. It is a small popup and closes with M or Esc.",
+    "Ending part 1 uses only the left two thirds of the screen for the chat; the right side is empty dark brown. Looks intentional."
+  ],
+  "feedback": "Smooth run with no errors, and the fixes all hold. Small irritations: the empty Notebook says the same thing twice (the boxed tip and the 'nothing saved yet' text below it), and both say 'tap the star' even though the keys hint offers 's: star a line'. Backspace while a place's details are open jumps right back to the chat instead of just closing the details."
+}

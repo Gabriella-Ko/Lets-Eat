@@ -1,0 +1,115 @@
+{
+  "agent": "bug_hunter_settings_fiddler",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "c43fd08",
+  "coverage": [
+    "Options: every value of every row (Text size, Chat pace, High contrast, Animations, Music, Sound effects) clicked, then page reload: all 12 values saved in lets-eat-settings-v1 and restored (run_1)",
+    "Music vs Sound effects independence with soundsPlaying and a hook on sound.play: Music Off stops music and keeps click sfx; Sound effects Off keeps music and drops click sfx; switching Sound effects On plays one preview click (run_2, run_8)",
+    "Volume 0 via the HUD slider: no sfx is played at all, music keeps running at volume 0 (silent); survives a reload (run_2, run_9)",
+    "HUD music toggle vs the Options Music row, both directions (run_2, run_5): see SF-02",
+    "Chat pace: Options can only be opened from the level map, not from inside a level, so pace was changed between levels in one session (Relaxed > Quick > Relaxed) and across reloads. Typing bubbles last about 1 s (Quick) and 2 s (Relaxed), and a change applies at the next level without a reload (run_5, run_9)",
+    "Animations Off: active tweens counted at 150 ms and 2.5 s after opening Title, Chat, Results, Outcome (perfect and fail, with unlock cards), Scrapbook (open and page turn) and Ending parts 1 and 2: always 0 with Animations Off; Outcome stars, cards and Ending page are fully drawn at 150 ms (run_6)",
+    "High contrast (with Animations Off): screenshots of Title, Menu, Chat, Results with details, Outcome perfect and fail, Scrapbook, Friends, Credits, Ending parts 1 and 2: all readable; name labels keep a pale outline on the faded chat backdrop (run_6, run_7)",
+    "Text size Large + High contrast: Chat, Results details and Outcome for level_05, level_12 and level_20; layoutProblems hits were all masked or scrolled text (false alarms), long reviews scroll with a hint (run_8)",
+    "Played level_01-03 by the normal route, then Options > Reset progress: stars, Scrapbook, venues, opened, ending flag and one-time popups cleared in storage; settings kept exactly; map shows 0/60, only Campus open with Level 1; Scrapbook 0/5 with no hints; Friends met 0/6 (run_3, run_7): but see SF-01 for the same-session replay",
+    "Garbage in lets-eat-settings-v1 (broken JSON, unknown values, a string, an array, a number, 'null', empty string, a partial object), then reload: no errors, Options shows defaults (or the one valid value kept), chat runs at the default pace (run_4)",
+    "Garbage in lets-eat-music-volume-v1 ('abc', '-5', '2', '') and lets-eat-music-v1: falls back to 25% except the empty string, see SF-04 (run_4, run_14)",
+    "Options keyboard: up/down wrap, left/right change, H opens How to play over level 1 and returns to Options, Esc/Backspace back to the map; Reset check: Enter does nothing, Esc with the HUD panel open only closes the panel, a second Esc closes the check and keeps progress (run_9, run_11)",
+    "Ending via dev shortcut: Esc skips part 1 and part 2, lands on the map (run_7)"
+  ],
+  "bugs": [
+    {
+      "id": "SF-01",
+      "title": "Reset progress without a page reload does not bring back How to play, the chapter card or the 'new friend' cards",
+      "severity": "major",
+      "where": "Options > Reset progress, then Chat and Outcome, level_01",
+      "steps": [
+        "Fresh browser. Start, open Level 1, close the chapter card and the 3 How to play steps, pick Noodle Nook: Outcome shows 'A NEW FRIEND HAS JOINED!' (Liam)",
+        "Go back to the map, Options > Reset progress > Reset (do not reload the page)",
+        "Open Level 1 again"
+      ],
+      "expected": "As the Reset check promises ('shows How to play and the chapter cards again'): the Chapter 1 card and How to play open before the chat, and the Outcome welcomes Liam again with the new-friend card",
+      "actual": "The chat starts straight away with no chapter card and no How to play, and the Outcome shows only the Scrapbook card, no new-friend card. Storage is cleared correctly, but chapterIntro.js, howToPlay.js and friendsAnnounced.js keep their in-memory 'memory' fallback, which resetProgress() never clears, and load() falls back to it when the key is missing. Side effect: because those popups were never marked seen again, they all pop up after the next page reload instead. After Reset + reload everything shows correctly.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "defaults (run_3 also with Text size Large, Chat pace Relaxed)" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_settings_fiddler/SF01_level1_after_reset.jpg",
+        "logs/bughunt/shots/bug_hunter_settings_fiddler/SF01_outcome_after_reset.jpg",
+        "logs/bughunt/shots/bug_hunter_settings_fiddler/outcome_l1_after_reset.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/run_7.mjs"
+    },
+    {
+      "id": "SF-02",
+      "title": "Turning music off with the HUD speaker leaves the Options Music row on 'On', and clicking 'On' then does nothing",
+      "severity": "minor",
+      "where": "Options screen with the HUD music panel (bottom-left speaker)",
+      "steps": [
+        "Map > Options (music playing, Music row shows On)",
+        "Press M (or click the speaker) and click the ON/OFF pill so it reads OFF; close the panel",
+        "Look at the Music row, then click its 'On' button"
+      ],
+      "expected": "The Music row switches to Off as soon as the HUD turns music off; clicking On turns the music back on",
+      "actual": "The row still highlights On although music is off and saved as 'off'. Clicking On does nothing (the click handler ignores the already-highlighted choice), so the player has to click Off and then On, or use the HUD again. Leaving and re-entering Options fixes the display.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": [
+        "logs/bughunt/shots/bug_hunter_settings_fiddler/hud_toggle_on_options.jpg",
+        "logs/bughunt/shots/bug_hunter_settings_fiddler/hud_off_then_options_on.jpg"
+      ],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/run_5.mjs"
+    },
+    {
+      "id": "SF-03",
+      "title": "Key presses that land in the same frame are replayed several times (Options changes the wrong setting)",
+      "severity": "minor",
+      "where": "Options (also seen on the level map); likely every screen",
+      "steps": [
+        "Map > Options, focus on Text size",
+        "Press ArrowDown 6 times very quickly (less than about 16 ms apart, e.g. rolling or mashing keys)",
+        "Or press ArrowUp then ArrowRight in quick succession"
+      ],
+      "expected": "6 Downs bring the focus back to the same row; Up then Right changes Sound effects",
+      "actual": "6 browser keydowns produced 41 Phaser keydown events and the focus ended on another row; Up+Right moved the focus to High contrast and switched it On (4 of 4 trials). On the map, 2 quick Right presses gave 3 keydown events. With 20 ms or more between presses everything is correct. Possibly a Phaser 3.90 keyboard-queue quirk rather than game code, and only reachable with very fast presses, but it changes settings the player didn't choose.",
+      "frequency": "every time when presses are under one frame apart (4 of 4 trials + 2 other runs); never with 20 ms+ gaps",
+      "setup": { "viewport": "960x640", "settings": "defaults; headless Chrome via Playwright at about 50 fps" },
+      "evidence": [],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/run_13.mjs"
+    },
+    {
+      "id": "SF-04",
+      "title": "An empty saved music volume is read as 0%, so the game is silently muted instead of using the default",
+      "severity": "minor",
+      "where": "Boot / HUD music panel, any screen",
+      "steps": [
+        "Set localStorage 'lets-eat-music-volume-v1' to an empty string, reload",
+        "Start, wait for the music; press M"
+      ],
+      "expected": "Like 'abc', '-5' or '2', an unusable value falls back to the default 25%",
+      "actual": "Music plays at volume 0, the HUD shows 0%, and every sound effect is suppressed (sfx skip at volume 0). Number('') is 0, so readVolume() accepts it.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "music volume key corrupted by hand" },
+      "evidence": [],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_settings_fiddler/run_14.mjs"
+    }
+  ],
+  "not_bugs": [
+    "Every Options value survives a reload; Reset progress keeps lets-eat-settings-v1 byte for byte",
+    "Garbage or broken JSON in lets-eat-settings-v1 never crashes: unknown values fall back to defaults, valid ones are kept",
+    "Music Off and Sound effects Off are independent; switching Sound effects On plays one preview click",
+    "The click that seemed doubled in soundsPlaying (one at volume 1.00, one at 0.25) is a single sound.play call; WebAudio reports the gain before it applies",
+    "At volume 0 music keeps 'playing' at volume 0 (silent) and no sound effect is started: silent as required",
+    "Options cannot be opened from inside a level (only from the map); the HUD panel there only has music volume and on/off. Chat pace was therefore tested between levels; a new pace applies at the next level without a reload",
+    "Animations Off: zero running tweens on every screen tested; typing dots stay still and faint, which is expected",
+    "High contrast changes panels, text and the chat backdrop; the map and its LOCKED badges look the same as normal mode (dimmed on purpose)",
+    "Options remembers the focused row when you leave and come back (scene data carried over); harmless",
+    "layoutProblems hits on Chat and Results with Large text are scrolled or masked lines, not real overflow; long reviews scroll with '↓ scroll for more'",
+    "Outcome after a perfect pick has no 'Back to levels' button (Next level → instead); by design per OutcomeScene"
+  ],
+  "feedback": "Music lives in two places (HUD panel and Options row) that don't talk to each other while both are on screen, and the HUD slider is labelled MUSIC VOLUME but also sets the sound effects volume, which surprised me."
+}

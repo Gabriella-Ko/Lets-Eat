@@ -1,0 +1,95 @@
+{
+  "agent": "bug_hunter_keyboard_only",
+  "brief_version": "v1",
+  "date": "2026-11-24",
+  "game_commit": "3148cc1",
+  "run1_recheck": [
+    { "id": "KB-01", "status": "fixed", "note": "S on the map opens the Scrapbook (also with 0 pages after a reset); the map hint names it. Esc and Backspace go back." },
+    { "id": "KB-02", "status": "fixed", "note": "Down past Sound effects (or R) puts a focus ring on Reset progress; Enter opens the check with focus on Cancel; Left/Right choose, Enter presses, Esc closes. Cancel kept progress; Reset cleared progress and kept settings and volume. Ring visible in High contrast too." },
+    { "id": "KB-03", "status": "fixed", "note": "Star levels: Up/Down move a focus ring over the lines, S stars/unstars (5 quick S presses land correctly), stars reach the Results Notebook and survive Backspace to chat. Two small leftovers reported as KB-11 and KB-12." },
+    { "id": "KB-04", "status": "fixed", "note": "S cycles Mixed > Cheapest > A-Z, F cycles $, $$, each cuisine, all. Sorting keeps the open place and focus on it; a filter that hides the open place closes it and puts focus on the first card (sensible). Hint names s and f (f only when there is more than one chip)." },
+    { "id": "KB-05", "status": "fixed", "note": "With the panel open (M), Left/Right change volume in 10% steps (0% is silent: sound volume 0), Enter/Space toggle Music and the Options Music row follows; volume saved across a reload." },
+    { "id": "KB-06", "status": "fixed", "note": "With the panel open, no key leaked: Chat (paused: Space, Enter, A, S, P, Up, Backspace did nothing), Options (Down kept row focus), Results (S, F, R, Down, Backspace did nothing), Outcome (Left, Enter did nothing). Note: Enter/Space inside the panel toggle music, by design." },
+    { "id": "KB-07", "status": "fixed", "note": "Every screen now has a key line: Title, map, Chat, Results, Outcome, Options, Credits, Friends, Scrapbook, Ending parts 1 and 2. A few working keys are still unnamed (KB-13)." },
+    { "id": "KB-08", "status": "fixed", "note": "Chat hint now reads 'space or enter: next ... backspace: levels', and 'enter or →: find a place' once done. Ending part 1 names 'backspace too'." },
+    { "id": "KB-09", "status": "fixed", "note": "Behaviour unchanged (Right still switches district), but the map hint now says '↑ ↓: level · ← →: district', which run 1 listed as an acceptable fix." },
+    { "id": "KB-10", "status": "fixed", "note": "Backspace from level_13's chat returns with focus on level_13; Back to levels from level_20's Outcome and Esc from the Ending return with focus on level_20." }
+  ],
+  "coverage": [
+    "Port 5203, no port problems. No page or console errors in any of the 9 run-2 scripts.",
+    "Fresh player, keys only: Title (Enter) > map > level_01 (How to play via Enter) > level_02 > level_03, all perfect, every unlock card (friend, Scrapbook page) closed by Enter, Next level by Enter. Progress and 3 Scrapbook pages saved.",
+    "Chapter 2: level_07 from the map by Down/Enter; keyboard starring, pause, show all, Find a place with Right; Results sort/filter/R; Outcome buttons.",
+    "Chapter 3: level_13 opened from the map by keys, Backspace back (focus kept).",
+    "Chapter 4: level_17 replay by keys; level_20 wrong pick (Try again by keys, goes to Results), perfect pick > Continue > Ending part 1 Esc > part 2 Esc > map; ending-seen saved; second perfect level_20 shows Clue recap / Back to levels only, no Continue.",
+    "Options: every row by keys, Reset progress and its check by keys (Cancel and Reset), H How to play, volume panel over Options.",
+    "Credits (PageDown, End, Home, Down, Esc/Backspace), Friends (Up/Down, Backspace), Scrapbook (S, Left/Right, Esc and Backspace), all reached from the map with keys.",
+    "Hint vs real keys checked on every screen (see KB-13 for the few unnamed keys).",
+    "Focus rings: map, chat lines, Results cards, Outcome and unlock-card buttons, Options rows and Reset button, reset check; normal and High contrast.",
+    "Volume 0 silent and saved across reload; Music toggled from the panel updates Options."
+  ],
+  "bugs": [
+    {
+      "id": "KB-11",
+      "title": "Chat: S can star a line that is scrolled out of view, with no ring or scroll to show which",
+      "severity": "minor",
+      "where": "Chat, star levels (checked level_07)",
+      "steps": [
+        "Open ?scene=Chat&level=level_07, press A to show all.",
+        "Press Up 12 times (focus ring moves to an early line, the chat scrolls to it).",
+        "Press End (the chat scrolls to the bottom; the focus ring is now off screen).",
+        "Press S."
+      ],
+      "expected": "S stars a line the player can see: either End moves the focus to the last line, or S scrolls the focused line back into view.",
+      "actual": "S stars the off-screen line (pins:level_07 = [4]) and nothing on screen changes except the Notebook; the player can't see which line was starred.",
+      "frequency": "every time (2 of 2)",
+      "setup": { "viewport": "960x640", "settings": "Chat pace relaxed (also seen with quick)" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_keyboard_only/run2/c_end_then_S.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_keyboard_only/run2_c.mjs"
+    },
+    {
+      "id": "KB-12",
+      "title": "Chat Notebook still tells keyboard players to 'tap the star'",
+      "severity": "cosmetic",
+      "where": "Chat Notebook panel, star levels (level_07)",
+      "steps": ["Open level_07 from the map and read the Notebook tip and its empty state."],
+      "expected": "The tip mentions the S key (or is input-neutral), like the key line at the bottom now does.",
+      "actual": "'your notebook only keeps what you star. tap the star beside a message to save it.' and 'nothing saved yet. tap the star next to any message to keep it in your notebook.' Only the bottom hint names S.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "defaults and High contrast" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_keyboard_only/run2/b_chat_after_space.jpg", "logs/bughunt/shots/bug_hunter_keyboard_only/run2/g_hc_chat_focus.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_keyboard_only/run2_b.mjs"
+    },
+    {
+      "id": "KB-13",
+      "title": "A few working keys are still not named: volume panel keys, Backspace on the map, PageUp/PageDown/Home/End in chat",
+      "severity": "minor",
+      "where": "Volume panel (any screen), map, Chat",
+      "steps": [
+        "Press M on any screen: the panel opens. Left/Right change the volume, Enter/Space toggle Music, Esc closes. Neither the panel nor the bottom line names these keys (the line only says 'm: music').",
+        "On the map press Backspace: it goes to the Title, but the hint says only 'esc: title'.",
+        "In a star-level chat, Up/Down now pick a line, so scrolling is PageUp/PageDown/Home/End, which no hint names."
+      ],
+      "expected": "Keys that work are named somewhere on screen (agent task 3); at least the volume panel shows '← →: volume · enter: on/off · esc: close'.",
+      "actual": "These keys work but are not named, so a keyboard player has to guess how to change the volume.",
+      "frequency": "every time",
+      "setup": { "viewport": "960x640", "settings": "defaults" },
+      "evidence": ["logs/bughunt/shots/bug_hunter_keyboard_only/run2/a_volume_panel.jpg", "logs/bughunt/shots/bug_hunter_keyboard_only/run2/a_menu.jpg"],
+      "errors": [],
+      "script": "game/.bughunt/bug_hunter_keyboard_only/run2_a.mjs"
+    }
+  ],
+  "not_bugs": [
+    "Up/Down on the map wrap around the level cards (Up from the first card goes to the last); consistent, not a bug.",
+    "Try again after a fail goes to the Results list, with 'Reread the chat' as a separate button: looks intended.",
+    "Results view (sort/filter) is remembered per level, including after Backspace to chat and Find a place again: by design (setView stores it per level).",
+    "Unlock cards on a level_17 replay came from my seeded save (progress set without friends/pages), not from the game: setup artifact, not reported. Real replays in the fresh route showed no repeated cards.",
+    "Credits slowly auto-scroll after opening (the MUSIC header moves up from y 116); Home jumps back to the top. Looks like an intended roll.",
+    "Esc in the chat and on the Results list does nothing; neither hint names Esc, so this matches.",
+    "Enter and Space inside the open volume panel toggle Music rather than the screen underneath: intended (named in the code comment), but see KB-13.",
+    "Reset check's focus starts on Cancel, so a stray Enter never resets.",
+    "Friends: Left/Right do nothing, and the hint only names ↑ ↓: consistent."
+  ],
+  "feedback": "Big improvement: every run 1 wall is gone and a keyboard player can now do everything a mouse player can; only the volume panel keys still have to be guessed."
+}
