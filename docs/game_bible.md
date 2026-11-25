@@ -116,6 +116,7 @@ Six emotion tags exist, and every character needs one portrait per tag. Any unkn
 | Portrait size | 128×128 px PNG, transparent background | Locked |
 | Style | Cozy pixel art, soft outlines, warm palette | Locked |
 | Palette | Cozy Ramps 32: the 32 colours below, and no others, in all new game art (Gabriella, 2026-11-20) | Locked |
+| Fonts | Default: Silkscreen for headings and buttons, Nunito for chat and reviews. Easier reading (a choice in Options): Jersey 10 + Lexend. All bundled with the game, no network (Gabriella, 2026-11-23) | Locked |
 | Badge art | One circular badge per callback, `badge_<id>.png`, 320×320 px PNG, transparent background | Locked |
 
 With 6 characters × 6 tags, the full portrait set is 36 images, plus 13 cuisine icons.
@@ -264,7 +265,7 @@ What the player sees and uses outside the chat itself. Every screen works with m
 | Star totals | The menu shows stars earned per chapter and for the whole campaign, out of 3 per level. | Locked |
 | Keyboard play | Every screen can be played by keyboard: arrows and Enter to choose, Esc to go back. | Locked |
 | Music control | A speaker button in the bottom-left corner of every screen opens a volume slider and Music on/off (M also opens it). The icon shows a slash when muted or at volume 0. Clicking outside the panel or pressing Esc closes it. Music shuffles the credited tracks and starts after the player's first click or key press. | Locked |
-| Options | Text size (Normal or Large), Chat pace (Quick or Relaxed), High contrast, Reduce motion, Music, How to play and Reset progress. Stars never rely on colour alone: empty stars are outlined and the result screen says "3 of 3 stars". | Locked |
+| Options | Text size (Normal or Large), Font (Default or Easier reading), Chat pace (Quick or Relaxed), High contrast, Animations, Music, How to play and Reset progress. Stars never rely on colour alone: empty stars are outlined and the result screen says "3 of 3 stars". | Locked |
 | Reset progress | In Options, after a confirm: clears stars, Scrapbook pages, friends met, "been here" history and the intro cards already seen. | Locked |
 
 ## Sound effects
