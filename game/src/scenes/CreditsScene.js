@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, H, pixel, text, readText, contrast } from '../ui/theme.js';
+import { C, W, H, pixel, text, readText, contrast, DEV_NAME } from '../ui/theme.js';
 import { panel, button, keyHint } from '../ui/widgets.js';
 import { scrollArea } from '../ui/scroll.js';
 import { reduceMotion, highContrast } from '../ui/settings.js';
@@ -90,6 +90,11 @@ export default class CreditsScene extends Phaser.Scene {
       add(this.add.text(PAD + 12, y, `${label}: ${value}`, readText(14, detail, wrap)), 3);
     };
 
+    // The developer comes first (bible, Gabriella 2026-11-25: her itch.io handle).
+    heading('Created by');
+    add(this.add.text(PAD, y, DEV_NAME, readText(16, C.ink, { ...wrap, fontStyle: 'bold' })), 18);
+
+    y += 8;
     heading(`MUSIC (${music.length})`);
     if (!music.length) {
       add(this.add.text(PAD, y, 'No music yet. Tracks will be credited here once they are added to the game.', readText(15, C.inkSoft, wrap)), 18);

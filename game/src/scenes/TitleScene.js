@@ -1,5 +1,5 @@
 import Phaser from 'phaser';
-import { C, W, H, pixel } from '../ui/theme.js';
+import { C, W, H, pixel, readText, fitWidth, DEV_NAME } from '../ui/theme.js';
 import { button, keyHint } from '../ui/widgets.js';
 import { tween } from '../ui/motion.js';
 import { play as playSfx } from '../ui/sfx.js';
@@ -43,14 +43,33 @@ export default class TitleScene extends Phaser.Scene {
     // On a dark plate so it reads at 4.5:1 over the busy art (bible: Bug hunt run 2, NP-03).
     const keys = keyHint(this, 'enter: start  ·  m: music', { y: H - 14, plate: true });
 
-    for (const o of [title, tagline, start, keys, keys.plate]) o.setAlpha(0);
+    const credit = this.devCredit(keys);
+
+    for (const o of [title, tagline, start, keys, keys.plate, credit, credit.plate]) o.setAlpha(0);
     tween(this, { targets: [title, tagline], alpha: 1, duration: 500, ease: 'Sine.easeOut' });
     tween(this, { targets: start, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
-    tween(this, { targets: keys, alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
+    tween(this, { targets: [keys, credit, credit.plate], alpha: 1, delay: 300, duration: 400, ease: 'Sine.easeOut' });
 
     this.input.on('pointerdown', () => this.go());
     onKey(this, 'ENTER', () => this.go());
     onKey(this, 'SPACE', () => this.go());
+  }
+
+  /**
+   * "a game by Peculiarium" in the bottom-right corner (bible, Gabriella 2026-11-25): body font, cream on a
+   * dark plate like the key hint, on the key hint's line. Its width is capped so it always stays right of the
+   * key hint (and far from the bottom-left music button), shrinking with fitWidth if Large text makes it wide.
+   */
+  devCredit(keys) {
+    const right = W - 16;
+    const t = this.add.text(right - 10, keys.y, `a game by ${DEV_NAME}`, readText(13, C.label)).setOrigin(1, 0.5).setDepth(50);
+    const left = keys.x + keys.displayWidth / 2 + 10 + 16; // key hint's plate edge + a gap
+    fitWidth(t, Math.max(60, right - 20 - left));
+    const w = t.displayWidth + 20;
+    const h = t.displayHeight + 8;
+    t.plate = this.add.graphics().setDepth(49)
+      .fillStyle(C.bg, 0.9).fillRoundedRect(right - w, t.y - h / 2, w, h, Math.min(10, h / 2));
+    return t;
   }
 
   go() {

@@ -6,6 +6,9 @@ import { highContrast, textScale } from './settings.js';
 export const W = 960;
 export const H = 640;
 
+// Developer name: Gabriella's itch.io handle (bible, Gabriella 2026-11-25). Title screen and Credits.
+export const DEV_NAME = 'Peculiarium';
+
 export const C = {
   bg: 0x2e2624, // page background, a shade under the label bars
   bar: 0x3f3533, // label-bar brown: headers, secondary buttons
