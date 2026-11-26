@@ -260,3 +260,37 @@ What makes it strict and not just "try again":
 
 Across the campaign, the Critic caught `must_fix` problems on levels 02, 12, 13, 16 and 17: continuity errors against earlier levels, a clue that pointed at only one venue, a need stated where the bible says it should be implied, and weak dairy-free evidence for one venue. Levels 12–17 were fixed and re-checked inside the loop before I saw them. Level 02's came from an audit after approval, and I fixed it by hand.
 
+# Assignment #7: Complete AI Dev Pipeline
+
+## DELIVERABLE 1: PLAYABLE LINK
+
+Playable Game Link: https://peculiarium.itch.io/lets-eat
+
+## Deliverable 2: Pipeline Source Code & Engine Integration
+
+# Integration Breakdown
+
+### **Target Game Engine:** Phaser
+
+### Automated Flow Description
+
+The agents write plain JSON in the exact shape the game reads, so there is no export or copy step between the crew and the Phaser game. A level merged into `master` is playable the next time the game starts.
+
+1. **One shared format.** The bible defines each file's fields: `spec_`, `dialogue_`, `outcomes_` and `venues_level_XX.json`, plus the district registries and `ending.json`. The agents write to that format, and `validate.js` rejects anything that breaks it before a level can be approved.
+2. **The game reads the crew's folders directly.** `game/src/content.js` uses Vite's `import.meta.glob` to bundle every file in `content/levels/`, `content/registry/` and `content/campaign/ending.json`, plus `scripts/rules.json`. No one copies or reformats anything.
+3. **One loader turns the files into a level.** `buildLevels()` (`game/src/logic/levels.js`) groups the four files by level id, joins each venue to its registry entry, and returns ready-to-play levels. A broken or half-finished level is skipped with a clear message instead of crashing the game.
+4. **The scenes use the fields as they are.** For example:
+   - Each chat line's `speaker` and `emotion` choose the portrait.
+   - Its `clue` tag drives the Notebook and the clue recap.
+   - Its `callback` unlocks a Scrapbook page.
+   - The spec's `solution_id` and decoy reasons score the pick and choose the Outcome reaction.
+5. **Art and sound follow the same idea.**
+   - `slice_portraits.py` cuts the art and writes `asset_manifest.json`, which the Boot scene loads by key.
+   - `sync_assets.mjs` copies the music and sound effects in before every run, build and test.
+6. **It's checked automatically.** `npm run boot-test` loads every level through the same loader and scoring code the game uses, then boots the real game in a headless browser and opens each level's chat, results and outcomes. Integration (`integrate.js`) runs this check, and the feature agent only keeps a change if it passes.
+
+Game code takes the same path. The feature agent writes straight into `game/src/`, checks that the requirement is now met, runs the boot test, and commits. The bug hunters then play the result in a real browser, and their findings go back into `requirements.json`.
+
+## DELIVERABLE 3: PIPELINE AUDIT & COST ANALYSIS
+
+See [PIPELINE_AUDIT.md](PIPELINE_AUDIT.md)
