@@ -2146,6 +2146,30 @@
           "pattern": "closeDetails\\("
         }
       ]
+    },
+    {
+      "id": "dev_credit",
+      "title": "Developer credit: 'a game by Peculiarium' on the Title screen and at the top of Credits",
+      "bible": "Gabriella 2026-11-25: her developer name is her itch.io handle, Peculiarium.",
+      "status": "Locked",
+      "impact": 3,
+      "effort": 1,
+      "depends": [],
+      "spec": "Add export const DEV_NAME = 'Peculiarium' to src/ui/theme.js. Title screen (src/scenes/TitleScene.js): a small line 'a game by Peculiarium' (built from DEV_NAME) in the bottom-right corner, body font, cream on a dark plate like the key hint so it reads over the art, and never overlapping the key hint or the music button. Credits screen (src/scenes/CreditsScene.js): the first entry, above the music, art and sound credits, is a heading 'Created by' with DEV_NAME under it, in the same style as the other section headings. Check both screens at 960x640, with Large text and with High contrast. Run npm run boot-test, and update game/CLAUDE.md.",
+      "detect": [
+        {
+          "contains": "src/ui/theme.js",
+          "pattern": "export const DEV_NAME = 'Peculiarium'"
+        },
+        {
+          "contains": "src/scenes/TitleScene.js",
+          "pattern": "DEV_NAME"
+        },
+        {
+          "contains": "src/scenes/CreditsScene.js",
+          "pattern": "DEV_NAME"
+        }
+      ]
     }
   ]
 }
