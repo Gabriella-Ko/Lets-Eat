@@ -268,6 +268,8 @@ Playable Game Link: https://peculiarium.itch.io/lets-eat
 
 ## Deliverable 2: Pipeline Source Code & Engine Integration
 
+Pipeline Run Video Link: https://youtu.be/fKhoMp44wyU
+
 # Integration Breakdown
 
 ### **Target Game Engine:** Phaser
