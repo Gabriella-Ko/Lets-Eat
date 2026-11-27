@@ -1,4 +1,37 @@
-# Pipeline Audit & Cost Analysis
+# Assignment #7: Complete AI Dev Pipeline
+
+## DELIVERABLE 1: PLAYABLE LINK
+
+Playable Game Link: https://peculiarium.itch.io/lets-eat
+
+## Deliverable 2: Pipeline Source Code & Engine Integration
+
+Pipeline Run Video Link: https://youtu.be/fKhoMp44wyU
+
+## Integration Breakdown
+
+### **Target Game Engine:** Phaser
+
+### Automated Flow Description
+
+The agents write plain JSON in the exact shape the game reads, so there is no export or copy step between the crew and the Phaser game. A level merged into `master` is playable the next time the game starts.
+
+1. **One shared format.** The bible defines each file's fields: `spec_`, `dialogue_`, `outcomes_` and `venues_level_XX.json`, plus the district registries and `ending.json`. The agents write to that format, and `validate.js` rejects anything that breaks it before a level can be approved.
+2. **The game reads the crew's folders directly.** `game/src/content.js` uses Vite's `import.meta.glob` to bundle every file in `content/levels/`, `content/registry/` and `content/campaign/ending.json`, plus `scripts/rules.json`. No one copies or reformats anything.
+3. **One loader turns the files into a level.** `buildLevels()` (`game/src/logic/levels.js`) groups the four files by level id, joins each venue to its registry entry, and returns ready-to-play levels. A broken or half-finished level is skipped with a clear message instead of crashing the game.
+4. **The scenes use the fields as they are.** For example:
+   - Each chat line's `speaker` and `emotion` choose the portrait.
+   - Its `clue` tag drives the Notebook and the clue recap.
+   - Its `callback` unlocks a Scrapbook page.
+   - The spec's `solution_id` and decoy reasons score the pick and choose the Outcome reaction.
+5. **Art and sound follow the same idea.**
+   - `slice_portraits.py` cuts the art and writes `asset_manifest.json`, which the Boot scene loads by key.
+   - `sync_assets.mjs` copies the music and sound effects in before every run, build and test.
+6. **It's checked automatically.** `npm run boot-test` loads every level through the same loader and scoring code the game uses, then boots the real game in a headless browser and opens each level's chat, results and outcomes. Integration (`integrate.js`) runs this check, and the feature agent only keeps a change if it passes.
+
+Game code takes the same path. The feature agent writes straight into `game/src/`, checks that the requirement is now met, runs the boot test, and commits. The bug hunters then play the result in a real browser, and their findings go back into `requirements.json`.
+
+## DELIVERABLE 3: PIPELINE AUDIT & COST ANALYSIS
 
 Let's Eat! was built by a pipeline of AI agents with me as the approver. This audit looks at what each part of that pipeline cost, where the money and tokens went, what was wasted, and what I would change. It covers 3–25 November 2026: 20 levels, the ending, the game's features, two bug hunts, the art drafts and the trailer.
 
@@ -85,7 +118,7 @@ There were two runs of 7 agents each, all running at the same time on separate p
 ### 4. Art: $0, paid for in my time
 
 - **PixelLab (badges and icons):** 40 drafts on free credits, $0 spent. The script stopped itself when the credits ran out, as designed, and nothing was lost.
-- **Outcome illustrations:** Gemini's API has no free tier for images, so the Art Generator wrote the prompts and I made the images by hand in the free Gemini app. All 20 levels are done. This had no API cost, but it was the most manual part of the whole pipeline.
+- **Outcome illustrations:** Nano Banana 2's API has no free tier for images, so the Art Generator wrote the prompts and I made the images by hand in the free Nano Banana 2. All 20 levels are done. This had no API cost, but it was the most manual part of the whole pipeline.
 - **Trailer:** recorded and edited inside Chrome with scripts, with no extra tools and no cost.
 
 ## Audit findings
@@ -124,3 +157,4 @@ The pipeline produced 20 playtested levels, an ending, a full feature set and tw
 - **Biggest saving available:** shorter orchestrator sessions.
 - **Biggest avoidable waste:** detection rules tied to exact code text.
 - **Highest human cost:** the art. Making images by hand and approving every pick took more of my time than any other stage, and that was my choice: I wanted a say in every image.
+
