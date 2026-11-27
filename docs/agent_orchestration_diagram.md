@@ -1,9 +1,9 @@
 ```mermaid
 flowchart TD
-    %% Let's Eat! multi-agent orchestration, updated 2026-11-24
+    %% Let's Eat! multi-agent orchestration, updated 2026-11-27
     %% Green = generators, blue = evaluators, yellow = Gabriella, dashed red = refine (route back), grey dashed = planned
 
-    G(["Gabriella<br/>Plan the campaign / Build level_XX / Status<br/>run feature agent / run bug hunt / picks"])
+    G(["Gabriella (Peculiarium)<br/>Plan the campaign / Build level_XX / Status<br/>run feature agent / run bug hunt / picks / release"])
     O{{"Orchestrator<br/>runs the crew, routes failures, logs every step"}}
     BIBLE[("game_bible.md<br/>single source of truth<br/>incl. Sound effects mapping")]
     RULES[("rules.json<br/>bible as checkable config<br/>incl. art.palette Cozy Ramps 32")]
@@ -120,20 +120,38 @@ flowchart TD
     NWE -->|ending lines| GAME
     AA -->|art| GAME
     SFX[("assets/sfx + music<br/>sync_assets.mjs")] --> GAME
-    GC -->|"push game prototype to master<br/>(merge commit), then pull back"| MASTER[("master<br/>tag final-draft = c6fb8ea")]
+    GC -->|"push game prototype to master<br/>(merge commit), then pull back"| MASTER[("master<br/>tag final-draft = c6fb8ea<br/>README index, docs/assignment_deliverable_MD,<br/>HOW_TO_PLAY.md")]
 
-    subgraph BUG["Bug hunt (on request, after final-draft)"]
+    subgraph BUG["Bug hunt (on request; run 1 on final-draft: 31 bugs, run 2 after fixes: 16 new, 0 major)"]
         direction TB
         BH["7 bug-hunter agents in parallel, own ports<br/>normal-player, speed-clicker, keyboard-only,<br/>settings-fiddler, quitter, wrong-answer, accessibility"]
+        RE["Run 2 and later: re-test the last run's bugs first<br/>fixed / partly / still there"]
         PW["Drive the game in Chrome<br/>Playwright + bughunt_helpers.mjs<br/>screenshots, errors, saved data"]
-        BR[("logs/bughunt/<br/>one report per agent + shots")]
+        BR[("logs/bughunt/<br/>one report per agent per run + shots")]
         TRI["Orchestrator merges reports<br/>duplicates merged, blockers first"]
         FIX{"Gabriella decides fixes"}
-        BH --> PW --> BR --> TRI --> FIX
+        BH --> RE --> PW --> BR --> TRI --> FIX
     end
     O --> BH
     GAME -.->|"tests the game, never changes it"| PW
     FIX -. "fixes as new requirements" .-> REQ
+    GC -. "next bug hunt run checks the fixes" .-> RE
+
+    subgraph REL["Release (on master)"]
+        direction TB
+        WEB["Web build<br/>npm run build, relative paths,<br/>dev shortcuts off"]
+        ITEST["Release check<br/>served from a subfolder like itch.io,<br/>no missing files, no errors"]
+        KIT[("assets/itch/<br/>lets-eat-web.zip, cover, banner,<br/>screenshots, ITCH_PAGE.md")]
+        TCAP["Trailer capture<br/>Playwright records game clips<br/>from seeded saves"]
+        TCOMP["Trailer composer (in Chrome)<br/>timeline: cuts, captions, music, sfx<br/>contact sheets to check cuts"]
+        TRL[("assets/trailer/<br/>Lets-Eat-trailer.mp4 + raw clips")]
+        PUB{"Gabriella publishes<br/>itch.io page + YouTube trailer"}
+        WEB --> ITEST --> KIT --> PUB
+        TCAP --> TCOMP --> TRL --> PUB
+    end
+    MASTER --> WEB
+    MASTER --> TCAP
+    PUB -->|"peculiarium.itch.io/lets-eat"| PLAY(["Players"])
 
     LOG[("logs/<br/>run_log, validation, critique,<br/>playtest, integration_audit,<br/>feature_agent.log, bughunt")]
     O --- LOG
@@ -146,11 +164,11 @@ flowchart TD
     classDef planned fill:#ffffff,stroke:#9fb6bf,stroke-dasharray:5 5,color:#5a4a45
     classDef ship fill:#fdf0dc,stroke:#8a4a2c,color:#2e2624
 
-    class PA0,PA,NW,MS,AG,AA,PXL,GEM,SCR,NWE,FA gen
-    class VAL,CR,PP,BP,JUDGE,BOOT,BH,PW,TRI eval
-    class G,AP0,AP,PICK,APE,FIX human
-    class BIBLE,RULES,LOG,DASH,REQ,SFX,BR,MASTER store
+    class PA0,PA,NW,MS,AG,AA,PXL,GEM,SCR,NWE,FA,TCAP,TCOMP gen
+    class VAL,CR,PP,BP,JUDGE,BOOT,BH,RE,PW,TRI,ITEST eval
+    class G,AP0,AP,PICK,APE,FIX,PUB human
+    class BIBLE,RULES,LOG,DASH,REQ,SFX,BR,MASTER,KIT,TRL store
     class O orch
     class AVAL,ACR,GATE planned
-    class PR,INT,PROV,MERGE,CAP,GC ship
+    class PR,INT,PROV,MERGE,CAP,GC,WEB,PLAY ship
 ```
